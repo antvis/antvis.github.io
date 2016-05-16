@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <title>G2 执行</title>
+  <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/dpl.css" rel="stylesheet">
+  <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/bui.css" rel="stylesheet">
+  
+  <style>
+    .doc-content{
+      width: 1000px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+ 
+<div class="doc-content">
+  <!--https://a.alipayobjects.com/g2/0.9.12/index.js-->
+  <div class="doc-content product-doc  clearfix">
+    <div class="doc-inner">
+<h2 id="简介">简介</h2>
+<p>你可以在这个页面中输入数据源，执行G2代码</p>
+<h2 id="输入数据源">输入数据源</h2><ul>
+<li>请输入 JSON 数组</li>
+<li>默认的数据源是钻石的1000条数据</li>
+</ul>
+<div>
+  <textarea id="J_Input" name="" id="" cols="30" rows="15" style="width:100%;border-color:#999;">
+  </textarea>
+  <div class="J_InputLog"></div>
+  <table class="table" id="data_table"></table>
+  <div id="data_num"></div>
+  <button class="button button-large" id="J_load">载入</button>
+</div>
+
+<h2 id="输入g2代码">输入G2代码</h2><ul>
+<li>钻石 Demo 的一些命令参考：<a href="http://g2.alipay.com/demo/">demo</a></li>
+</ul>
+<div>
+  <textarea id="J_Code" name="" id="" cols="30" rows="3" style="width:100%;border-color:#999;">
+    chart.interval().position(Stat.summary.count('clarity')).color('clarity');
+  </textarea>
+  <button class="button button-large" id="J_Btn">执行</button>
+</div>
+<div class="J_CodeLog"></div>
+
+
+<h2 id="显示图表">显示图表</h2><div id="c1"></div>
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+<script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+<script src="https://as.test.alipay.net/g/datavis/g2/1.2.0/index.js"></script> 
+
+<script>
+
+var codeEl = $('#J_Code');
+var inputEl = $('#J_Input');
+var inputLogEl = $('#J_InputLog');
+
+var Stat = G2.Stat;
+
+var chart = new G2.Chart({
+  id: 'c1',
+  width: 1000,
+  height: 500
+});
+
+$('#J_Btn').on('click',function(){
+  chart.clear();
+  var cmd = codeEl.val();
+  exec(cmd);
+  chart.render();
+});
+
+$('#J_load').on('click', function() {
+  loadData();
+});
+
+$.getJSON('./diamond.json',function (data) {
+  inputEl.text(JSON.stringify(data.slice(0,1000)));
+  loadData();
+});
+
+function loadData() {
+  var data = getData();
+  if (data && data.length > 0) {
+    var thead = '<thead><tr>';
+    var tbody = '<tbody><tr>';
+    for (var i in data[0]) {
+      thead += '<th>';
+      thead += i;
+      thead += '</th>';
+      tbody += '<td>';
+      tbody += data[0][i];
+      tbody += '</td>';
+    }
+    thead += '</tr></thead>';
+    tbody += '</tr></tbody>';
+    chart.source(data);
+    $('#data_table').html(thead + tbody);
+    $('#data_num').html('共' + data.length + '条数据');
+  } else {
+    $('#data_table').html('');
+    $('#data_num').html('共' + 0 + '条数据');
+  }
+}
+
+function getData () {
+  var data = null;
+  var msg = '';
+  try {
+    data = JSON.parse(inputEl.val());
+  } catch (e){
+    msg = '输入的数据存在错误!!请输入标准JSON';
+  }
+  inputLogEl.text(msg);
+  return data;
+}
+
+function exec(cmd){
+  try {
+    eval(cmd);
+  }catch(ev){
+    console.log(ev);
+  }
+}
+
+</script>
+
+</div>
+ 
+</body>
+</html>
