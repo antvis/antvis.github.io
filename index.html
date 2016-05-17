@@ -1,54 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no">
-  <title>Antvis</title>
-  <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/dpl.css" rel="stylesheet">
-  <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/bui.css" rel="stylesheet">
-  
-  <style>
-  body{
-    background-color: #0C2032;
-  }
-  .main{
-    width: 960px;
-    margin: 0 auto;
-  }
-  .logo{
-    position: absolute;
-    top: 45%;
-  }
-  .g2{
-    float: left;
-    padding-left: 150px;
-  }
-  .antv{
-    float: left;
-    padding-left: 100px;
-  }
-  a:hover{
-    border:1px soild #000;
-  }
-  </style>
-</head>
-<body>
-<div class="main">
-  <div class="logo">
-    <div class="g2">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Antvis</title>
+    <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/dpl.css" rel="stylesheet">
+    <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/bui.css" rel="stylesheet">
+    <style>
+body {
+  background-color: #0C2032;
+}
+.main {
+  height: 100px;
+  width: 800px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  text-align: center;
+}
+.g2 {
+  padding: 20px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+.antv {
+  padding: 20px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+a {
+  width: 300px;
+  height: 100px;
+  display: inline-block;
+  margin: 0 15px;
+}
+a:hover div {
+  border: 1px solid #8097AB;
+}
+    </style>
+  </head>
+  <body>
+    <div class="main">
       <a href="https://g2.alipay.com">
-        <img src="https://os.alipayobjects.com/rmsportal/PVLPWEvDwSAyALJ.svg"/>
+        <div class="g2">
+          <img src="https://os.alipayobjects.com/rmsportal/PVLPWEvDwSAyALJ.svg"/>
+        </div>
+      </a>
+      <a href="https://antv.alipay.com">
+        <div class="antv">
+          <img src="https://os.alipayobjects.com/rmsportal/aAUGWSQeYKICtBg.svg"/>
+        </div>
       </a>
     </div>
-    <div class="antv">
-      <a href="https://antv.alipay.com">
-        <img src="https://os.alipayobjects.com/rmsportal/aAUGWSQeYKICtBg.svg"/>
-      <a/>
-    </div>
-  </div>
-</div>
-</body>
+  </body>
 </html>
