@@ -10,6 +10,9 @@
     <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/dpl.css" rel="stylesheet">
     <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/bui.css" rel="stylesheet">
     <style>
+::-webkit-scrollbar {
+  display: none;
+}
 body {
   background-color: #0C2032;
 }
@@ -25,15 +28,11 @@ body {
   overflow: auto;
   text-align: center;
 }
-.g2 {
+.g2, .antv {
   padding: 20px;
   border: 1px solid transparent;
   border-radius: 5px;
-}
-.antv {
-  padding: 20px;
-  border: 1px solid transparent;
-  border-radius: 5px;
+  transition: border .5s ease-in;
 }
 a {
   width: 300px;
