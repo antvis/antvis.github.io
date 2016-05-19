@@ -10,11 +10,32 @@
     <link href="http://ant.design/index.css" rel="stylesheet">
     <style>
     .doc-content{
-    width: 800px;
-    margin: 0 auto;
+      width: 800px;
+      margin: 0 auto;
     }
     .doc-inner {
-    padding: 50px 0;
+      padding: 50px 0;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      empty-cells: show;
+      border: 1px solid #e9e9e9;
+      width: 100%;
+      margin-bottom: 24px;
+    }
+    table th {
+      background: #f7f7f7;
+    }
+    table td, table th {
+      border: 1px solid #e9e9e9;
+      padding: 8px 16px;
+      text-align: left;
+    }
+    table th {
+      white-space: nowrap;
+      color: #5c6b77;
+      font-weight: 600;
     }
     </style>
   </head>
@@ -98,7 +119,9 @@ chart.interval().position(Stat.summary.count('clarity')).color('clarity');
       var data = null;
       var msg = '';
       try {
-        data = JSON.parse(inputEl.val());
+        var inputData = inputEl.val().replace(/\s+/g, '');
+        data = (new Function("return [" + inputData + "];")()); // object string to array
+        data = data[0];
       } catch (e){
         msg = '输入的数据存在错误!!请输入标准JSON';
       }
