@@ -1,133 +1,162 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no">
-    <title>G2 执行</title>
-    <style>
-html{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
-body{font-family:Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;line-height:1.5;color:#666;font-size:14px;background:#fff;}
-h2{color:#404040;margin:1em 0 .5em;font-weight:500;clear:both;font-size:18px;}
-p{color:#666;}
-.clearfix{*zoom:1;}
-.clearfix:before,.clearfix:after{display:table;content:"";}
-.clearfix:after{clear:both;}
-.btn:not([disabled]):hover{text-decoration:none;}
-.btn.active,.btn:active,.btn:focus,.btn:hover{color:#fff;}
-.btn:focus,.btn:hover{color:#fff;background-color:#57c5f7;border-color:#57c5f7;}
-.btn,.btn:active,.btn:focus{outline:0;}
-.btn{display:inline-block;margin-bottom:0;font-weight:500;text-align:center;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;line-height:1.5;padding:4px 15px;font-size:14px;border-radius:6px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-transition:all .3s cubic-bezier(.645,.045,.355,1);transition:all .3s cubic-bezier(.645,.045,.355,1);-webkit-transform:translateZ(0);transform:translateZ(0);color:#fff;background-color:#2db7f5;border-color:#2db7f5;}
-a:active,a:hover{outline:0;text-decoration:none;}
-a:hover{color:#57c5f7;}
-a:active,a:hover{outline-width:0;}
-a{color:#2db7f5;background:transparent;text-decoration:none;outline:none;cursor:pointer;-webkit-transition:color .3s ease;transition:color .3s ease;}
-.doc-content{float:left;width:46%;margin:2%;}
-.doc-inner{padding:50px 0;}
-table{border-collapse:collapse;border-spacing:0;empty-cells:show;border:1px solid #e9e9e9;width:100%;margin-bottom:24px;}
-table th{background:#f7f7f7;}
-table td,table th{border:1px solid #e9e9e9;padding:8px 16px;text-align:left;}
-table th{white-space:nowrap;color:#5c6b77;font-weight:600;}
-textarea{font-family:inherit;font-size:16px;font-weight:500;line-height:inherit;color:#000;}
-.chart-container{float:right;width:46%;margin:2%;}
-    </style>
-  </head>
-  <body>
-    <section class="clearfix">
-      <div class="doc-content">
-        <h2 id="简介">简介</h2>
-        <p>你可以在这个页面中输入数据源，执行 G2 代码</p>
-        <h2 id="输入数据源">载入数据源</h2>
-        <p>请输入 JSON 格式的数组（默认的数据源为 1000 条钻石数据）。</p>
-        <div>
-          <textarea id="J_Input" name="source" id="source" cols="30" rows="15" style="width:96%;border-color:#999;border-radius: 5px;height:100px;padding: 8px;"></textarea>
-          <div class="J_InputLog"></div>
-          <table class="table" id="data_table"></table>
-          <div id="data_num"></div>
-          <button class="btn" id="J_load">载入</button>
-        </div>
-        <h2 id="输入g2代码">输入G2代码</h2>
-        <p>钻石 Demo 的一些命令参考：<a href="https://g2.alipay.com/demo/" target="_blank">demo</a></p>
-        <div>
-          <textarea id="J_Code" name="" id="" cols="30" rows="3" style="width:96%;border-color:#999;border-radius: 5px;height:100px;padding: 8px;">
-        chart.interval().position(Stat.summary.count('clarity')).color('clarity');
-          </textarea>
-          <button class="btn" id="J_Btn">执行</button>
-        </div>
-        <div class="J_CodeLog"></div>
-      </div>
-      <div class="chart-container">
-        <h2 id="显示图表">显示图表</h2>
-        <div id="c1"></div>
-      </div>
-  </section>
-  <script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
-  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
-  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
-  <script src="https://as.alipayobjects.com/g/datavis/g2/1.2.1/index.js"></script>
-  <script>
-    var codeEl = $('#J_Code');
-    var inputEl = $('#J_Input');
-    var inputLogEl = $('#J_InputLog');
-    var Stat = G2.Stat;
-    var chart = new G2.Chart({
-      id: 'c1',
-      width: 600,
-      height: 350
-    });
-    $('#J_Btn').on('click', function() {
-      chart.clear();
-      var cmd = codeEl.val();
-      exec(cmd);
-      chart.render();
-    });
-    $('#J_load').on('click', function() {
-      loadData();
-    });
-    $.getJSON('./diamond.json', function(data) {
-      inputEl.text(JSON.stringify(data.slice(0, 1000)));
-      loadData();
-    });
+<!doctype html>
 
-    function loadData() {
-      var data = getData();
-      if (data && data.length > 0) {
-        var thead = '<thead><tr>';
-        var tbody = '<tbody><tr>';
-        for (var i in data[0]) {
-          thead += '<th>';
-          thead += i;
-          thead += '</th>';
-          tbody += '<td>';
-          tbody += data[0][i];
-          tbody += '</td>';
-        }
-        thead += '</tr></thead>';
-        tbody += '</tr></tbody>';
-        chart.source(data);
-        $('#data_table').html(thead + tbody);
-        $('#data_num').html('共' + data.length + '条数据');
-      } else {
-        $('#data_table').html('');
-        $('#data_num').html('共' + 0 + '条数据');
-      }
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>jQuery-CSV - Basic Usage Demo</title>
+<link href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="css/index.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="https://as.alipayobjects.com/g/datavis/g2-static/0.0.8/codemirror.css" />
+</head>
+
+<body>
+  <h2>导入数据</h2>
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-1">方式一：直接输入 csv 格式的数据</a></li>
+      <li><a href="#tabs-2">方式二：导入 csv</a></li>
+      <li><a href="#tabs-3">方式三：json 数组</a></li>
+    </ul>
+    <div id="tabs-1">
+      <h4>输入数据</h4>
+      <textarea id="input1" style="height:150px;"></textarea>
+      <input id="run1" class="btn" type="button" value="载入" />
+      <hr />
+      <h4>Result:</h4>
+      <div class="result">
+        <table id="result1" border="1"></table>
+      </div>
+    </div>
+    <div id="tabs-2">
+      <div id="inputs" class="clearfix">
+        <input type="file" id="files" name="files[]" multiple />
+      </div>
+      <output id="list"></output>
+      <hr />
+      <table id="contents" style="width:100%; height:100px;" border></table>
+    </div>
+    <div id="tabs-3">
+      <h4>输入数据</h4>
+      <textarea id="input2" style="height:150px;">
+[
+  {action:'访问',visitor:500},
+  {action:'浏览',visitor:400},
+  {action:'交互',visitor:300},
+  {action:'下单',visitor:200},
+  {action:'付款',visitor:100}
+]
+      </textarea>
+      <input id="run2" type="button" class="btn" value="载入" />
+      <hr />
+      <h4>Result:</h4>
+      <div class="result">
+        <table id="result2" border="1"></table>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <h2>绘制图表</h2>
+  <div class="code">
+    <textarea id='codeA' name='codeA'>
+var chart = new G2.Chart({
+  id: 'c1',
+  width: 800,
+  height: 400
+});
+chart.source(data); // 载入数据，所有的数据都储存在 data 变量中
+
+chart.interval().position('action*visitor').color('action'); // 绘制柱状图，根据需要改变 position color 的参数
+
+//chart.line().position('x*y').color('x'); // 绘制折线图，根据需要改变 position color 的参数
+
+//chart.point().position('x*y').color('x'); // 绘制点图，根据需要改变 position color 的参数
+
+chart.render(); // 渲染图表
+    </textarea>
+  <button class="btn" id="J_runCode">生成图表</button>
+  <button class="btn" id="J_savePic">下载图片</button>
+  </div>
+
+  <div id="c1" class="chart"></div>
+  <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="https://as.alipayobjects.com/g/datavis/g2-static/0.0.8/codemirror-compressed.js"></script>
+  <script src="https://as.alipayobjects.com/g/datavis/g2/1.2.2/index.js"></script>
+  <script></script>
+  <script src="js/jquery.csv.min.js"></script>
+  <script>
+    var data; // 数据源
+    var chart;
+
+    $("#tabs").tabs();
+
+    if(isAPIAvailable()) {
+      $('#files').bind('change', handleFileSelect);
     }
 
-    function getData() {
-      var data = null;
-      var msg = '';
+    $('#run1').bind('click', function() {
+      var input = $('#input1').val();
+      data = $.csv.toObjects(input);
+      var html = generateTable(data);
+      $('#result1').empty();
+      $('#result1').html(html);
+    });
+
+    $('#run2').bind('click', function() {
+      var html;
       try {
-        var inputData = inputEl.val().replace(/\s+/g, '');
+        var inputData = $('#input2').val().replace(/\s+/g, '');
         data = (new Function("return [" + inputData + "];")()); // object string to array
         data = data[0];
       } catch (e) {
-        msg = '输入的数据存在错误!!请输入标准JSON';
+        html = '输入的数据存在错误!!请输入标准JSON';
       }
-      inputLogEl.text(msg);
-      return data;
-    }
+      html = generateTable(data);
+      $('#result2').empty();
+      $('#result2').html(html);
+    });
+
+
+    var editorThemeA = CodeMirror.fromTextArea(document.getElementById('codeA'), {
+      mode: 'text/javascript',
+      lineNumbers: true
+    });
+
+    editorThemeA.on('focus', function() {
+      $('.CodeMirror').css('background', '#f4f4f4');
+    });
+    editorThemeA.on('blur', function() {
+      $('.CodeMirror').css('background', '#fff');
+    });
+
+    $('#J_runCode').click(function() {
+      var code = editorThemeA.getValue();
+      $('#c1').html('');
+      exec(code);
+    });
+
+    $('#J_savePic').click(function() {
+      var canvas = $('#c1 canvas');
+      var canvas1 = canvas[0];
+      var canvas2 = canvas[1];
+      var canvas3 = canvas[2];
+
+      var context1 = canvas1.getContext('2d');
+      context1.font = "14px Arial";
+      context1.fillStyle = "#999";
+      context1.fillText("Powed by g2.alipay.com", parseFloat(canvas1.width) - 160, parseFloat(canvas1.height) - 5);
+
+      context1.drawImage(canvas2, 0, 0);
+      context1.drawImage(canvas3, 0, 0);
+
+      var dataURL = canvas1.toDataURL('image/png');
+      var link = document.createElement('a');
+      link.download = $('#J_chartTitle').text() + '.png';
+      link.href = dataURL.replace('image/png', 'image/octet-stream');
+      link.click();
+    });
+
 
     function exec(cmd) {
       try {
@@ -136,6 +165,94 @@ textarea{font-family:inherit;font-size:16px;font-weight:500;line-height:inherit;
         console.log(ev);
       }
     }
-    </script>
-  </body>
+
+
+    // build HTML table data from an array (one or two dimensional)
+    function generateTable(data) {
+      var html = '';
+
+      if(typeof(data[0]) === 'undefined') {
+        return null;
+      }
+
+      if(data[0].constructor === String) {
+        html += '<tr>\r\n';
+        for(var item in data) {
+          html += '<td>' + data[item] + '</td>\r\n';
+        }
+        html += '</tr>\r\n';
+      }
+
+      if(data[0].constructor === Array) {
+        for(var row in data) {
+          html += '<tr>\r\n';
+          for(var item in data[row]) {
+            html += '<td>' + data[row][item] + '</td>\r\n';
+          }
+          html += '</tr>\r\n';
+        }
+      }
+
+      if(data[0].constructor === Object) {
+        for(var row in data) {
+          html += '<tr>\r\n';
+          for(var item in data[row]) {
+            html += '<td>' + item + ':' + data[row][item] + '</td>\r\n';
+          }
+          html += '</tr>\r\n';
+        }
+      }
+
+      return html;
+    }
+
+    function isAPIAvailable() {
+      // Check for the various File API support.
+      if (window.File && window.FileReader && window.FileList && window.Blob) {
+        // Great success! All the File APIs are supported.
+        return true;
+      } else {
+        // source: File API availability - http://caniuse.com/#feat=fileapi
+        // source: <output> availability - http://html5doctor.com/the-output-element/
+        document.writeln('The HTML5 APIs used in this form are only available in the following browsers:<br />');
+        // 6.0 File API & 13.0 <output>
+        document.writeln(' - Google Chrome: 13.0 or later<br />');
+        // 3.6 File API & 6.0 <output>
+        document.writeln(' - Mozilla Firefox: 6.0 or later<br />');
+        // 10.0 File API & 10.0 <output>
+        document.writeln(' - Internet Explorer: Not supported (partial support expected in 10.0)<br />');
+        // ? File API & 5.1 <output>
+        document.writeln(' - Safari: Not supported<br />');
+        // ? File API & 9.2 <output>
+        document.writeln(' - Opera: Not supported');
+        return false;
+      }
+    }
+
+    function handleFileSelect(evt) {
+      var files = evt.target.files; // FileList object
+      var file = files[0];
+
+      // read the file metadata
+      var output = ''
+          output += '<span style="font-weight:bold;">' + escape(file.name) + '</span><br />\n';
+          output += ' - FileType: ' + (file.type || 'n/a') + '<br />\n';
+          output += ' - FileSize: ' + file.size + ' bytes<br />\n';
+          output += ' - LastModified: ' + (file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() : 'n/a') + '<br />\n';
+
+      var reader = new FileReader();
+      reader.readAsText(file);
+      reader.onload = function(event){
+        var csv = event.target.result;
+        data = $.csv.toObjects(csv);
+        var html = generateTable(data);
+        $('#contents').html(html);
+        };
+      reader.onerror = function(){ alert('Unable to read ' + file.fileName); };
+
+      // post the results
+      $('#list').append(output);
+    }
+  </script>
+</body>
 </html>
