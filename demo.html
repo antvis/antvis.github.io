@@ -50,9 +50,10 @@ textarea{font-family:inherit;font-size:16px;font-weight:500;line-height:inherit;
         </div>
         <h2 id="输入g2代码">输入G2代码</h2>
         <p>柱状图：chart.interval().position(Stat.summary.mean('cut*price')).color('cut');</p>
-        <p>改变shape：chart.interval().position(Stat.summary.mean('cut*price')).color('cut').shape('tick')</p>
-        <p>改变坐标系：chart.coord('polar')</p>
-        <p>改变 geom：chart.intervalDodge().position(Stat.summary.mean('cut*price')).color('color');</p>
+        <p>改变shape：chart.interval().position(Stat.summary.mean('cut*price')).color('cut').shape('tick');</p>
+        <p>改变坐标系：chart.coord('polar');</p>
+        <p>改变 geom：chart.coord('rect'); // 恢复至笛卡尔坐标系</p>
+        <p style="margin-left: 81px;">chart.intervalDodge().position(Stat.summary.mean('cut*price')).color('color');</p>
         <p>添加分面：chart.facet(['clarity'],{type: 'tree',line: {stroke: '#c0d0e0'},smooth:true,margin: 30});</p>
           <textarea id="J_Code" name="" id="" cols="30" rows="3" style="width:96%;border-color:#999;border-radius: 5px;height:100px;padding: 8px;"></textarea>
           <button class="btn" id="J_Btn">执行</button>
