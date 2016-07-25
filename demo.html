@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>G2 执行</title>
+    <style>
+html{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+body{font-family:Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;line-height:1.5;color:#666;font-size:14px;background:#fff;}
+h2{color:#404040;margin:1em 0 .5em;font-weight:500;clear:both;font-size:18px;}
+p{color:#666;}
+.clearfix{*zoom:1;}
+.clearfix:before,.clearfix:after{display:table;content:"";}
+.clearfix:after{clear:both;}
+.btn:not([disabled]):hover{text-decoration:none;}
+.btn.active,.btn:active,.btn:focus,.btn:hover{color:#fff;}
+.btn:focus,.btn:hover{color:#fff;background-color:#57c5f7;border-color:#57c5f7;}
+.btn,.btn:active,.btn:focus{outline:0;}
+.btn{display:inline-block;margin-bottom:0;font-weight:500;text-align:center;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;line-height:1.5;padding:4px 15px;font-size:14px;border-radius:6px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-transition:all .3s cubic-bezier(.645,.045,.355,1);transition:all .3s cubic-bezier(.645,.045,.355,1);-webkit-transform:translateZ(0);transform:translateZ(0);color:#fff;background-color:#2db7f5;border-color:#2db7f5;}
+a:active,a:hover{outline:0;text-decoration:none;}
+a:hover{color:#57c5f7;}
+a:active,a:hover{outline-width:0;}
+a{color:#2db7f5;background:transparent;text-decoration:none;outline:none;cursor:pointer;-webkit-transition:color .3s ease;transition:color .3s ease;}
+.doc-content{float:left;width:46%;margin:2% 0 2% 2%;}
+.doc-inner{padding:50px 0;}
+table{border-collapse:collapse;border-spacing:0;empty-cells:show;border:1px solid #e9e9e9;width:100%;margin-bottom:24px;}
+table th{background:#f7f7f7;}
+table td,table th{border:1px solid #e9e9e9;padding:8px 16px;text-align:left;}
+table th{white-space:nowrap;color:#5c6b77;font-weight:600;}
+textarea{font-family:inherit;font-size:16px;font-weight:500;line-height:inherit;color:#000;}
+.chart-container{float:right;width:46%;margin:2%;}
+    </style>
+  </head>
+  <body>
+    <section class="clearfix">
+      <div class="doc-content">
+        <h2 id="简介">简介</h2>
+        <p>你可以在这个页面中输入数据源，执行 G2 代码</p>
+        <h2 id="输入数据源">载入数据源</h2>
+        <p>请输入 JSON 格式的数组（默认的数据源为 1000 条钻石数据）。</p>
+        <div>
+          <textarea id="J_Input" name="source" id="source" cols="30" rows="15" style="width:96%;border-color:#999;border-radius: 5px;height:100px;padding: 8px;"></textarea>
+          <div class="J_InputLog"></div>
+          <table class="table" id="data_table"></table>
+          <div id="data_num"></div>
+          <button class="btn" id="J_load">载入</button>
+        </div>
+        <h2 id="输入g2代码">输入G2代码</h2>
+        <p>柱状图：chart.interval().position(Stat.summary.mean('cut*price')).color('cut');</p>
+        <p>改变shape：chart.interval().position(Stat.summary.mean('cut*price')).color('cut').shape('tick')</p>
+        <p>改变坐标系：chart.coord('polar')</p>
+        <p>改变 geom：chart.intervalDodge().position(Stat.summary.mean('cut*price')).color('color');</p>
+        <p>添加分面：chart.facet(['clarity'],{type: 'tree',line: {stroke: '#c0d0e0'},smooth:true,margin: 30});</p>
+          <textarea id="J_Code" name="" id="" cols="30" rows="3" style="width:96%;border-color:#999;border-radius: 5px;height:100px;padding: 8px;"></textarea>
+          <button class="btn" id="J_Btn">执行</button>
+        </div>
+        <div class="J_CodeLog"></div>
+      </div>
+      <div class="chart-container">
+        <h2 id="显示图表">显示图表</h2>
+        <div id="c1"></div>
+      </div>
+  </section>
+  <script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="https://as.alipayobjects.com/g/datavis/g2/1.2.1/index.js"></script>
+  <script>
+    var codeEl = $('#J_Code');
+    var inputEl = $('#J_Input');
+    var inputLogEl = $('#J_InputLog');
+    var Stat = G2.Stat;
+    var chart = new G2.Chart({
+      id: 'c1',
+      width: 750,
+      height: 400
+    });
+    $('#J_Btn').on('click', function() {
+      chart.clear();
+      var cmd = codeEl.val();
+      exec(cmd);
+      chart.render();
+    });
+    $('#J_load').on('click', function() {
+      loadData();
+    });
+    $.getJSON('./data/diamond.json', function(data) {
+      inputEl.text(JSON.stringify(data.slice(0, 1000)));
+      loadData();
+    });
+    function loadData() {
+      var data = getData();
+      if (data && data.length > 0) {
+        var thead = '<thead><tr>';
+        var tbody = '<tbody><tr>';
+        for (var i in data[0]) {
+          thead += '<th>';
+          thead += i;
+          thead += '</th>';
+          tbody += '<td>';
+          tbody += data[0][i];
+          tbody += '</td>';
+        }
+        thead += '</tr></thead>';
+        tbody += '</tr></tbody>';
+        chart.source(data);
+        $('#data_table').html(thead + tbody);
+        $('#data_num').html('共' + data.length + '条数据');
+      } else {
+        $('#data_table').html('');
+        $('#data_num').html('共' + 0 + '条数据');
+      }
+    }
+    function getData() {
+      var data = null;
+      var msg = '';
+      try {
+        var inputData = inputEl.val().replace(/\s+/g, '');
+        data = (new Function("return [" + inputData + "];")()); // object string to array
+        data = data[0];
+      } catch (e) {
+        msg = '输入的数据存在错误!!请输入标准JSON';
+      }
+      inputLogEl.text(msg);
+      return data;
+    }
+    function exec(cmd) {
+      try {
+        eval(cmd);
+      } catch (ev) {
+        console.log(ev);
+      }
+    }
+    </script>
+  </body>
+</html>
