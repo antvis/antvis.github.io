@@ -1,74 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no">
-    <title>Antvis</title>
-    <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/dpl.css" rel="stylesheet">
-    <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/bui.css" rel="stylesheet">
-    <style>
-::-webkit-scrollbar {
-  display: none;
-}
-body {
-  background-color: #0C2032;
-}
-.main {
-  height: 100px;
-  width: 800px;
-  position: absolute;
-  margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: auto;
-  text-align: center;
-}
-.g2, .antv {
-  padding: 20px;
-  border: 1px solid transparent;
-  border-radius: 5px;
-  transition: border .5s ease-in;
-}
-a {
-  width: 300px;
-  height: 100px;
-  display: inline-block;
-  margin: 0 15px;
-}
-a:hover div {
-  border: 1px solid #8097AB;
-}
-p.caption {
-  font-size: 12px;
-  text-align: center;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  color: #fff;
-  letter-spacing: 2px;
-  text-shadow: 0 0 15px #0aafe6, 0 0 15px rgba(10, 175, 230, 0);
-}
-    </style>
-  </head>
-  <body>
-    <div class="main">
-      <a href="https://g2.alipay.com">
-        <div class="g2">
-          <img src="https://os.alipayobjects.com/rmsportal/PVLPWEvDwSAyALJ.svg"/>
-        </div>
-      </a>
-      <a href="https://antv.alipay.com">
-        <div class="antv">
-          <img src="https://os.alipayobjects.com/rmsportal/aAUGWSQeYKICtBg.svg"/>
-        </div>
-      </a>
-    </div>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <p class="caption">蚂蚁金服 - 体验技术部 - 数据图形小组</p>
-  </body>
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+	  <link rel="stylesheet" href="lib/css/monokai-sublime.css">
+		<!-- <link rel="stylesheet" href="lib/css/foundation.css"> -->
+
+		<!-- Google fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-external="slides/slide_00/beforeStarting.html"></section>
+				<section data-external="slides/slide_01/introduction.html"></section>
+				<section data-external="slides/slide_03/vis-basic.html"></section>
+				<section data-external="slides/slide_03/charts-intro.html"></section>
+
+				<!-- G2 -->
+				<section data-external="slides/g2/g2-intro.html"></section>
+				<section data-external="slides/g2/g2-start-code-0.html"></section>
+				<section data-external="slides/g2/g2-start.html"></section>
+				<section data-external="slides/g2/g2-start-code-1.html"></section>
+				<section data-external="slides/g2/g2-customize.html"></section>
+				<section data-external="slides/g2/g2-polar-coordinate.html"></section>
+				<section data-external="slides/g2/g2-color-gradient.html"></section>
+				<section data-external="slides/g2/g2-china-map.html"></section>
+				<section data-external="slides/g2/g2-chart-linkage.html"></section>
+				<section data-external="slides/g2/g2-arcDiagram.html"></section>
+				<section data-external="slides/g2/g2-sankey.html"></section>
+				<!-- <section data-external="slides/g2/g2-point-stack.html"></section> -->
+
+				<!-- G6 -->
+<!-- 				<section data-external="slides/g6/g6-intro.html"></section>
+-->
+				<section data-external="slides/g6/g6-demo1.html"></section>
+				<section data-external="slides/g6/g6-demo2.html"></section>
+				<section data-external="slides/g6/g6-demo3.html"></section>
+				<section data-external="slides/g6/g6-demo4.html"></section>
+
+				<!-- G2-Mobile -->
+				<section data-external="slides/gm/gm-intro.html"></section>
+				<!-- <section data-external="slides/gm/gm-demo1.html"></section> -->
+
+				<!-- <section>Slide 2</section> -->
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<!-- JQUERY -->
+		<script src="js/jquery.js"></script>
+
+		<!-- G2 -->
+		<script src="js/g2.js"></script>
+		<!-- G6 -->
+		<script src="js/g6.js"></script>
+		<!-- G2-mobile -->
+		<script src="js/g2-mobile-all-2-1-14.js"></script>
+
+		<!-- REVEAL TO G2 -->
+		 <script src="js/reveal-to-g2-config.js"></script>
+		 <script src="js/reveal-to-g2.js"></script>
+
+		<!-- each slide's script -->
+		<script src="js/antv.js" defer></script>
+		<script src="slides/g2/g2-start.js"></script>
+		<script src="slides/g2/g2-start-code-1.js"></script>
+		<script src="slides/g2/g2-customize.js"></script>
+		<script src="slides/g2/g2-polar-coordinate.js"></script>
+		<script src="slides/g2/g2-color-gradient.js"></script>
+		<script src="slides/g2/g2-china-map.js"></script>
+		<script src="slides/g2/g2-chart-linkage.js"></script>
+		<script src="slides/g2/g2-arcDiagram.js"></script>
+		<script src="slides/g2/g2-sankey.js"></script>
+		<script src="slides/g2/g2-point-stack.js"></script>
+		<script src="slides/g6/g6-intro.js"></script>
+		<script src="slides/g6/g6-demo1.js"></script>
+		<script src="slides/g6/g6-demo2.js"></script>
+		<script src="slides/g6/g6-demo3.js"></script>
+		<script src="slides/g6/g6-demo4.js"></script>
+		<script src="slides/gm/gm-intro.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: false,
+				history: true,
+				center: true,
+				// The "normal" size of the presentation, aspect ratio will be preserved
+			    // when the presentation is scaled to fit different resolutions. Can be
+			    // specified using percentage units.
+			    width: '100%',
+			    height: '100%',
+			    // Factor of the display size that should remain empty around the content
+    			margin: 0,
+				// Bounds for smallest/largest possible scale to apply to content
+    			minScale: 0.2,
+    			maxScale: 4,
+
+				  transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/highlight/highlight.js', async: false, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+			// Start auto-sliding every 3.5s
+			Reveal.configure({ autoSlide: 3500 });
+		</script>
+	</body>
 </html>

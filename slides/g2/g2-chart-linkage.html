@@ -1,0 +1,47 @@
+
+<style>
+#linkage {
+  top: 0!important;
+  padding: 150px 0;
+}
+#linkage #linkageChart1 {
+  width: 400px;
+  margin-left:400px;
+}
+#linkage #linkageChart2 {
+  width: 400px;
+  margin-right:220px;
+}
+  #linkage .title {
+    position: absolute;
+    top: 150px;
+    text-align: left;
+    font-family: "Open Sans", sans-serif;
+    left: 50px;
+  }
+
+  #linkage .title h1, #linkage .title .subtitle {
+    margin: 0;
+    font-weight: lighter;
+    text-anchor: start;
+    text-transform: none;
+  }
+  #linkage .title h1 {
+    font-size: 24px;
+    color: #4F4F4F;
+  }
+  #linkage .title .subtitle {
+    font-size: 12px;
+    color: #AAAAAA;
+  }
+</style>
+
+<section id="linkage">
+  <div class="title">
+      <h1>图表联动</h1>
+      <p class="subtitle">鼠标 hover 点、选中点，高亮柱状图中对应的柱子</p>
+    </div>
+  </div>
+   <div id="linkageChart1" style="float: left"></div>
+   <div id="linkageChart2" style="float: right;"></div>
+</section>
