@@ -1,0 +1,358 @@
+<style>
+@font-face {
+font-family: 'iconfont';  /* project id 45271 */
+src: url('//at.alicdn.com/t/font_fxepk8l6sr05p14i.eot');
+src: url('//at.alicdn.com/t/font_fxepk8l6sr05p14i.eot?#iefix') format('embedded-opentype'),
+url('//at.alicdn.com/t/font_fxepk8l6sr05p14i.woff') format('woff'),
+url('//at.alicdn.com/t/font_fxepk8l6sr05p14i.ttf') format('truetype'),
+url('//at.alicdn.com/t/font_fxepk8l6sr05p14i.svg#iconfont') format('svg');
+}
+#vis-charts-intro .iconfont {
+font-family:"iconfont" !important;
+font-size:16px;
+font-style:normal;
+-webkit-font-smoothing: antialiased;
+-webkit-text-stroke-width: 0.2px;
+-moz-osx-font-smoothing: grayscale;
+}
+#vis-charts-intro .icon-Bullet:before { content: '\e6ee'; }
+#vis-charts-intro .icon-wordCloud:before { content: '\e6ed'; }
+#vis-charts-intro .icon-bi-directional-bar:before { content: '\e6ec'; }
+#vis-charts-intro .icon-bar:before { content: "\e612"; }
+#vis-charts-intro .icon-line:before { content: "\e613"; }
+#vis-charts-intro .icon-donut-chart:before { content: "\e617"; }
+#vis-charts-intro .icon-pie:before { content: "\e615"; }
+#vis-charts-intro .icon-rose:before { content: "\e616"; }
+#vis-charts-intro .icon-area:before { content: "\e618"; }
+#vis-charts-intro .icon-radar-chart:before { content: "\e619"; }
+#vis-charts-intro .icon-bubble-chart:before { content: "\e61a"; }
+#vis-charts-intro .icon-treemap:before { content: "\e61c"; }
+#vis-charts-intro .icon-heatmap:before { content: "\e61b"; }
+#vis-charts-intro .icon-contourline:before { content: "\e61d"; }
+#vis-charts-intro .icon-13shuxingtu:before { content: "\e61f"; }
+#vis-charts-intro .icon-14liuchengtu:before { content: "\e620"; }
+#vis-charts-intro .icon-chord:before { content: "\e62b"; }
+#vis-charts-intro .icon-sankey:before { content: "\e62c"; }
+#vis-charts-intro .icon-18wangzhuangtu:before { content: "\e621"; }
+#vis-charts-intro .icon-19ditu:before { content: "\e622"; }
+#vis-charts-intro .icon-boxplot:before { content: "\e629"; }
+#vis-charts-intro .icon-histogram:before { content: "\e623"; }
+#vis-charts-intro .icon-distributioncurve:before { content: "\e625"; }
+#vis-charts-intro .icon-mosaic:before { content: "\e626"; }
+#vis-charts-intro .icon-funnel:before { content: "\e624"; }
+#vis-charts-intro .icon-k-chart:before { content: "\e627"; }
+#vis-charts-intro .icon-gauge:before { content: "\e62a"; }
+#vis-charts-intro .icon-venn:before { content: "\e628"; }
+#vis-charts-intro .icon-regressioncurve:before { content: "\e61e"; }
+#vis-charts-intro .icon-flow:before { content: "\e62f"; }
+#vis-charts-intro .icon-multi-set-bar:before { content: "\e630"; }
+#vis-charts-intro .icon-stacked-bar:before { content: "\e632"; }
+#vis-charts-intro .icon-bubble-map:before { content: "\e631"; }
+#vis-charts-intro .icon-stem-leaf:before { content: "\e633"; }
+#vis-charts-intro .icon-dot-map:before { content: "\e634"; }
+#vis-charts-intro .icon-radial-bar:before { content: "\e635"; }
+#vis-charts-intro .icon-04qipaotu:before { content: "\e614"; }
+#vis-charts-intro .icon-scatter-plot:before { content: "\e637"; }
+#vis-charts-intro .icon-choropleth-map:before { content: "\e638"; }
+#vis-charts-intro .icon-shejiguifan2:before { content: "\e60a"; }
+#vis-charts-intro .icon-quanbu:before { content: "\e639"; }
+#vis-charts-intro .icon-shejiyuanze:before { content: "\e63a"; }
+#vis-charts-intro .icon-stacked-area:before { content: "\e636"; }
+#vis-charts-intro .icon-wenzhang:before { content: "\e63c"; }
+#vis-charts-intro .icon-zhoukan:before { content: "\e63d"; }
+#vis-charts-intro .icon-anli:before { content: "\e63b"; }
+#vis-charts-intro .icon-color-map:before { content: "\e63e"; }
+#vis-charts-intro .icon-113fenleifenqunrelitu:before { content: "\e63f"; }
+#vis-charts-intro .icon-114shijianrelitu:before { content: "\e640"; }
+#vis-charts-intro .icon-jingxiangshutu:before { content: "\e641"; }
+#vis-charts-intro .icon-jingxiangshutufuben:before { content: "\e6c9"; }
+#vis-charts-intro .icon-kagi:before { content: "\e6ca"; }
+#vis-charts-intro .icon-spiral:before { content: "\e6cb"; }
+#vis-charts-intro .icon-proportion:before { content: "\e6cf"; }
+#vis-charts-intro .icon-arcDiagram:before { content: "\e6c9"; }
+#vis-charts-intro {
+  padding: 100px 0;
+  top: 0!important;
+}
+#vis-charts-intro ul.vis-chart-list {
+margin: 0;
+padding: 0;
+width: 1150px;
+}
+#vis-charts-intro ul.vis-chart-list li {
+float: left;
+list-style: none;
+width: 230px;
+height: 56px;
+padding: 0;
+/*margin-right: 32px;*/
+margin-bottom: 12px;
+}
+#vis-charts-intro ul.vis-chart-list li a {
+display: block;
+width: 230px;
+height: 56px;
+line-height: 56px;
+}
+#vis-charts-intro ul.vis-chart-list li a .iconfont {
+font-size: 32px;
+line-height: 32px;
+color: #75828F;
+margin-right: 12px;
+vertical-align: middle;
+}
+#vis-charts-intro ul.vis-chart-list li a span {
+font-size: 14px;
+color: #666;
+font-weight: lighter;
+vertical-align: middle;
+}
+#vis-charts-intro ul.vis-chart-list li:hover .iconfont,
+#vis-charts-intro ul.vis-chart-list li:hover span {
+color: #6556E2;
+}
+#vis-charts-intro h1 {
+/*font-family: 'Sue Ellen Francisco';*/
+font-weight: 500;
+text-transform: none;
+text-align: center;
+font-size: 32px;;
+/*position: absolute;*/
+color: #ccc
+/*left: 25px;*/
+/*top: 50px;*/
+}
+</style>
+<section id="vis-charts-intro">
+  <h1>Detailed charts' usage</h1>
+  <ul class="vis-chart-list">
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/area.html" target="_blank">
+        <i class="iconfont icon-area"></i>
+        <span>面积图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/arcDiagram.html" target="_blank">
+        <i class="iconfont icon-arcDiagram"></i>
+        <span>弧长链接图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/bar.html" target="_blank">
+        <i class="iconfont icon-bar"></i>
+        <span>柱状图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/boxplot.html" target="_blank">
+        <i class="iconfont icon-boxplot"></i>
+        <span>箱形图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/bubble-chart.html" target="_blank">
+        <i class="iconfont icon-bubble-chart"></i>
+        <span>气泡图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/bubble-map.html" target="_blank">
+        <i class="iconfont icon-bubble-map"></i>
+        <span>带气泡的地图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/bi-directional-bar.html" target="_blank">
+        <i class="iconfont icon-bi-directional-bar"></i>
+        <span>双向柱状图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/Bullet.html" target="_blank">
+        <i class="iconfont icon-Bullet"></i>
+        <span>子弹图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/chord.html" target="_blank">
+        <i class="iconfont icon-chord"></i>
+        <span>和弦图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/choropleth-map.html" target="_blank">
+        <i class="iconfont icon-choropleth-map"></i>
+        <span>分级统计地图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/color-map.html" target="_blank">
+        <i class="iconfont icon-color-map"></i>
+        <span>色块图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/contourline.html" target="_blank">
+        <i class="iconfont icon-contourline"></i>
+        <span>等高线</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/distributioncurve.html" target="_blank">
+        <i class="iconfont icon-distributioncurve"></i>
+        <span>分布曲线图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/donut-chart.html" target="_blank">
+        <i class="iconfont icon-donut-chart"></i>
+        <span>环图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/dot-map.html" target="_blank">
+        <i class="iconfont icon-dot-map"></i>
+        <span>点描法地图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/funnel.html" target="_blank">
+        <i class="iconfont icon-funnel"></i>
+        <span>漏斗图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/gauge.html" target="_blank">
+        <i class="iconfont icon-gauge"></i>
+        <span>仪表盘</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/heatmap.html" target="_blank">
+        <i class="iconfont icon-heatmap"></i>
+        <span>热力图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/histogram.html" target="_blank">
+        <i class="iconfont icon-histogram"></i>
+        <span>直方图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/k-chart.html" target="_blank">
+        <i class="iconfont icon-k-chart"></i>
+        <span>K 线图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/kagi.html" target="_blank">
+        <i class="iconfont icon-kagi"></i>
+        <span>卡吉图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/line.html" target="_blank">
+        <i class="iconfont icon-line"></i>
+        <span>折线图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/mosaic.html" target="_blank">
+        <i class="iconfont icon-mosaic"></i>
+        <span>马赛克图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/multi-set-bar.html" target="_blank">
+        <i class="iconfont icon-multi-set-bar"></i>
+        <span>分组柱状图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/pie.html" target="_blank">
+        <i class="iconfont icon-pie"></i>
+        <span>饼图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/radar-chart.html" target="_blank">
+        <i class="iconfont icon-radar-chart"></i>
+        <span>雷达图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/radial-bar.html" target="_blank">
+        <i class="iconfont icon-radial-bar"></i>
+        <span>玉玦图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/regressioncurve.html" target="_blank">
+        <i class="iconfont icon-regressioncurve"></i>
+        <span>回归曲线图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/rose.html" target="_blank">
+        <i class="iconfont icon-rose"></i>
+        <span>南丁格尔玫瑰图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/sankey.html" target="_blank">
+        <i class="iconfont icon-sankey"></i>
+        <span>桑基图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/scatter-plot.html" target="_blank">
+        <i class="iconfont icon-scatter-plot"></i>
+        <span>散点图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/spiral.html" target="_blank">
+        <i class="iconfont icon-spiral"></i>
+        <span>螺旋图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/stacked-area.html" target="_blank">
+        <i class="iconfont icon-stacked-area"></i>
+        <span>层叠面积图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/stacked-bar.html" target="_blank">
+        <i class="iconfont icon-stacked-bar"></i>
+        <span>层叠柱状图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/stem-leaf.html" target="_blank">
+        <i class="iconfont icon-stem-leaf"></i>
+        <span>茎叶图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/treemap.html" target="_blank">
+        <i class="iconfont icon-treemap"></i>
+        <span>矩形树图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/venn.html" target="_blank">
+        <i class="iconfont icon-venn"></i>
+        <span>韦恩图</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://antv.alipay.com/vis/doc/chart/details/wordCloud.html" target="_blank">
+        <i class="iconfont icon-wordCloud"></i>
+        <span>词云</span>
+      </a>
+    </li>
+  </ul>
+</section>
