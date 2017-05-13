@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="363px" height="433px" viewBox="0 0 363 433" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 17</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M32.5,45 C48.5606061,45 59,27 59,27 C59,27 48.5606061,9 32.5,9 C16.4393939,9 6,27 6,27 C6,27 16.4393939,45 32.5,45 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="53" height="36" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <ellipse id="path-3" cx="32.0454545" cy="26.7391304" rx="12.0454545" ry="11.7391304"></ellipse>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="24.0909091" height="23.4782609" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <ellipse id="path-5" cx="31.8181818" cy="26.6956522" rx="4.81818182" ry="4.69565217"></ellipse>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="9.63636364" height="9.39130435" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+        <rect id="path-7" x="0" y="0" width="53" height="42" rx="2"></rect>
+        <mask id="mask-8" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="53" height="42" fill="white">
+            <use xlink:href="#path-7"></use>
+        </mask>
+        <path d="M19.3910966,44.1660162 L24.3910966,44.1660162 L25.0114982,58.4352532 C25.0593842,59.5366299 24.2043036,60.4294721 23.0933219,60.4294721 L22.1030849,60.4294721 C20.9958194,60.4294721 20.0591791,59.5319122 20.0114982,58.4352532 L19.3910966,44.1660162 Z" id="path-9"></path>
+        <mask id="mask-10" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="5.62231846" height="16.263456" fill="white">
+            <use xlink:href="#path-9"></use>
+        </mask>
+        <path d="M10.7238169,37.2621673 L15.7238169,37.2621673 L15.4034761,48.2469561 C15.3712565,49.3517976 14.4512375,50.2474487 13.3402558,50.2474487 L12.3500188,50.2474487 C11.2427533,50.2474487 10.3711655,49.3549177 10.4034761,48.2469561 L10.7238169,37.2621673 Z" id="path-11"></path>
+        <mask id="mask-12" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="5.32121093" height="12.9852814" fill="white">
+            <use xlink:href="#path-11"></use>
+        </mask>
+    </defs>
+    <g id="首页+G2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页-copy-3" transform="translate(-196.000000, -786.000000)">
+            <g id="Group-17" transform="translate(196.000000, 786.000000)">
+                <text id="专业" font-family="PingFangSC-Light, PingFang SC" font-size="18" font-weight="300" line-spacing="36" fill="#404040">
+                    <tspan x="97" y="19">专业</tspan>
+                </text>
+                <text id="提供底层的绘图引擎、大量的图表、-常见的" font-family="PingFangSC-Light, PingFang SC" font-size="14" font-weight="300" line-spacing="21" fill="#666666">
+                    <tspan x="97" y="61">提供底层的绘图引擎、大量的图表、</tspan>
+                    <tspan x="97" y="82">常见的流程图以及如何使用图表的规范</tspan>
+                </text>
+                <text id="无限可能" font-family="PingFangSC-Light, PingFang SC" font-size="18" font-weight="300" line-spacing="36" fill="#404040">
+                    <tspan x="97" y="387">无限可能</tspan>
+                </text>
+                <text id="简单" font-family="PingFangSC-Light, PingFang SC" font-size="18" font-weight="300" line-spacing="36" fill="#404040">
+                    <tspan x="97" y="200">简单</tspan>
+                </text>
+                <text id="基于图形语法，可以实现你想要的所有图表" font-family="PingFangSC-Light, PingFang SC" font-size="14" font-weight="300" line-spacing="21" fill="#666666">
+                    <tspan x="97" y="429">基于图形语法，可以实现你想要的所有图表</tspan>
+                </text>
+                <text id="从数据出发，一句话一个图表" font-family="PingFangSC-Light, PingFang SC" font-size="14" font-weight="300" line-spacing="21" fill="#666666">
+                    <tspan x="97" y="242">从数据出发，一句话一个图表</tspan>
+                </text>
+                <g id="Group-6" transform="translate(3.000000, 20.000000)">
+                    <g id="Group-15">
+                        <rect id="Rectangle-11" fill="#7463FF" opacity="0.300839552" x="0" y="0" width="24" height="4" rx="2"></rect>
+                        <rect id="Rectangle-11" fill="#7463FF" opacity="0.300839552" x="27" y="0" width="5" height="4" rx="2"></rect>
+                        <rect id="Rectangle-11" fill="#7463FF" opacity="0.300839552" x="34" y="49" width="13" height="4" rx="2"></rect>
+                        <rect id="Rectangle-11" fill="#7463FF" opacity="0.300839552" x="51" y="49" width="11" height="4" rx="2"></rect>
+                        <use id="Oval-5" stroke="#404040" mask="url(#mask-2)" stroke-width="2" fill="#FFFFFF" xlink:href="#path-1"></use>
+                        <use id="Oval-6" stroke="#6556E2" mask="url(#mask-4)" stroke-width="2" fill="#C8C4EC" xlink:href="#path-3"></use>
+                        <use id="Oval-6" stroke="#6556E2" mask="url(#mask-6)" stroke-width="2" fill="#FFFFFF" xlink:href="#path-5"></use>
+                        <path d="M36.5,22 C37.8807119,22 39,20.8807119 39,19.5 C39,18.1192881 37.8807119,17 36.5,17 C35.1192881,17 34,18.1192881 34,19.5 C34,20.8807119 35.1192881,22 36.5,22 Z" id="Oval" fill="#FFFFFF" opacity="0.470090951"></path>
+                    </g>
+                </g>
+                <g id="Group-3" transform="translate(0.000000, 197.000000)">
+                    <g id="Group-12" transform="translate(0.000000, 1.000000)">
+                        <use id="Rectangle-5" stroke="#404040" mask="url(#mask-8)" stroke-width="2" fill="#FFFFFF" xlink:href="#path-7"></use>
+                        <path d="M5.5,9.5 L47.5,9.5" id="Line" stroke="#D9D9D9" stroke-linecap="square"></path>
+                        <path d="M5.5,21.5 L47.5,21.5" id="Line" stroke="#D9D9D9" stroke-linecap="square"></path>
+                        <path d="M5.5,33.5 L47.5,33.5" id="Line" stroke="#D9D9D9" stroke-linecap="square"></path>
+                        <polygon id="Path-3" fill="#7463FF" opacity="0.233733675" points="5 29.3958333 22 19 30.6052632 27.3541667 48 10 48 34 5 34"></polygon>
+                        <polyline id="Path-7" stroke="#404040" stroke-linecap="round" points="5 29 22 19 31 27 48 9"></polyline>
+                    </g>
+                    <g id="Group-8" transform="translate(35.000000, 0.000000)">
+                        <circle id="Oval-4" fill="#C4BDFF" cx="22.5" cy="37.5" r="1.5"></circle>
+                        <polygon id="Star" fill="#7463FF" opacity="0.300839552" transform="translate(22.673097, 6.673097) rotate(45.000000) translate(-22.673097, -6.673097) " points="22.673097 10.0096456 17.9545049 11.3916892 19.3365485 6.67309704 17.9545049 1.95450487 22.673097 3.33654852 27.3916892 1.95450487 26.0096456 6.67309704 27.3916892 11.3916892"></polygon>
+                        <circle id="Oval-4" fill="#C4BDFF" cx="3.5" cy="53.5" r="3.5"></circle>
+                        <circle id="Oval-4" fill="#C4BDFF" cx="27" cy="21" r="2"></circle>
+                        <use id="Rectangle-9" stroke="#404040" mask="url(#mask-10)" stroke-width="2" fill="#E7E7E7" transform="translate(22.202256, 52.297744) rotate(-45.000000) translate(-22.202256, -52.297744) " xlink:href="#path-9"></use>
+                        <use id="Rectangle-9" stroke="#404040" mask="url(#mask-12)" stroke-width="2" fill="#C4BDFF" transform="translate(13.063211, 43.754808) scale(1, -1) rotate(45.000000) translate(-13.063211, -43.754808) " xlink:href="#path-11"></use>
+                    </g>
+                </g>
+                <g id="Group-16" transform="translate(3.000000, 381.000000)">
+                    <rect id="Rectangle-13" fill="#DEDAFF" x="0" y="0" width="20" height="4" rx="2"></rect>
+                    <rect id="Rectangle-13" fill="#DEDAFF" x="7" y="6" width="25" height="4" rx="2"></rect>
+                    <circle id="Oval-7" fill="#DEDAFF" cx="25" cy="2" r="2"></circle>
+                    <rect id="Rectangle-13" fill="#DEDAFF" x="43" y="53" width="13" height="3" rx="1.5"></rect>
+                    <rect id="Rectangle-13" fill="#DEDAFF" x="50" y="58" width="9" height="3" rx="1.5"></rect>
+                    <circle id="Oval-7" fill="#DEDAFF" cx="60.5" cy="54.5" r="1.5"></circle>
+                    <polygon id="Path-9" fill="#DEDAFF" points="17 38 52 3 25 42 21 50"></polygon>
+                    <path d="M51.7941032,4.04150415 C52.0920387,2.97307837 51.5936994,2.62279359 50.6977234,3.24748321 L4,35.8059259 L16.5227868,38.5124059 L20.6970491,49.3383263 L24.8713113,42.5721261 L38.7855189,50.6915664 L51.7941032,4.04150415 Z" id="Path-8" stroke="#404040" fill="#FFFFFF"></path>
+                    <polygon id="Path-11" fill="#DEDAFF" points="49 7 17 38 21 48"></polygon>
+                    <polyline id="Path-10" stroke="#6556E2" stroke-linecap="round" stroke-linejoin="round" points="17 38 51 4 25 42"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
