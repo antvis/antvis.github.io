@@ -93,7 +93,9 @@ pt.chinaMap.init = function() {
         chart.tooltip({
           title: null
         });
-        var bgView = chart.createView();
+        var bgView = chart.createView({
+          animate: false
+        });
         bgView.source(map);
         bgView.tooltip(false);
         bgView.axis(false);
