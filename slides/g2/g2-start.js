@@ -35,7 +35,11 @@ pt.radar.init = function() {
       margin: [60, 80, 80]
     }
   });
-  chart.source(data);
+  chart.source(data, {
+    axis: {
+      range: [0, 1]
+    }
+  });
   chart.axis('value', {
     formatter: function(val) {
       return val * 100 + '%';
@@ -43,6 +47,9 @@ pt.radar.init = function() {
   });
   chart.legend({
     position: 'top'
+  });
+  chart.tooltip({
+    crosshairs: true
   });
   chart.area().position('axis*value').color('phone', ["#EDC951","#CC333F","#00A0B0"])
     .style({
@@ -54,4 +61,9 @@ pt.radar.init = function() {
   chart.point().position('axis*value').color('phone', ["#EDC951","#CC333F","#00A0B0"])
     .shape('circle').size(3);
   chart.render();
+  this.chart = chart;
 };
+
+pt.radar.destroy = function() {
+  this.chart && this.chart.destroy();
+}

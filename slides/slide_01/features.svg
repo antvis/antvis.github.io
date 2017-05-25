@@ -32,17 +32,17 @@
     <g id="首页+G2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="首页-copy-3" transform="translate(-196.000000, -786.000000)">
             <g id="Group-17" transform="translate(196.000000, 786.000000)">
-                <text id="专业" font-family="PingFangSC-Light, PingFang SC" font-size="18" font-weight="300" line-spacing="36" fill="#404040">
+                <text id="专业" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="500" line-spacing="24" fill="#404040">
                     <tspan x="97" y="19">专业</tspan>
                 </text>
                 <text id="提供底层的绘图引擎、大量的图表、-常见的" font-family="PingFangSC-Light, PingFang SC" font-size="14" font-weight="300" line-spacing="21" fill="#666666">
                     <tspan x="97" y="61">提供底层的绘图引擎、大量的图表、</tspan>
                     <tspan x="97" y="82">常见的流程图以及如何使用图表的规范</tspan>
                 </text>
-                <text id="无限可能" font-family="PingFangSC-Light, PingFang SC" font-size="18" font-weight="300" line-spacing="36" fill="#404040">
+                <text id="无限可能" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="500" line-spacing="24" fill="#404040">
                     <tspan x="97" y="387">无限可能</tspan>
                 </text>
-                <text id="简单" font-family="PingFangSC-Light, PingFang SC" font-size="18" font-weight="300" line-spacing="36" fill="#404040">
+                <text id="简单" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="500" line-spacing="24" fill="#404040">
                     <tspan x="97" y="200">简单</tspan>
                 </text>
                 <text id="基于图形语法，可以实现你想要的所有图表" font-family="PingFangSC-Light, PingFang SC" font-size="14" font-weight="300" line-spacing="21" fill="#666666">

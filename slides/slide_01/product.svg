@@ -40,14 +40,14 @@
     <g id="首页+G2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="首页-copy-3" transform="translate(-633.000000, -795.000000)">
             <g id="Group-4" transform="translate(633.000000, 795.000000)">
-                <text id="G6" font-family="PingFangSC-Light, PingFang SC" font-size="18" font-weight="700" line-spacing="36" fill="rgba(0,0,0,.7)">
-                    <tspan x="87" y="321">G6</tspan>
+                <text id="G6" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="500" line-spacing="24" fill="rgba(0,0,0,.7)">
+                    <tspan x="87" y="310">G6</tspan>
                 </text>
                 <text id="关系图可视化类库" font-family="PingFangSC-Light, PingFang SC" font-size="14" font-weight="300" line-spacing="21" fill="#666666">
                     <tspan x="87" y="348">关系图可视化类库</tspan>
                 </text>
-                <text id="G2" font-family="PingFangSC-Light, PingFang SC" font-size="18" font-weight="700" line-spacing="36" fill="rgba(0,0,0,.7)">
-                    <tspan x="87" y="19">G2</tspan>
+                <text id="G2" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="500" line-spacing="24" fill="rgba(0,0,0,.7)">
+                    <tspan x="87" y="18">G2</tspan>
                 </text>
                 <text id="专业易用的可视化类库" font-family="PingFangSC-Light, PingFang SC" font-size="14" font-weight="300" line-spacing="21" fill="#666666">
                     <tspan x="87" y="46">专业易用的可视化类库</tspan>
@@ -55,8 +55,8 @@
                 <text id="移动端高性能可视化类库" font-family="PingFangSC-Light, PingFang SC" font-size="14" font-weight="300" line-spacing="21" fill="#666666">
                     <tspan x="87" y="190">移动端高性能可视化类库</tspan>
                 </text>
-                <text id="G2-mobile" font-family="PingFangSC-Light, PingFang SC" font-size="18" font-weight="700" line-spacing="36" fill="rgba(0,0,0,.7)">
-                    <tspan x="87" y="163">G2 mobile</tspan>
+                <text id="G2-mobile" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="500" line-spacing="24" fill="rgba(0,0,0,.7)">
+                    <tspan x="87" y="152">G2 mobile</tspan>
                 </text>
                 <path d="M12,149.5 L46.8235294,149.5" id="Line" stroke="#404040" stroke-linecap="square"></path>
                 <path d="M12,191.5 L46.8235294,191.5" id="Line" stroke="#404040" stroke-linecap="square"></path>

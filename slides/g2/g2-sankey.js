@@ -1,6 +1,6 @@
 pt.sankey = pt.sankey || {};
 pt.sankey.init = function() {
-
+  var self = this;
   $.getJSON('https://os.alipayobjects.com/rmsportal/oClCmOTZmYCpTJzFFEQt.json', function(edges) {
     var Stat = G2.Stat; // 统计算法对象
     var Layout = G2.Layout; // 布局算法对像
@@ -75,5 +75,10 @@ pt.sankey.init = function() {
         stroke: '#ccc'
       });
     chart.render();
+    self.chart = chart;
   });
 };
+
+pt.sankey.destroy = function() {
+  this.chart && this.chart.destroy();
+}

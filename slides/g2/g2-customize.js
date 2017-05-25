@@ -1,6 +1,7 @@
 pt.customized = pt.customized || {};
 
 pt.customized.init = function() {
+  var self = this;
   var imageMap = {
     tortoise: 'https://zos.alipayobjects.com/rmsportal/tmZkyNUyXtParbdvGgLD.png',
     house_mouse: 'https://zos.alipayobjects.com/rmsportal/joqGGxdJjrUjteEOzGth.png',
@@ -61,7 +62,7 @@ pt.customized.init = function() {
     id: 'c1',
     width: 800,
     // forceFit: true,
-    height: 600,
+    height: 800,
     plotCfg: {
       margin: [80, 100, 40]
     }
@@ -107,11 +108,17 @@ pt.customized.init = function() {
     });
     chart.point().position('animal*speed').shape('imagePoint');
     chart.render();
+    self.chart = chart;
   }
   draw();
 
-  setInterval(function() {
+  this.interval = setInterval(function() {
     chart.clear();
     draw();
   }, 3000);
 };
+
+pt.customized.destroy = function() {
+  clearTimeout(this.interval);
+  this.chart && this.chart.destroy();
+}

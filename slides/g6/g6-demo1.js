@@ -1,6 +1,7 @@
 pt.langInfluence = pt.langInfluence || {};
 
 pt.langInfluence.init = function() {
+  var self = this;
   $.getJSON('/slides/g6/data/languageInfluenceNetwork.json', function(data) {
     var Util = G6.Util;
     G6.Global.nodeLabelStyle = {
@@ -139,5 +140,10 @@ pt.langInfluence.init = function() {
       }
       net.autoZoom();
     });
+    self.net = net;
   });
 };
+
+pt.langInfluence.destroy = function() {
+  this.net && this.net.destroy();
+}

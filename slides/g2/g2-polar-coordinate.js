@@ -5,10 +5,10 @@ pt.polarCood.init = function() {
 
   var chart = new G2.Chart({
     id: 'mountNode',
-    height: 640,
-    width: 1000,
+    height: 800,
+    width: 1400,
     plotCfg: {
-      margin: [50, 80, 140]
+      margin: [50, 250, 120, 80]
     }
   });
 
@@ -33,9 +33,9 @@ pt.polarCood.init = function() {
       text: 'Average Daily Temperature',
       textAlign: 'start'
     },
-    position: 'bottom',
-    width: 160, // 连续图例宽度
-    height: 20, // 连续图例高度度
+    // position: 'bottom',
+    height: 160, // 连续图例宽度
+    width: 20, // 连续图例高度度
     dx: 25
   });
   chart.axis('date', false);
@@ -80,4 +80,9 @@ pt.polarCood.init = function() {
   }
 
   chart.render();
+  this.chart = chart;
 };
+
+pt.polarCood.destroy = function() {
+  this.chart && this.chart.destroy();
+}

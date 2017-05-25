@@ -3266,8 +3266,8 @@ pt.colorGradient.init = function() {
   var chart = new G2.Chart({
     id: 'colorGradient',
     //forceFit: true,
-    width: 600,
-    height: 650,
+    width: 700,
+    height: 700,
     plotCfg: {
       margin: [50, 100]
     }
@@ -3325,4 +3325,9 @@ pt.colorGradient.init = function() {
       shadowOffsetX: -15
     });
   chart.render();
+  this.chart = chart;
 };
+
+pt.colorGradient.destroy = function() {
+  this.chart && this.chart.destroy();
+}

@@ -29,10 +29,10 @@ pt.radarToPolar.init = function() {
   ];
   var chart = new G2.Chart({
     id: 'radarPolar',
-    width: 700,
-    height: 600,
+    width: 1350,
+    height: 800,
     plotCfg: {
-      margin: [60, 80, 80]
+      margin: [60, 80, 30]
     }
   });
   chart.source(data);
@@ -57,4 +57,9 @@ pt.radarToPolar.init = function() {
   chart.point().position('axis*value').color('phone', ["#EDC951","#CC333F","#00A0B0"])
     .shape('circle').size(3);
   chart.render();
+  this.chart = chart;
 };
+
+pt.radarToPolar.destroy = function() {
+  this.chart && this.chart.destroy();
+}
