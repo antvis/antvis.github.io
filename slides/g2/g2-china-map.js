@@ -1,6 +1,7 @@
 pt.chinaMap = pt.chinaMap || {};
 
 pt.chinaMap.init = function() {
+  var self = this;
       var Global = G2.Global;
       var Shape = G2.Shape;
       var Util = G2.Util;
@@ -77,8 +78,8 @@ pt.chinaMap.init = function() {
         }
         var chart = new G2.Chart({
           id: 'china',
-          width: 1440,
-          height: 800,
+          forceFit: true,
+          height: 1100,
           plotCfg: {
             margin: [0, 135]
           }
@@ -137,6 +138,11 @@ pt.chinaMap.init = function() {
             shadowColor: '#E07726'
           });
           chart.render();
+          self.chart = chart;
         });
       });
 };
+
+pt.chinaMap.destroy = function() {
+  this.chart && this.chart.destroy();
+}

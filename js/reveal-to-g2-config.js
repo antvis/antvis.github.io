@@ -48,11 +48,11 @@ pt.slideIdToFunctions = {
       pt.sankey.init();
     }
   },
-  'point-stack': {
-    'init': function() {
-      pt.pointStack.init();
-    }
-  },
+  // 'point-stack': {
+  //   'init': function() {
+  //     pt.pointStack.init();
+  //   }
+  // },
   'langInfluence': {
     'init': function() {
       pt.langInfluence.init();
@@ -93,60 +93,33 @@ pt.slideIdToFunctions = {
   }
 };
 
-// function removeSVGs() {
-
-//   //Remove (heavy) all existing svgs currently running
-//   d3.select('#title-slide #titleSlide svg').remove();
-
-//   d3.select('#intro-gradient #introGradient svg').remove();
-//   d3.select('#traffic-accidents #trafficAccidents svg').remove();
-//   d3.select("#legend-code-orientation #legendCodeOrientation svg").remove();
-//   d3.select('#legend-code-two #legendCodeTwo svg').remove();
-//   d3.select('#legend-code-multi #legendCodeMulti svg').remove();
-//   d3.select('#smooth-legend-SOM #SOMchart svg').remove();
-//   d3.select('#weather-radial #weatherRadial svg').remove();
-
-//   d3.select("#intro-planets #introPlanets svg").remove();
-//   d3.select("#planets-code #planetsCode svg").remove();
-//   d3.select("#stars-hr-diagram #starsHRDiagram svg").remove();
-
-//   d3.select('#intro-orientation #introOrientation svg').remove();
-//   d3.select('#orientation-grey #orientationGrey svg').remove();
-//   d3.select('#orientation-color-hex #orientationColorHex svg').remove();
-//   d3.select('#orientation-final #orientationFinal svg').remove();
-
-//   d3.select('#intro-slider #sliderIntro svg').remove();
-//   d3.selectAll('#baby-names-final svg').remove();
-//   d3.select('#slider-move-code #sliderMoveCode svg').remove();
-//   d3.select('#growth-bmi #growthBMI svg').remove();
-
-//   d3.select('#intro-animated-gradient #animatedGradientIntro svg').remove();
-//   d3.select('#sankey-example #sankey svg').remove();
-//   d3.select('#stretched-chord #stretchedChord svg').remove();
-//   d3.select('#stretched-chord-final #stretchedChordFinal svg').remove();
-//   d3.select("#minard #svgMinard defs").remove();
-
-//   d3.select("#intro-gooey #introGooey svg").remove();
-//   d3.select('#gooey-golf #gooeyGolf svg').remove();
-//   d3.select('#gooey-code #gooeyCode svg').remove();
-//   d3.select('#biggest-cities #biggestCities svg').remove();
-//   d3.select('#collision-detection #collisionDetection svg').remove();
-
-//   d3.select("#intro-glow #glowIntro svg").remove();
-//   d3.select('#radar-chart #radarChart svg').remove();
-//   d3.select("#glow-code #glowCode svg").remove();
-//   d3.select('#spiro-graph #spiroGraph svg').remove();
-
-//   d3.select('#intro-fuzzy #introFuzzy svg').remove();
-//   pt.fuzzyIntro.stopRepeat = true;
-//   d3.select('#fuzzy-code #fuzzyCode svg').remove();
-//   d3.select('#animal-speeds #animalSpeeds svg').remove();
-
-//   d3.select("#intro-colorAdd #introColorAdd svg").remove();
-//   d3.select('#colorAdd-blend-modes #colorAddBlendModes svg').remove();
-//   d3.select('#colorAdd-code #colorAddCode svg').remove();
-//   clearInterval(pt.colorAddCode.infinityLoop);
-
-//   d3.select('#end-slide #endSlide svg').remove();
-
-// }
+function destroyChart() {
+  pt.arcDiagram.destroy();
+  pt.customized.destroy();
+  pt.polarCood.destroy();
+  pt.colorGradient.destroy();
+  pt.radar.destroy();
+  pt.radarToPolar.destroy();
+  pt.chinaMap.destroy();
+  pt.linkage.destroy();
+  pt.arcDiagram.destroy();
+  pt.sankey.destroy();
+  // pt.pointStack.destroy();
+  pt.langInfluence.destroy();
+  pt.g6Force.destroy();
+  pt.g6RiverFlow.destroy();
+  pt.g6Flow.destroy();
+  pt.gmStackedArea.destroy();
+  pt.gmArea.destroy();
+  pt.lineDash.destroy();
+  pt.lineSmooth.destroy();
+  pt.gmRadar.destroy();
+  pt.gmKChart.destroy();
+  pt.gmStackedBar.destroy();
+  pt.gmBar.destroy();
+  pt.gmDoubleY.destroy();
+  pt.gmDashboard.destroy();
+  pt.gmNested.destroy();
+  pt.gmDonut.destroy();
+  pt.gmPie.destroy();
+}

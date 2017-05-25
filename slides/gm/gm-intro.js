@@ -29,6 +29,7 @@ pt.gmStackedArea.init = function() {
   });
   chart.animate().waveh();
   chart.render();
+  this.chart = chart;
 
   function getPoint(canvas, x, y) {
     var bbox = canvas.getBoundingClientRect();
@@ -48,6 +49,10 @@ pt.gmStackedArea.init = function() {
     alert(html);
   });
 };
+
+pt.gmStackedArea.destroy = function() {
+  this.chart && this.chart.clear();
+}
 
 pt.gmArea = pt.gmArea || {};
 pt.gmArea.init = function() {
@@ -98,7 +103,11 @@ pt.gmArea.init = function() {
     opacity: 0.6
   });
   chart.render();
+  this.chart = chart;
 };
+pt.gmArea.destroy = function() {
+  this.chart && this.chart.clear();
+}
 
 pt.lineDash = pt.lineDash || {};
 pt.lineDash.init = function() {
@@ -163,6 +172,11 @@ pt.lineDash.init = function() {
   // 水平方向的平铺动画
   chart.animate().waveh();
   chart.render();
+  this.chart = chart;
+}
+
+pt.lineDash.destroy = function() {
+  this.chart && this.chart.clear();
 }
 
 pt.lineSmooth = pt.lineSmooth || {};
@@ -212,7 +226,11 @@ pt.lineSmooth.init = function() {
   chart.animate().waveh();
   chart.line().position('time*tem').color('city').shape('smooth');
   chart.render();
+  this.chart = chart;
 };
+pt.lineSmooth.destroy = function() {
+  this.chart && this.chart.clear();
+}
 
 pt.gmRadar = pt.gmRadar || {};
 pt.gmRadar.init = function() {
@@ -243,12 +261,17 @@ pt.gmRadar.init = function() {
   chart.line().position('props*value').color('name');
   chart.animate().wavec();
   chart.render();
+  this.chart = chart;
+}
+pt.gmRadar.destroy = function() {
+  this.chart && this.chart.clear();
 }
 
 pt.gmKChart = pt.gmKChart || {};
 pt.gmKChart.init = function() {
   var Util = GM.Util;
   GM.Global.pixelRatio = 2;
+  var self = this;
   //获取本地数据
   $.getJSON('slides/gm/mobileCandleSticks.json', function(data) {
     //数据处理
@@ -301,8 +324,12 @@ pt.gmKChart.init = function() {
       })
       .shape('candle');
     chart.render();
+    self.chart = chart;
   });
 };
+pt.gmKChart.destroy = function() {
+  this.chart && this.chart.clear();
+}
 
 pt.gmStackedBar = pt.gmStackedBar || {};
 pt.gmStackedBar.init = function() {
@@ -414,7 +441,11 @@ pt.gmStackedBar.init = function() {
   });
   chart.intervalStack().position('time*tem').color('city');
   chart.render();
+  this.chart = chart;
 };
+pt.gmStackedBar.destroy = function() {
+  this.chart && this.chart.clear();
+}
 
 pt.gmBar = pt.gmBar || {};
 pt.gmBar.init = function() {
@@ -473,7 +504,11 @@ pt.gmBar.init = function() {
   // y轴方向的缩放动画
   chart.animate().scaley();
   chart.render();
+  this.chart = chart;
 };
+pt.gmBar.destroy = function() {
+  this.chart && this.chart.clear();
+}
 
 pt.gmDoubleY = pt.gmDoubleY || {};
 pt.gmDoubleY.init = function() {
@@ -542,6 +577,10 @@ pt.gmDoubleY.init = function() {
   chart.line().position('time*rain').color('#5ed470').size(2).shape('smooth');
   chart.point().position('time*rain').color('#5ed470');
   chart.render();
+  this.chart = chart;
+}
+pt.gmDoubleY.destroy = function() {
+  this.chart && this.chart.clear();
 }
 
 pt.gmPie = pt.gmPie || {};
@@ -571,7 +610,11 @@ pt.gmPie.init = function() {
   chart.axis(false);
   chart.intervalStack().position('a*b').color('c');
   chart.render();
+  this.chart = chart;
 };
+pt.gmPie.destroy = function() {
+  this.chart && this.chart.clear();
+}
 
 pt.gmDonut = pt.gmDonut || {};
 pt.gmDonut.init = function() {
@@ -601,7 +644,11 @@ pt.gmDonut.init = function() {
   chart.intervalStack().position('a*b').color('c');
   chart.animate().wavec();
   chart.render();
+  this.chart = chart;
 };
+pt.gmDonut.destroy = function() {
+  this.chart && this.chart.clear();
+}
 
 pt.gmNested = pt.gmNested || {};
 pt.gmNested.init = function() {
@@ -642,7 +689,11 @@ pt.gmNested.init = function() {
   chart.axis(false);
   chart.intervalStack().position('a*b').color('c');
   chart.render();
+  this.chart = chart;
 };
+pt.gmNested.destroy = function() {
+  this.chart && this.chart.clear();
+}
 
 pt.gmDashboard = pt.gmDashboard || {};
 pt.gmDashboard.init = function() {
@@ -766,4 +817,8 @@ pt.gmDashboard.init = function() {
   });
   chart.point().position('value*y').size('length').color('#18b7d6').shape('dashBoard');
   chart.render();
+  this.chart = chart;
 };
+pt.gmDashboard.destroy = function() {
+  this.chart && this.chart.clear();
+}
