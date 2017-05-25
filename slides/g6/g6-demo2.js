@@ -1,6 +1,7 @@
 pt.g6Force = pt.g6Force || {};
 
 pt.g6Force.init = function() {
+  var self = this;
   $.getJSON('/slides/g6/data/chengshifuwu.json', function(data) {
     var Util = G6.Util;
     var Layout = G6.Layout;
@@ -73,5 +74,10 @@ pt.g6Force.init = function() {
       });
       net.refresh();
     };
+    self.net = net;
   });
 };
+
+pt.g6Force.destroy = function() {
+  this.net && this.net.destroy();
+}

@@ -1,6 +1,6 @@
 pt.arcDiagram = pt.arcDiagram || {};
 pt.arcDiagram.init = function() {
-
+      var self = this;
       $.getJSON('https://os.alipayobjects.com/rmsportal/WgStbjtdSAvCyXEhBuRi.json', function(data) {
         var Stat = G2.Stat;// 统计算法对象
         var Layout = G2.Layout;// 布局算法对像
@@ -15,7 +15,7 @@ pt.arcDiagram.init = function() {
         var chart = new G2.Chart({
           id: 'arcDiagramChart',
           width: 1000,
-          height: 700,
+          height: 800,
           animate: false,
           plotCfg:{
             margin: [80,0,80,0]
@@ -59,5 +59,10 @@ pt.arcDiagram.init = function() {
         })
           .tooltip('size*modularity_class');
         chart.render();
+        self.chart = chart;
       });
 };
+
+pt.arcDiagram.destroy = function() {
+  this.chart && this.chart.destroy();
+}

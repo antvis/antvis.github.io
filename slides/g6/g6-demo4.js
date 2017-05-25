@@ -240,9 +240,15 @@ var Util = G6.Util;
       net.source(nodes, edges);
       // 第七步：渲染关系图
       net.render();
+      this.net = net;
 };
 
+pt.g6RiverFlow.destroy = function() {
+  this.net && this.net.destroy();
+}
+
 pt.g6Flow.init = function() {
+  var self = this;
 $.getJSON('/slides/g6/data/sign-flow.json',function(data){
         G6.Global.nodeLabelStyle = {
           fill: '#fff',
@@ -352,5 +358,9 @@ $.getJSON('/slides/g6/data/sign-flow.json',function(data){
           stroke: '#40BCF3'
         });
         net.render();
+        self.net = net;
       });
 };
+pt.g6Flow.destroy = function() {
+  this.net && this.net.destroy();
+}

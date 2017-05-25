@@ -1,6 +1,7 @@
 pt.g6SystemNet = pt.g6SystemNet || {};
 
 pt.g6SystemNet.init = function() {
+  var self = this;
   $.getJSON('/slides/g6/data/systemNet.json',function(data){
         var Layout = G6.Layout;
         var Util = G6.Util;
@@ -122,5 +123,10 @@ pt.g6SystemNet.init = function() {
           });
           net.refresh();
         });
+        self.net = net;
       });
 };
+
+pt.g6SystemNet.destroy = function() {
+  this.net && this.net.destroy();
+}

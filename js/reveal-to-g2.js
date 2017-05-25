@@ -22,7 +22,7 @@ pt.handleEvent = function(isSlideEvent) {
   // Call the init function when arriving on a slide for the first time.
   if (isSlideEvent) {
     //First remove any SVGs still present when changing a slide
-    // removeSVGs();
+    destroyChart();
 
     var initFunction = functions.init;
     if (initFunction != null) {
