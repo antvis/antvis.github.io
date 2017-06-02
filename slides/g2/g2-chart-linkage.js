@@ -187,7 +187,7 @@ pt.linkage.init = function() {
 
   var scatterChart = new G2.Chart({
     id: 'linkageChart1',
-    width: 600,
+    width: 450,
     height: 600,
     plotCfg: {
       margin: [10, 20, 60, 100],
@@ -209,7 +209,7 @@ pt.linkage.init = function() {
   frame = Frame.sort(frame, '销售额'); // 将数据源排序
   var barChart = new G2.Chart({
     id: 'linkageChart2',
-    width: 600,
+    width: 450,
     height: 600,
     plotCfg: {
       margin: [10, 20, 60, 100],
