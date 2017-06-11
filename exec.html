@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <title>G2 执行</title>
+  <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/dpl.css" rel="stylesheet">
+  <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/bui.css" rel="stylesheet">
+  
+  <style>
+    .doc-content{
+      width: 800px;
+      float: left;
+    }
+    .doc-list{
+      width:600px;
+      float: right;
+    }
+  </style>
+</head>
+<body>
+ 
+<div class="doc-content">
+  <!--https://a.alipayobjects.com/g2/0.9.12/index.js-->
+ <div class="doc-inner">
+  <h2 id="简介">简介</h2>
+    <div class="hide">
+    <p>你可以在这个页面中输入数据源，执行G2代码</p>
+    <h2 id="输入数据源">输入数据源</h2><ul>
+    <li>请输入 JSON 数组</li>
+    <li>默认的数据源是钻石的1000条数据</li>
+    <textarea id="J_Input" name="" id="" cols="30" rows="15" style="width:100%;border-color:#999;">
+    </textarea>
+    <div class="J_InputLog"></div>
+    <table class="table" id="data_table"></table>
+    <div id="data_num"></div>
+    <button class="button button-large" id="J_load">载入</button>
+  </div>
+
+  <h2 id="输入g2代码">输入G2代码</h2><ul>
+  <li>钻石 Demo , 可以将右侧的命令输入文本框</li>
+  </ul>
+  <div>
+    <textarea id="J_Code" name="" id="" cols="30" rows="3" style="width:750px;border-color:#999;">
+      chart.interval().position(Stat.summary.count('clarity')).color('clarity');
+    </textarea>
+    <button class="button button-large" id="J_Btn">执行</button>
+  </div>
+  <div class="J_CodeLog"></div>
+
+
+  <h2 id="显示图表">显示图表</h2>
+  <div id="c1"></div>
+  <script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="https://as.test.alipay.net/g/datavis/g2/1.2.0/index.js"></script> 
+
+  <script>
+
+  var codeEl = $('#J_Code');
+  var inputEl = $('#J_Input');
+  var inputLogEl = $('#J_InputLog');
+
+  var Stat = G2.Stat;
+
+  var chart = new G2.Chart({
+    id: 'c1',
+    width: 700,
+    height: 400
+  });
+
+
+
+  $('#J_Btn').on('click',function(){
+    chart.clear();
+    var cmd = codeEl.val();
+    exec(cmd);
+    chart.render();
+  });
+
+  $('#J_load').on('click', function() {
+    loadData();
+  });
+
+  $.getJSON('./diamond.json',function (data) {
+    inputEl.text(JSON.stringify(data.slice(0,1000)));
+    loadData();
+    chart.interval().position(Stat.summary.count('clarity')).color('clarity');
+    chart.render();
+  });
+
+  function loadData() {
+    var data = getData();
+    if (data && data.length > 0) {
+      var thead = '<thead><tr>';
+      var tbody = '<tbody><tr>';
+      for (var i in data[0]) {
+        thead += '<th>';
+        thead += i;
+        thead += '</th>';
+        tbody += '<td>';
+        tbody += data[0][i];
+        tbody += '</td>';
+      }
+      thead += '</tr></thead>';
+      tbody += '</tr></tbody>';
+      chart.source(data);
+      $('#data_table').html(thead + tbody);
+      $('#data_num').html('共' + data.length + '条数据');
+    } else {
+      $('#data_table').html('');
+      $('#data_num').html('共' + 0 + '条数据');
+    }
+  }
+
+  function getData () {
+    var data = null;
+    var msg = '';
+    try {
+      data = JSON.parse(inputEl.val());
+    } catch (e){
+      msg = '输入的数据存在错误!!请输入标准JSON';
+    }
+    inputLogEl.text(msg);
+    return data;
+  }
+
+  function exec(cmd){
+    try {
+      eval(cmd);
+    }catch(ev){
+      console.log(ev);
+    }
+  }
+
+  </script>
+
+</div>
+</div>
+</div>
+<div class="doc-list">
+  <h3>图表语法</h3>
+
+  <h4>基本点图</h4>
+  <ul>
+    <li>chart.point().position('carat*price');</li>
+    <li>chart.point().position('carat*price').color('color');</li>
+    <li>chart.point().position('carat*price').color('color').shape('clarity');</li>
+  </ul>
+  <h4>分面</h4>
+  <ul>
+    <li>chart.facet(['cut','color']);chart.point().position('carat*price');</li>
+    <li>chart.facet(['cut']);</li>
+    <li>chart.facet([,'color']);</li>
+    <li>chart.facet([]);</li> 
+  </ul>
+  <a id="分布" class="anchor" href="#%E5%88%86%E5%B8%83" aria-hidden="true"></a>分布</h3>
+
+<ul>
+<li>chart.point().position('clarity').color('clarity');</li>
+<li>chart.pointStack().position('clarity').color('clarity').size(0.4);</li>
+<li>chart.pointJitter().position('clarity').color('clarity');</li>
+<li>chart.pointDodge().position('clarity').color('cut').size(1.2)</li>
+<li>chart.pointJitter().position('cut*depth').color('cut')</li>
+</ul>
+
+<h3>
+<a id="柱状图分布" class="anchor" href="#%E6%9F%B1%E7%8A%B6%E5%9B%BE%E5%88%86%E5%B8%83" aria-hidden="true"></a>柱状图分布</h3>
+
+<ul>
+<li>chart.interval().position(Stat.summary.count('clarity')).color('clarity');</li>
+<li>chart.interval().position(Stat.summary.count(Stat.bin.rect('depth'))).color('red');</li>
+<li>chart.intervalStack().position(Stat.summary.count(Stat.bin.rect('depth'))).color('cut');</li>
+</ul>
+
+<h3>
+<a id="分布密度" class="anchor" href="#%E5%88%86%E5%B8%83%E5%AF%86%E5%BA%A6" aria-hidden="true"></a>分布密度</h3>
+
+<ul>
+<li>chart.intervalStack().position(Stat.summary.percent(Stat.summary.count('cut')));</li>
+<li>chart.interval().position(Stat.summary.percent(Stat.summary.count(Stat.bin.rect('depth')))).color('red');</li>
+<li>chart.line().position(Stat.summary.percent(Stat.summary.count(Stat.bin.rect('depth')))).color('red');</li>
+<li>chart.line().position(Stat.summary.accumulate(Stat.summary.percent(Stat.summary.count(Stat.bin.rect('depth',0.03))))).color('red').shape('smooth')</li>
+</ul>
+
+<h3>
+<a id="柱状层叠百分比" class="anchor" href="#%E6%9F%B1%E7%8A%B6%E5%B1%82%E5%8F%A0%E7%99%BE%E5%88%86%E6%AF%94" aria-hidden="true"></a>柱状层叠/百分比</h3>
+
+<ul>
+<li>chart.intervalStack().position(Stat.summary.percent(Stat.summary.count('clarity'))).color('cut');</li>
+<li>chart.intervalStack().position(Stat.summary.percent(Stat.summary.mean('clarity*price'))).color('cut');</li>
+</ul>
+
+<h3>
+<a id="分析" class="anchor" href="#%E5%88%86%E6%9E%90" aria-hidden="true"></a>分析</h3>
+
+<ul>
+<li>chart.interval().position(Stat.summary.mean('cut*price')).color('cut');</li>
+<li>chart.interval().position(Stat.summary.mean('clarity*price')).color('clarity');</li>
+<li><p>chart.interval().position(Stat.summary.mean('color*price')).color('color');</p></li>
+<li><p>chart.pointStack().position('clarity').color('clarity').size(0.4);</p></li>
+<li><p>chart.pointJitter().position('clarity').color('clarity');</p></li>
+<li><p>chart.pointDodge().position('clarity').color('cut').size(1.2)</p></li>
+</ul>
+
+<h3>
+<a id="饼图" class="anchor" href="#%E9%A5%BC%E5%9B%BE" aria-hidden="true"></a>饼图</h3>
+
+<ul>
+<li>chart.interval().position(Stat.summary.proportion()).color('cut');</li>
+<li><p>chart.intervalStack().position(Stat.summary.proportion()).color('cut');</p></li>
+<li><p>chart.intervalStack().position(Stat.summary.percent(Stat.summary.count())).color('cut');</p></li>
+<li>
+<p>chart.intervalStack().position(Stat.summary.percent(Stat.summary.mean('price'))).color('cut');</p>
+
+<h4>
+<a id="环图" class="anchor" href="#%E7%8E%AF%E5%9B%BE" aria-hidden="true"></a>环图</h4>
+</li>
+<li><p>chart.coord('theta',{inner: 0.4});</p></li>
+<li><p>chart.intervalStack().position(Stat.summary.proportion()).color('cut');</p></li>
+</ul>
+
+<h3>
+<a id="其他图" class="anchor" href="#%E5%85%B6%E4%BB%96%E5%9B%BE" aria-hidden="true"></a>其他图</h3>
+
+<ul>
+<li>chart.coord('rect')</li>
+<li>chart.line().position(Stat.summary.mean('cut*price'));</li>
+<li>chart.area().position(Stat.summary.mean('cut*price'));</li>
+</ul>
+
+<h3>
+<a id="马赛克图" class="anchor" href="#%E9%A9%AC%E8%B5%9B%E5%85%8B%E5%9B%BE" aria-hidden="true"></a>马赛克图</h3>
+
+<ul>
+<li>chart.polygon().position(Stat.bin.rect('carat*price',0.01)).color(Stat.summary.count(),'lightness');</li>
+<li>chart.polygon().position(Stat.bin.rect('cut*carat',0.01)).color(Stat.summary.count(),'lightness');</li>
+<li>chart.polygon().position('cut*color').color(Stat.summary.count(),'lightness');</li>
+<li>chart.polygon().position(Stat.bin.hex('carat*price',0.03)).color(Stat.summary.count(),'blue');</li>
+</ul>
+
+<h3>坐标系</h3>
+
+<ul>
+  <li>chart.coord('rect')</li>
+  <li>chart.coord('rect').transpose()</li>
+  <li>chart.coord('rect').reflect()</li>
+  <li>chart.coord('rect').scale(1, -1)</li>
+  <li>chart.coord('rect').rotate(60);</li>
+  <li>chart.coord('polar')</li>
+  <li>chart.coord('polar').transpose()</li>
+  <li>chart.coord('polar').reflect()</li>
+  <li>chart.coord('polar', {inner: 0.4})</li>
+  <li>chart.coord('polar', {inner: 0.4})</li>
+  <li>chart.coord('polar', {startAngle: 0, endAngle: Math.PI})</li>
+</ul>
+
+<h3>
+<a id="多坐标轴" class="anchor" href="#%E5%A4%9A%E5%9D%90%E6%A0%87%E8%BD%B4" aria-hidden="true"></a>多坐标轴</h3>
+
+<ul>
+<li>chart.interval().position(Stat.summary.mean('cut*price')).color('cut');</li>
+<li>chart.line().position(Stat.summary.count('cut'))</li>
+</ul>
+
+<h2>
+<a id="图形类型" class="anchor" href="#%E5%9B%BE%E5%BD%A2%E7%B1%BB%E5%9E%8B" aria-hidden="true"></a>图形类型</h2>
+
+<h3>
+<a id="line" class="anchor" href="#line" aria-hidden="true"></a>line</h3>
+
+<ul>
+<li>chart.line().position(Stat.summary.mean('cut*price')).color('color');</li>
+<li>chart.line().position(Stat.summary.mean('cut*price')).shape('smooth')</li>
+<li>chart.line().position(Stat.summary.mean('cut*price')).shape('dot')</li>
+<li>chart.line().position(Stat.summary.mean('cut*price')).shape('dotSmooth')</li>
+<li>chart.line().position(Stat.summary.mean('cut*price')).shape('color');</li>
+</ul>
+
+<h3>
+<a id="area" class="anchor" href="#area" aria-hidden="true"></a>area</h3>
+
+<ul>
+<li>chart.area().position(Stat.summary.mean('cut*price')).color('color')</li>
+<li>chart.area().position(Stat.summary.mean('cut*price')).shape('smooth')</li>
+<li>chart.area().position(Stat.summary.mean('cut*price')).shape('line')</li>
+<li>chart.area().position(Stat.summary.mean('cut*price')).shape('dotLine')</li>
+<li>chart.area().position(Stat.summary.mean('cut*price')).shape('dotSmoothLine')</li>
+<li>chart.area().position(Stat.summary.mean('cut*price')).shape('color');</li>
+</ul>
+
+<h3>
+<a id="interval" class="anchor" href="#interval" aria-hidden="true"></a>interval</h3>
+
+<ul>
+<li>chart.interval().position(Stat.summary.mean('cut*price')).color('cut')</li>
+<li>chart.intervalStack().position(Stat.summary.mean('cut*price')).color('color')</li>
+<li>chart.intervalDodge().position(Stat.summary.mean('cut*price')).color('color')</li>
+<li>chart.interval().position(Stat.summary.mean('cut*price')).color('cut').shape('hollowRect');</li>
+<li>chart.interval().position(Stat.summary.mean('cut*price')).color('cut').shape('line');</li>
+<li><p>chart.interval().position(Stat.summary.mean('cut*price')).color('cut').shape('tick');</p></li>
+<li><p>chart.interval().position(Stat.summary.range('cut*price')).color('cut')</p></li>
+</ul>
+
+<h3>
+<a id="schema" class="anchor" href="#schema" aria-hidden="true"></a>schema</h3>
+
+<ul>
+<li>chart.schema().position(Stat.bin.quantile.letter('cut*price')).shape('box');</li>
+<li>chart.schema().position(Stat.bin.quantile.letter('price')).shape('box');</li>
+<li>chart.schemaDodge().position(Stat.bin.quantile.letter('cut*price')).shape('box').color('color');</li>
+<li>chart.schemaDodge().position(Stat.bin.quantile.letter('price')).shape('box').color('color')</li>
+</ul>
+
+<h3>
+<a id="guide" class="anchor" href="#guide" aria-hidden="true"></a>guide</h3>
+
+<ul>
+<li>chart.guide().line([1,4000],[2,5000]);</li>
+<li>chart.guide().tag([1,0],[1,20000],'均值');</li>
+<li>chart.guide().rect([1,0],[2,20000]);</li>
+</ul>
+
+<h3>
+<a id="更多分面" class="anchor" href="#%E6%9B%B4%E5%A4%9A%E5%88%86%E9%9D%A2" aria-hidden="true"></a>更多分面</h3>
+
+<ul>
+<li>chart.facet(['color','clarity']); </li>
+<li>chart.facet(['color'],{type: 'list',cols: 3}); </li>
+<li>chart.facet(['color'],{type: 'polar'}); </li>
+<li>chart.facet(['color'],{type: 'tree',line: {stroke: '#00a3d7'}}); </li>
+</ul>
+
+<h3>
+<a id="regress" class="anchor" href="#regress" aria-hidden="true"></a>regress</h3>
+
+<ul>
+<li>chart.point().position('carat*price');</li>
+<li>chart.line().position(Stat.smooth.linear('carat*price'));</li>
+</ul>
+
+<h3>
+<a id="热力图" class="anchor" href="#%E7%83%AD%E5%8A%9B%E5%9B%BE" aria-hidden="true"></a>热力图</h3>
+
+<ul>
+<li>chart.heatmap().position(Stat.density.kernel.gaussian('carat*price'));</li>
+</ul>
+
+
+</div>
+ 
+</body>
+</html>
