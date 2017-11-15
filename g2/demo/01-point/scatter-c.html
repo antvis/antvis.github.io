@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>G2 - 划分区域的多形状散点图</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../static/jquery.js"></script>
+  <script src="../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body class="demo-detail-page">
+ 
+
+  <div class="main-container clearfix">
+
+<div class="body-content demo-detail">
+
+  <!-- demo 页面头部导航栏 -->
+  <div class="demo-head">
+    <div class="header clearfix">
+      <a class="header-back" href="/g2/doc">
+        <i class="iconfont icon-cross"></i>
+      </a>
+      <div class="header-crumb">
+        <span class="chanel">G2</span> 图表示例
+      </div>
+    </div>
+  </div>
+
+  <!-- 左侧导航栏 -->
+  <div class="doc-nav">
+    <ul class="doc-nav-list">
+      <li class="">
+        <i class="iconfont">&#xe637;</i>
+        <!-- <a href="#点图" id="demo点图" class="j_navItems">点图</a> -->
+        <a href="/g2/demo/index.html#点图" id="demo点图" class="j_navItems">点图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo点图">
+          <li>
+            <a href="../../../g2/demo/01-point/scatter-a.html">
+              <img src="../../../static/images/g2/01-point/scatter-a.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/01-point/scatter-b.html">
+              <img src="../../../static/images/g2/01-point/scatter-b.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/01-point/scatter-c.html">
+              <img src="../../../static/images/g2/01-point/scatter-c.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/01-point/bubble-a.html">
+              <img src="../../../static/images/g2/01-point/bubble-a.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/01-point/bubble-b.html">
+              <img src="../../../static/images/g2/01-point/bubble-b.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/01-point/bubble-c.html">
+              <img src="../../../static/images/g2/01-point/bubble-c.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/01-point/jitter.html">
+              <img src="../../../static/images/g2/01-point/jitter.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/01-point/scatter-matrix.html">
+              <img src="../../../static/images/g2/01-point/scatter-matrix.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/01-point/punch-card.html">
+              <img src="../../../static/images/g2/01-point/punch-card.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe613;</i>
+        <!-- <a href="#线图" id="demo线图" class="j_navItems">线图</a> -->
+        <a href="/g2/demo/index.html#线图" id="demo线图" class="j_navItems">线图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo线图">
+          <li>
+            <a href="../../../g2/demo/02-line/simple-line.html">
+              <img src="../../../static/images/g2/02-line/simple-line.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/02-line/line-of-dashed.html">
+              <img src="../../../static/images/g2/02-line/line-of-dashed.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/02-line/line-01.html">
+              <img src="../../../static/images/g2/02-line/line-01.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/02-line/line-02.html">
+              <img src="../../../static/images/g2/02-line/line-02.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/02-line/line-03.html">
+              <img src="../../../static/images/g2/02-line/line-03.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/02-line/step-line.html">
+              <img src="../../../static/images/g2/02-line/step-line.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/02-line/sparklines.html">
+              <img src="../../../static/images/g2/02-line/sparklines.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/02-line/redial-line.html">
+              <img src="../../../static/images/g2/02-line/redial-line.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/02-line/line-kagi.html">
+              <img src="../../../static/images/g2/02-line/line-kagi.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/02-line/path.html">
+              <img src="../../../static/images/g2/02-line/path.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/02-line/update-line.html">
+              <img src="../../../static/images/g2/02-line/update-line.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe618;</i>
+        <!-- <a href="#区域图" id="demo区域图" class="j_navItems">区域图</a> -->
+        <a href="/g2/demo/index.html#区域图" id="demo区域图" class="j_navItems">区域图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo区域图">
+          <li>
+            <a href="../../../g2/demo/03-area/area-null.html">
+              <img src="../../../static/images/g2/03-area/area-null.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/03-area/area-stack.html">
+              <img src="../../../static/images/g2/03-area/area-stack.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/03-area/area-percent.html">
+              <img src="../../../static/images/g2/03-area/area-percent.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/03-area/area-range-line.html">
+              <img src="../../../static/images/g2/03-area/area-range-line.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/03-area/area.html">
+              <img src="../../../static/images/g2/03-area/area.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/03-area/streamgraph.html">
+              <img src="../../../static/images/g2/03-area/streamgraph.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe612;</i>
+        <!-- <a href="#柱状图" id="demo柱状图" class="j_navItems">柱状图</a> -->
+        <a href="/g2/demo/index.html#柱状图" id="demo柱状图" class="j_navItems">柱状图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo柱状图">
+          <li>
+            <a href="../../../g2/demo/04-bar/bar.html">
+              <img src="../../../static/images/g2/04-bar/bar.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/04-bar/h-bar.html">
+              <img src="../../../static/images/g2/04-bar/h-bar.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/04-bar/stacked-bar.html">
+              <img src="../../../static/images/g2/04-bar/stacked-bar.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/04-bar/column-dodge.html">
+              <img src="../../../static/images/g2/04-bar/column-dodge.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/04-bar/clustered-stacked-bar.html">
+              <img src="../../../static/images/g2/04-bar/clustered-stacked-bar.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/04-bar/diverging-stacked-bar.html">
+              <img src="../../../static/images/g2/04-bar/diverging-stacked-bar.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/04-bar/column-line.html">
+              <img src="../../../static/images/g2/04-bar/column-line.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/04-bar/range-bar.html">
+              <img src="../../../static/images/g2/04-bar/range-bar.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/04-bar/bar-negative.html">
+              <img src="../../../static/images/g2/04-bar/bar-negative.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/04-bar/error.html">
+              <img src="../../../static/images/g2/04-bar/error.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/04-bar/column-bullet.html">
+              <img src="../../../static/images/g2/04-bar/column-bullet.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/04-bar/waterfall-chart.html">
+              <img src="../../../static/images/g2/04-bar/waterfall-chart.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/04-bar/image-top-bar.html">
+              <img src="../../../static/images/g2/04-bar/image-top-bar.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/04-bar/interval-of-marked.html">
+              <img src="../../../static/images/g2/04-bar/interval-of-marked.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/04-bar/update-bar.html">
+              <img src="../../../static/images/g2/04-bar/update-bar.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/04-bar/column-helix.html">
+              <img src="../../../static/images/g2/04-bar/column-helix.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe615;</i>
+        <!-- <a href="#饼图" id="demo饼图" class="j_navItems">饼图</a> -->
+        <a href="/g2/demo/index.html#饼图" id="demo饼图" class="j_navItems">饼图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo饼图">
+          <li>
+            <a href="../../../g2/demo/05-pie/pie.html">
+              <img src="../../../static/images/g2/05-pie/pie.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/05-pie/donut.html">
+              <img src="../../../static/images/g2/05-pie/donut.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/05-pie/pie-nest.html">
+              <img src="../../../static/images/g2/05-pie/pie-nest.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe616;</i>
+        <!-- <a href="#南丁格尔玫瑰图" id="demo南丁格尔玫瑰图" class="j_navItems">南丁格尔玫瑰图</a> -->
+        <a href="/g2/demo/index.html#南丁格尔玫瑰图" id="demo南丁格尔玫瑰图" class="j_navItems">南丁格尔玫瑰图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo南丁格尔玫瑰图">
+          <li>
+            <a href="../../../g2/demo/06-rose/rose-01.html">
+              <img src="../../../static/images/g2/06-rose/rose-01.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/06-rose/rose-02.html">
+              <img src="../../../static/images/g2/06-rose/rose-02.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/06-rose/rose-03.html">
+              <img src="../../../static/images/g2/06-rose/rose-03.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe627;</i>
+        <!-- <a href="#股票图" id="demo股票图" class="j_navItems">股票图</a> -->
+        <a href="/g2/demo/index.html#股票图" id="demo股票图" class="j_navItems">股票图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo股票图">
+          <li>
+            <a href="../../../g2/demo/07-k/k-chart-01.html">
+              <img src="../../../static/images/g2/07-k/k-chart-01.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/07-k/k-chart-02.html">
+              <img src="../../../static/images/g2/07-k/k-chart-02.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/07-k/k-chart-03.html">
+              <img src="../../../static/images/g2/07-k/k-chart-03.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe624;</i>
+        <!-- <a href="#漏斗图" id="demo漏斗图" class="j_navItems">漏斗图</a> -->
+        <a href="/g2/demo/index.html#漏斗图" id="demo漏斗图" class="j_navItems">漏斗图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo漏斗图">
+          <li>
+            <a href="../../../g2/demo/08-funnel/funnel.html">
+              <img src="../../../static/images/g2/08-funnel/funnel.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/08-funnel/pyramid.html">
+              <img src="../../../static/images/g2/08-funnel/pyramid.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/08-funnel/funnel-compare.html">
+              <img src="../../../static/images/g2/08-funnel/funnel-compare.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/08-funnel/funnel-mirror.html">
+              <img src="../../../static/images/g2/08-funnel/funnel-mirror.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe61b;</i>
+        <!-- <a href="#热力或色块图" id="demo热力或色块图" class="j_navItems">热力或色块图</a> -->
+        <a href="/g2/demo/index.html#热力或色块图" id="demo热力或色块图" class="j_navItems">热力或色块图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo热力或色块图">
+          <li>
+            <a href="../../../g2/demo/09-heatmap/heatmap-01.html">
+              <img src="../../../static/images/g2/09-heatmap/heatmap-01.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/09-heatmap/test-case.html">
+              <img src="../../../static/images/g2/09-heatmap/test-case.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/09-heatmap/heatmap-02.html">
+              <img src="../../../static/images/g2/09-heatmap/heatmap-02.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/09-heatmap/stock-calendar.html">
+              <img src="../../../static/images/g2/09-heatmap/stock-calendar.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/09-heatmap/heatmap-canvas.html">
+              <img src="../../../static/images/g2/09-heatmap/heatmap-canvas.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/09-heatmap/heatmap-03.html">
+              <img src="../../../static/images/g2/09-heatmap/heatmap-03.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/09-heatmap/image.html">
+              <img src="../../../static/images/g2/09-heatmap/image.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe60e;</i>
+        <!-- <a href="#地图" id="demo地图" class="j_navItems">地图</a> -->
+        <a href="/g2/demo/index.html#地图" id="demo地图" class="j_navItems">地图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo地图">
+          <li>
+            <a href="../../../g2/demo/10-map/china.html">
+              <img src="../../../static/images/g2/10-map/china.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/10-map/china-province.html">
+              <img src="../../../static/images/g2/10-map/china-province.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/10-map/world-map.html">
+              <img src="../../../static/images/g2/10-map/world-map.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/10-map/choropleth-map.html">
+              <img src="../../../static/images/g2/10-map/choropleth-map.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/10-map/map-bubble.html">
+              <img src="../../../static/images/g2/10-map/map-bubble.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/10-map/map-with-heatmap.html">
+              <img src="../../../static/images/g2/10-map/map-with-heatmap.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/10-map/world-albers.html">
+              <img src="../../../static/images/g2/10-map/world-albers.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/10-map/map-projection.html">
+              <img src="../../../static/images/g2/10-map/map-projection.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe61c;</i>
+        <!-- <a href="#treemap" id="demotreemap" class="j_navItems">treemap</a> -->
+        <a href="/g2/demo/index.html#treemap" id="demotreemap" class="j_navItems">treemap</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demotreemap">
+          <li>
+            <a href="../../../g2/demo/11-treemap/treemap.html">
+              <img src="../../../static/images/g2/11-treemap/treemap.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/11-treemap/clickable-treemap.html">
+              <img src="../../../static/images/g2/11-treemap/clickable-treemap.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/11-treemap/sunburst-chart.html">
+              <img src="../../../static/images/g2/11-treemap/sunburst-chart.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/11-treemap/polar-treemap.html">
+              <img src="../../../static/images/g2/11-treemap/polar-treemap.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/11-treemap/polar-slice-dice.html">
+              <img src="../../../static/images/g2/11-treemap/polar-slice-dice.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/11-treemap/polar-slice-transpose.html">
+              <img src="../../../static/images/g2/11-treemap/polar-slice-transpose.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe62a;</i>
+        <!-- <a href="#仪表盘" id="demo仪表盘" class="j_navItems">仪表盘</a> -->
+        <a href="/g2/demo/index.html#仪表盘" id="demo仪表盘" class="j_navItems">仪表盘</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo仪表盘">
+          <li>
+            <a href="../../../g2/demo/12-dashboards/dashboard.html">
+              <img src="../../../static/images/g2/12-dashboards/dashboard.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/12-dashboards/clock.html">
+              <img src="../../../static/images/g2/12-dashboards/clock.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe60b;</i>
+        <!-- <a href="#关系图" id="demo关系图" class="j_navItems">关系图</a> -->
+        <a href="/g2/demo/index.html#关系图" id="demo关系图" class="j_navItems">关系图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo关系图">
+          <li>
+            <a href="../../../g2/demo/13-link/flow.html">
+              <img src="../../../static/images/g2/13-link/flow.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/13-link/tree.html">
+              <img src="../../../static/images/g2/13-link/tree.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/13-link/tree-circle.html">
+              <img src="../../../static/images/g2/13-link/tree-circle.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/13-link/department.html">
+              <img src="../../../static/images/g2/13-link/department.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/13-link/tree-cascade.html">
+              <img src="../../../static/images/g2/13-link/tree-cascade.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/13-link/arcDiagram.html">
+              <img src="../../../static/images/g2/13-link/arcDiagram.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/13-link/chordDiagram.html">
+              <img src="../../../static/images/g2/13-link/chordDiagram.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/13-link/sankey.html">
+              <img src="../../../static/images/g2/13-link/sankey.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe619;</i>
+        <!-- <a href="#雷达图" id="demo雷达图" class="j_navItems">雷达图</a> -->
+        <a href="/g2/demo/index.html#雷达图" id="demo雷达图" class="j_navItems">雷达图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo雷达图">
+          <li>
+            <a href="../../../g2/demo/14-radar/radar.html">
+              <img src="../../../static/images/g2/14-radar/radar.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/14-radar/radar-stacked-percent-area.html">
+              <img src="../../../static/images/g2/14-radar/radar-stacked-percent-area.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/14-radar/radar-line.html">
+              <img src="../../../static/images/g2/14-radar/radar-line.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/14-radar/radar-multiple.html">
+              <img src="../../../static/images/g2/14-radar/radar-multiple.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe629;</i>
+        <!-- <a href="#箱型图" id="demo箱型图" class="j_navItems">箱型图</a> -->
+        <a href="/g2/demo/index.html#箱型图" id="demo箱型图" class="j_navItems">箱型图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo箱型图">
+          <li>
+            <a href="../../../g2/demo/15-box/boxplot-01.html">
+              <img src="../../../static/images/g2/15-box/boxplot-01.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/15-box/boxplot-02.html">
+              <img src="../../../static/images/g2/15-box/boxplot-02.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/15-box/boxplot-03.html">
+              <img src="../../../static/images/g2/15-box/boxplot-03.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe635;</i>
+        <!-- <a href="#极坐标" id="demo极坐标" class="j_navItems">极坐标</a> -->
+        <a href="/g2/demo/index.html#极坐标" id="demo极坐标" class="j_navItems">极坐标</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo极坐标">
+          <li>
+            <a href="../../../g2/demo/16-polar/aster-plot.html">
+              <img src="../../../static/images/g2/16-polar/aster-plot.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/16-polar/polar-interval.html">
+              <img src="../../../static/images/g2/16-polar/polar-interval.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/16-polar/radial-bar.html">
+              <img src="../../../static/images/g2/16-polar/radial-bar.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/16-polar/wind-rose.html">
+              <img src="../../../static/images/g2/16-polar/wind-rose.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/16-polar/corona.html">
+              <img src="../../../static/images/g2/16-polar/corona.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/16-polar/polar-heatmap.html">
+              <img src="../../../static/images/g2/16-polar/polar-heatmap.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/16-polar/polar-box.html">
+              <img src="../../../static/images/g2/16-polar/polar-box.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/16-polar/pizza.html">
+              <img src="../../../static/images/g2/16-polar/pizza.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/16-polar/polar-line.html">
+              <img src="../../../static/images/g2/16-polar/polar-line.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe6ea;</i>
+        <!-- <a href="#分面" id="demo分面" class="j_navItems">分面</a> -->
+        <a href="/g2/demo/index.html#分面" id="demo分面" class="j_navItems">分面</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo分面">
+          <li>
+            <a href="../../../g2/demo/17-facet/rect.html">
+              <img src="../../../static/images/g2/17-facet/rect.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/17-facet/circle.html">
+              <img src="../../../static/images/g2/17-facet/circle.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/17-facet/row.html">
+              <img src="../../../static/images/g2/17-facet/row.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/17-facet/column.html">
+              <img src="../../../static/images/g2/17-facet/column.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/17-facet/tree-column.html">
+              <img src="../../../static/images/g2/17-facet/tree-column.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/17-facet/tree-m.html">
+              <img src="../../../static/images/g2/17-facet/tree-m.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/17-facet/mirror.html">
+              <img src="../../../static/images/g2/17-facet/mirror.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/17-facet/mirror-transpose.html">
+              <img src="../../../static/images/g2/17-facet/mirror-transpose.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe6e9;</i>
+        <!-- <a href="#其他图表" id="demo其他图表" class="j_navItems">其他图表</a> -->
+        <a href="/g2/demo/index.html#其他图表" id="demo其他图表" class="j_navItems">其他图表</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo其他图表">
+          <li>
+            <a href="../../../g2/demo/18-other/histogram.html">
+              <img src="../../../static/images/g2/18-other/histogram.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/hot-rect.html">
+              <img src="../../../static/images/g2/18-other/hot-rect.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/hot-hex.html">
+              <img src="../../../static/images/g2/18-other/hot-hex.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/contour.html">
+              <img src="../../../static/images/g2/18-other/contour.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/stem-leaf.html">
+              <img src="../../../static/images/g2/18-other/stem-leaf.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/pareto-chart.html">
+              <img src="../../../static/images/g2/18-other/pareto-chart.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/distributioncurve.html">
+              <img src="../../../static/images/g2/18-other/distributioncurve.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/regressioncurve.html">
+              <img src="../../../static/images/g2/18-other/regressioncurve.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/double-axis.html">
+              <img src="../../../static/images/g2/18-other/double-axis.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/chart-event.html">
+              <img src="../../../static/images/g2/18-other/chart-event.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/imageCloud.html">
+              <img src="../../../static/images/g2/18-other/imageCloud.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/cloud.html">
+              <img src="../../../static/images/g2/18-other/cloud.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/table-area.html">
+              <img src="../../../static/images/g2/18-other/table-area.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/html-tooltip.html">
+              <img src="../../../static/images/g2/18-other/html-tooltip.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/pie-in-tooltip.html">
+              <img src="../../../static/images/g2/18-other/pie-in-tooltip.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/styled-tooltip.html">
+              <img src="../../../static/images/g2/18-other/styled-tooltip.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/18-other/dynamic-guide.html">
+              <img src="../../../static/images/g2/18-other/dynamic-guide.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe645</i>
+        <!-- <a href="#gallery" id="demogallery" class="j_navItems">gallery</a> -->
+        <a href="/g2/demo/index.html#gallery" id="demogallery" class="j_navItems">gallery</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demogallery">
+          <li>
+            <a href="../../../g2/demo/19-creations/data-trend-with-polygon.html">
+              <img src="../../../static/images/g2/19-creations/data-trend-with-polygon.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/19-creations/pie-time-scale.html">
+              <img src="../../../static/images/g2/19-creations/pie-time-scale.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/19-creations/pie-time-scale-with-image.html">
+              <img src="../../../static/images/g2/19-creations/pie-time-scale-with-image.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/19-creations/slice-pie.html">
+              <img src="../../../static/images/g2/19-creations/slice-pie.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/19-creations/point-shape-animate.html">
+              <img src="../../../static/images/g2/19-creations/point-shape-animate.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/19-creations/sunburst-variant.html">
+              <img src="../../../static/images/g2/19-creations/sunburst-variant.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/19-creations/rounded-bar.html">
+              <img src="../../../static/images/g2/19-creations/rounded-bar.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/19-creations/rounded-stacked-bar.html">
+              <img src="../../../static/images/g2/19-creations/rounded-stacked-bar.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/19-creations/thermometer.html">
+              <img src="../../../static/images/g2/19-creations/thermometer.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g2/demo/19-creations/rounded-radial-bar.html">
+              <img src="../../../static/images/g2/19-creations/rounded-radial-bar.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+  </div>
+
+  <div class="nav-mask fadeIn hide"></div>
+
+  <script type="text/javascript">
+  var clearTime;
+  var navMask = $('div.nav-mask');
+  $('a.j_navItems').click(function(e) {
+    var target = $(e.target);
+    target.parent().addClass('active').siblings().removeClass('active');
+    navMask.addClass('hide');
+  });
+
+  $('a.j_navItems').mouseover(function(e) {
+    clearTimeout(clearTime);
+    var id = $(this).attr('id');
+    var top = $(this).offset().top - $(this).height() / 2;
+    navMask.removeClass('hide');
+    navMask.html($('#J_' + id).prop("outerHTML"));
+    navMask.css('top', top);
+  }).mouseout(function() {
+    clearTimeout(clearTime);
+
+    clearTime = setTimeout(function() {
+      if (!navMask.hasClass('hide')) {
+        navMask.addClass('hide');
+      }
+    }, 250);
+  });
+
+  navMask.hover(function(e) {
+    clearTimeout(clearTime);
+    $(this).removeClass('hide');
+    var thumbnailPanel = $(this).find('ul.demo-thumbnail-panel')[0];
+    var id = thumbnailPanel.id;
+    $('#' + id.substring(2)).parent().addClass('hover');
+  }, function(e) {
+    clearTimeout(clearTime);
+    $(this).addClass('hide');
+    var thumbnailPanel = $(this).find('ul.demo-thumbnail-panel')[0];
+    var id = thumbnailPanel.id;
+    $('#' + id.substring(2)).parent().removeClass('hover');
+  });
+  </script>
+  <div id="widthHandler" class="handler"></div>
+
+  <div class="doc-content demo-detail-doc">
+    <div class="doc-inner">
+      <div class="code-banner">
+        <div class="tab-label actived">源码</div>
+        <div class="tab-label" id="J_G2React">g2-react</div>
+        <div class="code-operation">
+          <button class="button" id="J_runCode">运行</button>
+          <button class="button" id="J_copyCode">复制</button>
+          <span id="J_copyStatus" style="display: none; color: #43CBC6; position: absolute; top: 35px; right: 10px; z-index: 20;"></span>
+        </div>
+      </div>
+      <div class="code-panel">
+        <div class="tab-content">
+          <textarea id='code' name='code'>
+   <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>划分区域的多形状散点图</title>
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+      </head>
+      <body>
+          <div id="c1"></div>
+ <script>
+G2.Global.setTheme('cheery'); // 切换默认主题
+var data = [{"type":"series1","x":1732.8871544450521,"y":-80.75603982433677},{"type":"series2","x":1546.589955687523,"y":282.97513956204057},{"type":"series3","x":742.7253536880016,"y":479.4877045787871},{"type":"series4","x":772.9451237246394,"y":-407.76275377720594},{"type":"series1","x":1359.810951165855,"y":297.2723776474595},{"type":"series2","x":650.068512186408,"y":-129.5293727889657},{"type":"series3","x":1730.0641294568777,"y":-240.9555669873953},{"type":"series4","x":502.4238293990493,"y":-342.1307345852256},{"type":"series1","x":1582.250035367906,"y":-45.05145130679011},{"type":"series2","x":1829.3536202982068,"y":-113.36682550609112},{"type":"series3","x":1572.7724805474281,"y":115.85489613935351},{"type":"series4","x":1887.0485508814454,"y":6.104619242250919},{"type":"series1","x":882.0341778919101,"y":401.86547581106424},{"type":"series2","x":1620.0402630493045,"y":267.45478762313724},{"type":"series3","x":1925.4421964287758,"y":369.47823595255613},{"type":"series4","x":1611.9598066434264,"y":-234.8197065293789},{"type":"series1","x":1720.9005448967218,"y":-115.85958395153284},{"type":"series2","x":1862.451889552176,"y":-248.42322198674083},{"type":"series3","x":1283.97127520293,"y":325.95419557765126},{"type":"series4","x":1869.39731054008,"y":383.6600771173835},{"type":"series1","x":1988.1872748956084,"y":-216.48837719112635},{"type":"series2","x":1187.2317604720592,"y":404.27824622020125},{"type":"series3","x":1571.8251904472709,"y":-96.22862562537193},{"type":"series4","x":1826.7804672941566,"y":-477.26183850318193},{"type":"series1","x":1177.1034905686975,"y":-112.32297029346228},{"type":"series2","x":1195.6303780898452,"y":448.2225668616593},{"type":"series3","x":1955.4035440087318,"y":21.227966528385878},{"type":"series4","x":1732.739924453199,"y":368.81575733423233},{"type":"series1","x":806.2865408137441,"y":385.1917199790478},{"type":"series2","x":1556.4921544864774,"y":-420.2395495958626},{"type":"series3","x":1181.5953878685832,"y":-277.57429890334606},{"type":"series4","x":1269.245852716267,"y":242.08716116845608},{"type":"series1","x":1219.9176428839564,"y":346.6071574948728},{"type":"series2","x":746.3413281366229,"y":-89.49963096529245},{"type":"series3","x":432.45446030050516,"y":441.71203626319766},{"type":"series4","x":777.959868311882,"y":66.79431581869721},{"type":"series1","x":918.3598393574357,"y":448.46232794225216},{"type":"series2","x":1436.13195233047,"y":184.53770177438855},{"type":"series3","x":1119.1939394921064,"y":-312.59450083598495},{"type":"series4","x":1998.3739340677857,"y":5.358115769922733},{"type":"series1","x":1069.4813169538975,"y":-106.57294746488333},{"type":"series2","x":275.5963373929262,"y":205.64519427716732},{"type":"series3","x":801.038783043623,"y":7.43780517950654},{"type":"series4","x":213.5445298627019,"y":288.95508078858256},{"type":"series1","x":1697.732014581561,"y":-495.7758020609617},{"type":"series2","x":1940.3524557128549,"y":57.93372122570872},{"type":"series3","x":1365.2942385524511,"y":246.1609710007906},{"type":"series4","x":986.5696644410491,"y":248.502679169178},{"type":"series1","x":1991.1393811926246,"y":-269.05048871412873},{"type":"series2","x":1244.1082932054996,"y":378.08641185984015},{"type":"series3","x":958.6482960730791,"y":-222.58463921025395},{"type":"series4","x":1939.0085907652974,"y":-415.7125297933817},{"type":"series1","x":1097.460888326168,"y":298.815727699548},{"type":"series2","x":1132.0891315117478,"y":-409.8006417043507},{"type":"series3","x":934.7271472215652,"y":78.89576349407434},{"type":"series4","x":632.7374717220664,"y":240.34222541376948},{"type":"series1","x":25.66775120794773,"y":386.65700424462557},{"type":"series2","x":1791.440169326961,"y":-98.93955988809466},{"type":"series3","x":1391.1143569275737,"y":46.02528735995293},{"type":"series4","x":538.8829139992595,"y":-428.8868750445545},{"type":"series1","x":933.5943283513188,"y":327.7888190932572},{"type":"series2","x":1381.4812870696187,"y":-36.58548276871443},{"type":"series3","x":152.31592673808336,"y":-233.14770916476846},{"type":"series4","x":90.16109630465508,"y":-45.90578889474273},{"type":"series1","x":1855.3984118625522,"y":234.1356431134045},{"type":"series2","x":889.7370044142008,"y":-261.737990193069},{"type":"series3","x":344.61341612040997,"y":-13.636548072099686},{"type":"series4","x":588.4585017338395,"y":-5.226874258369207},{"type":"series1","x":1714.1733933240175,"y":-204.88095516338944},{"type":"series2","x":905.8979945257306,"y":-326.66328828781843},{"type":"series3","x":179.5906499028206,"y":-468.77168817445636},{"type":"series4","x":472.5130721926689,"y":-1.9495864398777485},{"type":"series1","x":1275.0087166205049,"y":29.06017890200019},{"type":"series2","x":262.88699731230736,"y":496.59054493531585},{"type":"series3","x":44.90217100828886,"y":-441.4119469001889},{"type":"series4","x":1782.4337324127555,"y":-269.77423299103975},{"type":"series1","x":748.8169632852077,"y":336.41374530270696},{"type":"series2","x":1684.0793499723077,"y":-123.5110298730433},{"type":"series3","x":1109.3289218842983,"y":423.3962232246995},{"type":"series4","x":354.1235653683543,"y":-307.66808334738016},{"type":"series1","x":1329.577681608498,"y":470.3424177132547},{"type":"series2","x":273.0302046984434,"y":-147.08185475319624},{"type":"series3","x":1873.354759067297,"y":415.8988082781434},{"type":"series4","x":1152.5639267638326,"y":-228.8104579783976},{"type":"series1","x":480.6276988238096,"y":-168.55818405747414},{"type":"series2","x":724.2633355781436,"y":-137.24337238818407},{"type":"series3","x":879.4547133147717,"y":-114.34462806209922},{"type":"series4","x":988.7294666841626,"y":-206.20282599702477},{"type":"series1","x":1954.3535728007555,"y":214.61118385195732},{"type":"series2","x":851.2419117614627,"y":420.7796682603657},{"type":"series3","x":953.703748062253,"y":89.70340387895703},{"type":"series4","x":61.40255834907293,"y":-160.9144126996398},{"type":"series1","x":1207.9351842403412,"y":386.9934994727373},{"type":"series2","x":1142.1515522524714,"y":279.29873764514923},{"type":"series3","x":1069.3543190136552,"y":239.56217663362622},{"type":"series4","x":1898.9934483543038,"y":341.7890924029052},{"type":"series1","x":736.7067560553551,"y":-414.1982044093311},{"type":"series2","x":1718.982090242207,"y":83.44200439751148},{"type":"series3","x":814.3314002081752,"y":-484.1634132899344},{"type":"series4","x":346.93830739706755,"y":150.88692586869}];
+
+var chart = new G2.Chart({
+  id: 'c1',
+  forceFit: true,
+  height: 450
+});
+
+chart.source(data, {
+  x: {
+    tickCount: 8
+  }
+});
+chart.point().position('x*y').color('type').shape('type', ['circle', 'triangle-down', 'square', 'diamond']).size(7);
+
+// 添加辅助元素
+chart.guide().text([250, 550], '0 - 500', {
+  fontSize: '15px'
+});
+chart.guide().text([1000, 550], '500 - 1500', {
+  fontSize: '15px'
+});
+chart.guide().text([1700, 550], '1500 - 2000', {
+  fontSize: '15px'
+});
+chart.guide().rect([0, -600], [500, 600]);
+chart.guide().rect([500, -600], [1500, 600], {
+  fillOpacity: 0.2
+});
+chart.guide().rect([1500, -600], [2000, 600], {
+  fillOpacity: 0.3
+});
+
+chart.render();
+</script>
+
+
+      </body>
+    </html>
+          </textarea>
+        </div>
+      </div>
+      <div class="chart-panel">
+        <p class="title">划分区域的多形状散点图</p>
+        <iframe id="preview" class="demo-chart "></iframe>
+        <div class="demo-chart-intro">
+          <p style="margin-top: 0;">
+          散点图也叫 X-Y 图，它将所有的数据以点的形式展现在笛卡尔坐标系上，以显示变量之间的相互影响程度，点的位置由变量的数值决定。
+            <a href="https://antv.alipay.com/vis/doc/chart/details/scatter-plot.html" target="_blank">了解更多</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<textarea class="hidden" id="reactCode">
+  <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>划分区域的多形状散点图</title>
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://a.alipayobjects.com/g/datavis/g2/2.3.13/g2.js"></script>
+        <script src="https://unpkg.com/g2-react@1.2.0/dist/index.js"></script>
+        <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      </head>
+      <body>
+          <div id="c1"></div>
+ <script type="text/babel">
+    G2.Global.setTheme('cheery'); // 切换默认主题
+    const data = [{"type":"series1","x":1732.8871544450521,"y":-80.75603982433677},{"type":"series2","x":1546.589955687523,"y":282.97513956204057},{"type":"series3","x":742.7253536880016,"y":479.4877045787871},{"type":"series4","x":772.9451237246394,"y":-407.76275377720594},{"type":"series1","x":1359.810951165855,"y":297.2723776474595},{"type":"series2","x":650.068512186408,"y":-129.5293727889657},{"type":"series3","x":1730.0641294568777,"y":-240.9555669873953},{"type":"series4","x":502.4238293990493,"y":-342.1307345852256},{"type":"series1","x":1582.250035367906,"y":-45.05145130679011},{"type":"series2","x":1829.3536202982068,"y":-113.36682550609112},{"type":"series3","x":1572.7724805474281,"y":115.85489613935351},{"type":"series4","x":1887.0485508814454,"y":6.104619242250919},{"type":"series1","x":882.0341778919101,"y":401.86547581106424},{"type":"series2","x":1620.0402630493045,"y":267.45478762313724},{"type":"series3","x":1925.4421964287758,"y":369.47823595255613},{"type":"series4","x":1611.9598066434264,"y":-234.8197065293789},{"type":"series1","x":1720.9005448967218,"y":-115.85958395153284},{"type":"series2","x":1862.451889552176,"y":-248.42322198674083},{"type":"series3","x":1283.97127520293,"y":325.95419557765126},{"type":"series4","x":1869.39731054008,"y":383.6600771173835},{"type":"series1","x":1988.1872748956084,"y":-216.48837719112635},{"type":"series2","x":1187.2317604720592,"y":404.27824622020125},{"type":"series3","x":1571.8251904472709,"y":-96.22862562537193},{"type":"series4","x":1826.7804672941566,"y":-477.26183850318193},{"type":"series1","x":1177.1034905686975,"y":-112.32297029346228},{"type":"series2","x":1195.6303780898452,"y":448.2225668616593},{"type":"series3","x":1955.4035440087318,"y":21.227966528385878},{"type":"series4","x":1732.739924453199,"y":368.81575733423233},{"type":"series1","x":806.2865408137441,"y":385.1917199790478},{"type":"series2","x":1556.4921544864774,"y":-420.2395495958626},{"type":"series3","x":1181.5953878685832,"y":-277.57429890334606},{"type":"series4","x":1269.245852716267,"y":242.08716116845608},{"type":"series1","x":1219.9176428839564,"y":346.6071574948728},{"type":"series2","x":746.3413281366229,"y":-89.49963096529245},{"type":"series3","x":432.45446030050516,"y":441.71203626319766},{"type":"series4","x":777.959868311882,"y":66.79431581869721},{"type":"series1","x":918.3598393574357,"y":448.46232794225216},{"type":"series2","x":1436.13195233047,"y":184.53770177438855},{"type":"series3","x":1119.1939394921064,"y":-312.59450083598495},{"type":"series4","x":1998.3739340677857,"y":5.358115769922733},{"type":"series1","x":1069.4813169538975,"y":-106.57294746488333},{"type":"series2","x":275.5963373929262,"y":205.64519427716732},{"type":"series3","x":801.038783043623,"y":7.43780517950654},{"type":"series4","x":213.5445298627019,"y":288.95508078858256},{"type":"series1","x":1697.732014581561,"y":-495.7758020609617},{"type":"series2","x":1940.3524557128549,"y":57.93372122570872},{"type":"series3","x":1365.2942385524511,"y":246.1609710007906},{"type":"series4","x":986.5696644410491,"y":248.502679169178},{"type":"series1","x":1991.1393811926246,"y":-269.05048871412873},{"type":"series2","x":1244.1082932054996,"y":378.08641185984015},{"type":"series3","x":958.6482960730791,"y":-222.58463921025395},{"type":"series4","x":1939.0085907652974,"y":-415.7125297933817},{"type":"series1","x":1097.460888326168,"y":298.815727699548},{"type":"series2","x":1132.0891315117478,"y":-409.8006417043507},{"type":"series3","x":934.7271472215652,"y":78.89576349407434},{"type":"series4","x":632.7374717220664,"y":240.34222541376948},{"type":"series1","x":25.66775120794773,"y":386.65700424462557},{"type":"series2","x":1791.440169326961,"y":-98.93955988809466},{"type":"series3","x":1391.1143569275737,"y":46.02528735995293},{"type":"series4","x":538.8829139992595,"y":-428.8868750445545},{"type":"series1","x":933.5943283513188,"y":327.7888190932572},{"type":"series2","x":1381.4812870696187,"y":-36.58548276871443},{"type":"series3","x":152.31592673808336,"y":-233.14770916476846},{"type":"series4","x":90.16109630465508,"y":-45.90578889474273},{"type":"series1","x":1855.3984118625522,"y":234.1356431134045},{"type":"series2","x":889.7370044142008,"y":-261.737990193069},{"type":"series3","x":344.61341612040997,"y":-13.636548072099686},{"type":"series4","x":588.4585017338395,"y":-5.226874258369207},{"type":"series1","x":1714.1733933240175,"y":-204.88095516338944},{"type":"series2","x":905.8979945257306,"y":-326.66328828781843},{"type":"series3","x":179.5906499028206,"y":-468.77168817445636},{"type":"series4","x":472.5130721926689,"y":-1.9495864398777485},{"type":"series1","x":1275.0087166205049,"y":29.06017890200019},{"type":"series2","x":262.88699731230736,"y":496.59054493531585},{"type":"series3","x":44.90217100828886,"y":-441.4119469001889},{"type":"series4","x":1782.4337324127555,"y":-269.77423299103975},{"type":"series1","x":748.8169632852077,"y":336.41374530270696},{"type":"series2","x":1684.0793499723077,"y":-123.5110298730433},{"type":"series3","x":1109.3289218842983,"y":423.3962232246995},{"type":"series4","x":354.1235653683543,"y":-307.66808334738016},{"type":"series1","x":1329.577681608498,"y":470.3424177132547},{"type":"series2","x":273.0302046984434,"y":-147.08185475319624},{"type":"series3","x":1873.354759067297,"y":415.8988082781434},{"type":"series4","x":1152.5639267638326,"y":-228.8104579783976},{"type":"series1","x":480.6276988238096,"y":-168.55818405747414},{"type":"series2","x":724.2633355781436,"y":-137.24337238818407},{"type":"series3","x":879.4547133147717,"y":-114.34462806209922},{"type":"series4","x":988.7294666841626,"y":-206.20282599702477},{"type":"series1","x":1954.3535728007555,"y":214.61118385195732},{"type":"series2","x":851.2419117614627,"y":420.7796682603657},{"type":"series3","x":953.703748062253,"y":89.70340387895703},{"type":"series4","x":61.40255834907293,"y":-160.9144126996398},{"type":"series1","x":1207.9351842403412,"y":386.9934994727373},{"type":"series2","x":1142.1515522524714,"y":279.29873764514923},{"type":"series3","x":1069.3543190136552,"y":239.56217663362622},{"type":"series4","x":1898.9934483543038,"y":341.7890924029052},{"type":"series1","x":736.7067560553551,"y":-414.1982044093311},{"type":"series2","x":1718.982090242207,"y":83.44200439751148},{"type":"series3","x":814.3314002081752,"y":-484.1634132899344},{"type":"series4","x":346.93830739706755,"y":150.88692586869}];
+
+    const Chart = createG2(chart => {
+      chart.col('x', {
+        tickCount: 8
+      });
+      chart.point().position('x*y').color('type').shape('type', ['circle', 'triangle-down', 'square', 'diamond']).size(7);
+
+      // 添加辅助元素
+      chart.guide().text([250, 550], '0 - 500', {
+        fontSize: '15px'
+      });
+      chart.guide().text([1000, 550], '500 - 1500', {
+        fontSize: '15px'
+      });
+      chart.guide().text([1700, 550], '1500 - 2000', {
+        fontSize: '15px'
+      });
+      chart.guide().rect([0, -600], [500, 600]);
+      chart.guide().rect([500, -600], [1500, 600], {
+        fillOpacity: 0.2
+      });
+      chart.guide().rect([1500, -600], [2000, 600], {
+        fillOpacity: 0.3
+      });
+
+      chart.render();
+    });
+
+    const MyComponent = React.createClass({
+      getInitialState() {
+        return {
+          data: data,
+          forceFit: true,
+          width: 500,
+          height: 450,
+        };
+      },
+      render() {
+        return (
+          <div>
+            <Chart
+              data={this.state.data}
+              width={this.state.width}
+              height={this.state.height}
+              plotCfg={this.state.plotCfg}
+              forceFit={this.state.forceFit} />
+          </div>
+        );
+      },
+    });
+    ReactDOM.render(<MyComponent />, document.getElementById('c1'));
+</script>
+
+      </body>
+    </html>
+</textarea>
+<script src="../../../static/codemirror-compressed.js"></script>
+<script src="../../../static/clipboard.min.js"></script>
+<script src="../../../static/demo-detail.js"></script>
+
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

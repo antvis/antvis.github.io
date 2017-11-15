@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>更新日志</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../static/jquery.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../static/script.js"></script>
+<script src="https://a.alipayobjects.com/g/datavis/g2-mobile-all/2.1.22/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item hover">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+  <link rel="stylesheet" href="../../static/prettify-min.css">
+
+
+  <div class="main-container clearfix">
+  <div class="body-content tutorial-body-content"><div class="doc-nav">
+  <p class="title">G2-mobile</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g2-mobile/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">使用教程</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="">
+            <a href="../../g2-mobile/doc/tutorial/shape.html" >自定义 shape</a>
+          </li>
+          <li class="">
+            <a href="../../g2-mobile/doc/tutorial/event.html" >事件支持</a>
+          </li>
+          <li class="">
+            <a href="../../g2-mobile/doc/tutorial/guide.html" >自定义辅助 html</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2-mobile/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">API</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="">
+            <a href="../../g2-mobile/api/index.html" >Chart</a>
+          </li>
+          <li class="">
+            <a href="../../g2-mobile/api/geom.html" >Geom</a>
+          </li>
+          <li class="">
+            <a href="../../g2-mobile/api/global.html" >Global</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="active">
+      <a href="/g2-mobile/doc/history.html" >更新日志</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+<script src="https://a.alipayobjects.com/g/datavis/g2-mobile-all/2.1.22/index.js"></script>
+    <div class="doc-content clearfix">
+      <div class="doc-inner">
+        <h2 id="更新日志">更新日志</h2><h2 id="2-2-22">2.2.22</h2><ul>
+<li>增加 interval dodge 功能</li>
+<li>修复 interval dodge 后 get snap 的问题</li>
+</ul>
+<h2 id="v2-2-0">v2.2.0</h2><ul>
+<li>修复数据为空，同时设置列定义里面 min: 0，死循环的问题</li>
+</ul>
+<h2 id="v2-1-19">v2.1.19</h2><ul>
+<li>修复初始化时销毁图表时报错</li>
+</ul>
+<h2 id="v2-1-16">v2.1.16</h2><ul>
+<li>支持传入 canvas 对象</li>
+<li>新增半圆处理</li>
+</ul>
+<h2 id="v2-1-14">v2.1.14</h2><p><code>2017-3-9</code></p>
+<ul>
+<li>新增<code>chart</code>销毁方法</li>
+<li>性能优化</li>
+</ul>
+<h2 id="v2-1-13">v2.1.13</h2><p><code>2017-3-2</code></p>
+<ul>
+<li>支持缓动函数 <code>easing</code> 自定义</li>
+<li>支持传入 <code>canvas</code> 对象</li>
+</ul>
+<h2 id="v2-1-12">v2.1.12</h2><p><code>2017-2-21</code></p>
+<ul>
+<li>修复平铺动画重复绘制问题</li>
+<li>修复 <code>guide</code> 辅助元素模块引入时自动创建dom的问题</li>
+</ul>
+<h2 id="v2-1-11">v2.1.11</h2><p><code>2017-2-13</code></p>
+<ul>
+<li>动画新增参数配置和回调</li>
+<li>修复极坐标下<code>getRecord</code>方法获取数据范围不在0-1内的问题</li>
+<li>给 <code>getSnapRecords</code> 方法新增逼近维度配置</li>
+</ul>
+<h2 id="v2-1-10">v2.1.10</h2><p><code>2017-1-16</code></p>
+<ul>
+<li>绘图库绘制文字的方法添加旋转<code>rotate</code>功能</li>
+<li>给 guide 的 rect 方法新增圆角配置</li>
+<li>给 geom 中折线图的虚线 dash 添加全局样式配置</li>
+</ul>
+<h2 id="v2-1-8">v2.1.8</h2><p><code>2016-12-21</code></p>
+<ul>
+<li>修复区域图绘制问题</li>
+<li>修复线图和区域图使用时间轴数据超过 10 条在 chrome 浏览器排序出错的问题</li>
+<li>修复 guide 的 <code>clear</code> 方法没有清空html的dom元素问题</li>
+<li>添加 window 变量保护</li>
+<li>优化 <code>getSnapRecord</code> 方法</li>
+</ul>
+<h2 id="v2-1-3">v2.1.3</h2><p><code>2016-10-20</code></p>
+<ul>
+<li>添加 <code>fillOpacity</code> 和 <code>strokeOpacity</code> 两个图形绘图属性；</li>
+<li>geom 对象开放 <code>getAllShapeData()</code> 接口，返回 geom 上所有 shape 的绘制数据；</li>
+<li>修复参与映射的数据属性的数据值全为 undefined 导致栈溢出的问题;</li>
+<li>添加环形平铺动画方法 <code>wavec()</code>;</li>
+<li>修复辅助 html 文本结构混乱问题.</li>
+</ul>
+<h2 id="v2-1-2">v2.1.2</h2><p><code>2016-10-13</code></p>
+<ul>
+<li>在数据结构 frame 中添加源数据，供用户在扩展接口上使用</li>
+</ul>
+<h2 id="v2-1-1">v2.1.1</h2><p><code>2016-09-29</code></p>
+<ul>
+<li>优化动画模块</li>
+<li>给定默认颜色，将 color 方法变成可选项</li>
+<li>修复 area 模块的自定义 shape 接口</li>
+</ul>
+<h2 id="v2-1-0">v2.1.0</h2><p><code>2016-09-20</code></p>
+<ul>
+<li>新增动画功能，支持水平方向的平铺 (waveh)、x 轴上的缩放 (scalex)、y 轴上的缩放 (scaley)、x 和 y 轴同时缩放 (scalexy)</li>
+<li>修复 shape 接口</li>
+<li>给 line 的 shape 新增 dash 方法</li>
+<li>将 <code>getSnapRecords</code> 方法在 chart 中抛出</li>
+</ul>
+<h2 id="v2-0-1">v2.0.1</h2><p><code>2016-09-13</code></p>
+<ul>
+<li>guide 新增 html 对齐功能，支持 9 点对齐方式：tr、tc、tl、br、bc、bl、lc、rc、cc</li>
+<li>geom 添加 <code>getSnapRecords</code> 方法，提供根据画布坐标获取数据的功能</li>
+</ul>
+<h2 id="v2-0-0">v2.0.0</h2><p><code>2016-08-29</code></p>
+<ul>
+<li>集成 g2-core，并统一 API 与 G2 一致</li>
+<li>guide 拓展<ul>
+<li>line</li>
+<li>arc</li>
+<li>text</li>
+<li>html</li>
+</ul>
+</li>
+</ul>
+<h2 id="v1-0-7">v1.0.7</h2><p><code>2016-06-01</code></p>
+<ul>
+<li>修复了环图在 UC 上的 bug</li>
+<li>新增加 timeCat 类型</li>
+<li>调整 scale tickcount 自动计算向上逼近</li>
+<li>修复 scale linear 的几个 bug</li>
+</ul>
+<h2 id="v1-0-4">v1.0.4</h2><p><code>2016-05-13</code></p>
+<ul>
+<li>scale 增加了 offset 属性，自动计算时 min, max 各自浮动 百分比</li>
+<li>增加了自动计算精度的功能，用户只需要传入单精度的值</li>
+<li>提供了自定义样式功能，拆分坐标轴的全局配置信息</li>
+<li>修复点图，边框没有颜色的问题</li>
+</ul>
+<h2 id="v1-0-0">v1.0.0</h2><p><code>2016-03-31</code></p>
+<p><code>new</code> It is the first version of g-mobile.</p>
+
+      </div>
+<div class="preNext clearfix">
+</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../../static/nav-menu.js"></script>
+  <script src="../../static/prettify-min.js"></script>
+  <script src="../../static/clipboard.min.js"></script>
+  <script type="text/javascript">
+    var CLS_PRETTY = 'prettyprint linenums';
+    BUI.use('bui/common',function(BUI){
+      var preEls =  $('pre');
+      BUI.each(preEls,function(el){
+        var node = $(el), innerText;
+        node.addClass(CLS_PRETTY);
+        innerText = node.html();
+        var a = /^(\s+)/.exec(innerText);
+        var regex;
+        if(a){
+          regex = new RegExp('('+a[0]+')(\\s*)','ig');
+          innerText = innerText.replace(regex,'$2');
+        }
+          node.html(innerText);
+      });
+      if(window.prettyPrint){
+        prettyPrint();
+      }
+    });
+
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  </script>
+  
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

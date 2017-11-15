@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AntV</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../static/jquery.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g6/1.1.6/index.js"></script>
+</head>
+<body>
+ 
+
+  <div class="main-container clearfix">
+<!-- g6-tool 页面头部导航栏 -->
+<div class="demo-head" style="position: relative;">
+  <div class="header clearfix">
+    <a class="header-back" href="/g6/doc">
+      <i class="iconfont icon-cross"></i>
+    </a>
+    <div class="header-crumb">
+      <span class="chanel">G6 在线工具</span>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="https://a.alipayobjects.com/g/datavis/g6-tool/0.2.10/index.js"></script>
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/g/datavis/g6-tool/0.2.10/index.css">
+
+<div id = 't1'></div>
+<script type="text/javascript">
+var documentHeight = $(document).height();
+var headerHeight = $('.demo-head').height();
+var tool = new G6Tool({
+  id: 't1',
+  height: documentHeight - headerHeight
+});
+var codeContentCache = localStorage.getItem('codeContent');
+if( !codeContentCache || codeContentCache.indexOf('new G6.Graph') !== -1 ) {
+  tool.clear();
+}
+</script>
+
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

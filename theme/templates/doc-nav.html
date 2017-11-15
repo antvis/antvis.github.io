@@ -1,0 +1,57 @@
+<div class="doc-nav">
+  {%- set menuCfg = resource.pages|getTopDocMenu(post.filepath) %}
+  <p class="title">{{menuCfg.title}}</p>
+  {%- set curTitle = post.filepath|getTitle %}
+  <ul class="doc-nav-list">
+    {%- for menum in menuCfg.children %}
+    <li class="{%- if curTitle.title === menum.title %}active{%- endif %}">
+      {%- if menum.url %}
+      {%- set url = menum.url %}
+      {%- else %}
+      {%- set url = menum.name %}
+      {%- endif %}
+      {%- if menum.type === 'file' %}
+      <a href="{{url}}.html" >{{menum.title}}</a>
+      {%- else %}
+      {%- set isSub = post.filepath|isSub(menum.name) %}
+      <div>
+        <div class="menu-dir {%- if isSub %} active{%- endif %}">{{menum.title}}</div>
+        <ul class="doc-sub-nav-list" style="{%- if isSub === false %}display:none;{%- endif %}">
+          {%- if menum.children %}
+          {%- for subMenu in menum.children %}
+          <li class="sub-title">{{subMenu.title}}</li>
+          {%- set titles = resource.pages|getSubDocTitles(post.filepath,subMenu.name) %}
+          {%- for subTitle in titles %}
+          <li class="{%- if curTitle.title === subTitle.title %}active{%- endif %}">
+            <a href="{{content_url('')}}/{{subTitle.url}}.html" >{{subTitle.title}}</a>
+          </li>
+          {%- endfor %}
+          {%- endfor %}
+          {%- else %}
+          {%- set titles = resource.pages|getSubDocTitles(post.filepath,menum.name) %}
+          {%- for subTitle in titles %}
+          <li class="{%- if curTitle.title === subTitle.title %}active{%- endif %}">
+            <a href="{{content_url('')}}/{{subTitle.url}}.html" >{{subTitle.title}}</a>
+          </li>
+          {%- endfor %}
+          {%- endif %}
+        </ul>
+      </div>
+      {%- endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>

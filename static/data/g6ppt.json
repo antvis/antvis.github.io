@@ -1,0 +1,320 @@
+{
+  "nodes": [
+    {
+      "label": "G6",
+      "shape": "text",
+      "x": 500,
+      "y": 200,
+      "id": "b4850136",
+      "labelStyle": {
+        "fontSize": 100
+      }
+    },
+    {
+      "label": "G6 是什么？",
+      "shape": "text",
+      "x": 500,
+      "y": 850,
+      "id": "4a3cb12b",
+      "labelStyle": {
+        "fontSize": 100
+      }
+    },
+    {
+      "label": "目前 G6 是什么？",
+      "shape": "text",
+      "x": 1850,
+      "y": 500,
+      "id": "d2fba479",
+      "labelStyle": {
+        "fontSize": 100
+      }
+    },
+    {
+      "label": "平台",
+      "shape": "text",
+      "x": 1850,
+      "y": 1050,
+      "id": "7b1c5cbc",
+      "labelStyle": {
+        "fontSize": 100
+      }
+    },
+    {
+      "label": "工具",
+      "shape": "text",
+      "x": 2850,
+      "y": 1050,
+      "id": "3d8af118",
+      "labelStyle": {
+        "fontSize": 100
+      }
+    },
+    {
+      "label": "图库",
+      "shape": "text",
+      "x": 2850,
+      "y": 1800,
+      "id": "616464cb",
+      "labelStyle": {
+        "fontSize": 100
+      }
+    },
+    {
+      "label": "关系图核心",
+      "shape": "text",
+      "x": 1000,
+      "y": 1800,
+      "id": "25166642",
+      "labelStyle": {
+        "fontSize": 100
+      }
+    },
+    {
+      "label": "展示视图",
+      "shape": "text",
+      "x": 1000,
+      "y": 2450,
+      "id": "6aa46027",
+      "labelStyle": {
+        "fontSize": 100
+      }
+    },
+    {
+      "label": "编辑视图",
+      "shape": "text",
+      "x": 1000,
+      "y": 3100,
+      "id": "cc9f38ec",
+      "labelStyle": {
+        "fontSize": 100
+      }
+    },
+    {
+      "label": "对标Joint.js",
+      "shape": "text",
+      "x": 1000,
+      "y": 3800,
+      "id": "9dcd8fac",
+      "labelStyle": {
+        "fontSize": 100
+      }
+    },
+    {
+      "label": "更快",
+      "shape": "text",
+      "x": 1450,
+      "y": 3250,
+      "id": "68bcdca8",
+      "labelStyle": {
+        "fontSize": 100
+      }
+    },
+    {
+      "label": "映射",
+      "shape": "text",
+      "x": 1850,
+      "y": 3800,
+      "id": "ea8f7b2d",
+      "labelStyle": {
+        "fontSize": 100
+      }
+    },
+    {
+      "label": "交互",
+      "shape": "text",
+      "x": 2300,
+      "y": 3250,
+      "id": "45dbf45d",
+      "labelStyle": {
+        "fontSize": 100
+      }
+    },
+    {
+      "label": "布局",
+      "shape": "text",
+      "x": 2850,
+      "y": 3750,
+      "id": "da290918",
+      "labelStyle": {
+        "fontSize": 100
+      }
+    },
+    {
+      "label": " ",
+      "shape": "text",
+      "x": 2850,
+      "y": 1800,
+      "id": "c5d33193",
+      "labelStyle": {
+        "fontSize": 100
+      }
+    }
+  ],
+  "edges": [
+    {
+      "shape": "arrow",
+      "source": "b4850136",
+      "id": "2d817ff2",
+      "target": "4a3cb12b",
+      "size": 10
+    },
+    {
+      "shape": "arrow",
+      "source": "4a3cb12b",
+      "id": "3935cd6d",
+      "target": "d2fba479",
+      "controlPoints": [
+        {
+          "x": 784.2999877929688,
+          "y": 850
+        },
+        {
+          "x": 1200,
+          "y": 850
+        },
+        {
+          "x": 1200,
+          "y": 500
+        },
+        {
+          "x": 1453.2000122070312,
+          "y": 500
+        }
+      ],
+      "size": 10
+    },
+    {
+      "shape": "arrow",
+      "source": "3d8af118",
+      "id": "f0550fdb",
+      "target": "616464cb",
+      "size": 10,
+      "label": "不是 ",
+      "labelStyle": {
+        "fontSize": 50
+      }
+    },
+    {
+      "shape": "arrow",
+      "source": "d2fba479",
+      "id": "46673b16",
+      "target": "7b1c5cbc",
+      "size": 10,
+      "controlPoints": [
+        {
+          "x": 1850,
+          "y": 550.5
+        },
+        {
+          "x": 1850,
+          "y": 999.5
+        }
+      ],
+      "labelStyle": {
+        "fontSize": 50
+      },
+      "label": "不是"
+    },
+    {
+      "shape": "arrow",
+      "source": "cc9f38ec",
+      "id": "6b9db7b9",
+      "target": "9dcd8fac",
+      "size": 10
+    },
+    {
+      "shape": "arrow",
+      "source": "9dcd8fac",
+      "id": "5b7c2421",
+      "target": "68bcdca8",
+      "size": 10
+    },
+    {
+      "shape": "arrow",
+      "source": "68bcdca8",
+      "id": "6bf21832",
+      "target": "ea8f7b2d",
+      "size": 10
+    },
+    {
+      "shape": "arrow",
+      "source": "ea8f7b2d",
+      "id": "894436a5",
+      "target": "45dbf45d",
+      "size": 10
+    },
+    {
+      "shape": "arrow",
+      "source": "7b1c5cbc",
+      "id": "091153a5",
+      "target": "3d8af118",
+      "size": 10,
+      "label": "不是 ",
+      "labelStyle": {
+        "fontSize": 50
+      }
+    },
+    {
+      "shape": "arrow",
+      "source": "616464cb",
+      "id": "d0b6ee39",
+      "target": "25166642",
+      "size": 10,
+      "label": "是 ",
+      "labelStyle": {
+        "fontSize": 50
+      }
+    },
+    {
+      "shape": "arrow",
+      "source": "45dbf45d",
+      "id": "20f48c39",
+      "target": "da290918",
+      "size": 10
+    },
+    {
+      "shape": "arrow",
+      "source": "da290918",
+      "id": "12843123",
+      "target": "616464cb",
+      "size": 10,
+      "controlPoints": [
+        {
+          "x": 2850,
+          "y": 3699.5
+        },
+        {
+          "x": 2850,
+          "y": 1850.5
+        }
+      ],
+      "labelStyle": {
+        "fontSize": 50
+      },
+      "label": "二\n期\n目\n标"
+    },
+    {
+      "shape": "arrow",
+      "source": "25166642",
+      "id": "fe5175ef",
+      "target": "6aa46027",
+      "label": "二次开发 ",
+      "size": 10,
+      "labelStyle": {
+        "fontSize": 50
+      }
+    },
+    {
+      "shape": "arrow",
+      "source": "6aa46027",
+      "id": "4e5da929",
+      "target": "cc9f38ec",
+      "size": 10,
+      "labelStyle": {
+        "fontSize": 50
+      },
+      "label": "二次开发"
+    }
+  ]
+}

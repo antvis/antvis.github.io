@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>弧长链接图</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item hover last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+
+  <div class="main-container clearfix">
+  <div class="doc-content vis-chart">
+    <div class="doc-inner vis-chart">
+      <h1>弧长链接图</h1>
+      <p><img src="https://zos.alipayobjects.com/rmsportal/qpgXANQpfnLyYgQqnjNf.png" /></p>
+<h2 id="弧长链接图的简介">弧长链接图的简介</h2><p>弧长链接图是节点－链接法的一个变种，节点－链接法是指用节点表示对象，用线（或边）表示关系的节点－链接布局(node-link)的一种可视化布局表示。弧长链接图在此概念的基础上，采用一维布局方式，即节点沿某个线性轴或环状排列，用圆弧表达节点之间的链接关系。这种方法不能像二维布局那样表达图的全局结构，但在节点良好排序后可清晰的呈现环和桥的结构。</p>
+<p>英文名：arc diagram</p>
+<h2 id="弧长链接图的构成">弧长链接图的构成</h2><h3 id="线性弧长链接图">线性弧长链接图</h3><p><img src="https://zos.alipayobjects.com/rmsportal/lYLyWWbCOIoiHaLlpFbF.png" class="constitute-img"/></p>
+<table class="struct-table">
+  <tr>
+    <th>图表类型</th>
+    <th>线性弧长链接图</th>
+  </tr>
+  <tr>
+    <td>适合的数据</td>
+    <td>列表：一组节点数据（包含节点 id 字段）、一组链接数据（包含源节点字段和目标节点字段）</td>
+  </tr>
+  <tr>
+    <td>功能</td>
+    <td>表示数据之间的链接关系</td>
+  </tr>
+  <tr>
+    <td>数据与图形的映射</td>
+    <td>节点的坐标（自动计算）字段映射到节点的坐标轴的位置，链接的坐标（自动计算）映射到半圆弧的顶点坐标轴位置。节点中的分类数据也可以设置颜色增强区分度</td>
+  </tr>
+  <tr>
+    <td>适合的数据条数</td>
+    <td>不少于 2 条数据</td>
+  </tr>
+</table>
+
+<div style="clear: both;"></div>
+
+<h3 id="环形弧长链接图">环形弧长链接图</h3><p><img src="https://zos.alipayobjects.com/rmsportal/JJcPwdlgIdiaEXsAKYYr.png" class="constitute-img"/></p>
+<table class="struct-table">
+  <tr>
+    <th>图表类型</th>
+    <th>线性弧长链接图</th>
+  </tr>
+  <tr>
+    <td>适合的数据</td>
+    <td>列表：一组节点数据（包含节点 id 字段）、一组链接数据（包含源节点字段和目标节点字段）</td>
+  </tr>
+  <tr>
+    <td>功能</td>
+    <td>表示数据之间的链接关系</td>
+  </tr>
+  <tr>
+    <td>数据与图形的映射</td>
+    <td>节点的坐标（自动计算）字段映射到节点的坐标轴的位置，链接的坐标（自动计算）映射到以圆心为控制点的贝塞尔曲线的顶点坐标轴位置。节点中的分类数据也可以设置颜色增强区分度</td>
+  </tr>
+  <tr>
+    <td>适合的数据条数</td>
+    <td>不少于 5 条节点数据</td>
+  </tr>
+</table>
+
+
+<div style="clear: both;"></div>
+
+
+<h2 id="柱状图的应用场景">柱状图的应用场景</h2><h3 id="适合的场景：-表达数据之间的关系，以及关系的重要性">适合的场景： <strong> 表达数据之间的关系，以及关系的重要性 </strong></h3><p>例子1: 下图这个网络代表了维克多·雨果的经典小说“LesMisérables”中的人物关系</p>
+<ul>
+<li>节点数据</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>group</th>
+<th>id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Myriel</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>链接数据</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>source</th>
+<th>target</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<div id="c1"></div>
+
+<div class="code hide">
+$.getJSON('./data/miserables.json', function(data) {
+  var Stat = G2.Stat;
+  var Layout = G2.Layout;
+  var nodes = data.nodes;
+  var edges = data.edges;
+  var dataMap = {};
+  nodes.map(function(node,index) {
+    node.id = index;
+    node.value = 0;
+    dataMap[index] = node;
+  });
+
+  edges.forEach(function(edge){
+    dataMap[edge.source].value += edge.value;
+  });
+
+  nodes.sort(function(b, a){
+    var deltGroup = a.group - b.group;
+    var deltValue = a.value - b.value;
+    return deltGroup * 100 + deltValue;
+  });
+
+  var chart = new G2.Chart({
+    id: 'c1',
+    forceFit: true,
+    height: 500,
+    animate: false,
+    plotCfg: {
+      margin: [20, 10, 120, 10]
+    }
+  });
+
+  chart.tooltip({
+    title: null
+  });
+
+  var layout = new Layout.Linear({
+    nodes: nodes
+  });
+
+  nodes = layout.getNodes();
+
+  var defs = {
+    value: {min:-2}
+  };
+  chart.legend(false);
+
+  var edgeView = chart.createView();
+  edgeView.source(edges, defs);
+  edgeView.axis(false);
+  edgeView.edge()
+    .position(Stat.link('source*target',nodes))
+    .shape('arc')
+    .size('value')
+    .color('#555')
+    .opacity(0.5);
+
+  var nodeView = chart.createView();
+  nodeView.axis(false);
+  nodeView.source(nodes, defs);
+  nodeView.point()
+    .position('x*y')
+    .color('group')
+    .size('value')
+    .shape('circle')
+    .label('nodeName',{
+      offset: -18,
+      label: {
+        rotate: 90, // 文本旋转的角度，一般自动计算
+        textAlign: 'left',
+        fontSize: '12'
+      },
+      autoRotate: false
+    });
+  chart.render();
+});
+</div>
+
+<p>说明：</p>
+<ul>
+<li>group 字段，使用了<code>颜色</code>用于区分不同的节点类型</li>
+</ul>
+<p>例子2：使用极坐标系可以将 例1 的数据绘制成环形弧长链接图</p>
+<div id="c2"></div>
+
+<div class="code hide">
+$.getJSON('./data/relationship.json', function(data) {
+  var Stat = G2.Stat;// 统计算法对象
+  var Layout = G2.Layout;// 布局算法对像
+
+  var nodes = data.nodes; // 节点数据
+  var links = data.links; // 边数据
+  links.map(function(link){
+    var sourceObj = nodes.filter(function(node){
+      return node.id == link.source; 
+    })[0];
+    link.type = sourceObj.modularity_class; // 边按照源节点的类型进行分类
+  });
+
+
+  nodes.sort(function(b, a){
+    var deltGroup = a['modularity_class'] - b['modularity_class'];
+    var deltValue = a.size - b.size;
+    return deltGroup * 100 + deltValue;
+  });
+
+  var chart = new G2.Chart({
+    id: 'c2',
+    forceFit: true,
+    height: 500,
+    animate: false,
+    plotCfg:{
+      margin: 80
+    }
+  });
+
+  // 线性布局Linear
+  var layout = new Layout.Linear({
+    nodes: nodes
+  });
+  nodes = layout.getNodes();// 获取布局后的节点数据
+
+  chart.legend(false);
+  chart.tooltip({
+    title:null
+  });
+
+  // 创建边视图
+  var edgeView = chart.createView();
+  edgeView.source(links);
+  edgeView.coord('polar').reflect('y');  // 使用极坐标，反转y轴(布局方法默认给y赋值为0)
+  edgeView.axis(false);
+  edgeView.edge()
+    // 由于边的坐标数据较多，此处使用统计函数简化语法，Stat.link计算布局后的边的坐标，放在..x和..y中，数值范围是 0-1
+    .position(Stat.link('source*target',nodes))
+    .shape('arc') // 使用弧线完成边的绘制
+    .color('type')
+    .opacity(0.5)
+    .tooltip('source*target'); 
+
+  // 创建节点视图
+  var nodeView = chart.createView();
+  nodeView.coord('polar').reflect('y');
+  nodeView.axis(false);
+  nodeView.source(nodes);
+  nodeView.point()
+    .position('x*y') // nodes数据的x、y由layout方法计算得出
+    .color('modularity_class')
+    .size('size')
+    .shape('circle')
+    .label('label',{ 
+      offset: 10,
+      lableLine: false,
+      labelEmit: true  // 配置label文字为放射状
+    })
+    .tooltip('size*modularity_class');
+  chart.render();
+});
+
+</div>
+
+
+<h2 id="弧长链接图与其他图表的对比">弧长链接图与其他图表的对比</h2><h3 id="弧长链接图和和弦图">弧长链接图和<a href="chord.html">和弦图</a></h3><ul>
+<li>弧长链接图的节点使用标准线性布局，节点权重决定节点大小但不影响位置</li>
+<li>弧长链接图的连线可以使用权重控制线宽，粗细均匀。</li>
+<li>弧长链接图的连线重叠绘制在节点上</li>
+<li>和弦图的节点使用权重线性布局，节点权重即决定节点大小，又决定节点位置</li>
+<li>和弦图的连线使用源权重和目标权重控制线宽，粗细非均匀</li>
+<li>和弦图的节点宽度为连线宽度之和，节点处的连线平铺不重叠</li>
+</ul>
+
+      <h2 id="变型">变型</h2>
+      <div class="detail-list">
+        <ul class="vis-chart-list clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/details/chord.html">
+              <i class="iconfont icon-chord"></i>
+              <span>和弦图</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <h2 id="标签">标签</h2>
+      <div>
+
+        <ul class="vis-classify-list small clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/classify/relation.html">
+              <span>关联类</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $.fn.isOnScreen = function(){
+      var win = $(window);
+      var viewport = {
+          top : win.scrollTop(),
+          left : win.scrollLeft()
+      };
+      viewport.right = viewport.left + win.width();
+      viewport.bottom = viewport.top + win.height();
+      var bounds = this.offset();
+      bounds.right = bounds.left + this.outerWidth();
+      bounds.bottom = bounds.top + this.outerHeight();
+      return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+    };
+    function ReplaceAll(str, sptr, sptr1){
+      while (str.indexOf(sptr) >= 0){
+         str = str.replace(sptr, sptr1);
+      }
+      return str;
+    }
+    function lazyLoad(codes) {
+      var isrun = [];
+      tryRun();
+      $(document).on('mousewheel',function(e){
+        tryRun();
+      });
+      function tryRun(){
+        codes.each(function(index,ele){
+          if (isrun.indexOf(ele) === -1) {
+            var $ele = $(ele);
+            if ( $ele.isOnScreen() ) {
+              setTimeout(function(){
+                var t = $ele.html();
+                t = ReplaceAll(t, '&lt;', '<');
+                t = ReplaceAll(t, '&gt;', '>');
+                t = ReplaceAll(t, '&amp;', '&');
+                eval(t);
+                $ele.hide();
+              },500);
+              isrun.push(ele);
+            };
+          };
+        });
+      }
+    }
+    var codes = $('.code');
+    lazyLoad(codes);
+  </script>
+
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

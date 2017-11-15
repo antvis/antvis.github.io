@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>G6 - 城市服务</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../static/jquery.js"></script>
+  <script src="../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g6/1.1.6/index.js"></script>
+</head>
+<body class="demo-detail-page">
+ 
+
+  <div class="main-container clearfix">
+
+<div class="body-content demo-detail">
+
+  <!-- demo 页面头部导航栏 -->
+  <div class="demo-head">
+    <div class="header clearfix">
+      <a class="header-back" href="/g6/doc">
+        <i class="iconfont icon-cross"></i>
+      </a>
+      <div class="header-crumb">
+        <span class="chanel">G6</span> 图表示例
+      </div>
+    </div>
+  </div>
+
+  <!-- 左侧导航栏 -->
+  <div class="doc-nav">
+    <ul class="doc-nav-list">
+      <li class="">
+        <i class="iconfont">&#xe620;</i>
+        <!-- <a href="#流图" id="demo流图" class="j_navItems">流图</a> -->
+        <a href="/g6/demo/index.html#流图" id="demo流图" class="j_navItems">流图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo流图">
+          <li>
+            <a href="../../../g6/demo/01-businessFlow/page-flow1.html">
+              <img src="../../../static/images/g6/01-businessFlow/page-flow1.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/01-businessFlow/page-flow2.html">
+              <img src="../../../static/images/g6/01-businessFlow/page-flow2.gif" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/01-businessFlow/saoma.html">
+              <img src="../../../static/images/g6/01-businessFlow/saoma.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/01-businessFlow/sign-flow.html">
+              <img src="../../../static/images/g6/01-businessFlow/sign-flow.gif" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/01-businessFlow/wuliu.html">
+              <img src="../../../static/images/g6/01-businessFlow/wuliu.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe61f;</i>
+        <!-- <a href="#树图" id="demo树图" class="j_navItems">树图</a> -->
+        <a href="/g6/demo/index.html#树图" id="demo树图" class="j_navItems">树图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo树图">
+          <li>
+            <a href="../../../g6/demo/02-tree/tree.html">
+              <img src="../../../static/images/g6/02-tree/tree.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/02-tree/indented.html">
+              <img src="../../../static/images/g6/02-tree/indented.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/02-tree/layered-tidy.html">
+              <img src="../../../static/images/g6/02-tree/layered-tidy.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/02-tree/dendrogram.html">
+              <img src="../../../static/images/g6/02-tree/dendrogram.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/02-tree/tree-layout.html">
+              <img src="../../../static/images/g6/02-tree/tree-layout.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe6e5;</i>
+        <!-- <a href="#网图" id="demo网图" class="j_navItems">网图</a> -->
+        <a href="/g6/demo/index.html#网图" id="demo网图" class="j_navItems">网图</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo网图">
+          <li>
+            <a href="../../../g6/demo/03-net/languageInfluenceNetwork.html">
+              <img src="../../../static/images/g6/03-net/languageInfluenceNetwork.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/03-net/force.html">
+              <img src="../../../static/images/g6/03-net/force.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/03-net/systemNet.html">
+              <img src="../../../static/images/g6/03-net/systemNet.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe6df</i>
+        <!-- <a href="#编辑器" id="demo编辑器" class="j_navItems">编辑器</a> -->
+        <a href="/g6/demo/index.html#编辑器" id="demo编辑器" class="j_navItems">编辑器</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo编辑器">
+          <li>
+            <a href="../../../g6/demo/04-editor/editor.html">
+              <img src="../../../static/images/g6/04-editor/editor.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/04-editor/editor-extend1.html">
+              <img src="../../../static/images/g6/04-editor/editor-extend1.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/04-editor/editor-extend2.html">
+              <img src="../../../static/images/g6/04-editor/editor-extend2.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/04-editor/mind.html">
+              <img src="../../../static/images/g6/04-editor/mind.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/04-editor/perventLink.html">
+              <img src="../../../static/images/g6/04-editor/perventLink.gif" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe645</i>
+        <!-- <a href="#画廊" id="demo画廊" class="j_navItems">画廊</a> -->
+        <a href="/g6/demo/index.html#画廊" id="demo画廊" class="j_navItems">画廊</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo画廊">
+          <li>
+            <a href="../../../g6/demo/05-gallery/us-cpi.html">
+              <img src="../../../static/images/g6/05-gallery/us-cpi.gif" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/05-gallery/iris-flower.html">
+              <img src="../../../static/images/g6/05-gallery/iris-flower.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/05-gallery/dataBase.html">
+              <img src="../../../static/images/g6/05-gallery/dataBase.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/05-gallery/sequence.html">
+              <img src="../../../static/images/g6/05-gallery/sequence.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+      <li class="">
+        <i class="iconfont">&#xe6e9;</i>
+        <!-- <a href="#其他" id="demo其他" class="j_navItems">其他</a> -->
+        <a href="/g6/demo/index.html#其他" id="demo其他" class="j_navItems">其他</a>
+        <div class="hide">
+        <ul class="demo-thumbnail-panel clearfix" id="J_demo其他">
+          <li>
+            <a href="../../../g6/demo/06-other/html2canvas.html">
+              <img src="../../../static/images/g6/06-other/html2canvas.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/anchor-attr.html">
+              <img src="../../../static/images/g6/06-other/anchor-attr.gif" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/anchor-update.html">
+              <img src="../../../static/images/g6/06-other/anchor-update.gif" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/crud.html">
+              <img src="../../../static/images/g6/06-other/crud.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/custom-arrow.html">
+              <img src="../../../static/images/g6/06-other/custom-arrow.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/editor.html">
+              <img src="../../../static/images/g6/06-other/editor.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/event.html">
+              <img src="../../../static/images/g6/06-other/event.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/fitView.html">
+              <img src="../../../static/images/g6/06-other/fitView.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/flow-vis.html">
+              <img src="../../../static/images/g6/06-other/flow-vis.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/g6ppt.html">
+              <img src="../../../static/images/g6/06-other/g6ppt.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/anchor-type.html">
+              <img src="../../../static/images/g6/06-other/anchor-type.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/htmlnode.html">
+              <img src="../../../static/images/g6/06-other/htmlnode.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/mapping.html">
+              <img src="../../../static/images/g6/06-other/mapping.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/mode.html">
+              <img src="../../../static/images/g6/06-other/mode.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/node-get-fun.html">
+              <img src="../../../static/images/g6/06-other/node-get-fun.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/saveAndread.html">
+              <img src="../../../static/images/g6/06-other/saveAndread.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/source.html">
+              <img src="../../../static/images/g6/06-other/source.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/tooltip-cfg.html">
+              <img src="../../../static/images/g6/06-other/tooltip-cfg.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/tooltip-true.html">
+              <img src="../../../static/images/g6/06-other/tooltip-true.png" width="156px" />
+            </a>
+          </li>
+          <li>
+            <a href="../../../g6/demo/06-other/tree-source.html">
+              <img src="../../../static/images/g6/06-other/tree-source.png" width="156px" />
+            </a>
+          </li>
+        </ul>
+        </div>
+      </li>
+  </div>
+
+  <div class="nav-mask fadeIn hide"></div>
+
+  <script type="text/javascript">
+  var clearTime;
+  var navMask = $('div.nav-mask');
+  $('a.j_navItems').click(function(e) {
+    var target = $(e.target);
+    target.parent().addClass('active').siblings().removeClass('active');
+    navMask.addClass('hide');
+  });
+
+  $('a.j_navItems').mouseover(function(e) {
+    clearTimeout(clearTime);
+    var id = $(this).attr('id');
+    var top = $(this).offset().top - $(this).height() / 2;
+    navMask.removeClass('hide');
+    navMask.html($('#J_' + id).prop("outerHTML"));
+    navMask.css('top', top);
+  }).mouseout(function() {
+    clearTimeout(clearTime);
+
+    clearTime = setTimeout(function() {
+      if (!navMask.hasClass('hide')) {
+        navMask.addClass('hide');
+      }
+    }, 250);
+  });
+
+  navMask.hover(function(e) {
+    clearTimeout(clearTime);
+    $(this).removeClass('hide');
+    var thumbnailPanel = $(this).find('ul.demo-thumbnail-panel')[0];
+    var id = thumbnailPanel.id;
+    $('#' + id.substring(2)).parent().addClass('hover');
+  }, function(e) {
+    clearTimeout(clearTime);
+    $(this).addClass('hide');
+    var thumbnailPanel = $(this).find('ul.demo-thumbnail-panel')[0];
+    var id = thumbnailPanel.id;
+    $('#' + id.substring(2)).parent().removeClass('hover');
+  });
+  </script>
+  <div id="widthHandler" class="handler"></div>
+
+  <div class="doc-content demo-detail-doc">
+    <div class="doc-inner">
+      <div class="code-banner">
+        <div class="tab-label actived">源码</div>
+        <div class="code-operation">
+          <button class="button" id="J_runCode">运行</button>
+          <button class="button" id="J_copyCode">复制</button>
+          <span id="J_copyStatus" style="display: none; color: #43CBC6; position: absolute; top: 35px; right: 10px; z-index: 20;"></span>
+        </div>
+      </div>
+      <div class="code-panel">
+        <div class="tab-content">
+          <textarea id='code' name='code'>
+   <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>城市服务</title>
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g6/1.1.6/index.js"></script>
+      </head>
+      <body>
+          <div id="c1"></div>
+ <script type="text/javascript">
+$.getJSON('../../../static/data/chengshifuwu.json',function(data){
+  var Util = G6.Util;
+  var Layout = G6.Layout;
+  // 自定义节点
+  G6.registNode('customNode', {
+    afterDraw: function(cfg, group, keyShape){
+      var model = cfg.model;
+      var radius = cfg.size[0]/2;
+      // 填充透明度设置为0
+      keyShape.attr({
+        fillOpacity: 1
+      });
+      // 如果激活设置激活样式
+      if(model.active){
+        keyShape.attr({
+          stroke: "#646464",
+          lineWidth: 6,
+          strokeOpacity: 0.9
+        });
+      }
+      // 添加节点文本
+      group.addShape('text', {
+        attrs: {
+          x: cfg.x + radius,
+          y: cfg.y,
+          text: model.id,
+          fill: "#333",
+          textAlign: 'left',
+          fontSize: 16
+        }
+      });
+    }
+  }, 'circle');
+
+  var layout = new Layout.Force({
+    nodes: data.nodes,
+    edges: data.edges
+  });
+  var net = new G6.Net({
+    id: 'c1', // 容器ID
+    height: 450,        // 画布高
+    useAnchor: null
+  });
+  net.source(data.nodes, data.edges);
+  net.node()
+    .color('#36E6BE')
+    .size(function(obj){
+      var sizeDomain = 100;
+      return obj.value/100 * sizeDomain;
+    });
+  net.edge()
+    .size(function(obj){
+      var sizeDomain = 10;
+      return obj.value/100 * sizeDomain;
+    })
+    .label('value');
+  net.render();
+  layout.onNodeChange = function(id, point){
+    var node = net.find(id);
+    net.update(node, {
+      x: point.x*60+300,
+      y: point.y*60+300
+    });
+    net.refresh();
+  };
+});
+</script>
+
+      </body>
+    </html>
+          </textarea>
+        </div>
+      </div>
+      <div class="chart-panel">
+        <p class="title">城市服务</p>
+        <iframe id="preview" class="demo-chart "></iframe>
+        <div class="demo-chart-intro">
+          <p style="margin-top: 0;">
+          该示例展示的是支付宝城市服务页面之间的调用关系，节点大小表示节点重要度，含边框表示正在关注的节点，边的粗细表示流量带下。该示例的目的在于向大家展示动态力导图的用法。（数据纯属虚构）
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<textarea class="hidden" id="reactCode">
+  <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>城市服务</title>
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://a.alipayobjects.com/g/datavis/g2/2.3.13/g2.js"></script>
+        <script src="https://unpkg.com/g2-react@1.2.0/dist/index.js"></script>
+        <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      </head>
+      <body>
+ <script type="text/babel">undefined
+      </body>
+    </html>
+</textarea>
+<script src="../../../static/codemirror-compressed.js"></script>
+<script src="../../../static/clipboard.min.js"></script>
+<script src="../../../static/demo-detail.js"></script>
+
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

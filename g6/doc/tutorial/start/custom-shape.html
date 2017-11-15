@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>自定义图形</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g6/1.1.6/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item hover">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+  <link rel="stylesheet" href="../../../../static/prettify-min.css">
+
+
+  <div class="main-container clearfix">
+  <div class="body-content tutorial-body-content"><div class="doc-nav">
+  <p class="title">G6</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g6/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">使用教程</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="">
+            <a href="../../../../g6/doc/tutorial/start/base.html" >基础指南</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/doc/tutorial/start/net.html" >网图指南</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/doc/tutorial/start/updateDoc.html" >升级指南</a>
+          </li>
+          <li class="active">
+            <a href="../../../../g6/doc/tutorial/start/custom-shape.html" >自定义图形</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g6/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">API</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="">
+            <a href="../../../../g6/api/index.html" >G6</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/graph.html" >Graph</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/item.html" >Item</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/net.html" >Net</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/tree.html" >Tree</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/handler.html" >Handler</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/matrix.html" >Matrix</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/util.html" >Util</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g6/doc/history.html" >更新日志</a>
+    </li>
+    <li class="">
+      <a href="/g6/tools/index.html" >在线工具</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g6/1.1.6/index.js"></script>
+    <div class="doc-content clearfix">
+      <div class="doc-inner">
+        <h2 id="概述">概述</h2><p><code>G6.registNode</code> 和 <code>G6.registEdge</code> 是开发者基于 G6 进行二次开发最主要的接口，<strong>没有之一！</strong></p>
+<ul>
+<li><a href="#注册">注册--regist</a></li>
+<li><a href="#绘制">绘制--draw</a></li>
+<li><a href="#容器">容器--group</a></li>
+<li><a href="#配置项">配置项--cfg</a></li>
+<li><a href="#关键形">关键形--keyShape</a></li>
+<li><a href="#锚点">锚点--anchor</a></li>
+<li><a href="#绘制后">绘制后--afterDraw</a></li>
+<li><a href="#详解自定义节点">详解自定义节点</a></li>
+<li><a href="#详解自定义边">详解自定义边</a></li>
+</ul>
+<h2 id="注册">注册</h2><div class="highlight"><pre><code class="javascript"><span class="comment">// 注册节点</span>
+G6.registNode(name, {
+  <span class="comment">// 绘制</span>
+  draw: <span class="function"><span class="keyword">function</span><span class="params">(cfg, group)</span>{</span>
+    <span class="keyword">return</span> keyShape;
+  },
+  <span class="comment">// 绘制后执行</span>
+  afterDraw: <span class="function"><span class="keyword">function</span><span class="params">(cfg, group, keyShape)</span>{</span>
+
+  },
+  <span class="comment">// 获取锚点</span>
+  getAnchorPoints: <span class="function"><span class="keyword">function</span><span class="params">(cfg)</span>{</span>
+    <span class="keyword">return</span> anchorPoints;
+  }
+});
+
+<span class="comment">// 注册边</span>
+G6.registNode(name, {
+  <span class="comment">// 绘制</span>
+  draw: <span class="function"><span class="keyword">function</span><span class="params">(cfg, group)</span>{</span>
+    <span class="keyword">return</span> keyShape;
+  },
+  <span class="comment">// 绘制后执行</span>
+  afterDraw: <span class="function"><span class="keyword">function</span><span class="params">(cfg, group, keyShape)</span>{</span>
+
+  }
+});</code></pre></div><p>接口如上，接下来会逐章跟大家说明。</p>
+<p>!注意：G6 内置一些基础的节点如：矩形 <code>rect</code>、圆形 <code>circle</code>、文本 <code>text</code>、菱形 <code>rhombus</code>，一些基础的边如：直线 <code>line</code>、箭头 <code>arrow</code>、曲线 <code>smooth</code>、曲线箭头 <code>smoothArrow</code> 。建议大家在注册型(设置 name)时保留这几个字段，否则会覆盖 G6 内置的图形！<a href="/g6/api/index.html">内置形详见</a></p>
+<h2 id="绘制">绘制</h2><p>与 G2 自定 Shape 类似，<code>draw</code> 是子项最终绘制的接口，决定了一个子项最终画成什么样。</p>
+<h2 id="容器">容器</h2><p>group 是绘图容器，其本身是一个完整的绘图引擎，通过操作我们图形库的 API，我们能在里面画出千千万万的图形！绘图 API 参见<a href="/g6/api/canvas.html">绘图库 Canvas API</a></p>
+<p>实例：</p>
+<p><img src="https://zos.alipayobjects.com/skylark/c2f10ada-bb93-44ac-af2c-ba869876be82/attach/2816/40fdb36628bbba8b/image.png" alt="image"></p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = {
+  <span class="string">"nodes"</span>: [
+    {
+      <span class="string">"shape"</span>: <span class="string">"customNode"</span>,
+      <span class="string">"id"</span>: <span class="string">"d62d1569"</span>
+    }
+  ],
+  <span class="string">"edges"</span>: []
+}
+
+G6.registNode(<span class="string">'customNode'</span>, {
+  draw: <span class="function"><span class="keyword">function</span><span class="params">(cfg, group)</span>{</span>
+    group.addShape(<span class="string">'text'</span>, {
+      attrs: {
+        x: <span class="number">100</span>,
+        y: <span class="number">100</span>,
+        fill: <span class="string">'#333'</span>,
+        text: <span class="string">'我是一个自定义节点，\n有下面那个方形和我自己组成'</span>
+      }
+    });
+    <span class="keyword">return</span> group.addShape(<span class="string">'rect'</span>, {
+      attrs: {
+        x: <span class="number">100</span>,
+        y: <span class="number">100</span>,
+        width: <span class="number">100</span>,
+        height: <span class="number">100</span>,
+        stroke: <span class="string">'red'</span>
+      }
+    });
+  }
+});
+
+<span class="keyword">var</span> net = <span class="keyword">new</span> G6.Net({
+  id: <span class="string">'c1'</span>,           <span class="comment">// 容器ID</span>
+  width: <span class="number">500</span>,   <span class="comment">// 画布宽</span>
+  height: <span class="number">500</span>, <span class="comment">// 画布高</span>
+  grid: {
+    forceAlign: <span class="literal">true</span>, <span class="comment">// 是否支持网格对齐</span>
+    cell: <span class="number">10</span>          <span class="comment">// 网格大小</span>
+  }
+});
+net.source(data.nodes, data.edges);
+net.render();</code></pre></div><h2 id="配置项">配置项</h2><p>group 使我们有画图的能力，cfg 则是绘制一个子项的配置信息。其三个视觉通道<code>位置</code>、<code>大小</code>、<code>颜色</code>和一个原始数据字段<code>origin</code>。一个子项的形态就由这个四个信息决定！</p>
+<p><img src="https://zos.alipayobjects.com/skylark/37405df2-4974-4083-bce7-3d83d8ce657e/attach/2816/d792cc14c8f6b58f/image.png" alt="image"></p>
+<p>实例：</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = {
+  <span class="string">"nodes"</span>: [
+    {
+      <span class="string">"shape"</span>: <span class="string">"customNode"</span>,
+      <span class="string">"x"</span>: <span class="number">100</span>,
+      <span class="string">"y"</span>: <span class="number">250</span>,
+      <span class="string">"id"</span>: <span class="string">"d62d1569"</span>
+    },
+    {
+      <span class="string">"shape"</span>: <span class="string">"customNode"</span>,
+      <span class="string">"x"</span>: <span class="number">380</span>,
+      <span class="string">"y"</span>: <span class="number">250</span>,
+      <span class="string">"id"</span>: <span class="string">"d62s1569"</span>
+    }
+  ],
+  <span class="string">"edges"</span>: [
+    {
+      <span class="string">"shape"</span>: <span class="string">"customEdge"</span>,
+      <span class="string">"source"</span>: <span class="string">"d62d1569"</span>,
+      <span class="string">"id"</span>: <span class="string">"75ae90a8"</span>,
+      <span class="string">"target"</span>: <span class="string">"d62s1569"</span>
+    }
+  ]
+}
+
+G6.registNode(<span class="string">'customNode'</span>, {
+  draw: <span class="function"><span class="keyword">function</span><span class="params">(cfg, group)</span>{</span>
+    group.addShape(<span class="string">'text'</span>, {
+      attrs: {
+        x: cfg.x-<span class="number">50</span>,
+        y: cfg.y-<span class="number">50</span>,
+        fill: <span class="string">'#333'</span>,
+        text: <span class="string">'我是一个自定义节点（node）'</span>
+      }
+    });
+    <span class="keyword">return</span> group.addShape(<span class="string">'rect'</span>, {
+      attrs: {
+        x: cfg.x-<span class="number">50</span>,
+        y: cfg.y-<span class="number">50</span>,
+        width: cfg.size,
+        height: cfg.size,
+        stroke: cfg.color
+      }
+    });
+  }
+});
+
+G6.registEdge(<span class="string">'customEdge'</span>, {
+  draw: <span class="function"><span class="keyword">function</span><span class="params">(cfg, group)</span>{</span>
+    group.addShape(<span class="string">'text'</span>, {
+      attrs: {
+        x: (cfg.points[<span class="number">0</span>].x + cfg.points[<span class="number">1</span>].x)/<span class="number">2</span>,
+        y: (cfg.points[<span class="number">0</span>].y + cfg.points[<span class="number">1</span>].y)/<span class="number">2</span>,
+
+        fill: <span class="string">'#333'</span>,
+        text: <span class="string">'我是一个自定义边（edge）'</span>,
+        textAlign: <span class="string">'center'</span>
+      }
+    });
+    <span class="keyword">return</span> group.addShape(<span class="string">'polyline'</span>, {
+      attrs: {
+        points: [
+          [cfg.points[<span class="number">0</span>].x, cfg.points[<span class="number">0</span>].y],
+          [cfg.points[<span class="number">1</span>].x, cfg.points[<span class="number">1</span>].y]
+        ],
+        stroke: cfg.color,
+        lineWidth: cfg.size
+      }
+    });
+  }
+});
+
+<span class="keyword">var</span> net = <span class="keyword">new</span> G6.Net({
+  id: <span class="string">'c1'</span>,       <span class="comment">// 容器ID</span>
+  width: <span class="number">500</span>,     <span class="comment">// 画布宽</span>
+  height: <span class="number">500</span>     <span class="comment">// 画布高</span>
+});
+net.source(data.nodes, data.edges);
+net.node()
+  .color(<span class="string">'red'</span>)
+  .size(<span class="number">100</span>);
+net.edge()
+  .color(<span class="string">'blue'</span>)
+  .size(<span class="number">3</span>);
+net.render();</code></pre></div><p>!注意：值得注意的是，绘制节点(Node)的位置信息是：<code>cfg.x</code>、<code>cfg.y</code>。而边(Edge)的是 <code>points</code>。</p>
+<h2 id="关键形">关键形</h2><p>keyShape 是 G6 特有的概念。简单来说，keyShape 是该子项参与图形计算的关键图形。所有的<strong>击中</strong>、<strong>锚点</strong>、<strong>控制点</strong>都是根据关键图形生成的，所以这个形（shape）真的非常非常关键！！</p>
+<p>比如：</p>
+<p><img src="https://zos.alipayobjects.com/skylark/c6820042-8774-484b-a1e8-2e72a1268e35/attach/2816/94a919f23c5f19fc/image.png" alt="image"></p>
+<p>返回 rect，则控制点参考 rect 生成！</p>
+<div class="highlight"><pre><code class="javascript">          <span class="keyword">var</span> data = {
+              <span class="string">"nodes"</span>: [
+                  {
+                      <span class="string">"shape"</span>: <span class="string">"customNode"</span>,
+                      <span class="string">"id"</span>: <span class="string">"d62d1569"</span>
+                  }
+              ],
+              <span class="string">"edges"</span>: []
+          }
+
+          G6.registNode(<span class="string">'customNode'</span>, {
+              draw: <span class="function"><span class="keyword">function</span><span class="params">(cfg, group)</span>{</span>
+                <span class="keyword">var</span> text = group.addShape(<span class="string">'text'</span>, {
+                  attrs: {
+                    x: <span class="number">100</span>,
+                    y: <span class="number">100</span>,
+                    fill: <span class="string">'#333'</span>,
+                    text: <span class="string">'我是一个自定义节点，\n有下面那个方形和我自己组成'</span>
+                  }
+                });
+                <span class="keyword">var</span> rect = group.addShape(<span class="string">'rect'</span>, {
+                  attrs: {
+                    x: <span class="number">100</span>,
+                    y: <span class="number">100</span>,
+                    width: <span class="number">100</span>,
+                    height: <span class="number">100</span>,
+                    stroke: <span class="string">'red'</span>
+                  }
+                });
+
+                <span class="keyword">return</span> rect;
+              }
+          });
+
+          net = <span class="keyword">new</span> G6.Net({
+              id: <span class="string">'c1'</span>,           <span class="comment">// 容器ID</span>
+              width: <span class="number">500</span>,   <span class="comment">// 画布宽</span>
+              height: <span class="number">500</span>, <span class="comment">// 画布高</span>
+              grid: {
+                  forceAlign: <span class="literal">true</span>, <span class="comment">// 是否支持网格对齐</span>
+                  cell: <span class="number">10</span>          <span class="comment">// 网格大小</span>
+              }
+          });
+          net.source(data.nodes, data.edges);
+          net.render();</code></pre></div><p><img src="https://zos.alipayobjects.com/skylark/c9f01fdd-8c56-4fcf-b020-16d5e67ba857/attach/2816/903e9f2517e2a3c0/image.png" alt="image"></p>
+<p>返回 text，则控制点参考 text 生成！</p>
+<div class="highlight"><pre><code class="javascript">          <span class="keyword">var</span> data = {
+              <span class="string">"nodes"</span>: [
+                  {
+                      <span class="string">"shape"</span>: <span class="string">"customNode"</span>,
+                      <span class="string">"id"</span>: <span class="string">"d62d1569"</span>
+                  }
+              ],
+              <span class="string">"edges"</span>: []
+          }
+
+          G6.registNode(<span class="string">'customNode'</span>, {
+              draw: <span class="function"><span class="keyword">function</span><span class="params">(cfg, group)</span>{</span>
+                <span class="keyword">var</span> text = group.addShape(<span class="string">'text'</span>, {
+                  attrs: {
+                    x: <span class="number">100</span>,
+                    y: <span class="number">100</span>,
+                    fill: <span class="string">'#333'</span>,
+                    text: <span class="string">'我是一个自定义节点，\n有下面那个方形和我自己组成'</span>
+                  }
+                });
+                <span class="keyword">var</span> rect = group.addShape(<span class="string">'rect'</span>, {
+                  attrs: {
+                    x: <span class="number">100</span>,
+                    y: <span class="number">100</span>,
+                    width: <span class="number">100</span>,
+                    height: <span class="number">100</span>,
+                    stroke: <span class="string">'red'</span>
+                  }
+                });
+
+                <span class="keyword">return</span> text;
+              }
+          });
+
+          <span class="keyword">var</span> net = <span class="keyword">new</span> G6.Net({
+              id: <span class="string">'c1'</span>,           <span class="comment">// 容器ID</span>
+              width: <span class="number">500</span>,   <span class="comment">// 画布宽</span>
+              height: <span class="number">500</span>, <span class="comment">// 画布高</span>
+              grid: {
+                  forceAlign: <span class="literal">true</span>, <span class="comment">// 是否支持网格对齐</span>
+                  cell: <span class="number">10</span>          <span class="comment">// 网格大小</span>
+              }
+          });
+          net.source(data.nodes, data.edges);
+          net.render();</code></pre></div><h2 id="锚点">锚点</h2><h3 id="锚点的配置">锚点的配置</h3><h4 id="位置定义">位置定义</h4><p>锚点是自定义节点时一个重要的概念，它表示一个节点可以被线连接的地方。在 G6 中，我们可以通过 <code>getAnchorPoints</code> 方法自定义锚点，示意图如下：</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/mTgmMrZpztmjClKMqKrX.png" style="width: 300px;" width="300px"/></p>
+<div class="highlight"><pre><code class="javascript">G6.registNode(<span class="string">'customNode'</span>, {
+  getAnchorPoints: <span class="function"><span class="keyword">function</span><span class="params">(cfg, group)</span> {</span>
+    <span class="keyword">return</span> [
+      [<span class="number">0.5</span>, <span class="number">1</span>], <span class="comment">// 上边的中点</span>
+      [<span class="number">1</span>, <span class="number">0.5</span>], <span class="comment">// 右边的中点</span>
+      [<span class="number">0.5</span>, <span class="number">0</span>], <span class="comment">// 下边的中点</span>
+      [<span class="number">0</span>, <span class="number">0.5</span>]  <span class="comment">// 左边的中点</span>
+    ];
+  }
+});</code></pre></div><h4 id="属性配置">属性配置</h4><p>除了定义位置，在做编辑的交互的时候，我们可能还要配置锚点的颜色、鼠标悬浮时候的颜色、该锚点是否可以连接，这个时候，我们还能通过设置第三个参数进行锚点配置项的设置，<a href="/g6/demo/06-other/anchor-type.html">示例</a>。</p>
+<div class="highlight"><pre><code class="javascript">G6.registNode(<span class="string">'customNode'</span>, {
+  getAnchorPoints: <span class="function"><span class="keyword">function</span><span class="params">(cfg, group)</span> {</span>
+    <span class="keyword">return</span> [
+      [<span class="number">0.5</span>, <span class="number">1</span>, {
+        <span class="comment">// 锚点图形属性</span>
+        style: {
+          fill: <span class="string">'red'</span>,
+          fillOpacity: <span class="number">0.7</span>
+        },
+        <span class="comment">// 悬浮锚点图形属性</span>
+        hoverStyle: {
+          stroke: <span class="literal">null</span>
+        },
+        <span class="comment">// 是否可以连接</span>
+        linkable: <span class="literal">false</span>
+      }], <span class="comment">// 上边的中点</span>
+      [<span class="number">1</span>, <span class="number">0.5</span>], <span class="comment">// 右边的中点</span>
+      [<span class="number">0.5</span>, <span class="number">0</span>], <span class="comment">// 下边的中点</span>
+      [<span class="number">0</span>, <span class="number">0.5</span>]  <span class="comment">// 左边的中点</span>
+    ];
+  }
+});</code></pre></div><h4 id="锚点类型">锚点类型</h4><p>这里的 <code>getAnchorPoints</code> 方法除了返回 <code>二维数组</code> ，还能返回 <code>auto</code>、<code>false</code>，分别表示自动锚点和不使用锚点。<a href="/g6/demo/06-other/anchor-atrr.html">示例</a>。</p>
+<div class="highlight"><pre><code class="javascript">G6.registNode(<span class="string">'custom1'</span>, {
+  <span class="comment">// 常规锚点</span>
+  getAnchorPoints: <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">return</span> [
+      [<span class="number">0</span>, <span class="number">0.5</span>],   <span class="comment">// 左边中点 索引为 0</span>
+      [<span class="number">1</span>, <span class="number">0.5</span>]    <span class="comment">// 右边中点 索引为 1</span>
+    ];
+  }
+});
+G6.registNode(<span class="string">'custom2'</span>, {
+  <span class="comment">// 自动锚点</span>
+  getAnchorPoints: <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">return</span> <span class="string">'auto'</span>;
+  }
+});
+G6.registNode(<span class="string">'custom3'</span>, {
+  <span class="comment">// 不使用锚点（ 自动连接中心 ）</span>
+  getAnchorPoints: <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">return</span> <span class="literal">null</span>;
+  }
+});</code></pre></div><h3 id="锚点的交互">锚点的交互</h3><p>在更复杂的一些场景里，有的时候我们可能还需要动态控制锚点的数量，甚至对锚点的连接做一些控制。这个时候，我们不妨把<code>锚点的配置信息和节点的数据模型进行绑定</code>，从而实现节点的动态锚点的需求。<a href="/g6/demo/06-other/anchor-update.html">示例</a>。</p>
+<div class="highlight"><pre><code class="javascript">G6.registNode(<span class="string">'custom'</span>, {
+  getAnchorPoints: <span class="function"><span class="keyword">function</span><span class="params">(cfg)</span>{</span>
+    <span class="keyword">var</span> model = cfg.model;
+    <span class="comment">// 将锚点与数据源关联</span>
+    <span class="keyword">return</span> model.anchorPoints;
+  }
+});</code></pre></div><h3 id="综合示例">综合示例</h3><p><img src="/static/images/g6/04-editor/perventLink.gif" alt="image"></p>
+<p><a href="/g6/demo/04-editor/perventLink.html">示例源码</a></p>
+<h2 id="绘制后">绘制后</h2><p>通过上面的接口我们已经能定义出任何<code>节点</code>和<code>边</code>，但是很多时候，我们希望基于当前<code>形</code>的基础上添加一些信息，而不是用<code>draw</code>方法全部重新画。这个时候我们能通过调用 <code>afterDraw</code> 方法在原有形基础上添加新的图形。用法如下：</p>
+ <div id='c1'></div>
+
+<script>(function(){'use strict';
+
+G6.registNode('customRect', {
+  afterDraw: function afterDraw(cfg, group) {
+    group.addShape('text', {
+      attrs: {
+        x: cfg.x - cfg.size[0] / 2,
+        y: cfg.y - cfg.size[1] / 2,
+        fill: 'red',
+        text: '我是绘制（draw）节点\n后添加的文本'
+      }
+    });
+  }
+});
+G6.registEdge('line', {
+  afterDraw: function afterDraw(cfg, group, keyShape) {
+    var center = keyShape.getPoint(0.5);
+    group.addShape('text', {
+      attrs: {
+        x: center.x,
+        y: center.y,
+        fill: 'blue',
+        textAlign: 'center',
+        text: '我是绘制（draw）边\n后添加的文本'
+      }
+    });
+  }
+});
+var data = {
+  source: {
+    "nodes": [{
+      "x": 100,
+      "y": 210,
+      "id": "node1"
+    }, {
+      "x": 300,
+      "y": 210,
+      "id": "node2"
+    }],
+    "edges": [{
+      "source": "node1",
+      "id": "edge1",
+      "target": "node2"
+    }]
+  }
+};
+var net = new G6.Net({
+  id: 'c1', // 容器ID
+  width: 500, // 画布宽
+  height: 500, // 画布高
+  mode: 'none', // 模式
+  grid: {
+    forceAlign: true, // 是否支持网格对齐
+    cell: 10 // 网格大小
+  }
+});
+net.node().shape('customRect');
+net.read(data);
+net.render();})()</script><div class="highlight"><pre><code class="javascript">G6.registNode(<span class="string">'customRect'</span>, {
+  afterDraw: <span class="function"><span class="keyword">function</span><span class="params">(cfg, group)</span> {</span>
+    group.addShape(<span class="string">'text'</span>, {
+      attrs: {
+        x: cfg.x-cfg.size[<span class="number">0</span>]/<span class="number">2</span>,
+        y: cfg.y-cfg.size[<span class="number">1</span>]/<span class="number">2</span>,
+        fill: <span class="string">'red'</span>,
+        text: <span class="string">'我是绘制（draw）节点\n后添加的文本'</span>
+      }
+    });
+  }
+});
+G6.registEdge(<span class="string">'line'</span>, {
+  afterDraw: <span class="function"><span class="keyword">function</span><span class="params">(cfg, group, keyShape)</span> {</span>
+    <span class="keyword">var</span> center = keyShape.getPoint(<span class="number">0.5</span>);
+    group.addShape(<span class="string">'text'</span>, {
+      attrs: {
+        x: center.x,
+        y: center.y,
+        fill: <span class="string">'blue'</span>,
+        textAlign: <span class="string">'center'</span>,
+        text: <span class="string">'我是绘制（draw）边\n后添加的文本'</span>
+      }
+    });
+  }
+});
+<span class="keyword">var</span> data = {
+  source: {
+    <span class="string">"nodes"</span>: [
+      {
+        <span class="string">"x"</span>: <span class="number">100</span>,
+        <span class="string">"y"</span>: <span class="number">210</span>,
+        <span class="string">"id"</span>: <span class="string">"node1"</span>
+      },
+      {
+        <span class="string">"x"</span>: <span class="number">300</span>,
+        <span class="string">"y"</span>: <span class="number">210</span>,
+        <span class="string">"id"</span>: <span class="string">"node2"</span>
+      }
+    ],
+    <span class="string">"edges"</span>: [
+      {
+        <span class="string">"source"</span>: <span class="string">"node1"</span>,
+        <span class="string">"id"</span>: <span class="string">"edge1"</span>,
+        <span class="string">"target"</span>: <span class="string">"node2"</span>
+      }
+    ]
+  }
+};
+<span class="keyword">var</span> net = <span class="keyword">new</span> G6.Net({
+    id: <span class="string">'c1'</span>,      <span class="comment">// 容器ID</span>
+    width: <span class="number">500</span>,    <span class="comment">// 画布宽</span>
+    height: <span class="number">500</span>,   <span class="comment">// 画布高</span>
+    mode: <span class="string">'none'</span>,  <span class="comment">// 模式</span>
+    grid: {
+      forceAlign: <span class="literal">true</span>, <span class="comment">// 是否支持网格对齐</span>
+      cell: <span class="number">10</span>          <span class="comment">// 网格大小</span>
+    }
+  });
+net.node().shape(<span class="string">'customRect'</span>);
+net.read(data);
+net.render();</code></pre></div><h2 id="详解自定义节点">详解自定义节点</h2><h3 id="配置项详解">配置项详解</h3><ul>
+<li>位置：cfg.x, cfg.y</li>
+<li>颜色：cfg.color</li>
+<li>尺寸：cfg.size</li>
+<li>原始数据：cfg.model</li>
+</ul>
+<h3 id="使用-html-节点">使用 HTML 节点</h3><p>用原生 canvas 或是用我们内部封装的 2D 绘图引擎 G6.Canvas，画一些图形都挺方便。但直接操作它们去画一些<code>列表</code>、<code>复杂图标</code>，或是处理<code>文本</code>的对齐、行高。对于 web 工程师来说总是不如使用 HTML 来得更直接、更方便。如今 HTML 节点已正式加入 G6 豪华流程图大礼包，各位再也不用看着 HTML CSS 眼馋了！ </p>
+<h4 id="简单示例">简单示例</h4><p><img src="/static/images/g6/06-other/htmlnode.png" alt="image"></p>
+<p><a href="/g6/demo/06-other/htmlnode.html">示例源码</a></p>
+<h4 id="综合示例">综合示例</h4><p><img src="https://gw.alipayobjects.com/zos/rmsportal/kGCoKUTAKPdYUifVIWvJ.png" alt="image"></p>
+<blockquote>
+<p>该图展示了对鸢尾花数据集进行关联分析的过程中，如何可视化关联分析的结果。该示例用颜色映射的花的种类，连接线映射了关联度在 0.7 以上的关系。连线上点的大小表示关联度的强弱。每个节点所画的占比玉玦图，表示每个品种在该属性下，不同数值区间内的占比。由图可得出结论，花瓣长度和花瓣宽度，在所有品种下都有关联关系，并且各个品类间有明显的分层。所以这两个属性，适合用于做区分种类的关键指示器。该示例主要向大家展示了如何使用 html 节点巧妙的结合 G6 与 G2，从而呈现一份精彩的可视化作品。<a href="/g6/demo/05-gallery/iris-flower.html">示例链接</a></p>
+</blockquote>
+<h3 id="动态计算锚点">动态计算锚点</h3><p>有的时候，我们并不能写死锚点，需要根据节点本身动态计算锚点的数量和位置。这意味这 <code>draw</code> 方法里的信息要能传到，<code>getAnchorPoints</code> 里，此时我们不妨在 draw 方法中计算好锚点，再存到 <code>group</code> 里，然后在 <code>getAnchorPoints</code> 时将锚点信息取出，return 回去即可。</p>
+<p><img src="https://zos.alipayobjects.com/skylark/e537c24e-1976-41e7-b4f6-b3cc63e924db/attach/2816/68b3988f18d698b9/image.png" alt="image"></p>
+<p><a href="/g6/demo/05-gallery/dataBase.html">Demo源码</a></p>
+<h2 id="详解自定义边">详解自定义边</h2><p>相较于自定义节点，自定义边相对比较复杂一点，这里给出一些最佳实践，以帮助用户更好的画边。</p>
+<p><code>注意</code>：由于画边相对复杂，不建议大家直接复写 draw 方法。</p>
+<h3 id="配置项详解">配置项详解</h3><ul>
+<li>边控制点：points // 理论上 <code>points</code> 可以有无穷多个点，从 points[0] 到 points[n]，依次是源节点到目标节点的控制点位置。</li>
+<li>目标节点： cfg.target // 目标节点 详见：<a href="/g6/api/item.html#节点——node">Node API</a></li>
+<li>源节点：cfg.source // 源节点 详见：<a href="/g6/api/item.html#节点——node">Node API</a></li>
+<li>颜色：cfg.color</li>
+<li>尺寸：cfg.size</li>
+<li>原始数据：cfg.model</li>
+</ul>
+<!--
+
+### 修饰边
+
+path 元素的 `getPoint` 方法能按比率帮助用户取到该  path 上的一点。这个方法看似简单简单，却非常强大，我们可以利用这个方法做很多有趣的事情，比如做一些边上的修饰动画：
+
+<div id="getPointAniamte"></div>
+
+<script>
+</script>
+
+-->
+
+<h3 id="自定义箭头">自定义箭头</h3><p>自定义箭头是常见的需求，但这个需求看似简单，真正实现起来却没那么简单。目前 G6 里还没有提供十分便捷的添加箭头的方式，只提供了一个比较基础的工具方法，若有自定义箭头的需求，不妨使用。</p>
+<div id="customArrow"></div>
+
+<p><a href="/g6/demo/06-other/custom-arrow.html">Demo源码</a></p>
+<script>
+var Util = G6.Util;
+G6.registEdge('bezierQuadratic', {
+  afterDraw: function(cfg, group, keyShape) {
+    var points = cfg.points;
+    var start = points[0];
+    var end = points[points.length - 1];
+    var center = keyShape.getPoint(0.5);
+    var lineWidth = keyShape.attr('lineWidth');
+    if(lineWidth < 5){
+      lineWidth = 5;
+    }
+    // 关于自身坐标系构造一个形，作为箭头
+    var arrow = group.addShape('polyline', {
+      attrs:{
+        points: [
+          [-lineWidth/4, lineWidth/2],
+          [lineWidth/4, 0],
+          [-lineWidth/4, -lineWidth/2]
+        ],
+        stroke: '#333'
+      },
+      class: 'arrow'
+    });
+    Util.arrowTo(arrow, center.x, center.y, center.x, center.y, end.x, end.y);
+  }
+});
+var data = {
+  "source": {
+    "nodes": [
+      {
+        "shape": "rect",
+        "label": "文本",
+        "x": 550,
+        "y": 260,
+        "id": "af11b7bc"
+      },
+      {
+        "shape": "rect",
+        "label": "文本",
+        "x": 780,
+        "y": 260,
+        "id": "313ed868"
+      }
+    ],
+    "edges": [
+      {
+        "source": "af11b7bc",
+        "target": "313ed868",
+        "id": "bd2bc602"
+      },
+      {
+        "source": "313ed868",
+        "target": "af11b7bc",
+        "id": "1be6dc9f",
+        "size": 2,
+        "targetAnchor": 2,
+        "sourceAnchor": 2
+      },
+      {
+        "source": "af11b7bc",
+        "target": "313ed868",
+        "id": "3d463cd1",
+        "targetAnchor": 0,
+        "sourceAnchor": 0
+      },
+      {
+        "source": "313ed868",
+        "target": "af11b7bc",
+        "id": "ba7e057c",
+        "size": 6
+      }
+    ]
+  }
+};
+var net = new G6.Net({
+    id: 'customArrow',      // 容器ID
+    width: 500,    // 画布宽
+    height: 500,   // 画布高
+    fitView: 'cc', // 图居中自适应
+    mode: 'none',  // 模式
+    grid: {
+      forceAlign: true, // 是否支持网格对齐
+      cell: 10          // 网格大小
+    }
+  });
+net.read(data);
+net.edge().shape('bezierQuadratic');
+net.render();
+</script>
+
+
+      </div>
+<div class="preNext clearfix">
+  <a href="../../../../g6/doc/tutorial/start/updateDoc.html" class="pull-left">
+    <i class="iconfont icon-left"></i>
+    升级指南
+  </a>
+</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../../../../static/nav-menu.js"></script>
+  <script src="../../../../static/prettify-min.js"></script>
+  <script src="../../../../static/clipboard.min.js"></script>
+  <script type="text/javascript">
+    var CLS_PRETTY = 'prettyprint linenums';
+    BUI.use('bui/common',function(BUI){
+      var preEls =  $('pre');
+      BUI.each(preEls,function(el){
+        var node = $(el), innerText;
+        node.addClass(CLS_PRETTY);
+        innerText = node.html();
+        var a = /^(\s+)/.exec(innerText);
+        var regex;
+        if(a){
+          regex = new RegExp('('+a[0]+')(\\s*)','ig');
+          innerText = innerText.replace(regex,'$2');
+        }
+          node.html(innerText);
+      });
+      if(window.prettyPrint){
+        prettyPrint();
+      }
+    });
+
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  </script>
+  
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{%- set details = resource.pages|getDetails(post.filepath) %}
+{%- set classifys = resource.pages|getAllClassifys(post.filepath) %}
+
+{% block title %}{{post.meta.title}}{% endblock %}
+
+{%- block content %}
+  <div class="body-content tutorial-body-content">
+    {%- include "doc-nav.html" %}
+    <div class="doc-content clearfix">
+      <div class="doc-inner">
+        {{post.html}}
+        {%- if classifys && post.filepath === "vis/doc/chart/index.md"%}
+        <!-- <h2>图表类型</h2> -->
+        <div style="margin-top: 64px;">
+          <ul class="vis-classify-list clearfix">
+          {%- for classify in classifys  %}
+          <li>
+            <a href="{{content_url(''}}/{{classify.url}}">
+              <i class="iconfont icon-{{classify.class}}"></i>
+              <span>{{classify.title}}</span>
+            </a>
+          </li>
+          {%- endfor %}
+          </ul>
+
+        {%- else %}
+          {%- if details %}
+          <div>
+            <ul class="vis-chart-list clearfix">
+            {%- for detail in details  %}
+              <li>
+                <a href="{{content_url(''}}/{{detail.url}}" target="_blank">
+                  <i class="iconfont icon-{{detail.class}}"></i>
+                  <span>{{detail.title}}</span>
+                </a>
+              </li>
+            {%- endfor %}
+            </ul>
+          </div>
+          {%- endif %}
+        {%- endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {%- endblock %}

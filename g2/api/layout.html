@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Layout API 文档</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../static/jquery.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item hover">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+<link rel="stylesheet" href="../../static/prettify-min.css">
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+
+
+  <div class="main-container clearfix">
+<div class="body-content api-body-content"><div class="doc-nav">
+  <p class="title">G2</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g2/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">使用教程</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="sub-title">基础教程</li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/index.html" >G2 图表的主要组成</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/chart.html" >图表对象配置（chart）</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/working-with-data.html" >data 数据</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/frame.html" >Frame 常见操作</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/scale.html" >度量</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/col-defs.html" >列定义操作</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/geom.html" >geom 几何标记</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/attr.html" >attr 图形属性</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/coord.html" >coord 坐标系</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/axis.html" >axis 坐标轴</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/legend.html" >legend 图例</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/tooltip.html" >tooltip 提示信息</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/guide.html" >guide 辅助标记</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/stat.html" >stat 统计变换</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/facet.html" >facet 分面</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/theme.html" >theme 图表样式</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/label.html" >label 文本标签</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/chart-event.html" >图表事件 event</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/action.html" >图表交互</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/changedata.html" >数据异步加载与动态更新</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/g2-plugin-slider.html" >数据滑动条插件使用</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/rc-g2.html" >在 react 中使用 G2</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/fqas.html" >常见问题</a>
+          </li>
+          <li class="sub-title">高级教程</li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/index.html" >G2 图形语法简介</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/data-flow.html" >G2 的数据处理流程</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/data-type-and-scale.html" >数据类型与度量</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/coord-detailed.html" >坐标系详解</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/chart-type.html" >图表类型</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/geom-and-adjust.html" >几何标记和数据调整</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/custom-shape.html" >自定义 shape</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/view.html" >多视图 view 绘制</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/layout.html" >layout 布局</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/draw-word-cloud.html" >使用 G2 绘制词云</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/animate.html" >自定义动画</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">API</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="">
+            <a href="../../g2/api/index.html" >G2</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/chart.html" >Chart</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/view.html" >View</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/geom.html" >Geom</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/scale.html" >Scale</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/stat.html" >Stat</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/frame.html" >Frame</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/shape.html" >Shape</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/animate.html" >Animate</a>
+          </li>
+          <li class="active">
+            <a href="../../g2/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/util.html" >Util</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/chart-options.html" >配置项支持</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/doc/history.html" >更新日志</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+  <div class="doc-content clearfix">
+    <h1>Layout</h1>
+    <div id="J_pageNav"></div>
+    <div class="clearfix" style="margin-bottom: 40px;"></div>
+    <div class="doc-inner">
+      <p>G2 当前支持的布局：</p>
+<ul>
+<li><a href="#Layout.Tree">树的正交布局</a></li>
+<li><a href="#Layout.linear">线性布局</a></li>
+<li><a href="#Layout.sankey">桑基布局</a></li>
+</ul>
+<h2 id="layout-tree">Layout.Tree</h2><p>树的布局默认是正交布局，子节点在父节点的下面。</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/YFNGtVWJAuAPsQj.png" alt="image"></p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [{
+  name: <span class="string">'root'</span>,
+  children: [{
+    name: <span class="string">'a'</span>,
+    children: [{
+      name: <span class="string">'a1'</span>
+    }, {
+      name: <span class="string">'a2'</span>
+    }]
+  }, {
+    name: <span class="string">'b'</span>,
+    children: [{
+      name: <span class="string">'b1'</span>,
+      children: [{
+        name: <span class="string">'b11'</span>
+      }]
+    }]
+  }, {
+    name: <span class="string">'c'</span>
+  }]
+}];
+<span class="keyword">var</span> layout = <span class="keyword">new</span> G2.Layout.Tree({
+  nodes: data
+});
+
+<span class="keyword">var</span> nodes = layout.getNodes();
+<span class="keyword">var</span> edges = layout.getEdges();</code></pre></div><h2 id="属性">属性</h2><h3 id="nodes"><a href="#nodes">nodes</a></h3><p>类型：<code>Array</code></p>
+<p>参与布局的节点。</p>
+<h3 id="width"><a href="#width">width</a></h3><p>布局的宽度，默认 1。</p>
+<h3 id="height"><a href="#height">height</a></h3><p>布局的高度，默认 1。</p>
+<h3 id="dx"><a href="#dx">dx</a></h3><p>叶子节点布局的间隔，一般是横向间隔，注意用户坐标系翻转时表示垂直间隔。</p>
+<h3 id="dy"><a href="#dy">dy</a></h3><p>不同层级之间的间隔。</p>
+<h3 id="childrenfiled"><a href="#childrenFiled">childrenFiled</a></h3><p>子节点对应的字段，默认 &#39;children&#39;。</p>
+<h3 id="collapsedfield"><a href="#collapsedField">collapsedField</a></h3><p>节点折叠对应的字段，默认值&#39;collapsed&#39;。</p>
+<h2 id="方法">方法</h2><h3 id="getnodes"><a href="#getNodes">getNodes</a></h3><p><code>layout.getNodes()</code></p>
+<p>获取布局完毕的节点</p>
+<p>返回节点的格式：</p>
+<div class="highlight"><pre><code class="javascript">{id: <span class="string">'nodeId'</span>, x: x, y: y, ..传入的各个字段..}</code></pre></div><p>如果id未设置，则自动生成。</p>
+<h3 id="getedges"><a href="#getEdges">getEdges</a></h3><p><code>layout.getEdges()</code></p>
+<p>获取布局后的边，边的格式</p>
+<div class="highlight"><pre><code class="javascript">{source: <span class="string">'parentId'</span>, target: <span class="string">'nodeId'</span>}</code></pre></div><h3 id="findnode"><a href="#findNode">findNode</a></h3><p><code>layout.findNode(id)</code></p>
+<p>根据id查找节点，如果未指定id，则会自动生成id</p>
+<h3 id="reset"><a href="#reset">reset</a></h3><p><code>layout.reset()</code></p>
+<p>重新计算layout。</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> node = treeLayout.findNode(<span class="string">'id'</span>);
+node.collapsed = <span class="literal">true</span>;
+treeLayout.reset();
+<span class="keyword">var</span> nodes = treeLayout.getNodes();
+<span class="keyword">var</span> edges = treeLayout.getEdges();</code></pre></div><h2 id="layout-linear">Layout.linear</h2><p>一般线性布局。</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/gGyZqsALufozAqlAqpfe.jpg" alt="图片"></p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [{
+    id: <span class="number">0</span>,
+    name: <span class="string">'a1'</span>,
+    type: <span class="string">'group1'</span>
+  }, {
+    id:<span class="number">1</span>,
+    name: <span class="string">'a2'</span>,
+    type: <span class="string">'group2'</span> 
+  }];
+
+<span class="keyword">var</span> linear = <span class="keyword">new</span> G2.Layout.Linear({
+  nodes: data,
+  y:<span class="number">80</span>
+});
+
+<span class="keyword">var</span> nodes = layout.getNodes();</code></pre></div><p>带权重的线性布局：</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/BnmAmDPiiIVzmKCwJzKN.png" alt="图片"></p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [{
+    id: <span class="number">0</span>,
+    name: <span class="string">'a1'</span>,
+    value: <span class="number">5</span>
+  }, {
+    id:<span class="number">1</span>,
+    name: <span class="string">'a2'</span>,
+    value: <span class="number">8</span>  
+  }];
+
+<span class="keyword">var</span> linear = <span class="keyword">new</span> G2.Layout.Linear({
+  nodes: data,
+  hasWeight: <span class="literal">true</span>,  <span class="comment">// 是否带权重配置项</span>
+  y:<span class="number">80</span>
+});
+
+<span class="keyword">var</span> nodes = layout.getNodes();</code></pre></div><h2 id="属性">属性</h2><h3 id="nodes"><a href="#nodes">nodes</a></h3><p>类型：<code>Array</code></p>
+<p>参与布局的节点，包含 id、权重（可选）字段</p>
+<ul>
+<li>idField 唯一区分节点的字段，当节点数据没有id字段时使用该字段生成id，默认&#39;name&#39;；</li>
+<li>valueFiel 节点权重对应的字段，默认 &#39;value&#39;,使用该字段需配置hasWeight为true。</li>
+</ul>
+<h3 id="edges"><a href="#edges">edges</a></h3><p>类型：<code>Array</code></p>
+<p>参与布局的节点的边数据，当没有节点数据，只有边数据时，可以通过该数据自动创建出节点，包含源节点、目标节点和起始权值和结束权值4个字段：</p>
+<ul>
+<li>sourceField 源节点字段名，默认值&#39;source&#39;</li>
+<li>targetField 目标节点字段名，默认&#39;target&#39;</li>
+<li>sourceWeightField 起始权值的字段名，默认 &#39;sourceWeight&#39;</li>
+<li>targetWeightField (可选)结束权值的字段名，默认 &#39;targetWeight&#39;</li>
+</ul>
+<h3 id="hasweight"><a href="#hasWeight">hasWeight</a></h3><p>是否带权重，默认 false</p>
+<h3 id="thickness"><a href="#thickness">thickness</a></h3><p>节点的厚度，默认 0.05</p>
+<h3 id="margin"><a href="#margin">margin</a></h3><p>节点边距，默认0.01(单位：总宽度的占比)</p>
+<h3 id="y"><a href="#y">y</a></h3><p>节点的统一y坐标，默认0</p>
+<h2 id="方法">方法</h2><h3 id="getnodes"><a href="#getNodes">getNodes</a></h3><p><code>layout.getNodes()</code></p>
+<p>获取布局完毕的节点</p>
+<p>返回节点的格式：</p>
+<div class="highlight"><pre><code class="javascript">{x: x, y: y, ..传入的各个字段..}</code></pre></div><h3 id="reset"><a href="#reset">reset</a></h3><p><code>layout.reset()</code></p>
+<p>重新计算layout。</p>
+<h2 id="layout-sankey">Layout.sankey</h2><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> nodes = [{
+    id: <span class="number">0</span>,
+    name: <span class="string">'a1'</span>,
+    value: <span class="number">10</span>
+  }, {
+    id:<span class="number">1</span>,
+    name: <span class="string">'a2'</span>,
+    value: <span class="number">5</span>  
+  },{
+    id:<span class="number">2</span>,
+    name: <span class="string">'a3'</span>,
+    value: <span class="number">5</span>  
+  }];
+
+<span class="keyword">var</span> edges = [{
+  source:<span class="string">'0'</span>,
+  target:<span class="string">'1'</span>,
+  value:<span class="number">5</span>
+},{
+  source:<span class="string">'0'</span>,
+  target:<span class="string">'2'</span>,
+  value:<span class="number">5</span>
+}]
+<span class="keyword">var</span> layout = <span class="keyword">new</span> G2.Layout.sankey({
+  nodes: nodes,
+  edges: edges,
+  thickness: <span class="number">0.02</span>,  <span class="comment">// 节点厚度</span>
+});
+
+<span class="keyword">var</span> nodes = layout.getNodes();
+<span class="keyword">var</span> edges = layout.getEdges();</code></pre></div><h2 id="属性">属性</h2><h3 id="nodes"><a href="#nodes">nodes</a></h3><p>类型：<code>Array</code></p>
+<p>(可选) 参与布局的节点。</p>
+<p>可包含id、节点层级、节点权值三个字段，不传入该数据则根据边数据中自动创建出节点，该节点只有一个id字段</p>
+<ul>
+<li>idField 唯一区分节点的字段，当节点数据没有id字段时使用该字段生成id，默认&#39;name&#39;</li>
+<li>stepField 层级的字段名，默认&#39;step&#39;</li>
+<li>valueField 权重的字段名，默认 &#39;value&#39;</li>
+</ul>
+<h3 id="edges"><a href="#edges">edges</a></h3><p>类型：<code>Array</code></p>
+<p>（必选）参与布局的边，包含源节点、目标节点和权值3个字段</p>
+<ul>
+<li>valueField 权重的字段名，默认 &#39;value&#39;</li>
+<li>sourceField 源节点字段名，默认值&#39;source&#39;</li>
+<li>targetField 目标节点字段名，默认&#39;target&#39;</li>
+</ul>
+<h3 id="thickness"><a href="#thickness">thickness</a></h3><p>节点的厚度，默认 0.05。</p>
+<h3 id="margin"><a href="#margin">margin</a></h3><p>节点边距，默认0.01。</p>
+<h3 id="calculationtimes"><a href="#calculationTimes">calculationTimes</a></h3><p>布局次数，默认 2，复杂数据可以适量增加。</p>
+<h2 id="方法">方法</h2><h3 id="getnodes"><a href="#getNodes">getNodes</a></h3><p><code>layout.getNodes()</code></p>
+<p>获取布局完毕的节点</p>
+<p>返回节点的格式：</p>
+<div class="highlight"><pre><code class="javascript">{id: <span class="string">'nodeId'</span>, x: x, y: y, ..传入的各个字段..}</code></pre></div><p>如果id未设置，则自动生成。</p>
+<h3 id="getedges"><a href="#getEdges">getEdges</a></h3><p><code>layout.getEdges()</code></p>
+<p>获取排序后的边。</p>
+<h3 id="reset"><a href="#reset">reset</a></h3><p><code>layout.reset()</code></p>
+<p>重新计算layout。</p>
+
+    </div>
+  </div>
+</div>
+<script src="../../static/prettify-min.js"></script>
+<script src="../../static/clipboard.min.js"></script>
+<script type="text/javascript">
+var CLS_PRETTY = 'prettyprint linenums';
+BUI.use('bui/common',function(BUI){
+  var preEls = $('pre');
+  BUI.each(preEls,function(el){
+    var node = $(el), innerText;
+    node.addClass(CLS_PRETTY);
+    innerText = node.html();
+    var a = /^(\s+)/.exec(innerText),
+      regex;
+    if(a){
+      regex = new RegExp('('+a[0]+')(\\s*)','ig');
+      innerText = innerText.replace(regex,'$2');
+    }
+
+    node.html(innerText);
+  });
+  if(window.prettyPrint){
+    prettyPrint();
+  }
+});
+
+$(document).ready(function() {
+  var docEl = $('.doc-content');
+  var hEls = docEl.find('h2, h3');
+  var container = $('#J_pageNav');
+  var ulContainer;
+  var count = 0;
+  var hElsLen = hEls.length;
+  if (hElsLen > 0 && container.length > 0) {
+    for (var i = 0; i < hElsLen; i++) {
+      var el = hEls[i];
+      var node = $(el);
+      var text = node.text();
+      var id = node.attr('id');
+      var nodeName = el.nodeName;
+
+      if (nodeName === 'H2') {
+        count = 0;
+        if (ulContainer && ulContainer !== '<ul class="pagenav-columns">') {
+          ulContainer += '</ul>';
+          $(ulContainer).appendTo(container);
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<div class="clearfix separate"></div><p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        } else {
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        }
+      } else {
+        var liItems = '<li><a href="#' + id + '">' + text + '</a></li>';
+        ulContainer += liItems;
+        count++;
+        if (count > 10) {
+          ulContainer += '</ul><ul class="pagenav-columns">';
+          count = 0;
+        }
+      }
+    }
+
+    ulContainer += '</ul>';
+    $(ulContainer).appendTo(container);
+
+    // 代码复制
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  }
+});
+</script>
+
+  </div><a href="javascript:void(0);" id='toTop' title="返回顶部">
+	<i class="iconfont icon-to-top"></i>
+</a>
+ 
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

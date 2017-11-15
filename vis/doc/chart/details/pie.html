@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>饼图</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item hover last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+
+  <div class="main-container clearfix">
+  <div class="doc-content vis-chart">
+    <div class="doc-inner vis-chart">
+      <h1>饼图</h1>
+      <p><img src="https://t.alipayobjects.com/images/T11ydjXg8jXXXXXXXX.png" /></p>
+<h2 id="饼图的简介">饼图的简介</h2><p>饼图广泛得应用在各个领域，用于表示不同分类的占比情况，通过弧度大小来对比各种分类。饼图通过将一个圆饼按照分类的占比划分成多个区块，整个圆饼代表数据的总量，每个区块（圆弧）表示该分类占总体的比例大小，所有区块（圆弧）的加和等于 100%。</p>
+<p>饼图可以很好地帮助用户快速了解数据的占比分配。它的主要缺点是：</p>
+<ul>
+<li>饼图不适用于多分类的数据，原则上一张饼图<strong>不可多于 9 个分类</strong>，因为随着分类的增多，每个切片就会变小，最后导致大小区分不明显，每个切片看上去都差不多大小，这样对于数据的对比是没有什么意义的。所以饼图不适合用于数据量大且分类很多的场景。</li>
+<li>相比于具备同样功能的其他图表（比如百分比柱状图、环图），饼图需要占据更大的画布空间。</li>
+<li>很难进行多个饼图之间的数值比较。</li>
+</ul>
+<p>尽管如此，在一张饼图上比较一个数据系列上各个分类的大小占比还是很方便高效的。</p>
+<p>英文名：Pie chart</p>
+<h2 id="饼图的构成">饼图的构成</h2><p><img class="constitute-img" src="https://t.alipayobjects.com/images/T19QdjXcFaXXXXXXXX.png" /></p>
+<table class="struct-table">
+  <tr>
+    <th>图表类型</th>
+    <th>饼图</th>
+  </tr>
+  <tr>
+    <td>适合的数据</td>
+    <td>列表：一个分类数据字段、一个连续数据字段</td>
+  </tr>
+  <tr>
+    <td>功能</td>
+    <td>对比分类数据的数值大小</td>
+  </tr>
+  <tr>
+    <td>数据与图形的映射</td>
+    <td>分类数据字段映射到扇形的颜色<br>连续数据字段映射到扇形的面积
+  </tr>
+  <tr>
+    <td>适合的数据条数</td>
+    <td>不超过 9 条数据</td>
+  </tr>
+</table>
+
+<div style="clear:both;"></div>
+
+<h2 id="饼图的应用场景">饼图的应用场景</h2><h3 id="适合的场景">适合的场景</h3><p>例子1: <strong>展示 2 个分类的占比情况。</strong>下图是一个班级的男女生的占比情况：</p>
+<div class="hide">
+gender（性别）|count（人数）
+----|---
+男|40
+女|30
+</div>
+<div id="c1"></div>
+
+<div class="code hide">
+  var data = [
+    {gender:'男',count:40},{gender:'女',count:30}
+  ];
+
+  function formatter(text,item){
+      var point = item.point; // 每个弧度对应的点
+      var percent = point['..percent']; // ..proportion 字段由Stat.summary.proportion统计函数生成
+      percent = (percent * 100).toFixed(2) + '%';
+      return text + ':' + percent;
+  }
+  var Stat = G2.Stat;
+
+  var chart = new G2.Chart({
+    id: 'c1',
+    forceFit: true,
+    height : 350
+  });
+
+  chart.source(data);
+  chart.coord('theta');
+  chart.tooltip({
+    title: null // 不显示title
+  });
+  chart.intervalStack().position(Stat.summary.percent('count')).color('gender').label('gender',{renderer: formatter});
+
+  chart.render();
+</div>
+
+<p>例子2：<strong>多个但不超过 9 个分类的占比情况。</strong>下图是一个游戏公司的销售情况：</p>
+<table>
+<thead>
+<tr>
+<th>genre（游戏类型）</th>
+<th>sold（销售量）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sports</td>
+<td>27,500</td>
+</tr>
+<tr>
+<td>Strategy</td>
+<td>11,500</td>
+</tr>
+<tr>
+<td>Action</td>
+<td>6,000</td>
+</tr>
+<tr>
+<td>Shooter</td>
+<td>3,500</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>1,500</td>
+</tr>
+</tbody>
+</table>
+<div id="c2"></div>
+
+<div class="code hide">
+  var data = [
+    {genre:'Sports',sold:27500},
+    {genre:'Strategy',sold:11500},
+    {genre:'Action',sold:6000},
+    {genre:'Shooter',sold:3500},
+    {genre:'Other',sold:1500},
+  ];
+
+  function formatter(text,item){
+      var point = item.point; // 每个弧度对应的点
+      var percent = point['..percent']; // ..proportion 字段由Stat.summary.proportion统计函数生成
+      percent = (percent * 100).toFixed(2) + '%';
+      return text + ': ' + percent;
+  }
+  var Stat = G2.Stat;
+
+  var chart = new G2.Chart({
+    id: 'c2',
+    forceFit: true,
+    height : 350
+  });
+
+  chart.source(data);
+  chart.legend('bottom');
+  chart.coord('theta',{radius: 0.8});
+
+  chart.intervalStack().position(Stat.summary.percent('sold')).color('genre').label('genre',{renderer: formatter});
+
+  chart.render();
+</div>
+
+<h3 id="不适合的场景">不适合的场景</h3><p>例子1：<strong>分类过多的场景。</strong>下图是各个省的人口的占比情况，因为这张图上包含的分类过多，就出现了简介中提到的问题，很难清晰对比各个省份的人口数据占比情况，所以这种情况下，我们推荐使用<a href="bar.html">横向柱状图</a>。</p>
+<div id="c3"></div>
+
+<div class="code hide">
+
+  var data = [
+    {province:'北京市',population:19612368},
+    {province:'天津市',population:12938693},
+    {province:'河北省',population:71854210},
+    {province:'山西省',population:27500},
+    {"province":"内蒙古自治区","population":24706291},
+    {"province":"辽宁省","population":43746323},
+    {"province":"吉林省","population":27452815},
+    {"province":"黑龙江省","population":38313991},
+    {"province":"上海市","population":23019196},{"province":"江苏省","population":78660941},
+    {"province":"浙江省","population":54426891},{"province":"安徽省","population":59500468},
+    {"province":"福建省","population":36894217},{"province":"江西省","population":44567797},
+    {"province":"山东省","population":95792719},{"province":"河南省","population":94029939},
+    {"province":"湖北省","population":57237727},{"province":"湖南省","population":65700762},
+    {"province":"广东省","population":104320459},{"province":"广西壮族自治区","population":46023761},
+    {"province":"海南省","population":8671485},{"province":"重庆市","population":28846170},
+    {"province":"四川省","population":80417528},{"province":"贵州省","population":34748556},
+    {"province":"云南省","population":45966766},{"province":"西藏自治区","population":3002165},
+    {"province":"陕西省","population":37327379},{"province":"甘肃省","population":25575263},
+    {"province":"青海省","population":5626723}
+  ];
+
+  var Stat = G2.Stat;
+
+  var chart = new G2.Chart({
+    id : 'c3',
+    forceFit: true,
+    height : 350,
+    plotCfg: {
+      margin: 50
+    }
+  });
+
+  chart.source(data);
+  chart.coord('theta');
+ // chart.legendVisible('province',false);
+  chart.intervalStack().position(Stat.summary.percent('population')).color('province').label('province');
+
+  chart.render();
+</div>
+
+<p>例子2: <strong> 分类占比差别不明显的场景 </strong>下图中游戏公司的不同种类的游戏的销售量相近，所以不太适合使用饼图，此时可以使用<a href="bar.html">柱状图</a>来呈现。</p>
+<div id="c4"></div>
+
+<div class="code hide">
+  var data = [
+    {genre:'Sports',sold:15000},
+    {genre:'Strategy',sold:14900},
+    {genre:'Action',sold:15050},
+    {genre:'Shooter',sold:13000},
+    {genre:'Other',sold:13900}
+  ];
+
+  function formatter(text,item){
+      var point = item.point; // 每个弧度对应的点
+      var percent = point['..percent']; // ..proportion 字段由Stat.summary.proportion统计函数生成
+      percent = (percent * 100).toFixed(2) + '%';
+      return percent;
+  }
+  var Stat = G2.Stat;
+
+  var chart = new G2.Chart({
+    id: 'c4',
+    forceFit: true,
+    height : 350
+  });
+
+  chart.source(data);
+  chart.coord('theta',{radius: 0.8});
+  chart.legend('bottom');
+
+  chart.intervalStack().position(Stat.summary.percent('sold')).color('genre');
+  chart.render();
+</div>
+
+
+<h2 id="饼图与其他图表的对比">饼图与其他图表的对比</h2><h3 id="饼图和柱状图">饼图和<a href="column.html">柱状图</a></h3><ul>
+<li>饼图主要是展示分类之间的占比情况。</li>
+<li>而柱状图主要展示各个分类数量、大小的对比。</li>
+</ul>
+<h3 id="饼图和南丁格尔玫瑰图">饼图和<a href="rose.html">南丁格尔玫瑰图</a></h3><ul>
+<li>饼图通过弧度的大小来对比数据。</li>
+<li>南丁格尔图通过半径的大小来对比数据。</li>
+</ul>
+
+      <h2 id="变型">变型</h2>
+      <div class="detail-list">
+        <ul class="vis-chart-list clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/details/donut-chart.html">
+              <i class="iconfont icon-donut-chart"></i>
+              <span>环图</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../vis/doc/chart/details/rose.html">
+              <i class="iconfont icon-rose"></i>
+              <span>南丁格尔玫瑰图</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <h2 id="标签">标签</h2>
+      <div>
+
+        <ul class="vis-classify-list small clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/classify/proportion.html">
+              <span>占比类</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $.fn.isOnScreen = function(){
+      var win = $(window);
+      var viewport = {
+          top : win.scrollTop(),
+          left : win.scrollLeft()
+      };
+      viewport.right = viewport.left + win.width();
+      viewport.bottom = viewport.top + win.height();
+      var bounds = this.offset();
+      bounds.right = bounds.left + this.outerWidth();
+      bounds.bottom = bounds.top + this.outerHeight();
+      return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+    };
+    function ReplaceAll(str, sptr, sptr1){
+      while (str.indexOf(sptr) >= 0){
+         str = str.replace(sptr, sptr1);
+      }
+      return str;
+    }
+    function lazyLoad(codes) {
+      var isrun = [];
+      tryRun();
+      $(document).on('mousewheel',function(e){
+        tryRun();
+      });
+      function tryRun(){
+        codes.each(function(index,ele){
+          if (isrun.indexOf(ele) === -1) {
+            var $ele = $(ele);
+            if ( $ele.isOnScreen() ) {
+              setTimeout(function(){
+                var t = $ele.html();
+                t = ReplaceAll(t, '&lt;', '<');
+                t = ReplaceAll(t, '&gt;', '>');
+                t = ReplaceAll(t, '&amp;', '&');
+                eval(t);
+                $ele.hide();
+              },500);
+              isrun.push(ele);
+            };
+          };
+        });
+      }
+    }
+    var codes = $('.code');
+    lazyLoad(codes);
+  </script>
+
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

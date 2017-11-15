@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Handler API 文档</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../static/jquery.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g6/1.1.6/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item hover">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+<link rel="stylesheet" href="../../static/prettify-min.css">
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g6/1.1.6/index.js"></script>
+
+
+  <div class="main-container clearfix">
+<div class="body-content api-body-content"><div class="doc-nav">
+  <p class="title">G6</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g6/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">使用教程</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="">
+            <a href="../../g6/doc/tutorial/start/base.html" >基础指南</a>
+          </li>
+          <li class="">
+            <a href="../../g6/doc/tutorial/start/net.html" >网图指南</a>
+          </li>
+          <li class="">
+            <a href="../../g6/doc/tutorial/start/updateDoc.html" >升级指南</a>
+          </li>
+          <li class="">
+            <a href="../../g6/doc/tutorial/start/custom-shape.html" >自定义图形</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g6/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">API</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="">
+            <a href="../../g6/api/index.html" >G6</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/graph.html" >Graph</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/item.html" >Item</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/net.html" >Net</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/tree.html" >Tree</a>
+          </li>
+          <li class="active">
+            <a href="../../g6/api/handler.html" >Handler</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/matrix.html" >Matrix</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/util.html" >Util</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g6/doc/history.html" >更新日志</a>
+    </li>
+    <li class="">
+      <a href="/g6/tools/index.html" >在线工具</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+  <div class="doc-content clearfix">
+    <h1>Handler</h1>
+    <div id="J_pageNav"></div>
+    <div class="clearfix" style="margin-bottom: 40px;"></div>
+    <div class="doc-inner">
+      <h1 id="概述">概述</h1><p>管理器，主要用来容纳、管理 模式 <code>mode</code>，行为 <code>behaviour</code>。</p>
+<h2 id="方法">方法</h2><h3 id="draghidetexts-function"><a href="dragHideTexts">dragHideTexts</a> {Function}</h3><p>拖拽隐藏文本</p>
+<h3 id="wheelzoomhidetexts-function"><a href="wheelZoomHideTexts">wheelZoomHideTexts</a> {Function}</h3><p>缩放隐藏文本</p>
+<h3 id="dragedgeendhideanchor-function"><a href="dragEdgeEndHideAnchor">dragEdgeEndHideAnchor</a> {Function}</h3><p>多拽边结束后隐藏目标节点的锚点</p>
+<h3 id="dragnodeendhideanchor-function"><a href="dragEdgeEndHideAnchor">dragNodeEndHideAnchor</a> {Function}</h3><p>多拽节点结束后隐藏目标节点的锚点</p>
+<h3 id="hoveranchorsetactived-function"><a href="dragEdgeEndHideAnchor">hoverAnchorSetActived</a> {Function}</h3><p>鼠标悬锚点激活锚点</p>
+<h3 id="hovernodeshowanchor-function"><a href="dragEdgeEndHideAnchor">hoverNodeShowAnchor</a> {Function}</h3><p>鼠标悬浮节点显示锚点</p>
+<h3 id="buttonpointer-function"><a href="#buttonPointer">buttonPointer</a> {Function}</h3><p>当鼠标移到 <code>element.get(&#39;class&#39;)</code> 含 <code>button</code>  的图形元素上，指针变成小手的行为。</p>
+<h3 id="clickactive-function"><a href="#clickActive">clickActive</a> {Function}</h3><p>鼠标左键点击激活子项 <code>item</code>（激活行为互斥）的行为。</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/qeKFxhoyNQlDvcsNcMko.gif" alt="image"></p>
+<h3 id="clickaddnode-function"><a href="#clickAddNode">clickAddNode</a> {Function}</h3><p>点击增加节点的行为，适用于网图编辑器。</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/GHEAPfFaFokQNWuRvsmQ.gif" alt="image"></p>
+<h3 id="clickblankclearactive-function"><a href="#clickBlankClearActive">clickBlankClearActive</a> {Function}</h3><p>点击画布空白区域，清除激活子项的行为，适用于网图编辑器。</p>
+<h3 id="dragcanvas-function"><a href="#dragCanvas">dragCanvas</a> {Function}</h3><p>拖动画布的行为。</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/ORxbdvErvjwPIOgHfSXF.gif" alt="image"></p>
+<h3 id="dragblank-function"><a href="#dragBlank">dragBlank</a> {Function}</h3><p>拖动画布空白区域的行为。</p>
+<h3 id="dragaddedge-function"><a href="#dragAddEdge">dragAddEdge</a> {Function}</h3><p>拖动添加边的行为，适用于网图编辑器。</p>
+<h3 id="dragedge-function"><a href="#dragEdge">dragEdge</a> {Function}</h3><p>拖动边切换边连接的节点的行为。</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/OWLYIqFtCWTWzJoQuBZr.gif" alt="image"></p>
+<h3 id="dragnode-function"><a href="#dragNode">dragNode</a> {Function}</h3><p>拖动节点行为。</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/uItgKmflYJiMFfYaulSb.gif" alt="image"></p>
+<h3 id="multiselect-function"><a href="#multiSelect">multiSelect</a> {Function}</h3><p>多选行为。</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/ZgqXtYqGqedNeiFMOMgY.gif" alt="image"></p>
+<h3 id="resizeedge-function"><a href="#resizeEdge">resizeEdge</a> {Function}</h3><p>边变形行为。</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/wDwNAOjeEEbhILZGVEYT.gif" alt="image"></p>
+<h3 id="resizenode-function"><a href="#resizeNode">resizeNode</a> {Function}</h3><p>节点变形行为。</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/QiajcEBVGVECIlnYHGUs.gif" alt="image"></p>
+<h3 id="wheelzoom-function"><a href="#wheelZoom">wheelZoom</a> {Function}</h3><p>滚轮缩放行为。</p>
+<h3 id="draghideedges-function"><a href="#dragHideEdges">dragHideEdges</a> {Function}</h3><p>拖动边隐藏行为</p>
+<h3 id="wheelzoomhideedges-function"><a href="#wheelZoomHideEdges">wheelZoomHideEdges</a> {Function}</h3><p>滚轮缩放边隐藏行为</p>
+<h3 id="shortcut-function"><a href="#dragNode">shortcut</a> {Function}</h3><p>快捷键行为。<code>网图（Net）专有</code></p>
+<h3 id="collapse-function"><a href="#collapse">collapse</a> {Function}</h3><p>树图的折叠行为。<code>树图（Tree）专有</code></p>
+<h3 id="spreadout-function"><a href="#spreadout">spreadout</a> {Function}</h3><p>树图的展开行为。<code>树图（Tree）专有</code></p>
+
+    </div>
+  </div>
+</div>
+<script src="../../static/prettify-min.js"></script>
+<script src="../../static/clipboard.min.js"></script>
+<script type="text/javascript">
+var CLS_PRETTY = 'prettyprint linenums';
+BUI.use('bui/common',function(BUI){
+  var preEls = $('pre');
+  BUI.each(preEls,function(el){
+    var node = $(el), innerText;
+    node.addClass(CLS_PRETTY);
+    innerText = node.html();
+    var a = /^(\s+)/.exec(innerText),
+      regex;
+    if(a){
+      regex = new RegExp('('+a[0]+')(\\s*)','ig');
+      innerText = innerText.replace(regex,'$2');
+    }
+
+    node.html(innerText);
+  });
+  if(window.prettyPrint){
+    prettyPrint();
+  }
+});
+
+$(document).ready(function() {
+  var docEl = $('.doc-content');
+  var hEls = docEl.find('h2, h3');
+  var container = $('#J_pageNav');
+  var ulContainer;
+  var count = 0;
+  var hElsLen = hEls.length;
+  if (hElsLen > 0 && container.length > 0) {
+    for (var i = 0; i < hElsLen; i++) {
+      var el = hEls[i];
+      var node = $(el);
+      var text = node.text();
+      var id = node.attr('id');
+      var nodeName = el.nodeName;
+
+      if (nodeName === 'H2') {
+        count = 0;
+        if (ulContainer && ulContainer !== '<ul class="pagenav-columns">') {
+          ulContainer += '</ul>';
+          $(ulContainer).appendTo(container);
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<div class="clearfix separate"></div><p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        } else {
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        }
+      } else {
+        var liItems = '<li><a href="#' + id + '">' + text + '</a></li>';
+        ulContainer += liItems;
+        count++;
+        if (count > 10) {
+          ulContainer += '</ul><ul class="pagenav-columns">';
+          count = 0;
+        }
+      }
+    }
+
+    ulContainer += '</ul>';
+    $(ulContainer).appendTo(container);
+
+    // 代码复制
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  }
+});
+</script>
+
+  </div><a href="javascript:void(0);" id='toTop' title="返回顶部">
+	<i class="iconfont icon-to-top"></i>
+</a>
+ 
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

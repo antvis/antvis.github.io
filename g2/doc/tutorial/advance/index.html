@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>G2 图形语法简介</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item hover">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+  <link rel="stylesheet" href="../../../../static/prettify-min.css">
+
+
+  <div class="main-container clearfix">
+  <div class="body-content tutorial-body-content"><div class="doc-nav">
+  <p class="title">G2</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g2/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">使用教程</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="sub-title">基础教程</li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/index.html" >G2 图表的主要组成</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/chart.html" >图表对象配置（chart）</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/working-with-data.html" >data 数据</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/frame.html" >Frame 常见操作</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/scale.html" >度量</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/col-defs.html" >列定义操作</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/geom.html" >geom 几何标记</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/attr.html" >attr 图形属性</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/coord.html" >coord 坐标系</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/axis.html" >axis 坐标轴</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/legend.html" >legend 图例</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/tooltip.html" >tooltip 提示信息</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/guide.html" >guide 辅助标记</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/stat.html" >stat 统计变换</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/facet.html" >facet 分面</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/theme.html" >theme 图表样式</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/label.html" >label 文本标签</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/chart-event.html" >图表事件 event</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/action.html" >图表交互</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/changedata.html" >数据异步加载与动态更新</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/g2-plugin-slider.html" >数据滑动条插件使用</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/rc-g2.html" >在 react 中使用 G2</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/fqas.html" >常见问题</a>
+          </li>
+          <li class="sub-title">高级教程</li>
+          <li class="active">
+            <a href="../../../../g2/doc/tutorial/advance/index.html" >G2 图形语法简介</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/data-flow.html" >G2 的数据处理流程</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/data-type-and-scale.html" >数据类型与度量</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/coord-detailed.html" >坐标系详解</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/chart-type.html" >图表类型</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/geom-and-adjust.html" >几何标记和数据调整</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/custom-shape.html" >自定义 shape</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/view.html" >多视图 view 绘制</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/layout.html" >layout 布局</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/draw-word-cloud.html" >使用 G2 绘制词云</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/animate.html" >自定义动画</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">API</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="">
+            <a href="../../../../g2/api/index.html" >G2</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/chart.html" >Chart</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/view.html" >View</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/geom.html" >Geom</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/scale.html" >Scale</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/stat.html" >Stat</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/frame.html" >Frame</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/shape.html" >Shape</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/animate.html" >Animate</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/util.html" >Util</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/chart-options.html" >配置项支持</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/doc/history.html" >更新日志</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+    <div class="doc-content clearfix">
+      <div class="doc-inner">
+        <h2 id="图形语法的组成">图形语法的组成</h2><p>G2 的强大是由其背后的一套图形语法所支撑的，它基于<a href="https://book.douban.com/subject/10123863/">《The Grammar of Graphics》(Leland Wilkinson 著)</a>一书，是一套用来描述所有统计图形深层特性的语法规则，该语法回答了『什么是统计图形』这一问题，以自底向上的方式组织最基本的元素形成更高级的元素。</p>
+<p>由此，G2 所构建出的图表是由一系列独立的图形语法元素组合而成的：</p>
+<ul>
+<li>最基础的部分是你想要可视化的<strong>数据</strong><a href="/g2/doc/tutorial/start/working-with-data.html"> data</a>以及一系列将数据中的变量对应到<strong>图形属性</strong><a href="/g2/doc/tutorial/start/attr.html"> attr</a>的映射。</li>
+<li><strong>几何标记</strong><a href="/g2/doc/tutorial/start/geom.html"> geom </a>即你在图表中实际看到的图形元素，如点、线、多边形等，每个几何标记对象含有多个图形属性，G2 的核心就是建立数据中的一系列变量到图形属性的映射；</li>
+<li><strong>度量</strong><a href="/g2/doc/tutorial/start/scale.html"> scale </a>是数据空间到图形属性空间的转换桥梁，每一个图形属性都对应着一个或者多个度量；</li>
+<li><strong>统计变换</strong><a href="/g2/doc/tutorial/start/stat.html"> stat </a>是对数据进行的某种汇总或者变换，例如对数据进行分组计数以创建直方图。该功能是可选的，但是通常非常有用；</li>
+<li><strong>坐标系</strong><a href="/g2/doc/tutorial/start/coord.html">coord</a>描述了数据是如何映射到图形所在的平面的，同一个几何标记在不同坐标系下会有不同的表现。G2 提供了多种坐标系的支持：笛卡尔坐标、极坐标、地理坐标以及螺旋坐标等；</li>
+<li><strong>辅助元素</strong>是为了增强图表的可读性和可理解性，G2 中的辅助元素包含<strong>坐标轴</strong><a href="/g2/doc/tutorial/start/axis.html"> axis </a>、<strong>图例</strong><a href="/g2/doc/tutorial/start/legend.html"> legend </a>、<strong>提示信息</strong><a href="/g2/doc/tutorial/start/tooltip.html"> tooltip </a>、<strong>辅助标记</strong><a href="/g2/doc/tutorial/start/guide.html"> guide </a>；</li>
+<li><strong>分面</strong><a href="/g2/doc/tutorial/start/facet.html"> facet </a>描述了如何将数据分解为各个子集，以及如何对这些子集作图并联合进行展示。</li>
+</ul>
+<p>所以，在 G2 中，我们通常这么描述一张图表：<strong> 一张图表就是从数据到几何标记对象的图形属性的一个映射，此外图形中还可能包含数据的统计变换，最后绘制在某个特定的坐标系中。</strong></p>
+<h2 id="语法突破">语法突破</h2><p>下面以绘制散点图为例来详细介绍 G2 的图表绘制思路。</p>
+<h3 id="场景">场景</h3><p>下表展示的是某一年不同性别群体的身高和体重数据，这组数据其实包含了很多有用的信息：</p>
+<p>（1）身高和体重的相关关系如何？</p>
+<p>（2）整体数据集的分布情况如何，身高和体重分别在哪一个数据段比较集中？</p>
+<p>（3）不同性别的身高、体重分布又如何？</p>
+<table>
+<thead>
+<tr>
+<th>性别</th>
+<th>身高（cm）</th>
+<th>体重（kg）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>女</td>
+<td>167.5</td>
+<td>59</td>
+</tr>
+<tr>
+<td>女</td>
+<td>161.2</td>
+<td>51.6</td>
+</tr>
+<tr>
+<td>男</td>
+<td>176</td>
+<td>86.4</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>男</td>
+<td>180.3</td>
+<td>82.8</td>
+</tr>
+</tbody>
+</table>
+<h3 id="绘制散点图">绘制散点图</h3><p><div id="c1"></div></p>
+<script type="text/javascript">
+  $.getJSON('../../../../../static/data/scatter.json',function(data){
+    var frame = new G2.Frame(data);
+    var hAvg = G2.Frame.mean(frame,'height'); // 计算体重的均值
+    var wAvg = G2.Frame.mean(frame,'weight'); // 计算身高均值
+    var lineCfg = { // 线的配置信息
+      stroke: '#94E08A'
+    };
+    var chart = new G2.Chart({
+      id: 'c1',
+      forceFit: true, // 自适应宽度
+      height : 400
+    });
+
+    chart.source(data, {
+      weight: {
+        alias: '体重（kg）'
+      },
+      height: {
+        alias: '身高（cm）'
+      }
+    });
+    chart.tooltip({
+      title: null
+    });
+    chart.point().position('height*weight').color('gender').tooltip('gender*height*weight');
+    chart.guide().tag([hAvg, 'min'], [hAvg, 'max'], '身高平均值: ' + hAvg.toFixed(2), {line:lineCfg});
+    chart.guide().tag(['min', wAvg], ['max', wAvg], '体重平均值: ' + wAvg.toFixed(2), {line:lineCfg});
+    chart.render();
+  });
+</script>
+
+<h3 id="设置数据源">设置数据源</h3><p>图形语法最基础的部分就是数据，通过 <code>chart.source(data[, colDefs, colDims])</code> 方法为 G2 图表载入数据源。其中参数分别代表：</p>
+<ul>
+<li><code>data</code> 数据源， JSON 数组格式或者 Frame 数据集合；</li>
+<li><code>colDefs</code> 列定义对象 object，用于定义数据属性的度量类型等；</li>
+<li><code>colDims</code> 源数据包含属性名，用于当数据集中存在记录之间包含的属性不同的情况。</li>
+</ul>
+<h3 id="图形语法">图形语法</h3><div class="highlight"><pre><code class="javascript">chart.point().position(<span class="string">'height*weight'</span>).color(<span class="string">'gender'</span>);</code></pre></div><p>以下就对上句语法进行详细的说明:</p>
+<h4 id="geom-选择">geom 选择</h4><p><a href="https://antv.alipay.com/chart/details/scatter-plot.html">散点图</a>也叫 X-Y 图，它将所有的数据以<strong>点</strong>的形式展现在笛卡尔坐标系上，以显示变量之间的相互影响程度，所以绘制时我们需要选择 <code>chart.point()</code> 来创建一个图层。如前面所述，Geom 决定了图表中图形的形状，包括点、线、面、多边形等。如柱状图的几何对象为 <code>interval</code>，散点图对应 <code>point</code>，折线图对应 <code>line</code>。下表展示了常见的图表对应的 geom，另外通过组合 geom 和 <a href="/g2/doc/tutorial/advance/geom-and-adjust.html">数据调整方式</a>，还可以绘制出更多的图表。</p>
+<table>
+<thead>
+<tr>
+<th>图表</th>
+<th>geom</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>点图（散点图、气泡图）</td>
+<td>point</td>
+</tr>
+<tr>
+<td>折线图</td>
+<td>line</td>
+</tr>
+<tr>
+<td>柱状图、饼图、玫瑰图</td>
+<td>interval</td>
+</tr>
+</tbody>
+</table>
+<p>目前 G2 提供的 geom 支持的类型如下：</p>
+<p>chart.&lt;<a href="geom.html">geom</a>&gt;()</p>
+<ul>
+<li>point: 将数据展示成一个个的点；</li>
+<li>path: 将数据连接成一条线，不保证数据的顺序；</li>
+<li>line: 一种特殊的 path (路径)，x 轴上的数据进行排序；</li>
+<li>area: 将线图进行闭合，中间区域填充，构成区域图；</li>
+<li>interval: 使用矩形、弧形表示数据的上下区间，可以用来生成柱状图、直方图、饼图等图表；</li>
+<li>polygon: 用于绘制地图、treemap 等多边形的图表；</li>
+<li>schema: 自定义图，用于自定义各种图表，可以用于展示箱型图、蜡烛图等图表；</li>
+<li>heatmap: 用于绘制热力图；</li>
+<li>contour: 用于绘制等高线；</li>
+<li>edge: 用于两个数据之间连接边的绘制，可以用于绘制树、流程图、网络等关系图。</li>
+</ul>
+<h4 id="attr-图形属性映射">attr 图形属性映射</h4><p>散点图中，点（Point）的位置由变量的数值决定。每个点不仅有横坐标、纵坐标，还有大小、颜色和形状这些<a href="/g2/doc/tutorial/start/attr.html">图形属性</a>。上图中我们使用数据中的 height（高度）属性控制点的横轴位置，weight(体重)属性控制点的纵轴位置，gender(性别)来决定点的颜色，而点的大小和形状没有指定，所以直接使用 G2 提供的默认设置。下表展示的数据或许更有利于大家对图形属性映射的理解：</p>
+<table>
+<thead>
+<tr>
+<th>color --&gt; gender</th>
+<th>x --&gt; height</th>
+<th>y --&gt; weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>女</td>
+<td>167.5</td>
+<td>59</td>
+</tr>
+<tr>
+<td>女</td>
+<td>161.2</td>
+<td>51.6</td>
+</tr>
+<tr>
+<td>男</td>
+<td>176</td>
+<td>86.4</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>男</td>
+<td>180.3</td>
+<td>82.8</td>
+</tr>
+</tbody>
+</table>
+<p>G2 中支持的图形属性映射如下；</p>
+<p>chart.&lt;<a href="geom.html">geom</a>&gt;().&lt;<a href="attr.html">attr</a>&gt;(dims[, cfg]):</p>
+<ul>
+<li>position(dim)：将对应字段的值映射到图形的位置；</li>
+<li>color(dim[, colors])：用对应字段的值或者常量来表示图形的颜色，如果传入 colors 会根据传入的颜色分配颜色；</li>
+<li>shape(dim[, shapes])：用对应字段的值或者常量来表示图形的形状，如果传入 shapes 会根据传入的图形集合分配图形类型；</li>
+<li>size(dim[, max[, min]])：用对应字段的值或者常量来表示图形的大小，如果同时传入max、min，则根据最大值、最小值的区间进行大小的自动计算；</li>
+<li>opacity(dim)：用对应字段的值或者常量来表示图形的透明度。</li>
+</ul>
+<p>另外还提供了以下三种方法，虽然使用的方式同以上方法一致，但是需要注意的是它们并不是一种图形映射属性，可以将其理解为几何标记 geom 上的配置方法：</p>
+<ul>
+<li>label(dim[, cfg])：显示对应字段的数据文本；</li>
+<li>tooltip(&#39;dim1<em>dim2</em>dim3&#39;)：指定 tooltip 中显示的数据字段；</li>
+<li>style(cfg)：配置展示的图形样式。</li>
+</ul>
+<p>在 <code>chart.point().position(&#39;height*weight&#39;).color(&#39;gender&#39;).tooltip(&#39;gender*height*weight&#39;);</code> 这句语法的基础上，通过只改变 geom 几何标记类型，我们可以快速切换至折线图或者柱状图。</p>
+<p><img src="https://zos.alipayobjects.com/skylark/d2e6e9a7-37b5-42a6-8b14-0f4855ab3095/attach/1996/5df523195924af30/image.png" alt="image"></p>
+<h4 id="coord-坐标系">coord 坐标系</h4><p>坐标系用于将数据对象的位置映射到图形平面上，位置通常由两个坐标 (x, y) 来决定，但是 G2 也支持一维坐标系。目前 G2 支持多种坐标系，其中笛卡尔坐标系是最常用的，当你传入图形属性 <code>position</code> 中的参数包含两个维度时，默认使用的就是笛卡尔坐标系。另外 G2 提供的坐标系中还包含坐标轴和网格线。以下是 G2 所支持的坐标系种类，另外用户还可以对坐标系进行各种变换操作，在<a href="/g2/doc/tutorial/start/coord.html"> coord 坐标系</a> 章节有详细的介绍。</p>
+<h4 id="facet-分面">facet 分面</h4><p>分面在绘图时非常有用，通过设置分面，可以方便地展示数据的不同子集，如下图所示，我们通过设定以 &#39;gender&#39; 字段来分割数据，就可以很快得绘制出不同性别对应的身高和体重关系的散点图。</p>
+<p><div id="c2"></div></p>
+<script type="text/javascript">
+  $.getJSON('../../../../../static/data/scatter.json',function(data){
+    var chart = new G2.Chart({
+      id: 'c2',
+      forceFit: true, // 自适应宽度
+      height : 300,
+      plotCfg: {
+        margin: [80, 100, 40]
+      }
+    });
+
+    chart.source(data, {
+      weight: {
+        alias: '体重（kg）'
+      },
+      height: {
+        alias: '身高（cm）'
+      }
+    });
+    chart.tooltip({
+      title: null
+    });
+    chart.facet(['gender']);
+    chart.point().position('height*weight').color('gender').tooltip('gender*height*weight');
+    chart.render();
+  });
+</script>
+
+<p>关于分面的详细介绍请见 <a href="/g2/doc/tutorial/start/facet.html">Facet</a>。</p>
+<h4 id="图表辅助元素">图表辅助元素</h4><p>以下图形元素：坐标轴（axis）、提示信息（tooltip）、图例（legend）、辅助标记（guide）作为图表的辅助元素，在图表信息阅读以及挖掘方面提供了非常重要的功能，所以 G2 也为这些图形元素提供了丰富的语法支持，这里我们统称他们为图表辅助元素。</p>
+<ul>
+<li>chart.axis(dim, cfg): 用于配置数据字段对应的坐标轴的配置项；</li>
+<li>chart.tooltip([enable], cfg): 用于配置鼠标 hover 到图表图形显示提示信息；</li>
+<li>chart.legend(dim, cfg): 用于配置图表图例的展示样式；</li>
+<li>chart.guide(): 添加辅助标记。</li>
+</ul>
+
+      </div>
+<div class="preNext clearfix">
+  <a href="../../../../g2/doc/tutorial/advance/data-flow.html" class="pull-right">
+    G2 的数据处理流程
+    <i class="iconfont icon-right"></i>
+  </a>
+</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../../../../static/nav-menu.js"></script>
+  <script src="../../../../static/prettify-min.js"></script>
+  <script src="../../../../static/clipboard.min.js"></script>
+  <script type="text/javascript">
+    var CLS_PRETTY = 'prettyprint linenums';
+    BUI.use('bui/common',function(BUI){
+      var preEls =  $('pre');
+      BUI.each(preEls,function(el){
+        var node = $(el), innerText;
+        node.addClass(CLS_PRETTY);
+        innerText = node.html();
+        var a = /^(\s+)/.exec(innerText);
+        var regex;
+        if(a){
+          regex = new RegExp('('+a[0]+')(\\s*)','ig');
+          innerText = innerText.replace(regex,'$2');
+        }
+          node.html(innerText);
+      });
+      if(window.prettyPrint){
+        prettyPrint();
+      }
+    });
+
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  </script>
+  
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,505 @@
+[{
+	"timeStamp": 1441674000000,
+	"requestCount": 32215.0,
+	"avgRt": 45207.51
+}, {
+	"timeStamp": 1441674300000,
+	"requestCount": 29422.0,
+	"avgRt": 50244.53
+}, {
+	"timeStamp": 1441674600000,
+	"requestCount": 32978.0,
+	"avgRt": 39258.35
+}, {
+	"timeStamp": 1441674900000,
+	"requestCount": 27485.0,
+	"avgRt": 67510.42
+}, {
+	"timeStamp": 1441675200000,
+	"requestCount": 12649.0,
+	"avgRt": 28110.24
+}, {
+	"timeStamp": 1441675500000,
+	"requestCount": 11125.0,
+	"avgRt": 53102.93
+}, {
+	"timeStamp": 1441675800000,
+	"requestCount": 7518.0,
+	"avgRt": 78210.9
+}, {
+	"timeStamp": 1441676100000,
+	"requestCount": 12094.0,
+	"avgRt": 43400.03
+}, {
+	"timeStamp": 1441676400000,
+	"requestCount": 3991.0,
+	"avgRt": 107263.47
+}, {
+	"timeStamp": 1441676700000,
+	"requestCount": 12693.0,
+	"avgRt": 46722.06
+}, {
+	"timeStamp": 1441677000000,
+	"requestCount": 12606.0,
+	"avgRt": 47098.86
+}, {
+	"timeStamp": 1441677300000,
+	"requestCount": 4622.0,
+	"avgRt": 111452.69
+}, {
+	"timeStamp": 1441677600000,
+	"requestCount": 2484.0,
+	"avgRt": 118629.93
+}, {
+	"timeStamp": 1441677900000,
+	"requestCount": 2491.0,
+	"avgRt": 118464.79
+}, {
+	"timeStamp": 1441678200000,
+	"requestCount": 2487.0,
+	"avgRt": 118472.06
+}, {
+	"timeStamp": 1441678500000,
+	"requestCount": 2486.0,
+	"avgRt": 118490.6
+}, {
+	"timeStamp": 1441678800000,
+	"requestCount": 11723.0,
+	"avgRt": 44469.96
+}, {
+	"timeStamp": 1441679100000,
+	"requestCount": 10498.0,
+	"avgRt": 56378.92
+}, {
+	"timeStamp": 1441679400000,
+	"requestCount": 6859.0,
+	"avgRt": 85921.8
+}, {
+	"timeStamp": 1441679700000,
+	"requestCount": 12159.0,
+	"avgRt": 48893.12
+}, {
+	"timeStamp": 1441680000000,
+	"requestCount": 3981.0,
+	"avgRt": 121271.58
+}, {
+	"timeStamp": 1441680300000,
+	"requestCount": 10650.0,
+	"avgRt": 90064.47
+}, {
+	"timeStamp": 1441680600000,
+	"requestCount": 25293.0,
+	"avgRt": 92584.45
+}, {
+	"timeStamp": 1441680900000,
+	"requestCount": 23469.0,
+	"avgRt": 100022.31
+}, {
+	"timeStamp": 1441681200000,
+	"requestCount": 21787.0,
+	"avgRt": 107851.57
+}, {
+	"timeStamp": 1441681500000,
+	"requestCount": 21224.0,
+	"avgRt": 110846.99
+}, {
+	"timeStamp": 1441681800000,
+	"requestCount": 20594.0,
+	"avgRt": 114278.39
+}, {
+	"timeStamp": 1441682100000,
+	"requestCount": 20095.0,
+	"avgRt": 117108.75
+}, {
+	"timeStamp": 1441682400000,
+	"requestCount": 20155.0,
+	"avgRt": 116838.78
+}, {
+	"timeStamp": 1441682700000,
+	"requestCount": 19804.0,
+	"avgRt": 118816.89
+}, {
+	"timeStamp": 1441683000000,
+	"requestCount": 19388.0,
+	"avgRt": 121508.02
+}, {
+	"timeStamp": 1441683300000,
+	"requestCount": 18943.0,
+	"avgRt": 124338.95
+}, {
+	"timeStamp": 1441683600000,
+	"requestCount": 18474.0,
+	"avgRt": 127551.78
+}, {
+	"timeStamp": 1441683900000,
+	"requestCount": 18058.0,
+	"avgRt": 130570.36
+}, {
+	"timeStamp": 1441684200000,
+	"requestCount": 17938.0,
+	"avgRt": 131451.7
+}, {
+	"timeStamp": 1441684500000,
+	"requestCount": 17306.0,
+	"avgRt": 136406.11
+}, {
+	"timeStamp": 1441684800000,
+	"requestCount": 17159.0,
+	"avgRt": 137490.13
+}, {
+	"timeStamp": 1441685100000,
+	"requestCount": 16769.0,
+	"avgRt": 140836.11
+}, {
+	"timeStamp": 1441685400000,
+	"requestCount": 16370.0,
+	"avgRt": 144214.59
+}, {
+	"timeStamp": 1441685700000,
+	"requestCount": 16410.0,
+	"avgRt": 143916.87
+}, {
+	"timeStamp": 1441686000000,
+	"requestCount": 15912.0,
+	"avgRt": 148365.27
+}, {
+	"timeStamp": 1441686300000,
+	"requestCount": 15793.0,
+	"avgRt": 149628.65
+}, {
+	"timeStamp": 1441686600000,
+	"requestCount": 15614.0,
+	"avgRt": 151286.0
+}, {
+	"timeStamp": 1441686900000,
+	"requestCount": 15436.0,
+	"avgRt": 153124.16
+}, {
+	"timeStamp": 1441687200000,
+	"requestCount": 15296.0,
+	"avgRt": 154457.26
+}, {
+	"timeStamp": 1441687500000,
+	"requestCount": 14836.0,
+	"avgRt": 159444.49
+}, {
+	"timeStamp": 1441687800000,
+	"requestCount": 14835.0,
+	"avgRt": 159329.3
+}, {
+	"timeStamp": 1441688100000,
+	"requestCount": 14735.0,
+	"avgRt": 160540.34
+}, {
+	"timeStamp": 1441688400000,
+	"requestCount": 14393.0,
+	"avgRt": 164389.5
+}, {
+	"timeStamp": 1441688700000,
+	"requestCount": 14506.0,
+	"avgRt": 163098.94
+}, {
+	"timeStamp": 1441689000000,
+	"requestCount": 14048.0,
+	"avgRt": 168326.83
+}, {
+	"timeStamp": 1441689300000,
+	"requestCount": 13545.0,
+	"avgRt": 174814.16
+}, {
+	"timeStamp": 1441689600000,
+	"requestCount": 13736.0,
+	"avgRt": 172230.59
+}, {
+	"timeStamp": 1441689900000,
+	"requestCount": 13513.0,
+	"avgRt": 175199.66
+}, {
+	"timeStamp": 1441690200000,
+	"requestCount": 13354.0,
+	"avgRt": 177373.26
+}, {
+	"timeStamp": 1441690500000,
+	"requestCount": 13334.0,
+	"avgRt": 177482.32
+}, {
+	"timeStamp": 1441690800000,
+	"requestCount": 12889.0,
+	"avgRt": 183758.52
+}, {
+	"timeStamp": 1441691100000,
+	"requestCount": 13080.0,
+	"avgRt": 181042.24
+}, {
+	"timeStamp": 1441691400000,
+	"requestCount": 12809.0,
+	"avgRt": 184860.06
+}, {
+	"timeStamp": 1441691700000,
+	"requestCount": 13028.0,
+	"avgRt": 181854.15
+}, {
+	"timeStamp": 1441692000000,
+	"requestCount": 12633.0,
+	"avgRt": 187456.72
+}, {
+	"timeStamp": 1441692300000,
+	"requestCount": 12588.0,
+	"avgRt": 188281.11
+}, {
+	"timeStamp": 1441692600000,
+	"requestCount": 12204.0,
+	"avgRt": 194222.74
+}, {
+	"timeStamp": 1441692900000,
+	"requestCount": 12468.0,
+	"avgRt": 190168.28
+}, {
+	"timeStamp": 1441693200000,
+	"requestCount": 11887.0,
+	"avgRt": 199241.3
+}, {
+	"timeStamp": 1441693500000,
+	"requestCount": 12062.0,
+	"avgRt": 196653.44
+}, {
+	"timeStamp": 1441693800000,
+	"requestCount": 12063.0,
+	"avgRt": 196593.16
+}, {
+	"timeStamp": 1441694100000,
+	"requestCount": 11912.0,
+	"avgRt": 198786.1
+}, {
+	"timeStamp": 1441694400000,
+	"requestCount": 11361.0,
+	"avgRt": 208897.0
+}, {
+	"timeStamp": 1441694700000,
+	"requestCount": 11626.0,
+	"avgRt": 203895.88
+}, {
+	"timeStamp": 1441695000000,
+	"requestCount": 11661.0,
+	"avgRt": 203393.54
+}, {
+	"timeStamp": 1441695300000,
+	"requestCount": 11461.0,
+	"avgRt": 206984.25
+}, {
+	"timeStamp": 1441695600000,
+	"requestCount": 11297.0,
+	"avgRt": 210296.25
+}, {
+	"timeStamp": 1441695900000,
+	"requestCount": 11109.0,
+	"avgRt": 213426.86
+}, {
+	"timeStamp": 1441696200000,
+	"requestCount": 11094.0,
+	"avgRt": 213619.6
+}, {
+	"timeStamp": 1441696500000,
+	"requestCount": 10990.0,
+	"avgRt": 216182.6
+}, {
+	"timeStamp": 1441696800000,
+	"requestCount": 11071.0,
+	"avgRt": 214464.5
+}, {
+	"timeStamp": 1441697100000,
+	"requestCount": 10820.0,
+	"avgRt": 219248.03
+}, {
+	"timeStamp": 1441697400000,
+	"requestCount": 10831.0,
+	"avgRt": 219186.46
+}, {
+	"timeStamp": 1441697700000,
+	"requestCount": 10406.0,
+	"avgRt": 227840.84
+}, {
+	"timeStamp": 1441698000000,
+	"requestCount": 10841.0,
+	"avgRt": 219292.9
+}, {
+	"timeStamp": 1441698300000,
+	"requestCount": 10381.0,
+	"avgRt": 228689.69
+}, {
+	"timeStamp": 1441698600000,
+	"requestCount": 10444.0,
+	"avgRt": 227284.07
+}, {
+	"timeStamp": 1441698900000,
+	"requestCount": 10416.0,
+	"avgRt": 228014.76
+}, {
+	"timeStamp": 1441699200000,
+	"requestCount": 10428.0,
+	"avgRt": 227618.73
+}, {
+	"timeStamp": 1441699500000,
+	"requestCount": 10283.0,
+	"avgRt": 230923.76
+}, {
+	"timeStamp": 1441699800000,
+	"requestCount": 10088.0,
+	"avgRt": 235636.83
+}, {
+	"timeStamp": 1441700100000,
+	"requestCount": 10163.0,
+	"avgRt": 233562.85
+}, {
+	"timeStamp": 1441700400000,
+	"requestCount": 10251.0,
+	"avgRt": 231623.49
+}, {
+	"timeStamp": 1441700700000,
+	"requestCount": 9969.0,
+	"avgRt": 238269.14
+}, {
+	"timeStamp": 1441701000000,
+	"requestCount": 10004.0,
+	"avgRt": 237283.78
+}, {
+	"timeStamp": 1441701300000,
+	"requestCount": 9873.0,
+	"avgRt": 240788.1
+}, {
+	"timeStamp": 1441701600000,
+	"requestCount": 9707.0,
+	"avgRt": 244861.81
+}, {
+	"timeStamp": 1441701900000,
+	"requestCount": 9767.0,
+	"avgRt": 243291.38
+}, {
+	"timeStamp": 1441702200000,
+	"requestCount": 9943.0,
+	"avgRt": 238628.23
+}, {
+	"timeStamp": 1441702500000,
+	"requestCount": 9808.0,
+	"avgRt": 242510.42
+}, {
+	"timeStamp": 1441702800000,
+	"requestCount": 9720.0,
+	"avgRt": 244521.36
+}, {
+	"timeStamp": 1441703100000,
+	"requestCount": 9574.0,
+	"avgRt": 248121.28
+}, {
+	"timeStamp": 1441703400000,
+	"requestCount": 9765.0,
+	"avgRt": 243306.35
+}, {
+	"timeStamp": 1441703700000,
+	"requestCount": 9231.0,
+	"avgRt": 257707.18
+}, {
+	"timeStamp": 1441704000000,
+	"requestCount": 9378.0,
+	"avgRt": 253302.83
+}, {
+	"timeStamp": 1441704300000,
+	"requestCount": 9373.0,
+	"avgRt": 253433.45
+}, {
+	"timeStamp": 1441704600000,
+	"requestCount": 9392.0,
+	"avgRt": 253252.98
+}, {
+	"timeStamp": 1441704900000,
+	"requestCount": 9325.0,
+	"avgRt": 255036.04
+}, {
+	"timeStamp": 1441705200000,
+	"requestCount": 9349.0,
+	"avgRt": 254266.42
+}, {
+	"timeStamp": 1441705500000,
+	"requestCount": 9234.0,
+	"avgRt": 257262.56
+}, {
+	"timeStamp": 1441705800000,
+	"requestCount": 9200.0,
+	"avgRt": 258437.81
+}, {
+	"timeStamp": 1441706100000,
+	"requestCount": 11550.0,
+	"avgRt": 293603.43
+}, {
+	"timeStamp": 1441706400000,
+	"requestCount": 13956.0,
+	"avgRt": 340316.38
+}, {
+	"timeStamp": 1441706700000,
+	"requestCount": 13681.0,
+	"avgRt": 347670.62
+}, {
+	"timeStamp": 1441707000000,
+	"requestCount": 13530.0,
+	"avgRt": 351112.12
+}, {
+	"timeStamp": 1441707300000,
+	"requestCount": 12018.0,
+	"avgRt": 307686.49
+}, {
+	"timeStamp": 1441707600000,
+	"requestCount": 9999.0,
+	"avgRt": 237392.54
+}, {
+	"timeStamp": 1441707900000,
+	"requestCount": 9306.0,
+	"avgRt": 255488.34
+}, {
+	"timeStamp": 1441708200000,
+	"requestCount": 8884.0,
+	"avgRt": 267633.4
+}, {
+	"timeStamp": 1441708500000,
+	"requestCount": 9093.0,
+	"avgRt": 261426.14
+}, {
+	"timeStamp": 1441708800000,
+	"requestCount": 8870.0,
+	"avgRt": 268247.42
+}, {
+	"timeStamp": 1441709100000,
+	"requestCount": 8967.0,
+	"avgRt": 265103.3
+}, {
+	"timeStamp": 1441709400000,
+	"requestCount": 8919.0,
+	"avgRt": 266459.08
+}, {
+	"timeStamp": 1441709700000,
+	"requestCount": 8458.0,
+	"avgRt": 281366.98
+}, {
+	"timeStamp": 1441710000000,
+	"requestCount": 9206.0,
+	"avgRt": 258373.43
+}, {
+	"timeStamp": 1441710300000,
+	"requestCount": 8914.0,
+	"avgRt": 266850.57
+}, {
+	"timeStamp": 1441710600000,
+	"requestCount": 9112.0,
+	"avgRt": 260697.03
+}, {
+	"timeStamp": 1441710900000,
+	"requestCount": 8442.0,
+	"avgRt": 281682.85
+}, {
+	"timeStamp": 1441711200000,
+	"requestCount": 8509.0,
+	"avgRt": 279828.62
+}, {
+	"timeStamp": 1441711500000,
+	"requestCount": 1429.0,
+	"avgRt": 297419.34
+}]

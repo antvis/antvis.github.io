@@ -1,0 +1,547 @@
+[{
+  "name": "Other",
+  "cate": "Other",
+  "date": "2015-04",
+  "value": 6.8537,
+  "larger_releases_ratio": 0.0
+}, {
+  "name": "Other",
+  "cate": "Other",
+  "date": "2015-05",
+  "value": 7.1978,
+  "larger_releases_ratio": 0.0
+}, {
+  "name": "Other",
+  "cate": "Other",
+  "date": "2015-06",
+  "value": 7.4765,
+  "larger_releases_ratio": 0.0
+}, {
+  "name": "Other",
+  "cate": "Other",
+  "date": "2015-07",
+  "value": 7.3846,
+  "larger_releases_ratio": 0.0
+}, {
+  "name": "Other",
+  "cate": "Other",
+  "date": "2015-08",
+  "value": 8.2635,
+  "larger_releases_ratio": 0.0
+}, {
+  "name": "Other",
+  "cate": "Other",
+  "date": "2015-09",
+  "value": 9.4999,
+  "larger_releases_ratio": 0.0
+}, {
+  "name": "Other",
+  "cate": "Other",
+  "date": "2015-10",
+  "value": 10.5291,
+  "larger_releases_ratio": 0.0
+}, {
+  "name": "2.3.6",
+  "cate": "2.3",
+  "date": "2015-04",
+  "value": 1.771,
+  "larger_releases_ratio": 96.0675
+}, {
+  "name": "4.0.3",
+  "cate": "4.0",
+  "date": "2015-04",
+  "value": 1.9098,
+  "larger_releases_ratio": 93.3736
+}, {
+  "name": "4.0.4",
+  "cate": "4.0",
+  "date": "2015-04",
+  "value": 4.623,
+  "larger_releases_ratio": 91.4637
+}, {
+  "name": "4.1.1",
+  "cate": "4.1",
+  "date": "2015-04",
+  "value": 4.975,
+  "larger_releases_ratio": 86.5314
+}, {
+  "name": "4.1.2",
+  "cate": "4.1",
+  "date": "2015-04",
+  "value": 8.4317,
+  "larger_releases_ratio": 81.5564
+}, {
+  "name": "4.2.1",
+  "cate": "4.2",
+  "date": "2015-04",
+  "value": 4.6018,
+  "larger_releases_ratio": 72.8969
+}, {
+  "name": "4.2.2",
+  "cate": "4.2",
+  "date": "2015-04",
+  "value": 18.2945,
+  "larger_releases_ratio": 68.2951
+}, {
+  "name": "4.3",
+  "cate": "4.3",
+  "date": "2015-04",
+  "value": 14.5099,
+  "larger_releases_ratio": 49.9685
+}, {
+  "name": "4.4.2",
+  "cate": "4.4",
+  "date": "2015-04",
+  "value": 17.2962,
+  "larger_releases_ratio": 34.989
+}, {
+  "name": "4.4.4",
+  "cate": "4.4",
+  "date": "2015-04",
+  "value": 16.1575,
+  "larger_releases_ratio": 17.1185
+}, {
+  "name": "5.0",
+  "cate": "5.0",
+  "date": "2015-04",
+  "value": 0.2066,
+  "larger_releases_ratio": 0.8471
+}, {
+  "name": "5.0.2",
+  "cate": "5.0",
+  "date": "2015-04",
+  "value": 0.3693,
+  "larger_releases_ratio": 0.4018
+}, {
+  "name": "2.3.6",
+  "cate": "2.3",
+  "date": "2015-05",
+  "value": 1.6171,
+  "larger_releases_ratio": 95.9381
+}, {
+  "name": "4.0.3",
+  "cate": "4.0",
+  "date": "2015-05",
+  "value": 1.779,
+  "larger_releases_ratio": 93.3033
+}, {
+  "name": "4.0.4",
+  "cate": "4.0",
+  "date": "2015-05",
+  "value": 4.1782,
+  "larger_releases_ratio": 91.5243
+}, {
+  "name": "4.1.1",
+  "cate": "4.1",
+  "date": "2015-05",
+  "value": 4.4634,
+  "larger_releases_ratio": 87.0099
+}, {
+  "name": "4.1.2",
+  "cate": "4.1",
+  "date": "2015-05",
+  "value": 7.6361,
+  "larger_releases_ratio": 82.5465
+}, {
+  "name": "4.2.1",
+  "cate": "4.2",
+  "date": "2015-05",
+  "value": 4.3462,
+  "larger_releases_ratio": 74.6807
+}, {
+  "name": "4.2.2",
+  "cate": "4.2",
+  "date": "2015-05",
+  "value": 17.3932,
+  "larger_releases_ratio": 70.3345
+}, {
+  "name": "4.3",
+  "cate": "4.3",
+  "date": "2015-05",
+  "value": 14.1589,
+  "larger_releases_ratio": 52.9091
+}, {
+  "name": "4.4.2",
+  "cate": "4.4",
+  "date": "2015-05",
+  "value": 17.5611,
+  "larger_releases_ratio": 38.2815
+}, {
+  "name": "4.4.4",
+  "cate": "4.4",
+  "date": "2015-05",
+  "value": 18.3786,
+  "larger_releases_ratio": 20.1587
+}, {
+  "name": "5.0",
+  "cate": "5.0",
+  "date": "2015-05",
+  "value": 0.3879,
+  "larger_releases_ratio": 1.6359
+}, {
+  "name": "5.0.2",
+  "cate": "5.0",
+  "date": "2015-05",
+  "value": 0.9026,
+  "larger_releases_ratio": 0.9546
+}, {
+  "name": "2.3.6",
+  "cate": "2.3",
+  "date": "2015-06",
+  "value": 1.3885,
+  "larger_releases_ratio": 96.139
+}, {
+  "name": "4.0.3",
+  "cate": "4.0",
+  "date": "2015-06",
+  "value": 1.5652,
+  "larger_releases_ratio": 93.5288
+}, {
+  "name": "4.0.4",
+  "cate": "4.0",
+  "date": "2015-06",
+  "value": 3.7237,
+  "larger_releases_ratio": 91.9635
+}, {
+  "name": "4.1.1",
+  "cate": "4.1",
+  "date": "2015-06",
+  "value": 4.1217,
+  "larger_releases_ratio": 87.8745
+}, {
+  "name": "4.1.2",
+  "cate": "4.1",
+  "date": "2015-06",
+  "value": 6.9008,
+  "larger_releases_ratio": 83.7528
+}, {
+  "name": "4.2.1",
+  "cate": "4.2",
+  "date": "2015-06",
+  "value": 4.0031,
+  "larger_releases_ratio": 76.6003
+}, {
+  "name": "4.2.2",
+  "cate": "4.2",
+  "date": "2015-06",
+  "value": 16.1524,
+  "larger_releases_ratio": 72.5972
+}, {
+  "name": "4.3",
+  "cate": "4.3",
+  "date": "2015-06",
+  "value": 13.792,
+  "larger_releases_ratio": 56.4138
+}, {
+  "name": "4.4.2",
+  "cate": "4.4",
+  "date": "2015-06",
+  "value": 17.8864,
+  "larger_releases_ratio": 42.1397
+}, {
+  "name": "4.4.4",
+  "cate": "4.4",
+  "date": "2015-06",
+  "value": 20.9283,
+  "larger_releases_ratio": 23.7115
+}, {
+  "name": "5.0",
+  "cate": "5.0",
+  "date": "2015-06",
+  "value": 0.8532,
+  "larger_releases_ratio": 2.6303
+}, {
+  "name": "5.0.2",
+  "cate": "5.0",
+  "date": "2015-06",
+  "value": 1.208,
+  "larger_releases_ratio": 1.2879
+}, {
+  "name": "2.3.6",
+  "cate": "2.3",
+  "date": "2015-07",
+  "value": 1.2849,
+  "larger_releases_ratio": 96.7007
+}, {
+  "name": "4.0.3",
+  "cate": "4.0",
+  "date": "2015-07",
+  "value": 1.4522,
+  "larger_releases_ratio": 94.272
+}, {
+  "name": "4.0.4",
+  "cate": "4.0",
+  "date": "2015-07",
+  "value": 3.517,
+  "larger_releases_ratio": 92.8198
+}, {
+  "name": "4.1.1",
+  "cate": "4.1",
+  "date": "2015-07",
+  "value": 3.881,
+  "larger_releases_ratio": 88.9328
+}, {
+  "name": "4.1.2",
+  "cate": "4.1",
+  "date": "2015-07",
+  "value": 6.4032,
+  "larger_releases_ratio": 85.0519
+}, {
+  "name": "4.2.1",
+  "cate": "4.2",
+  "date": "2015-07",
+  "value": 3.7392,
+  "larger_releases_ratio": 78.4076
+}, {
+  "name": "4.2.2",
+  "cate": "4.2",
+  "date": "2015-07",
+  "value": 15.3021,
+  "larger_releases_ratio": 74.6684
+}, {
+  "name": "4.3",
+  "cate": "4.3",
+  "date": "2015-07",
+  "value": 13.301,
+  "larger_releases_ratio": 59.3372
+}, {
+  "name": "4.4.2",
+  "cate": "4.4",
+  "date": "2015-07",
+  "value": 17.6569,
+  "larger_releases_ratio": 45.5435
+}, {
+  "name": "4.4.4",
+  "cate": "4.4",
+  "date": "2015-07",
+  "value": 22.9401,
+  "larger_releases_ratio": 27.3397
+}, {
+  "name": "5.0",
+  "cate": "5.0",
+  "date": "2015-07",
+  "value": 1.6338,
+  "larger_releases_ratio": 4.2318
+}, {
+  "name": "5.0.2",
+  "cate": "5.0",
+  "date": "2015-07",
+  "value": 1.5041,
+  "larger_releases_ratio": 1.8251
+}, {
+  "name": "2.3.6",
+  "cate": "2.3",
+  "date": "2015-08",
+  "value": 1.2171,
+  "larger_releases_ratio": 97.1355
+}, {
+  "name": "4.0.3",
+  "cate": "4.0",
+  "date": "2015-08",
+  "value": 1.3877,
+  "larger_releases_ratio": 94.6726
+}, {
+  "name": "4.0.4",
+  "cate": "4.0",
+  "date": "2015-08",
+  "value": 3.421,
+  "larger_releases_ratio": 93.2849
+}, {
+  "name": "4.1.1",
+  "cate": "4.1",
+  "date": "2015-08",
+  "value": 3.5109,
+  "larger_releases_ratio": 89.46
+}, {
+  "name": "4.1.2",
+  "cate": "4.1",
+  "date": "2015-08",
+  "value": 6.0121,
+  "larger_releases_ratio": 85.9491
+}, {
+  "name": "4.2.1",
+  "cate": "4.2",
+  "date": "2015-08",
+  "value": 3.4978,
+  "larger_releases_ratio": 79.6546
+}, {
+  "name": "4.2.2",
+  "cate": "4.2",
+  "date": "2015-08",
+  "value": 14.6047,
+  "larger_releases_ratio": 76.1568
+}, {
+  "name": "4.3",
+  "cate": "4.3",
+  "date": "2015-08",
+  "value": 12.309,
+  "larger_releases_ratio": 61.5089
+}, {
+  "name": "4.4.2",
+  "cate": "4.4",
+  "date": "2015-08",
+  "value": 17.5137,
+  "larger_releases_ratio": 48.7389
+}, {
+  "name": "4.4.4",
+  "cate": "4.4",
+  "date": "2015-08",
+  "value": 24.0674,
+  "larger_releases_ratio": 30.6465
+}, {
+  "name": "5.0",
+  "cate": "5.0",
+  "date": "2015-08",
+  "value": 2.2983,
+  "larger_releases_ratio": 6.3793
+}, {
+  "name": "5.0.2",
+  "cate": "5.0",
+  "date": "2015-08",
+  "value": 1.8969,
+  "larger_releases_ratio": 2.9629
+}, {
+  "name": "2.3.6",
+  "cate": "2.3",
+  "date": "2015-09",
+  "value": 1.0152,
+  "larger_releases_ratio": 97.31
+}, {
+  "name": "4.0.3",
+  "cate": "4.0",
+  "date": "2015-09",
+  "value": 1.2077,
+  "larger_releases_ratio": 95.0359
+}, {
+  "name": "4.0.4",
+  "cate": "4.0",
+  "date": "2015-09",
+  "value": 3.0307,
+  "larger_releases_ratio": 93.8283
+}, {
+  "name": "4.1.1",
+  "cate": "4.1",
+  "date": "2015-09",
+  "value": 3.2265,
+  "larger_releases_ratio": 90.3933
+}, {
+  "name": "4.1.2",
+  "cate": "4.1",
+  "date": "2015-09",
+  "value": 5.4704,
+  "larger_releases_ratio": 87.1667
+}, {
+  "name": "4.2.1",
+  "cate": "4.2",
+  "date": "2015-09",
+  "value": 3.2665,
+  "larger_releases_ratio": 81.4126
+}, {
+  "name": "4.2.2",
+  "cate": "4.2",
+  "date": "2015-09",
+  "value": 13.6293,
+  "larger_releases_ratio": 78.1461
+}, {
+  "name": "4.3",
+  "cate": "4.3",
+  "date": "2015-09",
+  "value": 11.6203,
+  "larger_releases_ratio": 64.487
+}, {
+  "name": "4.4.2",
+  "cate": "4.4",
+  "date": "2015-09",
+  "value": 17.3567,
+  "larger_releases_ratio": 52.4705
+}, {
+  "name": "4.4.4",
+  "cate": "4.4",
+  "date": "2015-09",
+  "value": 25.4932,
+  "larger_releases_ratio": 34.5346
+}, {
+  "name": "5.0",
+  "cate": "5.0",
+  "date": "2015-09",
+  "value": 2.6868,
+  "larger_releases_ratio": 8.8369
+}, {
+  "name": "5.0.2",
+  "cate": "5.0",
+  "date": "2015-09",
+  "value": 2.4969,
+  "larger_releases_ratio": 4.695
+}, {
+  "name": "2.3.6",
+  "cate": "2.3",
+  "date": "2015-10",
+  "value": 0.8652,
+  "larger_releases_ratio": 97.5621
+}, {
+  "name": "4.0.3",
+  "cate": "4.0",
+  "date": "2015-10",
+  "value": 1.0533,
+  "larger_releases_ratio": 95.5167
+}, {
+  "name": "4.0.4",
+  "cate": "4.0",
+  "date": "2015-10",
+  "value": 2.6714,
+  "larger_releases_ratio": 94.4635
+}, {
+  "name": "4.1.1",
+  "cate": "4.1",
+  "date": "2015-10",
+  "value": 3.0207,
+  "larger_releases_ratio": 91.4067
+}, {
+  "name": "4.1.2",
+  "cate": "4.1",
+  "date": "2015-10",
+  "value": 4.9438,
+  "larger_releases_ratio": 88.386
+}, {
+  "name": "4.2.1",
+  "cate": "4.2",
+  "date": "2015-10",
+  "value": 3.0113,
+  "larger_releases_ratio": 83.1723
+}, {
+  "name": "4.2.2",
+  "cate": "4.2",
+  "date": "2015-10",
+  "value": 12.8348,
+  "larger_releases_ratio": 80.161
+}, {
+  "name": "4.3",
+  "cate": "4.3",
+  "date": "2015-10",
+  "value": 11.0633,
+  "larger_releases_ratio": 67.3016
+}, {
+  "name": "4.4.2",
+  "cate": "4.4",
+  "date": "2015-10",
+  "value": 17.2581,
+  "larger_releases_ratio": 55.8351
+}, {
+  "name": "4.4.4",
+  "cate": "4.4",
+  "date": "2015-10",
+  "value": 26.5565,
+  "larger_releases_ratio": 37.9902
+}, {
+  "name": "5.0",
+  "cate": "5.0",
+  "date": "2015-10",
+  "value": 3.0916,
+  "larger_releases_ratio": 11.2229
+}, {
+  "name": "5.0.2",
+  "cate": "5.0",
+  "date": "2015-10",
+  "value": 3.1009,
+  "larger_releases_ratio": 6.482
+}]

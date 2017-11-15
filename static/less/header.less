@@ -1,0 +1,143 @@
+header {
+  width: 100%;
+  z-index: 999;
+  position: relative;
+  background: @hearBg;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  transition: all .5s ease;
+
+  &#header.to-up {
+    top: -60px;
+  }
+}
+.nav-wrapper {
+  height: 72px;
+  margin: 0 auto;
+
+  .nav-logo {
+    float: left;
+    height: 72px;
+    line-height: 72px;
+    margin-right: 24px;
+
+    img {
+      width: 40px;
+      height: 72px;
+      line-height: 72px;
+      margin-right: 18px;
+    }
+    span.logo-text {
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      display: inline-block;
+      line-height: 72px;
+      height: 72px;
+    }
+  }
+  .nav-content {
+    padding: 0 40px;
+  }
+  .search-box {
+    float: left;
+    height: 72px;
+    line-height: 72px;
+
+    i.iconfont {
+      color: rgba(163, 168, 186, 0.5);
+    }
+  }
+  .nav {
+    .nav-item {
+      float: left;
+      height: 72px;
+      line-height: 26px;
+      font-size: 16px;
+      text-align: center;
+      margin: 0 40px;
+      position: relative;
+
+      &.last {
+        margin-right: 0;
+      }
+      a.nav-item-link {
+        text-decoration: none;
+        border-right: 0;
+        color: #A3A8BA;
+        padding: 24px;
+        display: block;
+      }
+      &.hover, &:hover {
+        border-top: 3px solid #6556E2;
+        cursor: pointer;
+
+        a.nav-item-link {
+          color: #FFF;
+          padding-top: 21px;
+        }
+      }
+      &:hover {
+        .nav-sub-list {
+          display: block;
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+      }
+    }
+    .nav-sub-list {
+      position: absolute;
+      width: 216px;
+      top: 69px;
+      left: 50%;
+      margin-left: -108px;
+      border-radius: 4px;
+      border: 1px solid #e0ecf2;
+      background-color: rgba(255, 255, 255, 0.93);
+      padding: 24px;
+      box-shadow: 0px 12px 10px 0 rgba(218, 218, 218, 0.3);
+      text-align: left;
+      z-index: 999;
+      display: none;
+
+      &:before {
+        position: absolute;
+        border: 7px solid transparent;
+        border-bottom-color: #F4F4F4;
+        width: 0;
+        height: 0;
+        content: "";
+        top: -14px;
+        left: 50%;
+        margin-left: -7px;
+      }
+      .nav-sub-item {
+        height: 48px;
+        font-size: 16px;
+        line-height: 48px;
+        cursor: pointer;
+
+        a {
+          color: #616161;
+          width: 166px;
+          height: 52px;
+          display: block;
+
+          &:hover {
+            color: #6556e2;
+          }
+        }
+      }
+    }
+  }
+}
+header.index-page {
+  background: none;
+
+  .nav-wrapper {
+    .nav-content {
+      background: none;
+    }
+  }
+}

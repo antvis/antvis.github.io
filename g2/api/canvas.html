@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Canvas API 文档</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../static/jquery.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item hover">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+<link rel="stylesheet" href="../../static/prettify-min.css">
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+
+
+  <div class="main-container clearfix">
+<div class="body-content api-body-content"><div class="doc-nav">
+  <p class="title">G2</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g2/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">使用教程</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="sub-title">基础教程</li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/index.html" >G2 图表的主要组成</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/chart.html" >图表对象配置（chart）</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/working-with-data.html" >data 数据</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/frame.html" >Frame 常见操作</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/scale.html" >度量</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/col-defs.html" >列定义操作</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/geom.html" >geom 几何标记</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/attr.html" >attr 图形属性</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/coord.html" >coord 坐标系</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/axis.html" >axis 坐标轴</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/legend.html" >legend 图例</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/tooltip.html" >tooltip 提示信息</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/guide.html" >guide 辅助标记</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/stat.html" >stat 统计变换</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/facet.html" >facet 分面</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/theme.html" >theme 图表样式</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/label.html" >label 文本标签</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/chart-event.html" >图表事件 event</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/action.html" >图表交互</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/changedata.html" >数据异步加载与动态更新</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/g2-plugin-slider.html" >数据滑动条插件使用</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/rc-g2.html" >在 react 中使用 G2</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/fqas.html" >常见问题</a>
+          </li>
+          <li class="sub-title">高级教程</li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/index.html" >G2 图形语法简介</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/data-flow.html" >G2 的数据处理流程</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/data-type-and-scale.html" >数据类型与度量</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/coord-detailed.html" >坐标系详解</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/chart-type.html" >图表类型</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/geom-and-adjust.html" >几何标记和数据调整</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/custom-shape.html" >自定义 shape</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/view.html" >多视图 view 绘制</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/layout.html" >layout 布局</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/draw-word-cloud.html" >使用 G2 绘制词云</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/animate.html" >自定义动画</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">API</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="">
+            <a href="../../g2/api/index.html" >G2</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/chart.html" >Chart</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/view.html" >View</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/geom.html" >Geom</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/scale.html" >Scale</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/stat.html" >Stat</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/frame.html" >Frame</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/shape.html" >Shape</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/animate.html" >Animate</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/util.html" >Util</a>
+          </li>
+          <li class="active">
+            <a href="../../g2/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/chart-options.html" >配置项支持</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/doc/history.html" >更新日志</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+  <div class="doc-content clearfix">
+    <h1>Canvas</h1>
+    <div id="J_pageNav"></div>
+    <div class="clearfix" style="margin-bottom: 40px;"></div>
+    <div class="doc-inner">
+      <style type="text/css">
+  #J_pageNav{
+    display: none;
+  }
+</style>
+
+<h1 id="canvas">Canvas</h1><h1 id="概述">概述</h1><p>本文档是G2图形库——G2.Canvas的API文档, 您能从该文档中快速查找到我们的绘图引擎提供的所有<strong>对外发布</strong>的<code>方法</code>、<code>配置</code>、<code>属性</code> 及它们的使用方法。如果有你觉得描述的不够清晰的地方敬请<a href="">联系我们</a>！</p>
+<ul>
+<li><a href="#直线——line">直线——line</a></li>
+<li><a href="#二阶bezier曲线——quadratic">二阶bezier曲线——quadratic</a></li>
+<li><a href="#三阶bezier曲线——cubic">三阶bezier曲线——cubic</a></li>
+<li><a href="#圆弧线——arc">圆弧线——arc</a></li>
+<li><a href="#多段线——polyline">多段线——polyline</a></li>
+<li><a href="#矩形——rect">矩形——rect</a></li>
+<li><a href="#圆——circle">圆——circle</a></li>
+<li><a href="#椭圆形——ellipse">椭圆形——ellipse</a></li>
+<li><a href="#扇形——fan">扇形——fan</a></li>
+<li><a href="#多边形——polygon">多边形——polygon</a></li>
+<li><a href="#图像——image">图像——image</a></li>
+<li><a href="#文本——text">文本——text</a></li>
+<li><a href="#svg的path——path">svg的path——path</a></li>
+<li><a href="#动画——animate">动画——animate</a></li>
+<li><a href="#通用属性">通用属性</a></li>
+<li><a href="#通用方法">通用方法</a></li>
+</ul>
+<h1 id="直线——line">直线——line</h1><div id="c1"></div>
+
+<script>(function(){'use strict';
+
+var canvas = new G6.Canvas({
+  containerId: 'c1',
+  width: 600,
+  height: 600
+});
+canvas.scale(0.5, 0.5);
+canvas.addShape('line', {
+  attrs: {
+    x1: 20,
+    y1: 20,
+    x2: 280,
+    y2: 280,
+    stroke: 'red' // 颜色名字
+  }
+});
+canvas.addShape('line', {
+  attrs: {
+    x1: 20,
+    y1: 300 + 20,
+    x2: 280,
+    y2: 300 + 280,
+    arrow: true, // 显示箭头
+    stroke: '#00ff00' // 6位十六进制
+  }
+});
+canvas.addShape('line', {
+  attrs: {
+    x2: 300 + 20,
+    y2: 300 + 20,
+    x1: 300 + 280,
+    y1: 300 + 280,
+    arrow: true, // 显示箭头
+    stroke: '#00f' // 3位十六进制
+  }
+});
+canvas.addShape('line', {
+  attrs: {
+    x1: 20,
+    y1: 600 + 20,
+    x2: 280,
+    y2: 600 + 280,
+    lineDash: [10, 10],
+    stroke: 'rgb(100, 100, 200)' // rgb数字模式
+  }
+});
+canvas.addShape('line', {
+  attrs: {
+    x1: 300 + 20,
+    y1: 600 + 20,
+    x2: 300 + 280,
+    y2: 600 + 280,
+    lineDash: [10, 20, 10],
+    stroke: 'rgba(100, 100, 200, 0.5)' // rgba数字模式
+  }
+});
+canvas.addShape('line', {
+  attrs: {
+    x1: 600 + 20,
+    y1: 600 + 20,
+    x2: 600 + 280,
+    y2: 600 + 280,
+    lineDash: [50, 50],
+    stroke: 'rgb(34%, 85%, 48%)' // rgb百分比模式
+  }
+});
+canvas.addShape('line', {
+  attrs: {
+    x1: 900 + 20,
+    y1: 600 + 20,
+    x2: 900 + 280,
+    y2: 600 + 280,
+    lineDash: [50, 5, 50, 5],
+    stroke: 'rgba(34%, 85%, 48%, 0.5)' // rgba百分比模式
+  }
+});
+canvas.addShape('line', {
+  attrs: {
+    x1: 20,
+    y1: 900 + 20,
+    x2: 280,
+    y2: 900 + 280,
+    stroke: 'l (0) 0:#ff0000 1:#0000ff' // 线性渐变
+  }
+});
+canvas.addShape('line', {
+  attrs: {
+    x1: 300 + 20,
+    y1: 900 + 20,
+    x2: 300 + 280,
+    y2: 900 + 280,
+    stroke: 'r (0.5, 0.5, 0) 0:rgb(0, 0, 255) 1:#ff0000' // 迳向渐变
+  }
+});
+canvas.draw();})()</script><div class="highlight"><pre><code class="javascript">  <span class="keyword">var</span> canvas = <span class="keyword">new</span> G6.Canvas({
+    containerId: <span class="string">'c1'</span>,
+    width: <span class="number">600</span>,
+    height: <span class="number">600</span>
+  });
+  canvas.scale(<span class="number">0.5</span>, <span class="number">0.5</span>);
+  canvas.addShape(<span class="string">'line'</span>, {
+    attrs: {
+      x1: <span class="number">20</span>,
+      y1: <span class="number">20</span>,
+      x2: <span class="number">280</span>,
+      y2: <span class="number">280</span>,
+      stroke: <span class="string">'red'</span>                       <span class="comment">// 颜色名字</span>
+    }
+  });
+  canvas.addShape(<span class="string">'line'</span>, {
+    attrs: {
+      x1: <span class="number">20</span>,
+      y1: <span class="number">300</span> + <span class="number">20</span>,
+      x2: <span class="number">280</span>,
+      y2: <span class="number">300</span> + <span class="number">280</span>,
+      arrow: <span class="literal">true</span>,                                             <span class="comment">// 显示箭头</span>
+      stroke: <span class="string">'#00ff00'</span>                   <span class="comment">// 6位十六进制</span>
+    }
+  });
+  canvas.addShape(<span class="string">'line'</span>, {
+    attrs: {
+      x2: <span class="number">300</span> + <span class="number">20</span>,
+      y2: <span class="number">300</span> + <span class="number">20</span>,
+      x1: <span class="number">300</span> + <span class="number">280</span>,
+      y1: <span class="number">300</span> + <span class="number">280</span>,
+      arrow: <span class="literal">true</span>,                                             <span class="comment">// 显示箭头</span>
+      stroke: <span class="string">'#00f'</span>                      <span class="comment">// 3位十六进制</span>
+    }
+  });
+  canvas.addShape(<span class="string">'line'</span>, {
+    attrs: {
+      x1: <span class="number">20</span>,
+      y1: <span class="number">600</span> + <span class="number">20</span>,
+      x2: <span class="number">280</span>,
+      y2: <span class="number">600</span> + <span class="number">280</span>,
+      lineDash: [<span class="number">10</span>,<span class="number">10</span>],
+      stroke: <span class="string">'rgb(100, 100, 200)'</span>         <span class="comment">// rgb数字模式</span>
+    }
+  });
+  canvas.addShape(<span class="string">'line'</span>, {
+    attrs: {
+      x1: <span class="number">300</span> + <span class="number">20</span>,
+      y1: <span class="number">600</span> + <span class="number">20</span>,
+      x2: <span class="number">300</span> + <span class="number">280</span>,
+      y2: <span class="number">600</span> + <span class="number">280</span>,
+      lineDash: [<span class="number">10</span>,<span class="number">20</span>, <span class="number">10</span>],
+      stroke: <span class="string">'rgba(100, 100, 200, 0.5)'</span>   <span class="comment">// rgba数字模式</span>
+    }
+  });
+  canvas.addShape(<span class="string">'line'</span>, {
+    attrs: {
+      x1: <span class="number">600</span> + <span class="number">20</span>,
+      y1: <span class="number">600</span> + <span class="number">20</span>,
+      x2: <span class="number">600</span> + <span class="number">280</span>,
+      y2: <span class="number">600</span> + <span class="number">280</span>,
+      lineDash: [<span class="number">50</span>,<span class="number">50</span>],
+      stroke: <span class="string">'rgb(34%, 85%, 48%)'</span>         <span class="comment">// rgb百分比模式</span>
+    }
+  });
+  canvas.addShape(<span class="string">'line'</span>, {
+    attrs: {
+      x1: <span class="number">900</span> + <span class="number">20</span>,
+      y1: <span class="number">600</span> + <span class="number">20</span>,
+      x2: <span class="number">900</span> + <span class="number">280</span>,
+      y2: <span class="number">600</span> + <span class="number">280</span>,
+      lineDash: [<span class="number">50</span>,<span class="number">5</span>,<span class="number">50</span>,<span class="number">5</span>],
+      stroke: <span class="string">'rgba(34%, 85%, 48%, 0.5)'</span>   <span class="comment">// rgba百分比模式</span>
+    }
+  });
+  canvas.addShape(<span class="string">'line'</span>, {
+    attrs: {
+      x1: <span class="number">20</span>,
+      y1: <span class="number">900</span> + <span class="number">20</span>,
+      x2: <span class="number">280</span>,
+      y2: <span class="number">900</span> + <span class="number">280</span>,
+      stroke: <span class="string">'l (0) 0:#ff0000 1:#0000ff'</span>                      <span class="comment">// 线性渐变</span>
+    }
+  });
+  canvas.addShape(<span class="string">'line'</span>, {
+    attrs: {
+      x1: <span class="number">300</span> + <span class="number">20</span>,
+      y1: <span class="number">900</span> + <span class="number">20</span>,
+      x2: <span class="number">300</span> + <span class="number">280</span>,
+      y2: <span class="number">900</span> + <span class="number">280</span>,
+      stroke: <span class="string">'r (0.5, 0.5, 0) 0:rgb(0, 0, 255) 1:#ff0000'</span>    <span class="comment">// 迳向渐变</span>
+    }
+  });
+  canvas.draw();</code></pre></div><h2 id="属性">属性</h2><h3 id="x1"><a href="#x1">x1</a></h3><p>[Number]，默认值: 0 第一个点的 x 值。</p>
+<h3 id="y1"><a href="#y1">y1</a></h3><p>[Number]，默认值: 0 第一个点的 y 值。</p>
+<h3 id="x2"><a href="#x2">x2</a></h3><p>[Number]，默认值: 0 第二个点的 x 值。</p>
+<h3 id="y2"><a href="#y2">y2</a></h3><p>[Number]默认值: 0 第二点的 y 值。</p>
+<h3 id="arrow"><a href="#arrow">arrow</a></h3><p>[Boolean]，箭头有第一个点指向第二个点</p>
+<h3 id="linewidth"><a href="#lineWidth">lineWidth</a></h3><p>[Number]，线宽。</p>
+<h3 id="linedash"><a href="#lineDash">lineDash</a></h3><p>[String || Array]，虚线。</p>
+<h3 id="stroke"><a href="#stroke">stroke</a></h3><p>[String]，边框颜色。</p>
+<h3 id="storkeopacity"><a href="#storkeOpacity">storkeOpacity</a></h3><p>[Number]，边框透明度。</p>
+<h2 id="方法">方法</h2><h3 id="getpoint"><a href="#getPoint">getPoint</a></h3><h5 id="参数">参数</h5><ul>
+<li>t 百分比</li>
+</ul>
+<h5 id="返回">返回</h5><ul>
+<li>point 画布坐标点</li>
+</ul>
+<h1 id="二阶bezier曲线——quadratic">二阶bezier曲线——quadratic</h1><div id="c2"></div>
+
+<script>(function(){'use strict';
+
+var canvas = new G6.Canvas({
+  containerId: 'c2',
+  width: 600,
+  height: 600
+});
+canvas.scale(0.5, 0.5);
+canvas.addShape('quadratic', {
+  attrs: {
+    p1: [100, 600 - 250],
+    p2: [300, 500 - 250],
+    p3: [500, 600 - 250],
+    arrow: true,
+    stroke: 'black'
+  }
+});
+canvas.addShape('quadratic', {
+  attrs: {
+    p1: [700, 600 - 250],
+    p2: [900, 800 - 250],
+    p3: [1100, 500 - 250],
+    lineDash: [20, 20],
+    stroke: 'black'
+  }
+});
+canvas.addShape('quadratic', {
+  attrs: {
+    p1: [100, 600],
+    p2: [300, 500],
+    p3: [500, 600],
+    stroke: 'black'
+  }
+});
+canvas.addShape('quadratic', {
+  attrs: {
+    p1: [700, 600],
+    p2: [900, 800],
+    p3: [1100, 500],
+    stroke: 'black'
+  }
+});
+addMarker(canvas, [[100, 600], [300, 500], [500, 600], [700, 600], [900, 800], [1100, 500]]);
+function addMarker(canvas, points, cfg) {
+  for (var i = 0; i < points.length; i++) {
+    var circle = canvas.addShape('circle', {
+      attrs: {
+        x: points[i][0],
+        y: points[i][1],
+        r: 8,
+        stroke: '#F93D26'
+      }
+    });
+  }
+}
+canvas.draw();})()</script><div class="highlight"><pre><code class="javascript">  <span class="keyword">var</span> canvas = <span class="keyword">new</span> G6.Canvas({
+    containerId: <span class="string">'c2'</span>,
+    width: <span class="number">600</span>,
+    height: <span class="number">600</span>
+  });
+  canvas.scale(<span class="number">0.5</span>, <span class="number">0.5</span>);
+  canvas.addShape(<span class="string">'quadratic'</span>, {
+    attrs: {
+      p1: [<span class="number">100</span>, <span class="number">600</span>-<span class="number">250</span>],
+      p2: [<span class="number">300</span>, <span class="number">500</span>-<span class="number">250</span>],
+      p3: [<span class="number">500</span>, <span class="number">600</span>-<span class="number">250</span>],
+      arrow: <span class="literal">true</span>,
+      stroke: <span class="string">'black'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'quadratic'</span>, {
+    attrs: {
+      p1: [<span class="number">700</span>, <span class="number">600</span>-<span class="number">250</span>],
+      p2: [<span class="number">900</span>, <span class="number">800</span>-<span class="number">250</span>],
+      p3: [<span class="number">1100</span>, <span class="number">500</span>-<span class="number">250</span>],
+      lineDash: [<span class="number">20</span>, <span class="number">20</span>],
+      stroke: <span class="string">'black'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'quadratic'</span>, {
+    attrs: {
+      p1: [<span class="number">100</span>, <span class="number">600</span>],
+      p2: [<span class="number">300</span>, <span class="number">500</span>],
+      p3: [<span class="number">500</span>, <span class="number">600</span>],
+      stroke: <span class="string">'black'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'quadratic'</span>, {
+    attrs: {
+      p1: [<span class="number">700</span>, <span class="number">600</span>],
+      p2: [<span class="number">900</span>, <span class="number">800</span>],
+      p3: [<span class="number">1100</span>, <span class="number">500</span>],
+      stroke: <span class="string">'black'</span>
+    }
+  });
+  addMarker(canvas, [
+    [<span class="number">100</span>, <span class="number">600</span>],
+    [<span class="number">300</span>, <span class="number">500</span>],
+    [<span class="number">500</span>, <span class="number">600</span>],
+    [<span class="number">700</span>, <span class="number">600</span>],
+    [<span class="number">900</span>, <span class="number">800</span>],
+    [<span class="number">1100</span>, <span class="number">500</span>]
+  ]);
+  <span class="function"><span class="keyword">function</span> <span class="title">addMarker</span><span class="params">(canvas, points, cfg)</span>{</span>
+    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; points.length; i++) {
+      <span class="keyword">var</span> circle = canvas.addShape(<span class="string">'circle'</span>, {
+        attrs: {
+          x: points[i][<span class="number">0</span>],
+          y: points[i][<span class="number">1</span>],
+          r: <span class="number">8</span>,
+          stroke: <span class="string">'#F93D26'</span>
+        }
+      });
+    }
+  }
+  canvas.draw();</code></pre></div><h2 id="属性">属性</h2><h3 id="p1"><a href="#p1">p1</a></h3><p>二阶贝赛尔曲线的第一个点，曲线总是开始于这个点。</p>
+<p><span style="font-style:italic;color:#F93D26">
+警告：不要仅仅设置一点的某一个分量，要设置就把整个点进行替换。quadratic.attr(&#39;p1&#39;, [200, 300]) 这样做是正确的。
+<span></p>
+<h3 id="p2"><a href="#p2">p2</a></h3><p>二阶贝赛尔曲线控制点，曲线总是不经过这个点，不过这个点会影响曲线的形状</p>
+<p><span style="font-style:italic;color:#F93D26">
+警告：不要仅仅设置一点的某一个分量，要设置就把整个点进行替换。quadratic.attr(&#39;p2&#39;, [200, 300]) 这样做是正确的。
+<span></p>
+<h3 id="p3"><a href="#p3">p3</a></h3><p>二阶贝赛尔曲线的终点，曲线总是结束于这个点</p>
+<p><span style="font-style:italic;color:#F93D26">
+警告：不要仅仅设置一点的某一个分量，要设置就把整个点进行替换。quadratic.attr(&#39;p3&#39;, [200, 300]) 这样做是正确的。
+<span></p>
+<h3 id="arrow"><a href="#arrow">arrow</a></h3><p>箭头只会出现在p3这个点</p>
+<h3 id="stroke"><a href="#stroke">stroke</a></h3><p>边框颜色</p>
+<h3 id="storkeopacity"><a href="#storkeOpacity">storkeOpacity</a></h3><p>边框透明度</p>
+<h2 id="方法">方法</h2><h3 id="getpoint"><a href="#getPoint">getPoint</a></h3><h5 id="参数">参数</h5><ul>
+<li>t 百分比</li>
+</ul>
+<h5 id="返回">返回</h5><ul>
+<li>point 画布坐标点</li>
+</ul>
+<h1 id="三阶bezier曲线——cubic">三阶bezier曲线——cubic</h1><div id="c3"></div>
+
+<script>(function(){'use strict';
+
+var canvas = new G6.Canvas({
+  containerId: 'c3',
+  width: 600,
+  height: 600
+});
+canvas.scale(0.5, 0.5);
+canvas.addShape('cubic', {
+  attrs: {
+    p1: [75, 300],
+    p2: [200, 120],
+    p3: [450, 350],
+    p4: [510, 150],
+    stroke: 'black',
+    lineDash: [20, 20]
+  }
+});
+canvas.addShape('cubic', {
+  attrs: {
+    p1: [600 + 90, 150],
+    p2: [600 + 150, 350],
+    p3: [600 + 300, 120],
+    p4: [600 + 525, 300],
+    stroke: '#42E1DC',
+    arrow: true
+  }
+});
+canvas.addShape('cubic', {
+  attrs: {
+    p1: [20, 600 + 100],
+    p2: [200, 600 + 100],
+    p3: [400, 600 + 500],
+    p4: [520, 600 + 200],
+    stroke: 'r (0.5, 0.5, 1) 0:#ffaa00 1:#11aacc'
+  }
+});
+canvas.addShape('cubic', {
+  attrs: {
+    p1: [600 + 20, 600 + 100],
+    p2: [600 + 200, 600 + 100],
+    p3: [600 + 400, 600 + 500],
+    p4: [600 + 520, 600 + 200],
+    stroke: 'r (0.5, 0.5, 1) 0:#ffaa00 0.5:#00ffff 1:#11aacc'
+  }
+});
+addMarker(canvas, [[75, 300], [200, 120], [450, 350], [510, 150]]);
+function addMarker(canvas, points, cfg) {
+  for (var i = 0; i < points.length; i++) {
+    var circle = canvas.addShape('circle', {
+      attrs: {
+        x: points[i][0],
+        y: points[i][1],
+        r: 8,
+        stroke: '#F93D26'
+      }
+    });
+  }
+}
+canvas.draw();})()</script><div class="highlight"><pre><code class="javascript">  <span class="keyword">var</span> canvas = <span class="keyword">new</span> G6.Canvas({
+    containerId: <span class="string">'c3'</span>,
+    width: <span class="number">600</span>,
+    height: <span class="number">600</span>
+  });
+  canvas.scale(<span class="number">0.5</span>, <span class="number">0.5</span>);
+  canvas.addShape(<span class="string">'cubic'</span>, {
+    attrs: {
+      p1: [<span class="number">75</span>, <span class="number">300</span>],
+      p2: [<span class="number">200</span>, <span class="number">120</span>],
+      p3: [<span class="number">450</span>, <span class="number">350</span>],
+      p4: [<span class="number">510</span>, <span class="number">150</span>],
+      stroke: <span class="string">'black'</span>,
+      lineDash: [<span class="number">20</span>,<span class="number">20</span>]
+    }
+  });
+  canvas.addShape(<span class="string">'cubic'</span>, {
+    attrs: {
+      p1: [<span class="number">600</span> + <span class="number">90</span>, <span class="number">150</span>],
+      p2: [<span class="number">600</span> + <span class="number">150</span>, <span class="number">350</span>],
+      p3: [<span class="number">600</span> + <span class="number">300</span>, <span class="number">120</span>],
+      p4: [<span class="number">600</span> + <span class="number">525</span>, <span class="number">300</span>],
+      stroke: <span class="string">'#42E1DC'</span>,
+      arrow: <span class="literal">true</span>
+    }
+  });
+  canvas.addShape(<span class="string">'cubic'</span>, {
+    attrs: {
+      p1: [<span class="number">20</span>, <span class="number">600</span> + <span class="number">100</span>],
+      p2: [<span class="number">200</span>, <span class="number">600</span> + <span class="number">100</span>],
+      p3: [<span class="number">400</span>, <span class="number">600</span> + <span class="number">500</span>],
+      p4: [<span class="number">520</span>, <span class="number">600</span> + <span class="number">200</span>],
+      stroke: <span class="string">'r (0.5, 0.5, 1) 0:#ffaa00 1:#11aacc'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'cubic'</span>, {
+    attrs: {
+      p1: [<span class="number">600</span> + <span class="number">20</span>, <span class="number">600</span> + <span class="number">100</span>],
+      p2: [<span class="number">600</span> + <span class="number">200</span>, <span class="number">600</span> + <span class="number">100</span>],
+      p3: [<span class="number">600</span> + <span class="number">400</span>, <span class="number">600</span> + <span class="number">500</span>],
+      p4: [<span class="number">600</span> + <span class="number">520</span>, <span class="number">600</span> + <span class="number">200</span>],
+      stroke: <span class="string">'r (0.5, 0.5, 1) 0:#ffaa00 0.5:#00ffff 1:#11aacc'</span>
+    }
+  });
+  addMarker(canvas, [
+    [<span class="number">75</span>, <span class="number">300</span>],
+    [<span class="number">200</span>, <span class="number">120</span>],
+    [<span class="number">450</span>, <span class="number">350</span>],
+    [<span class="number">510</span>, <span class="number">150</span>]
+  ]);
+  <span class="function"><span class="keyword">function</span> <span class="title">addMarker</span><span class="params">(canvas, points, cfg)</span>{</span>
+    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; points.length; i++) {
+      <span class="keyword">var</span> circle = canvas.addShape(<span class="string">'circle'</span>, {
+        attrs: {
+          x: points[i][<span class="number">0</span>],
+          y: points[i][<span class="number">1</span>],
+          r: <span class="number">8</span>,
+          stroke: <span class="string">'#F93D26'</span>
+        }
+      });
+    }
+  }
+  canvas.draw();</code></pre></div><h2 id="属性">属性</h2><h3 id="p1"><a href="#p1">p1</a></h3><p>cubic的第一个点，曲线总是开始于这个点。</p>
+<p><span style="font-style:italic;color:#F93D26">
+警告：不要仅仅设置一点的某一个分量，要设置就把整个点进行替换。quadratic.attr(&#39;p1&#39;, [200, 300]) 这样做是正确的。
+<span></p>
+<h3 id="p2"><a href="#p2">p2</a></h3><p>cubic第一个控制点，曲线总是不经过这个点，不过这个点会影响曲线的形状</p>
+<p><span style="font-style:italic;color:#F93D26">
+警告：不要仅仅设置一点的某一个分量，要设置就把整个点进行替换。quadratic.attr(&#39;p2&#39;, [200, 300]) 这样做是正确的。
+<span></p>
+<h3 id="p3"><a href="#p3">p3</a></h3><p>cubic第二个控制点，曲线总是不经过这个点，不过这个点会影响曲线的形状</p>
+<p><span style="font-style:italic;color:#F93D26">
+警告：不要仅仅设置一点的某一个分量，要设置就把整个点进行替换。quadratic.attr(&#39;p3&#39;, [200, 300]) 这样做是正确的。
+<span></p>
+<h3 id="p4"><a href="#p4">p4</a></h3><p>cubic的终点，曲线总是结束于这个点</p>
+<p><span style="font-style:italic;color:#F93D26">
+警告：不要仅仅设置一点的某一个分量，要设置就把整个点进行替换。quadratic.attr(&#39;p4&#39;, [200, 300]) 这样做是正确的。
+<span></p>
+<h3 id="arrow"><a href="#arrow">arrow</a></h3><p>箭头只会出现在p3这个点</p>
+<h3 id="stroke"><a href="#stroke">stroke</a></h3><p>边框颜色</p>
+<h3 id="storkeopacity"><a href="#storkeOpacity">storkeOpacity</a></h3><p>边框透明度</p>
+<h2 id="方法">方法</h2><h3 id="getpoint"><a href="#getPoint">getPoint</a></h3><h5 id="参数">参数</h5><ul>
+<li>t 百分比</li>
+</ul>
+<h5 id="返回">返回</h5><ul>
+<li>point 画布坐标点</li>
+</ul>
+<h1 id="圆弧线——arc">圆弧线——arc</h1><div id="c4"></div>
+
+<script>(function(){'use strict';
+
+var canvas = new G6.Canvas({
+  containerId: 'c4',
+  width: 600,
+  height: 600
+});
+canvas.scale(0.5, 0.5);
+canvas.addShape('arc', {
+  attrs: {
+    x: 300,
+    y: 300,
+    r: 200,
+    startAngle: 30,
+    endAngle: 260,
+    stroke: 'black',
+    lineDash: [20, 20]
+  }
+});
+canvas.addShape('arc', {
+  attrs: {
+    x: 300,
+    y: 600,
+    r: 200,
+    startAngle: 30,
+    endAngle: 90,
+    stroke: '#0D2031'
+  }
+});
+canvas.addShape('arc', {
+  attrs: {
+    x: 900,
+    y: 600,
+    r: 150,
+    startAngle: 70,
+    endAngle: 230,
+    stroke: 'red',
+    arrow: true
+  }
+});
+canvas.draw();})()</script><div class="highlight"><pre><code class="javascript">  <span class="keyword">var</span> canvas = <span class="keyword">new</span> G6.Canvas({
+    containerId: <span class="string">'c4'</span>,
+    width: <span class="number">600</span>,
+    height: <span class="number">600</span>
+  });
+  canvas.scale(<span class="number">0.5</span>, <span class="number">0.5</span>);
+  canvas.addShape(<span class="string">'arc'</span>, {
+    attrs: {
+      x: <span class="number">300</span>,
+      y: <span class="number">300</span>,
+      r: <span class="number">200</span>,
+      startAngle: <span class="number">30</span>,
+      endAngle: <span class="number">260</span>,
+      stroke: <span class="string">'black'</span>,
+      lineDash: [<span class="number">20</span>,<span class="number">20</span>]
+    }
+  });
+  canvas.addShape(<span class="string">'arc'</span>, {
+    attrs: {
+      x: <span class="number">300</span>,
+      y: <span class="number">600</span>,
+      r: <span class="number">200</span>,
+      startAngle: <span class="number">30</span>,
+      endAngle: <span class="number">90</span>,
+      stroke: <span class="string">'#0D2031'</span>,
+    }
+  });
+  canvas.addShape(<span class="string">'arc'</span>, {
+    attrs: {
+      x: <span class="number">900</span>,
+      y: <span class="number">600</span>,
+      r: <span class="number">150</span>,
+      startAngle: <span class="number">70</span>,
+      endAngle: <span class="number">230</span>,
+      stroke: <span class="string">'red'</span>,
+      arrow: <span class="literal">true</span>
+    }
+  });
+  canvas.draw();</code></pre></div><h2 id="属性">属性</h2><h3 id="x"><a href="#x">x</a></h3><p>默认值: 0 圆心的x值</p>
+<h3 id="y"><a href="#y">y</a></h3><p>默认值: 0 圆心的y值</p>
+<h3 id="r"><a href="#r">r</a></h3><p>默认值: 0 圆弧的半径</p>
+<h3 id="startangle"><a href="#startAngle">startAngle</a></h3><p>默认值: 0 开始角度 角度制</p>
+<h3 id="endangle"><a href="#endAngle">endAngle</a></h3><p>默认值: 0 结束角度 角度制</p>
+<h3 id="clockwise"><a href="#clockwise">clockwise</a></h3><p>默认值: false</p>
+<p>表示画轴的方向</p>
+<p>值的范围: true表示逆时针，false顺时针</p>
+<h3 id="arrow"><a href="#arrow">arrow</a></h3><p>默认值: false</p>
+<p>圆弧是否带有箭头，false不带，true带</p>
+<p>箭头总是出现在endAngle这个位置</p>
+<h3 id="stroke"><a href="#stroke">stroke</a></h3><p>边框颜色</p>
+<h3 id="storkeopacity"><a href="#storkeOpacity">storkeOpacity</a></h3><p>边框透明度</p>
+<h2 id="方法">方法</h2><h3 id="getpoint"><a href="#getPoint">getPoint</a></h3><h5 id="参数">参数</h5><ul>
+<li>t 百分比</li>
+</ul>
+<h5 id="返回">返回</h5><ul>
+<li>point 画布坐标点</li>
+</ul>
+<h1 id="多段线——polyline">多段线——polyline</h1><div id="c5"></div>
+
+<script>(function(){'use strict';
+
+var canvas = new G6.Canvas({
+  containerId: 'c5',
+  width: 600,
+  height: 600
+});
+canvas.scale(0.5, 0.5);
+canvas.addShape('polyline', {
+  attrs: {
+    points: [[741.6487813219777, 1183.92131359719], [583.1709046233477, 33.93352498571885], [1098.3455104904451, 246.13363066051957], [211.30437444177633, 420.3306748934016], [980.3732054245157, 756.2252762234709], [374.28495603818607, 108.15975006182006], [422.7940564389682, 1119.2144105552136], [833.5078092462321, 586.7198136138784]],
+    stroke: 'red'
+  }
+});
+canvas.draw();})()</script><div class="highlight"><pre><code class="javascript">  <span class="keyword">var</span> canvas = <span class="keyword">new</span> G6.Canvas({
+    containerId: <span class="string">'c5'</span>,
+    width: <span class="number">600</span>,
+    height: <span class="number">600</span>
+  });
+  canvas.scale(<span class="number">0.5</span>, <span class="number">0.5</span>);
+  canvas.addShape(<span class="string">'polyline'</span>, {
+    attrs: {
+      points: [[<span class="number">741.6487813219777</span>,<span class="number">1183.92131359719</span>],[<span class="number">583.1709046233477</span>,<span class="number">33.93352498571885</span>],[<span class="number">1098.3455104904451</span>,<span class="number">246.13363066051957</span>],[<span class="number">211.30437444177633</span>,<span class="number">420.3306748934016</span>],[<span class="number">980.3732054245157</span>,<span class="number">756.2252762234709</span>],[<span class="number">374.28495603818607</span>,<span class="number">108.15975006182006</span>],[<span class="number">422.7940564389682</span>,<span class="number">1119.2144105552136</span>],[<span class="number">833.5078092462321</span>,<span class="number">586.7198136138784</span>]],
+      stroke: <span class="string">'red'</span>
+    }
+  });
+  canvas.draw();</code></pre></div><h2 id="属性">属性</h2><h3 id="points"><a href="#points">points</a></h3><p>多个点组成的数组, 数组的每一项是一个数组[x, y], 这个样个数组代表一个点，x是这个点的x坐标，y是这个点的y坐标</p>
+<h3 id="arrow"><a href="#arrow">arrow</a></h3><p>默认值: false</p>
+<p>是否显示箭头, true显示, false不显示</p>
+<p>箭头只会出现在points中最后一个点</p>
+<h3 id="stroke"><a href="#stroke">stroke</a></h3><p>边框颜色</p>
+<h3 id="storkeopacity"><a href="#storkeOpacity">storkeOpacity</a></h3><p>边框透明度</p>
+<h2 id="方法">方法</h2><h3 id="getpoint"><a href="#getPoint">getPoint</a></h3><h5 id="参数">参数</h5><ul>
+<li>t 百分比</li>
+</ul>
+<h5 id="返回">返回</h5><ul>
+<li>point 画布坐标点</li>
+</ul>
+<h1 id="矩形——rect">矩形——rect</h1><div id="c6"></div>
+
+<script>(function(){'use strict';
+
+var canvas = new G6.Canvas({
+  containerId: 'c6',
+  width: 600,
+  height: 600
+});
+canvas.addShape('rect', {
+  attrs: {
+    x: 150,
+    y: 150,
+    width: 150,
+    height: 150,
+    stroke: 'black'
+  }
+});
+canvas.addShape('rect', {
+  attrs: {
+    x: 150 - 50,
+    y: 150 - 50,
+    width: 150,
+    height: 150,
+    stroke: 'red'
+  }
+});
+canvas.addShape('rect', {
+  attrs: {
+    x: 150 + 50,
+    y: 150 + 50,
+    width: 150,
+    height: 150,
+    fill: 'rgba(129,9,39,0.5)',
+    stroke: 'blue'
+  }
+});
+canvas.draw();})()</script><div class="highlight"><pre><code class="javascript">  <span class="keyword">var</span> canvas = <span class="keyword">new</span> G6.Canvas({
+    containerId: <span class="string">'c6'</span>,
+    width: <span class="number">600</span>,
+    height: <span class="number">600</span>
+  });
+  canvas.addShape(<span class="string">'rect'</span>, {
+    attrs: {
+      x: <span class="number">150</span>,
+      y: <span class="number">150</span>,
+      width: <span class="number">150</span>,
+      height: <span class="number">150</span>,
+      stroke: <span class="string">'black'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'rect'</span>, {
+    attrs: {
+      x: <span class="number">150</span>-<span class="number">50</span>,
+      y: <span class="number">150</span>-<span class="number">50</span>,
+      width: <span class="number">150</span>,
+      height: <span class="number">150</span>,
+      stroke: <span class="string">'red'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'rect'</span>, {
+    attrs: {
+      x: <span class="number">150</span>+<span class="number">50</span>,
+      y: <span class="number">150</span>+<span class="number">50</span>,
+      width: <span class="number">150</span>,
+      height: <span class="number">150</span>,
+      fill: <span class="string">'rgba(129,9,39,0.5)'</span>,
+      stroke: <span class="string">'blue'</span>
+    }
+  });
+  canvas.draw();</code></pre></div><h2 id="属性">属性</h2><h3 id="x"><a href="#x">x</a></h3><p>矩形的左上角x的坐标</p>
+<h3 id="y"><a href="#y">y</a></h3><p>矩形的左上角y的坐标</p>
+<h3 id="width"><a href="#width">width</a></h3><p>矩形的宽度</p>
+<h3 id="height"><a href="#height">height</a></h3><p>矩形的高度</p>
+<h3 id="radius"><a href="#radius">radius</a></h3><p>矩形的圆角半径</p>
+<h3 id="fill"><a href="#fill">fill</a></h3><p>填充颜色</p>
+<h3 id="fillopacity"><a href="#fillOpacity">fillOpacity</a></h3><p>填充透明度</p>
+<h3 id="stroke"><a href="#stroke">stroke</a></h3><p>边框颜色</p>
+<h3 id="storkeopacity"><a href="#storkeOpacity">storkeOpacity</a></h3><p>边框透明度</p>
+<h1 id="圆——circle">圆——circle</h1><div id="c7"></div>
+
+<script>(function(){'use strict';
+
+var canvas = new G6.Canvas({
+  containerId: 'c7',
+  width: 600,
+  height: 600
+});
+canvas.addShape('circle', {
+  attrs: {
+    x: 150 + 200,
+    y: 150,
+    r: 70,
+    stroke: 'black'
+  }
+});
+canvas.addShape('circle', {
+  attrs: {
+    x: 150 - 50,
+    y: 150 - 50,
+    r: 60,
+    lineDash: [20, 20],
+    stroke: 'red'
+  }
+});
+canvas.addShape('circle', {
+  attrs: {
+    x: 150 + 50,
+    y: 150 + 150,
+    r: 100,
+    fill: 'rgba(129,9,39,0.5)',
+    stroke: 'blue'
+  }
+});
+canvas.draw();})()</script><div class="highlight"><pre><code class="javascript">  <span class="keyword">var</span> canvas = <span class="keyword">new</span> G6.Canvas({
+    containerId: <span class="string">'c7'</span>,
+    width: <span class="number">600</span>,
+    height: <span class="number">600</span>
+  });
+  canvas.addShape(<span class="string">'circle'</span>, {
+    attrs: {
+      x: <span class="number">150</span>+<span class="number">200</span>,
+      y: <span class="number">150</span>,
+      r: <span class="number">70</span>,
+      stroke: <span class="string">'black'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'circle'</span>, {
+    attrs: {
+      x: <span class="number">150</span>-<span class="number">50</span>,
+      y: <span class="number">150</span>-<span class="number">50</span>,
+      r: <span class="number">60</span>,
+      lineDash: [<span class="number">20</span>, <span class="number">20</span>],
+      stroke: <span class="string">'red'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'circle'</span>, {
+    attrs: {
+      x: <span class="number">150</span>+<span class="number">50</span>,
+      y: <span class="number">150</span>+<span class="number">150</span>,
+      r: <span class="number">100</span>,
+      fill: <span class="string">'rgba(129,9,39,0.5)'</span>,
+      stroke: <span class="string">'blue'</span>
+    }
+  });
+  canvas.draw();</code></pre></div><h2 id="属性">属性</h2><h3 id="x"><a href="#x">x</a></h3><p>圆心坐标的x坐标</p>
+<h3 id="y"><a href="#y">y</a></h3><p>圆心坐标的y坐标</p>
+<h3 id="r"><a href="#r">r</a></h3><p>圆的半径</p>
+<h3 id="fill"><a href="#fill">fill</a></h3><p>填充颜色</p>
+<h3 id="fillopacity"><a href="#fillOpacity">fillOpacity</a></h3><p>填充透明度</p>
+<h3 id="stroke"><a href="#stroke">stroke</a></h3><p>边框颜色</p>
+<h3 id="storkeopacity"><a href="#storkeOpacity">storkeOpacity</a></h3><p>边框透明度</p>
+<h1 id="椭圆形——ellipse">椭圆形——ellipse</h1><div id="c8"></div>
+
+<script>(function(){'use strict';
+
+var canvas = new G6.Canvas({
+  containerId: 'c8',
+  width: 600,
+  height: 600
+});
+canvas.addShape('ellipse', {
+  attrs: {
+    x: 150 + 200,
+    y: 150,
+    rx: 70,
+    ry: 30,
+    stroke: 'black'
+  }
+});
+canvas.addShape('ellipse', {
+  attrs: {
+    x: 150 - 50,
+    y: 150 - 50,
+    rx: 50,
+    ry: 50,
+    lineDash: [20, 20],
+    stroke: 'red'
+  }
+});
+canvas.addShape('ellipse', {
+  attrs: {
+    x: 150 + 50,
+    y: 150 + 150,
+    rx: 30,
+    ry: 100,
+    fill: 'rgba(129,9,39,0.5)',
+    stroke: 'blue'
+  }
+});
+canvas.draw();})()</script><div class="highlight"><pre><code class="javascript">  <span class="keyword">var</span> canvas = <span class="keyword">new</span> G6.Canvas({
+    containerId: <span class="string">'c8'</span>,
+    width: <span class="number">600</span>,
+    height: <span class="number">600</span>
+  });
+  canvas.addShape(<span class="string">'ellipse'</span>, {
+    attrs: {
+      x: <span class="number">150</span>+<span class="number">200</span>,
+      y: <span class="number">150</span>,
+      rx: <span class="number">70</span>,
+      ry: <span class="number">30</span>,
+      stroke: <span class="string">'black'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'ellipse'</span>, {
+    attrs: {
+      x: <span class="number">150</span>-<span class="number">50</span>,
+      y: <span class="number">150</span>-<span class="number">50</span>,
+      rx: <span class="number">50</span>,
+      ry: <span class="number">50</span>,
+      lineDash: [<span class="number">20</span>, <span class="number">20</span>],
+      stroke: <span class="string">'red'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'ellipse'</span>, {
+    attrs: {
+      x: <span class="number">150</span>+<span class="number">50</span>,
+      y: <span class="number">150</span>+<span class="number">150</span>,
+      rx: <span class="number">30</span>,
+      ry: <span class="number">100</span>,
+      fill: <span class="string">'rgba(129,9,39,0.5)'</span>,
+      stroke: <span class="string">'blue'</span>
+    }
+  });
+  canvas.draw();</code></pre></div><h2 id="属性">属性</h2><h3 id="x"><a href="#x">x</a></h3><p>椭圆圆心坐标，x坐标的值</p>
+<h3 id="y"><a href="#y">y</a></h3><p>椭圆圆心坐标，y坐标的值</p>
+<h3 id="rx"><a href="#rx">rx</a></h3><p>椭圆横半轴的大小</p>
+<h3 id="ry"><a href="#ry">ry</a></h3><p>椭圆纵半轴的大小</p>
+<h3 id="fill"><a href="#fill">fill</a></h3><p>填充颜色</p>
+<h3 id="fillopacity"><a href="#fillOpacity">fillOpacity</a></h3><p>填充透明度</p>
+<h3 id="stroke"><a href="#stroke">stroke</a></h3><p>边框颜色</p>
+<h3 id="storkeopacity"><a href="#storkeOpacity">storkeOpacity</a></h3><p>边框透明度</p>
+<h1 id="扇形——fan">扇形——fan</h1><div id="c9"></div>
+
+<script>(function(){'use strict';
+
+var canvas = new G6.Canvas({
+  containerId: 'c9',
+  width: 600,
+  height: 600
+});
+canvas.addShape('fan', {
+  attrs: {
+    x: 150 + 200,
+    y: 150,
+    rs: 20,
+    re: 80,
+    startAngle: 30,
+    endAngle: 130,
+    stroke: 'black'
+  }
+});
+canvas.addShape('fan', {
+  attrs: {
+    x: 150 - 50,
+    y: 150 - 50,
+    rs: 30,
+    re: 70,
+    startAngle: 0,
+    endAngle: 90,
+    lineDash: [10, 10],
+    stroke: 'red'
+  }
+});
+canvas.addShape('fan', {
+  attrs: {
+    x: 150 + 50,
+    y: 150 + 150,
+    rs: 5,
+    re: 40,
+    startAngle: 20,
+    endAngle: 300,
+    fill: 'rgba(129,9,39,0.5)',
+    stroke: 'blue'
+  }
+});
+canvas.draw();})()</script><div class="highlight"><pre><code class="javascript">  <span class="keyword">var</span> canvas = <span class="keyword">new</span> G6.Canvas({
+    containerId: <span class="string">'c9'</span>,
+    width: <span class="number">600</span>,
+    height: <span class="number">600</span>
+  });
+  canvas.addShape(<span class="string">'fan'</span>, {
+    attrs: {
+      x: <span class="number">150</span>+<span class="number">200</span>,
+      y: <span class="number">150</span>,
+      rs: <span class="number">20</span>,
+      re: <span class="number">80</span>,
+      startAngle: <span class="number">30</span>,
+      endAngle: <span class="number">130</span>,
+      stroke: <span class="string">'black'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'fan'</span>, {
+    attrs: {
+      x: <span class="number">150</span>-<span class="number">50</span>,
+      y: <span class="number">150</span>-<span class="number">50</span>,
+      rs: <span class="number">30</span>,
+      re: <span class="number">70</span>,
+      startAngle: <span class="number">0</span>,
+      endAngle: <span class="number">90</span>,
+      lineDash: [<span class="number">10</span>, <span class="number">10</span>],
+      stroke: <span class="string">'red'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'fan'</span>, {
+    attrs: {
+      x: <span class="number">150</span>+<span class="number">50</span>,
+      y: <span class="number">150</span>+<span class="number">150</span>,
+      rs: <span class="number">5</span>,
+      re: <span class="number">40</span>,
+      startAngle: <span class="number">20</span>,
+      endAngle: <span class="number">300</span>,
+      fill: <span class="string">'rgba(129,9,39,0.5)'</span>,
+      stroke: <span class="string">'blue'</span>
+    }
+  });
+  canvas.draw();</code></pre></div><h2 id="属性">属性</h2><h3 id="x"><a href="#x">x</a></h3><p>扇形圆心的坐标的x坐标</p>
+<h3 id="y"><a href="#y">y</a></h3><p>扇形圆心的坐标的y坐标</p>
+<h3 id="rs"><a href="#rs">rs</a></h3><p>扇形半径的内半径</p>
+<h3 id="re"><a href="#re">re</a></h3><p>扇形半径的外半径</p>
+<h3 id="startangle"><a href="#startAngle">startAngle</a></h3><p>扇形的起始角度</p>
+<h3 id="endangle"><a href="#endAngle">endAngle</a></h3><p>扇形的结束角度</p>
+<h3 id="clockwise"><a href="#clockwise">clockwise</a></h3><p>开始角度到结束角度的旋转方向</p>
+<h3 id="fill"><a href="#fill">fill</a></h3><p>填充颜色</p>
+<h3 id="fillopacity"><a href="#fillOpacity">fillOpacity</a></h3><p>填充透明度</p>
+<h3 id="stroke"><a href="#stroke">stroke</a></h3><p>边框颜色</p>
+<h3 id="storkeopacity"><a href="#storkeOpacity">storkeOpacity</a></h3><p>边框透明度</p>
+<h1 id="多边形——polygon">多边形——polygon</h1><div id="c9.1"></div>
+
+<script>(function(){'use strict';
+
+var canvas = new G6.Canvas({
+  containerId: 'c9.1',
+  width: 600,
+  height: 600
+});
+canvas.addShape('polygon', {
+  attrs: {
+    points: [[150, 350], [100, 90], [150, 160], [240, 120]],
+    stroke: 'l (0) 0.2:#ff00ff 1:#0000ff'
+  }
+});
+canvas.draw();})()</script><div class="highlight"><pre><code class="javascript">  <span class="keyword">var</span> canvas = <span class="keyword">new</span> G6.Canvas({
+    containerId: <span class="string">'c9.1'</span>,
+    width: <span class="number">600</span>,
+    height: <span class="number">600</span>
+  });
+  canvas.addShape(<span class="string">'polygon'</span>, {
+    attrs: {
+      points: [
+        [<span class="number">150</span>, <span class="number">350</span>],
+        [<span class="number">100</span>, <span class="number">90</span>],
+        [<span class="number">150</span>, <span class="number">160</span>],
+        [<span class="number">240</span>, <span class="number">120</span>]
+      ],
+      stroke: <span class="string">'l (0) 0.2:#ff00ff 1:#0000ff'</span>
+    }
+  });
+  canvas.draw();</code></pre></div><h2 id="属性">属性</h2><h3 id="points"><a href="#points">points</a></h3><p>多边形的各个顶点</p>
+<h3 id="fill"><a href="#fill">fill</a></h3><p>填充颜色</p>
+<h3 id="fillopacity"><a href="#fillOpacity">fillOpacity</a></h3><p>填充透明度</p>
+<h3 id="stroke"><a href="#stroke">stroke</a></h3><p>边框颜色</p>
+<h3 id="storkeopacity"><a href="#storkeOpacity">storkeOpacity</a></h3><p>边框透明度</p>
+<h1 id="图像——image">图像——image</h1><div id="c10"></div>
+
+<script>(function(){'use strict';
+
+var canvas = new G6.Canvas({
+  containerId: 'c10',
+  width: 600,
+  height: 600
+});
+canvas.addShape('image', {
+  attrs: {
+    x: 150 + 200,
+    y: 150,
+    img: 'https://zos.alipayobjects.com/rmsportal/FDWrsEmamcNvtEf.png'
+  }
+});
+canvas.addShape('image', {
+  attrs: {
+    x: 150 - 50,
+    y: 150 - 50,
+    img: 'https://zos.alipayobjects.com/rmsportal/nAVchPnSaAWncPj.png'
+  }
+});
+canvas.addShape('image', {
+  attrs: {
+    x: 150 + 50,
+    y: 150 + 150,
+    img: 'https://zos.alipayobjects.com/rmsportal/GHGrgIDTVMCaYZT.png'
+  }
+});
+canvas.draw();})()</script><div class="highlight"><pre><code class="javascript">  <span class="keyword">var</span> canvas = <span class="keyword">new</span> G6.Canvas({
+    containerId: <span class="string">'c10'</span>,
+    width: <span class="number">600</span>,
+    height: <span class="number">600</span>
+  });
+  canvas.addShape(<span class="string">'image'</span>, {
+    attrs: {
+      x: <span class="number">150</span>+<span class="number">200</span>,
+      y: <span class="number">150</span>,
+      img: <span class="string">'https://zos.alipayobjects.com/rmsportal/FDWrsEmamcNvtEf.png'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'image'</span>, {
+    attrs: {
+      x: <span class="number">150</span>-<span class="number">50</span>,
+      y: <span class="number">150</span>-<span class="number">50</span>,
+      img: <span class="string">'https://zos.alipayobjects.com/rmsportal/nAVchPnSaAWncPj.png'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'image'</span>, {
+    attrs: {
+      x: <span class="number">150</span>+<span class="number">50</span>,
+      y: <span class="number">150</span>+<span class="number">150</span>,
+      img: <span class="string">'https://zos.alipayobjects.com/rmsportal/GHGrgIDTVMCaYZT.png'</span>
+    }
+  });
+  canvas.draw();</code></pre></div><h2 id="属性">属性</h2><h3 id="x"><a href="#x">x</a></h3><p>图片左上角坐标的x值</p>
+<h3 id="y"><a href="#y">y</a></h3><p>图片左上角坐标的y值</p>
+<h3 id="img"><a href="#img">img</a></h3><p>图片，可以是图片的地址，或者是一个image对象</p>
+<h3 id="width"><a href="#width">width</a></h3><p>图片的宽度，如果不设，则按照源图像的宽度进行设置</p>
+<h3 id="height"><a href="#height">height</a></h3><p>图片的高度，如果不设，则按照源图形的高度进行设置</p>
+<h3 id="sx"><a href="#sx">sx</a></h3><p>可以在源图形中截取一个矩形区域的源图形，这是截取的区域左上角坐标的x值</p>
+<h3 id="sy"><a href="#sy">sy</a></h3><p>可以在源图形中截取一个矩形区域的源图形，这是截取的区域左上角坐标的y值</p>
+<h3 id="swidth"><a href="#swidth">swidth</a></h3><p>可以在源图形中截取一个矩形区域的源图形，这是截取的区域左上角坐标的swidth值</p>
+<h3 id="sheight"><a href="#sheight">sheight</a></h3><p>可以在源图形中截取一个矩形区域的源图形，这是截取的区域左上角坐标的sheight值</p>
+<h3 id="fill"><a href="#fill">fill</a></h3><p>填充颜色</p>
+<h3 id="fillopacity"><a href="#fillOpacity">fillOpacity</a></h3><p>填充透明度</p>
+<h3 id="stroke"><a href="#stroke">stroke</a></h3><p>边框颜色</p>
+<h3 id="storkeopacity"><a href="#storkeOpacity">storkeOpacity</a></h3><p>边框透明度</p>
+<h1 id="文本——text">文本——text</h1><div id="c11"></div>
+
+<script>(function(){'use strict';
+
+var canvas = new G6.Canvas({
+  containerId: 'c11',
+  width: 600,
+  height: 600
+});
+canvas.addShape('text', {
+  attrs: {
+    x: 150,
+    y: 150,
+    fontFamily: 'PingFang SC',
+    text: '文本文本',
+    fontSize: 90,
+    stroke: 'black'
+  }
+});
+canvas.addShape('text', {
+  attrs: {
+    x: 150 + 100,
+    y: 250,
+    fontFamily: 'PingFang SC',
+    fontSize: 90,
+    text: '字体',
+    lineDash: [10, 10],
+    stroke: 'red'
+  }
+});
+canvas.addShape('text', {
+  attrs: {
+    x: 150 + 50,
+    y: 150 + 150,
+    text: '对齐方式',
+    fontFamily: 'Hiragino Sans GB',
+    fontSize: 100,
+    textAlign: 'center',
+    textBaseline: 'top',
+    fill: 'rgba(129,9,39,0.5)',
+    stroke: 'blue'
+  }
+});
+canvas.draw();})()</script><div class="highlight"><pre><code class="javascript">  <span class="keyword">var</span> canvas = <span class="keyword">new</span> G6.Canvas({
+    containerId: <span class="string">'c11'</span>,
+    width: <span class="number">600</span>,
+    height: <span class="number">600</span>
+  });
+  canvas.addShape(<span class="string">'text'</span>, {
+    attrs: {
+      x: <span class="number">150</span>,
+      y: <span class="number">150</span>,
+      fontFamily: <span class="string">'PingFang SC'</span>,
+      text: <span class="string">'文本文本'</span>,
+      fontSize: <span class="number">90</span>,
+      stroke: <span class="string">'black'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'text'</span>, {
+    attrs: {
+      x: <span class="number">150</span>+<span class="number">100</span>,
+      y: <span class="number">250</span>,
+      fontFamily: <span class="string">'PingFang SC'</span>,
+      fontSize: <span class="number">90</span>,
+      text: <span class="string">'字体'</span>,
+      lineDash: [<span class="number">10</span>, <span class="number">10</span>],
+      stroke: <span class="string">'red'</span>
+    }
+  });
+  canvas.addShape(<span class="string">'text'</span>, {
+    attrs: {
+      x: <span class="number">150</span>+<span class="number">50</span>,
+      y: <span class="number">150</span>+<span class="number">150</span>,
+      text: <span class="string">'对齐方式'</span>,
+      fontFamily: <span class="string">'Hiragino Sans GB'</span>,
+      fontSize: <span class="number">100</span>,
+      textAlign: <span class="string">'center'</span>,
+      textBaseline: <span class="string">'top'</span>,
+      fill: <span class="string">'rgba(129,9,39,0.5)'</span>,
+      stroke: <span class="string">'blue'</span>
+    }
+  });
+  canvas.draw();</code></pre></div><h2 id="属性">属性</h2><h3 id="x"><a href="#x">x</a></h3><p>文字的左上角的x值</p>
+<h3 id="y"><a href="#y">y</a></h3><p>文字的左上角的y值</p>
+<h3 id="text"><a href="#text">text</a></h3><p>文字内容</p>
+<h3 id="fontfamily"><a href="#fontFamily">fontFamily</a></h3><p>字体 <a href="http://www.w3school.com.cn/tags/canvas_font.asp">参见</a></p>
+<h3 id="fontsize"><a href="#fontSize">fontSize</a></h3><p>字体大小 <a href="http://www.w3school.com.cn/tags/canvas_font.asp">参见</a></p>
+<h3 id="fontweight"><a href="#fontWeight">fontWeight</a></h3><p>字体粗细 <a href="http://www.w3school.com.cn/tags/canvas_font.asp">参见</a></p>
+<h3 id="fontstyle"><a href="#fontStyle">fontStyle</a></h3><p>字体样式 <a href="http://www.w3school.com.cn/tags/canvas_font.asp">参见</a></p>
+<h3 id="textalign"><a href="#textAlign">textAlign</a></h3><p>左右对齐方式</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/oMVFeaVCYNkDCeN.png" alt="image"></p>
+<h3 id="textbaseline"><a href="#textBaseline">textBaseline</a></h3><p>上下对齐方式</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/VejEpbzakKrESzH.png" alt="image"></p>
+<h3 id="fill"><a href="#fill">fill</a></h3><p>填充颜色</p>
+<h3 id="fillopacity"><a href="#fillOpacity">fillOpacity</a></h3><p>填充透明度</p>
+<h3 id="stroke"><a href="#stroke">stroke</a></h3><p>边框颜色</p>
+<h3 id="storkeopacity"><a href="#storkeOpacity">storkeOpacity</a></h3><p>边框透明度</p>
+<h1 id="svg的path——path">svg的path——path</h1><div id="c12"></div>
+
+<script>(function(){'use strict';
+
+var canvas = new G6.Canvas({
+  containerId: 'c12',
+  width: 600,
+  height: 600
+});
+var path = canvas.addShape('path', {
+  attrs: {
+    path: 'M100,600' + 'l 50,-25' + 'a25,25 -30 0,1 50,-25' + 'l 50,-25' + 'a25,50 -30 0,1 50,-25' + 'l 50,-25' + 'a25,75 -30 0,1 50,-25' + 'l 50,-25' + 'a25,100 -30 0,1 50,-25' + 'l 50,-25' + 'l 0, 200,' + 'z',
+    lineWidth: 10,
+    lineJoin: 'round',
+    stroke: '#54BECC'
+  }
+});
+path.translate(0, -200);
+canvas.draw();})()</script><div class="highlight"><pre><code class="javascript">  <span class="keyword">var</span> canvas = <span class="keyword">new</span> G6.Canvas({
+    containerId: <span class="string">'c12'</span>,
+    width: <span class="number">600</span>,
+    height: <span class="number">600</span>
+  });
+  <span class="keyword">var</span> path = canvas.addShape(<span class="string">'path'</span>, {
+    attrs: {
+      path: <span class="string">'M100,600'</span> +
+            <span class="string">'l 50,-25'</span> +
+            <span class="string">'a25,25 -30 0,1 50,-25'</span> +
+            <span class="string">'l 50,-25'</span> +
+            <span class="string">'a25,50 -30 0,1 50,-25'</span> +
+            <span class="string">'l 50,-25'</span> +
+            <span class="string">'a25,75 -30 0,1 50,-25'</span> +
+            <span class="string">'l 50,-25'</span> +
+            <span class="string">'a25,100 -30 0,1 50,-25'</span> +
+            <span class="string">'l 50,-25'</span> +
+            <span class="string">'l 0, 200,'</span> +
+            <span class="string">'z'</span>,
+      lineWidth: <span class="number">10</span>,
+      lineJoin: <span class="string">'round'</span>,
+      stroke: <span class="string">'#54BECC'</span>
+    }
+  });
+  path.translate(<span class="number">0</span>, -<span class="number">200</span>);
+  canvas.draw();</code></pre></div><h2 id="属性">属性</h2><h3 id="path"><a href="#path">path</a></h3><p>path规范的命令 <a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Paths">参见</a></p>
+<h3 id="fill"><a href="#fill">fill</a></h3><p>填充颜色</p>
+<h3 id="fillopacity"><a href="#fillOpacity">fillOpacity</a></h3><p>填充透明度</p>
+<h3 id="stroke"><a href="#stroke">stroke</a></h3><p>边框颜色</p>
+<h3 id="storkeopacity"><a href="#storkeOpacity">storkeOpacity</a></h3><p>边框透明度</p>
+<h1 id="动画——animate">动画——animate</h1><p>动画</p>
+<h2 id="方法">方法</h2><h3 id="animate"><a href="#animate">animate</a></h3><p><code>cfg</code> 配置项{Object}含：</p>
+<ul>
+<li>attrs     图形属性</li>
+<li>matrix    图形矩阵</li>
+<li>repeat    是否重复</li>
+<li>destroy   是否执行完自动销毁</li>
+</ul>
+<p><code>duration</code> 持续时间{Number}毫秒 ms</p>
+<p><code>easing</code> 缓动函数{Sring}含：</p>
+<ul>
+<li>linear</li>
+<li>easeInQuad</li>
+<li>easeOutQuad</li>
+<li>easeInOutQuad</li>
+<li>easeInCubic</li>
+<li>easeOutCubic</li>
+<li>easeInOutCubic</li>
+<li>easeInQuart</li>
+<li>easeOutQuart</li>
+<li>easeInOutQuart</li>
+<li>easeInQuint</li>
+<li>easeOutQuint</li>
+<li>easeInOutQuint</li>
+<li>easeInSine</li>
+<li>easeOutSine</li>
+<li>easeInOutSine</li>
+<li>easeInExpo</li>
+<li>easeOutExpo</li>
+<li>easeInOutExpo</li>
+<li>easeInCirc</li>
+<li>easeOutCirc</li>
+<li>easeInOutCirc</li>
+<li>easeInElastic</li>
+<li>easeOutElastic</li>
+<li>easeInOutElastic</li>
+<li>easeInBack</li>
+<li>easeOutBack</li>
+<li>easeInOutBack</li>
+<li>easeInBounce</li>
+<li>easeOutBounce</li>
+<li>easeInOutBounce</li>
+</ul>
+<p><code>callback</code> 回调函数动画执行完毕执行</p>
+<div class="highlight"><pre><code class="javascript">shape.animate(cfg, duration, easing, callback);</code></pre></div><h2 id="示例">示例</h2><div id="c_animate"></div>
+
+<script>(function(){'use strict';
+
+var canvas = new G6.Canvas({
+  containerId: 'c_animate',
+  width: 600,
+  height: 300
+});
+var circle = canvas.addShape('circle', {
+  attrs: {
+    x: 0,
+    y: 150,
+    r: 70,
+    fill: 'blue',
+    opacity: 0.6
+  }
+});
+circle.animate({
+  x: 500,
+  fill: 'red',
+  repeat: true,
+  r: 40
+}, 5000, 'linear');
+canvas.draw();})()</script><div class="highlight"><pre><code class="javascript">  <span class="keyword">var</span> canvas = <span class="keyword">new</span> G6.Canvas({
+    containerId: <span class="string">'c_animate'</span>,
+    width: <span class="number">600</span>,
+    height: <span class="number">300</span>
+  });
+  <span class="keyword">var</span> circle = canvas.addShape(<span class="string">'circle'</span>, {
+    attrs: {
+      x: <span class="number">0</span>,
+      y: <span class="number">150</span>,
+      r: <span class="number">70</span>,
+      fill: <span class="string">'blue'</span>,
+      opacity: <span class="number">0.6</span>
+    }
+  });
+  circle.animate({
+    x: <span class="number">500</span>,
+    fill: <span class="string">'red'</span>,
+    repeat: <span class="literal">true</span>,
+    r: <span class="number">40</span>
+  },<span class="number">5000</span>, <span class="string">'linear'</span>);
+  canvas.draw();</code></pre></div><h1 id="通用属性">通用属性</h1><p>下列属性是所有元素都共有的。</p>
+<h3 id="capture">capture</h3><p>是否可被捕捉</p>
+<h3 id="zindex">zIndex</h3><p>图层层级</p>
+<h3 id="linewidth">lineWidth</h3><p>线宽
+画布坐标</p>
+<h3 id="linedash">lineDash</h3><p>虚线
+a1, a2 …… 分别指的是实线和空线所占像素的多少</p>
+<ul>
+<li>[a1, a2, a3……]</li>
+<li>&quot;a1 a2&quot;</li>
+</ul>
+<h3 id="clip">clip</h3><p>剪切
+图形可以接受另外一个图形作为它的剪切图形, 用作剪切的图形必须是能够填充(fill)的图形。</p>
+<div id="c100"></div>
+
+<script>(function(){'use strict';
+
+var canvas = new G6.Canvas({
+  containerId: 'c100',
+  width: 600,
+  height: 600
+});
+canvas.scale(0.5, 0.5);
+var line1 = canvas.addShape('line', {
+  attrs: {
+    x1: 20,
+    y1: 120,
+    x2: 580,
+    y2: 120,
+    stroke: 'l (0) 0:#ff0000 1:#0000ff'
+  }
+});
+
+var polygon1 = canvas.addShape('polygon', {
+  attrs: {
+    points: [[600 + 100, 20], [600 + 20, 200], [1200 - 20, 100], [1200 - 100, 300 - 20]],
+    fill: 'green'
+  }
+});
+
+var line2 = canvas.addShape('line', {
+  attrs: {
+    x1: 20 + 300,
+    y1: 120 + 300,
+    x2: 580 + 300,
+    y2: 120 + 300,
+    stroke: 'l (0) 0:#ff0000 1:#0000ff'
+  }
+});
+
+var polygon2 = canvas.addShape('polygon', {
+  attrs: {
+    points: [[600 + 100 - 300, 20 + 300], [600 + 20 - 300, 200 + 300], [1200 - 20 - 300, 100 + 300], [1200 - 100 - 300, 300 - 20 + 300]],
+    fill: 'green'
+  }
+});
+
+var line3 = canvas.addShape('line', {
+  attrs: {
+    x1: 20 + 300,
+    y1: 120 + 600,
+    x2: 580 + 300,
+    y2: 120 + 600,
+    stroke: 'l (0) 0:#ff0000 1:#0000ff'
+  }
+});
+
+var polygon3 = canvas.addShape('polygon', {
+  attrs: {
+    points: [[600 + 100 - 300, 20 + 600], [600 + 20 - 300, 200 + 600], [1200 - 20 - 300, 100 + 600], [1200 - 100 - 300, 300 - 20 + 600]],
+    stroke: 'green'
+  }
+});
+
+var polygon4 = canvas.addShape('polygon', {
+  attrs: {
+    points: [[600 + 100 - 300, 20 + 900], [600 + 20 - 300, 200 + 900], [1200 - 20 - 300, 100 + 900], [1200 - 100 - 300, 300 - 20 + 900]]
+  }
+});
+
+var line4 = canvas.addShape('line', {
+  attrs: {
+    x1: 20 + 300,
+    y1: 120 + 900,
+    x2: 580 + 300,
+    y2: 120 + 900,
+    stroke: 'l (0) 0:#ff0000 1:#0000ff',
+    clip: polygon4
+  }
+});
+canvas.draw();})()</script><div class="highlight"><pre><code class="javascript">  <span class="keyword">var</span> canvas = <span class="keyword">new</span> G6.Canvas({
+    containerId: <span class="string">'c100'</span>,
+    width: <span class="number">600</span>,
+    height: <span class="number">600</span>
+  });
+  canvas.scale(<span class="number">0.5</span>, <span class="number">0.5</span>);
+  <span class="keyword">var</span> line1 = canvas.addShape(<span class="string">'line'</span>, {
+    attrs: {
+      x1: <span class="number">20</span>,
+      y1: <span class="number">120</span>,
+      x2: <span class="number">580</span>,
+      y2: <span class="number">120</span>,
+      stroke: <span class="string">'l (0) 0:#ff0000 1:#0000ff'</span>
+    }
+  });
+
+  <span class="keyword">var</span> polygon1 = canvas.addShape(<span class="string">'polygon'</span>, {
+    attrs: {
+      points: [
+        [<span class="number">600</span> + <span class="number">100</span>, <span class="number">20</span>],
+        [<span class="number">600</span> + <span class="number">20</span>, <span class="number">200</span>],
+        [<span class="number">1200</span> - <span class="number">20</span>, <span class="number">100</span>],
+        [<span class="number">1200</span> - <span class="number">100</span>, <span class="number">300</span> - <span class="number">20</span>]
+      ],
+      fill: <span class="string">'green'</span>
+    }
+  });
+
+  <span class="keyword">var</span> line2 = canvas.addShape(<span class="string">'line'</span>, {
+    attrs: {
+      x1: <span class="number">20</span> + <span class="number">300</span>,
+      y1: <span class="number">120</span> + <span class="number">300</span> ,
+      x2: <span class="number">580</span> + <span class="number">300</span>,
+      y2: <span class="number">120</span> + <span class="number">300</span>,
+      stroke: <span class="string">'l (0) 0:#ff0000 1:#0000ff'</span>
+    }
+  });
+
+  <span class="keyword">var</span> polygon2 = canvas.addShape(<span class="string">'polygon'</span>, {
+    attrs: {
+      points: [
+        [<span class="number">600</span> + <span class="number">100</span> - <span class="number">300</span>, <span class="number">20</span> + <span class="number">300</span>],
+        [<span class="number">600</span> + <span class="number">20</span> - <span class="number">300</span>, <span class="number">200</span> + <span class="number">300</span>],
+        [<span class="number">1200</span> - <span class="number">20</span> - <span class="number">300</span>, <span class="number">100</span> + <span class="number">300</span>],
+        [<span class="number">1200</span> - <span class="number">100</span> - <span class="number">300</span>, <span class="number">300</span> - <span class="number">20</span> + <span class="number">300</span>]
+      ],
+      fill: <span class="string">'green'</span>
+    }
+  });
+
+  <span class="keyword">var</span> line3 = canvas.addShape(<span class="string">'line'</span>, {
+    attrs: {
+      x1: <span class="number">20</span> + <span class="number">300</span>,
+      y1: <span class="number">120</span> + <span class="number">600</span> ,
+      x2: <span class="number">580</span> + <span class="number">300</span>,
+      y2: <span class="number">120</span> + <span class="number">600</span>,
+      stroke: <span class="string">'l (0) 0:#ff0000 1:#0000ff'</span>
+    }
+  });
+
+  <span class="keyword">var</span> polygon3 = canvas.addShape(<span class="string">'polygon'</span>, {
+    attrs: {
+      points: [
+        [<span class="number">600</span> + <span class="number">100</span> - <span class="number">300</span>, <span class="number">20</span> + <span class="number">600</span>],
+        [<span class="number">600</span> + <span class="number">20</span> - <span class="number">300</span>, <span class="number">200</span> + <span class="number">600</span>],
+        [<span class="number">1200</span> - <span class="number">20</span> - <span class="number">300</span>, <span class="number">100</span> + <span class="number">600</span>],
+        [<span class="number">1200</span> - <span class="number">100</span> - <span class="number">300</span>, <span class="number">300</span> - <span class="number">20</span> + <span class="number">600</span>]
+      ],
+      stroke: <span class="string">'green'</span>
+    }
+  });
+
+  <span class="keyword">var</span> polygon4 = canvas.addShape(<span class="string">'polygon'</span>, {
+    attrs: {
+      points: [
+        [<span class="number">600</span> + <span class="number">100</span> - <span class="number">300</span>, <span class="number">20</span> + <span class="number">900</span>],
+        [<span class="number">600</span> + <span class="number">20</span> - <span class="number">300</span>, <span class="number">200</span> + <span class="number">900</span>],
+        [<span class="number">1200</span> - <span class="number">20</span> - <span class="number">300</span>, <span class="number">100</span> + <span class="number">900</span>],
+        [<span class="number">1200</span> - <span class="number">100</span> - <span class="number">300</span>, <span class="number">300</span> - <span class="number">20</span> + <span class="number">900</span>]
+      ]
+    }
+  });
+
+  <span class="keyword">var</span> line4 = canvas.addShape(<span class="string">'line'</span>, {
+    attrs: {
+      x1: <span class="number">20</span> + <span class="number">300</span>,
+      y1: <span class="number">120</span> + <span class="number">900</span> ,
+      x2: <span class="number">580</span> + <span class="number">300</span>,
+      y2: <span class="number">120</span> + <span class="number">900</span>,
+      stroke: <span class="string">'l (0) 0:#ff0000 1:#0000ff'</span>,
+      clip: polygon4
+    }
+  });
+  canvas.draw();</code></pre></div><h2 id="通用属性值">通用属性值</h2><h4 id="颜色">颜色</h4><ul>
+<li>纯色 #fff || #ffffff || red || rgb(255,255,255) || rgba(255,255,255,1) || hsl(255, 100%, 50%)</li>
+<li>渐变色<ul>
+<li>线性渐变 &#39;l (45) 0:#ffff00 1:#00ffff&#39;         // 一个斜向45度的渐变</li>
+<li>径向渐变 &#39;r (0.5, 0.5, 0) 0:#fff 1:#ff0000&#39;   // 渐变在正中心发生</li>
+</ul>
+</li>
+</ul>
+<h4 id="透明度">透明度</h4><p>0～1</p>
+<ul>
+<li>0 全透明</li>
+<li>1 不透明</li>
+</ul>
+<h2 id="通用方法">通用方法</h2><h4 id="find-id">find(id)</h4><p>通过id查找元素</p>
+<h4 id="translate-x-y">translate(x, y)</h4><p>平移方法</p>
+<h4 id="rotate-r">rotate(r)</h4><p>旋转，旋转中心是其父元素的自身坐标轴原点</p>
+<h4 id="scale-sx-sy-缩放">scale(sx, sy) 缩放</h4><p>缩放，缩放中心是其父元素的自身坐标轴原点</p>
+<h4 id="setmatrix-matrix">setMatrix(Matrix)</h4><p>设置变换矩阵</p>
+<h4 id="getmatrix">getMatrix()</h4><p>获取变换矩阵</p>
+<h4 id="getbbox">getBBox()</h4><p>获取包围盒</p>
+<h4 id="hide">hide()</h4><p>隐藏</p>
+<h4 id="show">show()</h4><p>显示</p>
+<h4 id="destroy">destroy()</h4><p>销毁自身</p>
+<h4 id="remove-destroy">remove(destroy)</h4><p>删除自己, 从父元素中删除自己
+如果destroy为true，则移除后销毁自身</p>
+
+    </div>
+  </div>
+</div>
+<script src="../../static/prettify-min.js"></script>
+<script src="../../static/clipboard.min.js"></script>
+<script type="text/javascript">
+var CLS_PRETTY = 'prettyprint linenums';
+BUI.use('bui/common',function(BUI){
+  var preEls = $('pre');
+  BUI.each(preEls,function(el){
+    var node = $(el), innerText;
+    node.addClass(CLS_PRETTY);
+    innerText = node.html();
+    var a = /^(\s+)/.exec(innerText),
+      regex;
+    if(a){
+      regex = new RegExp('('+a[0]+')(\\s*)','ig');
+      innerText = innerText.replace(regex,'$2');
+    }
+
+    node.html(innerText);
+  });
+  if(window.prettyPrint){
+    prettyPrint();
+  }
+});
+
+$(document).ready(function() {
+  var docEl = $('.doc-content');
+  var hEls = docEl.find('h2, h3');
+  var container = $('#J_pageNav');
+  var ulContainer;
+  var count = 0;
+  var hElsLen = hEls.length;
+  if (hElsLen > 0 && container.length > 0) {
+    for (var i = 0; i < hElsLen; i++) {
+      var el = hEls[i];
+      var node = $(el);
+      var text = node.text();
+      var id = node.attr('id');
+      var nodeName = el.nodeName;
+
+      if (nodeName === 'H2') {
+        count = 0;
+        if (ulContainer && ulContainer !== '<ul class="pagenav-columns">') {
+          ulContainer += '</ul>';
+          $(ulContainer).appendTo(container);
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<div class="clearfix separate"></div><p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        } else {
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        }
+      } else {
+        var liItems = '<li><a href="#' + id + '">' + text + '</a></li>';
+        ulContainer += liItems;
+        count++;
+        if (count > 10) {
+          ulContainer += '</ul><ul class="pagenav-columns">';
+          count = 0;
+        }
+      }
+    }
+
+    ulContainer += '</ul>';
+    $(ulContainer).appendTo(container);
+
+    // 代码复制
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  }
+});
+</script>
+
+  </div><a href="javascript:void(0);" id='toTop' title="返回顶部">
+	<i class="iconfont icon-to-top"></i>
+</a>
+ 
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

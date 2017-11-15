@@ -1,0 +1,136 @@
+{
+  "nodes": [
+    {
+      "shape": "https://zos.alipayobjects.com/rmsportal/UQZWYYDegebxkadaciod.png",
+      "label": "销售/处理 商品",
+      "x": 760,
+      "y": 450,
+      "id": "7e2xc643",
+      "size": [
+        139,
+        124
+      ]
+    },
+    {
+      "shape": "https://zos.alipayobjects.com/rmsportal/ZLXQVmQrwOvZgYOYMJcP.png",
+      "label": "存入仓库",
+      "x": 500,
+      "y": 450,
+      "id": "7e2bcqz3",
+      "size": [
+        124,
+        122
+      ]
+    },
+    {
+      "shape": "https://zos.alipayobjects.com/rmsportal/vtsvLRkKyqgdeCUbzMaI.png",
+      "label": "收到货物并检查",
+      "x": 500,
+      "y": 80,
+      "id": "1e23c643",
+      "size": [
+        95,
+        150
+      ]
+    },
+    {
+      "shape": "https://zos.alipayobjects.com/rmsportal/EchvJdFiaKqaUoaDSJRS.png",
+      "label": "运送装置",
+      "x": 760,
+      "y": -30,
+      "id": "9372784b",
+      "size": [
+        99,
+        65
+      ]
+    },
+    {
+      "shape": "https://zos.alipayobjects.com/rmsportal/RSNIlcihcKtrXbJKYjCV.png",
+      "label": "配送员",
+      "x": 760,
+      "y": 180,
+      "id": "7e72c643",
+      "size": [
+        88,
+        126
+      ]
+    },
+    {
+      "shape": "https://zos.alipayobjects.com/rmsportal/vtsvLRkKyqgdeCUbzMaI.png",
+      "label": "打包并分配 ",
+      "x": 500,
+      "y": 750,
+      "id": "afe45117",
+      "size": [
+        95,
+        150
+      ]
+    },
+    {
+      "shape": "https://zos.alipayobjects.com/rmsportal/kmjjtiERUwnvDEOrlidg.png",
+      "label": "派送员",
+      "x": 760,
+      "y": 640,
+      "id": "7e2b1643",
+      "size": [
+        105,
+        122
+      ]
+    },
+    {
+      "shape": "https://zos.alipayobjects.com/rmsportal/EchvJdFiaKqaUoaDSJRS.png",
+      "label": "运送装置",
+      "x": 760,
+      "y": 850,
+      "id": "7e098c43",
+      "size": [
+        99,
+        65
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "shape": "arrow",
+      "source": "9372784b",
+      "id": "c1eb5fb8",
+      "target": "1e23c643"
+    },
+    {
+      "shape": "arrow",
+      "source": "7e72c643",
+      "id": "23396209",
+      "target": "1e23c643"
+    },
+    {
+      "shape": "arrow",
+      "source": "1e23c643",
+      "id": "d6294c5e",
+      "target": "7e2bcqz3"
+    },
+    {
+      "shape": "arrow",
+      "source": "7e2bcqz3",
+      "id": "919bf489",
+      "target": "afe45117"
+    },
+    {
+      "shape": "arrow",
+      "source": "afe45117",
+      "id": "5f53b38d",
+      "target": "7e2b1643"
+    },
+    {
+      "shape": "arrow",
+      "source": "7e2bcqz3",
+      "id": "8fd83f4b",
+      "target": "7e2xc643"
+    },
+    {
+      "shape": "arrow",
+      "source": "afe45117",
+      "id": "cd1bfdd7",
+      "target": "7e098c43"
+    }
+  ]
+}

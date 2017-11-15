@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}{{post.meta.chanel|capitalizeFirstLetter}} - 图表示例{% endblock %}
+
+{%- block content %}
+<div class="body-content demo-body">
+  {%- include "demo-nav.html" %}
+
+  <div class="doc-content demo-doc">
+    <div class="doc-inner">
+      {%- for type in types %}
+      <h4 id="{{type}}">
+        <a href="#{{type}}" style="color: #404040;">{{type}}</a>
+      </h4>
+      {%- set typeId = type|trim() %}
+      <ul class="demo-detail-list clearfix" id="J_{{typeId}}">
+        {%- set pages = resource.pages|getDemoPages(post.filepath,type) %}
+        {%- for page in pages %}
+        <li>
+          <a href="{{content_url('')}}/{{page.filepath.replace('.md','.html')}}">
+            {%- if page.meta.imgType === 'gif' %}
+              {%- set name = page.filepath.replace('demo/','').replace('.md','.gif') %}
+            {%- else %}
+              {%- set name = page.filepath.replace('demo/','').replace('.md','.png') %}
+            {%- endif %}
+
+            {%- set chanel = page.meta.chanel %}
+            <img class="lazy" data-original="{{static_url('images')}}/{{name}}" style="height: 145px;" />
+            <div class="des">{{page.title}}</div>
+          </a>
+        </li>
+        {%- endfor %}
+      </ul>
+      {%- endfor %}
+      {{post.html}}
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="{{static_url('jquery.lazyload.js')}}"></script>
+<script type="text/javascript">
+  $(function() {
+    $("img.lazy").lazyload();
+  });
+</script>
+{%- endblock %}

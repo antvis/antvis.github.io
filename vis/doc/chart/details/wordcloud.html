@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>词云</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item hover last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+
+  <div class="main-container clearfix">
+  <div class="doc-content vis-chart">
+    <div class="doc-inner vis-chart">
+      <h1>词云</h1>
+      <p><img src="https://zos.alipayobjects.com/rmsportal/scJARUoLVJsLKvp.png" /></p>
+<h2 id="词云的简介">词云的简介</h2><p>词云，又称文字云，是文本数据的视觉表示，由词汇组成类似云的彩色图形，用于展示大量文本数据。通常用于描述网站上的关键字元数据（标签），或可视化自由格式文本。 每个词的重要性以字体大小或颜色显示。 词云的作用：</p>
+<ul>
+<li>快速感知最突出的文字</li>
+<li>快速定位按字母顺序排列的文字中相对突出的部分</li>
+</ul>
+<p>词云的本质是点图，是在相应坐标点绘制具有特定样式的文字的结果</p>
+<p>英文名：Word Cloud</p>
+<h2 id="词云的构成">词云的构成</h2><table class="struct-table">
+  <tr>
+    <th width="30%">图表类型</th>
+    <th>词云</th>
+  </tr>
+  <tr>
+    <td>适合的数据</td>
+    <td>两个代表坐标的连续数据字段（自动计算）、一个代表文字内容的分类数据字段、多个代表文字样式的分类数据字段如颜色、大小、旋转角度等（可选）</td>
+  </tr>
+  <tr>
+    <td>功能</td>
+    <td>对比文字的重要程度</td>
+  </tr>
+  <tr>
+    <td>数据与图形的映射</td>
+    <td>两个连续数据字段映射到横轴和纵轴的位置、代表文字内容的分类数据字段映射到文字图形、多个代表文字样式的分类数据字段分别映射到文字图形的样式</td>
+  </tr>
+  <tr>
+    <td>适合的数据条数</td>
+    <td>超过 30 条数据</td>
+  </tr>
+</table>
+
+<div style="clear: both;"></div>
+
+
+<h2 id="词云的应用场景">词云的应用场景</h2><h3 id="适合的场景">适合的场景</h3><p>例子1: <strong> 对比大量文本 </strong> 下图是根据某段时间内使用 G2 类库的网站对 G2 类库的请求量数据绘制的词云，从图中可以一眼看出访问量最大的网站。</p>
+<table>
+<thead>
+<tr>
+<th>site</th>
+<th>pv</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>localhost</td>
+<td>27,50</td>
+</tr>
+<tr>
+<td>g2.alipay.com</td>
+<td>2339</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<div id="c1"></div>
+<script src="https://a.alipayobjects.com/g/datavis/g-cloud/1.0.2/index.js"></script>
+
+<script type="text/javascript">
+    function getText(words){
+      // 将网址处理成用'.'分隔开的第一个字符串
+      var index = words.site.indexOf('.');
+      var text = words.site;
+      if(index > 0 && index < words.site.length){
+        text = words.site.substr(0,index);
+        // 当字符串是'www'时获取下一个
+        if(text === 'www'){
+          text = words.site.substr(index + 1);
+          index = text.indexOf('.');
+          text = text.substr(0,index);
+        }
+        // 当字符串是数字时获取整个网址
+        if(/^[0-9]*$/g.test(text)) {
+          var text = words.site;
+        }
+      }
+      return text;
+    }
+
+</script>
+<div class="code hide">
+var Util = G2.Util;
+var Shape = G2.Shape;
+
+function getTextAttrs(cfg) {
+  var textAttrs = Util.mix(true, {}, {
+    fillOpacity: cfg.opacity,
+    fontSize: cfg.size,
+    rotate: cfg.origin._origin.rotate,
+    text: cfg.origin._origin.text,
+    textAlign: 'center',
+    fill: cfg.color,
+    textBaseline:'Alphabetic'
+  }, cfg.style);
+  return textAttrs;
+}
+
+// 给point注册一个词云的shape
+Shape.registShape('point', 'cloud', {
+  drawShape: function(cfg, container) {
+    cfg.points = this.parsePoints(cfg.points);
+    var attrs = getTextAttrs(cfg);
+    // 给容器添加text类型的shape
+    // 坐标仍然是原来的坐标
+    // 文字样式为通过getTextAttrs方法获取的样式
+    var shape = container.addShape('text', {
+      attrs: Util.mix(attrs, {
+        x: cfg.points[0].x,
+        y: cfg.points[0].y
+      })
+    });
+    return shape;
+  }
+});
+
+
+$.getJSON('/static/data/g2pv.json', function(data) {
+  data.sort(function(a,b){
+    return b.pv-a.pv;
+  });
+  // 获取数据的最大值和最小值
+  var max = data[0].pv;
+  var min = data[data.length-1].pv;
+  // 构造一个词云布局对象
+  var layout = new Cloud({
+    // 传入数据源
+    words: data,
+    // 设定宽高（默认为500*500）
+    width : 700,
+    height : 600,
+    // 设定文字大小配置函数(默认为12-40px的随机大小)
+    size: function(words){
+      // 将pv映射到canvas可绘制的size范围14-100(canvas默认最小文字为12px)
+      return ((words.pv - min)/(max - min)) * (100 - 14) + 14;
+    },
+    // 设定文字内容
+    text: getText
+  });
+  // 执行词云布局函数，并在回调函数中调用G2对结果进行绘制
+  layout.exec(function(texts){
+    var chart = new G2.Chart({
+      id : 'c1',
+      // canvas的宽高需要和布局宽高一致
+      width : 920,
+      height : 600,
+      plotCfg : {
+        margin : [0, 110, 0, 110]
+      }
+    });
+    chart.legend(false);
+    chart.source(texts);
+    chart.axis(false);
+    chart.tooltip({
+      title:false
+    });
+    // 将词云坐标系调整为G2的坐标系
+    chart.coord().reflect();
+    // 绘制点图，在x*y的坐标点绘制自定义的词云shape，颜色根据text字段进行映射，大小根据size字段的真实值进行映射，文字样式配置为词云布局返回的样式，tooltip显示site*pv两个字段的内容
+    chart.point().position('x*y').color('text').size('size',function(size){
+      return size;
+      }).shape('cloud').style({
+        fontStyle: texts[0].style,
+        fontFamily: texts[0].font,
+        fontWeight: texts[0].weight
+      }).tooltip('site*pv');
+    chart.render();
+  });
+});
+
+</div>
+
+<p>说明：</p>
+<ul>
+<li>文本的坐标由词云布局工具自动计算</li>
+<li>文本颜色和旋转角度由词云布局工具随机生成</li>
+<li>site 字段通过文字处理后映射到文本形状</li>
+<li>pv 映射到文本大小。</li>
+</ul>
+<p>例子2: <strong> 使用图片做边界限制 </strong>  结合图片可以绘制出特定形状的词云</p>
+<div id="c2"></div>
+
+<div class="code hide">
+$.getJSON('/static/data/g2pv.json', function(data) {
+  data.sort(function(a,b){
+    return b.pv-a.pv;
+  });
+  // 获取数据的最大值和最小值
+  var max = data[0].pv;
+  var min = data[data.length-1].pv;
+  // 构造一个词云布局对象
+  var layout = new Cloud({
+    // 传入数据源
+    words: data,
+
+    // 设定文字大小配置函数(默认为12-40px的随机大小)
+    size: function(words){
+      // 将pv映射到canvas可绘制的size范围14-100(canvas默认最小文字为12px)
+      return ((words.pv - min)/(max - min)) * (60 - 12) + 12;
+    },
+    // 设定文字内容
+    text: getText
+  });
+  var imageURL = 'https://zos.alipayobjects.com/rmsportal/EEFqYWuloqIHRnh.jpg';
+  // 引入图片
+  layout.image(imageURL,function(imageCloud){
+    // 执行词云布局函数，并在回调函数中调用G2对结果进行绘制
+    imageCloud.exec(function(texts){
+      var chart = new G2.Chart({
+        id : 'c2',
+        // 当配置了边距时，canvas的宽高等于布局宽高加上边距
+        width : 920,
+        height : 500,
+        plotCfg : {
+          margin : [0, 210, 0, 210]
+        }
+      });
+      chart.legend(false);
+      chart.source(texts);
+      chart.axis(false);
+      chart.tooltip({
+        title:false
+      });
+      // 将词云坐标系调整为G2的坐标系
+      chart.coord().reflect();
+      // 绘制点图，在x*y的坐标点绘制自定义的词云shape，颜色根据text字段进行映射，大小根据size字段的真实值进行映射，文字样式配置为词云布局返回的样式，tooltip显示site*pv两个字段的内容
+      chart.point().position('x*y').color('text').size('size',function(size){
+        return size;
+        }).shape('cloud').style({
+          fontStyle: texts[0].style,
+          fontFamily: texts[0].font,
+          fontWeight: texts[0].weight
+        }).tooltip('site*pv');
+      chart.render();
+    });
+  });
+});
+</div>
+
+
+<h3 id="不适合的场景">不适合的场景</h3><p>例子1：<strong>数据区分度不大</strong> 当数据的区分度不大时使用词云起不到突出的效果</p>
+<div id="c3"></div>
+
+<div class="code hide">
+$.getJSON('/static/data/g2pv.json', function(data) {
+  data.sort(function(a,b){
+    return b.pv-a.pv;
+  });
+  // 获取数据的最大值和最小值
+  var max = data[0].pv;
+  var min = data[data.length-1].pv;
+  // 构造一个词云布局对象
+  var layout = new Cloud({
+    // 传入数据源
+    words: data,
+    // 设定宽高（默认为500*500）
+    width : 600,
+    height : 600,
+    // 设定文字大小配置函数(默认为12-40px的随机大小)
+    size: function(words){
+      // 将pv映射到canvas可绘制的size范围14-100(canvas默认最小文字为12px)
+      return 14;
+    },
+    // 设定文字内容
+    text: getText
+  });
+  // 执行词云布局函数，并在回调函数中调用G2对结果进行绘制
+  layout.exec(function(texts){
+    var chart = new G2.Chart({
+      id : 'c3',
+      // canvas的宽高需要和布局宽高一致
+      width : 920,
+      height : 600,
+      plotCfg : {
+        margin : [0, 160, 0, 160]
+      }
+    });
+    chart.legend(false);
+    chart.source(texts);
+    chart.axis(false);
+    chart.tooltip({
+      title:false
+    });
+    // 将词云坐标系调整为G2的坐标系
+    chart.coord().reflect();
+    // 绘制点图，在x*y的坐标点绘制自定义的词云shape，颜色根据text字段进行映射，大小根据size字段的真实值进行映射，文字样式配置为词云布局返回的样式，tooltip显示site*pv两个字段的内容
+    chart.point().position('x*y').color('text').size('size',function(size){
+      return size;
+      }).shape('cloud').style({
+        fontStyle: texts[0].style,
+        fontFamily: texts[0].font,
+        fontWeight: texts[0].weight
+      }).tooltip('site*pv');
+    chart.render();
+  });
+});
+</div>
+
+<p>例子2: <strong> 数据太少 </strong> 数据太少时很难布局出好看的词云，推荐使用<a href="bar.html">柱状图</a></p>
+<div id="c4"></div>
+<div id="c5"></div>
+
+
+<div class="code hide">
+$.getJSON('/static/data/g2pv.json', function(data) {
+  data.sort(function(a,b){
+    return b.pv-a.pv;
+  });
+  data = data.slice(0,20);
+  // 获取数据的最大值和最小值
+  var max = data[0].pv;
+  var min = data[data.length-1].pv;
+  // 构造一个词云布局对象
+  var layout = new Cloud({
+    // 传入数据源
+    words: data,
+    // 设定宽高（默认为500*500）
+    width : 700,
+    height : 400,
+    // 设定文字大小配置函数(默认为12-40px的随机大小)
+    size: function(words){
+      // 将pv映射到canvas可绘制的size范围14-100(canvas默认最小文字为12px)
+      return ((words.pv - min)/(max - min)) * (100 - 14) + 14;
+    },
+    // 设定文字内容
+    text: getText
+  });
+  // 执行词云布局函数，并在回调函数中调用G2对结果进行绘制
+  layout.exec(function(texts){
+    var chart = new G2.Chart({
+      id : 'c4',
+      // canvas的宽高需要和布局宽高一致
+      width : 920,
+      height : 400,
+      plotCfg : {
+        margin : [0, 110, 0, 110]
+      }
+    });
+    chart.legend(false);
+    chart.source(texts);
+    chart.axis(false);
+    chart.tooltip({
+      title:false
+    });
+    // 将词云坐标系调整为G2的坐标系
+    chart.coord().reflect();
+    // 绘制点图，在x*y的坐标点绘制自定义的词云shape，颜色根据text字段进行映射，大小根据size字段的真实值进行映射，文字样式配置为词云布局返回的样式，tooltip显示site*pv两个字段的内容
+    chart.point().position('x*y').color('text').size('size',function(size){
+      return size;
+      }).shape('cloud').style({
+        fontStyle: texts[0].style,
+        fontFamily: texts[0].font,
+        fontWeight: texts[0].weight
+      }).tooltip('site*pv');
+    chart.render();
+  });
+    var chart2 = new G2.Chart({
+    id : 'c5',
+    forceFit: true,
+    height : 500,
+    plotCfg : {
+      margin : [0,30,80,120]
+    }
+  });
+  data.reverse();
+  data.map(function(word){
+      var text = getText(word);
+      word.text = text;
+  });
+    chart2.coord('rect').transpose('y');
+  chart2.source(data);
+  chart2.tooltip({
+    title:false
+  });
+  chart2.axis('text',{
+      title: null
+    });
+  chart2.interval().position('text*pv').tooltip('site*pv');
+  chart2.render();
+
+});
+
+</div>
+
+<h2 id="词云与其他图表的对比">词云与其他图表的对比</h2><h3 id="词云和柱状图">词云和<a href="bar.html">柱状图</a></h3><ul>
+<li>词云适合大量数据，柱状图适合少量数据</li>
+<li>词云展示文字更为直观，柱状图需要借助坐标轴和刻度表示文字的分类和数据</li>
+<li>词云可以映射更多分类字段在在文字样式上，柱状图只能映射一个分类字段在颜色上</li>
+</ul>
+
+      <h2 id="标签">标签</h2>
+      <div>
+
+        <ul class="vis-classify-list small clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/classify/compare.html">
+              <span>比较类</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $.fn.isOnScreen = function(){
+      var win = $(window);
+      var viewport = {
+          top : win.scrollTop(),
+          left : win.scrollLeft()
+      };
+      viewport.right = viewport.left + win.width();
+      viewport.bottom = viewport.top + win.height();
+      var bounds = this.offset();
+      bounds.right = bounds.left + this.outerWidth();
+      bounds.bottom = bounds.top + this.outerHeight();
+      return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+    };
+    function ReplaceAll(str, sptr, sptr1){
+      while (str.indexOf(sptr) >= 0){
+         str = str.replace(sptr, sptr1);
+      }
+      return str;
+    }
+    function lazyLoad(codes) {
+      var isrun = [];
+      tryRun();
+      $(document).on('mousewheel',function(e){
+        tryRun();
+      });
+      function tryRun(){
+        codes.each(function(index,ele){
+          if (isrun.indexOf(ele) === -1) {
+            var $ele = $(ele);
+            if ( $ele.isOnScreen() ) {
+              setTimeout(function(){
+                var t = $ele.html();
+                t = ReplaceAll(t, '&lt;', '<');
+                t = ReplaceAll(t, '&gt;', '>');
+                t = ReplaceAll(t, '&amp;', '&');
+                eval(t);
+                $ele.hide();
+              },500);
+              isrun.push(ele);
+            };
+          };
+        });
+      }
+    }
+    var codes = $('.code');
+    lazyLoad(codes);
+  </script>
+
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>
