@@ -1,0 +1,118 @@
+{
+  "nodes": [
+    {
+      "shape": "initial",
+      "id": "进入签约",
+      "x": 240,
+      "y": 370
+    },
+    {
+      "shape": "normal",
+      "id": "申请签约",
+      "status": "",
+      "x": 350,
+      "y": 370
+    },
+    {
+      "shape": "normal",
+      "id": "提交签约",
+      "status": "",
+      "x": 430,
+      "y": 370
+    },
+    {
+      "shape": "initial",
+      "id": "签约完成",
+      "status": "",
+      "x": 840,
+      "y": 370
+    },
+    {
+      "shape": "normal",
+      "id": "订单生效",
+      "status": "",
+      "x": 750,
+      "y": 370
+    },
+    {
+      "shape": "normal",
+      "id": "风控审核",
+      "status": "0.01小时",
+      "x": 660,
+      "y": 370
+    },
+    {
+      "shape": "normal",
+      "id": "认证监听",
+      "status": "暂无数据",
+      "x": 550,
+      "y": 490
+    }
+  ],
+  "edges": [
+    {
+      "shape": "customEdge",
+      "source": "进入签约",
+      "id": "0f25fa8e",
+      "target": "申请签约"
+    },
+    {
+      "shape": "customEdge",
+      "source": "申请签约",
+      "id": "7cbab3c3",
+      "target": "提交签约"
+    },
+    {
+      "shape": "customEdge",
+      "source": "提交签约",
+      "id": "873dfeb9",
+      "target": "认证监听",
+      "resizePoints": [
+        {
+          "x": 430,
+          "y": 380.5
+        },
+        {
+          "x": 430,
+          "y": 490
+        },
+        {
+          "x": 520,
+          "y": 490
+        }
+      ]
+    },
+    {
+      "shape": "customEdge",
+      "source": "认证监听",
+      "id": "c069bb9e",
+      "target": "风控审核",
+      "resizePoints": [
+        {
+          "x": 580,
+          "y": 490
+        },
+        {
+          "x": 660,
+          "y": 490
+        },
+        {
+          "x": 660,
+          "y": 382
+        }
+      ]
+    },
+    {
+      "shape": "customEdge",
+      "source": "风控审核",
+      "id": "76768a8d",
+      "target": "订单生效"
+    },
+    {
+      "shape": "customEdge",
+      "source": "订单生效",
+      "id": "ae6ea327",
+      "target": "签约完成"
+    }
+  ]
+}

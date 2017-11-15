@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>带气泡的地图</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item hover last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+
+  <div class="main-container clearfix">
+  <div class="doc-content vis-chart">
+    <div class="doc-inner vis-chart">
+      <h1>带气泡的地图</h1>
+      <p><img src="https://t.alipayobjects.com/images/T1exRjXb4XXXXXXXXX.png" /></p>
+<h2 id="带气泡的地图的简介">带气泡的地图的简介</h2><p>带气泡的地图，其实就是气泡图和地图的结合，我们以地图为背景，在上面绘制气泡。我们将圆（这里我们叫它气泡）展示在一个指定的地理区域内，气泡的面积代表了这个数据的大小。</p>
+<p>Bubble Map 比<a href="choropleth-map.html">分级统计图</a>更适用于比较带地理信息的数据的大小。它的主要缺点是当地图上的气泡过多过大时，气泡间会相互遮盖而影响数据展示，所以在绘制时需要考虑这点。</p>
+<p>英文名： Bubble Map</p>
+<h2 id="带气泡的地图的构成">带气泡的地图的构成</h2><p><img class="constitute-img" src="https://t.alipayobjects.com/images/T1yxpjXnVfXXXXXXXX.png" width="400px" /></p>
+<p><table class="struct-table">
+  <tr>
+    <th>图表类型</th>
+    <th>带气泡的地图</th>
+  </tr>
+  <tr>
+    <td>适合的数据</td>
+    <td>一个分类字段，一个连续字段</td>
+  </tr>
+  <tr>
+    <td>功能</td>
+    <td>
+      <code>对比</code>分类数据的数值大小
+    </td>
+  </tr>
+  <tr>
+    <td>数据与图形的映射</td>
+    <td>一个分类字段映射到地图的地理位置<code>和</code>气泡颜色</br>另一个连续字段映射到气泡大小
+    </td>
+  </tr>
+  <tr>
+    <td>适合的数据条数</td>
+    <td>根据实际地理位置信息，暂无限制</td>
+  </tr>
+</table></p>
+<div style="clear: both;"></div>
+
+
+<h2 id="带气泡的地图的应用场景">带气泡的地图的应用场景</h2><p>例子1：<strong>各个国家遭受的恐怖袭击次数展示。</strong> 如图，将各个国家遭受的恐怖袭击次数用气泡图来展示的效果。可以看出伊拉克遭受的恐怖袭击次数最多，并且恐怖袭击主要集中在中东地区。</p>
+<table>
+<thead>
+<tr>
+<th>name(国家/地区)</th>
+<th>value（袭击次数）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Iraq</td>
+<td>10701</td>
+</tr>
+<tr>
+<td>Pakistan</td>
+<td>7725</td>
+</tr>
+<tr>
+<td>。。。</td>
+<td>。。。</td>
+</tr>
+</tbody>
+</table>
+<div id="c1"></div>
+<script src="https://as.alipayobjects.com/g/datavis/g-plugin-map/1.0.5/index.js"></script>
+<div class="code hide">
+  $.getJSON('./data/world.geo.json?nowrap', function(mapData) {
+  var Stat = G2.Stat;
+  var Frame = G2.Frame;
+  var userData = [
+    {name: 'Iraq',value: 10701},
+    {name: 'Pakistan',value: 7725},
+    {name: 'Afghanistan',value: 5693},
+    {name: 'India',value: 3468},
+    {name: 'Nigeria',value: 1912},
+    {name: 'Philippines',value: 1850},
+    {name: 'Somalia',value: 1827},
+    {name: 'Yemen',value: 1726},
+    {name: 'Thailand',value: 1620},
+    {name: 'Libya',value: 1082}
+  ];
+
+  var map = [];
+  var features = mapData.features;
+  for(var i=0; i < features.length; i++) {
+    var name = features[i].properties.name;
+    map.push({
+      "name": name
+    });
+  }
+
+  var chart = new G2.Chart({
+    id: 'c1',
+    width: 800,
+    height: 350,
+    plotCfg: {
+      margin: [0]
+    }
+  });
+
+  chart.source(userData);
+  chart.tooltip({
+    crosshairs: false
+  });
+
+  var defs = {
+    '..long': {
+      min: -180,
+      max: 180
+    },
+    '..lant': {
+      min: -55.61183,
+      max: 83.64513
+    }
+  };
+  // 绘制世界地图背景
+  var view = chart.createView();
+  view.source(map, defs);
+  view.tooltip(false);
+  view.polygon().position(Stat.map.region('name', mapData)).shape('stroke').style({
+    fill: '#fff',
+    stroke: '#ccc',
+    lineWidth: 1
+  });
+
+  var userView = chart.createView();
+
+  userView.source(userData, defs);
+
+  userView.point()
+    .position(Stat.map.center('name', mapData))
+    .size('value', 25, 4)
+    .opacity(0.85).shape('circle').color('value','#fee0d2-#de2d26')
+    .label('value', {offset: 0, label:{fill:'#222', 'font-weight': 'bold'}});
+
+  chart.render();
+});
+</div>
+
+<p>例子2：<strong>展示各国癌症五年生存率。</strong> 首先我们通过颜色来区分不同的国家，然后将各国的生存率数据映射为气泡的大小，这样就可以清晰对比不同国家的生存率。从图中可以明显发现中国癌症五年生存率为30.9%，远低于发达国家水平。</p>
+<table>
+<thead>
+<tr>
+<th>name(国家/地区)</th>
+<th>value（生存率）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Japan</td>
+<td>81.6</td>
+</tr>
+<tr>
+<td>South Korea</td>
+<td>53.4</td>
+</tr>
+<tr>
+<td>China</td>
+<td>30.9</td>
+</tr>
+<tr>
+<td>。。。</td>
+<td>。。。</td>
+</tr>
+</tbody>
+</table>
+<div id="c2"></div>
+
+<div class="code hide">
+$.getJSON('./data/world.geo.json?nowrap', function(mapData) {
+  var Stat = G2.Stat;
+  var userData = [
+    {name: 'Japan', alias: '日本', value: 81.6},
+    {name: 'South Korea',alias: '韩国', value: 53.4},
+    {name: 'China',alias: '中国', value: 30.9},
+    {name: 'India',alias: '印度', value: 28.6},
+    {name: 'Australia',alias: '澳大利亚', value: 80.7},
+    {name: 'United Kingdom',alias: '英国', value: 73.1},
+    {name: 'Spain',alias: '西班牙', value: 62.8},
+    {name: 'Algeria',alias: '阿尔及利亚', value: 39.3},
+    {name: 'Italy',alias: '意大利', value: 63.4},
+    {name: 'Slovenia',alias: '斯诺文尼亚', value: 57.9},
+    {name: 'Germany',alias: '德国', value: 78.4},
+    {name: 'Brazil',alias: '巴西', value: 53.9},
+    {name: 'United States of America',alias: '美国', value: 66.0},
+    {name: 'Canada',alias: '加拿大', value: 82.5}
+  ];
+
+  var map = [];
+  var features = mapData.features;
+  for(var i=0; i < features.length; i++) {
+    var name = features[i].properties.name;
+    map.push({
+      "name": name
+    });
+  }
+
+  var chart = new G2.Chart({
+    id: 'c2',
+    width: 800,
+    height: 350,
+    plotCfg: {
+      margin: [0]
+    }
+  });
+  chart.tooltip({
+    title: null,
+    crosshairs: false,
+    map: {
+      name: 'alias'
+    }
+  });
+
+  chart.legend(false);
+
+  var defs = {
+    '..long': {
+      min: -180,
+      max: 180
+    },
+    '..lant': {
+      min: -55.61183,
+      max: 83.64513
+    }
+  };
+  // 绘制世界地图背景
+  var view = chart.createView();
+  view.source(map, defs);
+  view.tooltip(false);
+  view.polygon().position(Stat.map.region('name', mapData)).shape('stroke').style({
+    stroke: '#fff',
+    fill: '#E6E6E6',
+    lineWidth: 1
+  });
+
+  var userView = chart.createView();
+
+  userView.source(userData, defs);
+  userView.point().position(Stat.map.center('name', mapData)).size('value', 25, 4).opacity(0.8).shape('circle').color('name').label('alias', {offset: 0, label: {'fill': '#222'}});
+
+  chart.render();
+});
+</div>
+
+<p>例子3：<strong>美国各州发生的抢劫案件数目。</strong> 用气泡大小代表各州某年发生的抢劫案件数目，很清晰得就看到美国的东部是抢劫案件发生的集中区域，其中 Maryland 最多。</p>
+<table>
+<thead>
+<tr>
+<th>name(州名)</th>
+<th>Robbery（抢劫案件数）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alabama</td>
+<td>141.4</td>
+</tr>
+<tr>
+<td>Arizona</td>
+<td>144.4</td>
+</tr>
+<tr>
+<td>Arkansas</td>
+<td>91.1</td>
+</tr>
+<tr>
+<td>。。。</td>
+<td>。。。</td>
+</tr>
+</tbody>
+</table>
+<div id="c3"></div>
+
+<div class="code hide">
+$.getJSON('./data/USA.geo.json?nowrap', function(mapData) {
+  $.getJSON('./data/usa-forcible.json?nowrap', function(data) {
+
+    var map = [];
+    var features = mapData.features;
+    for(var i=0; i < features.length; i++) {
+      var name = features[i].properties.name;
+      map.push({
+        "name": name
+      });
+    }
+    var Stat = G2.Stat;
+    var chart = new G2.Chart({
+      id: 'c3',
+      width: 600,
+      height: 400,
+      animate: false,
+      plotCfg: {
+        margin: [0,0,20,0]
+      }
+    });
+    chart.tooltip({
+      crosshairs: false
+    });
+    chart.legend('Robbery', false);
+
+    var defs = {
+      '..long': {
+        max: -66,
+        min:-125
+      },
+      '..lant': {
+        max: 50,
+        min:24
+      }
+    };
+    // 绘制世界地图背景
+    var view = chart.createView();
+    view.source(map, defs);
+    view.tooltip(false);
+    view.polygon().position(Stat.map.region('name', mapData)).shape('stroke').style({
+      fill: '#fff',
+      stroke: '#E6E6E6',
+      lineWidth: 1
+    });
+
+    var userView = chart.createView();
+    userView.source(data, defs);
+    userView.point().position(Stat.map.center('state', mapData)).size('Robbery', 25, 4).shape('circle').color('Robbery', '#fee0d2-#de2d26').opacity(0.9);
+
+    chart.render();
+  });
+});
+</div>
+
+<h3 id="不适合的场景">不适合的场景</h3><p>当数值字段表达的不是一个区域的总值，而仅仅是个取样值(气温、降水等）时不适合使用带气泡的地图</p>
+<p>下图是中国气温的一个分布图</p>
+<table>
+<thead>
+<tr>
+<th>longitude(经度)</th>
+<th>latitude（维度）</th>
+<th>temperature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>115.95</td>
+<td>40</td>
+<td>23.9</td>
+</tr>
+<tr>
+<td>116.83</td>
+<td>40</td>
+<td>25.7</td>
+</tr>
+<tr>
+<td>117.93</td>
+<td>41</td>
+<td>24.4</td>
+</tr>
+<tr>
+<td>。。。</td>
+<td>。。。</td>
+<td>。。。</td>
+</tr>
+</tbody>
+</table>
+<div id="c4" style="position:relative;">
+  <div class="wrong tip">错误</div>
+</div>
+
+<div class="code hide">
+  $.getJSON('./data/china.json', function(mapData) {
+    $.getJSON('./data/temp.json', function(data) {
+      var Stat = G2.Stat;
+      var chart = new G2.Chart({
+        id: 'c4',
+        width: 600,
+        height: 400,
+        plotCfg: {
+          margin: [5, 225, 125, 65]
+        }
+      });
+      var defs = {
+        'out-temperature': {
+          alias: '室外温度'
+        },
+        '..lant': {
+          min: 18.16933828300006,
+          max: 53.56779083300003
+        },
+        '..long': {
+          min: 73.60225630700012,
+          max: 134.77257938700012
+        }
+      };
+
+      chart.tooltip({
+        map: {
+          'title': 'city',
+          value: 'out-temperature'
+        }
+      });
+
+      var coordCfg = {
+        projection: 'mercator',
+        max: [134.77, 63.68],
+        min: [73.60, 18.48]
+      };
+
+      var map = [];
+      var features = mapData.features;
+      for(var i=0; i < features.length; i++) {
+        var name = features[i].properties.name;
+        map.push({
+          "name": name
+        });
+      }
+
+      // 绘制世界地图背景
+      var view = chart.createView();
+      view.source(map, defs);
+      view.tooltip(false);
+      view.coord('map', coordCfg);
+      view.polygon().position(Stat.map.region('name', mapData)).shape('stroke').style({
+        fill: '#fff',
+        stroke: '#E6E6E6',
+        lineWidth: 1
+      });
+
+      var userView = chart.createView();
+      userView.source(data, defs);
+
+      userView.point().position(Stat.map.location('longitude*latitude'))
+        .size('temperature', 10, 2)
+        .color('temperature','#50a3ba-#eac736-#d94e5d')
+        .shape('circle')
+        .opacity(0.8)
+      chart.render();
+    });
+  });
+</div>
+
+<p>不适合的原因：</p>
+<ul>
+<li>气泡相互折叠</li>
+<li>气温是一个采样数值，有连续性</li>
+<li>温度的变化不大，导致气泡的大小变化不大，无法明确的对比数值的大小</li>
+</ul>
+<p>此时更适合热力图</p>
+<div id="c5" style="position:relative;">
+  <div class="right tip">正确</div>
+</div>
+
+<div class="code hide">
+  $.getJSON('./data/china.json', function(mapData) {
+    $.getJSON('./data/temp.json', function(data) {
+      var Stat = G2.Stat;
+      var chart = new G2.Chart({
+        id: 'c5',
+        width: 600,
+        height: 400,
+        plotCfg: {
+          margin: [5, 225, 125, 65]
+        }
+      });
+      var defs = {
+        'out-temperature': {
+          alias: '室外温度'
+        },
+        '..lant': {
+          min: 18.16933828300006,
+          max: 53.56779083300003
+        },
+        '..long': {
+          min: 73.60225630700012,
+          max: 134.77257938700012
+        }
+      };
+
+      chart.tooltip({
+        map: {
+          'title': 'city',
+          value: 'out-temperature'
+        }
+      });
+
+      var coordCfg = {
+        projection: 'mercator',
+        max: [134.77, 63.68],
+        min: [73.60, 18.48]
+      };
+
+      var map = [];
+      var features = mapData.features;
+      for(var i=0; i < features.length; i++) {
+        var name = features[i].properties.name;
+        map.push({
+          "name": name
+        });
+      }
+
+      // 绘制世界地图背景
+      var view = chart.createView();
+      view.source(map, defs);
+      view.tooltip(false);
+      view.coord('map', coordCfg);
+      view.polygon().position(Stat.map.region('name', mapData)).shape('stroke').style({
+        fill: '#fff',
+        stroke: '#E6E6E6',
+        lineWidth: 1
+      });
+
+      var userView = chart.createView();
+      userView.source(data, defs);
+
+      userView.heatmap().position(Stat.map.location('longitude*latitude'))
+        .size(15)
+        .color('temperature','#50a3ba-#eac736-#d94e5d')
+        .label('city',{label:{opacity: 0}}); // 设置文本但是不显示，使得tooltip可以显示对应的字段
+
+      chart.render();
+    });
+  });
+</div>
+
+
+<h2 id="带气泡的地图同其他图表的对比">带气泡的地图同其他图表的对比</h2><h3 id="跟一般气泡图的对比">跟<a href="bubble-chart.html">一般气泡图</a>的对比</h3><ul>
+<li>带气泡的地图是一种特殊的气泡图，都可以表示三个维度的数据关系</li>
+<li>一般的气泡图，两个维度映射到x,y轴这两个维度的字段类型和含义没有限制，可以是分类也可以是连续；但是带气泡的地图，映射到两个轴上的坐标只能是经纬度，用于表示地理位置，如果是地址名称需要先转换成经纬度</li>
+</ul>
+<h3 id="跟分级统计图的对比">跟<a href="choropleth-map.html">分级统计图</a>的对比</h3><ul>
+<li>分级统计图是将某个区域染成一定的颜色，跟带气泡的地图同样是表示一个区域的某个值的大小</li>
+<li>分级统计图仅能用颜色深度表示数值的大小，而带气泡的地图除了气泡的大小外，气泡的颜色也可以表示数值的大小</li>
+</ul>
+
+      <h2 id="变型">变型</h2>
+      <div class="detail-list">
+        <ul class="vis-chart-list clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/details/dot-map.html">
+              <i class="iconfont icon-dot-map"></i>
+              <span>点描法地图</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <h2 id="标签">标签</h2>
+      <div>
+
+        <ul class="vis-classify-list small clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/classify/location.html">
+              <span>地图类</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $.fn.isOnScreen = function(){
+      var win = $(window);
+      var viewport = {
+          top : win.scrollTop(),
+          left : win.scrollLeft()
+      };
+      viewport.right = viewport.left + win.width();
+      viewport.bottom = viewport.top + win.height();
+      var bounds = this.offset();
+      bounds.right = bounds.left + this.outerWidth();
+      bounds.bottom = bounds.top + this.outerHeight();
+      return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+    };
+    function ReplaceAll(str, sptr, sptr1){
+      while (str.indexOf(sptr) >= 0){
+         str = str.replace(sptr, sptr1);
+      }
+      return str;
+    }
+    function lazyLoad(codes) {
+      var isrun = [];
+      tryRun();
+      $(document).on('mousewheel',function(e){
+        tryRun();
+      });
+      function tryRun(){
+        codes.each(function(index,ele){
+          if (isrun.indexOf(ele) === -1) {
+            var $ele = $(ele);
+            if ( $ele.isOnScreen() ) {
+              setTimeout(function(){
+                var t = $ele.html();
+                t = ReplaceAll(t, '&lt;', '<');
+                t = ReplaceAll(t, '&gt;', '>');
+                t = ReplaceAll(t, '&amp;', '&');
+                eval(t);
+                $ele.hide();
+              },500);
+              isrun.push(ele);
+            };
+          };
+        });
+      }
+    }
+    var codes = $('.code');
+    lazyLoad(codes);
+  </script>
+
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

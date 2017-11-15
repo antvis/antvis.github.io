@@ -1,0 +1,668 @@
+{
+  "nodes": [
+    {
+      "shape": "rect",
+      "x": 370,
+      "y": 330,
+      "id": "ded345c9",
+      "label": "元素",
+      "labelStyle": {
+        "fontSize": 18
+      }
+    },
+    {
+      "shape": "rect",
+      "x": 280,
+      "y": 260,
+      "id": "f321235f",
+      "label": "节点",
+      "labelStyle": {
+        "fontSize": 18
+      }
+    },
+    {
+      "shape": "rect",
+      "x": 270,
+      "y": 380,
+      "id": "6f8a00a8",
+      "labelStyle": {
+        "fontSize": 18
+      },
+      "label": "边"
+    },
+    {
+      "shape": "rhombus",
+      "x": 210,
+      "y": 150,
+      "id": "d94c40cc"
+    },
+    {
+      "shape": "rect",
+      "x": 140,
+      "y": 150,
+      "id": "a2ececee",
+      "size": [
+        39.5,
+        39.5
+      ]
+    },
+    {
+      "shape": "circle",
+      "x": 280,
+      "y": 150,
+      "id": "70bffe5a"
+    },
+    {
+      "shape": "rect",
+      "x": 350,
+      "y": 150,
+      "id": "29fc7eb2",
+      "labelStyle": {
+        "fontSize": 18,
+        "fill": "#1A7CA7"
+      },
+      "style": {
+        "fill": "rgba(222,222,222,0)"
+      },
+      "label": "文本"
+    },
+    {
+      "shape": "circle",
+      "x": 390,
+      "y": 150,
+      "id": "dbe763fb",
+      "size": [
+        7,
+        7
+      ],
+      "labelStyle": {
+        "fontSize": 18
+      },
+      "style": {
+        "fillOpacity": 0
+      },
+      "color": "#333"
+    },
+    {
+      "shape": "circle",
+      "x": 410,
+      "y": 150,
+      "id": "8720b4b5",
+      "size": [
+        7,
+        7
+      ],
+      "labelStyle": {
+        "fontSize": 18
+      },
+      "style": {
+        "fillOpacity": 0
+      },
+      "color": "#333"
+    },
+    {
+      "shape": "circle",
+      "x": 430,
+      "y": 150,
+      "id": "a2dbc5cd",
+      "size": [
+        7,
+        7
+      ],
+      "labelStyle": {
+        "fontSize": 18
+      },
+      "style": {
+        "fillOpacity": 0
+      },
+      "color": "#333"
+    },
+    {
+      "shape": "circle",
+      "x": 450,
+      "y": 150,
+      "id": "d8b6f1eb",
+      "size": [
+        7,
+        7
+      ],
+      "labelStyle": {
+        "fontSize": 18
+      },
+      "style": {
+        "fillOpacity": 0
+      },
+      "color": "#333"
+    },
+    {
+      "label": "直线",
+      "shape": "text",
+      "x": 130,
+      "y": 480,
+      "id": "fbf36467",
+      "color": "black",
+      "labelStyle": {
+        "fontSize": 18,
+        "fill": "black"
+      }
+    },
+    {
+      "label": "直线箭头",
+      "shape": "text",
+      "x": 200,
+      "y": 480,
+      "id": "52f5a287",
+      "color": "black",
+      "labelStyle": {
+        "fontSize": 18,
+        "fill": "black"
+      }
+    },
+    {
+      "label": "曲线",
+      "shape": "text",
+      "x": 270,
+      "y": 480,
+      "id": "ea8d5baf",
+      "color": "black",
+      "labelStyle": {
+        "fontSize": 18,
+        "fill": "black"
+      }
+    },
+    {
+      "label": "曲线箭头",
+      "shape": "text",
+      "x": 340,
+      "y": 480,
+      "id": "67958e0e",
+      "color": "black",
+      "labelStyle": {
+        "fontSize": 18,
+        "fill": "black"
+      }
+    },
+    {
+      "shape": "circle",
+      "x": 390,
+      "y": 480,
+      "id": "8579c3a9",
+      "size": [
+        7,
+        7
+      ],
+      "labelStyle": {
+        "fontSize": 18
+      },
+      "style": {
+        "fillOpacity": 0
+      },
+      "color": "#333"
+    },
+    {
+      "shape": "circle",
+      "x": 410,
+      "y": 480,
+      "id": "85df175e",
+      "size": [
+        7,
+        7
+      ],
+      "labelStyle": {
+        "fontSize": 18
+      },
+      "style": {
+        "fillOpacity": 0
+      },
+      "color": "#333"
+    },
+    {
+      "shape": "circle",
+      "x": 430,
+      "y": 480,
+      "id": "f697eecc",
+      "size": [
+        7,
+        7
+      ],
+      "labelStyle": {
+        "fontSize": 18
+      },
+      "style": {
+        "fillOpacity": 0
+      },
+      "color": "#333"
+    },
+    {
+      "shape": "circle",
+      "x": 450,
+      "y": 480,
+      "id": "ef9c13a1",
+      "size": [
+        7,
+        7
+      ],
+      "labelStyle": {
+        "fontSize": 18
+      },
+      "style": {
+        "fillOpacity": 0
+      },
+      "color": "#333"
+    },
+    {
+      "shape": "rect",
+      "x": 80,
+      "y": 310,
+      "id": "bba4308e",
+      "label": "图\n形\n计\n算",
+      "labelStyle": {
+        "fontSize": 18
+      },
+      "style": {
+        "fill": "#B14238"
+      },
+      "size": [
+        39.93174934387207,
+        375.375
+      ],
+      "color": "black"
+    },
+    {
+      "shape": "rect",
+      "x": 510,
+      "y": 330,
+      "id": "3a80fa7f",
+      "label": "G 6",
+      "labelStyle": {
+        "fontSize": 18
+      },
+      "size": [
+        43.479249000549316,
+        38.375
+      ]
+    },
+    {
+      "shape": "rect",
+      "x": 210,
+      "y": 380,
+      "id": "9d926702",
+      "label": "控制点",
+      "style": {
+        "fill": "#1D954A"
+      },
+      "size": [
+        51.25,
+        22.5
+      ]
+    },
+    {
+      "shape": "rect",
+      "x": 440,
+      "y": 120,
+      "id": "6e7ddfc8",
+      "label": "自定义节点",
+      "labelStyle": {
+        "fontSize": 18
+      },
+      "style": {
+        "fill": "#B14238"
+      },
+      "size": [
+        151.22699737548828,
+        32
+      ]
+    },
+    {
+      "shape": "rect",
+      "x": 430,
+      "y": 450,
+      "id": "0aa0feb7",
+      "label": "自定义边",
+      "labelStyle": {
+        "fontSize": 18
+      },
+      "style": {
+        "fill": "#B14238"
+      },
+      "size": [
+        103.11349868774414,
+        32.5
+      ]
+    },
+    {
+      "shape": "rect",
+      "x": 610,
+      "y": 360,
+      "id": "c8d5d4ed",
+      "label": "交互",
+      "style": {
+        "fill": "#1D954A"
+      },
+      "size": [
+        60,
+        25.5
+      ],
+      "labelStyle": {
+        "fontSize": 16
+      }
+    },
+    {
+      "shape": "rect",
+      "x": 610,
+      "y": 300,
+      "id": "849f07fc",
+      "label": "事件",
+      "style": {
+        "fill": "#1D954A"
+      },
+      "size": [
+        58,
+        25.5
+      ],
+      "labelStyle": {
+        "fontSize": 16
+      }
+    },
+    {
+      "shape": "rect",
+      "x": 210,
+      "y": 260,
+      "id": "b06ca3ef",
+      "label": "锚点",
+      "style": {
+        "fill": "#1D954A"
+      },
+      "size": [
+        47.75,
+        20.75
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "shape": "line",
+      "source": "3a80fa7f",
+      "id": "a3a44445",
+      "target": "ded345c9"
+    },
+    {
+      "shape": "arrow",
+      "source": "ded345c9",
+      "id": "30d78943",
+      "target": "f321235f",
+      "resizePoints": [
+        {
+          "x": 346,
+          "y": 330
+        },
+        {
+          "x": 330,
+          "y": 330
+        },
+        {
+          "x": 330,
+          "y": 260
+        },
+        {
+          "x": 304,
+          "y": 260
+        }
+      ],
+      "controlPoints": [
+        {
+          "x": 335,
+          "y": 330
+        },
+        {
+          "x": 330,
+          "y": 330
+        },
+        {
+          "x": 330,
+          "y": 260
+        },
+        {
+          "x": 315,
+          "y": 260
+        }
+      ]
+    },
+    {
+      "shape": "arrow",
+      "source": "ded345c9",
+      "id": "358cdd0d",
+      "target": "6f8a00a8",
+      "resizePoints": [
+        {
+          "x": 346,
+          "y": 330
+        },
+        {
+          "x": 330,
+          "y": 330
+        },
+        {
+          "x": 330,
+          "y": 380
+        },
+        {
+          "x": 285,
+          "y": 380
+        }
+      ],
+      "controlPoints": [
+        {
+          "x": 335,
+          "y": 330
+        },
+        {
+          "x": 330,
+          "y": 330
+        },
+        {
+          "x": 330,
+          "y": 380
+        },
+        {
+          "x": 296,
+          "y": 380
+        }
+      ]
+    },
+    {
+      "shape": "arrow",
+      "source": "f321235f",
+      "id": "9761158e",
+      "target": "70bffe5a"
+    },
+    {
+      "shape": "arrow",
+      "source": "f321235f",
+      "id": "52474c85",
+      "target": "d94c40cc",
+      "resizePoints": [
+        {
+          "x": 280,
+          "y": 245
+        },
+        {
+          "x": 280,
+          "y": 220
+        },
+        {
+          "x": 210,
+          "y": 220
+        },
+        {
+          "x": 210,
+          "y": 175.5
+        }
+      ],
+      "controlPoints": [
+        {
+          "x": 280,
+          "y": 242
+        },
+        {
+          "x": 280,
+          "y": 220
+        },
+        {
+          "x": 210,
+          "y": 220
+        },
+        {
+          "x": 210,
+          "y": 175.5
+        }
+      ]
+    },
+    {
+      "shape": "arrow",
+      "source": "f321235f",
+      "id": "7256c3b8",
+      "target": "a2ececee",
+      "resizePoints": [
+        {
+          "x": 280,
+          "y": 245
+        },
+        {
+          "x": 280,
+          "y": 220
+        },
+        {
+          "x": 140,
+          "y": 220
+        },
+        {
+          "x": 140,
+          "y": 170.25
+        }
+      ],
+      "controlPoints": [
+        {
+          "x": 280,
+          "y": 242
+        },
+        {
+          "x": 280,
+          "y": 220
+        },
+        {
+          "x": 140,
+          "y": 220
+        },
+        {
+          "x": 140,
+          "y": 170.25
+        }
+      ]
+    },
+    {
+      "shape": "arrow",
+      "source": "f321235f",
+      "id": "6c4e0ac2",
+      "target": "29fc7eb2",
+      "resizePoints": [
+        {
+          "x": 280,
+          "y": 245
+        },
+        {
+          "x": 280,
+          "y": 220
+        },
+        {
+          "x": 350,
+          "y": 220
+        },
+        {
+          "x": 350,
+          "y": 165
+        }
+      ],
+      "controlPoints": [
+        {
+          "x": 280,
+          "y": 242
+        },
+        {
+          "x": 280,
+          "y": 220
+        },
+        {
+          "x": 350,
+          "y": 220
+        },
+        {
+          "x": 350,
+          "y": 168
+        }
+      ]
+    },
+    {
+      "shape": "line",
+      "source": "6f8a00a8",
+      "id": "a47ef9d8",
+      "target": "fbf36467",
+      "sourceAnchor": 2
+    },
+    {
+      "shape": "smooth",
+      "source": "6f8a00a8",
+      "id": "64d033f7",
+      "target": "ea8d5baf",
+      "resizePoints": [
+        {
+          "x": 270,
+          "y": 395
+        },
+        {
+          "x": 290,
+          "y": 440
+        },
+        {
+          "x": 260,
+          "y": 440
+        },
+        {
+          "x": 270,
+          "y": 470.5
+        }
+      ]
+    },
+    {
+      "shape": "arrow",
+      "source": "6f8a00a8",
+      "id": "6aadb5e9",
+      "target": "52f5a287"
+    },
+    {
+      "shape": "smoothArrow",
+      "source": "6f8a00a8",
+      "id": "3e783550",
+      "target": "67958e0e",
+      "sourceAnchor": 2,
+      "resizePoints": [
+        {
+          "x": 270,
+          "y": 395
+        },
+        {
+          "x": 310,
+          "y": 420
+        },
+        {
+          "x": 340,
+          "y": 430
+        },
+        {
+          "x": 340,
+          "y": 470.5
+        }
+      ]
+    }
+  ]
+}

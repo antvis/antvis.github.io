@@ -1,123 +1,428 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  	<meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 业务流程图, 时序图, 图">
-  	<meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
-		<title>AntV 让你的数据栩栩如生</title>
+<head>
+  <meta charset="utf-8">
+  <title>AntV</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="./static/style.css" />
+  <link rel="stylesheet" type="text/css" href="./static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="./static/tipuesearch/tipuesearch.css" >
+  <script src="./static/jquery.js"></script>
+  <script src="./static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="./static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="./static/script.js"></script>
+</head>
+<body class="index-page"><header class="index-page" id="header">
+  <div class="nav-wrapper">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css">
+  <div class="main-container clearfix">
+    
+  <style>
+  body{
+    overflow-x:hidden;
+  }
+  .warper{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .first-page{
+    height: 488px;
+  }
+  .first-page .content{
+    width: 1100px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
 
-		<!-- Theme used for syntax highlighting of code -->
-	  <link rel="stylesheet" href="lib/css/monokai-sublime.css">
-		<!-- <link rel="stylesheet" href="lib/css/foundation.css"> -->
+  .backgroud-top-triangle{
+    position: absolute;
+    top: -72px;
+    right: 40px;
+    z-index: -1;
+  }
+  .backgroud-bottom-triangle{
+    position: absolute;
+    left: -700px;
+    bottom: 0;
+  }
+  .slogan{
+    position: absolute;
+    top: 194px;
+    right: 204px;
+    z-index: 2;
+    font-weight: 300;
+  }
+  .slogan h1{
+    font-size: 40px;
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+  .slogan h3{
+    font-size: 18px;
+    font-weight: 300;
+  }
+  .backgroud-effect{
+    position: absolute;
+    top: 68px;
+    left: -64px;
+    z-index: -1;
+  }
+  .second-page{
+    background: #fff;
+    color: #666;
+    padding-bottom: 100px;
+  }
+  .second-page .content{
+    padding-top: 104px;
+    width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    clear: both;
+  }
+  .features{
+    padding-top: 88px !important;
+  }
+  .second-page .title{
+    font-size: 24px;
+    color: #505666;
+  }
+  .second-page .cell{
+    width: 326px;
+    padding: 0 40px;
+    height: auto;
+    margin-right: 40px;
+    float: left;
+    margin-top: 72px;
+    text-align: left;
+  }
+  .second-page .sub-title{
+    font-size: 16px;
+    color: #404040;
+    margin-bottom: 14px;
+  }
+  .features .cell img{
+    height: 61px;
+  }
+  .cutting-line{
+    color: #D8D8D8;
+    font-weight: 300;
+  }
+  .product .cell div{
+    float: left;
+    margin-top: 6px;
+    margin-left: 20px;
+    width: auto;
+  }
+  .product .cell .sub-title{
+    margin-bottom: 4px;
+  }
+  .product .cell img{
+    float: left;
+  }
+  .features .cell img{
+    margin-bottom: 30px;
+  }
+  .company .plates{
+    margin-top: 64px;
+  }
+  .company .cell {
+    margin: 20px;
+    width: 150px;
+    height: 80px;
+  }
+  .user-voice .cell{
+    padding-top: 20px;
+    margin-top: 30px;
+    width: 100%;
+    padding-left: 0;
+    text-align: center;
+  }
+  .user-voice .cell .words{
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    margin-top: 10px;
+  }
+  .user-voice .cell img {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+  }
+  .user-voice .cell .sub-title{
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+  .user-voice .cell .describe{
+    margin-top: 10px;
+    color: #999999;
+  }
+  .user-voice .cell p {
+    display: block;
+  }
+  .company .cell img {
+    display: block;
+    margin: 0 auto;
+  }
+  .product a{
+    color: #505666;
+  }
+  .product a:hover{
+    color: #6556E2;
+  }
+  .product a:hover .sub-title{
+    color: #6556E2;
+  }
+  .nav-wrapper .nav .nav-sub-list{
+    box-shadow: 0px 12px 10px 0 rgba(7, 7, 7, 0.8);
+  }
+  .icon-shangyinhao{
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.1);
+  }
+  .icon-icon-test1{
+    font-size: 22px;
+  }
+  </style>
 
-		<!-- Google fonts -->
-		<link href='https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
+  <div id="canvasWrapper"></div>
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section data-external="slides/slide_00/beforeStarting.html"></section>
-				<section data-external="slides/slide_01/introduction.html"></section>
-				<section data-external="slides/slide_03/vis-basic.html"></section>
+  <div class="warper first-page">
+    <div class="content">
+      <div class="slogan">
+        <h1>让数据栩栩如生</h1>
+        <h3>蚂蚁数据可视化解决方案</h3>
+      </div>
+    </div>
+  </div>
 
-				<!-- G2 -->
-				<section data-external="slides/g2/g2-intro.html"></section>
-				<!-- <section data-external="slides/g2/g2-start-code-0.html"></section> -->
-				<section data-external="slides/g2/g2-start.html"></section>
-				<section data-external="slides/g2/g2-start-code-1.html"></section>
-				<section data-external="slides/g2/g2-polar-coordinate.html"></section>
-				<section data-external="slides/g2/g2-color-gradient.html"></section>
-				<section data-external="slides/g2/g2-china-map.html"></section>
-				<section data-external="slides/g2/g2-arcDiagram.html"></section>
-				<section data-external="slides/g2/g2-customize.html"></section>
-				<section data-external="slides/g2/g2-chart-linkage.html"></section>
+  <div class="warper second-page">
+    <div class="content features">
+      <div class="title">
+        <span class="cutting-line">—</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>特&nbsp;性</span>&nbsp;&nbsp;&nbsp;&nbsp; <span class="cutting-line">—</span>
+      </div>
+      <div class="plates">
+        <div class="cell">
+          <img src="https://zos.alipayobjects.com/rmsportal/HGGtOrrpDKUueUEDKWuI.svg"/>
+          <p class="sub-title">专业</p>
+          <p>提供底层绘图引擎、具备完备图形语法</p>
+          <p>大量产品实践，拥有专业可视设计规范</p>
+        </div>
+        <div class="cell">
+          <img src="https://zos.alipayobjects.com/rmsportal/PYMxvCybNWbuVNEXYDkc.svg"/>
+          <p class="sub-title">简单</p>
+          <p>从数据出发，仅需几行代码</p>
+        </div>
+        <div class="cell">
+          <img src="https://zos.alipayobjects.com/rmsportal/WmKBhdfxGHxZwbPcUOOQ.svg"/>
+          <p class="sub-title">无限可能</p>
+          <p>任何想要的图表，都可以基于图形语法灵活绘制</p>
+        </div>
+      </div>
+    </div>
 
-				<!-- G6 -->
-				<section data-external="slides/g6/g6-demo1.html"></section>
-				<section data-external="slides/g6/g6-demo2.html"></section>
-				<section data-external="slides/g6/g6-demo3.html"></section>
-				<section data-external="slides/g6/g6-demo4.html"></section>
+    <div class="content product">
+      <div class="title">
+        <span class="cutting-line">—</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>产&nbsp;品</span>&nbsp;&nbsp;&nbsp;&nbsp; <span class="cutting-line">—</span>
+      </div>
+      <div class="plates">
+        <a href="/g2/doc/index.html">
+          <div class="cell">
+            <img src="https://zos.alipayobjects.com/rmsportal/jMrlJAgfbuQAoTcIFWYd.svg"/>
+            <div>
+              <p class="sub-title">G2</p>
+              <p>专业易用的可视化类库</p>
+            </div>
+          </div>
+        </a>
+        <a href="/g2-mobile/doc/index.html">
+          <div class="cell">
+            <img src="https://zos.alipayobjects.com/rmsportal/gHXLZJjucsTXhdeHBIAk.svg"/>
+            <div>
+              <p class="sub-title">G2-mobile</p>
+              <p>移动端高性能可视化类库</p>
+            </div>
+          </div>
+        </a>
+        <a href="/g6/doc/index.html">
+          <div class="cell">
+            <img src="https://zos.alipayobjects.com/rmsportal/HgOfeAwWgfBeixYixBXC.svg"/>
+            <div>
+              <p class="sub-title">G6</p>
+              <p>关系图可视化类库</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="content company">
+      <div class="title">
+        <span class="cutting-line">—</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>200<span class="iconfont icon-icon-test1"></span>&nbsp;家公司正在使用</span>&nbsp;&nbsp;&nbsp;&nbsp; <span class="cutting-line">—</span>
+      </div>
+      <div class="plates">
+        <div class="cell">
+          <img src="https://zos.alipayobjects.com/rmsportal/gZrRCRfQpxFTtZXgLBvP.png"/>
+        </div>
+        <div class="cell">
+          <img src="https://zos.alipayobjects.com/rmsportal/WEAltnXNscsYWpLMdkvA.png"/>
+        </div>
+        <div class="cell">
+          <img src="https://zos.alipayobjects.com/rmsportal/qckAOAEigeueaARHUjza.png"/>
+        </div>
+        <div class="cell">
+          <img src="https://zos.alipayobjects.com/rmsportal/zpusNSBXpwwxMbDkdwTt.png"/>
+        </div>
+        <div class="cell">
+          <img src="https://zos.alipayobjects.com/rmsportal/uhROqAyJFKcsPCVuVyna.png"/>
+        </div>
+        <div class="cell">
+          <img src="https://zos.alipayobjects.com/rmsportal/kAkCKxxGgtrwVXnVjnIp.png"/>
+        </div>
+        <div class="cell">
+          <img src="https://zos.alipayobjects.com/rmsportal/LTXFvZFULaAbVBfpWbAC.png"/>
+        </div>
+        <div class="cell">
+          <img src="https://zos.alipayobjects.com/rmsportal/OLQeXQxeEZahxgEmkxOl.png"/>
+        </div>
+        <div class="cell">
+          <img src="https://zos.alipayobjects.com/rmsportal/VcvqdRTpGHyfNxfdMqJr.png"/>
+        </div>
+        <div class="cell">
+          <img src="https://zos.alipayobjects.com/rmsportal/exksqDLcXMKeuKWpwouZ.png"/>
+        </div>
+      </div>
+    </div>
+    <div class="content user-voice">
+      <div class="title">
+        <span class="cutting-line">—</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>专家点评</span>&nbsp;&nbsp;&nbsp;&nbsp; <span class="cutting-line">—</span>
+      </div>
+      <div class="plates">
+        <div class="cell">
+          <p class="words"><span class="iconfont icon-shangyinhao"></span> 在多年可视化设计与开发的积累基础上，蚂蚁金服团队推出了 AntV 产品，</p>
+          <p class="words">这是工业界在基础可视化语法与实践方面发出的最强声音，也是工业界与学术界一道推进可视化研发进展的最佳利器。</p>
+          <img src="https://os.alipayobjects.com/rmsportal/CcFeLxXurbQmwrT.jpg"/>
+          <p class="sub-title">陈为</p>
+          <p class="describe">浙江大学计算机学院 CAD & CG 国家重点实验室教授</p>
+          <p class="describe">可视化专家</p>
+        </div>
+        <div class="cell">
+          <p class="words"><span class="iconfont icon-shangyinhao"></span> G2 是一个非常强大的可视化引擎，只要你想得出的图表，它都能画出来。</p>
+          <img src="https://zos.alipayobjects.com/rmsportal/JBLjWOlbCFiAxQBqiQqD.png"/>
+          <p class="sub-title">阮一峰</p>
+          <p class="describe">前端专家，《ES6 标准入门》作者</p>
+        </div>
+        <div class="cell">
+          <p class="words"><span class="iconfont icon-shangyinhao"></span> G2 是面粉，ECharts 是面条，皆微小但美好，因小食材怀大梦想，助力共筹东方巨龙崛起之盛宴，迎四海饕客。</p>
+          <img src="https://zos.alipayobjects.com/rmsportal/wtkIALmYDSmOIiAalkdv.jpg"/>
+          <p class="sub-title">林峰</p>
+          <p class="describe">爱烹饪的数据可视化攻城狮</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-				<!-- G2-Mobile -->
-				<section data-external="slides/gm/gm-intro.html"></section>
-			</div>
-		</div>
+  <!-- <script>
+    var win = $(window);
+    var body = $('body');
+    var header = $('#header');
+    var firstPage = $('.first-page');
+    var headerHeight = header.height();
+    var winHeight = win.height();
+    // firstPage.css('height', winHeight - headerHeight + 'px');
+  </script> -->
+  <script src="https://os.alipayobjects.com/rmsportal/UXqEUmQMNHbBPtwHvgqG.js"></script>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
 
-		<!-- JQUERY -->
-		<script src="js/jquery.js"></script>
+  </div>
+ <footer class="footer">
+  <div class="footer-nav clearfix">
+    <div class="pull-left">
+      <span class="pad-h20 first"><a href="https://github.com/antvis">GitHub</a></span>
+    </div>
+    
+    <div class="pull-right">
+      <span class="pad-h20"><a href="about/">关于我们</a></span>
+      <span class="pad-h20 last"><a href="https://github.com/antvis/feedback/blob/master/LICENSE">版权说明</a></span>
+    </div>
+  </div>
+</footer>
 
-		<!-- G2 -->
-		<script src="js/g2.js"></script>
-		<!-- G6 -->
-		<script src="js/g6.js"></script>
-		<!-- G2-mobile -->
-		<script src="js/g2-mobile-all-2-1-14.js"></script>
-
-		<!-- REVEAL TO G2 -->
-		 <script src="js/reveal-to-g2-config.js"></script>
-		 <script src="js/reveal-to-g2.js"></script>
-
-		<!-- each slide's script -->
-		<script src="js/antv.js" defer></script>
-		<script src="slides/g2/g2-start.js"></script>
-		<script src="slides/g2/g2-start-code-1.js"></script>
-		<script src="slides/g2/g2-customize.js"></script>
-		<script src="slides/g2/g2-polar-coordinate.js"></script>
-		<script src="slides/g2/g2-color-gradient.js"></script>
-		<script src="slides/g2/g2-china-map.js"></script>
-		<script src="slides/g2/g2-chart-linkage.js"></script>
-		<script src="slides/g2/g2-arcDiagram.js"></script>
-		<script src="slides/g2/g2-sankey.js"></script>
-		<script src="slides/g2/g2-point-stack.js"></script>
-		<script src="slides/g6/g6-intro.js"></script>
-		<script src="slides/g6/g6-demo1.js"></script>
-		<script src="slides/g6/g6-demo2.js"></script>
-		<script src="slides/g6/g6-demo3.js"></script>
-		<script src="slides/g6/g6-demo4.js"></script>
-		<script src="slides/gm/gm-intro.js"></script>
-
-		<script>
-			Reveal.initialize({
-				controls: false,
-				progress: false,
-				history: true,
-				center: true,
-			  width: '100%',
-			  height: '100%',
-    		margin: 0,
-    		minScale: 0.2,
-    		maxScale: 4,
-        transition: 'fade',
-        loop: true,
-				dependencies: [
-					{src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
-					{src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{src: 'plugin/highlight/highlight.js', async: false, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{src: 'plugin/zoom-js/zoom.js', async: true },
-					{src: 'plugin/notes/notes.js', async: true }
-				]
-			});
-			Reveal.configure({ autoSlide: 4000 });
-		</script>
-	</body>
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
 </html>

@@ -1,0 +1,159 @@
+{
+  "nodes": [
+    {
+      "shape": "table",
+      "x": 255,
+      "y": 116,
+      "id": "d62q1519",
+      "title": "Division",
+      "type": "B",
+      "fields": [
+        {
+          "name": "Division number",
+          "type": "Numberic(5)",
+          "key": "<pk>"
+        },
+        {
+          "name": "Division name",
+          "type": "Chart(30)",
+          "key": ""
+        },
+        {
+          "name": "Division address",
+          "type": "Chart(30)",
+          "key": ""
+        }
+      ]
+    },
+    {
+      "shape": "table",
+      "x": 770,
+      "y": 168,
+      "id": "d62d1519",
+      "title": "Customer",
+      "type": "C",
+      "fields": [
+        {
+          "name": "Customer number",
+          "type": "Numberic(5)",
+          "key": "<pk>"
+        },
+        {
+          "name": "Customer name",
+          "type": "Chart(30)",
+          "key": ""
+        },
+        {
+          "name": "Customer address",
+          "type": "Chart(30)",
+          "key": ""
+        }
+      ]
+    },
+    {
+      "shape": "table",
+      "x": 424.38608652353287,
+      "y": 389.38608652353287,
+      "id": "d62d1569",
+      "title": "Emplyee",
+      "type": "B",
+      "fields": [
+        {
+          "name": "Employee number",
+          "type": "Numberic(5)",
+          "key": "<pk>"
+        },
+        {
+          "name": "Emp_Employee number",
+          "type": "Numberic(5)",
+          "key": "<fk1>"
+        },
+        {
+          "name": "Division",
+          "type": "Numberic(5)",
+          "key": "<fk2>"
+        },
+        {
+          "name": "FirstName",
+          "type": "Chart(30)",
+          "key": ""
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "shape": "arrow",
+      "source": "d62d1569",
+      "id": "d6cb23c5",
+      "target": "d62d1519",
+      "controlPoints": [
+        {
+          "x": 568.4779520630836,
+          "y": 371.2224501598965
+        },
+        {
+          "x": 769,
+          "y": 372
+        },
+        {
+          "x": 770,
+          "y": 213.5
+        }
+      ],
+      "relation": "service",
+      "sourceAnchor": 2
+    },
+    {
+      "shape": "arrow",
+      "source": "d62q1519",
+      "id": "8102ce90",
+      "target": "d62d1569",
+      "controlPoints": [
+        {
+          "x": 255,
+          "y": 161.5
+        },
+        {
+          "x": 255,
+          "y": 309
+        },
+        {
+          "x": 424,
+          "y": 309
+        },
+        {
+          "x": 424.38608652353287,
+          "y": 333.88608652353287
+        }
+      ],
+      "relation": "contain"
+    },
+    {
+      "shape": "arrow",
+      "source": "d62d1569",
+      "id": "627177d9",
+      "target": "d62d1569",
+      "targetAnchor": 1,
+      "sourceAnchor": 3,
+      "controlPoints": [
+        {
+          "x": 280.2942209839821,
+          "y": 391.6565410689874
+        },
+        {
+          "x": 235.00125813484192,
+          "y": 391.5056502223015
+        },
+        {
+          "x": 235,
+          "y": 371
+        },
+        {
+          "x": 280.2942209839821,
+          "y": 371.22245015989654
+        }
+      ]
+    }
+  ]
+}

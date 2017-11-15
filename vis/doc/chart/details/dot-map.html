@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>点描法地图</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item hover last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+
+  <div class="main-container clearfix">
+  <div class="doc-content vis-chart">
+    <div class="doc-inner vis-chart">
+      <h1>点描法地图</h1>
+      <p><img src="https://t.alipayobjects.com/images/T1txXjXaVfXXXXXXXX.png" /></p>
+<h2 id="点描法地图的简介">点描法地图的简介</h2><p>点描法地图也叫点分布地图、点密度地图，是一种通过在地理背景上绘制相同大小的点来表示数据在地理空间上分布的方法。</p>
+<p>有两种类型的点描法地图：</p>
+<ul>
+<li>一对一，即一个点只代表一个数据或者对象，因为点的位置对应只有一个数据，因此必须保证点位于正确的空间地理位置。</li>
+<li>一对多，即一个点代表的是一个特殊的单元，这个时候需要注意不能将点理解为实际的位置，这里的点代表聚合数据，往往是任意放置在地图上的.</li>
+</ul>
+<p>点描法地图是观察对象在地理空间上分布情况的理想方法，记住在地图上的形成的点集群可以显示一些数据模式。借助点描法地图，可以很方便得掌握数据的总体分布情况，但是当需要观察单个具体的数据的时候，它是不太适合的。</p>
+<p>英文名：Dot Map, Dot Distribution Map, Dot Density Map</p>
+<h2 id="点描法地图的构成">点描法地图的构成</h2><p><img class="constitute-img" src="https://t.alipayobjects.com/images/T1i_JjXk8bXXXXXXXX.png" /></p>
+<p><table class="struct-table">
+  <tr>
+    <th>图表类型</th>
+    <th>点描法地图</th>
+  </tr>
+  <tr>
+    <td>适合的数据</td>
+    <td>两个连续字段</td>
+  </tr>
+  <tr>
+    <td>功能</td>
+    <td>
+        观测数据的<code>分布</code>情况
+    </td>
+  </tr>
+  <tr>
+    <td>数据与图形的映射</td>
+    <td>两个连续字段分别映射到经度和纬度
+    </td>
+  </tr>
+  <tr>
+    <td>适合的数据条数</td>
+    <td>大于 100 条</td>
+  </tr>
+  <tr>
+    <td>备注</td>
+    <td>可根据实际情况对点的<code>形状</code>进行分类字段的映射。点的<code>颜色</code>进行分类或连续字段的映射。</td>
+  </tr>
+</table></p>
+<div style="clear: both;"></div>
+
+<h2 id="点描法地图的应用场景">点描法地图的应用场景</h2><h4 id="适合的场景">适合的场景</h4><p>例子1: <strong>美国机场分布图。</strong> 通过各个机场的经纬度坐标，在地图上标记代表各机场地理位置的点，可以看出东部相对较多，西部沿海地区的机场集中。</p>
+<div id="c1"></div>
+
+
+<p><script src="https://as.alipayobjects.com/g/datavis/g-plugin-map/1.1.0/index.js"></script></p>
+<div class="code hide"> 
+  $.getJSON('./data/USA.geo.json?nowrap', function(mapData) {
+    $.getJSON('./data/airport.json?nowrap', function(data) {
+      var Stat = G2.Stat;
+      var chart = new G2.Chart({
+        id: 'c1',
+        width: 800,
+        height: 450,
+        plotCfg: {
+          margin: [0,0,20,0]
+        }
+      });
+      chart.source(data);
+      chart.tooltip(false);
+      var gmap = new G2.Plugin.GMap({
+        chart: chart,
+        mapData: mapData,
+        style: {
+          stroke: '#fff',
+          fill: '#ddd'
+        }
+      }).draw();
+      chart.point().position(Stat.map.location('long*lant')).shape('circle').size(2).color('#31a354');
+      chart.render();
+    });
+  });
+</div>
+
+<p>例子2： <strong>2010 年芝加哥人口种族分布。</strong> 用不同颜色的点在地图上标识不同的种族，粉红色表示白人，蓝色表示黑人，绿色表示亚洲人，黄色表示拉丁美洲人，这一种族分布地图清晰地表现了黑人和白人的聚居区，中部偏右还有一小块绿色的亚裔聚居区，在聚居区交接的区域通常存在不同种族混居的现象。</p>
+<p>注意，这张图中由于数据点很多，正常情况下当数据中有海量的点数据需要在地图上标识时，点之间会产生大量重叠的情况，而这张图采用了类似于 PixelMap 的算法，将重叠的点再一个目标位置周围的小范围内随机移动，从而解决重叠的问题，让可视化展示更多的细节。
+<img src="https://t.alipayobjects.com/images/T1C9BjXXJiXXXXXXXX.png" /></p>
+<h4 id="不适合的场景">不适合的场景</h4><p>例子1： <strong> iphone5 全国销量 </strong> 汇总值在地图上的分布和对比，用点描法地图不太合适，最好采用气泡图结合地图来展示，气泡的大小作为一个维度可以显示出汇总值的分布和对比情况。<code>数据来源丢失，数据不可靠！</code></p>
+<div id="c2"></div>
+
+<div class="code hide">
+  $.getJSON('./data/china.json', function(mapData) {
+    var Stat = G2.Stat;
+    var userData = [];
+    var features = mapData.features;
+    for(let feature of features) {
+      var name = feature.properties.name;
+      userData.push({
+        "name": name       
+      });
+    }
+    var defs = {
+      '..lant': {
+          min: 18.16933828300006,
+          max: 53.56779083300003
+        },
+        '..long': {
+          min: 73.60225630700012,
+          max: 134.77257938700012
+        }
+    }
+    var chart = new G2.Chart({
+      id: 'c2',
+      width: 600,
+      height: 450,
+      plotCfg: {
+        margin: [0,0,20,0]
+      }
+    });
+
+    var mapView = chart.createView();
+    mapView.source(userData, defs);
+    mapView.axis(false);
+    mapView.tooltip(false);
+    mapView.polygon().position(Stat.map.region('name', mapData))
+      .style({
+      fill:'white',
+      stroke: '#333',
+      lineWidth: 1
+    });
+
+    var randomData = function(){
+    return Math.round(Math.random()*1000);
+  }
+
+  var data = [
+      {name: '北京',value: randomData() },
+      {name: '天津',value: randomData() },
+      {name: '上海',value: randomData() },
+      {name: '重庆',value: randomData() },
+      {name: '河北',value: randomData() },
+      {name: '河南',value: randomData() },
+      {name: '云南',value: randomData() },
+      {name: '辽宁',value: randomData() },
+      {name: '黑龙江',value: randomData() },
+      {name: '湖南',value: randomData() },
+      {name: '安徽',value: randomData() },
+      {name: '山东',value: randomData() },
+      {name: '新疆',value: randomData() },
+      {name: '江苏',value: randomData() },
+      {name: '浙江',value: randomData() },
+      {name: '江西',value: randomData() },
+      {name: '湖北',value: randomData() },
+      {name: '广西',value: randomData() },
+      {name: '甘肃',value: randomData() },
+      {name: '山西',value: randomData() },
+      {name: '陕西',value: randomData() },
+      {name: '吉林',value: randomData() },
+      {name: '福建',value: randomData() },
+      {name: '贵州',value: randomData() },
+      {name: '广东',value: randomData() },
+      {name: '青海',value: randomData() },
+      {name: '西藏',value: randomData() },
+      {name: '四川',value: randomData() },
+      {name: '宁夏',value: randomData() },
+      {name: '海南',value: randomData() },
+      {name: '台湾',value: randomData() },
+      {name: '香港',value: randomData() },
+      {name: '澳门',value: randomData() }                
+
+  ]
+
+  var dotView = chart.createView({
+    index:1
+  });
+
+    dotView.source(data, defs); 
+    dotView.axis(false);
+    dotView.point().position(Stat.map.center('name',mapData))
+      .color('#6A006F')
+      .shape('circle')
+      .tooltip('value')  
+    chart.legend(false);
+    chart.render();
+  });
+</div>
+
+      <h2 id="变型">变型</h2>
+      <div class="detail-list">
+        <ul class="vis-chart-list clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/details/bubble-map.html">
+              <i class="iconfont icon-bubble-map"></i>
+              <span>带气泡的地图</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <h2 id="标签">标签</h2>
+      <div>
+
+        <ul class="vis-classify-list small clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/classify/distribute.html">
+              <span>分布类</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../vis/doc/chart/classify/location.html">
+              <span>地图类</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $.fn.isOnScreen = function(){
+      var win = $(window);
+      var viewport = {
+          top : win.scrollTop(),
+          left : win.scrollLeft()
+      };
+      viewport.right = viewport.left + win.width();
+      viewport.bottom = viewport.top + win.height();
+      var bounds = this.offset();
+      bounds.right = bounds.left + this.outerWidth();
+      bounds.bottom = bounds.top + this.outerHeight();
+      return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+    };
+    function ReplaceAll(str, sptr, sptr1){
+      while (str.indexOf(sptr) >= 0){
+         str = str.replace(sptr, sptr1);
+      }
+      return str;
+    }
+    function lazyLoad(codes) {
+      var isrun = [];
+      tryRun();
+      $(document).on('mousewheel',function(e){
+        tryRun();
+      });
+      function tryRun(){
+        codes.each(function(index,ele){
+          if (isrun.indexOf(ele) === -1) {
+            var $ele = $(ele);
+            if ( $ele.isOnScreen() ) {
+              setTimeout(function(){
+                var t = $ele.html();
+                t = ReplaceAll(t, '&lt;', '<');
+                t = ReplaceAll(t, '&gt;', '>');
+                t = ReplaceAll(t, '&amp;', '&');
+                eval(t);
+                $ele.hide();
+              },500);
+              isrun.push(ele);
+            };
+          };
+        });
+      }
+    }
+    var codes = $('.code');
+    lazyLoad(codes);
+  </script>
+
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

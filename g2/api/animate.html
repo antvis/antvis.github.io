@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Animate API 文档</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../static/jquery.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item hover">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+<link rel="stylesheet" href="../../static/prettify-min.css">
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+
+
+  <div class="main-container clearfix">
+<div class="body-content api-body-content"><div class="doc-nav">
+  <p class="title">G2</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g2/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">使用教程</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="sub-title">基础教程</li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/index.html" >G2 图表的主要组成</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/chart.html" >图表对象配置（chart）</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/working-with-data.html" >data 数据</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/frame.html" >Frame 常见操作</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/scale.html" >度量</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/col-defs.html" >列定义操作</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/geom.html" >geom 几何标记</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/attr.html" >attr 图形属性</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/coord.html" >coord 坐标系</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/axis.html" >axis 坐标轴</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/legend.html" >legend 图例</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/tooltip.html" >tooltip 提示信息</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/guide.html" >guide 辅助标记</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/stat.html" >stat 统计变换</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/facet.html" >facet 分面</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/theme.html" >theme 图表样式</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/label.html" >label 文本标签</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/chart-event.html" >图表事件 event</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/action.html" >图表交互</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/changedata.html" >数据异步加载与动态更新</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/g2-plugin-slider.html" >数据滑动条插件使用</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/rc-g2.html" >在 react 中使用 G2</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/fqas.html" >常见问题</a>
+          </li>
+          <li class="sub-title">高级教程</li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/index.html" >G2 图形语法简介</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/data-flow.html" >G2 的数据处理流程</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/data-type-and-scale.html" >数据类型与度量</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/coord-detailed.html" >坐标系详解</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/chart-type.html" >图表类型</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/geom-and-adjust.html" >几何标记和数据调整</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/custom-shape.html" >自定义 shape</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/view.html" >多视图 view 绘制</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/layout.html" >layout 布局</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/draw-word-cloud.html" >使用 G2 绘制词云</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/animate.html" >自定义动画</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">API</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="">
+            <a href="../../g2/api/index.html" >G2</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/chart.html" >Chart</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/view.html" >View</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/geom.html" >Geom</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/scale.html" >Scale</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/stat.html" >Stat</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/frame.html" >Frame</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/shape.html" >Shape</a>
+          </li>
+          <li class="active">
+            <a href="../../g2/api/animate.html" >Animate</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/util.html" >Util</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/chart-options.html" >配置项支持</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/doc/history.html" >更新日志</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+  <div class="doc-content clearfix">
+    <h1>Animate</h1>
+    <div id="J_pageNav"></div>
+    <div class="clearfix" style="margin-bottom: 40px;"></div>
+    <div class="doc-inner">
+      <h1 id="animate">Animate</h1><h2 id="概述">概述</h2><p>G2 给每个 Geom 都提供了一套默认的动画，用户在需要使用动画时，打开动画的控制开关即可。同时，G2 给用户提供了最大限度的动画控制：首先，用户可以对默认动画的动画时间和动画效果进行配置；其次，G2 提供了常用动画库供用户选择使用；最后，用户可以自定义 Geom 的动画，以满足特殊场景的需求。</p>
+<h2 id="动画的控制开关">动画的控制开关</h2><p>动画默认开启，配置动画的开关有三种方法：</p>
+<ol>
+<li><p>Global.animate 全局配置</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> Global = G2.Global
+Global.animate = <span class="literal">false</span>;</code></pre></div></li>
+<li><p>实例化 chart 时配置属性</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id: <span class="string">'c1'</span>,
+  animate: <span class="literal">false</span>
+});</code></pre></div></li>
+<li><p>调用 chart 对象的 animate 方法</p>
+<div class="highlight"><pre><code class="javascript">chart.animate(<span class="literal">false</span>);</code></pre></div></li>
+</ol>
+<h2 id="动画配置">动画配置</h2><h3 id="配置接口-geom-animate">配置接口 Geom.animate()</h3><p><code>animate(cfg)</code></p>
+<h4 id="参数">参数</h4><ul>
+<li><p><code>cfg</code>: Object</p>
+<p>动画的配置项，支持的配置属性如下：</p>
+</li>
+</ul>
+<div class="highlight"><pre><code class="javascript">{
+  appear: {
+    <span class="comment">// 初始入场动画配置</span>
+  }
+  enter: {
+    <span class="comment">// 更新时出现动画配置</span>
+  },
+  leave: {
+    <span class="comment">// 更新时销毁动画配置</span>
+  },
+  update: {
+    <span class="comment">// 更新时改变动画配置</span>
+  }
+});</code></pre></div><p>四个场景的配置项如下：</p>
+<ul>
+<li>animation: 动画名称{string}</li>
+<li>duration: 动画时间{Number}，单位毫秒(ms)</li>
+<li>easing: 缓动函数{string}</li>
+<li>delay: 动画延时{Number}，单位毫秒(ms)</li>
+</ul>
+<p>duration、easing 和 delay 均支持回调函数，且参数相同</p>
+<div class="highlight"><pre><code class="javascript">.animate({
+  appear: {
+    delay: <span class="function"><span class="keyword">function</span><span class="params">(index, id)</span> {</span> <span class="comment">//index:图形的序号，id：图形的唯一识别码</span>
+      <span class="keyword">return</span> index * <span class="number">30</span>;
+    }
+  }
+})</code></pre></div><p><strong> easing 的可选类型见 <a href="https://antv.alipay.com/g2/api/canvas.html#animate">G2 canvas API</a>。 </strong></p>
+<h3 id="动画库">动画库</h3><p>G2 提供了两种动画：</p>
+<ul>
+<li>整体动画：画布中所有 shape （图形）组成的 group （图形组）的整体动画，性能较高，但使用场景有限；</li>
+<li>个体动画：画布中某个 shape （图形）的个体动画，更为灵活，但数据量巨大时性能较低。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>支持的场景</th>
+<th>备注</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupWaves</td>
+<td>group</td>
+<td>appear</td>
+<td>水平平铺</td>
+<td><img style="width:200px" src="https://zos.alipayobjects.com/rmsportal/ibsUKmpVRWjVWUnFEJte.gif"/></td>
+</tr>
+<tr>
+<td>groupWaveh</td>
+<td>group</td>
+<td>appear</td>
+<td>垂直平铺</td>
+<td><img style="width:200px" src="https://zos.alipayobjects.com/rmsportal/kVjZZitcdYLYvKnwYgDq.gif"/></td>
+</tr>
+<tr>
+<td>groupCircle</td>
+<td>group</td>
+<td>appear</td>
+<td>放射平铺</td>
+<td><img style="width:200px" src="https://zos.alipayobjects.com/rmsportal/vlatzMpXVFvhgZBiNEuF.gif"/></td>
+</tr>
+<tr>
+<td>groupAngle</td>
+<td>group</td>
+<td>appear</td>
+<td>环形平铺</td>
+<td><img style="width:200px" src="https://zos.alipayobjects.com/rmsportal/hAMxshBFTbLPHlIrxxPf.gif"/></td>
+</tr>
+<tr>
+<td>groupScaleX</td>
+<td>group</td>
+<td>appear</td>
+<td>延 X 轴放大</td>
+<td><img style="width:200px" src="https://zos.alipayobjects.com/rmsportal/caqDQMHzMFhMhrxEgVVE.gif"/></td>
+</tr>
+<tr>
+<td>groupScaleY</td>
+<td>group</td>
+<td>appear</td>
+<td>延 Y 轴放大</td>
+<td><img style="width:200px" src="https://zos.alipayobjects.com/rmsportal/rOcRimJJssPSndaKWMVc.gif"/></td>
+</tr>
+<tr>
+<td>groupScaleXY</td>
+<td>group</td>
+<td>appear</td>
+<td>双向放大</td>
+<td><img style="width:200px" src="https://zos.alipayobjects.com/rmsportal/HzgXFiPGMsCVClNKIPLk.gif"/></td>
+</tr>
+<tr>
+<td>fadeIn</td>
+<td>shape</td>
+<td>appear/enter</td>
+<td>出现</td>
+<td><img style="width:200px" src="https://zos.alipayobjects.com/rmsportal/HqmwLICtepXReHTicIUQ.gif"/></td>
+</tr>
+<tr>
+<td>fadeOut</td>
+<td>shape</td>
+<td>leave</td>
+<td>消失</td>
+<td><img style="width:200px" src="https://zos.alipayobjects.com/rmsportal/fPJKSFkKYCnjHZejEkpX.gif"/></td>
+</tr>
+<tr>
+<td>zoomIn</td>
+<td>shape</td>
+<td>appear/enter</td>
+<td>放大</td>
+<td><img style="width:200px" src="https://zos.alipayobjects.com/rmsportal/xpDufdSFMIFJzlQnRxLK.gif"/></td>
+</tr>
+<tr>
+<td>zoomOut</td>
+<td>shape</td>
+<td>leave</td>
+<td>缩小</td>
+<td><img style="width:200px" src="https://zos.alipayobjects.com/rmsportal/gsprPUDMtGRPrMMjcCgC.gif"/></td>
+</tr>
+<tr>
+<td>scaleInX</td>
+<td>shape</td>
+<td>appear/enter</td>
+<td>延 X 轴放大</td>
+<td><img style="width:200px" src="https://zos.alipayobjects.com/rmsportal/XNFewgiIOdNvJYrfYySH.gif"/></td>
+</tr>
+<tr>
+<td>scaleInY</td>
+<td>shape</td>
+<td>appear/enter</td>
+<td>延 Y 轴放大</td>
+<td><img style="width:200px" src="https://zos.alipayobjects.com/rmsportal/ugCHtrvktTsaqanOeoOB.gif"/></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><code class="javascript"> chart.interval().position(<span class="string">'x*y'</span>).animate({
+    enter:{
+      animation: <span class="string">'fadeIn'</span>,
+      easing: <span class="string">'easeInQuart'</span>
+    },
+    update: {
+      duration: <span class="number">2000</span>
+    }
+  });</code></pre></div><h2 id="自定义动画：">自定义动画：</h2><h3 id="配置接口-animate-registanimation">配置接口 Animate.registAnimation()</h3><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> Animate = G2.Animate;
+Animate.registAnimation(animationType, animationName, animationFun);</code></pre></div><h4 id="参数：">参数：</h4><ul>
+<li><p><code>animationType</code>: String</p>
+<p>动画场景类型，支持四种场景：</p>
+<ul>
+<li>appear: 初始化时的入场动画</li>
+<li>enter: 更新时的出现动画</li>
+<li>update: 更新时的变化动画</li>
+<li>leave: 更新时的销毁动画</li>
+</ul>
+</li>
+<li><p><code>animationName</code>: String</p>
+<p>动画名</p>
+</li>
+<li><p><code>animationFun</code>: Function</p>
+<p>自定义动画实现</p>
+<ul>
+<li>appear/enter/leave</li>
+</ul>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> animationFun = <span class="function"><span class="keyword">function</span><span class="params">(<span class="comment">/* shape, animateCfg */</span>)</span>{</span>
+ <span class="comment">// 自定义动画实现</span>
+});</code></pre></div><ul>
+<li>update</li>
+</ul>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> animationFun = <span class="function"><span class="keyword">function</span><span class="params">(<span class="comment">/* shape1, shape2, animateCfg */</span>)</span>{</span>
+ <span class="comment">// 自定义动画实现</span>
+});</code></pre></div><p>说明：</p>
+<ul>
+<li>shape1 是缓存图形对象，包含原图形的属性和数据</li>
+<li>shape／shape2 是真实图形对象，其类型、通用属性和通用方法见 <a href="https://antv.alipay.com/g2/api/canvas.html">G2 canvas API</a></li>
+<li>animateCfg是动画配置，包括：duration (动画时间)、easing (缓动函数)、delay（动画延时）</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> Canvas = require(<span class="string">'@ali/g-canvas'</span>);
+<span class="keyword">var</span> Vector3 = Canvas.Matrix.Vector3;
+<span class="comment">// 注册更新时的销毁动画</span>
+Animate.registAnimation(<span class="string">'leave'</span>, <span class="string">'myAnimation'</span>, <span class="function"><span class="keyword">function</span><span class="params">(shape, animateCfg)</span>{</span>
+  <span class="keyword">var</span> box = shape.getBBox(); <span class="comment">// 获取图形的包围盒</span>
+  <span class="keyword">var</span> minX = box.minX;
+  <span class="keyword">var</span> minY = box.minY;
+  <span class="keyword">var</span> maxX = box.maxX;
+  <span class="keyword">var</span> maxY = box.maxY;
+  <span class="keyword">var</span> x = (minX + maxX) / <span class="number">2</span>; 
+  <span class="keyword">var</span> y = (minY + maxY) / <span class="number">2</span>;
+
+  <span class="comment">// 底层动画接口</span>
+  shape.animate({
+    transform: [
+      [<span class="string">'t'</span>, -x, -y],
+      [<span class="string">'s'</span>, <span class="number">0.1</span>, <span class="number">0.1</span>],
+      [<span class="string">'t'</span>, x, y]
+    ],
+    destroy: <span class="literal">true</span>,
+    animateCfg.delay,
+  }, animateCfg.duration, animateCfg.easing);
+});</code></pre></div><p><strong> 自定义动画的详细流程见<a href="../doc/tutorial/advance/animate.html">自定义动画教程</a> </strong></p>
+
+    </div>
+  </div>
+</div>
+<script src="../../static/prettify-min.js"></script>
+<script src="../../static/clipboard.min.js"></script>
+<script type="text/javascript">
+var CLS_PRETTY = 'prettyprint linenums';
+BUI.use('bui/common',function(BUI){
+  var preEls = $('pre');
+  BUI.each(preEls,function(el){
+    var node = $(el), innerText;
+    node.addClass(CLS_PRETTY);
+    innerText = node.html();
+    var a = /^(\s+)/.exec(innerText),
+      regex;
+    if(a){
+      regex = new RegExp('('+a[0]+')(\\s*)','ig');
+      innerText = innerText.replace(regex,'$2');
+    }
+
+    node.html(innerText);
+  });
+  if(window.prettyPrint){
+    prettyPrint();
+  }
+});
+
+$(document).ready(function() {
+  var docEl = $('.doc-content');
+  var hEls = docEl.find('h2, h3');
+  var container = $('#J_pageNav');
+  var ulContainer;
+  var count = 0;
+  var hElsLen = hEls.length;
+  if (hElsLen > 0 && container.length > 0) {
+    for (var i = 0; i < hElsLen; i++) {
+      var el = hEls[i];
+      var node = $(el);
+      var text = node.text();
+      var id = node.attr('id');
+      var nodeName = el.nodeName;
+
+      if (nodeName === 'H2') {
+        count = 0;
+        if (ulContainer && ulContainer !== '<ul class="pagenav-columns">') {
+          ulContainer += '</ul>';
+          $(ulContainer).appendTo(container);
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<div class="clearfix separate"></div><p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        } else {
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        }
+      } else {
+        var liItems = '<li><a href="#' + id + '">' + text + '</a></li>';
+        ulContainer += liItems;
+        count++;
+        if (count > 10) {
+          ulContainer += '</ul><ul class="pagenav-columns">';
+          count = 0;
+        }
+      }
+    }
+
+    ulContainer += '</ul>';
+    $(ulContainer).appendTo(container);
+
+    // 代码复制
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  }
+});
+</script>
+
+  </div><a href="javascript:void(0);" id='toTop' title="返回顶部">
+	<i class="iconfont icon-to-top"></i>
+</a>
+ 
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

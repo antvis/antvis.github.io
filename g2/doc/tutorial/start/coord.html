@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>coord 坐标系</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item hover">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+  <link rel="stylesheet" href="../../../../static/prettify-min.css">
+
+
+  <div class="main-container clearfix">
+  <div class="body-content tutorial-body-content"><div class="doc-nav">
+  <p class="title">G2</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g2/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">使用教程</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="sub-title">基础教程</li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/index.html" >G2 图表的主要组成</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/chart.html" >图表对象配置（chart）</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/working-with-data.html" >data 数据</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/frame.html" >Frame 常见操作</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/scale.html" >度量</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/col-defs.html" >列定义操作</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/geom.html" >geom 几何标记</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/attr.html" >attr 图形属性</a>
+          </li>
+          <li class="active">
+            <a href="../../../../g2/doc/tutorial/start/coord.html" >coord 坐标系</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/axis.html" >axis 坐标轴</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/legend.html" >legend 图例</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/tooltip.html" >tooltip 提示信息</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/guide.html" >guide 辅助标记</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/stat.html" >stat 统计变换</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/facet.html" >facet 分面</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/theme.html" >theme 图表样式</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/label.html" >label 文本标签</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/chart-event.html" >图表事件 event</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/action.html" >图表交互</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/changedata.html" >数据异步加载与动态更新</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/g2-plugin-slider.html" >数据滑动条插件使用</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/rc-g2.html" >在 react 中使用 G2</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/fqas.html" >常见问题</a>
+          </li>
+          <li class="sub-title">高级教程</li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/index.html" >G2 图形语法简介</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/data-flow.html" >G2 的数据处理流程</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/data-type-and-scale.html" >数据类型与度量</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/coord-detailed.html" >坐标系详解</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/chart-type.html" >图表类型</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/geom-and-adjust.html" >几何标记和数据调整</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/custom-shape.html" >自定义 shape</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/view.html" >多视图 view 绘制</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/layout.html" >layout 布局</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/draw-word-cloud.html" >使用 G2 绘制词云</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/animate.html" >自定义动画</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">API</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="">
+            <a href="../../../../g2/api/index.html" >G2</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/chart.html" >Chart</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/view.html" >View</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/geom.html" >Geom</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/scale.html" >Scale</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/stat.html" >Stat</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/frame.html" >Frame</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/shape.html" >Shape</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/animate.html" >Animate</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/util.html" >Util</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/chart-options.html" >配置项支持</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/doc/history.html" >更新日志</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+    <div class="doc-content clearfix">
+      <div class="doc-inner">
+        <h2 id="简介">简介</h2><p>坐标系是将两种位置标度结合在一起组成的 2 维定位系统，描述了数据是如何映射到图形所在的平面。</p>
+<p>G2 包含了 8 种不同的坐标系，目前所有的坐标系均是 2 维的。</p>
+<h2 id="如何设置坐标系">如何设置坐标系</h2><p>G2 默认提供的坐标系类型为笛卡尔坐标系，当不满足用户需求时，可以通过调用下面的语法声明需要使用的坐标系：</p>
+<div class="highlight"><pre><code class="javascript">chart.coord(<span class="string">'coordType'</span>[, cfg]);</code></pre></div><table>
+<thead>
+<tr>
+<th>coordType</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> <code>rect</code></td>
+<td>直角坐标系，目前仅支持二维，由x, y两个互相垂直的坐标轴构成。</td>
+</tr>
+<tr>
+<td> <code>polar</code></td>
+<td>极坐标系，由角度和半径 2 个维度构成。</td>
+</tr>
+<tr>
+<td> <code>theta</code></td>
+<td>一种特殊的极坐标系，半径长度固定，仅仅将数据映射到角度，常用于饼图的绘制。</td>
+</tr>
+<tr>
+<td> <code>clock</code></td>
+<td>极坐标的一种，用于绘制时钟的坐标系。</td>
+</tr>
+<tr>
+<td> <code>gauge</code></td>
+<td>极坐标的一种，仪表盘坐标系。</td>
+</tr>
+<tr>
+<td> <code>map</code></td>
+<td>地理坐标系，支持不同类型的地理投影。</td>
+</tr>
+<tr>
+<td> <code>helix</code></td>
+<td>螺旋坐标系，基于阿基米德螺旋线。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="坐标系类型及配置">坐标系类型及配置</h2><p>坐标系可以分为笛卡尔坐标系和非笛卡尔坐标系，非笛卡尔坐标系有以下两种：</p>
+<ol>
+<li>极坐标（helix 螺旋坐标系也是极坐标的一种），由角度和半径这两个维度来确定位置。</li>
+<li>地图投影，由经度和纬度组成。</li>
+</ol>
+<p>利用极坐标可生成饼图、玫瑰图和雷达图等，常被用于环形数据，比如时间和方向数据。</p>
+<p>坐标系类型的变换会改变几何标记的形状：在极坐标系中，矩形将变为圆环的一部分，而地图中两点间的最短路径也将不是直线。</p>
+<p>例如下图展示的层叠柱状图，在不同坐标系下就变换成了其他的图表类型：</p>
+<p><img src="https://zos.alipayobjects.com/skylark/fd9ba64b-b569-4c1d-acb9-d4dad3500258/attach/2378/44af7b435f0d3f88/image.png" alt="image"></p>
+<p>上图左侧为层叠柱状图，中间的饼图则是层叠柱状图在极坐标下对 x y 两个坐标轴进行转置后的结果，其中 x 轴被映射为半径，y 轴被映射成了角度。而最右边的牛眼图则相反，y 轴映射为半径。</p>
+<h3 id="坐标系配置">坐标系配置</h3><p>极坐标均支持 <code>startAngle</code> 和 <code>endAngle</code> 这两个属性配置。</p>
+<p>（1）对于 <code>polar</code> 和 <code>theta</code> 这两种坐标系类型，可以进行如下属性的配置：</p>
+<div class="highlight"><pre><code class="javascript">chart.coord(<span class="string">'polar'</span> || <span class="string">'theta'</span>, {
+  startAngle: 弧度, <span class="comment">// 起始角度</span>
+  endAngle: 弧度, <span class="comment">// 结束角度</span>
+  inner: <span class="number">0</span> 至 <span class="number">1</span> 范围的数值, <span class="comment">// 用于空心圆的半径设置</span>
+  radius: 数值 <span class="comment">// 实心圆的半径大小设置</span>
+});</code></pre></div><p>效果如图所示：</p>
+<p><img src="https://zos.alipayobjects.com/skylark/db8d6e4f-e07a-4498-a0cd-f035b758871d/attach/2378/83b0cc5ec1eecf31/image.png" alt="image"></p>
+<p>这里需要说明的是，G2 极坐标默认的起始角度和结束角度如下图所示：</p>
+<p><img src="https://zos.alipayobjects.com/skylark/85950a42-9579-44cb-b656-8dd28c9a014a/attach/2378/d648679184c6977c/image.png" alt="image"></p>
+<p>（2） 地理坐标系，需要配合不同的地理投影算法使用。</p>
+<p>目前 G2 提供的地理投影坐标系类型如下：</p>
+<p>需要说明的是，同一种投影算法在绘制不同的地图时对应的基本参数也不同。</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">// 用于世界地图的 albers 投影</span>
+chart.coord(<span class="string">'map'</span>, {
+  projection: <span class="string">'albers'</span>,
+  basic: [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">60</span>], <span class="comment">// 指定投影方法的基本参数，[λ0, φ0, φ1, φ2] 分别表示中央经度、坐标起始纬度、第一标准纬度、第二标准纬度</span>
+  max: [<span class="number">161.89</span>, <span class="number">120.635</span>], <span class="comment">// 指定投影后最大的坐标点</span>
+  min: [-<span class="number">144.485</span>, -<span class="number">27.666</span>] <span class="comment">// 指定投影后最小的坐标点</span>
+});
+<span class="comment">// 用于中国地图的 albers 投影</span>
+chart.coord(<span class="string">'map'</span>, {
+  projection: <span class="string">'albers'</span>, <span class="comment">// 指定投影方法</span>
+  basic: [<span class="number">110</span>, <span class="number">0</span>, <span class="number">25</span>, <span class="number">47</span>], <span class="comment">// 指定投影方法的基本参数，[λ0, φ0, φ1, φ2] 分别表示中央经度、坐标起始纬度、第一标准纬度、第二标准纬度</span>
+  max: [<span class="number">16.573</span>, -<span class="number">13.613</span>], <span class="comment">// 指定投影后最大的坐标点</span>
+  min: [-<span class="number">27.187</span>, -<span class="number">49.739</span>] <span class="comment">// 指定投影后最小的坐标点</span>
+});
+<span class="comment">// 用于中国地图的 mercator 投影</span>
+chart.coord(<span class="string">'map'</span>, {
+  projection: <span class="string">'mercator'</span>,
+  max: [<span class="number">134.77</span>, <span class="number">63.68</span>],
+  min: [<span class="number">73.60</span>, <span class="number">18.48</span>]
+});
+<span class="comment">// 用于世界地图的 mercator 投影</span>
+chart.coord(<span class="string">'map'</span>, {
+  projection: <span class="string">'mercator'</span>,
+  max: [<span class="number">180</span>, <span class="number">165.65</span>], <span class="comment">// 指定投影后最大的坐标点</span>
+  min: [-<span class="number">180</span>, -<span class="number">67.21</span>] <span class="comment">// 指定投影后最小的坐标点</span>
+});</code></pre></div><p>（3） 螺旋坐标系支持的配置参数</p>
+<div class="highlight"><pre><code class="javascript">chart.coord(<span class="string">'helix'</span>, {
+  startAngle:  Math.PI, <span class="comment">// 螺旋线起点弧度</span>
+  endAngle: <span class="number">7</span> * Math.PI <span class="comment">// 螺线线终点弧度</span>
+});</code></pre></div><p><img src="https://zos.alipayobjects.com/skylark/18a54274-05cc-4161-ad3f-284fc7f3eb12/attach/2378/333fa64f63b805f8/image.png" alt="image"></p>
+<h2 id="坐标系变换">坐标系变换</h2><p>G2 提供的坐标系支持一系列的变换操作：</p>
+<ul>
+<li>rotate: 旋转，默认按照坐标系中心旋转；</li>
+<li>scale: 放大、缩小，默认按照坐标系中心放大、缩小；</li>
+</ul>
+<div class="highlight"><pre><code class="javascript">chart.coord(<span class="string">'rect'</span>).scale(<span class="number">0.7</span>, <span class="number">1.2</span>);</code></pre></div><p><img src="https://zos.alipayobjects.com/rmsportal/bAISlaEvIUpqIFVBiXKo.gif" alt="image"></p>
+<ul>
+<li>transpose: x，y 轴交换，例如柱状图转换成水平柱状图（条形图）；</li>
+</ul>
+<p><img src="https://zos.alipayobjects.com/skylark/3b319bf7-f5ae-4165-9753-a1fbd58cc209/attach/2378/62bc082e8beb0f78/image.png" alt="image"></p>
+<ul>
+<li>reflect: 镜像, 沿 x 方向镜像或者沿 y 轴方向映射。</li>
+</ul>
+<p><img src="https://zos.alipayobjects.com/skylark/3e02d865-fcfc-4afd-9ffa-66a1299b31b5/attach/2378/4225fd7483f54155/image.png" alt="image"></p>
+<p>以下是 G2 中坐标系变换的使用语法，当需要进行多种坐标系变换时，可以直接进行链式调用，如下代码所示：</p>
+<div class="highlight"><pre><code class="javascript">chart.coord().rotate(<span class="number">90</span>).scale(<span class="number">1.3</span>, <span class="number">5</span>).reflect(<span class="string">'x'</span>).transpose();</code></pre></div><h2 id="相关实例">相关实例</h2><ul>
+<li><a href="/g2/demo/05-pie/donut.html">环图</a></li>
+<li><a href="/g2/demo/10-map/world-albers.html">albers 地理投影坐标系</a></li>
+<li><a href="/g2/demo/12-dashboards/clock.html">时钟</a></li>
+<li><a href="/g2/demo/12-dashboards/dashboard.html">仪表盘</a></li>
+</ul>
+
+      </div>
+<div class="preNext clearfix">
+  <a href="../../../../g2/doc/tutorial/start/geom.html" class="pull-left">
+    <i class="iconfont icon-left"></i>
+    geom 几何标记
+  </a>
+  <a href="../../../../g2/doc/tutorial/start/coord.html" class="pull-right">
+    coord 坐标系
+    <i class="iconfont icon-right"></i>
+  </a>
+</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../../../../static/nav-menu.js"></script>
+  <script src="../../../../static/prettify-min.js"></script>
+  <script src="../../../../static/clipboard.min.js"></script>
+  <script type="text/javascript">
+    var CLS_PRETTY = 'prettyprint linenums';
+    BUI.use('bui/common',function(BUI){
+      var preEls =  $('pre');
+      BUI.each(preEls,function(el){
+        var node = $(el), innerText;
+        node.addClass(CLS_PRETTY);
+        innerText = node.html();
+        var a = /^(\s+)/.exec(innerText);
+        var regex;
+        if(a){
+          regex = new RegExp('('+a[0]+')(\\s*)','ig');
+          innerText = innerText.replace(regex,'$2');
+        }
+          node.html(innerText);
+      });
+      if(window.prettyPrint){
+        prettyPrint();
+      }
+    });
+
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  </script>
+  
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

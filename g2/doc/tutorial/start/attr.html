@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>attr 图形属性</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item hover">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+  <link rel="stylesheet" href="../../../../static/prettify-min.css">
+
+
+  <div class="main-container clearfix">
+  <div class="body-content tutorial-body-content"><div class="doc-nav">
+  <p class="title">G2</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g2/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">使用教程</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="sub-title">基础教程</li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/index.html" >G2 图表的主要组成</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/chart.html" >图表对象配置（chart）</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/working-with-data.html" >data 数据</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/frame.html" >Frame 常见操作</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/scale.html" >度量</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/col-defs.html" >列定义操作</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/geom.html" >geom 几何标记</a>
+          </li>
+          <li class="active">
+            <a href="../../../../g2/doc/tutorial/start/attr.html" >attr 图形属性</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/coord.html" >coord 坐标系</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/axis.html" >axis 坐标轴</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/legend.html" >legend 图例</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/tooltip.html" >tooltip 提示信息</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/guide.html" >guide 辅助标记</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/stat.html" >stat 统计变换</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/facet.html" >facet 分面</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/theme.html" >theme 图表样式</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/label.html" >label 文本标签</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/chart-event.html" >图表事件 event</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/action.html" >图表交互</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/changedata.html" >数据异步加载与动态更新</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/g2-plugin-slider.html" >数据滑动条插件使用</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/rc-g2.html" >在 react 中使用 G2</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/fqas.html" >常见问题</a>
+          </li>
+          <li class="sub-title">高级教程</li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/index.html" >G2 图形语法简介</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/data-flow.html" >G2 的数据处理流程</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/data-type-and-scale.html" >数据类型与度量</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/coord-detailed.html" >坐标系详解</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/chart-type.html" >图表类型</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/geom-and-adjust.html" >几何标记和数据调整</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/custom-shape.html" >自定义 shape</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/view.html" >多视图 view 绘制</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/layout.html" >layout 布局</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/draw-word-cloud.html" >使用 G2 绘制词云</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/animate.html" >自定义动画</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">API</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="">
+            <a href="../../../../g2/api/index.html" >G2</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/chart.html" >Chart</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/view.html" >View</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/geom.html" >Geom</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/scale.html" >Scale</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/stat.html" >Stat</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/frame.html" >Frame</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/shape.html" >Shape</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/animate.html" >Animate</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/util.html" >Util</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/chart-options.html" >配置项支持</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/doc/history.html" >更新日志</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+    <div class="doc-content clearfix">
+      <div class="doc-inner">
+        <h2 id="简介">简介</h2><p>图形属性对应视觉编码中的视觉通道，是 G2 语法元素非常重要和灵活的一部分，不同的几何标记拥有自己的图形属性。G2 中支持的视觉通道有下面几种：</p>
+<ol>
+<li>position，位置，二维坐标系内映射至 x 轴、y 轴，三维坐标系可以映射到 x 轴、y 轴、z 轴;</li>
+<li>color，颜色，包含了色调、饱和度和亮度；</li>
+<li>size，大小，不同的几何标记对大小的定义有差异；</li>
+<li>shape，形状，几何标记的形状决定了某个具体图表类型的表现形式，例如点图，可以使用圆点、三角形、图片表示；线图可以有折线、曲线、点线等表现形式；</li>
+<li>opacity，透明度，图形的透明度，这个属性从某种意义上来说可以使用颜色代替，需要使用 &#39;rgba&#39; 的形式，所以在 G2 中我们独立出来。</li>
+</ol>
+<h2 id="g2-调用语法">G2 调用语法</h2><p>在 G2 中，我们这样定义图形属性的映射语法。</p>
+<p>首先需要明确一点：<strong>图形属性是属于每一个几何标记 geom 的</strong>，所以我们先要声明几何标记，然后再在该几何标记上进行图形属性的映射，代码如下：</p>
+<div class="highlight"><pre><code class="javascript">chart.<span class="xml"><span class="tag">&lt;<span class="title">geomType</span>&gt;</span>().<span class="tag">&lt;<span class="title">attrType</span>&gt;</span>(dims, [callback]);</span></code></pre></div><p>其中：</p>
+<ul>
+<li>geomType，几何标记类型，具体支持的类型请阅读<a href="/g2/doc/tutorial/start/geom.html">几何标记</a>章节；</li>
+<li>attrType，图形属性类型，对应视觉通道；</li>
+<li>dims，参与单个视觉通道映射的字段，可以是单个字段也可以是多个字段，多个字段使用 <code>*</code>分割</li>
+<li>callback，回调函数，用于定义如何解析视觉通道，如不提供则只用 G2 默认提供的视觉通道解析方式。</li>
+</ul>
+<p>除了 <code>attr(dims, callback)</code> 的函数原型外，G2 为了用户使用的便利性，结合各个视觉通道的特点，还提供了更为便捷的使用方式，在本章后面会进行详细的介绍。</p>
+<p>语法示例：</p>
+<div class="highlight"><pre><code class="javascript">chart.point().position(<span class="string">'a*b'</span>).color(<span class="string">'c'</span>);
+
+chart.interval().position(<span class="string">'a*b'</span>).color(<span class="string">'c'</span>, <span class="function"><span class="keyword">function</span><span class="params">(cValue)</span> {</span>
+  <span class="keyword">if</span> (cvalue === <span class="string">'fail'</span>) {
+    <span class="keyword">return</span> <span class="string">'red'</span>;
+  } <span class="keyword">else</span> {
+    <span class="keyword">return</span> <span class="string">'green'</span>;
+  }
+});</code></pre></div><p>G2 对于每个图形属性的参数 dims 的解析规则如下：</p>
+<ul>
+<li>如果是单个单词，如 <code>color(&#39;a&#39;)</code> 会判断该属性是否是输入数据源的字段属性，如果不是则会将其解析为一个常量；</li>
+<li>如果是多个属性的映射，需要使用 <code>*</code> 进行连接，G2 会依次对这些字段进行解析和映射，如 <code>position(&#39;cut*price&#39;)</code>;</li>
+<li>另外还支持统计函数嵌套，如 <code>position(Stat.summary.sum(&#39;cut*price&#39;))</code>。</li>
+</ul>
+<h2 id="position-位置属性">position 位置属性</h2><p>position 位置属性的映射，用于确定由数据中的哪几个字段来确定数据在平面坐标系的位置。通俗地解释，即确定 x 轴和 y 轴的数据字段。它是唯一一个可以用于编码分类又可用于编码定序或者定量的数据属性。</p>
+<p>以下面的语句为例，在 position 属性上，映射了两个属性： cut 和 price，分别表示将 cut 数据值映射至 x 轴坐标点，price 数据值映射至 y 轴坐标点。</p>
+<div class="highlight"><pre><code class="javascript">chart.point().position(<span class="string">'cut*price'</span>);</code></pre></div><p>在 position 中，除了支持 * 的属性连接方式，还支持 + 的连接方式，下面就对这两种连接方式进行解释：</p>
+<h3 id="position-x-y">position(x*y)</h3><p>以 <code>chart.point().position(&#39;x*y&#39;)</code> 为例，point 代表图形，即最后需要生成点图，而 position 代表位置，<code>position(&#39;x*y&#39;)</code> 代表数据在图形中的位置由 x 和 y 这两个维度的变量决定，x * y 的数据处理结果可以理解为：</p>
+<p><img src="https://zos.alipayobjects.com/basement/skylark/0ad6383d14767551710161623d383e/attach/514/506/image.png" alt="image"></p>
+<p>(x1, y1) 这样的数值对，最后就会被转换为画布上对应的坐标点。</p>
+<h3 id="position-x-y-z">position((x+y)*z)</h3><p>以此句语法 <code>chart.interval().position(&#39;e*(a + b + c + d)&#39;)</code> 为例，(a + b + c + d) 代表了数据的一个区间，从 a 到 b 到 c 到 d。G2 会默认按照声明的字段顺序将参与加法运算的属性进行合并，生成一列属性名为 &#39;a+b+c+d&#39; 的数据，其中的数据值为数组： [a1, b1, c1, d1]，然后将新生成的字段参与图形的绘制和映射。如下，展示的瀑布图，每一个柱子表示了一个数值区间，股票的涨跌范围，这个时候就可以使用 +。</p>
+<div id="c1"></div>
+
+<p>完整代码如下：</p>
+<script>(function(){"use strict";
+
+var data = [{ "time": 1428163200000, "start": 469, "end": 480 }, { "time": 1428163203600, "start": 480, "end": 430 }, { "time": 1428163207200, "start": 430, "end": 410 }, { "time": 1428163210800, "start": 410, "end": 420 }, { "time": 1428163214400, "start": 420, "end": 440 }, { "time": 1428163218000, "start": 440, "end": 460 }, { "time": 1428163221600, "start": 460, "end": 410 }, { "time": 1428163225200, "start": 410, "end": 440 }, { "time": 1428163228800, "start": 440, "end": 490 }];
+var frame = new G2.Frame(data); // 创建数据源
+frame.addCol('trend', function (obj) {
+  return obj.start <= obj.end ? 0 : 1;
+});
+var chart = new G2.Chart({
+  id: 'c1',
+  forceFit: true,
+  height: 400
+});
+var defs = {
+  'time': { // 设置日期类型
+    type: 'timeCat',
+    nice: false,
+    mask: 'HH:MM:ss'
+  },
+  'trend': {
+    type: 'cat',
+    alias: '趋势',
+    values: ['上涨', '下跌']
+  }
+};
+chart.source(frame, defs);
+chart.interval().position('time*(start+end)').color('trend', ['#1bbd19', '#fa513a']).size(25);
+chart.render();})()</script><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {<span class="string">"time"</span>:<span class="number">1428163200000</span>,<span class="string">"start"</span>:<span class="number">469</span>,<span class="string">"end"</span>:<span class="number">480</span>},
+  {<span class="string">"time"</span>:<span class="number">1428163203600</span>,<span class="string">"start"</span>:<span class="number">480</span>,<span class="string">"end"</span>:<span class="number">430</span>},
+  {<span class="string">"time"</span>:<span class="number">1428163207200</span>,<span class="string">"start"</span>:<span class="number">430</span>,<span class="string">"end"</span>:<span class="number">410</span>},
+  {<span class="string">"time"</span>:<span class="number">1428163210800</span>,<span class="string">"start"</span>:<span class="number">410</span>,<span class="string">"end"</span>:<span class="number">420</span>},
+  {<span class="string">"time"</span>:<span class="number">1428163214400</span>,<span class="string">"start"</span>:<span class="number">420</span>,<span class="string">"end"</span>:<span class="number">440</span>},
+  {<span class="string">"time"</span>:<span class="number">1428163218000</span>,<span class="string">"start"</span>:<span class="number">440</span>,<span class="string">"end"</span>:<span class="number">460</span>},
+  {<span class="string">"time"</span>:<span class="number">1428163221600</span>,<span class="string">"start"</span>:<span class="number">460</span>,<span class="string">"end"</span>:<span class="number">410</span>},
+  {<span class="string">"time"</span>:<span class="number">1428163225200</span>,<span class="string">"start"</span>:<span class="number">410</span>,<span class="string">"end"</span>:<span class="number">440</span>},
+  {<span class="string">"time"</span>:<span class="number">1428163228800</span>,<span class="string">"start"</span>:<span class="number">440</span>,<span class="string">"end"</span>:<span class="number">490</span>}
+];
+<span class="keyword">var</span> frame = <span class="keyword">new</span> G2.Frame(data); <span class="comment">// 创建数据源</span>
+frame.addCol(<span class="string">'trend'</span>, <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+  <span class="keyword">return</span> (obj.start &lt;= obj.end) ? <span class="number">0</span> : <span class="number">1</span>;
+});
+<span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id: <span class="string">'c1'</span>,
+  forceFit: <span class="literal">true</span>,
+  height: <span class="number">400</span>
+});
+<span class="keyword">var</span> defs = {
+  <span class="string">'time'</span>: { <span class="comment">// 设置日期类型</span>
+    type: <span class="string">'timeCat'</span>,
+    nice: <span class="literal">false</span>,
+    mask: <span class="string">'HH:MM:ss'</span>
+  },
+  <span class="string">'trend'</span>: {
+    type: <span class="string">'cat'</span>,
+    alias: <span class="string">'趋势'</span>,
+    values: [<span class="string">'上涨'</span>,<span class="string">'下跌'</span>]
+  }
+};
+chart.source(frame, defs);
+chart.interval()
+  .position(<span class="string">'time*(start+end)'</span>)
+  .color(<span class="string">'trend'</span>,[<span class="string">'#1bbd19'</span>,<span class="string">'#fa513a'</span>])
+  .size(<span class="number">25</span>);
+chart.render();</code></pre></div><h3 id="嵌套统计函数">嵌套统计函数</h3><p>每个图形属性都支持统计函数的嵌套，如：</p>
+<div class="highlight"><pre><code class="javascript">chart.interval().position(Stat.summary.max(<span class="string">'cut*price'</span>)).color(<span class="string">'cut'</span>);</code></pre></div><p>这个语句首先经过统计函数计算出每个 cut 分类的 price 最大值，然后进行图形属性的映射，即这个时候横轴为 cut，纵轴为 price 的最大值，如下图所示：</p>
+<div id="c2"></div>
+
+<p>完整代码如下：</p>
+<script>(function(){'use strict';
+
+$.getJSON('../../../../static/data/diamond.json', function (data) {
+  var Stat = G2.Stat;
+  var chart = new G2.Chart({
+    id: 'c2',
+    forceFit: true,
+    height: 400,
+    plotCfg: {
+      margin: [20, 90, 60, 80]
+    }
+  });
+  chart.source(data);
+  chart.interval().position(Stat.summary.median('cut*price')).color('cut');
+  chart.render();
+});})()</script><div class="highlight"><pre><code class="javascript">$.getJSON(<span class="string">'../../../../static/data/diamond.json'</span>,<span class="function"><span class="keyword">function</span> <span class="params">(data)</span> {</span>
+  <span class="keyword">var</span> Stat = G2.Stat;
+  <span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+    id: <span class="string">'c2'</span>,
+    forceFit: <span class="literal">true</span>,
+    height: <span class="number">400</span>,
+    plotCfg: {
+      margin: [<span class="number">20</span>, <span class="number">90</span>, <span class="number">60</span>, <span class="number">80</span>]
+    }
+  });
+  chart.source(data);
+  chart.interval().position(Stat.summary.median(<span class="string">'cut*price'</span>)).color(<span class="string">'cut'</span>);
+  chart.render();
+});</code></pre></div><h2 id="color">color</h2><p>从可视化编码的角度对颜色进行分析，可以将颜色分为亮度、饱和度和色调三个视觉通道，其中前两个可以认为是用于编码定量和定序数据的视觉通道，而色调属于编码定性数据的视觉通道。而在 G2 中并不如此详细区分，统一使用 color 方法进行映射配置。</p>
+<p>color 支持的映射语法如下：</p>
+<ul>
+<li><code>color(&#39;dim&#39;)</code>，dim 为数据属性，这时候 G2 会在内部调用默认的回调函数，读取默认提供的颜色进行数据值到颜色值的映射；</li>
+<li><code>color(&#39;dim&#39;, colors)</code>，将数据值映射至指定的颜色值 colors（可以是字符串也可以是数组），此时用于通常映射分类数据；</li>
+<li><code>color(&#39;dim&#39;, &#39;color1-color2-colorn&#39;)</code>，指定颜色的渐变路径，用于映射定量（连续)的数据；</li>
+<li><code>color(&#39;dims&#39;, callback)</code>，使用回调函数进行颜色值的自定义；可以使用多个字段使用*号连接</li>
+<li><code>color(&#39;red&#39;)</code>， 直接指定颜色常量，不进行数据映射。</li>
+</ul>
+<h3 id="分类数据的颜色映射">分类数据的颜色映射</h3><p>将 <code>city</code> 属性的数据值映射至制定的颜色来区分不同的城市。</p>
+<p><code>.color(&#39;city&#39;, [&#39;#1f77b4&#39;, &#39;#ff7f0e&#39;, &#39;#2ca02c&#39;])</code></p>
+<div id="c3"></div>
+
+<p>完整的代码如下：</p>
+<script>(function(){'use strict';
+
+$.getJSON('../../../../static/data/avg-temp.json', function (data) {
+  var Frame = G2.Frame;
+  var frame = new Frame(data);
+  frame = Frame.combinColumns(frame, ['New York', 'San Francisco', 'Austin'], 'value', 'city', 'date');
+  var chart = new G2.Chart({
+    id: 'c3',
+    forceFit: true,
+    height: 400,
+    plotCfg: {
+      margin: [20, 120, 80, 80]
+    }
+  });
+  chart.source(frame, {
+    date: {
+      type: 'time',
+      mask: 'yyyy.mm',
+      tickCount: 12
+    },
+    value: {
+      alias: 'Temperature, ºF'
+    }
+  });
+  chart.axis('date', {
+    line: null,
+    tickLine: {
+      stroke: '#000',
+      value: 6 // 刻度线长度
+    },
+    title: null
+  });
+  chart.axis('value', {
+    tickLine: {
+      stroke: '#000',
+      value: 6 // 刻度线长度
+    },
+    labels: {
+      label: {
+        fill: '#000'
+      }
+    },
+    line: {
+      stroke: '#000'
+    },
+    grid: null
+  });
+  chart.line().position('date*value').color('city', ['#1f77b4', '#ff7f0e', '#2ca02c']).shape('spline').size(2);
+  chart.render();
+});})()</script><div class="highlight"><pre><code class="javascript">$.getJSON(<span class="string">'../../../../static/data/avg-temp.json'</span>,<span class="function"><span class="keyword">function</span><span class="params">(data)</span>{</span>
+  <span class="keyword">var</span> Frame = G2.Frame;
+  <span class="keyword">var</span> frame = <span class="keyword">new</span> Frame(data);
+  frame = Frame.combinColumns(frame, [<span class="string">'New York'</span>, <span class="string">'San Francisco'</span>,<span class="string">'Austin'</span>], <span class="string">'value'</span>, <span class="string">'city'</span>, <span class="string">'date'</span>);
+  <span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+    id: <span class="string">'c3'</span>,
+    forceFit: <span class="literal">true</span>,
+    height : <span class="number">400</span>,
+    plotCfg: {
+      margin: [<span class="number">20</span>, <span class="number">120</span>, <span class="number">80</span>, <span class="number">80</span>]
+    }
+  });
+  chart.source(frame, {
+    date: {
+      type: <span class="string">'time'</span>,
+      mask: <span class="string">'yyyy.mm'</span>,
+      tickCount: <span class="number">12</span>
+    },
+    value: {
+      alias: <span class="string">'Temperature, ºF'</span>
+    }
+  });
+  chart.axis(<span class="string">'date'</span>, {
+    line: <span class="literal">null</span>,
+    tickLine: {
+      stroke: <span class="string">'#000'</span>,
+      value: <span class="number">6</span> <span class="comment">// 刻度线长度</span>
+    },
+    title: <span class="literal">null</span>
+  });
+  chart.axis(<span class="string">'value'</span>, {
+    tickLine: {
+      stroke: <span class="string">'#000'</span>,
+      value: <span class="number">6</span> <span class="comment">// 刻度线长度</span>
+    },
+    labels: {
+      label: {
+        fill: <span class="string">'#000'</span>
+      }
+    },
+    line: {
+      stroke: <span class="string">'#000'</span>
+    },
+    grid: <span class="literal">null</span>
+  });
+  chart.line().position(<span class="string">'date*value'</span>).color(<span class="string">'city'</span>, [<span class="string">'#1f77b4'</span>, <span class="string">'#ff7f0e'</span>, <span class="string">'#2ca02c'</span>]).shape(<span class="string">'spline'</span>).size(<span class="number">2</span>);
+  chart.render();
+});</code></pre></div><h3 id="连续数据的颜色映射">连续数据的颜色映射</h3><p>对于连续的数据，我们可以为 color 指定颜色渐变的路径，以可视化数据在某一范围的变化趋势。</p>
+<p><code>.color(&#39;Population&#39;,&#39;#e5f5e0-#31a354&#39;)</code></p>
+<div id="c4"></div>
+
+<p>完整代码如下：</p>
+<script>(function(){'use strict';
+
+var Stat = G2.Stat;
+$.getJSON('../../../../static/data/USA.geo.json', function (mapData) {
+  var map = [];
+  var features = mapData.features;
+  for (var i = 0; i < features.length; i++) {
+    var name = features[i].properties.name;
+    map.push({
+      "name": name
+    });
+  }
+  var chart = new G2.Chart({
+    id: 'c4',
+    width: 800,
+    height: 400,
+    plotCfg: {
+      margin: [40, 140]
+    }
+  });
+  chart.source(map);
+  chart.legend(false);
+  chart.polygon().position(Stat.map.region('name', mapData)).color('#e6e6e6').style({
+    stroke: '#999',
+    lineWidth: 1
+  });
+  $.getJSON('../../../../static/data/2014-usa-population.json', function (data) {
+    var view = chart.createView();
+    view.source(data);
+    view.polygon().position(Stat.map.region('State', mapData)).color('Population', '#e5f5e0-#31a354');
+    view.point().position(Stat.map.center('State', mapData)).size(0).label('code', { offset: 0 });
+    chart.render();
+  });
+});})()</script><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> Stat = G2.Stat;
+$.getJSON(<span class="string">'../../../../static/data/USA.geo.json'</span>, <span class="function"><span class="keyword">function</span><span class="params">(mapData)</span> {</span>
+  <span class="keyword">var</span> map = [];
+  <span class="keyword">var</span> features = mapData.features;
+  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;features.length; i++) {
+    <span class="keyword">var</span> name = features[i].properties.name;
+    map.push({
+      <span class="string">"name"</span>: name
+    });
+  }
+  <span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+    id: <span class="string">'c4'</span>,
+    width: <span class="number">800</span>,
+    height: <span class="number">400</span>,
+    plotCfg: {
+      margin: [<span class="number">40</span>, <span class="number">140</span>]
+    }
+  });
+  chart.source(map);
+  chart.legend(<span class="literal">false</span>);
+  chart.polygon().position(Stat.map.region(<span class="string">'name'</span>, mapData)).color(<span class="string">'#e6e6e6'</span>).style({
+    stroke: <span class="string">'#999'</span>,
+    lineWidth: <span class="number">1</span>
+  });
+  $.getJSON(<span class="string">'../../../../static/data/2014-usa-population.json'</span>, <span class="function"><span class="keyword">function</span><span class="params">(data)</span> {</span>
+    <span class="keyword">var</span> view = chart.createView();
+    view.source(data);
+    view.polygon().position(Stat.map.region(<span class="string">'State'</span>, mapData)).color(<span class="string">'Population'</span>,<span class="string">'#e5f5e0-#31a354'</span>);
+    view.point().position(Stat.map.center(<span class="string">'State'</span>, mapData)).size(<span class="number">0</span>).label(<span class="string">'code'</span>, {offset: <span class="number">0</span>});
+    chart.render();
+  });
+});</code></pre></div><h3 id="颜色使用回调函数">颜色使用回调函数</h3><p>有时候颜色需要根据字段值进行特殊的指定，所以G2提供了回调函数来指定图形的颜色</p>
+<div class="highlight"><pre><code class="javascript">
+<span class="comment">// 根据单个字段计算颜色</span>
+chart.point().position(<span class="string">'x*y'</span>).color(<span class="string">'z'</span>, <span class="function"><span class="keyword">function</span><span class="params">(z)</span> {</span>
+  <span class="keyword">if</span> (z &gt;= <span class="number">100</span>) {
+    <span class="keyword">return</span> <span class="string">'red'</span>;
+  }
+  <span class="keyword">return</span> blue;
+});
+
+<span class="comment">// 根据多个字段计算颜色</span>
+chart.point().position(<span class="string">'x*y'</span>).color(<span class="string">'level*value'</span>, <span class="function"><span class="keyword">function</span><span class="params">(level, value)</span> {</span>
+  <span class="keyword">if</span> (level &lt; <span class="number">2</span>) {
+    <span class="keyword">if</span> (value &gt; <span class="number">10</span>) {
+      <span class="keyword">return</span> <span class="string">'green'</span>;
+    }
+    <span class="keyword">return</span> <span class="string">'blue'</span>;
+  } <span class="keyword">else</span> {
+    <span class="keyword">if</span> (value &gt; <span class="number">20</span>) {
+      <span class="keyword">return</span> <span class="string">'#cdcdcd'</span>;
+    }
+    <span class="keyword">return</span> <span class="string">'red'</span>;
+  }
+});</code></pre></div><p>注意：</p>
+<ul>
+<li>color 属性的回调函数一般返回的单个颜色，因为G2中所有的shape仅支持单个颜色</li>
+<li>color 属性的回调函数也可以返回数组，数组中有多个颜色，但是这时候需要shape支持多颜色的解析，详细情况查看 <a href="../advance/custom-shape.html">自定义shape</a></li>
+</ul>
+<h2 id="shape">shape</h2><p>不同的几何标记有不同的 shape（图形形状）。shape 这个视觉通道受其他几个视觉通道影响，比如：interval 几何标记的 shape 可以是填充的矩形 rect 也可是空心的边框矩形，这个就决定了是将 color 映射到填充色上还是映射到边框颜色上。shape 方法的使用方式比较简单，常用于映射分类数据：</p>
+<ul>
+<li>shape(&#39;dim&#39;)，将指定的字段映射到内置的 shapes 数组中；</li>
+<li>shape(&#39;dim&#39;, shapes)，用户自己提供 shapes 数据，来进行数据映射；</li>
+<li>shape(&#39;dims&#39;, callback)，使用回调函数获取shape，用于个性化的 shape 定制；可以根据单个或者多个字段确定</li>
+<li>shape(&#39;circle&#39;)，指定常量，将所有数据值映射到固定的shape。</li>
+</ul>
+<p>另外 G2 2.0.0 版本开始提供了自定义 shape 的功能，详见<a href="../advance/custom-shape.html">如何快速得自定义 shape</a>。</p>
+<h3 id="geom-和-shape">geom 和 shape</h3><p>使用几何标记实现各种图表类型时，对于每一种几何标记来说，图形在绘制的时候有不同的形状（shape)，在<a href="">几何标记</a> 章节已列出了目前 G2 提供的 geom 默认支持的 shape。</p>
+<h3 id="示例-划分区域的多形状散点图">示例:划分区域的多形状散点图</h3><p><code>.shape(&#39;type&#39;, [&#39;circle&#39;, &#39;triangle-down&#39;, &#39;square&#39;, &#39;diamond&#39;])</code></p>
+<div id="c5"></div>
+
+<p>完整代码：</p>
+<script>(function(){"use strict";
+
+G2.Global.setTheme('cheery'); // 切换默认主题
+var data = [{ "type": "series1", "x": 1732.8871544450521, "y": -80.75603982433677 }, { "type": "series2", "x": 1546.589955687523, "y": 282.97513956204057 }, { "type": "series3", "x": 742.7253536880016, "y": 479.4877045787871 }, { "type": "series4", "x": 772.9451237246394, "y": -407.76275377720594 }, { "type": "series1", "x": 1359.810951165855, "y": 297.2723776474595 }, { "type": "series2", "x": 650.068512186408, "y": -129.5293727889657 }, { "type": "series3", "x": 1730.0641294568777, "y": -240.9555669873953 }, { "type": "series4", "x": 502.4238293990493, "y": -342.1307345852256 }, { "type": "series1", "x": 1582.250035367906, "y": -45.05145130679011 }, { "type": "series2", "x": 1829.3536202982068, "y": -113.36682550609112 }, { "type": "series3", "x": 1572.7724805474281, "y": 115.85489613935351 }, { "type": "series4", "x": 1887.0485508814454, "y": 6.104619242250919 }, { "type": "series1", "x": 882.0341778919101, "y": 401.86547581106424 }, { "type": "series2", "x": 1620.0402630493045, "y": 267.45478762313724 }, { "type": "series3", "x": 1925.4421964287758, "y": 369.47823595255613 }, { "type": "series4", "x": 1611.9598066434264, "y": -234.8197065293789 }, { "type": "series1", "x": 1720.9005448967218, "y": -115.85958395153284 }, { "type": "series2", "x": 1862.451889552176, "y": -248.42322198674083 }, { "type": "series3", "x": 1283.97127520293, "y": 325.95419557765126 }, { "type": "series4", "x": 1869.39731054008, "y": 383.6600771173835 }, { "type": "series1", "x": 1988.1872748956084, "y": -216.48837719112635 }, { "type": "series2", "x": 1187.2317604720592, "y": 404.27824622020125 }, { "type": "series3", "x": 1571.8251904472709, "y": -96.22862562537193 }, { "type": "series4", "x": 1826.7804672941566, "y": -477.26183850318193 }, { "type": "series1", "x": 1177.1034905686975, "y": -112.32297029346228 }, { "type": "series2", "x": 1195.6303780898452, "y": 448.2225668616593 }, { "type": "series3", "x": 1955.4035440087318, "y": 21.227966528385878 }, { "type": "series4", "x": 1732.739924453199, "y": 368.81575733423233 }, { "type": "series1", "x": 806.2865408137441, "y": 385.1917199790478 }, { "type": "series2", "x": 1556.4921544864774, "y": -420.2395495958626 }, { "type": "series3", "x": 1181.5953878685832, "y": -277.57429890334606 }, { "type": "series4", "x": 1269.245852716267, "y": 242.08716116845608 }, { "type": "series1", "x": 1219.9176428839564, "y": 346.6071574948728 }, { "type": "series2", "x": 746.3413281366229, "y": -89.49963096529245 }, { "type": "series3", "x": 432.45446030050516, "y": 441.71203626319766 }, { "type": "series4", "x": 777.959868311882, "y": 66.79431581869721 }, { "type": "series1", "x": 918.3598393574357, "y": 448.46232794225216 }, { "type": "series2", "x": 1436.13195233047, "y": 184.53770177438855 }, { "type": "series3", "x": 1119.1939394921064, "y": -312.59450083598495 }, { "type": "series4", "x": 1998.3739340677857, "y": 5.358115769922733 }, { "type": "series1", "x": 1069.4813169538975, "y": -106.57294746488333 }, { "type": "series2", "x": 275.5963373929262, "y": 205.64519427716732 }, { "type": "series3", "x": 801.038783043623, "y": 7.43780517950654 }, { "type": "series4", "x": 213.5445298627019, "y": 288.95508078858256 }, { "type": "series1", "x": 1697.732014581561, "y": -495.7758020609617 }, { "type": "series2", "x": 1940.3524557128549, "y": 57.93372122570872 }, { "type": "series3", "x": 1365.2942385524511, "y": 246.1609710007906 }, { "type": "series4", "x": 986.5696644410491, "y": 248.502679169178 }, { "type": "series1", "x": 1991.1393811926246, "y": -269.05048871412873 }, { "type": "series2", "x": 1244.1082932054996, "y": 378.08641185984015 }, { "type": "series3", "x": 958.6482960730791, "y": -222.58463921025395 }, { "type": "series4", "x": 1939.0085907652974, "y": -415.7125297933817 }, { "type": "series1", "x": 1097.460888326168, "y": 298.815727699548 }, { "type": "series2", "x": 1132.0891315117478, "y": -409.8006417043507 }, { "type": "series3", "x": 934.7271472215652, "y": 78.89576349407434 }, { "type": "series4", "x": 632.7374717220664, "y": 240.34222541376948 }, { "type": "series1", "x": 25.66775120794773, "y": 386.65700424462557 }, { "type": "series2", "x": 1791.440169326961, "y": -98.93955988809466 }, { "type": "series3", "x": 1391.1143569275737, "y": 46.02528735995293 }, { "type": "series4", "x": 538.8829139992595, "y": -428.8868750445545 }, { "type": "series1", "x": 933.5943283513188, "y": 327.7888190932572 }, { "type": "series2", "x": 1381.4812870696187, "y": -36.58548276871443 }, { "type": "series3", "x": 152.31592673808336, "y": -233.14770916476846 }, { "type": "series4", "x": 90.16109630465508, "y": -45.90578889474273 }, { "type": "series1", "x": 1855.3984118625522, "y": 234.1356431134045 }, { "type": "series2", "x": 889.7370044142008, "y": -261.737990193069 }, { "type": "series3", "x": 344.61341612040997, "y": -13.636548072099686 }, { "type": "series4", "x": 588.4585017338395, "y": -5.226874258369207 }, { "type": "series1", "x": 1714.1733933240175, "y": -204.88095516338944 }, { "type": "series2", "x": 905.8979945257306, "y": -326.66328828781843 }, { "type": "series3", "x": 179.5906499028206, "y": -468.77168817445636 }, { "type": "series4", "x": 472.5130721926689, "y": -1.9495864398777485 }, { "type": "series1", "x": 1275.0087166205049, "y": 29.06017890200019 }, { "type": "series2", "x": 262.88699731230736, "y": 496.59054493531585 }, { "type": "series3", "x": 44.90217100828886, "y": -441.4119469001889 }, { "type": "series4", "x": 1782.4337324127555, "y": -269.77423299103975 }, { "type": "series1", "x": 748.8169632852077, "y": 336.41374530270696 }, { "type": "series2", "x": 1684.0793499723077, "y": -123.5110298730433 }, { "type": "series3", "x": 1109.3289218842983, "y": 423.3962232246995 }, { "type": "series4", "x": 354.1235653683543, "y": -307.66808334738016 }, { "type": "series1", "x": 1329.577681608498, "y": 470.3424177132547 }, { "type": "series2", "x": 273.0302046984434, "y": -147.08185475319624 }, { "type": "series3", "x": 1873.354759067297, "y": 415.8988082781434 }, { "type": "series4", "x": 1152.5639267638326, "y": -228.8104579783976 }, { "type": "series1", "x": 480.6276988238096, "y": -168.55818405747414 }, { "type": "series2", "x": 724.2633355781436, "y": -137.24337238818407 }, { "type": "series3", "x": 879.4547133147717, "y": -114.34462806209922 }, { "type": "series4", "x": 988.7294666841626, "y": -206.20282599702477 }, { "type": "series1", "x": 1954.3535728007555, "y": 214.61118385195732 }, { "type": "series2", "x": 851.2419117614627, "y": 420.7796682603657 }, { "type": "series3", "x": 953.703748062253, "y": 89.70340387895703 }, { "type": "series4", "x": 61.40255834907293, "y": -160.9144126996398 }, { "type": "series1", "x": 1207.9351842403412, "y": 386.9934994727373 }, { "type": "series2", "x": 1142.1515522524714, "y": 279.29873764514923 }, { "type": "series3", "x": 1069.3543190136552, "y": 239.56217663362622 }, { "type": "series4", "x": 1898.9934483543038, "y": 341.7890924029052 }, { "type": "series1", "x": 736.7067560553551, "y": -414.1982044093311 }, { "type": "series2", "x": 1718.982090242207, "y": 83.44200439751148 }, { "type": "series3", "x": 814.3314002081752, "y": -484.1634132899344 }, { "type": "series4", "x": 346.93830739706755, "y": 150.88692586869 }];
+var chart = new G2.Chart({
+  id: 'c5',
+  forceFit: true,
+  height: 400
+});
+chart.source(data, {
+  x: {
+    tickCount: 8
+  }
+});
+chart.point().position('x*y').color('type').shape('type', ['circle', 'triangle-down', 'square', 'diamond']).size(7);
+// 添加辅助元素
+chart.guide().text([250, 550], '0 - 500', {
+  fontSize: '15px'
+});
+chart.guide().text([1000, 550], '500 - 1500', {
+  fontSize: '15px'
+});
+chart.guide().text([1700, 550], '1500 - 2000', {
+  fontSize: '15px'
+});
+chart.guide().rect([0, -600], [500, 600]);
+chart.guide().rect([500, -600], [1500, 600], {
+  fillOpacity: 0.2
+});
+chart.guide().rect([1500, -600], [2000, 600], {
+  fillOpacity: 0.3
+});
+chart.render();})()</script><div class="highlight"><pre><code class="javascript">G2.Global.setTheme(<span class="string">'cheery'</span>); <span class="comment">// 切换默认主题</span>
+<span class="keyword">var</span> data = [{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1732.8871544450521</span>,<span class="string">"y"</span>:-<span class="number">80.75603982433677</span>},  {<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1546.589955687523</span>,<span class="string">"y"</span>:<span class="number">282.97513956204057</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">742.7253536880016</span>,<span class="string">"y"</span>:<span class="number">479.4877045787871</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">772.9451237246394</span>,<span class="string">"y"</span>:-<span class="number">407.76275377720594</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1359.810951165855</span>,<span class="string">"y"</span>:<span class="number">297.2723776474595</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">650.068512186408</span>,<span class="string">"y"</span>:-<span class="number">129.5293727889657</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">1730.0641294568777</span>,<span class="string">"y"</span>:-<span class="number">240.9555669873953</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">502.4238293990493</span>,<span class="string">"y"</span>:-<span class="number">342.1307345852256</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1582.250035367906</span>,<span class="string">"y"</span>:-<span class="number">45.05145130679011</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1829.3536202982068</span>,<span class="string">"y"</span>:-<span class="number">113.36682550609112</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">1572.7724805474281</span>,<span class="string">"y"</span>:<span class="number">115.85489613935351</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">1887.0485508814454</span>,<span class="string">"y"</span>:<span class="number">6.104619242250919</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">882.0341778919101</span>,<span class="string">"y"</span>:<span class="number">401.86547581106424</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1620.0402630493045</span>,<span class="string">"y"</span>:<span class="number">267.45478762313724</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">1925.4421964287758</span>,<span class="string">"y"</span>:<span class="number">369.47823595255613</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">1611.9598066434264</span>,<span class="string">"y"</span>:-<span class="number">234.8197065293789</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1720.9005448967218</span>,<span class="string">"y"</span>:-<span class="number">115.85958395153284</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1862.451889552176</span>,<span class="string">"y"</span>:-<span class="number">248.42322198674083</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">1283.97127520293</span>,<span class="string">"y"</span>:<span class="number">325.95419557765126</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">1869.39731054008</span>,<span class="string">"y"</span>:<span class="number">383.6600771173835</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1988.1872748956084</span>,<span class="string">"y"</span>:-<span class="number">216.48837719112635</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1187.2317604720592</span>,<span class="string">"y"</span>:<span class="number">404.27824622020125</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">1571.8251904472709</span>,<span class="string">"y"</span>:-<span class="number">96.22862562537193</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">1826.7804672941566</span>,<span class="string">"y"</span>:-<span class="number">477.26183850318193</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1177.1034905686975</span>,<span class="string">"y"</span>:-<span class="number">112.32297029346228</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1195.6303780898452</span>,<span class="string">"y"</span>:<span class="number">448.2225668616593</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">1955.4035440087318</span>,<span class="string">"y"</span>:<span class="number">21.227966528385878</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">1732.739924453199</span>,<span class="string">"y"</span>:<span class="number">368.81575733423233</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">806.2865408137441</span>,<span class="string">"y"</span>:<span class="number">385.1917199790478</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1556.4921544864774</span>,<span class="string">"y"</span>:-<span class="number">420.2395495958626</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">1181.5953878685832</span>,<span class="string">"y"</span>:-<span class="number">277.57429890334606</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">1269.245852716267</span>,<span class="string">"y"</span>:<span class="number">242.08716116845608</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1219.9176428839564</span>,<span class="string">"y"</span>:<span class="number">346.6071574948728</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">746.3413281366229</span>,<span class="string">"y"</span>:-<span class="number">89.49963096529245</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">432.45446030050516</span>,<span class="string">"y"</span>:<span class="number">441.71203626319766</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">777.959868311882</span>,<span class="string">"y"</span>:<span class="number">66.79431581869721</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">918.3598393574357</span>,<span class="string">"y"</span>:<span class="number">448.46232794225216</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1436.13195233047</span>,<span class="string">"y"</span>:<span class="number">184.53770177438855</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">1119.1939394921064</span>,<span class="string">"y"</span>:-<span class="number">312.59450083598495</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">1998.3739340677857</span>,<span class="string">"y"</span>:<span class="number">5.358115769922733</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1069.4813169538975</span>,<span class="string">"y"</span>:-<span class="number">106.57294746488333</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">275.5963373929262</span>,<span class="string">"y"</span>:<span class="number">205.64519427716732</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">801.038783043623</span>,<span class="string">"y"</span>:<span class="number">7.43780517950654</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">213.5445298627019</span>,<span class="string">"y"</span>:<span class="number">288.95508078858256</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1697.732014581561</span>,<span class="string">"y"</span>:-<span class="number">495.7758020609617</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1940.3524557128549</span>,<span class="string">"y"</span>:<span class="number">57.93372122570872</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">1365.2942385524511</span>,<span class="string">"y"</span>:<span class="number">246.1609710007906</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">986.5696644410491</span>,<span class="string">"y"</span>:<span class="number">248.502679169178</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1991.1393811926246</span>,<span class="string">"y"</span>:-<span class="number">269.05048871412873</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1244.1082932054996</span>,<span class="string">"y"</span>:<span class="number">378.08641185984015</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">958.6482960730791</span>,<span class="string">"y"</span>:-<span class="number">222.58463921025395</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">1939.0085907652974</span>,<span class="string">"y"</span>:-<span class="number">415.7125297933817</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1097.460888326168</span>,<span class="string">"y"</span>:<span class="number">298.815727699548</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1132.0891315117478</span>,<span class="string">"y"</span>:-<span class="number">409.8006417043507</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">934.7271472215652</span>,<span class="string">"y"</span>:<span class="number">78.89576349407434</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">632.7374717220664</span>,<span class="string">"y"</span>:<span class="number">240.34222541376948</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">25.66775120794773</span>,<span class="string">"y"</span>:<span class="number">386.65700424462557</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1791.440169326961</span>,<span class="string">"y"</span>:-<span class="number">98.93955988809466</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">1391.1143569275737</span>,<span class="string">"y"</span>:<span class="number">46.02528735995293</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">538.8829139992595</span>,<span class="string">"y"</span>:-<span class="number">428.8868750445545</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">933.5943283513188</span>,<span class="string">"y"</span>:<span class="number">327.7888190932572</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1381.4812870696187</span>,<span class="string">"y"</span>:-<span class="number">36.58548276871443</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">152.31592673808336</span>,<span class="string">"y"</span>:-<span class="number">233.14770916476846</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">90.16109630465508</span>,<span class="string">"y"</span>:-<span class="number">45.90578889474273</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1855.3984118625522</span>,<span class="string">"y"</span>:<span class="number">234.1356431134045</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">889.7370044142008</span>,<span class="string">"y"</span>:-<span class="number">261.737990193069</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">344.61341612040997</span>,<span class="string">"y"</span>:-<span class="number">13.636548072099686</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">588.4585017338395</span>,<span class="string">"y"</span>:-<span class="number">5.226874258369207</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1714.1733933240175</span>,<span class="string">"y"</span>:-<span class="number">204.88095516338944</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">905.8979945257306</span>,<span class="string">"y"</span>:-<span class="number">326.66328828781843</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">179.5906499028206</span>,<span class="string">"y"</span>:-<span class="number">468.77168817445636</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">472.5130721926689</span>,<span class="string">"y"</span>:-<span class="number">1.9495864398777485</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1275.0087166205049</span>,<span class="string">"y"</span>:<span class="number">29.06017890200019</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">262.88699731230736</span>,<span class="string">"y"</span>:<span class="number">496.59054493531585</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">44.90217100828886</span>,<span class="string">"y"</span>:-<span class="number">441.4119469001889</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">1782.4337324127555</span>,<span class="string">"y"</span>:-<span class="number">269.77423299103975</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">748.8169632852077</span>,<span class="string">"y"</span>:<span class="number">336.41374530270696</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1684.0793499723077</span>,<span class="string">"y"</span>:-<span class="number">123.5110298730433</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">1109.3289218842983</span>,<span class="string">"y"</span>:<span class="number">423.3962232246995</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">354.1235653683543</span>,<span class="string">"y"</span>:-<span class="number">307.66808334738016</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1329.577681608498</span>,<span class="string">"y"</span>:<span class="number">470.3424177132547</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">273.0302046984434</span>,<span class="string">"y"</span>:-<span class="number">147.08185475319624</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">1873.354759067297</span>,<span class="string">"y"</span>:<span class="number">415.8988082781434</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">1152.5639267638326</span>,<span class="string">"y"</span>:-<span class="number">228.8104579783976</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">480.6276988238096</span>,<span class="string">"y"</span>:-<span class="number">168.55818405747414</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">724.2633355781436</span>,<span class="string">"y"</span>:-<span class="number">137.24337238818407</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">879.4547133147717</span>,<span class="string">"y"</span>:-<span class="number">114.34462806209922</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">988.7294666841626</span>,<span class="string">"y"</span>:-<span class="number">206.20282599702477</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1954.3535728007555</span>,<span class="string">"y"</span>:<span class="number">214.61118385195732</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">851.2419117614627</span>,<span class="string">"y"</span>:<span class="number">420.7796682603657</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">953.703748062253</span>,<span class="string">"y"</span>:<span class="number">89.70340387895703</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">61.40255834907293</span>,<span class="string">"y"</span>:-<span class="number">160.9144126996398</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">1207.9351842403412</span>,<span class="string">"y"</span>:<span class="number">386.9934994727373</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1142.1515522524714</span>,<span class="string">"y"</span>:<span class="number">279.29873764514923</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">1069.3543190136552</span>,<span class="string">"y"</span>:<span class="number">239.56217663362622</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">1898.9934483543038</span>,<span class="string">"y"</span>:<span class="number">341.7890924029052</span>},{<span class="string">"type"</span>:<span class="string">"series1"</span>,<span class="string">"x"</span>:<span class="number">736.7067560553551</span>,<span class="string">"y"</span>:-<span class="number">414.1982044093311</span>},{<span class="string">"type"</span>:<span class="string">"series2"</span>,<span class="string">"x"</span>:<span class="number">1718.982090242207</span>,<span class="string">"y"</span>:<span class="number">83.44200439751148</span>},{<span class="string">"type"</span>:<span class="string">"series3"</span>,<span class="string">"x"</span>:<span class="number">814.3314002081752</span>,<span class="string">"y"</span>:-<span class="number">484.1634132899344</span>},{<span class="string">"type"</span>:<span class="string">"series4"</span>,<span class="string">"x"</span>:<span class="number">346.93830739706755</span>,<span class="string">"y"</span>:<span class="number">150.88692586869</span>}];
+<span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id: <span class="string">'c5'</span>,
+  forceFit: <span class="literal">true</span>,
+  height: <span class="number">400</span>
+});
+chart.source(data, {
+  x: {
+    tickCount: <span class="number">8</span>
+  }
+});
+chart.point().position(<span class="string">'x*y'</span>).color(<span class="string">'type'</span>).shape(<span class="string">'type'</span>, [<span class="string">'circle'</span>, <span class="string">'triangle-down'</span>, <span class="string">'square'</span>, <span class="string">'diamond'</span>]).size(<span class="number">7</span>);
+<span class="comment">// 添加辅助元素</span>
+chart.guide().text([<span class="number">250</span>, <span class="number">550</span>], <span class="string">'0 - 500'</span>, {
+  fontSize: <span class="string">'15px'</span>
+});
+chart.guide().text([<span class="number">1000</span>, <span class="number">550</span>], <span class="string">'500 - 1500'</span>, {
+  fontSize: <span class="string">'15px'</span>
+});
+chart.guide().text([<span class="number">1700</span>, <span class="number">550</span>], <span class="string">'1500 - 2000'</span>, {
+  fontSize: <span class="string">'15px'</span>
+});
+chart.guide().rect([<span class="number">0</span>, -<span class="number">600</span>], [<span class="number">500</span>, <span class="number">600</span>]);
+chart.guide().rect([<span class="number">500</span>, -<span class="number">600</span>], [<span class="number">1500</span>, <span class="number">600</span>], {
+  fillOpacity: <span class="number">0.2</span>
+});
+chart.guide().rect([<span class="number">1500</span>, -<span class="number">600</span>], [<span class="number">2000</span>, <span class="number">600</span>], {
+  fillOpacity: <span class="number">0.3</span>
+});
+chart.render();</code></pre></div><h3 id="使用回调函数">使用回调函数</h3><p>shape也可以通过字段值来计算，可以在shape函数指定单个或者多个字段，通过回调函数返回使用的shape</p>
+<div class="highlight"><pre><code class="javascript">
+chart.point().position(<span class="string">'x*y'</span>).shape(<span class="string">'value'</span>, <span class="function"><span class="keyword">function</span><span class="params">(value)</span> {</span>
+  <span class="keyword">if</span> (value &gt; <span class="number">10</span>) {
+    <span class="keyword">return</span> <span class="string">'circle'</span>;
+  }
+  <span class="keyword">return</span> <span class="string">'rect'</span>;
+});
+
+<span class="comment">// 根据是否有子节点和节点是否展开确定shape</span>
+chart.point().position(<span class="string">'x*y'</span>).shape(<span class="string">'children*collapsed'</span>, <span class="function"><span class="keyword">function</span><span class="params">(children, collapsed)</span> {</span>
+  <span class="keyword">if</span> (children) {
+    <span class="keyword">return</span> collapsed ? <span class="string">'collapsed-node'</span> : <span class="string">'expand-node'</span>;
+  }
+  <span class="keyword">return</span> <span class="string">'leaf'</span>;
+});</code></pre></div><p>shape的回调函数中也可以返回数组，G2根据数组的第一个值来确定shape，其他值可以作为自定义shape的参数,详情查看<a href="../advance/custom-shape.html">自定义shape</a></p>
+<div class="highlight"><pre><code class="javascript">
+chart.point().position(<span class="string">'name*value'</span>)
+  .size(<span class="string">'value'</span>)
+  .color(<span class="string">'name'</span>)
+  .shape(<span class="string">'url'</span>, <span class="function"><span class="keyword">function</span><span class="params">(url)</span>{</span>
+  <span class="keyword">return</span> [<span class="string">'image'</span>, url]; <span class="comment">// 根据具体的字段指定 shape</span>
+});</code></pre></div><p>查看<a href="../../../demo/01-point/bubble-c.html">自定义气泡的示例</a></p>
+<h2 id="size">size</h2><p>对于不同的几何标记含义不完全一致：</p>
+<ul>
+<li>对于 point 点来说，size 对应着点的半径；</li>
+<li>对于 line 线来说，size 对应着先的粗细；</li>
+<li>对于 interval 柱状图来说，size 对应着柱子的宽度。</li>
+</ul>
+<p>所以从可视化的角度分析，大小（size)是一个复杂的视觉通道。</p>
+<p>在 G2 中，支持如下几种方式的映射语法：</p>
+<ul>
+<li>size(&#39;dim&#39;)，指定映射到 size 的字段，使用内置的默认大小范围为 [1, 10]；</li>
+<li>size(&#39;dim&#39;, max, min)，指定映射到 size 字段外，还提供了 size 的最大值和最小值范围；</li>
+<li>size(&#39;dims&#39;, callback)，使用回调函数映射 size，用于个性化的 size 定制；可以使用多个字段进行映射</li>
+<li>size(10) 直接指定像素大小。</li>
+</ul>
+<p>在气泡图中，常常使用 size 图形属性映射，用于编码更多维度的数据。如下例，使用气泡图来可视化每个国家人均国内生产总值同人均寿命之间的相关关系，同时将各个国家人口数据映射至气泡的大小。</p>
+<p><code>.size(&#39;Population&#39;, 35, 5)</code></p>
+<div id="c6"></div>
+
+<p>完整代码：</p>
+<script>(function(){'use strict';
+
+$.getJSON('../../../../static/data/bubble.json', function (data) {
+  var chart = new G2.Chart({
+    id: 'c6',
+    forceFit: true,
+    height: 400
+  });
+  chart.source(data, {
+    'LifeExpectancy': {
+      alias: '人均寿命（年）'
+    },
+    'Population': {
+      type: 'pow',
+      alias: '人口总数'
+    },
+    'GDP': {
+      alias: '人均国内生产总值($)',
+      tickCount: 10
+    },
+    'Country': {
+      alias: '国家/地区'
+    }
+  });
+  chart.axis('GDP', {
+    // 格式化坐标轴的显示
+    formatter: function formatter(value) {
+      return (value / 1000).toFixed(0) + 'k';
+    }
+  });
+  chart.tooltip({
+    title: null // 不显示默认标题
+  });
+  chart.legend('Population', false);
+  chart.legend('Country', false);
+  chart.point().position('GDP*LifeExpectancy').size('Population', 35, 5).color('continent').opacity(0.65).shape('circle').tooltip('Country*Population*GDP*LifeExpectancy');
+  chart.render();
+});})()</script><div class="highlight"><pre><code class="javascript">$.getJSON(<span class="string">'../../../../static/data/bubble.json'</span>,<span class="function"><span class="keyword">function</span><span class="params">(data)</span>{</span>
+  <span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+    id: <span class="string">'c6'</span>,
+    forceFit: <span class="literal">true</span>,
+    height: <span class="number">400</span>
+  });
+  chart.source(data, {
+    <span class="string">'LifeExpectancy'</span>: {
+      alias: <span class="string">'人均寿命（年）'</span>
+    },
+    <span class="string">'Population'</span>: {
+      type: <span class="string">'pow'</span>,
+      alias: <span class="string">'人口总数'</span>
+    },
+    <span class="string">'GDP'</span>: {
+      alias: <span class="string">'人均国内生产总值($)'</span>,
+      tickCount: <span class="number">10</span>
+    },
+    <span class="string">'Country'</span>: {
+      alias: <span class="string">'国家/地区'</span>
+    }
+  });
+  chart.axis(<span class="string">'GDP'</span>, {
+    <span class="comment">// 格式化坐标轴的显示</span>
+    formatter: <span class="function"><span class="keyword">function</span> <span class="params">(value)</span> {</span>
+      <span class="keyword">return</span> (value / <span class="number">1000</span>).toFixed(<span class="number">0</span>) + <span class="string">'k'</span>;
+    }
+  });
+  chart.tooltip({
+    title: <span class="literal">null</span> <span class="comment">// 不显示默认标题</span>
+  });
+  chart.legend(<span class="string">'Population'</span>, <span class="literal">false</span>);
+  chart.legend(<span class="string">'Country'</span>, <span class="literal">false</span>);
+  chart.point().position(<span class="string">'GDP*LifeExpectancy'</span>)
+    .size(<span class="string">'Population'</span>, <span class="number">35</span>, <span class="number">5</span>)
+    .color(<span class="string">'continent'</span>)
+    .opacity(<span class="number">0.65</span>)
+    .shape(<span class="string">'circle'</span>)
+    .tooltip(<span class="string">'Country*Population*GDP*LifeExpectancy'</span>);
+  chart.render();
+});</code></pre></div><h3 id="回调函数的使用">回调函数的使用</h3><p>size可以根据数据的字段值通过回调函数计算，可以指定多个字段</p>
+<div class="highlight"><pre><code class="javascript">chart.point().position(<span class="string">'x*y'</span>).size(<span class="string">'z'</span>, <span class="function"><span class="keyword">function</span><span class="params">(z)</span> {</span>
+  <span class="keyword">if</span> (z &gt; <span class="number">10</span>) {
+    <span class="keyword">return</span> <span class="number">20</span>;
+  }
+  <span class="keyword">return</span> z * <span class="number">0.5</span>;
+});
+
+chart.point().position(<span class="string">'x*y'</span>).size(<span class="string">'level*text'</span>, <span class="function"><span class="keyword">function</span><span class="params">(level, text)</span> {</span>
+  <span class="keyword">if</span> (level == <span class="number">0</span>) {
+    <span class="keyword">return</span> <span class="number">50</span>;
+  } <span class="keyword">else</span> {
+    <span class="keyword">return</span> text.length * <span class="number">10</span>; <span class="comment">// 根据文本长度返回长度</span>
+  }
+});</code></pre></div><p>size函数可以返回一个数组，特别对应<a href="../advance/custom-shape.html">自定义shape</a>时需要计算宽高的图形</p>
+<h2 id="opacity">opacity</h2><p>透明度在视觉编码过程中，只能进行定量（连续）数据的映射，作为颜色的一个补充使用，所以提供以下快捷方式：</p>
+<ul>
+<li><code>opacity(&#39;dim&#39;)</code>，指定透明度映射的字段，透明度默认的范围为 [0, 1];</li>
+<li><code>opacity(0.5)</code>，直接指定透明度常量；</li>
+<li><code>opacity(&#39;dim&#39;, callback)</code>，使用回调函数获取透明度。</li>
+</ul>
+<h2 id="geom-支持的图形属性">Geom 支持的图形属性</h2><p>前面提到过，每种几何标记支持的视觉通道有所差异，数据和视觉通道的映射关系也不完全相同。
+下表列出了各个 geom 几何标记对各个图形属性的支持情况：</p>
+<table>
+<thead>
+<tr>
+<th>几何标记</th>
+<th><code>position</code></th>
+<th><code>color</code></th>
+<th><code>size</code></th>
+<th><code>shape</code></th>
+<th><code>opacity</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>point</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>path、line</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>area</td>
+<td>支持</td>
+<td>支持</td>
+<td><strong>不支持</strong></td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>polygon</td>
+<td>支持</td>
+<td>支持</td>
+<td><strong>不支持</strong></td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>edge</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>schema</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>contour</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td><strong>不支持</strong></td>
+<td>支持</td>
+</tr>
+<tr>
+<td>heatmap</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td><strong>不支持</strong></td>
+<td><strong>不支持</strong></td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+<div class="preNext clearfix">
+  <a href="../../../../g2/doc/tutorial/start/col-defs.html" class="pull-left">
+    <i class="iconfont icon-left"></i>
+    列定义操作
+  </a>
+  <a href="../../../../g2/doc/tutorial/start/attr.html" class="pull-right">
+    attr 图形属性
+    <i class="iconfont icon-right"></i>
+  </a>
+</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../../../../static/nav-menu.js"></script>
+  <script src="../../../../static/prettify-min.js"></script>
+  <script src="../../../../static/clipboard.min.js"></script>
+  <script type="text/javascript">
+    var CLS_PRETTY = 'prettyprint linenums';
+    BUI.use('bui/common',function(BUI){
+      var preEls =  $('pre');
+      BUI.each(preEls,function(el){
+        var node = $(el), innerText;
+        node.addClass(CLS_PRETTY);
+        innerText = node.html();
+        var a = /^(\s+)/.exec(innerText);
+        var regex;
+        if(a){
+          regex = new RegExp('('+a[0]+')(\\s*)','ig');
+          innerText = innerText.replace(regex,'$2');
+        }
+          node.html(innerText);
+      });
+      if(window.prettyPrint){
+        prettyPrint();
+      }
+    });
+
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  </script>
+  
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

@@ -1,44 +1,38 @@
 {
-  "name": "reveal.js",
-  "version": "3.5.0",
-  "description": "The HTML Presentation Framework",
-  "homepage": "http://lab.hakim.se/reveal-js",
-  "subdomain": "revealjs",
-  "main": "js/reveal.js",
-  "scripts": {
-    "test": "grunt test",
-    "start": "grunt serve",
-    "build": "grunt"
-  },
-  "author": {
-    "name": "Hakim El Hattab",
-    "email": "hakim.elhattab@gmail.com",
-    "web": "http://hakim.se"
-  },
+  "name": "Antv2.0",
+  "version": "2.0.0",
+  "description": "ant visualization",
+  "homepage": "http://gitlab.alipay-inc.com/datavis/antv",
   "repository": {
     "type": "git",
-    "url": "git://github.com/hakimel/reveal.js.git"
+    "url": "http://gitlab.alipay-inc.com/datavis/antv"
   },
-  "engines": {
-    "node": ">=4.0.0"
+  "bugs": {
+    "url": "http://gitlab.alipay-inc.com/datavis/antv/issues"
   },
-  "devDependencies": {
-    "express": "~4.14.0",
-    "grunt": "~1.0.1",
-    "grunt-autoprefixer": "~3.0.3",
-    "grunt-cli": "~1.2.0",
-    "grunt-contrib-connect": "~0.11.2",
-    "grunt-contrib-cssmin": "~0.14.0",
-    "grunt-contrib-jshint": "~0.11.3",
-    "grunt-contrib-qunit": "~1.2.0",
-    "grunt-contrib-uglify": "~0.9.2",
-    "grunt-contrib-watch": "~1.0.0",
-    "grunt-sass": "~1.2.0",
-    "grunt-retire": "~0.3.10",
-    "grunt-zip": "~0.17.1",
-    "mustache": "~2.2.1",
-    "node-sass": "~3.13.0",
-    "socket.io": "^1.4.8"
+  "dependencies": {
+    "@alipay/site": "^1.8.2",
+    "cdn": "~0.15.0",
+    "concurrently": "~0.1.0",
+    "css-loader": "~0.13.1",
+    "gh-pages-cli": "~0.2.0",
+    "internal-ip": "^1.0.1",
+    "json-loader": "~0.5.1",
+    "jsx-loader": "~0.13.2",
+    "less": "~2.7.1",
+    "less-loader": "~2.2.0",
+    "lodash": "~3.8.0",
+    "nico-jsx": "~0.5.3",
+    "style-loader": "~0.12.2",
+    "webpack": "~1.9.7"
   },
-  "license": "MIT"
+  "scripts": {
+    "dev": "npm run start",
+    "build": "npm run clean && nico build && site build",
+    "start": "npm run clean && npm run less && concurrent -r 'nico server --watch'",
+    "clean": "rm -rf _site",
+    "less": "$(npm bin)/lessc static/less/index.less > static/style.css",
+    "deploy": "node deploy.js",
+    "xx": "$(npm bin)/nico"
+  }
 }

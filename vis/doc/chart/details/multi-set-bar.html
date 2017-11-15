@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>分组柱状图</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item hover last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+
+  <div class="main-container clearfix">
+  <div class="doc-content vis-chart">
+    <div class="doc-inner vis-chart">
+      <h1>分组柱状图</h1>
+      <p><img src="https://os.alipayobjects.com/rmsportal/JKWwZiTPusAHqMg.jpg" ></p>
+<h2 id="分组柱状的简介">分组柱状的简介</h2><p>分组柱状图，又叫聚合柱状图。当使用者需要在同一个轴上显示各个分类下不同的分组时，需要用到分组柱状图。</p>
+<p>跟<a href="./bar-chart.html">柱状图</a>类似，使用柱子的高度来映射和对比数据值。每个分组中的柱子使用不同的颜色或者相同颜色不同透明的方式区别各个分类，各个分组之间需要保持间隔。</p>
+<p>分组柱状图经常用于不同组间数据的比较，这些组都包含了相同分类的数据。</p>
+<p>但是仍需要注意，避免分组中分类过多的情况，分类过多会导致分组中柱子过多过密，非常影响图表可读性。</p>
+<p>英文名：Multi-set Bar Chart</p>
+<h2 id="分组柱状图的构成">分组柱状图的构成</h2><p><img src="https://os.alipayobjects.com/rmsportal/YzQNmhrLsOTZLfd.png" class="constitute-img"></p>
+<table class="struct-table">
+  <tr>
+    <th>图表类型</th>
+    <th>分组柱状图</th>
+  </tr>
+  <tr>
+    <td>适合的数据</td>
+    <td>列表：两个分类数据字段、一个连续数据字段</td>
+  </tr>
+  <tr>
+    <td>功能</td>
+    <td>其中一个分类数据字段作为分组，可以对比相同分组下不同分类的数据大小，也可以对比不同分组下，相同分类的数据大小</td>
+  </tr>
+  <tr>
+    <td>数据与图形的映射</td>
+    <td>其中一个分类数据字段映射到坐标轴的位置用于分组，另一个分类数据在同一个分组内错开，并通过不同的颜色来区分连续数据字段映射到矩形的长度</td>
+  </tr>
+  <tr>
+    <td>适合的数据条数</td>
+    <td>分组个数不要超过 12 个，每个分组下的分类不要超过 6 个</td>
+  </tr>
+</table>
+
+<div style="clear: both;"></div>
+
+
+<h2 id="分组柱状图的应用场景">分组柱状图的应用场景</h2><h3 id="适合的场景">适合的场景</h3><p>例子1：<strong> 对比不同分组内相同分类的大小，对比相同分组内不同分类的大小 </strong> </p>
+<p>下图对比了『我是土豪』游戏公司在 2001、2002、2003 这三年的各类游戏的销量情况。
+水平轴显示的是不同的游戏类型，每种游戏类型作为一个柱状图的分组，在每一个分组内对比不同年份的销售数量。</p>
+<table>
+<thead>
+<tr>
+<th>year（年份）</th>
+<th>genre（游戏类型）</th>
+<th>sold（销售量）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2001</td>
+<td>Sports</td>
+<td>27,500</td>
+</tr>
+<tr>
+<td>2001</td>
+<td>Strategy</td>
+<td>11,500</td>
+</tr>
+<tr>
+<td>2001</td>
+<td>Action</td>
+<td>6,000</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>2002</td>
+<td>Action</td>
+<td>8,000</td>
+</tr>
+<tr>
+<td>2002</td>
+<td>Shooter</td>
+<td>4,500</td>
+</tr>
+<tr>
+<td>2002</td>
+<td>Other</td>
+<td>1,800</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<div id="c1"></div>
+
+<div class="code hide">
+
+var data = [
+  {year:2001,genre:'Sports',sold:27500},
+  {year:2001,genre:'Strategy',sold:11500},
+  {year:2001,genre:'Action',sold:6000},
+  {year:2001,genre:'Shooter',sold:3500},
+  {year:2001,genre:'Other',sold:1500},
+  {year:2002,genre:'Sports',sold:29500},
+  {year:2002,genre:'Strategy',sold:10500},
+  {year:2002,genre:'Action',sold:8000},
+  {year:2002,genre:'Shooter',sold:4500},
+  {year:2002,genre:'Other',sold:1800},
+  {year:2003,genre:'Sports',sold:30500},
+  {year:2003,genre:'Strategy',sold:12500},
+  {year:2003,genre:'Action',sold:4000},
+  {year:2003,genre:'Shooter',sold:6500},
+  {year:2003,genre:'Other',sold:2000},
+];
+
+var Stat = G2.Stat;
+
+var chart = new G2.Chart({
+  id: 'c1',
+  forceFit: true,
+  height : 400
+});
+
+chart.source(data);
+chart.col('year',{type:'cat'});
+chart.col('sold',{alias: '游戏销售量'});
+chart.col('genre',{alias: '游戏类型'});
+chart.intervalDodge().position('genre*sold').color('year')
+chart.render();
+</div>
+
+<p>说明：</p>
+<ul>
+<li>genre，使用横轴的<code>位置</code>来区分不同的游戏类型</li>
+<li>year，使用<code>颜色</code>和在同一个游戏类型内的错开的<code>位置</code>，来区分不年份的游戏销售</li>
+<li>sold，使用矩形的<code>长度</code>对比不同游戏、不同年份的销量</li>
+</ul>
+<h3 id="不适合的场景">不适合的场景</h3><p>例子1：<strong> 分组过多、分类过多 </strong></p>
+<p>下图展示了美国二十个州不同年龄段的人口数据分布情况。
+我们以州为维度进行分组，每个分组内划分七个年龄段，垂直坐标轴表示人口数量。</p>
+<div id="c3"></div>
+
+<div class="code hide">
+$.getJSON('./data/populationsByage.json?nowrap', function(data) {
+  var newData = data.slice(0,20);
+  var Stat = G2.Stat;
+  var Frame = G2.Frame;
+  var frame = new Frame(newData);
+  frame = Frame.combinColumns(frame,["小于5岁","5至13岁","14至17岁","18至24岁","25至44岁","45至64岁","65岁及以上"],'人口数量','年龄段','State');
+  var chart = new G2.Chart({
+    id: 'c3',
+    forceFit: true,
+    height : 400,
+    plotCfg: {
+      margin: [20,90,60,80]
+    }
+  });
+
+  chart.source(frame);
+  chart.intervalDodge().position('State*人口数量').color('年龄段');
+  chart.render();
+});
+</div>
+
+<p>上图由于分组和分类过多导致柱子过多过密，可读性不佳。推荐使用层叠柱状图，当数据更多时，可将纵向柱状图改为横向柱状图，详见<a href="stacked-bar.html">层叠柱状图的的扩展</a></p>
+<h2 id="分组柱状图和其他图表的对比">分组柱状图和其他图表的对比</h2><h3 id="分组柱状图和一般柱状图">分组柱状图和一般<a href="bar.html">柱状图</a></h3><ul>
+<li>分组柱状图可以增加一个维度，用于对比一组数据内不同分类的数据值大小，可以表示3个数据字段（维度）的数据，而一般柱状图只能表示 2 个数据字段（维度）</li>
+<li>分组柱状图的柱子较多，所以能展示的分组较少</li>
+</ul>
+<h3 id="分组柱状图和层叠柱状图">分组柱状图和<a href="stacked-bar.html">层叠柱状图</a></h3><ul>
+<li>分组柱状图，可以对比同一个分组内部不同分类的数据大小，也可以对比不同分组内相同分类的数据大小，但无法对比各分组的总量</li>
+<li>层叠柱状图，可以对比同一个分组内部不同分类的数据大小或占比，也可以对比分组的总量，但不适合对比不同分组内相同分类的数据大小</li>
+</ul>
+
+      <h2 id="变型">变型</h2>
+      <div class="detail-list">
+        <ul class="vis-chart-list clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/details/bar.html">
+              <i class="iconfont icon-bar"></i>
+              <span>柱状图</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../vis/doc/chart/details/stacked-bar.html">
+              <i class="iconfont icon-stacked-bar"></i>
+              <span>层叠柱状图</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <h2 id="标签">标签</h2>
+      <div>
+
+        <ul class="vis-classify-list small clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/classify/compare.html">
+              <span>比较类</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $.fn.isOnScreen = function(){
+      var win = $(window);
+      var viewport = {
+          top : win.scrollTop(),
+          left : win.scrollLeft()
+      };
+      viewport.right = viewport.left + win.width();
+      viewport.bottom = viewport.top + win.height();
+      var bounds = this.offset();
+      bounds.right = bounds.left + this.outerWidth();
+      bounds.bottom = bounds.top + this.outerHeight();
+      return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+    };
+    function ReplaceAll(str, sptr, sptr1){
+      while (str.indexOf(sptr) >= 0){
+         str = str.replace(sptr, sptr1);
+      }
+      return str;
+    }
+    function lazyLoad(codes) {
+      var isrun = [];
+      tryRun();
+      $(document).on('mousewheel',function(e){
+        tryRun();
+      });
+      function tryRun(){
+        codes.each(function(index,ele){
+          if (isrun.indexOf(ele) === -1) {
+            var $ele = $(ele);
+            if ( $ele.isOnScreen() ) {
+              setTimeout(function(){
+                var t = $ele.html();
+                t = ReplaceAll(t, '&lt;', '<');
+                t = ReplaceAll(t, '&gt;', '>');
+                t = ReplaceAll(t, '&amp;', '&');
+                eval(t);
+                $ele.hide();
+              },500);
+              isrun.push(ele);
+            };
+          };
+        });
+      }
+    }
+    var codes = $('.code');
+    lazyLoad(codes);
+  </script>
+
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

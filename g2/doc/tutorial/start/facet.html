@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>facet 分面</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item hover">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+  <link rel="stylesheet" href="../../../../static/prettify-min.css">
+
+
+  <div class="main-container clearfix">
+  <div class="body-content tutorial-body-content"><div class="doc-nav">
+  <p class="title">G2</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g2/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">使用教程</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="sub-title">基础教程</li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/index.html" >G2 图表的主要组成</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/chart.html" >图表对象配置（chart）</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/working-with-data.html" >data 数据</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/frame.html" >Frame 常见操作</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/scale.html" >度量</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/col-defs.html" >列定义操作</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/geom.html" >geom 几何标记</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/attr.html" >attr 图形属性</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/coord.html" >coord 坐标系</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/axis.html" >axis 坐标轴</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/legend.html" >legend 图例</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/tooltip.html" >tooltip 提示信息</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/guide.html" >guide 辅助标记</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/stat.html" >stat 统计变换</a>
+          </li>
+          <li class="active">
+            <a href="../../../../g2/doc/tutorial/start/facet.html" >facet 分面</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/theme.html" >theme 图表样式</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/label.html" >label 文本标签</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/chart-event.html" >图表事件 event</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/action.html" >图表交互</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/changedata.html" >数据异步加载与动态更新</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/g2-plugin-slider.html" >数据滑动条插件使用</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/rc-g2.html" >在 react 中使用 G2</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/fqas.html" >常见问题</a>
+          </li>
+          <li class="sub-title">高级教程</li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/index.html" >G2 图形语法简介</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/data-flow.html" >G2 的数据处理流程</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/data-type-and-scale.html" >数据类型与度量</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/coord-detailed.html" >坐标系详解</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/chart-type.html" >图表类型</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/geom-and-adjust.html" >几何标记和数据调整</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/custom-shape.html" >自定义 shape</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/view.html" >多视图 view 绘制</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/layout.html" >layout 布局</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/draw-word-cloud.html" >使用 G2 绘制词云</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/animate.html" >自定义动画</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">API</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="">
+            <a href="../../../../g2/api/index.html" >G2</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/chart.html" >Chart</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/view.html" >View</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/geom.html" >Geom</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/scale.html" >Scale</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/stat.html" >Stat</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/frame.html" >Frame</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/shape.html" >Shape</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/animate.html" >Animate</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/util.html" >Util</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/chart-options.html" >配置项支持</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/doc/history.html" >更新日志</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+    <div class="doc-content clearfix">
+      <div class="doc-inner">
+        <h2 id="简介">简介</h2><p>分面，将一份数据按照某个维度分隔成若干子集，然后创建一个图表的矩阵，将每一个数据子集绘制到图形矩阵的窗格中，所有子图采用相同的图表类型，并进行了一定的设计，使得它们之间方便进行比较。</p>
+<p>总结起来，分面其实提供了两个功能：</p>
+<ol>
+<li>按照指定的维度划分数据集；</li>
+<li>对图表进行排版。</li>
+</ol>
+<p>对于探索型数据分析来说，分面是一个强大有力的工具，能帮你迅速地分析出数据各个子集模式的异同。</p>
+<p><img src="https://zos.alipayobjects.com/skylark/953931ea-fca9-4bbb-92cd-cca23f479ef8/attach/2378/40f0d063142d143e/image.png" alt="image"></p>
+<h2 id="如何设置分面">如何设置分面</h2><p><code>chart.facet(dims, facetCfg)</code></p>
+<p>分面配置有两个基本参数：一个是分面变量的设置，另一个是指定分面的类型。</p>
+<p>说明：</p>
+<ul>
+<li>第一个参数 <code>dims</code> 用于设定数据划分的维度，是数据的字段名，包含多个维度时使用数组传入；</li>
+<li>第二个参数 <code>facetCfg</code>，是一个对象，进行分面的配置，包括分面的类型，各个分面之间的间距等，默认采用矩形分面。</li>
+</ul>
+<div class="highlight"><pre><code class="javascript">chart.facet([<span class="string">'cut'</span>, <span class="string">'carat'</span>], {
+  type: <span class="string">'list'</span>, <span class="comment">// 列表类型的分面</span>
+  margin: <span class="number">20</span> <span class="comment">// 各个分面的距离</span>
+});</code></pre></div><p>更多配置信息，请查阅 <a href="/g2/api/chart.html#facet/g2/api/chart.html#facet">facet</a> api 文档。</p>
+<h2 id="分面的类型">分面的类型</h2><p>G2 支持的分面类型如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>分面类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="facet.html#rect-类型">rect</a></td>
+<td><strong>默认类型</strong>，指定 2 个维度作为行列，形成图表的矩阵。</td>
+</tr>
+<tr>
+<td><a href="facet.html#list-类型">list</a></td>
+<td>指定一个维度，可以指定一行有几列，超出自动换行。</td>
+</tr>
+<tr>
+<td><a href="facet.html#circle-类型">circle</a></td>
+<td>指定一个维度，沿着圆分布。</td>
+</tr>
+<tr>
+<td><a href="facet.html#tree-类型">tree</a></td>
+<td>指定多个维度，每个维度作为树的一级，展开多层图表。</td>
+</tr>
+<tr>
+<td><a href="facet.html#mirror-类型">mirror</a></td>
+<td>指定一个维度，形成镜像图表。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rect-矩形分面">rect 矩形分面</h3><p>rect 矩形分面是 G2 的默认分面类型。支持按照一个或者两个维度的数据划分，按照先列后行的顺序。</p>
+<div class="highlight"><pre><code class="javascript">chart.facet([<span class="string">'cut'</span>, <span class="string">'clarity'</span>], {
+  margin: <span class="number">10</span>
+});</code></pre></div><p>分面矩阵每列按照 <code>cut</code> 字段划分，每行按照 <code>clarity</code> 字段划分。</p>
+<div id="c1" class="chart-container"></div>
+
+<script>(function(){'use strict';
+
+$.getJSON('../../../../../static/data/diamond.json', function (data) {
+  var chart = new G2.Chart({
+    id: 'c1',
+    width: 800,
+    height: 400,
+    animate: false,
+    plotCfg: {
+      margin: [30, 80, 80, 80]
+    }
+  });
+  chart.source(data);
+  chart.facet(['cut', 'clarity'], {
+    margin: 10
+  });
+  chart.legend('bottom'); // 设置底部图例
+  chart.point().position('carat*price').color('cut');
+  chart.render();
+});})()</script><div class="highlight"><pre><code class="javascript">$.getJSON(<span class="string">'../../../../../static/data/diamond.json'</span>, <span class="function"><span class="keyword">function</span><span class="params">(data)</span> {</span>
+  <span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+    id: <span class="string">'c1'</span>,
+    width: <span class="number">800</span>,
+    height: <span class="number">400</span>,
+    animate: <span class="literal">false</span>,
+    plotCfg: {
+      margin: [<span class="number">30</span>, <span class="number">80</span>, <span class="number">80</span>, <span class="number">80</span>]
+    }
+  });
+  chart.source(data);
+  chart.facet([<span class="string">'cut'</span>,<span class="string">'clarity'</span>], {
+    margin: <span class="number">10</span>
+  });
+  chart.legend(<span class="string">'bottom'</span>); <span class="comment">// 设置底部图例</span>
+  chart.point().position(<span class="string">'carat*price'</span>).color(<span class="string">'cut'</span>);
+  chart.render();
+});</code></pre></div><h3 id="list-水平列表分面">list 水平列表分面</h3><p>该类型分面可以通过设置 <code>cols</code> 属性来指定每行可显示分面的个数，超出时会自动换行。</p>
+<div id="c2" class="chart-container"></div>
+
+<script>(function(){'use strict';
+
+$.getJSON('../../../../../static/data/diamond.json', function (data) {
+  var chart = new G2.Chart({
+    id: 'c2',
+    width: 800,
+    height: 400,
+    animate: false,
+    plotCfg: {
+      margin: [30, 90, 80, 80]
+    }
+  });
+  chart.source(data);
+  chart.facet(['cut'], {
+    type: 'list',
+    cols: 3, // 超过3个换行
+    margin: 40
+  });
+  chart.point().position('carat*price').color('cut');
+  chart.render();
+});})()</script><div class="highlight"><pre><code class="javascript">$.getJSON(<span class="string">'../../../../../static/data/diamond.json'</span>,<span class="function"><span class="keyword">function</span> <span class="params">(data)</span> {</span>
+  <span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+    id: <span class="string">'c2'</span>,
+    width: <span class="number">800</span>,
+    height: <span class="number">400</span>,
+    animate: <span class="literal">false</span>,
+    plotCfg: {
+      margin: [<span class="number">30</span>, <span class="number">90</span>, <span class="number">80</span>, <span class="number">80</span>]
+    }
+  });
+  chart.source(data);
+  chart.facet([<span class="string">'cut'</span>], {
+    type: <span class="string">'list'</span>,
+    cols: <span class="number">3</span>, <span class="comment">// 超过3个换行</span>
+    margin: <span class="number">40</span>
+  });
+  chart.point().position(<span class="string">'carat*price'</span>).color(<span class="string">'cut'</span>);
+  chart.render();
+});</code></pre></div><h3 id="circle-圆形分面">circle 圆形分面</h3><div id="c3" class="chart-container"></div>
+
+<script>(function(){'use strict';
+
+$.getJSON('../../../../../static/data/diamond.json', function (data) {
+  var Stat = G2.Stat;
+  var chart = new G2.Chart({
+    id: 'c3',
+    width: 800,
+    height: 400,
+    animate: false,
+    plotCfg: {
+      margin: [30, 90, 80, 80]
+    }
+  });
+  chart.source(data);
+  chart.facet(['clarity'], {
+    type: 'circle'
+  }); // 分面设置
+  chart.coord('polar');
+  chart.axis('cut', false); // 不显示坐标轴
+  chart.axis('price', false);
+
+  chart.interval().position(Stat.summary.mean('cut*price')).color('cut');
+
+  chart.render();
+});})()</script><div class="highlight"><pre><code class="javascript">$.getJSON(<span class="string">'../../../../../static/data/diamond.json'</span>,<span class="function"><span class="keyword">function</span> <span class="params">(data)</span> {</span>
+  <span class="keyword">var</span> Stat = G2.Stat;
+  <span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+    id: <span class="string">'c3'</span>,
+    width: <span class="number">800</span>,
+    height: <span class="number">400</span>,
+    animate: <span class="literal">false</span>,
+    plotCfg: {
+      margin: [<span class="number">30</span>, <span class="number">90</span>, <span class="number">80</span>, <span class="number">80</span>]
+    }
+  });
+  chart.source(data);
+  chart.facet([<span class="string">'clarity'</span>], {
+    type: <span class="string">'circle'</span>
+  }); <span class="comment">// 分面设置</span>
+  chart.coord(<span class="string">'polar'</span>);
+  chart.axis(<span class="string">'cut'</span>,<span class="literal">false</span>); <span class="comment">// 不显示坐标轴</span>
+  chart.axis(<span class="string">'price'</span>,<span class="literal">false</span>);
+
+  chart.interval().position(Stat.summary.mean(<span class="string">'cut*price'</span>)).color(<span class="string">'cut'</span>);
+
+  chart.render();
+});</code></pre></div><h3 id="tree-树形分面">tree 树形分面</h3><p>提供了 <code>line</code> 和 <code>smooth</code> 两个属性，用于配置连接各个分面的线的样式，其中：</p>
+<ul>
+<li>line，用于配置线的显示属性。</li>
+<li>smooth，各个树节点的连接线是否是平滑的曲线，默认为 false。</li>
+</ul>
+<div id="c4" class="chart-container"></div>
+
+<p>下图展示了树形多层级的分面。</p>
+<script>(function(){'use strict';
+
+var data = [{ gender: '男', count: 40, 'class': '一班', grade: '一年级' }, { gender: '女', count: 30, 'class': '一班', grade: '一年级' }, { gender: '男', count: 35, 'class': '二班', grade: '一年级' }, { gender: '女', count: 45, 'class': '二班', grade: '一年级' }, { gender: '男', count: 20, 'class': '三班', grade: '一年级' }, { gender: '女', count: 35, 'class': '三班', grade: '一年级' }, { gender: '男', count: 30, 'class': '一班', grade: '二年级' }, { gender: '女', count: 40, 'class': '一班', grade: '二年级' }, { gender: '男', count: 25, 'class': '二班', grade: '二年级' }, { gender: '女', count: 32, 'class': '二班', grade: '二年级' }, { gender: '男', count: 28, 'class': '三班', grade: '二年级' }, { gender: '女', count: 36, 'class': '三班', grade: '二年级' }];
+var Stat = G2.Stat;
+var chart = new G2.Chart({
+  id: 'c4',
+  width: 800,
+  height: 400,
+  animate: false,
+  plotCfg: {
+    margin: [0, 90, 80, 80]
+  }
+});
+chart.source(data);
+chart.coord('theta');
+chart.facet(['grade', 'class'], {
+  type: 'tree',
+  line: {
+    stroke: '#00a3d7'
+  },
+  smooth: true
+});
+chart.intervalStack().position(Stat.summary.percent('count')).color('gender'); //
+chart.render();})()</script><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {gender:<span class="string">'男'</span>,count:<span class="number">40</span>,<span class="string">'class'</span>: <span class="string">'一班'</span>,grade: <span class="string">'一年级'</span>},
+  {gender:<span class="string">'女'</span>,count:<span class="number">30</span>,<span class="string">'class'</span>: <span class="string">'一班'</span>,grade: <span class="string">'一年级'</span>},
+  {gender:<span class="string">'男'</span>,count:<span class="number">35</span>,<span class="string">'class'</span>: <span class="string">'二班'</span>,grade: <span class="string">'一年级'</span>},
+  {gender:<span class="string">'女'</span>,count:<span class="number">45</span>,<span class="string">'class'</span>: <span class="string">'二班'</span>,grade: <span class="string">'一年级'</span>},
+  {gender:<span class="string">'男'</span>,count:<span class="number">20</span>,<span class="string">'class'</span>: <span class="string">'三班'</span>,grade: <span class="string">'一年级'</span>},
+  {gender:<span class="string">'女'</span>,count:<span class="number">35</span>,<span class="string">'class'</span>: <span class="string">'三班'</span>,grade: <span class="string">'一年级'</span>},
+  {gender:<span class="string">'男'</span>,count:<span class="number">30</span>,<span class="string">'class'</span>: <span class="string">'一班'</span>,grade: <span class="string">'二年级'</span>},
+  {gender:<span class="string">'女'</span>,count:<span class="number">40</span>,<span class="string">'class'</span>: <span class="string">'一班'</span>,grade: <span class="string">'二年级'</span>},
+  {gender:<span class="string">'男'</span>,count:<span class="number">25</span>,<span class="string">'class'</span>: <span class="string">'二班'</span>,grade: <span class="string">'二年级'</span>},
+  {gender:<span class="string">'女'</span>,count:<span class="number">32</span>,<span class="string">'class'</span>: <span class="string">'二班'</span>,grade: <span class="string">'二年级'</span>},
+  {gender:<span class="string">'男'</span>,count:<span class="number">28</span>,<span class="string">'class'</span>: <span class="string">'三班'</span>,grade: <span class="string">'二年级'</span>},
+  {gender:<span class="string">'女'</span>,count:<span class="number">36</span>,<span class="string">'class'</span>: <span class="string">'三班'</span>,grade: <span class="string">'二年级'</span>}
+];
+<span class="keyword">var</span> Stat = G2.Stat;
+<span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id: <span class="string">'c4'</span>,
+  width: <span class="number">800</span>,
+  height: <span class="number">400</span>,
+  animate: <span class="literal">false</span>,
+  plotCfg: {
+    margin: [<span class="number">0</span>, <span class="number">90</span>, <span class="number">80</span>, <span class="number">80</span>]
+  }
+});
+chart.source(data);
+chart.coord(<span class="string">'theta'</span>);
+chart.facet([<span class="string">'grade'</span>,<span class="string">'class'</span>], {
+  type: <span class="string">'tree'</span>,
+  line: {
+    stroke: <span class="string">'#00a3d7'</span>
+  },
+  smooth: <span class="literal">true</span>
+}); 
+chart.intervalStack().position(Stat.summary.percent(<span class="string">'count'</span>)).color(<span class="string">'gender'</span>);<span class="comment">//</span>
+chart.render();</code></pre></div><h3 id="mirror-镜像分面">mirror 镜像分面</h3><p>通过配置 <code>transpose</code> 属性为 true，可以将镜像分面翻转。</p>
+<div id="c5" class="chart-container"></div>
+
+<script>(function(){'use strict';
+
+$.getJSON('../../../../../static/data/diamond.json', function (data) {
+  var Stat = G2.Stat;
+  var Frame = G2.Frame;
+  var chart = new G2.Chart({
+    id: 'c5',
+    width: 800,
+    height: 400,
+    animate: false,
+    plotCfg: {
+      margin: [30, 90, 80, 80]
+    }
+  });
+  var frame = new Frame(data);
+  frame.addCol('caratGroup', function (obj) {
+    if (obj.carat > 1) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+  var defs = {
+    'caratGroup': { // 由于镜像坐标系仅支持存在2个分类的字段，所以我们构建仅有2个分类的字段
+      type: 'cat',
+      values: ['小钻石 < 1克拉', '大钻石 >= 1克拉'],
+      alias: '钻石大小'
+    }
+  };
+  chart.source(frame, defs);
+  chart.legend(false);
+  chart.facet(['caratGroup'], { // 镜像分面
+    type: 'mirror',
+    margin: 100
+  });
+  chart.interval().position(Stat.summary.percent(Stat.summary.count(Stat.bin.rect('depth')))).color('caratGroup');
+  chart.render();
+});})()</script><div class="highlight"><pre><code class="javascript">$.getJSON(<span class="string">'../../../../../static/data/diamond.json'</span>,<span class="function"><span class="keyword">function</span> <span class="params">(data)</span> {</span>
+  <span class="keyword">var</span> Stat = G2.Stat;
+  <span class="keyword">var</span> Frame = G2.Frame;
+  <span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+    id: <span class="string">'c5'</span>,
+    width: <span class="number">800</span>,
+    height: <span class="number">400</span>,
+    animate: <span class="literal">false</span>,
+    plotCfg: {
+      margin: [<span class="number">30</span>, <span class="number">90</span>, <span class="number">80</span>, <span class="number">80</span>]
+    }
+  });
+  <span class="keyword">var</span> frame = <span class="keyword">new</span> Frame(data);
+  frame.addCol(<span class="string">'caratGroup'</span>,<span class="function"><span class="keyword">function</span><span class="params">(obj)</span>{</span>
+    <span class="keyword">if</span> (obj.carat &gt; <span class="number">1</span>){
+      <span class="keyword">return</span> <span class="number">1</span>;
+    }<span class="keyword">else</span>{
+      <span class="keyword">return</span> <span class="number">0</span>;
+    }
+  });
+  <span class="keyword">var</span> defs = {
+    <span class="string">'caratGroup'</span>: { <span class="comment">// 由于镜像坐标系仅支持存在2个分类的字段，所以我们构建仅有2个分类的字段</span>
+      type: <span class="string">'cat'</span>,
+      values: [<span class="string">'小钻石 &lt; 1克拉'</span>,<span class="string">'大钻石 &gt;= 1克拉'</span>], 
+      alias: <span class="string">'钻石大小'</span>
+    }
+  };
+  chart.source(frame, defs);
+  chart.legend(<span class="literal">false</span>);
+  chart.facet([<span class="string">'caratGroup'</span>],{ <span class="comment">// 镜像分面</span>
+    type: <span class="string">'mirror'</span>,
+    margin: <span class="number">100</span>
+  });
+  chart.interval().position(Stat.summary.percent(Stat.summary.count(Stat.bin.rect(<span class="string">'depth'</span>)))).color(<span class="string">'caratGroup'</span>);
+  chart.render();
+});</code></pre></div>
+      </div>
+<div class="preNext clearfix">
+  <a href="../../../../g2/doc/tutorial/start/guide.html" class="pull-left">
+    <i class="iconfont icon-left"></i>
+    guide 辅助标记
+  </a>
+  <a href="../../../../g2/doc/tutorial/start/facet.html" class="pull-right">
+    facet 分面
+    <i class="iconfont icon-right"></i>
+  </a>
+</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../../../../static/nav-menu.js"></script>
+  <script src="../../../../static/prettify-min.js"></script>
+  <script src="../../../../static/clipboard.min.js"></script>
+  <script type="text/javascript">
+    var CLS_PRETTY = 'prettyprint linenums';
+    BUI.use('bui/common',function(BUI){
+      var preEls =  $('pre');
+      BUI.each(preEls,function(el){
+        var node = $(el), innerText;
+        node.addClass(CLS_PRETTY);
+        innerText = node.html();
+        var a = /^(\s+)/.exec(innerText);
+        var regex;
+        if(a){
+          regex = new RegExp('('+a[0]+')(\\s*)','ig');
+          innerText = innerText.replace(regex,'$2');
+        }
+          node.html(innerText);
+      });
+      if(window.prettyPrint){
+        prettyPrint();
+      }
+    });
+
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  </script>
+  
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

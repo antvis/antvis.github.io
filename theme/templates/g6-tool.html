@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{%- block content %}
+<!-- g6-tool 页面头部导航栏 -->
+<div class="demo-head" style="position: relative;">
+  <div class="header clearfix">
+    <a class="header-back" href="/{{post.meta.chanel}}/doc">
+      <i class="iconfont icon-cross"></i>
+    </a>
+    <div class="header-crumb">
+      <span class="chanel">G6 在线工具</span>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="https://a.alipayobjects.com/g/datavis/g6-tool/0.2.10/index.js"></script>
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/g/datavis/g6-tool/0.2.10/index.css">
+
+<div id = 't1'></div>
+<script type="text/javascript">
+var documentHeight = $(document).height();
+var headerHeight = $('.demo-head').height();
+var tool = new G6Tool({
+  id: 't1',
+  height: documentHeight - headerHeight
+});
+var codeContentCache = localStorage.getItem('codeContent');
+if( !codeContentCache || codeContentCache.indexOf('new G6.Graph') !== -1 ) {
+  tool.clear();
+}
+</script>
+{%- endblock %}

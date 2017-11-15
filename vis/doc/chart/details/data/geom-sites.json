@@ -1,0 +1,1279 @@
+[{
+  "number": 1,
+  "siteId": 50353,
+  "longitude": 51.8,
+  "latitude": 126.6,
+  "longitude-minute": 51.43,
+  "latitude-minute": 126.39,
+  "siteName": "呼玛"
+}, {
+  "number": 2,
+  "siteId": 50632,
+  "longitude": 48.8,
+  "latitude": 122,
+  "longitude-minute": 48.46,
+  "latitude-minute": 121.55,
+  "siteName": "博克图"
+}, {
+  "number": 3,
+  "siteId": 50527,
+  "longitude": 49.3,
+  "latitude": 119.8,
+  "longitude-minute": 49.13,
+  "latitude-minute": 119.45,
+  "siteName": "海拉尔"
+}, {
+  "number": 4,
+  "siteId": 50727,
+  "longitude": 47.2,
+  "latitude": 120,
+  "longitude-minute": 47.1,
+  "latitude-minute": 119.57,
+  "siteName": "图里河"
+}, {
+  "number": 5,
+  "siteId": 50557,
+  "longitude": 49.2,
+  "latitude": 125.2,
+  "longitude-minute": 49.1,
+  "latitude-minute": 125.14,
+  "siteName": "嫩江"
+}, {
+  "number": 6,
+  "siteId": 50745,
+  "longitude": 47.4,
+  "latitude": 124,
+  "longitude-minute": 47.23,
+  "latitude-minute": 123.55,
+  "siteName": "齐齐哈尔"
+}, {
+  "number": 7,
+  "siteId": 50756,
+  "longitude": 47.5,
+  "latitude": 127,
+  "longitude-minute": 47.26,
+  "latitude-minute": 126.58,
+  "siteName": "海伦"
+}, {
+  "number": 8,
+  "siteId": 50788,
+  "longitude": 47.3,
+  "latitude": 132,
+  "longitude-minute": 47.14,
+  "latitude-minute": 131.59,
+  "siteName": "富锦"
+}, {
+  "number": 9,
+  "siteId": 50873,
+  "longitude": 46.9,
+  "latitude": 130.4,
+  "longitude-minute": 46.49,
+  "latitude-minute": 130.17,
+  "siteName": "佳木斯"
+}, {
+  "number": 10,
+  "siteId": 50978,
+  "longitude": 45.3,
+  "latitude": 131,
+  "longitude-minute": 45.17,
+  "latitude-minute": 130.57,
+  "siteName": "鸡西"
+}, {
+  "number": 11,
+  "siteId": 50953,
+  "longitude": 45.8,
+  "latitude": 126.8,
+  "longitude-minute": 45.45,
+  "latitude-minute": 126.46,
+  "siteName": "哈尔滨"
+}, {
+  "number": 12,
+  "siteId": 54094,
+  "longitude": 44.6,
+  "latitude": 129.6,
+  "longitude-minute": 44.34,
+  "latitude-minute": 129.36,
+  "siteName": "牡丹江"
+}, {
+  "number": 13,
+  "siteId": 50838,
+  "longitude": 46.3,
+  "latitude": 122.1,
+  "longitude-minute": 46.05,
+  "latitude-minute": 122.03,
+  "siteName": "乌兰浩特"
+}, {
+  "number": 14,
+  "siteId": 54103,
+  "longitude": 43.6,
+  "latitude": 122.3,
+  "longitude-minute": 43.44,
+  "latitude-minute": 122.32,
+  "siteName": "通辽钱家店"
+}, {
+  "number": 15,
+  "siteId": 54161,
+  "longitude": 43.9,
+  "latitude": 125.3,
+  "longitude-minute": 43.54,
+  "latitude-minute": 125.13,
+  "siteName": "长春"
+}, {
+  "number": 16,
+  "siteId": 54292,
+  "longitude": 42.9,
+  "latitude": 129.5,
+  "longitude-minute": 42.53,
+  "latitude-minute": 129.28,
+  "siteName": "延吉"
+}, {
+  "number": 17,
+  "siteId": 54363,
+  "longitude": 41.7,
+  "latitude": 125.9,
+  "longitude-minute": 41.41,
+  "latitude-minute": 125.54,
+  "siteName": "通化"
+}, {
+  "number": 18,
+  "siteId": 54342,
+  "longitude": 41.8,
+  "latitude": 123.5,
+  "longitude-minute": 41.44,
+  "latitude-minute": 123.27,
+  "siteName": "沈阳"
+}, {
+  "number": 19,
+  "siteId": 54324,
+  "longitude": 41.6,
+  "latitude": 120.5,
+  "longitude-minute": 41.33,
+  "latitude-minute": 120.27,
+  "siteName": "朝阳"
+}, {
+  "number": 20,
+  "siteId": 54471,
+  "longitude": 40.7,
+  "latitude": 122.2,
+  "longitude-minute": 40.4,
+  "latitude-minute": 122.16,
+  "siteName": "营口"
+}, {
+  "number": 21,
+  "siteId": 54497,
+  "longitude": 40,
+  "latitude": 124.4,
+  "longitude-minute": 40.03,
+  "latitude-minute": 124.2,
+  "siteName": "丹东"
+}, {
+  "number": 22,
+  "siteId": 54662,
+  "longitude": 38.9,
+  "latitude": 121.6,
+  "longitude-minute": 38.54,
+  "latitude-minute": 121.38,
+  "siteName": "大连"
+}, {
+  "number": 23,
+  "siteId": 54027,
+  "longitude": 44,
+  "latitude": 119.4,
+  "longitude-minute": 43.59,
+  "latitude-minute": 119.24,
+  "siteName": "巴林左旗"
+}, {
+  "number": 24,
+  "siteId": 54102,
+  "longitude": 43.6,
+  "latitude": 116.1,
+  "longitude-minute": 43.57,
+  "latitude-minute": 116.04,
+  "siteName": "锡林浩特"
+}, {
+  "number": 25,
+  "siteId": 53276,
+  "longitude": 44,
+  "latitude": 115,
+  "longitude-minute": 42.24,
+  "latitude-minute": 112.54,
+  "siteName": "朱日和*"
+}, {
+  "number": 26,
+  "siteId": 54208,
+  "longitude": 42.1,
+  "latitude": 116.5,
+  "longitude-minute": 42.11,
+  "latitude-minute": 116.28,
+  "siteName": "多伦"
+}, {
+  "number": 27,
+  "siteId": 54218,
+  "longitude": 42.3,
+  "latitude": 119,
+  "longitude-minute": 42.16,
+  "latitude-minute": 118.58,
+  "siteName": "赤峰"
+}, {
+  "number": 28,
+  "siteId": 54423,
+  "longitude": 41,
+  "latitude": 118,
+  "longitude-minute": 40.58,
+  "latitude-minute": 117.56,
+  "siteName": "承德市"
+}, {
+  "number": 29,
+  "siteId": 54401,
+  "longitude": 40.9,
+  "latitude": 115.2,
+  "longitude-minute": 40.47,
+  "latitude-minute": 114.53,
+  "siteName": "张家口"
+}, {
+  "number": 30,
+  "siteId": 53463,
+  "longitude": 40.8,
+  "latitude": 111.9,
+  "longitude-minute": 40.49,
+  "latitude-minute": 111.41,
+  "siteName": "呼和浩特"
+}, {
+  "number": 31,
+  "siteId": 53446,
+  "longitude": 40.5,
+  "latitude": 110.1,
+  "longitude-minute": 40.4,
+  "latitude-minute": 109.51,
+  "siteName": "包头"
+}, {
+  "number": 32,
+  "siteId": 53420,
+  "longitude": 41.3,
+  "latitude": 106.9,
+  "longitude-minute": 40.54,
+  "latitude-minute": 107.08,
+  "siteName": "陕坝*"
+}, {
+  "number": 33,
+  "siteId": 54511,
+  "longitude": 39,
+  "latitude": 116.3,
+  "longitude-minute": 39.36,
+  "latitude-minute": 116.17,
+  "siteName": "北京"
+}, {
+  "number": 34,
+  "siteId": 54527,
+  "longitude": 39.1,
+  "latitude": 117.2,
+  "longitude-minute": 39.06,
+  "latitude-minute": 117.1,
+  "siteName": "天津"
+}, {
+  "number": 35,
+  "siteId": 53698,
+  "longitude": 38.1,
+  "latitude": 114.5,
+  "longitude-minute": 38.02,
+  "latitude-minute": 114.25,
+  "siteName": "石家庄"
+}, {
+  "number": 36,
+  "siteId": 54714,
+  "longitude": 37.5,
+  "latitude": 116.4,
+  "longitude-minute": 37.26,
+  "latitude-minute": 116.19,
+  "siteName": "德州"
+}, {
+  "number": 37,
+  "siteId": 53798,
+  "longitude": 37,
+  "latitude": 114.5,
+  "longitude-minute": 37.04,
+  "latitude-minute": 114.3,
+  "siteName": "邢台"
+}, {
+  "number": 38,
+  "siteId": 53898,
+  "longitude": 36.1,
+  "latitude": 114.4,
+  "longitude-minute": 36.07,
+  "latitude-minute": 114.22,
+  "siteName": "安阳"
+}, {
+  "number": 39,
+  "siteId": 54765,
+  "longitude": 37.5,
+  "latitude": 121.4,
+  "longitude-minute": 37.32,
+  "latitude-minute": 121.24,
+  "siteName": "烟台"
+}, {
+  "number": 40,
+  "siteId": 54857,
+  "longitude": 36.2,
+  "latitude": 120.4,
+  "longitude-minute": 36.01,
+  "latitude-minute": 120.2,
+  "siteName": "青岛"
+}, {
+  "number": 41,
+  "siteId": 54843,
+  "longitude": 36.7,
+  "latitude": 119.1,
+  "longitude-minute": 36.45,
+  "latitude-minute": 119.11,
+  "siteName": "潍坊"
+}, {
+  "number": 42,
+  "siteId": 54823,
+  "longitude": 36.7,
+  "latitude": 117,
+  "longitude-minute": 36.41,
+  "latitude-minute": 110.59,
+  "siteName": "济南"
+}, {
+  "number": 43,
+  "siteId": 54938,
+  "longitude": 35.1,
+  "latitude": 118.4,
+  "longitude-minute": 35.03,
+  "latitude-minute": 118.21,
+  "siteName": "临沂"
+}, {
+  "number": 44,
+  "siteId": 54906,
+  "longitude": 35.3,
+  "latitude": 115.4,
+  "longitude-minute": 35.15,
+  "latitude-minute": 115.26,
+  "siteName": "菏泽"
+}, {
+  "number": 45,
+  "siteId": 58044,
+  "longitude": 34.6,
+  "latitude": 119.1,
+  "longitude-minute": 34.35,
+  "latitude-minute": 119.1,
+  "siteName": "连云港"
+}, {
+  "number": 46,
+  "siteId": 58144,
+  "longitude": 33.6,
+  "latitude": 119,
+  "longitude-minute": 33.36,
+  "latitude-minute": 119.02,
+  "siteName": "淮阴(清江)"
+}, {
+  "number": 47,
+  "siteId": 58028,
+  "longitude": 34.3,
+  "latitude": 117.6,
+  "longitude-minute": 34.17,
+  "latitude-minute": 117.09,
+  "siteName": "徐州"
+}, {
+  "number": 48,
+  "siteId": 58221,
+  "longitude": 33,
+  "latitude": 117.4,
+  "longitude-minute": 32.57,
+  "latitude-minute": 117.23,
+  "siteName": "蚌埠"
+}, {
+  "number": 49,
+  "siteId": 58203,
+  "longitude": 33,
+  "latitude": 115.9,
+  "longitude-minute": 32.56,
+  "latitude-minute": 115.49,
+  "siteName": "阜阳"
+}, {
+  "number": 50,
+  "siteId": 57083,
+  "longitude": 34.8,
+  "latitude": 113.6,
+  "longitude-minute": 34.43,
+  "latitude-minute": 113.39,
+  "siteName": "郑州"
+}, {
+  "number": 51,
+  "siteId": 57178,
+  "longitude": 33,
+  "latitude": 112.5,
+  "longitude-minute": 33.02,
+  "latitude-minute": 112.35,
+  "siteName": "南阳"
+}, {
+  "number": 52,
+  "siteId": 57297,
+  "longitude": 32.1,
+  "latitude": 114.1,
+  "longitude-minute": 32.08,
+  "latitude-minute": 114.03,
+  "siteName": "信阳"
+}, {
+  "number": 53,
+  "siteId": 58251,
+  "longitude": 32.9,
+  "latitude": 120.2,
+  "longitude-minute": 32.52,
+  "latitude-minute": 120.19,
+  "siteName": "东台"
+}, {
+  "number": 54,
+  "siteId": 58238,
+  "longitude": 32,
+  "latitude": 118.5,
+  "longitude-minute": 32,
+  "latitude-minute": 118.48,
+  "siteName": "南京"
+}, {
+  "number": 55,
+  "siteId": 58321,
+  "longitude": 31.9,
+  "latitude": 117.2,
+  "longitude-minute": 31.52,
+  "latitude-minute": 117.14,
+  "siteName": "合肥"
+}, {
+  "number": 56,
+  "siteId": 58361,
+  "longitude": 31,
+  "latitude": 121.4,
+  "longitude-minute": 31.07,
+  "latitude-minute": 121.23,
+  "siteName": "上海县"
+}, {
+  "number": 57,
+  "siteId": 58457,
+  "longitude": 30.2,
+  "latitude": 120.1,
+  "longitude-minute": 30.14,
+  "latitude-minute": 120.1,
+  "siteName": "杭州"
+}, {
+  "number": 58,
+  "siteId": 58424,
+  "longitude": 30.5,
+  "latitude": 117,
+  "longitude-minute": 30.32,
+  "latitude-minute": 117.03,
+  "siteName": "安庆"
+}, {
+  "number": 59,
+  "siteId": 58531,
+  "longitude": 29.7,
+  "latitude": 118.3,
+  "longitude-minute": 29.43,
+  "latitude-minute": 118.17,
+  "siteName": "屯溪"
+}, {
+  "number": 60,
+  "siteId": 58502,
+  "longitude": 29.7,
+  "latitude": 116,
+  "longitude-minute": 29.44,
+  "latitude-minute": 116,
+  "siteName": "九江"
+}, {
+  "number": 61,
+  "siteId": 57494,
+  "longitude": 30.6,
+  "latitude": 114.1,
+  "longitude-minute": 30.37,
+  "latitude-minute": 114.08,
+  "siteName": "武汉"
+}, {
+  "number": 62,
+  "siteId": 57378,
+  "longitude": 31.2,
+  "latitude": 112.5,
+  "longitude-minute": 31.1,
+  "latitude-minute": 112.34,
+  "siteName": "钟祥"
+}, {
+  "number": 63,
+  "siteId": 57584,
+  "longitude": 29.4,
+  "latitude": 113.1,
+  "longitude-minute": 29.23,
+  "latitude-minute": 113.05,
+  "siteName": "岳阳"
+}, {
+  "number": 64,
+  "siteId": 57461,
+  "longitude": 30.4,
+  "latitude": 111.3,
+  "longitude-minute": 30.42,
+  "latitude-minute": 111.18,
+  "siteName": "宜昌"
+}, {
+  "number": 65,
+  "siteId": 57662,
+  "longitude": 29,
+  "latitude": 111.6,
+  "longitude-minute": 29.03,
+  "latitude-minute": 111.41,
+  "siteName": "常德"
+}, {
+  "number": 66,
+  "siteId": 58562,
+  "longitude": 30,
+  "latitude": 121.6,
+  "longitude-minute": 29.52,
+  "latitude-minute": 121.34,
+  "siteName": "宁波"
+}, {
+  "number": 67,
+  "siteId": 58633,
+  "longitude": 29,
+  "latitude": 119,
+  "longitude-minute": 28.58,
+  "latitude-minute": 118.52,
+  "siteName": "衢州"
+}, {
+  "number": 68,
+  "siteId": 58659,
+  "longitude": 28,
+  "latitude": 120.6,
+  "longitude-minute": 28,
+  "latitude-minute": 120.4,
+  "siteName": "温州"
+}, {
+  "number": 69,
+  "siteId": 58731,
+  "longitude": 28,
+  "latitude": 118.6,
+  "longitude-minute": 27.55,
+  "latitude-minute": 118.32,
+  "siteName": "浦城"
+}, {
+  "number": 70,
+  "siteId": 58847,
+  "longitude": 26.1,
+  "latitude": 119.3,
+  "longitude-minute": 26.05,
+  "latitude-minute": 119.17,
+  "siteName": "福州"
+}, {
+  "number": 71,
+  "siteId": 58921,
+  "longitude": 26,
+  "latitude": 117.3,
+  "longitude-minute": 25.58,
+  "latitude-minute": 117.21,
+  "siteName": "永安"
+}, {
+  "number": 72,
+  "siteId": 58626,
+  "longitude": 28.3,
+  "latitude": 117.2,
+  "longitude-minute": 28.18,
+  "latitude-minute": 117.13,
+  "siteName": "贵溪"
+}, {
+  "number": 73,
+  "siteId": 58606,
+  "longitude": 28.7,
+  "latitude": 116,
+  "longitude-minute": 28.36,
+  "latitude-minute": 115.55,
+  "siteName": "南昌"
+}, {
+  "number": 74,
+  "siteId": 58813,
+  "longitude": 26.8,
+  "latitude": 116.2,
+  "longitude-minute": 26.51,
+  "latitude-minute": 116.2,
+  "siteName": "广昌"
+}, {
+  "number": 75,
+  "siteId": 57799,
+  "longitude": 27.1,
+  "latitude": 115,
+  "longitude-minute": 27.07,
+  "latitude-minute": 114.58,
+  "siteName": "吉安"
+}, {
+  "number": 76,
+  "siteId": 57993,
+  "longitude": 25.9,
+  "latitude": 115,
+  "longitude-minute": 25.51,
+  "latitude-minute": 114.57,
+  "siteName": "赣州"
+}, {
+  "number": 77,
+  "siteId": 57679,
+  "longitude": 28.2,
+  "latitude": 113.1,
+  "longitude-minute": 28.12,
+  "latitude-minute": 113.05,
+  "siteName": "长沙"
+}, {
+  "number": 78,
+  "siteId": 57872,
+  "longitude": 27,
+  "latitude": 112.5,
+  "longitude-minute": 26.54,
+  "latitude-minute": 112.36,
+  "siteName": "衡阳"
+}, {
+  "number": 79,
+  "siteId": 57972,
+  "longitude": 25.8,
+  "latitude": 113,
+  "longitude-minute": 25.48,
+  "latitude-minute": 113.02,
+  "siteName": "郴州"
+}, {
+  "number": 80,
+  "siteId": 57865,
+  "longitude": 26.2,
+  "latitude": 111.5,
+  "longitude-minute": 26.14,
+  "latitude-minute": 111.37,
+  "siteName": "零陵"
+}, {
+  "number": 81,
+  "siteId": 57745,
+  "longitude": 27.4,
+  "latitude": 109.7,
+  "longitude-minute": 27.27,
+  "latitude-minute": 109.41,
+  "siteName": "芷江"
+}, {
+  "number": 82,
+  "siteId": 59134,
+  "longitude": 24.6,
+  "latitude": 118.1,
+  "longitude-minute": 24.29,
+  "latitude-minute": 118.04,
+  "siteName": "厦门"
+}, {
+  "number": 83,
+  "siteId": 59117,
+  "longitude": 24.3,
+  "latitude": 116.1,
+  "longitude-minute": 24.16,
+  "latitude-minute": 116.06,
+  "siteName": "梅县"
+}, {
+  "number": 84,
+  "siteId": 59316,
+  "longitude": 23.4,
+  "latitude": 116.8,
+  "longitude-minute": 23.24,
+  "latitude-minute": 116.41,
+  "siteName": "汕头"
+}, {
+  "number": 85,
+  "siteId": 59082,
+  "longitude": 24.8,
+  "latitude": 113.6,
+  "longitude-minute": 24.48,
+  "latitude-minute": 113.35,
+  "siteName": "韶关"
+}, {
+  "number": 86,
+  "siteId": 59293,
+  "longitude": 23.8,
+  "latitude": 114.8,
+  "longitude-minute": 23.44,
+  "latitude-minute": 114.41,
+  "siteName": "河源"
+}, {
+  "number": 87,
+  "siteId": 59288,
+  "longitude": 23.1,
+  "latitude": 113.3,
+  "longitude-minute": 23.08,
+  "latitude-minute": 113.19,
+  "siteName": "广州"
+}, {
+  "number": 88,
+  "siteId": 59663,
+  "longitude": 21.9,
+  "latitude": 112,
+  "longitude-minute": 21.52,
+  "latitude-minute": 111.58,
+  "siteName": "阳江"
+}, {
+  "number": 89,
+  "siteId": 59658,
+  "longitude": 21.1,
+  "latitude": 110.5,
+  "longitude-minute": 21.13,
+  "latitude-minute": 110.24,
+  "siteName": "湛江"
+}, {
+  "number": 90,
+  "siteId": 59758,
+  "longitude": 20,
+  "latitude": 110.4,
+  "longitude-minute": 20.02,
+  "latitude-minute": 110.21,
+  "siteName": "海口"
+}, {
+  "number": 91,
+  "siteId": 57957,
+  "longitude": 25.4,
+  "latitude": 110.3,
+  "longitude-minute": 25.19,
+  "latitude-minute": 110.18,
+  "siteName": "桂林"
+}, {
+  "number": 92,
+  "siteId": 59044,
+  "longitude": 24.5,
+  "latitude": 109.4,
+  "longitude-minute": 24.28,
+  "latitude-minute": 109.24,
+  "siteName": "柳州"
+}, {
+  "number": 93,
+  "siteId": 59266,
+  "longitude": 23.5,
+  "latitude": 111.3,
+  "longitude-minute": 23.29,
+  "latitude-minute": 111.18,
+  "siteName": "梧州"
+}, {
+  "number": 94,
+  "siteId": 59431,
+  "longitude": 22.9,
+  "latitude": 108.3,
+  "longitude-minute": 22.49,
+  "latitude-minute": 108.21,
+  "siteName": "南宁"
+}, {
+  "number": 95,
+  "siteId": 59644,
+  "longitude": 23.5,
+  "latitude": 107.1,
+  "longitude-minute": 21.29,
+  "latitude-minute": 109.07,
+  "siteName": "北海"
+}, {
+  "number": 96,
+  "siteId": 59211,
+  "longitude": 24,
+  "latitude": 106.5,
+  "longitude-minute": 23.54,
+  "latitude-minute": 106.36,
+  "siteName": "白色"
+}, {
+  "number": 97,
+  "siteId": 57713,
+  "longitude": 27.7,
+  "latitude": 107,
+  "longitude-minute": 27.42,
+  "latitude-minute": 106.53,
+  "siteName": "遵义"
+}, {
+  "number": 98,
+  "siteId": 57816,
+  "longitude": 26.5,
+  "latitude": 106.7,
+  "longitude-minute": 26.35,
+  "latitude-minute": 106.43,
+  "siteName": "贵阳"
+}, {
+  "number": 99,
+  "siteId": 57707,
+  "longitude": 27.3,
+  "latitude": 105.3,
+  "longitude-minute": 27.18,
+  "latitude-minute": 105.17,
+  "siteName": "毕节"
+}, {
+  "number": 100,
+  "siteId": 57902,
+  "longitude": 25.5,
+  "latitude": 105.3,
+  "longitude-minute": 25.26,
+  "latitude-minute": 105.11,
+  "siteName": "兴仁"
+}, {
+  "number": 101,
+  "siteId": 57932,
+  "longitude": 25.9,
+  "latitude": 108.6,
+  "longitude-minute": 25.58,
+  "latitude-minute": 108.32,
+  "siteName": "榕江"
+}, {
+  "number": 102,
+  "siteId": 57447,
+  "longitude": 30.2,
+  "latitude": 109.5,
+  "longitude-minute": 30.17,
+  "latitude-minute": 109.28,
+  "siteName": "恩施"
+}, {
+  "number": 103,
+  "siteId": 57328,
+  "longitude": 31.3,
+  "latitude": 107.5,
+  "longitude-minute": 31.12,
+  "latitude-minute": 107.3,
+  "siteName": "达县"
+}, {
+  "number": 104,
+  "siteId": 57633,
+  "longitude": 29,
+  "latitude": 109,
+  "longitude-minute": 28.5,
+  "latitude-minute": 108.46,
+  "siteName": "酉阳"
+}, {
+  "number": 105,
+  "siteId": 57516,
+  "longitude": 29.6,
+  "latitude": 106.5,
+  "longitude-minute": 29.35,
+  "latitude-minute": 106.28,
+  "siteName": "重庆"
+}, {
+  "number": 106,
+  "siteId": 57411,
+  "longitude": 30.8,
+  "latitude": 106.1,
+  "longitude-minute": 30.47,
+  "latitude-minute": 106.06,
+  "siteName": "南充"
+}, {
+  "number": 107,
+  "siteId": 57504,
+  "longitude": 29.7,
+  "latitude": 105,
+  "longitude-minute": 29.35,
+  "latitude-minute": 105.03,
+  "siteName": "内江"
+}, {
+  "number": 108,
+  "siteId": 56196,
+  "longitude": 31.5,
+  "latitude": 104.8,
+  "longitude-minute": 31.28,
+  "latitude-minute": 104.41,
+  "siteName": "绵阳"
+}, {
+  "number": 109,
+  "siteId": 56294,
+  "longitude": 30.7,
+  "latitude": 104.1,
+  "longitude-minute": 30.4,
+  "latitude-minute": 104.01,
+  "siteName": "成都"
+}, {
+  "number": 110,
+  "siteId": 56492,
+  "longitude": 28.9,
+  "latitude": 104.5,
+  "longitude-minute": 28.48,
+  "latitude-minute": 104.36,
+  "siteName": "宜宾"
+}, {
+  "number": 111,
+  "siteId": 56287,
+  "longitude": 30,
+  "latitude": 103.1,
+  "longitude-minute": 29.59,
+  "latitude-minute": 103,
+  "siteName": "雅安"
+}, {
+  "number": 112,
+  "siteId": 56374,
+  "longitude": 30.1,
+  "latitude": 102.1,
+  "longitude-minute": 30.03,
+  "latitude-minute": 101.58,
+  "siteName": "康定"
+}, {
+  "number": 113,
+  "siteId": 56571,
+  "longitude": 27.9,
+  "latitude": 102.3,
+  "longitude-minute": 27.54,
+  "latitude-minute": 102.16,
+  "siteName": "西昌"
+}, {
+  "number": 114,
+  "siteId": 56671,
+  "longitude": 26.7,
+  "latitude": 102.3,
+  "longitude-minute": 26.39,
+  "latitude-minute": 102.15,
+  "siteName": "会理"
+}, {
+  "number": 115,
+  "siteId": 56651,
+  "longitude": 27,
+  "latitude": 100.3,
+  "longitude-minute": 26.52,
+  "latitude-minute": 100.13,
+  "siteName": "丽江"
+}, {
+  "number": 116,
+  "siteId": 56751,
+  "longitude": 25.8,
+  "latitude": 100.2,
+  "longitude-minute": 25.42,
+  "latitude-minute": 100.11,
+  "siteName": "大理"
+}, {
+  "number": 117,
+  "siteId": 56748,
+  "longitude": 25.3,
+  "latitude": 99.3,
+  "longitude-minute": 25.07,
+  "latitude-minute": 99.1,
+  "siteName": "保山"
+}, {
+  "number": 118,
+  "siteId": 56778,
+  "longitude": 25,
+  "latitude": 102.7,
+  "longitude-minute": 25.01,
+  "latitude-minute": 102.41,
+  "siteName": "昆明"
+}, {
+  "number": 119,
+  "siteId": 56951,
+  "longitude": 23.9,
+  "latitude": 100.3,
+  "longitude-minute": 23.57,
+  "latitude-minute": 100.13,
+  "siteName": "临沧"
+}, {
+  "number": 120,
+  "siteId": 56985,
+  "longitude": 23.3,
+  "latitude": 103.4,
+  "longitude-minute": 23.23,
+  "latitude-minute": 103.23,
+  "siteName": "蒙自"
+}, {
+  "number": 121,
+  "siteId": 56959,
+  "longitude": 21.9,
+  "latitude": 100.9,
+  "longitude-minute": 22,
+  "latitude-minute": 100.48,
+  "siteName": "景洪"
+}, {
+  "number": 122,
+  "siteId": 56146,
+  "longitude": 31.7,
+  "latitude": 100,
+  "longitude-minute": 31.37,
+  "latitude-minute": 100,
+  "siteName": "甘孜"
+}, {
+  "number": 123,
+  "siteId": 56441,
+  "longitude": 28.9,
+  "latitude": 99.4,
+  "longitude-minute": 28.43,
+  "latitude-minute": 99.17,
+  "siteName": "得荣"
+}, {
+  "number": 124,
+  "siteId": 56137,
+  "longitude": 31.2,
+  "latitude": 97,
+  "longitude-minute": 31.09,
+  "latitude-minute": 97.1,
+  "siteName": "昌都"
+}, {
+  "number": 125,
+  "siteId": 55591,
+  "longitude": 29.7,
+  "latitude": 91.1,
+  "longitude-minute": 29.4,
+  "latitude-minute": 91.08,
+  "siteName": "拉萨"
+}, {
+  "number": 126,
+  "siteId": 57036,
+  "longitude": 34.3,
+  "latitude": 109,
+  "longitude-minute": 34.18,
+  "latitude-minute": 108.56,
+  "siteName": "西安"
+}, {
+  "number": 127,
+  "siteId": 57006,
+  "longitude": 34.5,
+  "latitude": 105.8,
+  "longitude-minute": 34.35,
+  "latitude-minute": 105.45,
+  "siteName": "天水"
+}, {
+  "number": 128,
+  "siteId": 56093,
+  "longitude": 34.4,
+  "latitude": 104.2,
+  "longitude-minute": 34.26,
+  "latitude-minute": 104.01,
+  "siteName": "岷县"
+}, {
+  "number": 129,
+  "siteId": 57127,
+  "longitude": 33,
+  "latitude": 107.3,
+  "longitude-minute": 33.04,
+  "latitude-minute": 107.02,
+  "siteName": "汉中"
+}, {
+  "number": 130,
+  "siteId": 57245,
+  "longitude": 32.5,
+  "latitude": 109.4,
+  "longitude-minute": 32.43,
+  "latitude-minute": 109.02,
+  "siteName": "安康"
+}, {
+  "number": 131,
+  "siteId": 57251,
+  "longitude": 32.9,
+  "latitude": 110.8,
+  "longitude-minute": 32.51,
+  "latitude-minute": 110.49,
+  "siteName": "郧县"
+}, {
+  "number": 132,
+  "siteId": 53882,
+  "longitude": 36.2,
+  "latitude": 113.1,
+  "longitude-minute": 36.03,
+  "latitude-minute": 113.04,
+  "siteName": "长治"
+}, {
+  "number": 133,
+  "siteId": 53772,
+  "longitude": 37.9,
+  "latitude": 112.5,
+  "longitude-minute": 37.47,
+  "latitude-minute": 112.33,
+  "siteName": "太原"
+}, {
+  "number": 134,
+  "siteId": 53868,
+  "longitude": 36.1,
+  "latitude": 111.5,
+  "longitude-minute": 36.04,
+  "latitude-minute": 111.3,
+  "siteName": "临汾"
+}, {
+  "number": 135,
+  "siteId": 53646,
+  "longitude": 38.3,
+  "latitude": 109.5,
+  "longitude-minute": 38.14,
+  "latitude-minute": 109.42,
+  "siteName": "榆林"
+}, {
+  "number": 136,
+  "siteId": 53845,
+  "longitude": 36.8,
+  "latitude": 109.5,
+  "longitude-minute": 36.36,
+  "latitude-minute": 109.3,
+  "siteName": "延安"
+}, {
+  "number": 137,
+  "siteId": 53923,
+  "longitude": 35.8,
+  "latitude": 107.8,
+  "longitude-minute": 35.44,
+  "latitude-minute": 107.38,
+  "siteName": "西峰镇"
+}, {
+  "number": 138,
+  "siteId": 52889,
+  "longitude": 36.1,
+  "latitude": 103.9,
+  "longitude-minute": 36.03,
+  "latitude-minute": 103.53,
+  "siteName": "兰州"
+}, {
+  "number": 139,
+  "siteId": 53905,
+  "longitude": 37.1,
+  "latitude": 105.5,
+  "longitude-minute": "中宁"
+}, {
+  "number": 140,
+  "siteId": 53614,
+  "longitude": 38.5,
+  "latitude": 106.3,
+  "longitude-minute": 38.29,
+  "latitude-minute": 106.13,
+  "siteName": "银川"
+}, {
+  "number": 141,
+  "siteId": 52866,
+  "longitude": 36.5,
+  "latitude": 102,
+  "longitude-minute": 36.37,
+  "latitude-minute": 101.46,
+  "siteName": "西宁"
+}, {
+  "number": 142,
+  "siteId": 52984,
+  "longitude": 35.5,
+  "latitude": 103.2,
+  "longitude-minute": 35.35,
+  "latitude-minute": 103.11,
+  "siteName": "临夏"
+}, {
+  "number": 143,
+  "siteId": 56033,
+  "longitude": 35,
+  "latitude": 98.1,
+  "longitude-minute": 34.55,
+  "latitude-minute": 98.13,
+  "siteName": "玛多"
+}, {
+  "number": 144,
+  "siteId": 56029,
+  "longitude": 33.1,
+  "latitude": 96.8,
+  "longitude-minute": 33.01,
+  "latitude-minute": 97.01,
+  "siteName": "玉树"
+}, {
+  "number": 145,
+  "siteId": 52679,
+  "longitude": 38.1,
+  "latitude": 103,
+  "longitude-minute": 37.55,
+  "latitude-minute": 102.4,
+  "siteName": "武威"
+}, {
+  "number": 146,
+  "siteId": 52652,
+  "longitude": 39,
+  "latitude": 100.6,
+  "longitude-minute": 38.56,
+  "latitude-minute": 100.26,
+  "siteName": "张掖"
+}, {
+  "number": 147,
+  "siteId": 52533,
+  "longitude": 39.8,
+  "latitude": 98.5,
+  "longitude-minute": 39.46,
+  "latitude-minute": 98.29,
+  "siteName": "酒泉"
+}, {
+  "number": 148,
+  "siteId": 52418,
+  "longitude": 40.1,
+  "latitude": 94.8,
+  "longitude-minute": 40.09,
+  "latitude-minute": 94.41,
+  "siteName": "敦煌"
+}, {
+  "number": 149,
+  "siteId": 51573,
+  "longitude": 43,
+  "latitude": 89.2,
+  "longitude-minute": 42.56,
+  "latitude-minute": 89.12,
+  "siteName": "吐鲁番"
+}, {
+  "number": 150,
+  "siteId": 51644,
+  "longitude": 41.8,
+  "latitude": 82.9,
+  "longitude-minute": 41.43,
+  "latitude-minute": 82.57,
+  "siteName": "库车"
+}, {
+  "number": 151,
+  "siteId": 51709,
+  "longitude": 39.5,
+  "latitude": 75.8,
+  "longitude-minute": 39.28,
+  "latitude-minute": 75.59,
+  "siteName": "喀什"
+}, {
+  "number": 152,
+  "siteId": 51828,
+  "longitude": 37.1,
+  "latitude": 80,
+  "longitude-minute": 37.08,
+  "latitude-minute": 79.56,
+  "siteName": "和田"
+}, {
+  "number": 153,
+  "siteId": 51855,
+  "longitude": 38.1,
+  "latitude": 85.5,
+  "longitude-minute": 39.09,
+  "latitude-minute": 85.33,
+  "siteName": "且末"
+}, {
+  "number": 154,
+  "siteId": 51777,
+  "longitude": 39.1,
+  "latitude": 88.1,
+  "longitude-minute": 39.02,
+  "latitude-minute": 88.1,
+  "siteName": "若羌"
+}, {
+  "number": 155,
+  "siteId": 52203,
+  "longitude": 42.9,
+  "latitude": 93.5,
+  "longitude-minute": 42.49,
+  "latitude-minute": 93.31,
+  "siteName": "哈密"
+}, {
+  "number": 156,
+  "siteId": 51076,
+  "longitude": 47.9,
+  "latitude": 88.1,
+  "longitude-minute": 47.44,
+  "latitude-minute": 88.05,
+  "siteName": "阿勒泰"
+}, {
+  "number": 157,
+  "siteId": 51133,
+  "longitude": 46.8,
+  "latitude": 83,
+  "longitude-minute": 46.44,
+  "latitude-minute": 83,
+  "siteName": "塔城"
+}, {
+  "number": 158,
+  "siteId": 51346,
+  "longitude": 44.4,
+  "latitude": 84.5,
+  "longitude-minute": 44.26,
+  "latitude-minute": 84.4,
+  "siteName": "乌苏"
+}, {
+  "number": 159,
+  "siteId": 51431,
+  "longitude": 44,
+  "latitude": 81.3,
+  "longitude-minute": 43.57,
+  "latitude-minute": 81.2,
+  "siteName": "伊宁"
+}, {
+  "number": 160,
+  "siteId": 51463,
+  "longitude": 43.9,
+  "latitude": 87.5,
+  "longitude-minute": 43.47,
+  "latitude-minute": 87.34,
+  "siteName": "乌鲁木齐"
+}]

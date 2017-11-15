@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>环图</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item hover last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+
+  <div class="main-container clearfix">
+  <div class="doc-content vis-chart">
+    <div class="doc-inner vis-chart">
+      <h1>环图</h1>
+      <p><img src="https://os.alipayobjects.com/rmsportal/LviFnOknmSGUCHZ.png" /></p>
+<h2 id="环图的简介">环图的简介</h2><p>环图（又叫做甜甜圈图），其本质是饼图将中间区域挖空。</p>
+<p>虽然如此，环图还是有它一点微小的优点。饼图的整体性太强，我们会将注意力集中在比较饼图内各个扇形之间占整体比重的关系。但如果我们将两个饼图放在一起，饼图很难同时对比两个图。</p>
+<p>环图在解决上述问题时，采用了让我们更关注长度而不是面积的做法。这样我们就能相对简单的对比不同的环图。</p>
+<p>同时环图相对于饼图空间的利用率更高，比如我们可以使用它的空心区域显示文本信息，比如标题等。</p>
+<p>英文名：Donut chart</p>
+<h2 id="环图的构成">环图的构成</h2><p><img src="https://os.alipayobjects.com/rmsportal/mlFSJKDawodypht.png" class="constitute-img"></p>
+<table class="struct-table">
+  <tr>
+    <th>图表类型</th>
+    <th>饼图</th>
+  </tr>
+  <tr>
+    <td>适合的数据</td>
+    <td>列表：一个分类数据字段、一个连续数据字段</td>
+  </tr>
+  <tr>
+    <td>功能</td>
+    <td>对比分类数据的数值大小</td>
+  </tr>
+  <tr>
+    <td>数据与图形的映射</td>
+    <td>分类数据字段映射到环形的颜色<br>连续数据字段映射到环形的角度
+  </tr>
+  <tr>
+    <td>适合的数据条数</td>
+    <td>不超过9条数据</td>
+  </tr>
+</table>
+
+<div style="clear:both;"></div>
+
+<h2 id="环图的应用场景">环图的应用场景</h2><h3 id="适合的场景">适合的场景</h3><p>例子1：<strong> 展示分类的占比情况 </strong>这种用法与饼图类似，下图是一个游戏公司的销售情况：</p>
+<table>
+<thead>
+<tr>
+<th>genre（游戏类型）</th>
+<th>sold（销售量）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sports</td>
+<td>27,500</td>
+</tr>
+<tr>
+<td>Strategy</td>
+<td>11,500</td>
+</tr>
+<tr>
+<td>Action</td>
+<td>6,000</td>
+</tr>
+<tr>
+<td>Shooter</td>
+<td>3,500</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>1,500</td>
+</tr>
+</tbody>
+</table>
+<div id="c5"></div>
+
+<div class="code hide">
+
+  var data = [
+    {genre:'Sports',sold:27500},
+    {genre:'Strategy',sold:11500},
+    {genre:'Action',sold:6000},
+    {genre:'Shooter',sold:3500},
+    {genre:'Other',sold:1500},
+  ];
+
+  function formatter(text,item){
+      var point = item.point; // 每个弧度对应的点
+      var percent = point['..percent']; // ..proportion 字段由Stat.summary.proportion统计函数生成
+      percent = (percent * 100).toFixed(2) + '%';
+      return percent;
+  }
+  var Stat = G2.Stat;
+
+  var chart = new G2.Chart({
+    id: 'c5',
+    forceFit: true,
+    height : 400
+  });
+
+  chart.source(data);
+  chart.legend('bottom');
+
+  chart.coord('theta',{radius: 0.8,inner: 0.65});
+
+  chart.intervalStack().position(Stat.summary.percent('sold')).color('genre').label('genre',{renderer: formatter});
+  chart.render();
+</div>
+
+<h3 id="不适合的场景">不适合的场景</h3><p>例子1: <strong> 分类过多的场景 </strong>下图是各个省的人口的占比情况，因为这张图上包含的分类过多，很难清晰对比各个省份的人口数据占比情况，所以这种情况下，我们推荐使用<a href="bar.html">横向柱状图</a>。</p>
+<div id="c3"></div>
+
+<div class="code hide">
+
+  var data = [
+    {province:'北京市',population:19612368},
+    {province:'天津市',population:12938693},
+    {province:'河北省',population:71854210},
+    {province:'山西省',population:27500},
+    {"province":"内蒙古自治区","population":24706291},
+    {"province":"辽宁省","population":43746323},
+    {"province":"吉林省","population":27452815},
+    {"province":"黑龙江省","population":38313991},
+    {"province":"上海市","population":23019196},{"province":"江苏省","population":78660941},
+    {"province":"浙江省","population":54426891},{"province":"安徽省","population":59500468},
+    {"province":"福建省","population":36894217},{"province":"江西省","population":44567797},
+    {"province":"山东省","population":95792719},{"province":"河南省","population":94029939},
+    {"province":"湖北省","population":57237727},{"province":"湖南省","population":65700762},
+    {"province":"广东省","population":104320459},{"province":"广西壮族自治区","population":46023761},
+    {"province":"海南省","population":8671485},{"province":"重庆市","population":28846170},
+    {"province":"四川省","population":80417528},{"province":"贵州省","population":34748556},
+    {"province":"云南省","population":45966766},{"province":"西藏自治区","population":3002165},
+    {"province":"陕西省","population":37327379},{"province":"甘肃省","population":25575263},
+    {"province":"青海省","population":5626723}
+  ];
+
+  var Stat = G2.Stat;
+
+  var chart = new G2.Chart({
+    id : 'c3',
+    forceFit: true,
+    height : 350,
+    plotCfg: {
+      margin: [50, 100]
+    }
+  });
+
+  chart.source(data);
+  chart.coord('theta', {radius: 0.8,inner: 0.65});
+  chart.intervalStack().position(Stat.summary.percent('population')).color('province').label('province');
+
+  chart.render();
+</div>
+
+<p>例子2: <strong> 分类占比差别不明显的场景  </strong>
+下图中游戏公司的不同种类的游戏的销售量相近，所以不太适合使用环图，此时可以使用<a href="bar.html">柱状图</a>。</p>
+<div id="c4"></div>
+
+<div class="code hide">
+  var data = [
+    {genre:'Sports',sold:15000},
+    {genre:'Strategy',sold:14900},
+    {genre:'Action',sold:15050},
+    {genre:'Shooter',sold:13000},
+    {genre:'Other',sold:13900}
+  ];
+
+  function formatter(text,item){
+      var point = item.point; // 每个弧度对应的点
+      var percent = point['..percent']; // ..proportion 字段由Stat.summary.proportion统计函数生成
+      percent = (percent * 100).toFixed(2) + '%';
+      return percent;
+  }
+  var Stat = G2.Stat;
+
+  var chart = new G2.Chart({
+    id: 'c4',
+    forceFit: true,
+    height : 350
+  });
+
+  chart.source(data);
+  chart.coord('theta',{radius: 0.8,inner: 0.65});
+  chart.legend('bottom');
+
+  chart.intervalStack().position(Stat.summary.percent('sold')).color('genre');
+  chart.render();
+</div>
+
+<h2 id="环图的扩展">环图的扩展</h2><p>例子1：<strong> 分面环图 </strong>使用G2的分面功能，可以将分组数据绘制成多个环图</p>
+<p>下图展示了全球最大1000家银行所在地区在2007年和2011年的利润总额占比情况：</p>
+<table>
+<thead>
+<tr>
+<th>年份</th>
+<th>地区</th>
+<th>利润总额（亿美金）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2007</td>
+<td>亚太地区</td>
+<td>1485.54</td>
+</tr>
+<tr>
+<td>2007</td>
+<td>非洲及中东</td>
+<td>330.12</td>
+</tr>
+<tr>
+<td>2007</td>
+<td>拉丁美洲</td>
+<td>196.5</td>
+</tr>
+<tr>
+<td>……</td>
+<td>……</td>
+<td>……</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>亚太地区</td>
+<td>4107.18</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>非洲及中东</td>
+<td>495.3</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>拉丁美洲</td>
+<td>495.3</td>
+</tr>
+<tr>
+<td>……</td>
+<td>……</td>
+<td>……</td>
+</tr>
+</tbody>
+</table>
+<div id="c6" style="position:relative">
+  <div style="
+    width: 100px;
+    position: absolute;
+    top: 165px;
+    left: 220px;">
+    <p>2007年总额（亿美元）</p>
+    <p style="font-size:22px;font-weight:bold;text-indent:10px;">7860</p>
+  </div>
+  <div style="
+    width: 100px;
+    position: absolute;
+    top: 165px;
+    left: 610px;">
+    <p>2011年总额（亿美元）</p>
+    <p style="font-size:22px;font-weight:bold;text-indent:10px;">7620</p>
+  </div>
+</div>
+
+<div class="code hide">
+  var profit2007 = 7860;
+  var profit2011 = 7620;
+  var data = [
+    {year:2007, area:'亚太地区', profit: 7860*0.189},
+    {year:2007, area:'非洲及中东', profit: 7860*0.042},
+    {year:2007, area:'拉丁美洲', profit: 7860*0.025},
+    {year:2007, area:'中欧和东欧', profit: 7860*0.018},
+    {year:2007, area:'西欧', profit: 7860*0.462},
+    {year:2007, area:'北美', profit: 7860*0.265},
+    {year:2011, area:'亚太地区', profit: 7620*0.539},
+    {year:2011, area:'非洲及中东', profit: 7620*0.065},
+    {year:2011, area:'拉丁美洲', profit: 7620*0.065},
+    {year:2011, area:'中欧和东欧', profit: 7620*0.034},
+    {year:2011, area:'西欧', profit: 7620*0.063},
+    {year:2011, area:'北美', profit: 7620*0.234}
+  ];
+
+  var Stat = G2.Stat;
+
+  var chart = new G2.Chart({
+    id: 'c6',
+    forceFit: true,
+    height: 500,
+    plotCfg: {
+      margin: [20, 90, 80]
+    }
+  });
+  chart.facet(['year']);  
+  chart.source(data);
+  chart.legend('bottom');
+  chart.coord('theta',{radius: 0.8,inner: 0.65});
+
+  chart.intervalStack().position(Stat.summary.percent('profit')).color('area')
+  ;
+  chart.render();
+</div>
+
+      <h2 id="变型">变型</h2>
+      <div class="detail-list">
+        <ul class="vis-chart-list clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/details/pie.html">
+              <i class="iconfont icon-pie"></i>
+              <span>饼图</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../vis/doc/chart/details/rose.html">
+              <i class="iconfont icon-rose"></i>
+              <span>南丁格尔玫瑰图</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <h2 id="标签">标签</h2>
+      <div>
+
+        <ul class="vis-classify-list small clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/classify/proportion.html">
+              <span>占比类</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $.fn.isOnScreen = function(){
+      var win = $(window);
+      var viewport = {
+          top : win.scrollTop(),
+          left : win.scrollLeft()
+      };
+      viewport.right = viewport.left + win.width();
+      viewport.bottom = viewport.top + win.height();
+      var bounds = this.offset();
+      bounds.right = bounds.left + this.outerWidth();
+      bounds.bottom = bounds.top + this.outerHeight();
+      return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+    };
+    function ReplaceAll(str, sptr, sptr1){
+      while (str.indexOf(sptr) >= 0){
+         str = str.replace(sptr, sptr1);
+      }
+      return str;
+    }
+    function lazyLoad(codes) {
+      var isrun = [];
+      tryRun();
+      $(document).on('mousewheel',function(e){
+        tryRun();
+      });
+      function tryRun(){
+        codes.each(function(index,ele){
+          if (isrun.indexOf(ele) === -1) {
+            var $ele = $(ele);
+            if ( $ele.isOnScreen() ) {
+              setTimeout(function(){
+                var t = $ele.html();
+                t = ReplaceAll(t, '&lt;', '<');
+                t = ReplaceAll(t, '&gt;', '>');
+                t = ReplaceAll(t, '&amp;', '&');
+                eval(t);
+                $ele.hide();
+              },500);
+              isrun.push(ele);
+            };
+          };
+        });
+      }
+    }
+    var codes = $('.code');
+    lazyLoad(codes);
+  </script>
+
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

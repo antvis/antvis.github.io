@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Frame API 文档</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../static/jquery.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item hover">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+<link rel="stylesheet" href="../../static/prettify-min.css">
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+
+
+  <div class="main-container clearfix">
+<div class="body-content api-body-content"><div class="doc-nav">
+  <p class="title">G2</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g2/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">使用教程</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="sub-title">基础教程</li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/index.html" >G2 图表的主要组成</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/chart.html" >图表对象配置（chart）</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/working-with-data.html" >data 数据</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/frame.html" >Frame 常见操作</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/scale.html" >度量</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/col-defs.html" >列定义操作</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/geom.html" >geom 几何标记</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/attr.html" >attr 图形属性</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/coord.html" >coord 坐标系</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/axis.html" >axis 坐标轴</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/legend.html" >legend 图例</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/tooltip.html" >tooltip 提示信息</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/guide.html" >guide 辅助标记</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/stat.html" >stat 统计变换</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/facet.html" >facet 分面</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/theme.html" >theme 图表样式</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/label.html" >label 文本标签</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/chart-event.html" >图表事件 event</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/action.html" >图表交互</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/changedata.html" >数据异步加载与动态更新</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/g2-plugin-slider.html" >数据滑动条插件使用</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/rc-g2.html" >在 react 中使用 G2</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/fqas.html" >常见问题</a>
+          </li>
+          <li class="sub-title">高级教程</li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/index.html" >G2 图形语法简介</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/data-flow.html" >G2 的数据处理流程</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/data-type-and-scale.html" >数据类型与度量</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/coord-detailed.html" >坐标系详解</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/chart-type.html" >图表类型</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/geom-and-adjust.html" >几何标记和数据调整</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/custom-shape.html" >自定义 shape</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/view.html" >多视图 view 绘制</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/layout.html" >layout 布局</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/draw-word-cloud.html" >使用 G2 绘制词云</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/animate.html" >自定义动画</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">API</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="">
+            <a href="../../g2/api/index.html" >G2</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/chart.html" >Chart</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/view.html" >View</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/geom.html" >Geom</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/scale.html" >Scale</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/stat.html" >Stat</a>
+          </li>
+          <li class="active">
+            <a href="../../g2/api/frame.html" >Frame</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/shape.html" >Shape</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/animate.html" >Animate</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/util.html" >Util</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/chart-options.html" >配置项支持</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/doc/history.html" >更新日志</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+  <div class="doc-content clearfix">
+    <h1>Frame</h1>
+    <div id="J_pageNav"></div>
+    <div class="clearfix" style="margin-bottom: 40px;"></div>
+    <div class="doc-inner">
+      <p>获取方式：<code>G2.Frame</code></p>
+<p>G2 接收的数据格式非常简单：标准的JSON数组，每个数组元素是一个 JSON 对象，G2 在图表的内部将数据转换成一个 Frame 对象，也可以由用户直接创建 Frame 对象，同时执行一些数据操作。</p>
+<h1 id="语法">语法</h1><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {gender:<span class="string">'男'</span>,count:<span class="number">40</span>},
+  {gender:<span class="string">'女'</span>,count:<span class="number">30</span>}
+];
+
+<span class="keyword">var</span> Frame = G2.Frame;
+<span class="keyword">var</span> frame = <span class="keyword">new</span> Frame(data); <span class="comment">// 图表内部做的转换</span>
+frame = Frame.sort(frame, <span class="string">'count'</span>); <span class="comment">// 按照count 排序</span>
+chart.source(frame);</code></pre></div><h2 id="方法">方法</h2><p>Frame 数据集合的操作基本上都是列操作，下面列出了 Frame 数据集合对象提供的操作方法：</p>
+<h3 id="colnames"><a href="#colNames">colNames</a></h3><p>使用方式：<code>frame.colNames()</code></p>
+<p>返回结果：Array</p>
+<p>返回数据集合的所有列名称。</p>
+<h3 id="colcount"><a href="#colCount">colCount</a></h3><p>使用方式：<code>frame.colCount()</code></p>
+<p>返回结果：Number</p>
+<p>返回数据集合列的个数。</p>
+<h3 id="colindex"><a href="#colIndex">colIndex</a></h3><p>使用方式：<code>frame.colIndex(name)</code></p>
+<p>返回结果：Number</p>
+<p>根据列名称获取对应的列索引。</p>
+<h3 id="colarray"><a href="#colArray">colArray</a></h3><p>使用方式：<code>frame.colArray(name)</code></p>
+<p>返回结果：Array</p>
+<p>根据列名称、索引获取列对应的数组。</p>
+<h3 id="colreplace"><a href="#colReplace">colReplace</a></h3><p>使用方式：<code>frame.colReplace(name, arr)</code></p>
+<p>返回结果: Frame</p>
+<p>替换数据集合中的列数组，返回数据集合本身，<strong>原数据集合发生改变</strong>。</p>
+<h4 id="参数">参数</h4><ul>
+<li><code>name</code>: String | Number</li>
+</ul>
+<p>可以是列名称也可以是索引</p>
+<ul>
+<li><code>arr</code>: Array</li>
+</ul>
+<p>要替换的值。</p>
+<h4 id="代码示例">代码示例</h4><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {a: <span class="string">'a'</span>, value: <span class="number">1</span>},
+  {a: <span class="string">'b'</span>, value: <span class="number">2</span>},
+  {a: <span class="string">'c'</span>, value: <span class="number">3</span>}
+];
+
+<span class="keyword">var</span> Frame = G2.Frame;
+<span class="keyword">var</span> frame = <span class="keyword">new</span> Frame(data);
+frame.colReplace(<span class="string">'value'</span>, [<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>]);
+console.log(JSON.stringify(frame.toJSON())); <span class="comment">// [{"a":"a","value":11},{"a":"b","value":22},{"a":"c","value":33}]</span></code></pre></div><h3 id="rowcount"><a href="#rowCount">rowCount</a></h3><p>使用方式：<code>frame.rowCount()</code></p>
+<p>返回结果：Number</p>
+<p>返回数据集合行的个数，即数据的个数。</p>
+<h3 id="rowobject"><a href="#rowObject">rowObject</a></h3><p>使用方式：<code>frame.rowObject(index)</code></p>
+<p>返回结果：Object</p>
+<p>根据索引获取行对象。</p>
+<h3 id="cell"><a href="#cell">cell</a></h3><p>使用方式：<code>frame.cell(rowIndex, colName)</code></p>
+<p>返回结果：返回指定行索引和列名称（列索引)的数值。</p>
+<h3 id="toarray"><a href="#toArray">toArray</a></h3><p>使用方式：<code>frame.toArray()</code></p>
+<p>返回结果：Array</p>
+<p>将数据集合生成列数组。</p>
+<h4 id="代码示例">代码示例</h4><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {a: <span class="string">'a'</span>, value: <span class="number">1</span>},
+  {a: <span class="string">'b'</span>, value: <span class="number">2</span>},
+  {a: <span class="string">'c'</span>, value: <span class="number">3</span>}
+];
+
+<span class="keyword">var</span> Frame = G2.Frame;
+<span class="keyword">var</span> frame = <span class="keyword">new</span> Frame(data);
+console.log(JSON.stringify(frame.toArray())); <span class="comment">// [["a","b","c"],[1,2,3]]</span></code></pre></div><h3 id="tojson"><a href="#toJSON">toJSON</a></h3><p>使用方式：<code>frame.toJSON()</code></p>
+<p>返回结果：Array</p>
+<p>数据集合生成 JSON 数组。</p>
+<h3 id="s"><a href="#s">s</a></h3><p>使用方式：<code>frame.s()</code></p>
+<p>返回结果：String</p>
+<p>将整个数据集合生成字符串，一般用于调试输出现有集合。</p>
+<h3 id="addcol"><a href="#addCol">addCol</a></h3><p>使用方式：<code>frame.addCol(name, arr|fn)</code></p>
+<p>frame 添加列。</p>
+<h4 id="参数">参数</h4><ul>
+<li><code>name</code>: String </li>
+</ul>
+<p>列名称</p>
+<ul>
+<li><code>arr</code>：Array | Function</li>
+</ul>
+<p>可以是数组也可以是回调函数。</p>
+<h4 id="代码示例">代码示例</h4><div class="highlight"><pre><code class="javascript">
+<span class="keyword">var</span> data = [
+  {a: <span class="string">'a'</span>, value: <span class="number">1</span>},
+  {a: <span class="string">'b'</span>, value: <span class="number">2</span>},
+  {a: <span class="string">'c'</span>, value: <span class="number">3</span>}
+];
+
+<span class="keyword">var</span> Frame = G2.Frame;
+<span class="keyword">var</span> frame = <span class="keyword">new</span> Frame(data);
+frame.addCol(<span class="string">'type'</span>, [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>]);
+frame.addCol(<span class="string">'color'</span>, <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+  <span class="keyword">if</span> (obj.value &gt; <span class="number">2</span>) {
+    <span class="keyword">return</span> <span class="string">'red'</span>;
+  } <span class="keyword">else</span> {
+    <span class="keyword">return</span> <span class="string">'yellow'</span>;
+  }
+});
+console.log(JSON.stringify(frame.toJSON()));
+<span class="comment">// [{"a":"a","value":1,"type":"A","color":"yellow"},{"a":"b","value":2,"type":"B","color":"yellow"},{"a":"c","value":3,"type":"C","color":"red"}]</span></code></pre></div><h3 id="col"><a href="#col">col</a></h3><p>使用方式：<code>frame.col(name)</code></p>
+<p>返回结果：Frame</p>
+<p>根据列名称或者索引获取列构成的集合。返回的结果是新生成的数据集合。</p>
+<h3 id="cols"><a href="#cols">cols</a></h3><p>使用方式：<code>frame.cols(names)</code></p>
+<p>返回结果：Frame</p>
+<p>根据多个列名称或者索引生成新的数据集合。</p>
+<h3 id="row"><a href="#row">row</a></h3><p>使用方式：<code>frame.row(rowIndex)</code></p>
+<p>返回结果：Frame</p>
+<p>根据行索引生成新的数据集合。</p>
+<h3 id="rows"><a href="#rows">rows</a></h3><p>使用方式：<code>frame.rows(rowIndexs)</code></p>
+<p>返回结果：Frame</p>
+<p>根据多个行索引生成新的数据集合。</p>
+<h3 id="sub"><a href="#sub">sub</a></h3><p>使用方式：<code>frame.sub(startCol, endCol, startRow, endRow)</code></p>
+<p>返回结果：Frame</p>
+<p>根据行和列获取一个子集合。</p>
+<h2 id="静态方法">静态方法</h2><p>Frame 类有大量静态方法，用于统计 Frame 的数据、合并、排序等功能：</p>
+<h3 id="mean"><a href="#mean">mean</a></h3><p>使用方式：<code>Frame.mean(frame, x)</code></p>
+<p>返回结果： Number</p>
+<p>计算列 x 的平均值。</p>
+<h3 id="geometric-mean"><a href="#geometric_mean">geometric_mean</a></h3><p>使用方式：<code>Frame.geometric_mean(frame, x)</code></p>
+<p>返回结果：Number</p>
+<p>计算列 x 的几何平均值。</p>
+<h3 id="sum"><a href="#sum">sum</a></h3><p>使用方式：<code>Frame.sum(frame, x)</code></p>
+<p>返回结果：Number</p>
+<p>计算列 x 的和。</p>
+<h3 id="max"><a href="#max">max</a></h3><p>使用方式：<code>Frame.max(frame, x)</code></p>
+<p>返回结果：Number</p>
+<p>计算列 x 的最大值。</p>
+<h3 id="min"><a href="#min">min</a></h3><p>使用方式：<code>Frame.min(frame, x)</code></p>
+<p>返回结果：Number</p>
+<p>计算列 x 的最小值。</p>
+<h3 id="range"><a href="#range">range</a></h3><p>使用方式：<code>Frame.range(frame, x)</code></p>
+<p>返回结果：Array</p>
+<p>计算列 x 的最小值和最大值范围。</p>
+<h3 id="mode"><a href="#mode">mode</a></h3><p>使用方式：<code>Frame.mode(frame, x)</code></p>
+<p>返回结果：Number</p>
+<p>计算列 x 的众数（个数最多的数）。</p>
+<h3 id="median"><a href="#median">median</a></h3><p>使用方式：<code>Frame.median(frame, x)</code></p>
+<p>返回结果：Number</p>
+<p>计算列 x 的中位数。</p>
+<h3 id="variance"><a href="#variance">variance</a></h3><p>使用方式：<code>Frame.variance(frame, x)</code></p>
+<p>返回结果：Number</p>
+<p>计算列 x 的方差。</p>
+<h3 id="standard-deviation"><a href="#standard_deviation">standard_deviation</a></h3><p>使用方式：<code>Frame.standard_deviation(frame, x)</code></p>
+<p>返回结果：Number</p>
+<p>计算列 x 的标准方差。</p>
+<h3 id="sort"><a href="#sort">sort</a></h3><p>使用方式：<code>Frame.sort(frame, x)</code></p>
+<p>返回结果：Frame</p>
+<p>返回按照列排序后的数据集合，<strong>源 frame 不受影响，会返回新的 frame 对象</strong>。</p>
+<h3 id="sortby"><a href="#sortBy">sortBy</a></h3><p>使用方式：<code>Frame.sortBy(frame, callback)</code></p>
+<p>返回结果：Frame</p>
+<p>返回按照列排序后的数据集合，fn 是排序的函数，函数原型是 function(obj1, obj2)。</p>
+<h4 id="参数">参数</h4><ul>
+<li><code>callback</code>: Function</li>
+</ul>
+<p>排序的回调函数。</p>
+<h4 id="代码示例">代码示例</h4><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {a: <span class="string">'a'</span>, value: <span class="number">13</span>},
+  {a: <span class="string">'b'</span>, value: <span class="number">2</span>},
+  {a: <span class="string">'c'</span>, value: <span class="number">3</span>}
+];
+
+<span class="keyword">var</span> Frame = G2.Frame;
+<span class="keyword">var</span> frame = <span class="keyword">new</span> Frame(data);
+frame = Frame.sortBy(frame, <span class="function"><span class="keyword">function</span><span class="params">(obj1, obj2)</span> {</span>
+  <span class="keyword">return</span> obj1.value &gt; obj2.value;                  
+});
+console.log(JSON.stringify(frame.toJSON())); <span class="comment">// [{"a":"b","value":2},{"a":"c","value":3},{"a":"a","value":13}]</span></code></pre></div><h3 id="filter"><a href="#filter">filter</a></h3><p>使用方式：<code>Frame.filter(frame, callback)</code></p>
+<p>返回结果：Frame</p>
+<h4 id="参数">参数</h4><ul>
+<li><code>callback</code>: Function</li>
+</ul>
+<p>过滤的回调函数。</p>
+<p>过滤数据集合，callback 的函数原型 function(obj,index) 返回 true 或者 false。</p>
+<h4 id="代码示例">代码示例</h4><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {a: <span class="string">'a'</span>, value: <span class="number">13</span>},
+  {a: <span class="string">'b'</span>, value: <span class="number">2</span>},
+  {a: <span class="string">'c'</span>, value: <span class="number">3</span>}
+];
+
+<span class="keyword">var</span> Frame = G2.Frame;
+<span class="keyword">var</span> frame = <span class="keyword">new</span> Frame(data);
+frame = Frame.filter(frame, <span class="function"><span class="keyword">function</span><span class="params">(obj, index)</span> {</span>
+  <span class="keyword">return</span> obj.value &lt; <span class="number">10</span>;                  
+});
+console.log(JSON.stringify(frame.toJSON())); <span class="comment">// [{"a":"b","value":2},{"a":"c","value":3}]</span></code></pre></div><h3 id="group"><a href="#group">group</a></h3><p>使用方式：<code>Frame.group(frame, condition)</code></p>
+<p>返回结果：Array</p>
+<p>按照条件进行分组，返回 [frame1,frame2...frameN]</p>
+<h4 id="参数">参数</h4><ul>
+<li><code>condition</code>: Function | Array </li>
+</ul>
+<p>condition 分组的条件，可以根据条件函数或者列名称进行分组。</p>
+<h4 id="代码示例">代码示例</h4><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {<span class="string">"name"</span>:<span class="number">453</span>,<span class="string">"carat"</span>:<span class="number">0.71</span>,<span class="string">"cut"</span>:<span class="string">"Ideal"</span>,<span class="string">"color"</span>:<span class="string">"I"</span>,<span class="string">"clarity"</span>:<span class="string">"VVS2"</span>,<span class="string">"depth"</span>:<span class="number">60.2</span>,<span class="string">"table"</span>:<span class="number">56</span>,<span class="string">"price"</span>:<span class="number">2817</span>,<span class="string">"x"</span>:<span class="number">5.84</span>,<span class="string">"y"</span>:<span class="number">5.89</span>,<span class="string">"z"</span>:<span class="number">3.53</span>},
+  {<span class="string">"name"</span>:<span class="number">662</span>,<span class="string">"carat"</span>:<span class="number">0.72</span>,<span class="string">"cut"</span>:<span class="string">"VeryGood"</span>,<span class="string">"color"</span>:<span class="string">"F"</span>,<span class="string">"clarity"</span>:<span class="string">"VS1"</span>,<span class="string">"depth"</span>:<span class="number">60.2</span>,<span class="string">"table"</span>:<span class="number">59</span>,<span class="string">"price"</span>:<span class="number">2846</span>,<span class="string">"x"</span>:<span class="number">5.79</span>,<span class="string">"y"</span>:<span class="number">5.84</span>,<span class="string">"z"</span>:<span class="number">3.5</span>},
+  {<span class="string">"name"</span>:<span class="number">499</span>,<span class="string">"carat"</span>:<span class="number">0.7</span>,<span class="string">"cut"</span>:<span class="string">"Ideal"</span>,<span class="string">"color"</span>:<span class="string">"I"</span>,<span class="string">"clarity"</span>:<span class="string">"SI1"</span>,<span class="string">"depth"</span>:<span class="number">60.7</span>,<span class="string">"table"</span>:<span class="number">56</span>,<span class="string">"price"</span>:<span class="number">2822</span>,<span class="string">"x"</span>:<span class="number">5.75</span>,<span class="string">"y"</span>:<span class="number">5.72</span>,<span class="string">"z"</span>:<span class="number">3.48</span>},
+];
+
+<span class="keyword">var</span> Frame = G2.Frame;
+<span class="keyword">var</span> frame = <span class="keyword">new</span> Frame(data);
+
+<span class="keyword">var</span> groups = Frame.group(frame, [<span class="string">'cut'</span>, <span class="string">'color'</span>]);
+console.log(JSON.stringify(groups));
+<span class="comment">// [[{"name":453,"carat":0.71,"cut":"Ideal","color":"I","clarity":"VVS2","depth":60.2,"table":56,"price":2817,"x":5.84,"y":5.89,"z":3.53},{"name":499,"carat":0.7,"cut":"Ideal","color":"I","clarity":"SI1","depth":60.7,"table":56,"price":2822,"x":5.75,"y":5.72,"z":3.48}],[{"name":662,"carat":0.72,"cut":"VeryGood","color":"F","clarity":"VS1","depth":60.2,"table":59,"price":2846,"x":5.79,"y":5.84,"z":3.5}]]</span></code></pre></div><h3 id="grouptomap"><a href="#groupToMap">groupToMap</a></h3><p>使用方式：<code>Frame.groupToMap(frame, condition)</code></p>
+<p>返回结果：Array</p>
+<ul>
+<li>按照条件进行分组，形成 map 键值对,返回 {key1: frame1, key2: frame2, key3: frame3, .... keyn: framen}；</li>
+<li>condition 条件可以是列名的数组也可以是一个函数返回一个唯一的键值。</li>
+</ul>
+<h3 id="complement"><a href="#complement">complement</a></h3><p>使用方式：<code>Frame.complement(frame, cols)</code></p>
+<p>返回结果：Frame</p>
+<p>取指定列的补集组成的数据集合，例如 names: [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;]，Frame.complement(frame，[&#39;a&#39;,&#39;c&#39;])，生成的 names: [&#39;b&#39;, &#39;d&#39;] 的数据集合。</p>
+<h4 id="代码示例">代码示例</h4><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {a: <span class="string">'a'</span>, value: <span class="number">13</span>},
+  {a: <span class="string">'b'</span>, value: <span class="number">2</span>},
+  {a: <span class="string">'c'</span>, value: <span class="number">3</span>}
+];
+
+<span class="keyword">var</span> Frame = G2.Frame;
+<span class="keyword">var</span> frame = <span class="keyword">new</span> Frame(data);
+frame = Frame.complement(frame, [<span class="string">'value'</span>]);
+console.log(JSON.stringify(frame.toJSON())); <span class="comment">// [{"a":"a"},{"a":"b"},{"a":"c"}]</span></code></pre></div><h3 id="merge"><a href="#merge">merge</a></h3><p>使用方式：<code>Frame.merge(frame1, frame2, ..., frameN)</code></p>
+<p>返回结果：Frame</p>
+<p>合并传入的集合成为一个集合，列不发生变化，假设传入的集合的列一致，仅是增加行。</p>
+<h3 id="combine"><a href="#combine">combine</a></h3><p>使用方式：<code>Frame.combine(frame1, frame2, ..., frameN)</code></p>
+<p>返回结果：Frame</p>
+<p>合并传入的集合成为一个集合，列进行组合，行的数目不变，仅仅是列变化。</p>
+<h3 id="combinecolumns"><a href="#combineColumns">combineColumns</a></h3><p>使用方式：<code>Frame.combineColumns(frame, cols, name, typeName, retains)</code></p>
+<p>返回结果：Frame</p>
+<p>将多列合并成一列，然后基于多列的数据进行统计。</p>
+<h4 id="参数">参数</h4><ul>
+<li><code>cols</code>: Array</li>
+</ul>
+<p>是要合并的列。</p>
+<ul>
+<li><code>name</code>: String</li>
+</ul>
+<p>合并的新列的名称，默认为 <code>type</code>。</p>
+<ul>
+<li><code>typeName</code>: String</li>
+</ul>
+<p>存储原先字段的名字作为分类。</p>
+<ul>
+<li><code>retains</code>: String | Array</li>
+</ul>
+<p>除了合并的列之外保留的列，<strong>不传入则默认为只保留剩余没有参与合并的列</strong>。</p>
+<p>使用详见<a href="/g2/doc/tutorial/start/frame.html#合并多列-frame-combinecolumns">教程 -&gt;</a>。</p>
+<h3 id="combinearray"><a href="#combineArray">combineArray</a></h3><p>使用方式：<code>Frame.combineArray(newName, arr0, arr1, ..., arrN)</code></p>
+<p>返回结果：Frame</p>
+<p>将多个数组合并成一个数据集合，并形成新的列，新的列的值为数组的索引。</p>
+<h4 id="参数">参数</h4><ul>
+<li><code>newName</code>: String </li>
+</ul>
+<p>生成新的列的字段名，默认为 &#39;type&#39;。</p>
+<h4 id="代码示例">代码示例</h4><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> arr1 = [{a: <span class="string">'a1'</span>,<span class="string">'b'</span>: <span class="string">'b1'</span>}];
+<span class="keyword">var</span> arr2 = [{a: <span class="string">'a2'</span>,<span class="string">'b'</span>: <span class="string">'b2'</span>}];
+
+<span class="comment">// 新的数据 ： [{a: 'a1','b': 'b1',type: 0}, {a: 'a2','b': 'b2',type:1}]</span>
+Frame.combineArray(arr1, arr2); 
+<span class="comment">// 新的数据 ： [{a: 'a1','b': 'b1',myType: 0},{a: 'a2','b': 'b2',myType: 1}];</span>
+Frame.combineArray(<span class="string">'myType'</span>, arr1, arr2);</code></pre></div>
+    </div>
+  </div>
+</div>
+<script src="../../static/prettify-min.js"></script>
+<script src="../../static/clipboard.min.js"></script>
+<script type="text/javascript">
+var CLS_PRETTY = 'prettyprint linenums';
+BUI.use('bui/common',function(BUI){
+  var preEls = $('pre');
+  BUI.each(preEls,function(el){
+    var node = $(el), innerText;
+    node.addClass(CLS_PRETTY);
+    innerText = node.html();
+    var a = /^(\s+)/.exec(innerText),
+      regex;
+    if(a){
+      regex = new RegExp('('+a[0]+')(\\s*)','ig');
+      innerText = innerText.replace(regex,'$2');
+    }
+
+    node.html(innerText);
+  });
+  if(window.prettyPrint){
+    prettyPrint();
+  }
+});
+
+$(document).ready(function() {
+  var docEl = $('.doc-content');
+  var hEls = docEl.find('h2, h3');
+  var container = $('#J_pageNav');
+  var ulContainer;
+  var count = 0;
+  var hElsLen = hEls.length;
+  if (hElsLen > 0 && container.length > 0) {
+    for (var i = 0; i < hElsLen; i++) {
+      var el = hEls[i];
+      var node = $(el);
+      var text = node.text();
+      var id = node.attr('id');
+      var nodeName = el.nodeName;
+
+      if (nodeName === 'H2') {
+        count = 0;
+        if (ulContainer && ulContainer !== '<ul class="pagenav-columns">') {
+          ulContainer += '</ul>';
+          $(ulContainer).appendTo(container);
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<div class="clearfix separate"></div><p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        } else {
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        }
+      } else {
+        var liItems = '<li><a href="#' + id + '">' + text + '</a></li>';
+        ulContainer += liItems;
+        count++;
+        if (count > 10) {
+          ulContainer += '</ul><ul class="pagenav-columns">';
+          count = 0;
+        }
+      }
+    }
+
+    ulContainer += '</ul>';
+    $(ulContainer).appendTo(container);
+
+    // 代码复制
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  }
+});
+</script>
+
+  </div><a href="javascript:void(0);" id='toTop' title="返回顶部">
+	<i class="iconfont icon-to-top"></i>
+</a>
+ 
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

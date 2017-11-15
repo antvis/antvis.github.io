@@ -1,0 +1,481 @@
+[{
+  "state": "Alabama",
+  "murder": 8.2,
+  "Forcible_rate": 34.3,
+  "Robbery": 141.4,
+  "aggravated_assult": 247.8,
+  "burglary": 953.8,
+  "larceny_theft": 2650,
+  "motor_vehicle_theft": 288.3,
+  "population": 4627851
+}, {
+  "state": "Arizona",
+  "murder": 7.5,
+  "Forcible_rate": 33.8,
+  "Robbery": 144.4,
+  "aggravated_assult": 327.4,
+  "burglary": 948.4,
+  "larceny_theft": 2965.2,
+  "motor_vehicle_theft": 924.4,
+  "population": 6500180
+}, {
+  "state": "Arkansas",
+  "murder": 6.7,
+  "Forcible_rate": 42.9,
+  "Robbery": 91.1,
+  "aggravated_assult": 386.8,
+  "burglary": 1084.6,
+  "larceny_theft": 2711.2,
+  "motor_vehicle_theft": 262.1,
+  "population": 2855390
+}, {
+  "state": "California",
+  "murder": 6.9,
+  "Forcible_rate": 26,
+  "Robbery": 176.1,
+  "aggravated_assult": 317.3,
+  "burglary": 693.3,
+  "larceny_theft": 1916.5,
+  "motor_vehicle_theft": 712.8,
+  "population": 36756666
+}, {
+  "state": "Colorado",
+  "murder": 3.7,
+  "Forcible_rate": 43.4,
+  "Robbery": 84.6,
+  "aggravated_assult": 264.7,
+  "burglary": 744.8,
+  "larceny_theft": 2735.2,
+  "motor_vehicle_theft": 559.5,
+  "population": 4861515
+}, {
+  "state": "Connecticut",
+  "murder": 2.9,
+  "Forcible_rate": 20,
+  "Robbery": 113,
+  "aggravated_assult": 138.6,
+  "burglary": 437.1,
+  "larceny_theft": 1824.1,
+  "motor_vehicle_theft": 296.8,
+  "population": 3501252
+}, {
+  "state": "Delaware",
+  "murder": 4.4,
+  "Forcible_rate": 44.7,
+  "Robbery": 154.8,
+  "aggravated_assult": 428.2,
+  "burglary": 688.9,
+  "larceny_theft": 2144,
+  "motor_vehicle_theft": 278.5,
+  "population": 873092
+}, {
+  "state": "Florida",
+  "murder": 5,
+  "Forcible_rate": 37.1,
+  "Robbery": 169.4,
+  "aggravated_assult": 496.6,
+  "burglary": 926.3,
+  "larceny_theft": 2658.3,
+  "motor_vehicle_theft": 423.3,
+  "population": 18328340
+}, {
+  "state": "Georgia",
+  "murder": 6.2,
+  "Forcible_rate": 23.6,
+  "Robbery": 154.8,
+  "aggravated_assult": 264.3,
+  "burglary": 931,
+  "larceny_theft": 2751.1,
+  "motor_vehicle_theft": 490.2,
+  "population": 9685744
+}, {
+  "state": "Idaho",
+  "murder": 2.4,
+  "Forcible_rate": 40.4,
+  "Robbery": 18.6,
+  "aggravated_assult": 195.4,
+  "burglary": 564.4,
+  "larceny_theft": 1931.7,
+  "motor_vehicle_theft": 201.8,
+  "population": 1523816
+}, {
+  "state": "Illinois",
+  "murder": 6,
+  "Forcible_rate": 33.7,
+  "Robbery": 181.7,
+  "aggravated_assult": 330.2,
+  "burglary": 606.9,
+  "larceny_theft": 2164.8,
+  "motor_vehicle_theft": 308.6,
+  "population": 12901563
+}, {
+  "state": "Indiana",
+  "murder": 5.7,
+  "Forcible_rate": 29.6,
+  "Robbery": 108.6,
+  "aggravated_assult": 179.9,
+  "burglary": 697.6,
+  "larceny_theft": 2412,
+  "motor_vehicle_theft": 346.7,
+  "population": 6376792
+}, {
+  "state": "Iowa",
+  "murder": 1.3,
+  "Forcible_rate": 27.9,
+  "Robbery": 38.9,
+  "aggravated_assult": 223.3,
+  "burglary": 606.4,
+  "larceny_theft": 2042.7,
+  "motor_vehicle_theft": 184.6,
+  "population": 3002555
+}, {
+  "state": "Kansas",
+  "murder": 3.7,
+  "Forcible_rate": 38.4,
+  "Robbery": 65.3,
+  "aggravated_assult": 280,
+  "burglary": 689.2,
+  "larceny_theft": 2758.1,
+  "motor_vehicle_theft": 339.6,
+  "population": 2802134
+}, {
+  "state": "Kentucky",
+  "murder": 4.6,
+  "Forcible_rate": 34,
+  "Robbery": 88.4,
+  "aggravated_assult": 139.8,
+  "burglary": 634,
+  "larceny_theft": 1685.8,
+  "motor_vehicle_theft": 210.8,
+  "population": 4269245
+}, {
+  "state": "Louisiana",
+  "murder": 9.9,
+  "Forcible_rate": 31.4,
+  "Robbery": 118,
+  "aggravated_assult": 435.1,
+  "burglary": 870.6,
+  "larceny_theft": 2494.5,
+  "motor_vehicle_theft": 318.1,
+  "population": 4410796
+}, {
+  "state": "Maine",
+  "murder": 1.4,
+  "Forcible_rate": 24.7,
+  "Robbery": 24.4,
+  "aggravated_assult": 61.7,
+  "burglary": 478.5,
+  "larceny_theft": 1832.6,
+  "motor_vehicle_theft": 102,
+  "population": 1316456
+}, {
+  "state": "Maryland",
+  "murder": 9.9,
+  "Forcible_rate": 22.6,
+  "Robbery": 256.7,
+  "aggravated_assult": 413.8,
+  "burglary": 641.4,
+  "larceny_theft": 2294.3,
+  "motor_vehicle_theft": 608.4,
+  "population": 5633597
+}, {
+  "state": "Massachusetts",
+  "murder": 2.7,
+  "Forcible_rate": 27.1,
+  "Robbery": 119,
+  "aggravated_assult": 308.1,
+  "burglary": 541.1,
+  "larceny_theft": 1527.4,
+  "motor_vehicle_theft": 295.1,
+  "population": 6497967
+}, {
+  "state": "Michigan",
+  "murder": 6.1,
+  "Forcible_rate": 51.3,
+  "Robbery": 131.8,
+  "aggravated_assult": 362.9,
+  "burglary": 696.8,
+  "larceny_theft": 1917.8,
+  "motor_vehicle_theft": 476.5,
+  "population": 10003422
+}, {
+  "state": "Minnesota",
+  "murder": 2.2,
+  "Forcible_rate": 44,
+  "Robbery": 92,
+  "aggravated_assult": 158.7,
+  "burglary": 578.9,
+  "larceny_theft": 2226.9,
+  "motor_vehicle_theft": 278.2,
+  "population": 5220393
+}, {
+  "state": "Mississippi",
+  "murder": 7.3,
+  "Forcible_rate": 39.3,
+  "Robbery": 82.3,
+  "aggravated_assult": 149.4,
+  "burglary": 919.7,
+  "larceny_theft": 2083.9,
+  "motor_vehicle_theft": 256.5,
+  "population": 2938618
+}, {
+  "state": "Missouri",
+  "murder": 6.9,
+  "Forcible_rate": 28,
+  "Robbery": 124.1,
+  "aggravated_assult": 366.4,
+  "burglary": 738.3,
+  "larceny_theft": 2746.2,
+  "motor_vehicle_theft": 443.1,
+  "population": 5911605
+}, {
+  "state": "Montana",
+  "murder": 1.9,
+  "Forcible_rate": 32.2,
+  "Robbery": 18.9,
+  "aggravated_assult": 228.5,
+  "burglary": 389.2,
+  "larceny_theft": 2543,
+  "motor_vehicle_theft": 210.7,
+  "population": 967440
+}, {
+  "state": "Nebraska",
+  "murder": 2.5,
+  "Forcible_rate": 32.9,
+  "Robbery": 59.1,
+  "aggravated_assult": 192.5,
+  "burglary": 532.4,
+  "larceny_theft": 2574.3,
+  "motor_vehicle_theft": 316.5,
+  "population": 1783432
+}, {
+  "state": "Nevada",
+  "murder": 8.5,
+  "Forcible_rate": 42.1,
+  "Robbery": 194.7,
+  "aggravated_assult": 361.5,
+  "burglary": 972.4,
+  "larceny_theft": 2153.9,
+  "motor_vehicle_theft": 1115.2,
+  "population": 2600167
+}, {
+  "state": "New-Hampshire",
+  "murder": 1.4,
+  "Forcible_rate": 30.9,
+  "Robbery": 27.4,
+  "aggravated_assult": 72.3,
+  "burglary": 317,
+  "larceny_theft": 1377.3,
+  "motor_vehicle_theft": 102.1,
+  "population": 1315809
+}, {
+  "state": "New-Jersey",
+  "murder": 4.8,
+  "Forcible_rate": 13.9,
+  "Robbery": 151.6,
+  "aggravated_assult": 184.4,
+  "burglary": 447.1,
+  "larceny_theft": 1568.4,
+  "motor_vehicle_theft": 317.5,
+  "population": 8682661
+}, {
+  "state": "New-Mexico",
+  "murder": 7.4,
+  "Forcible_rate": 54.1,
+  "Robbery": 98.7,
+  "aggravated_assult": 541.9,
+  "burglary": 1093.9,
+  "larceny_theft": 2639.9,
+  "motor_vehicle_theft": 414.5,
+  "population": 1984356
+}, {
+  "state": "New-York",
+  "murder": 4.5,
+  "Forcible_rate": 18.9,
+  "Robbery": 182.7,
+  "aggravated_assult": 239.7,
+  "burglary": 353.3,
+  "larceny_theft": 1569.6,
+  "motor_vehicle_theft": 185.6,
+  "population": 19490297
+}, {
+  "state": "North-Carolina",
+  "murder": 6.7,
+  "Forcible_rate": 26.5,
+  "Robbery": 145.5,
+  "aggravated_assult": 289.4,
+  "burglary": 1201.1,
+  "larceny_theft": 2546.2,
+  "motor_vehicle_theft": 327.8,
+  "population": 9222414
+}, {
+  "state": "North-Dakota",
+  "murder": 1.1,
+  "Forcible_rate": 24.2,
+  "Robbery": 7.4,
+  "aggravated_assult": 65.5,
+  "burglary": 311.9,
+  "larceny_theft": 1500.3,
+  "motor_vehicle_theft": 166,
+  "population": 641481
+}, {
+  "state": "Ohio",
+  "murder": 5.1,
+  "Forcible_rate": 39.8,
+  "Robbery": 163.1,
+  "aggravated_assult": 143.4,
+  "burglary": 872.8,
+  "larceny_theft": 2429,
+  "motor_vehicle_theft": 360.9,
+  "population": 11485910
+}, {
+  "state": "Oklahoma",
+  "murder": 5.3,
+  "Forcible_rate": 41.7,
+  "Robbery": 91,
+  "aggravated_assult": 370.5,
+  "burglary": 1006,
+  "larceny_theft": 2644.2,
+  "motor_vehicle_theft": 391.8,
+  "population": 3642361
+}, {
+  "state": "Oregon",
+  "murder": 2.2,
+  "Forcible_rate": 34.8,
+  "Robbery": 68.1,
+  "aggravated_assult": 181.8,
+  "burglary": 758.6,
+  "larceny_theft": 3112.2,
+  "motor_vehicle_theft": 529,
+  "population": 3790060
+}, {
+  "state": "Pennsylvania",
+  "murder": 6.1,
+  "Forcible_rate": 28.9,
+  "Robbery": 154.6,
+  "aggravated_assult": 235,
+  "burglary": 451.6,
+  "larceny_theft": 1729.1,
+  "motor_vehicle_theft": 236.5,
+  "population": 12448279
+}, {
+  "state": "Rhode-Island",
+  "murder": 3.2,
+  "Forcible_rate": 29.8,
+  "Robbery": 72.1,
+  "aggravated_assult": 146.1,
+  "burglary": 494.2,
+  "larceny_theft": 1816,
+  "motor_vehicle_theft": 408.7,
+  "population": 1050788
+}, {
+  "state": "South-Carolina",
+  "murder": 7.4,
+  "Forcible_rate": 42.5,
+  "Robbery": 132.1,
+  "aggravated_assult": 579,
+  "burglary": 1000.9,
+  "larceny_theft": 2954.1,
+  "motor_vehicle_theft": 384.4,
+  "population": 4479800
+}, {
+  "state": "South-Dakota",
+  "murder": 2.3,
+  "Forcible_rate": 46.7,
+  "Robbery": 18.6,
+  "aggravated_assult": 108.1,
+  "burglary": 324.4,
+  "larceny_theft": 1343.7,
+  "motor_vehicle_theft": 108.4,
+  "population": 804194
+}, {
+  "state": "Tennessee",
+  "murder": 7.2,
+  "Forcible_rate": 36.4,
+  "Robbery": 167.3,
+  "aggravated_assult": 541.9,
+  "burglary": 1026.9,
+  "larceny_theft": 2828.1,
+  "motor_vehicle_theft": 420.6,
+  "population": 6214888
+}, {
+  "state": "Texas",
+  "murder": 6.2,
+  "Forcible_rate": 37.2,
+  "Robbery": 156.6,
+  "aggravated_assult": 329.8,
+  "burglary": 961.6,
+  "larceny_theft": 2961.7,
+  "motor_vehicle_theft": 408.7,
+  "population": 24326974
+}, {
+  "state": "Utah",
+  "murder": 2.3,
+  "Forcible_rate": 37.3,
+  "Robbery": 44.3,
+  "aggravated_assult": 143.4,
+  "burglary": 606.2,
+  "larceny_theft": 2918.8,
+  "motor_vehicle_theft": 343.9,
+  "population": 2736424
+}, {
+  "state": "Vermont",
+  "murder": 1.3,
+  "Forcible_rate": 23.3,
+  "Robbery": 11.7,
+  "aggravated_assult": 83.5,
+  "burglary": 491.8,
+  "larceny_theft": 1686.1,
+  "motor_vehicle_theft": 102.9,
+  "population": 621270
+}, {
+  "state": "Virginia",
+  "murder": 6.1,
+  "Forcible_rate": 22.7,
+  "Robbery": 99.2,
+  "aggravated_assult": 154.8,
+  "burglary": 392.1,
+  "larceny_theft": 2035,
+  "motor_vehicle_theft": 211.1,
+  "population": 7769089
+}, {
+  "state": "Washington",
+  "murder": 3.3,
+  "Forcible_rate": 44.7,
+  "Robbery": 92.1,
+  "aggravated_assult": 205.8,
+  "burglary": 959.7,
+  "larceny_theft": 3149.5,
+  "motor_vehicle_theft": 783.9,
+  "population": 6549224
+}, {
+  "state": "West-Virginia",
+  "murder": 4.4,
+  "Forcible_rate": 17.7,
+  "Robbery": 44.6,
+  "aggravated_assult": 206.1,
+  "burglary": 621.2,
+  "larceny_theft": 1794,
+  "motor_vehicle_theft": 210,
+  "population": 1814468
+}, {
+  "state": "Wisconsin",
+  "murder": 3.5,
+  "Forcible_rate": 20.6,
+  "Robbery": 82.2,
+  "aggravated_assult": 135.2,
+  "burglary": 440.8,
+  "larceny_theft": 1992.8,
+  "motor_vehicle_theft": 226.6,
+  "population": 5627967
+}, {
+  "state": "Wyoming",
+  "murder": 2.7,
+  "Forcible_rate": 24,
+  "Robbery": 15.3,
+  "aggravated_assult": 188.1,
+  "burglary": 476.3,
+  "larceny_theft": 2533.9,
+  "motor_vehicle_theft": 145.1,
+  "population": 532668
+}]
