@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Geom API 文档</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../static/jquery.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../static/script.js"></script>
+<script src="https://a.alipayobjects.com/g/datavis/g2-mobile-all/2.1.22/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item hover">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+<link rel="stylesheet" href="../../static/prettify-min.css">
+<script src="https://a.alipayobjects.com/g/datavis/g2-mobile-all/2.1.22/index.js"></script>
+
+
+  <div class="main-container clearfix">
+<div class="body-content api-body-content"><div class="doc-nav">
+  <p class="title">G2-mobile</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g2-mobile/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">使用教程</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="">
+            <a href="../../g2-mobile/doc/tutorial/shape.html" >自定义 shape</a>
+          </li>
+          <li class="">
+            <a href="../../g2-mobile/doc/tutorial/event.html" >事件支持</a>
+          </li>
+          <li class="">
+            <a href="../../g2-mobile/doc/tutorial/guide.html" >自定义辅助 html</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2-mobile/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">API</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="">
+            <a href="../../g2-mobile/api/index.html" >Chart</a>
+          </li>
+          <li class="active">
+            <a href="../../g2-mobile/api/geom.html" >Geom</a>
+          </li>
+          <li class="">
+            <a href="../../g2-mobile/api/global.html" >Global</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2-mobile/doc/history.html" >更新日志</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+  <div class="doc-content clearfix">
+    <h1>Geom</h1>
+    <div id="J_pageNav"></div>
+    <div class="clearfix" style="margin-bottom: 40px;"></div>
+    <div class="doc-inner">
+      <p>几何图形对象，用于声明绘制的图表类型。</p>
+<p>以下是目前 Geom 的基本类型：</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>point</td>
+<td>点，用于点图的构建。</td>
+</tr>
+<tr>
+<td>line</td>
+<td>线，点按照 x 轴连接成一条线，构成线图。</td>
+</tr>
+<tr>
+<td>area</td>
+<td>填充线图跟坐标系之间构成区域图，也可以指定上下范围。</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>使用矩形或者弧形，用面积来表示大小关系的图形，一般构成柱状图、饼图等图表。</td>
+</tr>
+<tr>
+<td>polygon</td>
+<td>多边形，可以用于构建热力图、地图等图表类型。</td>
+</tr>
+<tr>
+<td>schema</td>
+<td>自定义图形，用于构建箱须图、蜡烛图等图表。</td>
+</tr>
+</tbody>
+</table>
+<p>另外结合对数据的调整，还提供了如下的类型：</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>intervalStack</td>
+<td>层叠柱状图</td>
+</tr>
+<tr>
+<td>areaStack</td>
+<td>层叠面积图</td>
+</tr>
+</tbody>
+</table>
+<h2 id="方法">方法</h2><h3 id="position"><a href="#position">position</a></h3><p><code>position(dims)</code></p>
+<p>将数据值映射到图形的位置上的方法。</p>
+<h4 id="chart-geom-position-dim">chart.geom().position(dim)</h4><p>dim 为字符串，代表数据源中某一个字段，用于一维坐标系图表绘制。</p>
+<h4 id="chart-geom-position-39-dima-dimb-39">chart.geom().position(&#39;dimA*dimB&#39;)</h4><p>多维使用 <em> 连接，position 属性会对多个字段进行数据的映射，如：cut</em>price，x*y 等，用于二维坐标系图表的绘制。</p>
+<h5 id="示例">示例</h5><div class="highlight"><pre><code class="javascript">chart.point().position(<span class="string">'cut'</span>);
+chart.interval().position(<span class="string">'cut*price'</span>);</code></pre></div><h3 id="color"><a href="#color">color</a></h3><p><code>color(dim, colors)</code></p>
+<p>将数据值映射到图形的颜色上的方法。</p>
+<h4 id="chart-geom-color-dim-color">chart.geom().color(dim | color)</h4><h5 id="参数">参数</h5><ul>
+<li><p><code>dim</code> or <code>color</code></p>
+<p>只支持接收一个参数，dim 可以为映射至颜色属性的数据源字段名，如果数据源中不存在这个字段名的话，则按照常量进行解析，也可以直接指定某一个具体的颜色值 color，如 &#39;#fff&#39;, &#39;white&#39; 等。</p>
+</li>
+</ul>
+<h5 id="示例">示例</h5><div class="highlight"><pre><code class="javascript">chart.point().position(<span class="string">'x*y'</span>).color(<span class="string">'x'</span>);
+chart.point().position(<span class="string">'x*y'</span>).color(<span class="string">'red'</span>)</code></pre></div><h4 id="chart-geom-color-dim-colors">chart.geom().color(dim, [colors]);</h4><h5 id="参数">参数</h5><ul>
+<li><p><code>dim</code></p>
+<p>dim 为映射至颜色属性的数据源字段名。</p>
+</li>
+<li><p><code>colors</code></p>
+<p>以数组格式传入指定颜色，分类的颜色将按照数组中的颜色确定。对于颜色的分配顺序，会默认按照原始数据源中字段的顺序进行分配；</p>
+</li>
+</ul>
+<h5 id="示例">示例</h5><div class="highlight"><pre><code class="javascript">chart.point().position(<span class="string">'x*y'</span>).color(<span class="string">'z'</span>); <span class="comment">// 使用默认的颜色</span>
+chart.point().position(<span class="string">'x*y'</span>).color(<span class="string">'z'</span>, [<span class="string">'red'</span>, <span class="string">'blue'</span>]); <span class="comment">// 使用传入的指定颜色</span></code></pre></div><h4 id="chart-geom-color-dim-colorcallback">chart.geom().color(dim, colorCallback)</h4><h5 id="参数">参数</h5><ul>
+<li><p><code>dim</code></p>
+<p>dim 为映射至颜色属性的数据源字段名</p>
+</li>
+<li><p><code>colorCallback</code></p>
+<p>[Function]，指定一个颜色的回调函数，用于高灵活度的用户自定义。</p>
+</li>
+</ul>
+<h5 id="示例">示例</h5><div class="highlight"><pre><code class="javascript">chart.point().position(<span class="string">'x*y'</span>).color(<span class="string">'z'</span>, <span class="function"><span class="keyword">function</span><span class="params">(value)</span> {</span>
+  <span class="keyword">if</span>(value === <span class="number">1</span>) {
+    <span class="keyword">return</span> <span class="string">'red'</span>
+  }<span class="keyword">else</span> {
+    <span class="keyword">return</span> <span class="string">'blue'</span>;
+  }
+});</code></pre></div><h3 id="shape"><a href="#shape">shape</a></h3><p><code>shape(dim, shapes)</code></p>
+<p>将数据值映射到图形的形状上的方法。</p>
+<h4 id="chart-geom-shape-39-shape-39">chart.geom().shape(&#39;shape&#39;);</h4><h5 id="参数">参数</h5><ul>
+<li><p><code>shape</code></p>
+<p>只支持接收一个参数，指定几何图像对象绘制的形状。下表列出了支持多个 shape 的 geom ：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>geom 类型</th>
+<th>shape 类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>point</td>
+<td>&#39;circle&#39;,&#39;rect&#39;</td>
+<td></td>
+</tr>
+<tr>
+<td>line</td>
+<td>&#39;line&#39;,&#39;smooth&#39;,&#39;dash&#39;</td>
+<td>dash ：虚线，smooth： 平滑线</td>
+</tr>
+<tr>
+<td>area</td>
+<td>&#39;line&#39;,&#39;smooth&#39;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="示例">示例</h5><div class="highlight"><pre><code class="javascript">chart.point().position(<span class="string">'x*y'</span>).shape(<span class="string">'rect'</span>); <span class="comment">// 指定所有点的图形是正方形</span></code></pre></div><h4 id="chart-geom-shape-dim-shapes">chart.geom().shape(dim, shapes);</h4><p>指定多个图形，图形的顺序跟字段的值对应。</p>
+<h5 id="参数">参数</h5><ul>
+<li><p><code>dim</code></p>
+<p>dim 为映射至颜色属性的数据源字段名。</p>
+</li>
+<li><p><code>shapes</code></p>
+<p>shapes 是一个可选参数，如果没有声明会按照 G2-mobile 默认为特定 geom 类型配置的形状进行渲染，当然用户也可自己指定渲染的形状。详情参考<a href="/g2-mobile/doc/tutorial/shape.html">自定义 shape </a>教程</p>
+</li>
+</ul>
+<h5 id="示例">示例</h5><div class="highlight"><pre><code class="javascript">chart.point().position(<span class="string">'carat*price'</span>).shape(<span class="string">'cut'</span>, [<span class="string">'circle'</span>, <span class="string">'rect'</span>]); <span class="comment">// 使用自定义的 shapes</span></code></pre></div><h4 id="chart-geom-shape-dim-callback">chart.geom().shape(dim, callback);</h4><p>通过回调函数设置图形类型.</p>
+<h5 id="参数">参数</h5><ul>
+<li><p><code>dim</code></p>
+<p>dim 为映射至颜色属性的数据源字段名。</p>
+</li>
+<li><p><code>callback</code></p>
+<p>[Function] 回调函数</p>
+</li>
+</ul>
+<h5 id="示例">示例</h5><div class="highlight"><pre><code class="javascript">chart.point().position(<span class="string">'x*y'</span>).shape(<span class="string">'z'</span>, <span class="function"><span class="keyword">function</span><span class="params">(value)</span> {</span>
+  <span class="keyword">if</span> (value === <span class="number">1</span>) {
+    <span class="keyword">return</span> <span class="string">'circle'</span>
+  }<span class="keyword">else</span> {
+    <span class="keyword">return</span> <span class="string">'rect'</span>;
+  }
+});</code></pre></div><h3 id="size"><a href="#size">size</a></h3><p><code>size(dim | value)</code></p>
+<p>将数据值映射到图形的大小上的方法。</p>
+<h4 id="chart-geom-size-value）">chart.geom().size(value）</h4><p>传入数字常量，如 <code>chart.point().size(20)</code>。</p>
+<p><strong>注意：</strong> 不同图形的 size 的含义有所差别：</p>
+<ul>
+<li>point 图形的 size 影响点的半径大小；</li>
+<li>line，area，path 中的 size 影响线的粗细；</li>
+<li>interval 的 size 影响柱状图的宽度。</li>
+</ul>
+<h4 id="chart-geom-size-dim">chart.geom().size(dim)</h4><p>根据 dim 字段的值映射大小，使用默认的最大值 max:10 和最小值 min: 1。</p>
+<h5 id="示例">示例</h5><div class="highlight"><pre><code class="javascript">chart.point().position(<span class="string">'x*y'</span>).size(<span class="string">'z'</span>); <span class="comment">// 使用 z 字段的值来映射大小</span></code></pre></div><h5 id="示例">示例</h5><div class="highlight"><pre><code class="javascript">chart.point().position(<span class="string">'x*y'</span>).size(<span class="number">10</span>); 
+chart.point().position(<span class="string">'x*y'</span>).size(<span class="string">'z'</span>);</code></pre></div><h4 id="chart-geom-size-dim-callback">chart.geom().size(dim, callback)</h4><p>使用回调函数控制图形大小。</p>
+<h5 id="示例">示例</h5><div class="highlight"><pre><code class="javascript">chart.point().position(<span class="string">'x*y'</span>).size(<span class="string">'z'</span>, <span class="function"><span class="keyword">function</span><span class="params">(value)</span> {</span>
+  <span class="keyword">if</span>(value === <span class="number">1</span>) {
+    <span class="keyword">return</span> <span class="number">5</span>;
+  }
+  <span class="keyword">return</span> <span class="number">10</span>;
+});</code></pre></div><h3 id="style"><a href="#style">style</a></h3><p><code>style(cfg)</code></p>
+<p>用于快速配置图形的样式。参数符合 canvas 图形属性</p>
+<h4 id="示例">示例</h4><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> cfg = {
+  line: {
+    lineDash: [<span class="number">2</span>,<span class="number">4</span>] <span class="comment">// 虚线配置</span>
+  },
+  interval: {
+    radius: <span class="number">5</span> <span class="comment">// 圆角柱状图</span>
+  }
+
+};</code></pre></div><p><strong> 默认样式参考 G2 <a href="/g2/api/geom.html#style">style</a> </strong></p>
+
+    </div>
+  </div>
+</div>
+<script src="../../static/prettify-min.js"></script>
+<script src="../../static/clipboard.min.js"></script>
+<script type="text/javascript">
+var CLS_PRETTY = 'prettyprint linenums';
+BUI.use('bui/common',function(BUI){
+  var preEls = $('pre');
+  BUI.each(preEls,function(el){
+    var node = $(el), innerText;
+    node.addClass(CLS_PRETTY);
+    innerText = node.html();
+    var a = /^(\s+)/.exec(innerText),
+      regex;
+    if(a){
+      regex = new RegExp('('+a[0]+')(\\s*)','ig');
+      innerText = innerText.replace(regex,'$2');
+    }
+
+    node.html(innerText);
+  });
+  if(window.prettyPrint){
+    prettyPrint();
+  }
+});
+
+$(document).ready(function() {
+  var docEl = $('.doc-content');
+  var hEls = docEl.find('h2, h3');
+  var container = $('#J_pageNav');
+  var ulContainer;
+  var count = 0;
+  var hElsLen = hEls.length;
+  if (hElsLen > 0 && container.length > 0) {
+    for (var i = 0; i < hElsLen; i++) {
+      var el = hEls[i];
+      var node = $(el);
+      var text = node.text();
+      var id = node.attr('id');
+      var nodeName = el.nodeName;
+
+      if (nodeName === 'H2') {
+        count = 0;
+        if (ulContainer && ulContainer !== '<ul class="pagenav-columns">') {
+          ulContainer += '</ul>';
+          $(ulContainer).appendTo(container);
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<div class="clearfix separate"></div><p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        } else {
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        }
+      } else {
+        var liItems = '<li><a href="#' + id + '">' + text + '</a></li>';
+        ulContainer += liItems;
+        count++;
+        if (count > 10) {
+          ulContainer += '</ul><ul class="pagenav-columns">';
+          count = 0;
+        }
+      }
+    }
+
+    ulContainer += '</ul>';
+    $(ulContainer).appendTo(container);
+
+    // 代码复制
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  }
+});
+</script>
+
+  </div><a href="javascript:void(0);" id='toTop' title="返回顶部">
+	<i class="iconfont icon-to-top"></i>
+</a>
+ 
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

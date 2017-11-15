@@ -1,0 +1,11 @@
+{%- set types = resource.pages|getMobileDemoTypes(post.filepath) %}
+{%- set ip = resource.pages|getClientIp() %}
+{"url":[<br/>
+{%- for type in types %}
+  {%- set pages = resource.pages|getMobileDemoPages(post.filepath,type) %}
+
+  {%- for page in pages %}
+    "http://{{ip}}:8000/{{page.filepath.replace('.md','.html')}}",<br/>
+  {%- endfor %}
+{%- endfor %}
+]}

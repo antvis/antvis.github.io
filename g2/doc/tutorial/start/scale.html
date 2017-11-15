@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>度量</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item hover">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+  <link rel="stylesheet" href="../../../../static/prettify-min.css">
+
+
+  <div class="main-container clearfix">
+  <div class="body-content tutorial-body-content"><div class="doc-nav">
+  <p class="title">G2</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g2/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">使用教程</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="sub-title">基础教程</li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/index.html" >G2 图表的主要组成</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/chart.html" >图表对象配置（chart）</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/working-with-data.html" >data 数据</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/frame.html" >Frame 常见操作</a>
+          </li>
+          <li class="active">
+            <a href="../../../../g2/doc/tutorial/start/scale.html" >度量</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/col-defs.html" >列定义操作</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/geom.html" >geom 几何标记</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/attr.html" >attr 图形属性</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/coord.html" >coord 坐标系</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/axis.html" >axis 坐标轴</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/legend.html" >legend 图例</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/tooltip.html" >tooltip 提示信息</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/guide.html" >guide 辅助标记</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/stat.html" >stat 统计变换</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/facet.html" >facet 分面</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/theme.html" >theme 图表样式</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/label.html" >label 文本标签</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/chart-event.html" >图表事件 event</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/action.html" >图表交互</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/changedata.html" >数据异步加载与动态更新</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/g2-plugin-slider.html" >数据滑动条插件使用</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/rc-g2.html" >在 react 中使用 G2</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/fqas.html" >常见问题</a>
+          </li>
+          <li class="sub-title">高级教程</li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/index.html" >G2 图形语法简介</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/data-flow.html" >G2 的数据处理流程</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/data-type-and-scale.html" >数据类型与度量</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/coord-detailed.html" >坐标系详解</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/chart-type.html" >图表类型</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/geom-and-adjust.html" >几何标记和数据调整</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/custom-shape.html" >自定义 shape</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/view.html" >多视图 view 绘制</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/layout.html" >layout 布局</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/draw-word-cloud.html" >使用 G2 绘制词云</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/animate.html" >自定义动画</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">API</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="">
+            <a href="../../../../g2/api/index.html" >G2</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/chart.html" >Chart</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/view.html" >View</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/geom.html" >Geom</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/scale.html" >Scale</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/stat.html" >Stat</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/frame.html" >Frame</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/shape.html" >Shape</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/animate.html" >Animate</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/util.html" >Util</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/chart-options.html" >配置项支持</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/doc/history.html" >更新日志</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+    <div class="doc-content clearfix">
+      <div class="doc-inner">
+        <h2 id="什么是度量">什么是度量</h2><p>度量 Scale，是数据空间到图形空间的转换桥梁，负责原始数据到 [0, 1] 区间数值的相互转换工作，从原始数据到 [0, 1] 区间的转换我们称之为归一化操作。</p>
+<p>不同的数据类型对应不同的度量，如</p>
+<ol>
+<li><p>连续数据类型，如 <code>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10</code> 一组数据，在其原始数值范围 [0, 10] 内通过度量转换至 [0, 1] 范围的数据，变成 <code>0, 0.1, 0.2, ..., 0.9, 1</code>，同时通过 invert 反转，还需要度量后的数值恢复至原始值；</p>
+</li>
+<li><p>分类数据类型，如 <code>[&#39;男&#39;, &#39;女&#39;]</code> 这一组数据，通过度量转换后变成 [0, 1]，同样时通过 invert 反转可恢复至原始值。</p>
+</li>
+</ol>
+<h2 id="度量的功能">度量的功能</h2><p>在 G2 中度量用于完成以下功能：</p>
+<ol>
+<li><p>将数据转换到 [0, 1] 范围内，方便将数据映射到位置、颜色、大小等图形属性；</p>
+</li>
+<li><p>将归一化后的数据反转回原始值。例如 <code>分类a</code> 转换成 0.2，那么对应 <code>0.2</code> 需要反转回 <code>分类a</code>；</p>
+</li>
+<li><p>划分数据，用于在坐标轴、图例显示数值的范围、分类等信息。</p>
+</li>
+</ol>
+<p>Scale 的功能非常简单易理解，但是在 G2 的数据处理流程中起着非常重要的承接作用，通过阅读 <a href="/g2/doc/tutorial/advance/data-flow.html">G2 数据处理流程</a>章节，可以更好得理解度量 Scale。</p>
+<h2 id="度量的类型">度量的类型</h2><p>度量的类型是由原始数据的类型所决定的，所以在介绍度量的类型之前，需要了解下 G2 对数据的分类方式。</p>
+<p>在 G2 中我们按照数值是否连续对数据进行分类：</p>
+<ol>
+<li>分类（非连续）数据，又分为有序分类和无序分类；</li>
+<li>连续数据，时间也是一种连续数据类型。</li>
+</ol>
+<p>Example: </p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {<span class="string">"month"</span>:<span class="string">"一月"</span>,<span class="string">"temperature"</span>:<span class="number">7</span>,<span class="string">"city"</span>:<span class="string">"tokyo"</span>},
+  {<span class="string">"month"</span>:<span class="string">"二月"</span>,<span class="string">"temperature"</span>:<span class="number">6.9</span>,<span class="string">"city"</span>:<span class="string">"newYork"</span>},
+  {<span class="string">"month"</span>:<span class="string">"三月"</span>,<span class="string">"temperature"</span>:<span class="number">9.5</span>,<span class="string">"city"</span>:<span class="string">"tokyo"</span>},
+  {<span class="string">"month"</span>:<span class="string">"四月"</span>,<span class="string">"temperature"</span>:<span class="number">14.5</span>,<span class="string">"city"</span>:<span class="string">"tokyo"</span>},
+  {<span class="string">"month"</span>:<span class="string">"五月"</span>,<span class="string">"temperature"</span>:<span class="number">18.2</span>,<span class="string">"city"</span>:<span class="string">"berlin"</span>}
+]
+
+<span class="comment">// 指定度量/列定义</span>
+<span class="keyword">var</span> defs = {
+  month: {
+    alias: <span class="string">'月份'</span>
+    <span class="comment">// 列定义</span>
+  }, 
+  temperature: {
+    alias: <span class="string">'温度'</span>
+    <span class="comment">// 列定义</span>
+  }
+}
+
+<span class="comment">// 通过 chart 的第二个参数设置</span>
+chart.source(data, defs);</code></pre></div><p>在上述数据中，<code>month</code> 代表月份，<code>temperature</code> 代表温度，<code>city</code> 代表城市，其中 <code>month</code> 和 <code>city</code> 都是分类类型数据，但是不同的是 <code>month</code> 作为月份是有序的分类类型，而 <code>city</code> 是无序的分类类型，而 <code>temperature</code> 是连续的数值类型。</p>
+<p>根据上述的数据分类方式，G2 提供了不同的度量类型：</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>度量类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>连续</td>
+<td>linear、log、pow、time</td>
+</tr>
+<tr>
+<td>分类（非连续）</td>
+<td>cat、timeCat</td>
+</tr>
+</tbody>
+</table>
+<p>另外 G2 还提供了 <code>identity</code> 类型的度量用于数据源中常量数据的操作。</p>
+<p>对于 G2 生成的所有度量对象，均拥有以下属性，这些属性均可以由用户进行配置。</p>
+<div class="highlight"><pre><code class="javascript">{
+  type: string, <span class="comment">// 度量的类型</span>
+  range: array, <span class="comment">// 数值范围区间，即度量转换的范围，默认为 [0, 1]</span>
+  alias: string, <span class="comment">// 为数据属性定义别名，用于图例、坐标轴、tooltip 的个性化显示</span>
+  ticks: array, <span class="comment">// 存储坐标轴上的刻度点文本信息</span>
+  tickCount: number, <span class="comment">// 坐标轴上刻度点的个数，不同的度量类型对应不同的默认值</span>
+  formatter: <span class="function"><span class="keyword">function</span>, // 回调函数，用于格式化坐标轴刻度点的文本显示，会影响数据在坐标轴、图例、<span class="title">tooltip</span> 上的显示
+}</span></code></pre></div><p>下面就让我们来详细了解下各个度量的类型：</p>
+<h3 id="linear">linear</h3><p>连续的数据值，如这一组数据：[1, 2, 3, 4, 5]，除了通用的属性外，还包含以下自有属性：</p>
+<div class="highlight"><pre><code class="javascript">{
+  nice: boolean, <span class="comment">// 默认为 true，用于优化数值范围，使绘制的坐标轴刻度线均匀分布。例如原始数据的范围为 [3, 97]，如果 nice 为 true，那么就会将数值范围调整为 [0, 100]</span>
+  min: number, <span class="comment">// 定义数值范围的最小值</span>
+  max: number, <span class="comment">// 定义数值范围的最大值</span>
+  tickCount: number, <span class="comment">// 定义坐标轴刻度线的条数，默认为 5</span>
+  tickInterval: number, <span class="comment">// 用于指定坐标轴各个刻度点的间距，为原始数据值的差值，tickCount 和 tickInterval 不可以同时声明</span>
+}</code></pre></div><h3 id="log">log</h3><p>连续非线性的 log 类型度量，该度量会将 [1, 10, 100, 1000] 先转换成 [0, 1, 2, 3] 然后再进行归一化操作。log 类型的数据可以将非常大范围的数据映射到一个均匀的范围内。</p>
+<p>log 度量是 linear 的子类，支持所有通用的属性和 linear 度量的属性，特有的属性如下：</p>
+<div class="highlight"><pre><code class="javascript">{
+  base: number, <span class="comment">// log 的基数，默认是 2</span>
+}</code></pre></div><h4 id="log-度量的使用场景">log 度量的使用场景</h4><p>对于以下场景，建议将数据的度量类型指定为 log 类型：</p>
+<ol>
+<li>散点图中数据的分布非常广，同时数据分散在几个区间内是，例如分布在 0 - 100， 10000 - 100000，1千万 - 1亿内，这时候适合使用 log 度量；</li>
+<li>热力图中数据分布不均匀时也会出现只有非常高的数据点附近才有颜色，此时需要使用 log 度量，对数据进行 log 处理。</li>
+</ol>
+<h3 id="pow">pow</h3><p>连续非线性的 pow 类型度量，该度量将 [2, 4, 8, 16, 32] 先转换成 [1, 2, 3, 4, 5] 然后再进行归一化操作。</p>
+<p>pow 类型的度量也是 linear 类型的一个子类，除了支持所有通用的属性和 linear 度量的属性外也有自己的属性：</p>
+<div class="highlight"><pre><code class="javascript">{
+  exponent: number, <span class="comment">// 指数，默认是 2</span>
+}</code></pre></div><h3 id="time">time</h3><p>连续的时间类型，是一种特殊的连续性数据。time 类型的度量也是 linear 的子类，除了支持所有通用的属性和 linear 度量的属性外，还有自己特殊的属性：</p>
+<div class="highlight"><pre><code class="javascript">{
+  mask: string, <span class="comment">// 指定时间的显示格式，默认：'yyyy-mm-dd'</span>
+}</code></pre></div><p>mask 的占位符有：</p>
+<ul>
+<li>y: year</li>
+<li>m: month</li>
+<li>d: date</li>
+<li>H: hour</li>
+<li>M: minute</li>
+<li>s: second</li>
+</ul>
+<p>目前 G2 支持如下两种形式的时间格式，当用户需要生成 time 类型的度量时，需要将原始时间数据转换为如下两种形式：</p>
+<ol>
+<li>时间戳，如 1436237115500；</li>
+<li>时间字符串： &#39;2015-03-01&#39;，&#39;2015-03-01 12:01:40&#39;，&#39;2015/01/05&#39;，&#39;2015-03-01T16:00:00.000Z&#39;。</li>
+</ol>
+<h3 id="cat">cat</h3><p>分类类型数据的度量。除了拥有通用的度量属性外，用户还可以设置 <code>values</code> 属性：</p>
+<div class="highlight"><pre><code class="javascript">{
+  values: array, <span class="comment">// 指定当前字段的分类值</span>
+}</code></pre></div><p>G2 在生成 cat 类型的度量时，<code>values</code> 属性的值一般都会从原始数据源中直接获取，但对于下面两种场景，需要用户手动指定 values 值：</p>
+<ol>
+<li>需要指定分类的顺序时，例如：type 字段原始值为 [&#39;最大&#39;, &#39;最小&#39;, &#39;适中&#39;]，我们想指定这些分类在坐标轴或者图例上的顺序为 [&#39;最小&#39;,&#39;适中&#39;,&#39;最大&#39;]。这时候 cat 度量的配置如下：</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">[
+  {a: <span class="string">'a1'</span>, b:<span class="string">'b1'</span>, type: <span class="string">'最小'</span>},
+  {a: <span class="string">'a2'</span>, b:<span class="string">'b2'</span>, type: <span class="string">'最大'</span>},
+  {a: <span class="string">'a3'</span>, b:<span class="string">'b3'</span>, type: <span class="string">'适中'</span>}
+]
+<span class="keyword">var</span> defs = {
+  <span class="string">'type'</span>: {
+    type: <span class="string">'cat'</span>,
+    values: [<span class="string">'最小'</span>, <span class="string">'适中'</span>, <span class="string">'最大'</span>]
+  }
+};</code></pre></div><p>如果不声明度量的values字段，那么默认的顺序是：‘最小’，‘最大’，‘适中’。</p>
+<ol>
+<li>如果数据中的分类类型使用枚举的方式表示，那么也需要指定 values。</li>
+</ol>
+<p>Example:</p>
+<div class="highlight"><pre><code class="javascript">[
+  {a: <span class="string">'a1'</span>, b:<span class="string">'b1'</span>, type: <span class="number">0</span>},
+  {a: <span class="string">'a2'</span>, b:<span class="string">'b2'</span>, type: <span class="number">2</span>},
+  {a: <span class="string">'a3'</span>, b:<span class="string">'b3'</span>, type: <span class="number">1</span>}
+]
+<span class="keyword">var</span> defs = {
+  <span class="string">'type'</span>: {
+    type: <span class="string">'cat'</span>,
+    values: [<span class="string">'最小'</span>, <span class="string">'适中'</span>, <span class="string">'最大'</span>]
+  }
+};</code></pre></div><p><strong> 此处必须指定 &#39;cat&#39; 类型，values 的值必须按照索引跟枚举类型一一对应。</strong></p>
+<h3 id="timecat">timeCat</h3><p>timeCat 度量对应时间数据，但是不是连续的时间类型，而是有序的分类数据。例如股票交易的日期，此时如果使用 time 类型，那么由于节假日没有数据，折线图、k 线图就会发生断裂，所以此时需要使用 timeCat 类型度量将日期转换为有序的分类数据，该度量默认会对数据做排序。</p>
+<p>timeCat 是 cat 度量的子类，除了支持所有通用的属性和 cat 度量的属性外也有自己的属性: </p>
+<div class="highlight"><pre><code class="javascript">{
+  mask: string, <span class="comment">// 指定时间的显示格式，默认：'yyyy-mm-dd'</span>
+}</code></pre></div>
+      </div>
+<div class="preNext clearfix">
+  <a href="../../../../g2/doc/tutorial/start/frame.html" class="pull-left">
+    <i class="iconfont icon-left"></i>
+    Frame 常见操作
+  </a>
+  <a href="../../../../g2/doc/tutorial/start/col-defs.html" class="pull-right">
+    列定义操作
+    <i class="iconfont icon-right"></i>
+  </a>
+</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../../../../static/nav-menu.js"></script>
+  <script src="../../../../static/prettify-min.js"></script>
+  <script src="../../../../static/clipboard.min.js"></script>
+  <script type="text/javascript">
+    var CLS_PRETTY = 'prettyprint linenums';
+    BUI.use('bui/common',function(BUI){
+      var preEls =  $('pre');
+      BUI.each(preEls,function(el){
+        var node = $(el), innerText;
+        node.addClass(CLS_PRETTY);
+        innerText = node.html();
+        var a = /^(\s+)/.exec(innerText);
+        var regex;
+        if(a){
+          regex = new RegExp('('+a[0]+')(\\s*)','ig');
+          innerText = innerText.replace(regex,'$2');
+        }
+          node.html(innerText);
+      });
+      if(window.prettyPrint){
+        prettyPrint();
+      }
+    });
+
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  </script>
+  
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

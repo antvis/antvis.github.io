@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>配置项支持 API 文档</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../static/jquery.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item hover">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+<link rel="stylesheet" href="../../static/prettify-min.css">
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+
+
+  <div class="main-container clearfix">
+<div class="body-content api-body-content"><div class="doc-nav">
+  <p class="title">G2</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g2/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">使用教程</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="sub-title">基础教程</li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/index.html" >G2 图表的主要组成</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/chart.html" >图表对象配置（chart）</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/working-with-data.html" >data 数据</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/frame.html" >Frame 常见操作</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/scale.html" >度量</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/col-defs.html" >列定义操作</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/geom.html" >geom 几何标记</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/attr.html" >attr 图形属性</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/coord.html" >coord 坐标系</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/axis.html" >axis 坐标轴</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/legend.html" >legend 图例</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/tooltip.html" >tooltip 提示信息</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/guide.html" >guide 辅助标记</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/stat.html" >stat 统计变换</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/facet.html" >facet 分面</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/theme.html" >theme 图表样式</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/label.html" >label 文本标签</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/chart-event.html" >图表事件 event</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/action.html" >图表交互</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/changedata.html" >数据异步加载与动态更新</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/g2-plugin-slider.html" >数据滑动条插件使用</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/rc-g2.html" >在 react 中使用 G2</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/start/fqas.html" >常见问题</a>
+          </li>
+          <li class="sub-title">高级教程</li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/index.html" >G2 图形语法简介</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/data-flow.html" >G2 的数据处理流程</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/data-type-and-scale.html" >数据类型与度量</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/coord-detailed.html" >坐标系详解</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/chart-type.html" >图表类型</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/geom-and-adjust.html" >几何标记和数据调整</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/custom-shape.html" >自定义 shape</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/view.html" >多视图 view 绘制</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/layout.html" >layout 布局</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/draw-word-cloud.html" >使用 G2 绘制词云</a>
+          </li>
+          <li class="">
+            <a href="../../g2/doc/tutorial/advance/animate.html" >自定义动画</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">API</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="">
+            <a href="../../g2/api/index.html" >G2</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/chart.html" >Chart</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/view.html" >View</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/geom.html" >Geom</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/scale.html" >Scale</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/stat.html" >Stat</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/frame.html" >Frame</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/shape.html" >Shape</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/animate.html" >Animate</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/util.html" >Util</a>
+          </li>
+          <li class="">
+            <a href="../../g2/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="active">
+            <a href="../../g2/api/chart-options.html" >配置项支持</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/doc/history.html" >更新日志</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+  <div class="doc-content clearfix">
+    <h1>配置项支持</h1>
+    <div id="J_pageNav"></div>
+    <div class="clearfix" style="margin-bottom: 40px;"></div>
+    <div class="doc-inner">
+      <p>G2 从 2.3.0 版本开始支持图形语法的配置项式声明方式。</p>
+<p>为 <a href="https://antv.alipay.com/g2/api/chart.html">Chart</a> 对象新增 <code>options</code> 属性，用于支持配置项式声明。</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+    width: <span class="number">1000</span>,
+  height: <span class="number">500</span>,
+  data: data,
+  plotCfg: {
+      margin: [<span class="number">20</span>, <span class="number">80</span>, <span class="number">60</span>, <span class="number">80</span>]
+  },
+  options: {
+      <span class="comment">// 在这里声明所有的配置属性</span>
+  }
+});
+chart.render();</code></pre></div><p>可以先通过以下几个例子来了解下：</p>
+<ul>
+<li><strong>实例 1：柱状图</strong></li>
+</ul>
+<div id="c1"></div>
+
+<script>(function(){'use strict';
+
+var data = [{ genre: 'Sports', sold: 275 }, { genre: 'Strategy', sold: 115 }, { genre: 'Action', sold: 120 }, { genre: 'Shooter', sold: 350 }, { genre: 'Other', sold: 150 }];
+var chart = new G2.Chart({
+  id: 'c1',
+  forceFit: true,
+  height: 300,
+  data: data,
+  options: {
+    scales: {
+      'genre': {
+        alias: '游戏种类'
+      },
+      'sold': {
+        alias: '销售量'
+      }
+    },
+    geoms: [{
+      type: 'interval',
+      position: 'genre*sold',
+      color: 'genre'
+    }]
+  }
+});
+chart.render();})()</script><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {genre: <span class="string">'Sports'</span>, sold: <span class="number">275</span>},
+  {genre: <span class="string">'Strategy'</span>, sold: <span class="number">115</span>},
+  {genre: <span class="string">'Action'</span>, sold: <span class="number">120</span>},
+  {genre: <span class="string">'Shooter'</span>, sold: <span class="number">350</span>},
+  {genre: <span class="string">'Other'</span>, sold: <span class="number">150</span>},
+];
+<span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id: <span class="string">'c1'</span>,
+  forceFit: <span class="literal">true</span>,
+  height: <span class="number">300</span>,
+  data: data,
+  options: {
+    scales: {
+      <span class="string">'genre'</span>: {
+        alias: <span class="string">'游戏种类'</span>
+      },
+      <span class="string">'sold'</span>: {
+        alias: <span class="string">'销售量'</span>
+      }
+    },
+    geoms: [
+      {
+        type: <span class="string">'interval'</span>,
+        position: <span class="string">'genre*sold'</span>,
+        color: <span class="string">'genre'</span>
+      }
+    ]
+  }
+});
+chart.render();</code></pre></div><p>对应函数式调用代码如下：</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id: <span class="string">'c1'</span>,
+  height : <span class="number">300</span>,
+  forceFit: <span class="literal">true</span>,
+});
+chart.source(data, {
+  genre: {
+    alias: <span class="string">'游戏种类'</span>
+  },
+  sold: {
+    alias: <span class="string">'销售量'</span>
+  }
+});
+chart.interval().position(<span class="string">'genre*sold'</span>).color(<span class="string">'genre'</span>)
+chart.render();</code></pre></div><ul>
+<li><strong>实例 2: 散点图</strong></li>
+</ul>
+<div id="c2"></div>
+
+<script>(function(){'use strict';
+
+$.getJSON('../../static/data/scatter.json', function (data) {
+  var frame = new G2.Frame(data);
+  var hAvg = G2.Frame.mean(frame, 'height'); // 计算体重的均值
+  var wAvg = G2.Frame.mean(frame, 'weight'); // 计算身高均值
+  var lineCfg = { // 线的配置信息
+    stroke: '#94E08A'
+  };
+  var chart = new G2.Chart({
+    id: 'c2',
+    forceFit: true,
+    height: 450,
+    data: data,
+    options: {
+      scales: {
+        weight: {
+          alias: '体重（kg）'
+        },
+        height: {
+          alias: '身高（cm）'
+        }
+      }, // 列定义
+      tooltip: {
+        title: null,
+        crosshairs: {
+          type: 'cross'
+        }
+      },
+      axes: {
+        'height': {
+          formatter: function formatter(val) {
+            return val + ' cm';
+          }
+        }
+      },
+      guides: [{
+        type: 'tag',
+        from: [hAvg, 'min'],
+        to: [hAvg, 'max'],
+        text: '身高平均值: ' + hAvg.toFixed(2),
+        cfg: {
+          line: lineCfg
+        }
+      }, {
+        type: 'tag',
+        from: ['min', wAvg],
+        to: ['max', wAvg],
+        text: '体重平均值: ' + wAvg.toFixed(2),
+        cfg: {
+          line: lineCfg
+        }
+      }],
+      geoms: [{
+        type: 'point',
+        position: 'height*weight',
+        color: {
+          field: 'gender',
+          colors: ['rgba(223, 83, 83, 0.7)', 'rgba(119, 152, 191, 0.7)']
+        },
+        shape: {
+          field: 'gender',
+          shapes: ['circle', 'diamond']
+        },
+        size: 6,
+        tooltip: 'gender*height*weight'
+      }]
+    }
+  });
+  chart.render();
+});})()</script><div class="highlight"><pre><code class="javascript">$.getJSON(<span class="string">'../../static/data/scatter.json'</span>, <span class="function"><span class="keyword">function</span><span class="params">(data)</span>{</span>
+  <span class="keyword">var</span> frame = <span class="keyword">new</span> G2.Frame(data);
+  <span class="keyword">var</span> hAvg = G2.Frame.mean(frame,<span class="string">'height'</span>); <span class="comment">// 计算体重的均值</span>
+  <span class="keyword">var</span> wAvg = G2.Frame.mean(frame,<span class="string">'weight'</span>); <span class="comment">// 计算身高均值</span>
+  <span class="keyword">var</span> lineCfg = { <span class="comment">// 线的配置信息</span>
+    stroke: <span class="string">'#94E08A'</span>
+  };
+  <span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+    id: <span class="string">'c2'</span>,
+    forceFit: <span class="literal">true</span>,
+    height: <span class="number">450</span>,
+    data: data,
+    options: {
+      scales: {
+        weight: {
+          alias: <span class="string">'体重（kg）'</span>
+        },
+        height: {
+          alias: <span class="string">'身高（cm）'</span>
+        }
+      }, <span class="comment">// 列定义</span>
+      tooltip: {
+        title: <span class="literal">null</span>,
+        crosshairs: {
+          type: <span class="string">'cross'</span>
+        }
+      },
+      axes: {
+        <span class="string">'height'</span>: {
+          formatter: <span class="function"><span class="keyword">function</span><span class="params">(val)</span> {</span>
+            <span class="keyword">return</span> val + <span class="string">' cm'</span>;
+          }
+        }
+      },
+      guides: [
+        {
+          type: <span class="string">'tag'</span>,
+          from: [hAvg, <span class="string">'min'</span>],
+          to: [hAvg, <span class="string">'max'</span>],
+          text: <span class="string">'身高平均值: '</span> + hAvg.toFixed(<span class="number">2</span>),
+          cfg: {
+            line:lineCfg
+          }
+        },
+        {
+          type: <span class="string">'tag'</span>,
+          from: [<span class="string">'min'</span>, wAvg],
+          to: [<span class="string">'max'</span>, wAvg],
+          text: <span class="string">'体重平均值: '</span> + wAvg.toFixed(<span class="number">2</span>),
+          cfg: {
+            line:lineCfg
+          }
+        },
+      ],
+      geoms: [
+        {
+          type: <span class="string">'point'</span>,
+          position: <span class="string">'height*weight'</span>,
+          color: {
+            field: <span class="string">'gender'</span>,
+            colors: [<span class="string">'rgba(223, 83, 83, 0.7)'</span>, <span class="string">'rgba(119, 152, 191, 0.7)'</span>]
+          },
+          shape: {
+            field: <span class="string">'gender'</span>,
+            shapes: [<span class="string">'circle'</span>, <span class="string">'diamond'</span>]
+          },
+          size: <span class="number">6</span>,
+          tooltip: <span class="string">'gender*height*weight'</span>
+        }
+      ]
+    }
+  });
+  chart.render();
+});</code></pre></div><p>对应函数式调用代码如下：</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id: <span class="string">'c2'</span>,
+  forceFit: <span class="literal">true</span>,
+  height: <span class="number">450</span>
+});
+chart.source(data, {
+  weight: {
+    alias: <span class="string">'体重（kg）'</span>
+  },
+  height: {
+    alias: <span class="string">'身高（cm）'</span>
+  }
+});
+chart.tooltip({
+  title: <span class="literal">null</span>,
+  crosshairs: {
+    type: <span class="string">'cross'</span>
+  }
+});
+chart.point().position(<span class="string">'height*weight'</span>).color(<span class="string">'gender'</span>, [<span class="string">'rgba(223, 83, 83, 0.7)'</span>, <span class="string">'rgba(119, 152, 191, 0.7)'</span>]).shape(<span class="string">'gender'</span>, [<span class="string">'circle'</span>, <span class="string">'diamond'</span>]).size(<span class="number">6</span>).tooltip(<span class="string">'gender*height*weight'</span>);
+chart.guide().tag([hAvg, <span class="string">'min'</span>], [hAvg, <span class="string">'max'</span>], <span class="string">'身高平均值: '</span> + hAvg.toFixed(<span class="number">2</span>), {line:lineCfg});
+chart.guide().tag([<span class="string">'min'</span>, wAvg], [<span class="string">'max'</span>, wAvg], <span class="string">'体重平均值: '</span> + wAvg.toFixed(<span class="number">2</span>), {line:lineCfg});
+chart.render();</code></pre></div><ul>
+<li><strong>实例 3：多 views</strong></li>
+</ul>
+<div id="c3"></div>
+
+<script>(function(){'use strict';
+
+$.getJSON('../../static/data/world.geo.json', function (mapData) {
+  var userData = [{ name: 'Russia', value: 86.8 }, { name: 'China', value: 106.3 }, { name: 'Japan', value: 94.7 }, { name: 'Mongolia', value: 98 }, { name: 'Canada', value: 98.4 }, { name: 'United Kingdom', value: 97.2 }, { name: 'United States of America', value: 98.3 }, { name: 'Brazil', value: 96.7 }, { name: 'Argentina', value: 95.8 }, { name: 'Algeria', value: 101.3 }, { name: 'France', value: 94.8 }, { name: 'Germany', value: 96.6 }, { name: 'Ukraine', value: 86.3 }, { name: 'Egypt', value: 102.1 }, { name: 'South Africa', value: 101.3 }, { name: 'India', value: 107.6 }, { name: 'Australia', value: 99.9 }, { name: 'Saudi Arabia', value: 130.1 }, { name: 'Afghanistan', value: 106.5 }, { name: 'Kazakhstan', value: 93.4 }, { name: 'Indonesia', value: 101.4 }];
+  var Frame = G2.Frame;
+  var Stat = G2.Stat;
+  var frame = new Frame(userData);
+  frame.addCol('trend', function (obj) {
+    return obj.value > 100 ? 1 : 0;
+  });
+  var map = [];
+  var features = mapData.features;
+  for (var i = 0; i < features.length; i++) {
+    var name = features[i].properties.name;
+    map.push({
+      "name": name
+    });
+  }
+  var chart = new G2.Chart({
+    id: 'c3',
+    forceFit: true,
+    height: 450,
+    syncXYScales: true, // 统一视图的度量
+    plotCfg: {
+      margin: [55, 20]
+    },
+    data: map,
+    options: {
+      tooltip: {
+        title: null
+      },
+      legends: {
+        'trend': {
+          position: 'left'
+        }
+      }
+    }
+  });
+
+  // 绘制世界地图背景
+  var view = chart.createView({
+    data: map,
+    options: {
+      tooltip: false,
+      geoms: [{
+        type: 'polygon',
+        position: Stat.map.region('name', mapData),
+        shape: 'stroke',
+        style: {
+          fill: '#fff',
+          stroke: '#ccc',
+          lineWidth: 1
+        }
+      }]
+    }
+  });
+
+  // 绘制展示数据
+  var userView = chart.createView({
+    data: frame,
+    options: {
+      scales: {
+        'trend': {
+          type: 'cat',
+          alias: '每100位女性对应的男性数量',
+          values: ['女性更多', '男性更多']
+        }
+      },
+      geoms: [{
+        type: 'polygon',
+        position: Stat.map.region('name*value', mapData),
+        color: {
+          field: 'trend',
+          colors: ['#C45A5A', '#14647D']
+        },
+        opacity: 'value',
+        tooltip: 'name*trend'
+      }]
+    }
+  });
+  chart.render();
+});})()</script><div class="highlight"><pre><code class="javascript">$.getJSON(<span class="string">'../../static/data/world.geo.json'</span>, <span class="function"><span class="keyword">function</span><span class="params">(mapData)</span> {</span>
+  <span class="keyword">var</span> userData = [
+    {name: <span class="string">'Russia'</span>,value: <span class="number">86.8</span>},
+    {name: <span class="string">'China'</span>,value: <span class="number">106.3</span>},
+    {name: <span class="string">'Japan'</span>,value: <span class="number">94.7</span>},
+    {name: <span class="string">'Mongolia'</span>,value: <span class="number">98</span>},
+    {name: <span class="string">'Canada'</span>,value: <span class="number">98.4</span>},
+    {name: <span class="string">'United Kingdom'</span>,value: <span class="number">97.2</span>},
+    {name: <span class="string">'United States of America'</span>,value: <span class="number">98.3</span>},
+    {name: <span class="string">'Brazil'</span>,value: <span class="number">96.7</span>},
+    {name: <span class="string">'Argentina'</span>,value: <span class="number">95.8</span>},
+    {name: <span class="string">'Algeria'</span>,value: <span class="number">101.3</span>},
+    {name: <span class="string">'France'</span>,value: <span class="number">94.8</span>},
+    {name: <span class="string">'Germany'</span>,value: <span class="number">96.6</span>},
+    {name: <span class="string">'Ukraine'</span>,value: <span class="number">86.3</span>},
+    {name: <span class="string">'Egypt'</span>,value: <span class="number">102.1</span>},
+    {name: <span class="string">'South Africa'</span>,value: <span class="number">101.3</span>},
+    {name: <span class="string">'India'</span>,value: <span class="number">107.6</span>},
+    {name: <span class="string">'Australia'</span>,value: <span class="number">99.9</span>},
+    {name: <span class="string">'Saudi Arabia'</span>,value:<span class="number">130.1</span>},
+    {name: <span class="string">'Afghanistan'</span>,value: <span class="number">106.5</span>},
+    {name: <span class="string">'Kazakhstan'</span>,value:<span class="number">93.4</span>},
+    {name: <span class="string">'Indonesia'</span>,value: <span class="number">101.4</span>}
+  ];
+  <span class="keyword">var</span> Frame = G2.Frame;
+  <span class="keyword">var</span> Stat = G2.Stat;
+  <span class="keyword">var</span> frame = <span class="keyword">new</span> Frame(userData);
+  frame.addCol(<span class="string">'trend'</span>, <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">return</span> (obj.value &gt; <span class="number">100</span>) ? <span class="number">1</span> : <span class="number">0</span>;
+  });
+  <span class="keyword">var</span> map = [];
+  <span class="keyword">var</span> features = mapData.features;
+  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;features.length; i++) {
+    <span class="keyword">var</span> name = features[i].properties.name;
+    map.push({
+      <span class="string">"name"</span>: name
+    });
+  }
+  <span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+    id: <span class="string">'c3'</span>,
+    forceFit: <span class="literal">true</span>,
+    height: <span class="number">450</span>,
+    syncXYScales: <span class="literal">true</span>, <span class="comment">// 统一视图的度量</span>
+    plotCfg: {
+      margin: [<span class="number">55</span>, <span class="number">20</span>]
+    },
+    data: map,
+    options: {
+      tooltip: {
+        title: <span class="literal">null</span>
+      },
+      legends: {
+        <span class="string">'trend'</span>: {
+          position: <span class="string">'left'</span>
+        }
+      }
+    }
+  });
+
+  <span class="comment">// 绘制世界地图背景</span>
+  <span class="keyword">var</span> view = chart.createView({
+    data: map,
+    options: {
+      tooltip: <span class="literal">false</span>,
+      geoms: [
+        {
+          type: <span class="string">'polygon'</span>,
+          position: Stat.map.region(<span class="string">'name'</span>, mapData),
+          shape: <span class="string">'stroke'</span>,
+          style: {
+            fill: <span class="string">'#fff'</span>,
+            stroke: <span class="string">'#ccc'</span>,
+            lineWidth: <span class="number">1</span>
+          }
+        }
+      ]
+    }
+  });
+
+  <span class="comment">// 绘制展示数据</span>
+  <span class="keyword">var</span> userView = chart.createView({
+    data: frame,
+    options: {
+      scales: {
+        <span class="string">'trend'</span>: {
+          type: <span class="string">'cat'</span>,
+          alias: <span class="string">'每100位女性对应的男性数量'</span>,
+          values: [<span class="string">'女性更多'</span>, <span class="string">'男性更多'</span>]
+        }
+      },
+      geoms: [
+        {
+          type: <span class="string">'polygon'</span>,
+          position: Stat.map.region(<span class="string">'name*value'</span>, mapData),
+          color: {
+            field: <span class="string">'trend'</span>,
+            colors: [<span class="string">'#C45A5A'</span>,<span class="string">'#14647D'</span>]
+          },
+          opacity: <span class="string">'value'</span>,
+          tooltip: <span class="string">'name*trend'</span>
+        }
+      ]
+    }
+  });
+  chart.render();
+});</code></pre></div><p>对应的函数式调用代码如下：</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id: <span class="string">'c3'</span>,
+  forceFit: <span class="literal">true</span>,
+  height: <span class="number">450</span>,
+  syncXYScales: <span class="literal">true</span>, <span class="comment">// 统一视图的度量</span>
+  plotCfg: {
+    margin: [<span class="number">55</span>, <span class="number">20</span>] 
+  }
+});
+chart.tooltip({
+  title: <span class="literal">null</span>
+});
+chart.legend(<span class="string">'trend'</span>, {
+  position: <span class="string">'left'</span>
+});
+<span class="comment">// 绘制世界地图背景</span>
+<span class="keyword">var</span> view = chart.createView();
+view.source(map);
+view.tooltip(<span class="literal">false</span>);
+view.polygon().position(Stat.map.region(<span class="string">'name'</span>, mapData)).shape(<span class="string">'stroke'</span>).style({
+  fill: <span class="string">'#fff'</span>,
+  stroke: <span class="string">'#ccc'</span>,
+  lineWidth: <span class="number">1</span>
+});
+<span class="comment">// 绘制展示数据</span>
+<span class="keyword">var</span> userView = chart.createView();
+userView.source(frame, {
+  <span class="string">'trend'</span>: {
+    type: <span class="string">'cat'</span>,
+    alias: <span class="string">'每100位女性对应的男性数量'</span>,
+    values: [<span class="string">'女性更多'</span>, <span class="string">'男性更多'</span>]
+  }
+});
+userView.polygon().position(Stat.map.region(<span class="string">'name*value'</span>, mapData)).color(<span class="string">'trend'</span>,[<span class="string">'#C45A5A'</span>,<span class="string">'#14647D'</span>]).opacity(<span class="string">'value'</span>).tooltip(<span class="string">'name*trend'</span>);
+chart.render();</code></pre></div><h2 id="配置项属性">配置项属性</h2><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> options = {
+  appendFields: {Array}, <span class="comment">// 作为附加字段，用于补全数据源中的数据字段，常用于数据源含有不同数据字段的记录</span>
+  scales: {Object}, <span class="comment">// 列定义声明</span>
+  coord: {Object}, <span class="comment">// 坐标系配置</span>
+  axes: {Object}, <span class="comment">// 坐标轴配置</span>
+  legends: {Object}, <span class="comment">// 图例配置</span>
+  guides: {Array}, <span class="comment">// 图表辅助元素配置</span>
+  filters: {Object}, <span class="comment">// 数据过滤配置</span>
+  tooltip: {Object}, <span class="comment">// 提示信息配置</span>
+  facet: {Object}, <span class="comment">// 分面配置</span>
+  geoms: {Array}, <span class="comment">// 图形语法相关配置</span>
+}</code></pre></div><h3 id="appendfields"><a href="#appendFields">appendFields</a></h3><p>类型： <code>Array</code></p>
+<p>对应 <a href="https://antv.alipay.com/g2/api/chart.html#source"><code>chart.source(data[, colDefs, namesArr])</code></a> 方法中的 <code>namesArr</code> 参数，用于补全数据源中所有的字段属性。</p>
+<h3 id="scales"><a href="#scales">scales</a></h3><p>类型： <code>Object</code></p>
+<p>用于定义所有的<a href="https://antv.alipay.com/g2/doc/tutorial/start/col-defs.html">列定义</a>。对应以下 api <a href="https://antv.alipay.com/g2/api/chart.html#cols"><code>chart.cols()</code></a>，<a href="https://antv.alipay.com/g2/api/chart.html#col"><code>chart.col()</code></a>，<a href="https://antv.alipay.com/g2/api/chart.html#source"><code>chart.source()</code></a> 。</p>
+<p>具体使用方式如下</p>
+<div class="highlight"><pre><code class="javascript">scales: {
+  ${field1}: {Object}, <span class="comment">// 为数据字段 field1 进行列定义</span>
+  ${field2}: {Object}, <span class="comment">// 为数据字段 field2 进行列定义</span>
+  ...
+}</code></pre></div><p>具体列定义的参数 API： <a href="https://antv.alipay.com/g2/api/scale.html">Scale</a>。</p>
+<p>代码示例，为以下数据源的 <code>time</code> <code>value</code> 两个数据字段定义对应的列定义：</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {<span class="string">"value"</span>:<span class="number">10</span>,<span class="string">"time"</span>:<span class="string">"2015-03-01T16:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">15</span>,<span class="string">"time"</span>:<span class="string">"2015-03-01T16:10:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">26</span>,<span class="string">"time"</span>:<span class="string">"2015-03-01T16:20:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">9</span>,<span class="string">"time"</span>:<span class="string">"2015-03-01T16:30:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">12</span>,<span class="string">"time"</span>:<span class="string">"2015-03-01T16:40:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">23</span>,<span class="string">"time"</span>:<span class="string">"2015-03-01T16:50:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">18</span>,<span class="string">"time"</span>:<span class="string">"2015-03-01T17:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">21</span>,<span class="string">"time"</span>:<span class="string">"2015-03-01T17:10:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">22</span>,<span class="string">"time"</span>:<span class="string">"2015-03-01T17:20:00.000Z"</span>}
+];
+<span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id: <span class="string">'c1'</span>,
+  forceFit: <span class="literal">true</span>,
+  height: <span class="number">300</span>,
+  data: data,
+  options: {
+    scales: {
+    <span class="string">'time'</span>: {
+      type: <span class="string">'time'</span>,
+      nice: <span class="literal">false</span>,
+      mask: <span class="string">'HH:MM'</span>
+      },
+      <span class="string">'value'</span>: {
+      formatter: <span class="function"><span class="keyword">function</span><span class="params">(val)</span> {</span>
+          <span class="keyword">return</span> val + <span class="string">' k'</span>;
+      }
+      }
+  }
+  }
+});
+<span class="comment">// 配置项声明同函数调用可以混合使用</span>
+chart.line().position(<span class="string">'time*value'</span>).color(<span class="string">'red'</span>);
+chart.render();</code></pre></div><h3 id="coord"><a href="#coord">coord</a></h3><p>类型： <code>Object</code></p>
+<p>坐标系配置，函数式调用 api：<a href="https://antv.alipay.com/g2/api/chart.html#coord"><code>chart.coord(type, cfg)</code></a>。</p>
+<p>具体配置方式如下：</p>
+<div class="highlight"><pre><code class="javascript">coord: {
+  type: {String}, <span class="comment">// 坐标系类型声明，可取值: rect polar theta map helix gauge clock</span>
+  cfg: {Object}, <span class="comment">// 对应各个 type 坐标系属性配置，同 `chart.coord(type, cfg)` 中的 cfg</span>
+  actions: {Array} <span class="comment">// 声明坐标系需要进行的变换操作</span>
+}</code></pre></div><p>actions 属性的声明方式如下:</p>
+<div class="highlight"><pre><code class="javascript">actions: [
+  [<span class="string">'transpose'</span>],
+  [<span class="string">'rotate'</span>, <span class="number">90</span>],
+  [<span class="string">'scale'</span>, <span class="number">1</span>, -<span class="number">1</span>],
+  [<span class="string">'reflect'</span>, <span class="string">'x'</span>]
+]</code></pre></div><h3 id="axes"><a href="#axes">axes</a></h3><p>类型：<code>Object</code></p>
+<p>图表坐标轴配置，对应 <a href="https://antv.alipay.com/g2/api/chart.html#axis"><code>chart.axis(dim, cfg)</code></a> 方法。</p>
+<p>具体使用方式：</p>
+<ol>
+<li>不展示坐标轴</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">axes: {
+  visible: <span class="literal">false</span>
+}</code></pre></div><ol>
+<li>不展示某条坐标轴</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">axes: {
+  ${fields}: <span class="literal">false</span>, <span class="comment">// 不展示数据字段 field1 对应的坐标轴</span>
+}</code></pre></div><p>或者</p>
+<div class="highlight"><pre><code class="javascript">axes: {
+  ${fields}: 
+    visible: <span class="literal">false</span>
+  }, <span class="comment">// 不展示数据字段 field1 对应的坐标轴</span>
+}</code></pre></div><ol>
+<li>为各个的坐标轴进行配置</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">axes: {
+   ${field1}: {Object}, <span class="comment">// 具体配置同 https://antv.alipay.com/g2/api/chart.html#axis</span>
+   ${field2}: {Object}, <span class="comment">// 具体配置同 https://antv.alipay.com/g2/api/chart.html#axis</span>
+   <span class="comment">// ...</span>
+}</code></pre></div><h3 id="legends"><a href="#legends">legends</a></h3><p>类型： <code>Object</code></p>
+<p>图表图例配置，对应 <a href="https://antv.alipay.com/g2/api/chart.html#legend">chart.legend()</a>。</p>
+<ol>
+<li>不显示所有的图例</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">legends: {
+  visible: <span class="literal">false</span>
+}</code></pre></div><ol>
+<li>为默认的图例进行配置</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">legends: {
+  position: <span class="string">'right'</span>, <span class="comment">// 图例的显示位置，有 'top','left','right','bottom'四种位置，默认是'right'</span>
+  <span class="comment">// ... 其他属性同 https://antv.alipay.com/g2/api/chart.html#chart-legend-cfg</span>
+}</code></pre></div><ol>
+<li>为各个数据字段对应的图例进行配置</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">legends: {
+  ${field1}: {Object}, <span class="comment">// 具体的配置属性同 https://antv.alipay.com/g2/api/chart.html#chart-legend-dim-cfg</span>
+  ${field2}: <span class="literal">false</span> <span class="comment">// 不展示 field2 对应的图例 </span>
+}</code></pre></div><h3 id="guides"><a href="#guides">guides</a></h3><p>类型：<code>Array</code></p>
+<p>图表辅助元素定义，对应 <a href="https://antv.alipay.com/g2/api/chart.html#guide"><code>chart.guide()</code></a>。</p>
+<div class="highlight"><pre><code class="javascript"> [
+    {
+      type: <span class="string">'line'</span>, <span class="comment">// 添加辅助线</span>
+      from: {Array}, <span class="comment">// 辅助线起始点，[startX, startY]</span>
+      to: {Array}, <span class="comment">// 辅助线结束点，[endX, endY]</span>
+      cfg: {
+        stroke: <span class="string">'#999'</span>, <span class="comment">// 线的颜色</span>
+        lineDash: [<span class="number">0</span>, <span class="number">2</span>, <span class="number">2</span>], <span class="comment">// 虚线的设置</span>
+        lineWidth: <span class="number">3</span> <span class="comment">// 线的宽度</span>
+      } <span class="comment">// {object} 配置项,与原语法相同</span>
+    },
+    {
+      type: <span class="string">'image'</span>, <span class="comment">// 添加辅助线</span>
+      from: {Array}, <span class="comment">// 辅助图片起始点，[startX, startY]</span>
+      to: {Array}, <span class="comment">// 辅助图片结束点，[endX, endY]</span>
+      cfg: {
+        src: <span class="string">'http://gtms02.alicdn.com/VXXXXaZX.png'</span>, <span class="comment">// 图片路径</span>
+        width: <span class="number">160</span>, <span class="comment">// 宽度，可以不设置，如果设置了 [endXValue, startYValue]，此属性无效</span>
+        height复制代码: <span class="number">230</span> <span class="comment">// 高度，可以不设置，如果设置了 [endXValue, endYValue]，此属性无效</span>
+      } <span class="comment">// {object} 配置项,与原语法相同</span>
+    },
+    {
+      type: <span class="string">'text'</span>,
+      from: {Array}, <span class="comment">// 文本起始点，[startX, startY]</span>
+      text: {String}, <span class="comment">// 辅助文本内容</span>
+      cfg: {
+        fill: <span class="string">'#666'</span>, <span class="comment">// 文本颜色</span>
+        fontSize: <span class="string">'12'</span>, <span class="comment">// 文本大小</span>
+        fontWeight: <span class="string">'bold'</span> <span class="comment">// 文本粗细</span>
+      } <span class="comment">// {object} 辅助文本的显示样式配置</span>
+    }, {
+      type: <span class="string">'rect'</span>,
+      from: {Array}, <span class="comment">// 辅助框起始点，[startX, startY]</span>
+      to: {Array}, <span class="comment">// 辅助框结束点，[endX, endY]</span>
+      cfg: {
+        lineWidth: <span class="number">0</span>, <span class="comment">// 辅助框的边框宽度复制代码</span>
+        fill: <span class="string">'#f80'</span>, <span class="comment">// 辅助框填充的颜色</span>
+        fillOpacity: <span class="number">0.1</span>, <span class="comment">// 辅助框的背景透明度</span>
+        stroke: <span class="string">'#ccc'</span> <span class="comment">// 辅助框的边框颜色设置</span>
+      } <span class="comment">// {object} 辅助框的显示样式配置</span>
+    }, {
+      type: <span class="string">'tag'</span>,
+      from: {Array}, <span class="comment">// 辅助标记起始点，[startX, startY]</span>
+      to: {Array}, <span class="comment">// 辅助标记结束点，[endX, endY]</span>
+      text: {String}, <span class="comment">// 辅助文本</span>
+      cfg: {
+        line: {
+          stroke: <span class="string">'#999'</span>,
+          lineDash: [<span class="number">0</span>, <span class="number">2</span>, <span class="number">2</span>]
+        }, <span class="comment">// 辅助标记中连接线的样式配置</span>
+        text: {
+          fill: <span class="string">'#666'</span>,
+          fontSize: <span class="string">'12'</span>,
+          textAlign: <span class="string">'center'</span>
+        }, <span class="comment">// 辅助标记中文本的样式配置</span>
+        rect: {
+          lineWidth: <span class="number">0</span>,
+          fill: <span class="string">'#999'</span>,
+          fillOpacity: <span class="number">0.1</span>
+        } <span class="comment">// 辅助标记中背景框的样式配置</span>
+      } <span class="comment">// {object} 辅助标记的显示样式配置，[x, y]</span>
+    },
+    {
+      type: <span class="string">'arc'</span>,
+      from: {Array}, <span class="comment">// 辅助弧线起始点，[startX, startY]</span>
+      to: {Array}, <span class="comment">// 辅助弧线结束点，[endX, endY]</span>
+      text: {String}, <span class="comment">// 辅助文本</span>
+      cfg: {
+        stroke: <span class="string">'#999'</span>, <span class="comment">// 线的颜色</span>
+        lineDash: [<span class="number">0</span>, <span class="number">2</span>, <span class="number">2</span>], <span class="comment">// 虚线的设置</span>
+        lineWidth: <span class="number">3</span> <span class="comment">// 线的宽度</span>
+      } <span class="comment">// {object} 辅助弧线的显示样式配置</span>
+    },
+    {
+      type: <span class="string">'html'</span>,
+      from: {Array}, <span class="comment">// html dom 元素的起始点，[startX, startY]</span>
+      html: {String}, <span class="comment">// 辅助 html 的自定义内容</span>
+      cfg: {
+        align: <span class="string">'tr'</span> | <span class="string">'tc'</span> | <span class="string">'tl'</span> | <span class="string">'br'</span> | <span class="string">'bc'</span> | <span class="string">'bl'</span> | <span class="string">'lc'</span> | <span class="string">'rc'</span> | <span class="string">'cc'</span>, <span class="comment">// 对齐方式</span>
+        offset: {Array} <span class="comment">// 偏移坐标，[x, y]</span>
+      } <span class="comment">// {object} 辅助 html 的配置项</span>
+    }
+  ]</code></pre></div><h3 id="filters"><a href="#filters">filters</a></h3><p>类型：<code>Object</code></p>
+<p>数据过滤，对应 <a href="https://antv.alipay.com/g2/api/chart.html#filter"><code>chart.filter(dim, remained)</code></a></p>
+<div class="highlight"><pre><code class="javascript">filters: {
+  ${field1}: {Array}, <span class="comment">// 对字段名为 field1 的数据进行过滤</span>
+  ${field2}: {Array}, <span class="comment">// 对字段名为 field2 的数据进行过滤</span>
+  ...
+}</code></pre></div><h3 id="tooltip"><a href="#tooltip">tooltip</a></h3><p>类型：<code>Object</code></p>
+<p>对应 <a href="https://antv.alipay.com/g2/api/chart.html#tooltip">chart.tooltip</a></p>
+<div class="highlight"><pre><code class="javascript">tooltip: {
+  visible: {Boolean}, <span class="comment">// 开启关闭 tooltip 功能</span>
+  title: <span class="literal">null</span>, <span class="comment">// 用于控制是否显示 tooltip 框内的 title</span>
+  map: { <span class="comment">// 用于指定 tooltip 内显示内容同原始数据字段的映射关系复制代码</span>
+    title: <span class="string">'数据字段名或者常量'</span>, <span class="comment">// 为数据字段名时则显示该字段名对应的数值，常量则显示常量</span>
+    name: <span class="string">'数据字段名或者常量'</span>, <span class="comment">// 为数据字段名时则显示该字段名对应的数值，常量则显示常量复制代码</span>
+    value: <span class="string">'数据字段名'</span> <span class="comment">// 为数据字段名时则显示该字段名对应的数值</span>
+  },
+  offset: <span class="number">15</span>, <span class="comment">// 偏移量，设置 tooltip 显示位置距离 x 轴方向上的偏移</span>
+  crosshairs: <span class="literal">true</span>, <span class="comment">// 是否展示 tooltip 的辅助线，默认为 false，不展示</span>
+  crossLine: {
+    stroke: <span class="string">'#666'</span>, <span class="comment">// 辅助线的颜色</span>
+    lineWidth: <span class="number">2</span>, <span class="comment">// 辅助线的宽度</span>
+    lineDash: [<span class="number">2</span>, <span class="number">3</span>] <span class="comment">// 设置虚线样式</span>
+  }, <span class="comment">// crosshairs 为 true 时，为辅助线设置样式</span>
+  padding: [<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>], <span class="comment">// 提示框内边距</span>
+}</code></pre></div><p>当需要使用自定义的 html 模板生成 tooltip 时，需要对 tooltip 进行如下配置：</p>
+<div class="highlight"><pre><code class="javascript">tooltip: {
+  custom: <span class="literal">true</span>, <span class="comment">// 表示使用自定义的模板显示 tooltip</span>
+  html: <span class="string">'&lt;div class="ac-tooltip" style="position:absolute;visibility: hidden;"&gt;&lt;h4 class="ac-title"&gt;&lt;/h4&gt;&lt;table class="ac-list custom-table"&gt;&lt;/table&gt;&lt;/div&gt;'</span>, <span class="comment">// tooltip 的 html 外层模板</span>
+  itemTpl: <span class="string">'&lt;tr&gt;&lt;td&gt;{index}&lt;/td&gt;&lt;td style="color:{color}"&gt;{name}&lt;/td&gt;&lt;td&gt;{value}k&lt;/td&gt;&lt;/tr&gt;'</span>, <span class="comment">// 使用 html 时每一个显示项的模板，默认支持 index, color, name, value 这四个字段。</span>
+  offset: <span class="number">50</span>, <span class="comment">// 偏移量，设置tooltip 显示位置距离 x 轴方向上的偏移</span>
+  customFollow: <span class="literal">false</span> <span class="comment">// 设置 tooltip 是否跟随鼠标移动，默认为 true，跟随。</span>
+}</code></pre></div><h3 id="facet"><a href="#facet">facet</a></h3><p>类型：<code>Object</code></p>
+<p>对应 <a href="https://antv.alipay.com/g2/api/chart.html#facet">chart.facet()</a>。</p>
+<div class="highlight"><pre><code class="javascript">facet: {
+  fields: {Array}, <span class="comment">// 用于切割分面的数据源字段，是一个数组 Array。</span>
+  type: <span class="string">'rect'</span> | <span class="string">'list'</span> | <span class="string">'circle'</span> | <span class="string">'tree'</span> | <span class="string">'mirror'</span>, <span class="comment">// 设置分面的布局类型</span>
+  margin: <span class="number">10</span>, <span class="comment">// 各个分面之间的距离，同 CSS 盒模型中的 margin</span>
+  facetTitle: { <span class="comment">// 各个分面标题的样式配置</span>
+    titleOffset: <span class="number">16</span>, <span class="comment">// 标题距离内容区的偏移</span>
+    colDimTitle: {
+      title: {
+        fontSize: <span class="number">14</span>,
+        textAlign: <span class="string">'center'</span>,
+        fill: <span class="string">'#999'</span>
+      }
+    },
+    colTitle: { 
+      title: {
+        fontSize: <span class="number">12</span>,
+        textAlign: <span class="string">'center'</span>,
+        fill: <span class="string">'#999'</span>
+      }
+    },
+    rowTitle: {
+      title: {
+        fontSize: <span class="number">12</span>,
+        textAlign: <span class="string">'center'</span>,
+        rotate: <span class="number">90</span>,
+        fill: <span class="string">'#999'</span>
+      }
+    },
+    rowDimTitle: {
+      title: {
+        fontSize: <span class="number">12</span>,
+        textAlign: <span class="string">'center'</span>,
+        rotate: <span class="number">90</span>,
+        fill: <span class="string">'#999'</span>
+      }
+    }
+  }
+}</code></pre></div><p>对于不同的分面类型有以下的配置项：</p>
+<ul>
+<li><p><a href="/g2/doc/tutorial/start/facet.html#rect-矩形分面">rect 矩阵分面</a></p>
+<p>无</p>
+<ul>
+<li><a href="/g2/doc/tutorial/start/facet.html#list-水平列表分面">list 列表型分面</a></li>
+</ul>
+<div class="highlight"><pre><code class="javascript">facet: {
+field: {Array}, <span class="comment">// 用于切割分面的数据源字段，是一个数组 Array。</span>
+type: <span class="string">'list'</span>,
+cols: <span class="number">2</span> <span class="comment">// 每行有只展示 2 个分面，超过 2 个则自动折行</span>
+}</code></pre></div></li>
+<li><p><a href="/g2/doc/tutorial/start/facet.html#circle-圆形分面">circle 圆形分面</a></p>
+<div class="highlight"><pre><code class="javascript">facet: {
+field: {Array}, <span class="comment">// 用于切割分面的数据源字段，是一个数组 Array。</span>
+type: <span class="string">'circle'</span>
+}</code></pre></div></li>
+<li><p><a href="/g2/doc/tutorial/start/facet.html#tree-树形分面">tree 树形分面</a></p>
+<div class="highlight"><pre><code class="javascript">facet: {
+field: {Array}, <span class="comment">// 用于切割分面的数据源字段，是一个数组 Array。</span>
+type: <span class="string">'tree'</span>,
+smooth: <span class="literal">true</span>, <span class="comment">// 各个树节点的连接线是否是平滑的曲线</span>
+line: {
+  stroke: <span class="string">'red'</span>, <span class="comment">// 连接边的颜色</span>
+  lineWidth: <span class="number">1</span> <span class="comment">// 连接边的粗细</span>
+} <span class="comment">// 连接各个树节点的线的配置项</span>
+}</code></pre></div></li>
+<li><p><a href="/g2/doc/tutorial/start/facet.html#mirror-镜像分面">mirror 镜像分面</a></p>
+<div class="highlight"><pre><code class="javascript">facet: {
+field: {Array}, <span class="comment">// 用于切割分面的数据源字段，是一个数组 Array。</span>
+type: <span class="string">'mirror'</span>,
+transpose: <span class="literal">true</span> <span class="comment">// 设置镜像是否反转，默认为 false，不翻转， true 则翻转</span>
+}</code></pre></div></li>
+</ul>
+<h3 id="geoms"><a href="#geoms">geoms</a></h3><p>类型：<code>Array</code></p>
+<p>用于声明绘制图表的图形语法，可同时声明多种 geom 配置。对应函数式调用 api： <a href="https://antv.alipay.com/g2/api/geom.html">Geom</a>。</p>
+<div class="highlight"><pre><code class="javascript">geoms: [
+  {
+    type: {String}, <span class="comment">// 声明 geom 的类型：point line path area interval polygon schema edge heatmap contour pointStack pointJitter pointDodge intervalStack intervalDodge intervalSymmetric areaStack schemaDodge</span>
+  adjusts: {String} || {Array}, <span class="comment">// 数据调整方式声明，如果只有一种调整方式，可以直接声明字符串，如果有多种混合方式，则以数组格式传入</span>
+  position: {String} || {Object}, <span class="comment">// potision 图形属性配置</span>
+  color: {String} || {Object}, <span class="comment">// color 图形属性配置</span>
+  shape: {String} || {Object}, <span class="comment">// shape 图形属性配置</span>
+  size: {String} || {Object}, <span class="comment">// size 图形属性配置</span>
+  opacity: {String} || {Object}, <span class="comment">// opacity 图形属性配置</span>
+  label: {String} || {Object}, <span class="comment">// 图形上文本标记的配置</span>
+  tooltip: {String}, <span class="comment">// 配置 tooltip 上显示的字段名称</span>
+    style: {Object}, <span class="comment">// 图形的样式属性配置</span>
+    selected: {Object}, <span class="comment">// geom 选中交互配置</span>
+    animate: {Object} <span class="comment">// 动画配置</span>
+  },
+  {
+    <span class="comment">// 同上述配置相同，可以定义多个 geom</span>
+  }
+]</code></pre></div><h4 id="positon"><a href="#position">positon</a></h4><p>用于声明映射至位置 position 属性的数据字段，使用方式很简单：</p>
+<div class="highlight"><pre><code class="javascript">position: <span class="string">'field1*field2'</span></code></pre></div><p>或者</p>
+<div class="highlight"><pre><code class="javascript">position: {
+  field: <span class="string">'field1*field2'</span>
+}</code></pre></div><p>函数式声明 API: <a href="https://antv.alipay.com/g2/api/geom.html#position">position</a>。</p>
+<h4 id="color"><a href="#color">color</a></h4><ol>
+<li><code>chart.geom().color(value)</code> 对应：</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">color: value, <span class="comment">// value 可以是数据字段名、颜色值以及包含统计函数的声明</span></code></pre></div><p>或者</p>
+<div class="highlight"><pre><code class="javascript">color: {
+  field: value, <span class="comment">// value 可以是数据字段名、颜色值以及包含统计函数的声明</span>
+}</code></pre></div><ol>
+<li><code>chart.geom().color(dim, colors)</code> 对应：</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">color: {
+  field: ${field}, <span class="comment">// 声明映射至 color 属性的数据字段名</span>
+  colors: ${colors} <span class="comment">// String | Array，可声明颜色、渐变颜色等</span>
+}</code></pre></div><ol>
+<li>回调函数声明 <code>chart.geom().color(dim, colorCallback)</code> 对应：</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">color: {
+  field: ${field}, <span class="comment">// 声明映射至 color 属性的数据字段名</span>
+  callback: {Function} <span class="comment">// 用户自定义回调函数</span>
+}</code></pre></div><p>函数式声明 API: <a href="https://antv.alipay.com/g2/api/geom.html#color">color</a>。</p>
+<h4 id="shape"><a href="#shape">shape</a></h4><ol>
+<li><code>chart.geom().shape(value)</code> 对应：</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">shape: value, <span class="comment">// value 可以是数据字段名、图形形状名以及包含统计函数的声明</span></code></pre></div><p>或者</p>
+<div class="highlight"><pre><code class="javascript">shape: {
+  field: value, <span class="comment">// value 可以是数据字段名、图形形状名以及包含统计函数的声明</span>
+}</code></pre></div><ol>
+<li><code>chart.geom().shape(dim, shapes)</code> 对应：</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">shape: {
+  field: ${field}, <span class="comment">// 声明映射至 shape 属性的数据字段名</span>
+  shapes: ${shapes} <span class="comment">// String | Array</span>
+}</code></pre></div><ol>
+<li>回调函数声明 <code>chart.geom().shape(dim, callback)</code> 对应：</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">shape: {
+  field: ${field}, <span class="comment">// 声明映射至 shape 属性的数据字段名</span>
+  callback: {Function} <span class="comment">// 用户自定义回调函数</span>
+}</code></pre></div><p>函数式声明 API: <a href="https://antv.alipay.com/g2/api/geom.html#shape">shape</a>。</p>
+<h4 id="size"><a href="#size">size</a></h4><ol>
+<li><code>chart.geom().size(value）</code> 对应</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">size: value <span class="comment">// value 可以是数据字段名、数值以及包含统计函数的声明</span></code></pre></div><p>或者</p>
+<div class="highlight"><pre><code class="javascript">size: {
+  field: value, <span class="comment">// value 可以是数据字段名、图形形状名以及包含统计函数的声明</span>
+}</code></pre></div><ol>
+<li><code>chart.geom().size(dim, max, min)</code> 对应：</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">size: {
+  field: {String}, <span class="comment">// 声明映射至 size 属性的数据字段名</span>
+  min: {Number},
+  max: {Number}
+}</code></pre></div><ol>
+<li><code>chart.geom().size(dim, callback)</code> 对应：</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">size: {
+  field: {String}, <span class="comment">// 声明映射至 size 属性的数据字段名</span>
+  callback: {Function}
+}</code></pre></div><p>函数式声明 API: <a href="https://antv.alipay.com/g2/api/geom.html#size">size</a>。</p>
+<h4 id="opacity"><a href="#opacity">opacity</a></h4><ol>
+<li><code>chart.geom().opacity(dim)</code> 对应：</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">opacity: dim, <span class="comment">// dim 对应映射至 opacity 的数据字段名、具体透明度数值或者包含统计的声明</span></code></pre></div><p>或者</p>
+<div class="highlight"><pre><code class="javascript">opacity: {
+  field: dim <span class="comment">// dim 对应映射至 opacity 的数据字段名、具体透明度数值或者包含统计的声明</span>
+}</code></pre></div><ol>
+<li><code>chart.geom().opacity(dim, callback)</code> 对应</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">opacity: {
+  field: {String}, <span class="comment">// 声明映射至 opacity 属性的数据字段名</span>
+  callback: {Function}
+}</code></pre></div><p>函数式声明 API: <a href="https://antv.alipay.com/g2/api/geom.html#opacity">opacity</a>。</p>
+<h4 id="label"><a href="#label">label</a></h4><ol>
+<li><code>chart.geom().label(dim)</code> 对应</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">label: dim, <span class="comment">// dim 对应字段名或者带有统计的声明</span></code></pre></div><ol>
+<li><code>chart.geom().label(dim, cfg)</code> 对应</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">label: {
+  field: {String}, <span class="comment">// 需要标注的数据字段名</span>
+  cfg: {Object} <span class="comment">// 具体的 label 配置，参见https://antv.alipay.com/g2/api/geom.html#label</span>
+}</code></pre></div><ol>
+<li>如果 label 中需要声明回调函数，声明 callback 属性即可：</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">label: {
+  field: {String}, <span class="comment">// 需要标注的数据字段名</span>
+  cfg: {Object}, <span class="comment">// 具体的 label 配置</span>
+  callback: {Function}
+}</code></pre></div><p>函数式声明 API: <a href="https://antv.alipay.com/g2/api/geom.html#label">label</a>。</p>
+<h4 id="tooltip"><a href="#tooltip">tooltip</a></h4><div class="highlight"><pre><code class="javascript">tooltip: {String} <span class="comment">// 直接声明需要显示在 tooltip 上的字段名</span></code></pre></div><p>函数式声明 API: <a href="https://antv.alipay.com/g2/api/geom.html#tooltip">tooltip</a>。</p>
+<h4 id="style"><a href="#style">style</a></h4><div class="highlight"><pre><code class="javascript">style: {
+  <span class="comment">// 图形属性声明</span>
+}</code></pre></div><p>函数式声明 API: <a href="https://antv.alipay.com/g2/api/geom.html#style">style</a>。</p>
+<h4 id="selected"><a href="#selected">selected</a></h4><div class="highlight"><pre><code class="javascript">selected: {Boolean} <span class="comment">// 开启关闭选中功能</span></code></pre></div><div class="highlight"><pre><code class="javascript">selected: {
+  mode:  <span class="string">'multiple'</span> || <span class="string">'single'</span> || <span class="literal">false</span>, <span class="comment">// multiple 为多选，single 为单选， false 为关闭选中功能</span>
+  style: {
+    <span class="comment">// 设置选中图形的样式，不设置则使用默认提供的样式</span>
+    <span class="comment">// 图形绘制属性，如 fill stroke</span>
+  }
+}</code></pre></div><p>函数式声明 API: <a href="https://antv.alipay.com/g2/api/geom.html#selected">selected</a>。</p>
+<h4 id="animate"><a href="#animate">animate</a></h4><div class="highlight"><pre><code class="javascript">animate: {
+  <span class="comment">// TODO</span>
+  <span class="comment">// 同 ...</span>
+}</code></pre></div><p>函数式声明 API: <a href="https://antv.alipay.com/g2/api/geom.html#animate">animate</a>。</p>
+<h4 id="view-视图的配置项声明">View 视图的配置项声明</h4><p>视图的配置项同 chart 基本一致，除了不支持 facet，以及 tooltip 属性值为 Boolean 类型外，其他均同 chart 一致。</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> view = chart.createView({
+  options: {
+    appendFields: {Array}, <span class="comment">// 作为附加字段，用于补全数据源中的数据字段，常用于数据源含有不同数据字段的记录</span>
+    scales: {Object}, <span class="comment">// 列定义声明</span>
+    coord: {Object}, <span class="comment">// 坐标系配置</span>
+    axes: {Object}, <span class="comment">// 坐标轴配置</span>
+    legends: {Object}, <span class="comment">// 图例配置</span>
+    guides: {Array}, <span class="comment">// 图表辅助元素配置</span>
+    filters: {Object}, <span class="comment">// 数据过滤配置</span>
+    tooltip: {Boolean}, <span class="comment">// 默认值为 true，显示 tooltip， false 为关闭 tooltip</span>
+    geoms: {Array}, <span class="comment">// 图形语法相关配置</span>
+  }
+});</code></pre></div>
+    </div>
+  </div>
+</div>
+<script src="../../static/prettify-min.js"></script>
+<script src="../../static/clipboard.min.js"></script>
+<script type="text/javascript">
+var CLS_PRETTY = 'prettyprint linenums';
+BUI.use('bui/common',function(BUI){
+  var preEls = $('pre');
+  BUI.each(preEls,function(el){
+    var node = $(el), innerText;
+    node.addClass(CLS_PRETTY);
+    innerText = node.html();
+    var a = /^(\s+)/.exec(innerText),
+      regex;
+    if(a){
+      regex = new RegExp('('+a[0]+')(\\s*)','ig');
+      innerText = innerText.replace(regex,'$2');
+    }
+
+    node.html(innerText);
+  });
+  if(window.prettyPrint){
+    prettyPrint();
+  }
+});
+
+$(document).ready(function() {
+  var docEl = $('.doc-content');
+  var hEls = docEl.find('h2, h3');
+  var container = $('#J_pageNav');
+  var ulContainer;
+  var count = 0;
+  var hElsLen = hEls.length;
+  if (hElsLen > 0 && container.length > 0) {
+    for (var i = 0; i < hElsLen; i++) {
+      var el = hEls[i];
+      var node = $(el);
+      var text = node.text();
+      var id = node.attr('id');
+      var nodeName = el.nodeName;
+
+      if (nodeName === 'H2') {
+        count = 0;
+        if (ulContainer && ulContainer !== '<ul class="pagenav-columns">') {
+          ulContainer += '</ul>';
+          $(ulContainer).appendTo(container);
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<div class="clearfix separate"></div><p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        } else {
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        }
+      } else {
+        var liItems = '<li><a href="#' + id + '">' + text + '</a></li>';
+        ulContainer += liItems;
+        count++;
+        if (count > 10) {
+          ulContainer += '</ul><ul class="pagenav-columns">';
+          count = 0;
+        }
+      }
+    }
+
+    ulContainer += '</ul>';
+    $(ulContainer).appendTo(container);
+
+    // 代码复制
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  }
+});
+</script>
+
+  </div><a href="javascript:void(0);" id='toTop' title="返回顶部">
+	<i class="iconfont icon-to-top"></i>
+</a>
+ 
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

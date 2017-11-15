@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>柱状图</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item hover last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+
+  <div class="main-container clearfix">
+  <div class="doc-content vis-chart">
+    <div class="doc-inner vis-chart">
+      <h1>柱状图</h1>
+      <p><img src="https://os.alipayobjects.com/rmsportal/plYGbgHxHvwbRGu.jpg" /></p>
+<h2 id="柱状图的简介">柱状图的简介</h2><p>典型的柱状图（又名条形图），使用垂直或水平的柱子显示类别之间的数值比较。其中一个轴表示需要对比的分类维度，另一个轴代表相应的数值。</p>
+<p>柱状图有别于<a href="./histogram.html">直方图</a>，柱状图无法显示数据在一个区间内的连续变化趋势。柱状图描述的是分类数据，回答的是每一个分类中“有多少？”这个问题。
+需要注意的是，当柱状图显示的分类很多时会导致分类名层叠等显示问题，下面我们会举例说明。</p>
+<p>英文名：Column chart, Bar chart</p>
+<h2 id="柱状图的构成">柱状图的构成</h2><h3 id="纵向柱状图">纵向柱状图</h3><p><img src="https://os.alipayobjects.com/rmsportal/vPIGfeGBMiSOMdw.png" class="constitute-img"/></p>
+<table class="struct-table">
+  <tr>
+    <th>图表类型</th>
+    <th>纵向柱状图</th>
+  </tr>
+  <tr>
+    <td>适合的数据</td>
+    <td>列表：一个分类数据字段、一个连续数据字段</td>
+  </tr>
+  <tr>
+    <td>功能</td>
+    <td>对比分类数据的数值大小</td>
+  </tr>
+  <tr>
+    <td>数据与图形的映射</td>
+    <td>分类数据字段映射到横轴的位置<br>连续数据字段映射到矩形的高度 <br>分类数据也可以设置颜色增强分类的区分度</td>
+  </tr>
+  <tr>
+    <td>适合的数据条数</td>
+    <td>不超过 12 条数据</td>
+  </tr>
+</table>
+
+<div style="clear: both;"></div>
+
+<h3 id="横向柱状图-（条形图）">横向柱状图 （条形图）</h3><p><img src="https://os.alipayobjects.com/rmsportal/GKHcMOgXwrnDSAa.png" class="constitute-img"/></p>
+<table class="struct-table">
+  <tr>
+    <th>图表类型</th>
+    <th>横向柱状图</th>
+  </tr>
+  <tr>
+    <td>适合的数据</td>
+    <td>列表：一个分类数据字段、一个连续数据字段</td>
+  </tr>
+  <tr>
+    <td>功能</td>
+    <td>对比分类数据的数值大小</td>
+  </tr>
+  <tr>
+    <td>数据与图形的映射</td>
+    <td>分类数据字段映射到纵轴的位置<br>连续数据字段映射到矩形的宽度</td>
+  </tr>
+  <tr>
+    <td>适合的数据条数</td>
+    <td>不超过 30 条数据</td>
+  </tr>
+</table>
+
+
+<div style="clear: both;"></div>
+
+
+<h2 id="柱状图的应用场景">柱状图的应用场景</h2><h3 id="适合的场景">适合的场景</h3><p>例子1: <strong>适合应用到分类数据对比。</strong>下图是一个游戏销量的图表，展示不同游戏类型的销量对比。</p>
+<table>
+<thead>
+<tr>
+<th>genre（游戏类型）</th>
+<th>sold（销售量）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sports</td>
+<td>27,500</td>
+</tr>
+<tr>
+<td>Strategy</td>
+<td>11,500</td>
+</tr>
+<tr>
+<td>Action</td>
+<td>6,000</td>
+</tr>
+<tr>
+<td>Shooter</td>
+<td>3,500</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>1,500</td>
+</tr>
+</tbody>
+</table>
+<div id="c3"></div>
+
+<div class="code hide">
+
+  var data = [
+    {genre:'Sports',sold:27500},
+    {genre:'Strategy',sold:11500},
+    {genre:'Action',sold:6000},
+    {genre:'Shooter',sold:3500},
+    {genre:'Other',sold:1500},
+  ];
+
+  var Stat = G2.Stat;
+
+  var chart = new G2.Chart({
+    id: 'c3',
+    forceFit: true,
+    height : 400
+  });
+
+  chart.source(data);
+
+  chart.intervalStack().position('genre*sold').color('genre')
+  chart.render();
+</div>
+
+<p>说明：</p>
+<ul>
+<li>genre 字段，同时使用了<code>位置</code>和<code>颜色</code>用于区分不同的游戏类型</li>
+<li>sold 字段，使用矩形的<code>长度</code>，表示销售量的大小</li>
+</ul>
+<h3 id="不适合的场景">不适合的场景</h3><p>例子1：<strong>分类太多不适合使用纵向柱状图。</strong>如对比不同省份的人口数量。分类情况过多时，柱状图的文本为了排布合理，需要进行旋转，不利于阅读，相比于纵向柱状图，横向柱状图更适用于此类分类较多的场景。</p>
+<table>
+<thead>
+<tr>
+<th>province（省份）</th>
+<th>population（人口数量）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>北京市</td>
+<td>19612368</td>
+</tr>
+<tr>
+<td>天津市</td>
+<td>12938693</td>
+</tr>
+<tr>
+<td>河北省</td>
+<td>71854210</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<div id="c5"></div>
+
+<p>使用横向柱状图，文本可以横向排布，便于用户的阅读，效果如下：</p>
+<div id="c6"></div>
+
+
+<div class="code hide">
+
+  var data = [
+  {province:'北京市',population:19612368},
+  {province:'天津市',population:12938693},
+  {province:'河北省',population:71854210},
+  {province:'山西省',population:27500000},
+  {"province":"内蒙古自治区","population":24706291},
+  {"province":"辽宁省","population":43746323},
+  {"province":"吉林省","population":27452815},
+  {"province":"黑龙江省","population":38313991},
+  {"province":"上海市","population":23019196},{"province":"江苏省","population":78660941},
+  {"province":"浙江省","population":54426891},{"province":"安徽省","population":59500468},
+  {"province":"福建省","population":36894217},{"province":"江西省","population":44567797},
+  {"province":"山东省","population":95792719},{"province":"河南省","population":94029939},
+  {"province":"湖北省","population":57237727},{"province":"湖南省","population":65700762},
+  {"province":"广东省","population":104320459},{"province":"广西壮族自治区","population":46023761},
+  {"province":"海南省","population":8671485},{"province":"重庆市","population":28846170},
+  {"province":"四川省","population":80417528},{"province":"贵州省","population":34748556},
+  {"province":"云南省","population":45966766},{"province":"西藏自治区","population":3002165},
+  {"province":"陕西省","population":37327379},{"province":"甘肃省","population":25575263},
+  {"province":"青海省","population":5626723}
+];
+
+
+var Stat = G2.Stat;
+var Frame = G2.Frame;
+var frame = new Frame(data);
+frame = Frame.sort(frame, 'population');
+
+var chart = new G2.Chart({
+  id : 'c5',
+  forceFit: true,
+  height : 400,
+  plotCfg: {
+    margin: [20,20,100,100]
+  }
+});
+
+chart.axis('province',{
+  title: null
+});
+chart.axis('population',{
+  titleOffset: 150
+});
+chart.source(frame);
+chart.interval().position('province*population');
+
+chart.render();
+
+var chart2 = new G2.Chart({
+  id : 'c6',
+  forceFit: true,
+  height : 800,
+  plotCfg: {
+    margin: [10,30,50,120]
+  }
+
+});
+
+chart2.source(frame);
+chart2.axis('province',{
+  title: null
+});
+chart2.coord('rect').transpose();
+
+chart2.interval().position('province*population');
+
+chart2.render();
+
+</div>
+
+<p>例子2：<strong>不适合表示趋势</strong>
+柱状图使用矩形的长度（宽度）来对比分类数据的大小，非常方便临近的数据进行大小的对比，不适合展示连续数据的趋势。下图本想展示 ACME 这只股票在 2015 年 9 月份整个月的每日的价格走势，但是效果不尽人意。</p>
+<div id="c7"></div>
+
+<p>随着有序的时间变化的数值趋势，更适合使用<a href="line.html">折线图</a>或者<a href="area.html">区域图</a></p>
+<div id="c71"></div>
+
+<div class="code hide">
+var data= [
+    {"day": '2015/9/1',  "share": 10},
+    {"day": '2015/9/2',  "share": 12},
+    {"day": '2015/9/3',  "share": 11},
+    {"day": '2015/9/4',  "share": 15},
+    {"day": '2015/9/5',  "share": 20},
+    {"day": '2015/9/6',  "share": 22},
+    {"day": '2015/9/7',  "share": 21},
+    {"day": '2015/9/8',  "share": 25},
+    {"day": '2015/9/9',  "share": 31},
+    {"day": '2015/9/10', "share": 32},
+    {"day": '2015/9/11', "share": 28},
+    {"day": '2015/9/12', "share": 29},
+    {"day": '2015/9/13', "share": 40},
+    {"day": '2015/9/14', "share": 41},
+    {"day": '2015/9/15', "share": 45},
+    {"day": '2015/9/16', "share": 50},
+    {"day": '2015/9/17', "share": 65},
+    {"day": '2015/9/18', "share": 45},
+    {"day": '2015/9/19', "share": 50},
+    {"day": '2015/9/20', "share": 51},
+    {"day": '2015/9/21', "share": 65},
+    {"day": '2015/9/22', "share": 60},
+    {"day": '2015/9/23', "share": 62},
+    {"day": '2015/9/24', "share": 65},
+    {"day": '2015/9/25', "share": 45},
+    {"day": '2015/9/26', "share": 55},
+    {"day": '2015/9/27', "share": 59},
+    {"day": '2015/9/28', "share": 52},
+    {"day": '2015/9/29', "share": 53},
+    {"day": '2015/9/30', "share": 40}
+  ];
+
+  var Stat = G2.Stat;
+  var chart = new G2.Chart({
+    id: 'c7',
+    forceFit: true,
+    height: 350,
+    plotCfg: {
+      margin: [20, 85,80,80]
+    }
+  });
+  chart.source(data);
+  chart.col('day', {
+    type: 'timeCat',
+    tickCount: 10,
+    nice: false,
+    mask: 'm/d',
+    alias: 'Month/Day'
+  });
+  chart.col('share', {
+    alias: 'The Share Price',
+    formatter: function(val) {
+      return '$' + val;
+    }
+  });
+  chart.tooltip({
+    crosshairs: true
+  });
+  chart.interval().position('day*share');
+  chart.render();
+
+  var chart = new G2.Chart({
+    id: 'c71',
+    forceFit: true,
+    height: 350,
+    plotCfg: {
+      margin: [20, 85,80,80]
+    }
+  });
+  chart.source(data);
+  chart.col('day', {
+    type: 'timeCat',
+    tickCount: 10,
+    nice: false,
+    mask: 'm/d',
+    alias: 'Month/Day'
+  });
+  chart.col('share', {
+    alias: 'The Share Price',
+    formatter: function(val) {
+      return '$' + val;
+    }
+  });
+  chart.tooltip({
+    crosshairs: true
+  });
+  chart.area().position('day*share');
+  chart.line().position('day*share').size(5);
+  chart.render();
+</div>
+
+
+<h2 id="柱状图与其他图表的对比">柱状图与其他图表的对比</h2><h3 id="柱状图和折线图、饼图">柱状图和<a href="line.html">折线图</a>、<a href="pie.html">饼图</a></h3><ul>
+<li>柱状图主要用于多个分类间的数据（大小、数值）的对比</li>
+<li>折线图主要用于展示连续数值（例如时间）或者有序分类的变化趋势</li>
+<li>饼图主要是展示分类之间的占比情况</li>
+</ul>
+<h3 id="柱状图和南丁格尔图（玫瑰图）">柱状图和<a href="rose.html">南丁格尔图（玫瑰图）</a></h3><ul>
+<li>南丁格尔图（玫瑰图）通过半径的大小来对比数据</li>
+<li>柱状图根据矩形的长度来对比数据</li>
+</ul>
+
+      <h2 id="变型">变型</h2>
+      <div class="detail-list">
+        <ul class="vis-chart-list clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/details/histogram.html">
+              <i class="iconfont icon-histogram"></i>
+              <span>直方图</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../vis/doc/chart/details/multi-set-bar.html">
+              <i class="iconfont icon-multi-set-bar"></i>
+              <span>分组柱状图</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../vis/doc/chart/details/radial-bar.html">
+              <i class="iconfont icon-radial-bar"></i>
+              <span>玉玦图</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../vis/doc/chart/details/stacked-bar.html">
+              <i class="iconfont icon-stacked-bar"></i>
+              <span>层叠柱状图</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <h2 id="标签">标签</h2>
+      <div>
+
+        <ul class="vis-classify-list small clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/classify/compare.html">
+              <span>比较类</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $.fn.isOnScreen = function(){
+      var win = $(window);
+      var viewport = {
+          top : win.scrollTop(),
+          left : win.scrollLeft()
+      };
+      viewport.right = viewport.left + win.width();
+      viewport.bottom = viewport.top + win.height();
+      var bounds = this.offset();
+      bounds.right = bounds.left + this.outerWidth();
+      bounds.bottom = bounds.top + this.outerHeight();
+      return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+    };
+    function ReplaceAll(str, sptr, sptr1){
+      while (str.indexOf(sptr) >= 0){
+         str = str.replace(sptr, sptr1);
+      }
+      return str;
+    }
+    function lazyLoad(codes) {
+      var isrun = [];
+      tryRun();
+      $(document).on('mousewheel',function(e){
+        tryRun();
+      });
+      function tryRun(){
+        codes.each(function(index,ele){
+          if (isrun.indexOf(ele) === -1) {
+            var $ele = $(ele);
+            if ( $ele.isOnScreen() ) {
+              setTimeout(function(){
+                var t = $ele.html();
+                t = ReplaceAll(t, '&lt;', '<');
+                t = ReplaceAll(t, '&gt;', '>');
+                t = ReplaceAll(t, '&amp;', '&');
+                eval(t);
+                $ele.hide();
+              },500);
+              isrun.push(ele);
+            };
+          };
+        });
+      }
+    }
+    var codes = $('.code');
+    lazyLoad(codes);
+  </script>
+
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

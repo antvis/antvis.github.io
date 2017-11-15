@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>数据异步加载与动态更新</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item hover">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+  <link rel="stylesheet" href="../../../../static/prettify-min.css">
+
+
+  <div class="main-container clearfix">
+  <div class="body-content tutorial-body-content"><div class="doc-nav">
+  <p class="title">G2</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g2/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">使用教程</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="sub-title">基础教程</li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/index.html" >G2 图表的主要组成</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/chart.html" >图表对象配置（chart）</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/working-with-data.html" >data 数据</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/frame.html" >Frame 常见操作</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/scale.html" >度量</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/col-defs.html" >列定义操作</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/geom.html" >geom 几何标记</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/attr.html" >attr 图形属性</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/coord.html" >coord 坐标系</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/axis.html" >axis 坐标轴</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/legend.html" >legend 图例</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/tooltip.html" >tooltip 提示信息</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/guide.html" >guide 辅助标记</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/stat.html" >stat 统计变换</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/facet.html" >facet 分面</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/theme.html" >theme 图表样式</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/label.html" >label 文本标签</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/chart-event.html" >图表事件 event</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/action.html" >图表交互</a>
+          </li>
+          <li class="active">
+            <a href="../../../../g2/doc/tutorial/start/changedata.html" >数据异步加载与动态更新</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/g2-plugin-slider.html" >数据滑动条插件使用</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/rc-g2.html" >在 react 中使用 G2</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/fqas.html" >常见问题</a>
+          </li>
+          <li class="sub-title">高级教程</li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/index.html" >G2 图形语法简介</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/data-flow.html" >G2 的数据处理流程</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/data-type-and-scale.html" >数据类型与度量</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/coord-detailed.html" >坐标系详解</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/chart-type.html" >图表类型</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/geom-and-adjust.html" >几何标记和数据调整</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/custom-shape.html" >自定义 shape</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/view.html" >多视图 view 绘制</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/layout.html" >layout 布局</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/draw-word-cloud.html" >使用 G2 绘制词云</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/animate.html" >自定义动画</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">API</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="">
+            <a href="../../../../g2/api/index.html" >G2</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/chart.html" >Chart</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/view.html" >View</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/geom.html" >Geom</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/scale.html" >Scale</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/stat.html" >Stat</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/frame.html" >Frame</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/shape.html" >Shape</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/animate.html" >Animate</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/util.html" >Util</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/chart-options.html" >配置项支持</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/doc/history.html" >更新日志</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+    <div class="doc-content clearfix">
+      <div class="doc-inner">
+        <h2 id="简介">简介</h2><p>很多场景下图表的数据源是需要异步加载获取的，在 G2 中实现异步数据的更新也是非常的简单，你只需要通过 jquery 等工具异步获取数据后，按照正常的创建图表步骤绘制即可。</p>
+<div class="highlight"><pre><code class="javascript">$.getJSON(<span class="string">'data.json'</span>,<span class="function"><span class="keyword">function</span> <span class="params">(data)</span> {</span>
+  <span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+    id: <span class="string">'c1'</span>,
+    width: <span class="number">1000</span>,
+    height: <span class="number">500</span>,
+    plotCfg: {
+      margin: [<span class="number">40</span>, <span class="number">80</span>, <span class="number">80</span>, <span class="number">80</span>]
+    }
+  });
+  chart.source(data);
+  chart.point().position(<span class="string">'x*y'</span>).color(<span class="string">'z'</span>);
+  chart.render();
+});</code></pre></div><h2 id="空数据源图表绘制">空数据源图表绘制</h2><p>有时候我们需要先绘制图表，然后再加载完整的数据，即刚开始的时候数据源是个空的。如下例：</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">// 数据将会包含 genre 和 sold 字段</span>
+<span class="keyword">var</span> data = [];
+
+<span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id: <span class="string">'c1'</span>,  <span class="comment">// 指定图表容器 ID</span>
+  height : <span class="number">300</span>,
+  width: <span class="number">400</span>
+});
+
+chart.source(data);
+
+chart.interval().position(<span class="string">'genre*sold'</span>).color(<span class="string">'genre'</span>);
+chart.render();</code></pre></div><p><img src="https://zos.alipayobjects.com/skylark/f8f8e93d-795f-448c-8266-2de812c9b6b1/attach/2378/b69c3a292a44a307/image.png" alt="image"></p>
+<p>当数据加载进来之后，再调用 chart.changeData(data); 即可绘制。</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> newData = [
+  {genre: <span class="string">'Sports'</span>, sold: <span class="number">275</span>},
+  {genre: <span class="string">'Strategy'</span>, sold: <span class="number">115</span>},
+  {genre: <span class="string">'Action'</span>, sold: <span class="number">120</span>},
+  {genre: <span class="string">'Shooter'</span>, sold: <span class="number">350</span>},
+  {genre: <span class="string">'Other'</span>, sold: <span class="number">150</span>},
+];
+
+setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  chart.changeData(newData); <span class="comment">// 使用 setTimeout 动态模拟下</span>
+}, <span class="number">1000</span>);</code></pre></div><p><img src="https://zos.alipayobjects.com/skylark/bd3effe5-d3c9-4227-afeb-f9393a5a9db4/attach/2378/c6e760a5197d9fb1/image.png" alt="image"></p>
+<h2 id="动态更新数据-chart-changedata-data">动态更新数据 chart.changeData(data)</h2><p><strong>注意</strong> 
+需要说明的是，chart.changeData(data) 方法<strong>只支持具备相同数据结构的数据</strong>进行更新，因为不同的数据结构包含的属性不同，原先声明的图形绘制语法是不能生效做到一一映射的。</p>
+<p>下面的例子展示了初始数据为空以及动态更新数据的例子：</p>
+<ul>
+<li>数据源定时载入的时候调用 <code>chart.changeData(data)</code> 方法实时更新即可，非常简单。</li>
+</ul>
+<div id="c3"></div>
+
+<p>完整代码如下：</p>
+<script>(function(){// 模拟数据
+'use strict';
+
+var base = +new Date(2014, 9, 3);
+var oneDay = 24 * 3600 * 1000;
+var date = [];
+
+var data = [];
+var values = [Math.random() * 150];
+var now = new Date(base);
+
+function addData(shift) {
+  var item = {};
+  now = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/');
+  item.date = now;
+  item.value = (Math.random() - 0.4) * 10 + values[values.length - 1];
+  values.push(item.value);
+  now = new Date(+new Date(now) + oneDay);
+  data.push(item);
+}
+
+// 创建图表
+var chart = new G2.Chart({
+  id: 'c3',
+  forceFit: true, // 宽度自适应
+  height: 400
+});
+// 声明字段度量类型
+chart.source(data);
+chart.tooltip({
+  crosshairs: true
+});
+chart.line().position('date*value').color('#f80').size(3);
+chart.area().position('date*value').color('#f80');
+chart.render();
+
+var init = true;
+setInterval(function () {
+  if (init) {
+    // 第一次载入数据
+    for (var i = 1; i < 100; i++) {
+      addData();
+    }
+    init = false;
+  }
+  addData();
+  chart.changeData(data); // 动态更新数据
+}, 700);})()</script><div class="highlight"><pre><code class="javascript"><span class="comment">// 模拟数据</span>
+<span class="keyword">var</span> base = +<span class="keyword">new</span> Date(<span class="number">2014</span>, <span class="number">9</span>, <span class="number">3</span>);
+<span class="keyword">var</span> oneDay = <span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>;
+<span class="keyword">var</span> date = [];
+
+<span class="keyword">var</span> data = [];
+<span class="keyword">var</span> values = [Math.random() * <span class="number">150</span>];
+<span class="keyword">var</span> now = <span class="keyword">new</span> Date(base);
+
+<span class="function"><span class="keyword">function</span> <span class="title">addData</span><span class="params">(shift)</span> {</span>
+  <span class="keyword">var</span> item = {};
+  now = [now.getFullYear(), now.getMonth() + <span class="number">1</span>, now.getDate()].join(<span class="string">'/'</span>);
+  item.date = now;
+  item.value = (Math.random() - <span class="number">0.4</span>) * <span class="number">10</span> + values[values.length - <span class="number">1</span>];
+  values.push(item.value);
+  now = <span class="keyword">new</span> Date(+<span class="keyword">new</span> Date(now) + oneDay);
+  data.push(item);
+}
+
+<span class="comment">// 创建图表</span>
+<span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id: <span class="string">'c3'</span>,
+  forceFit: <span class="literal">true</span>, <span class="comment">// 宽度自适应</span>
+  height: <span class="number">400</span>,
+});
+<span class="comment">// 声明字段度量类型</span>
+chart.source(data);
+chart.tooltip({
+  crosshairs: <span class="literal">true</span>,
+});
+chart.line().position(<span class="string">'date*value'</span>).color(<span class="string">'#f80'</span>).size(<span class="number">3</span>);
+chart.area().position(<span class="string">'date*value'</span>).color(<span class="string">'#f80'</span>);
+chart.render();
+
+<span class="keyword">var</span> init = <span class="literal">true</span>;
+setInterval(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+  <span class="keyword">if</span> (init) { <span class="comment">// 第一次载入数据</span>
+    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="number">100</span>; i++) {
+      addData();
+    }
+    init = <span class="literal">false</span>;
+  }
+  addData();
+  chart.changeData(data); <span class="comment">// 动态更新数据</span>
+}, <span class="number">700</span>);</code></pre></div>
+      </div>
+<div class="preNext clearfix">
+  <a href="../../../../g2/doc/tutorial/start/action.html" class="pull-left">
+    <i class="iconfont icon-left"></i>
+    图表交互
+  </a>
+  <a href="../../../../g2/doc/tutorial/start/g2-plugin-slider.html" class="pull-right">
+    数据滑动条插件使用
+    <i class="iconfont icon-right"></i>
+  </a>
+</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../../../../static/nav-menu.js"></script>
+  <script src="../../../../static/prettify-min.js"></script>
+  <script src="../../../../static/clipboard.min.js"></script>
+  <script type="text/javascript">
+    var CLS_PRETTY = 'prettyprint linenums';
+    BUI.use('bui/common',function(BUI){
+      var preEls =  $('pre');
+      BUI.each(preEls,function(el){
+        var node = $(el), innerText;
+        node.addClass(CLS_PRETTY);
+        innerText = node.html();
+        var a = /^(\s+)/.exec(innerText);
+        var regex;
+        if(a){
+          regex = new RegExp('('+a[0]+')(\\s*)','ig');
+          innerText = innerText.replace(regex,'$2');
+        }
+          node.html(innerText);
+      });
+      if(window.prettyPrint){
+        prettyPrint();
+      }
+    });
+
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  </script>
+  
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

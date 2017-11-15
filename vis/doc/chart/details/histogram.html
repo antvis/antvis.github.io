@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>直方图</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item hover last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+
+  <div class="main-container clearfix">
+  <div class="doc-content vis-chart">
+    <div class="doc-inner vis-chart">
+      <h1>直方图</h1>
+      <p><img src="https://os.alipayobjects.com/rmsportal/izrRumlsCmsDLSb.jpg" /></p>
+<h2 id="直方图的简介">直方图的简介</h2><p>直方图，形状类似<a href="./bar.html">柱状图</a>却有着与柱状图完全不同的含义。直方图牵涉统计学的概念，首先要对数据进行分组，然后统计每个分组内数据元的数量。
+在平面直角坐标系中，横轴标出每个组的端点，纵轴表示频数，每个矩形的高代表对应的频数，称这样的统计图为频数分布直方图。频数分布直方图需要经过频数乘以组距的计算过程才能得出每个分组的数量，同一个直方图的组距是一个固定不变的值，所以如果直接用纵轴表示数量，每个矩形的高代表对应的数据元数量，既能保持分布状态不变，又能直观的看出每个分组的数量。本文的例子全部使用纵轴表示数量的非标准直方图绘制。</p>
+<p>相关概念：</p>
+<ul>
+<li>组数：在统计数据时，我们把数据按照不同的范围分成几个组，分成的组的个数称为组数</li>
+<li>组距：每一组两个端点的差</li>
+<li>频数：分组内的数据元的数量除以组距</li>
+</ul>
+<p>直方图的作用</p>
+<ul>
+<li>能够显示各组频数或数量分布的情况</li>
+<li>易于显示各组之间频数或数量的差别</li>
+</ul>
+<p>通过直方图还可以观察和估计哪些数据比较集中，异常或者孤立的数据分布在何处</p>
+<p>英文名：Histogram</p>
+<h2 id="直方图的构成">直方图的构成</h2><h3 id="频数分布直方图">频数分布直方图</h3><p><img src="https://os.alipayobjects.com/rmsportal/rDGZziKoqcGqXaj.png" width="386px;" class="constitute-img"></p>
+<table class="struct-table">
+  <tr>
+    <th>图表类型</th>
+    <th>直方图</th>
+  </tr>
+  <tr>
+    <td>适合的数据</td>
+    <td>列表：一个连续数据字段、一个分类字段（可选）</td>
+  </tr>
+  <tr>
+    <td>功能</td>
+    <td>展示数据在不同区间内的分布情况</td>
+  </tr>
+  <tr>
+    <td>数据与图形的映射</td>
+    <td>分组数据字段（统计结果）映射到横轴的位置<br>频数字段（统计结果）映射到矩形的高度 <br>分类数据可以设置颜色增强分类的区分度</td>
+  </tr>
+  <tr>
+    <td>适合的数据条数</td>
+    <td>不低于 50 条数据</td>
+  </tr>
+</table>
+
+<div style="clear: both;"></div>
+
+
+<h3 id="非标准的直方图">非标准的直方图</h3><p><img src="https://os.alipayobjects.com/rmsportal/ZmewPQkvLvoHAzq.png" width="400px;" class="constitute-img"></p>
+<table class="struct-table">
+  <tr>
+    <th>图表类型</th>
+    <th>直方图</th>
+  </tr>
+  <tr>
+    <td>适合的数据</td>
+    <td>列表：一个连续数据字段、一个分类字段（可选）</td>
+  </tr>
+  <tr>
+    <td>功能</td>
+    <td>展示数据在不同区间内的分布情况</td>
+  </tr>
+  <tr>
+    <td>数据与图形的映射</td>
+    <td>分组数据字段（统计结果）映射到横轴的位置<br>数量字段（统计结果）映射到矩形的高度 <br>分类数据可以设置颜色增强分类的区分度</td>
+  </tr>
+  <tr>
+    <td>适合的数据条数</td>
+    <td>不低于 50 条数据</td>
+  </tr>
+</table>
+
+<div style="clear: both;"></div>
+
+<h2 id="直方图的应用场景">直方图的应用场景</h2><h3 id="适合的场景">适合的场景</h3><p>例子1: <strong>用于表示分布情况。</strong>以统计学中经典的鸢尾花案例为例，其数据集包含了 50 个样本，都属于鸢尾属下的三个亚属，分别是山鸢尾、变色鸢尾和维吉尼亚鸢尾。四个特征被用作样本的定量分析，它们分别是花萼长度、花萼的宽度、花瓣的长度和花瓣的宽度。基于这四个特征的集合，费雪建立了一种线性判别分析法以确定其属种。</p>
+<table>
+<thead>
+<tr>
+<th>SepalLength（花萼长度）</th>
+<th>SepalWidth（花萼宽度）</th>
+<th>PetalLength（花瓣长度）</th>
+<th>PetalWidth（花瓣宽度）</th>
+<th>Species（属种）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5.1</td>
+<td>3.5</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>setosa</td>
+</tr>
+<tr>
+<td>4.9</td>
+<td>3.0</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>setosa</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>7.0</td>
+<td>3.2</td>
+<td>4.7</td>
+<td>1.4</td>
+<td>versicolor</td>
+</tr>
+<tr>
+<td>6.4</td>
+<td>3.2</td>
+<td>4.5</td>
+<td>1.5</td>
+<td>versicolor</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>6.3</td>
+<td>3.3</td>
+<td>6.0</td>
+<td>2.5</td>
+<td>virginica</td>
+</tr>
+<tr>
+<td>5.8</td>
+<td>2.7</td>
+<td>5.1</td>
+<td>1.9</td>
+<td>virginica</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<div id="c1.1">
+  <div id="c1.1.1" style="display:inline-block"></div>
+  <div id="c1.1.2" style="display:inline-block"></div>
+  <div id="c1.1.3" style="display:inline-block"></div>
+  <div id="c1.1.4" style="display:inline-block"></div>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class="code hide">
+
+$.getJSON('./data/Iris-flower.json?nowrap',function (data) {
+  var Stat = G2.Stat;
+  var data = data;
+  var chart = new G2.Chart({
+    id: 'c1.1.1',
+    width: 400,
+    height: 350
+  });
+  chart.source(data);
+  chart.intervalStack().position(Stat.summary.count(Stat.bin.rect('SepalLength'))).color('Species');
+  chart.render();
+});
+
+$.getJSON('./data/Iris-flower.json?nowrap',function (data) {
+  var Stat = G2.Stat;
+  var data = data;
+  var chart = new G2.Chart({
+    id: 'c1.1.2',
+    width: 400,
+    height: 350
+  });
+  chart.source(data);
+  chart.intervalStack().position(Stat.summary.count(Stat.bin.rect('SepalWidth'))).color('Species');
+  chart.render();
+});
+
+$.getJSON('./data/Iris-flower.json?nowrap',function (data) {
+  var Stat = G2.Stat;
+  var data = data;
+  var chart = new G2.Chart({
+    id: 'c1.1.3',
+    width: 400,
+    height: 350
+  });
+  chart.source(data);
+  chart.intervalStack().position(Stat.summary.count(Stat.bin.rect('PetalLength'))).color('Species');
+  chart.render();
+});
+
+$.getJSON('./data/Iris-flower.json?nowrap',function (data) {
+  var Stat = G2.Stat;
+  var data = data;
+  var chart = new G2.Chart({
+    id: 'c1.1.4',
+    width: 400,
+    height: 350
+  });
+  chart.source(data);
+  chart.intervalStack().position(Stat.summary.count(Stat.bin.rect('PetalWidth'))).color('Species');
+  chart.render();
+});
+
+</div>
+
+<p>例子2: <strong> 用于观察异常或孤立数据 </strong></p>
+<p>下图绘制了钻石的全深比数据的统计直方图，从图中可以看出在 66 附近有两个孤立值</p>
+<table>
+<thead>
+<tr>
+<th>name(钻石名称)</th>
+<th>depth(全深比)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14513</td>
+<td>61.4</td>
+</tr>
+<tr>
+<td>28685</td>
+<td>64</td>
+</tr>
+<tr>
+<td>50368</td>
+<td>59.2</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<div id="c3"></div>
+
+<div class="code hide">
+
+$.getJSON('./data/diamond.json?nowrap',function (data) {
+  var Stat = G2.Stat;
+  var data = data.slice(1300,1400);
+  var chart = new G2.Chart({
+    id: 'c3',
+    forceFit: true,
+    height: 500
+  });
+  chart.source(data);
+  chart.interval().position(Stat.summary.count(Stat.bin.rect('depth')));
+  chart.render();
+});
+
+</div>
+
+<h3 id="不适合的场景">不适合的场景</h3><p>抽取的样本数量过小，将会产生较大误差，可信度低，也就失去了统计的意义。因此，样本数不应少于 50 个。</p>
+<h2 id="直方图的扩展">直方图的扩展</h2><p>通过变换坐标系，我们能获得极坐标下的直方图、圆环上的直方图、以及翻转的直方图。</p>
+<div id="c4">
+  <div id="c4.1" style="display:inline-block"></div>
+  <div id="c4.2" style="display:inline-block"></div>
+  <div id="c4.3" style="display:inline-block"></div>
+</div>
+
+<div class="code hide">
+
+$.getJSON('./data/diamond.json?nowrap',function (data) {
+  var Stat = G2.Stat;
+  var data = data.slice(1300,1400);
+  var chart = new G2.Chart({
+    id: 'c4.1',
+    width: 400,
+    height: 330
+  });
+  chart.source(data);
+  chart.coord('polar');
+  chart.interval().position(Stat.summary.count(Stat.bin.rect('depth'))).color("#E47668");
+  chart.render();
+});
+
+</div>
+
+<div class="code hide">
+
+$.getJSON('./data/diamond.json?nowrap',function (data) {
+  var Stat = G2.Stat;
+  var data = data.slice(1300,1400);
+  var chart = new G2.Chart({
+    id: 'c4.2',
+    width: 400,
+    height: 330
+  });
+  chart.source(data);
+  chart.coord('plus');
+  chart.interval().position(Stat.summary.count(Stat.bin.rect('depth'))).color("#E47668");
+  chart.render();
+});
+
+</div>
+
+<div class="code hide">
+
+$.getJSON('./data/diamond.json?nowrap',function (data) {
+  var Stat = G2.Stat;
+  var data = data.slice(1300,1400);
+  var chart = new G2.Chart({
+    id: 'c4.3',
+    width: 400,
+    height: 330
+  });
+  chart.source(data);
+  chart.coord('polar').reflect();;
+  chart.interval().position(Stat.summary.count(Stat.bin.rect('depth'))).color("#E47668");
+  chart.render();
+});
+
+</div>
+
+<h2 id="直方图与其他图表的对比">直方图与其他图表的对比</h2><h3 id="直方图与柱状图">直方图与<a href="./column.html">柱状图</a></h3><ul>
+<li>柱状图是以矩形的长度表示每一组的频数或数量，其宽度(表示类别)则是固定的，利于较小的数据集分析。</li>
+<li>直方图是以矩形的长度表示每一组的频数或数量，宽度则表示各组的组距，因此其高度与宽度均有意义，利于展示大量数据集的统计结果。</li>
+<li>由于分组数据具有连续性，直方图的各矩形通常是连续排列，而柱状图则是分开排列。</li>
+</ul>
+<h2 id="直方图的扩展阅读">直方图的扩展阅读</h2><ul>
+<li><a href="http://baike.baidu.com/link?url=z8l_fAT3giKqQQCiUYfINXhV_5Ir-X0gVHvznZzNScPAzyUbr7s_g84UZi0ilQ7f4WDRdUkhhjCulE-LQ1bsXK">线性判别分析</a></li>
+<li><a href="http://www.datavizcatalogue.com/methods/histogram.html#.Vjl57K4rL6A">The Data Visualisation Catalogue</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E7%9B%B4%E6%96%B9%E5%9B%BE">直方图百科</a></li>
+</ul>
+
+      <h2 id="变型">变型</h2>
+      <div class="detail-list">
+        <ul class="vis-chart-list clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/details/bar.html">
+              <i class="iconfont icon-bar"></i>
+              <span>柱状图</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <h2 id="标签">标签</h2>
+      <div>
+
+        <ul class="vis-classify-list small clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/classify/compare.html">
+              <span>比较类</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../vis/doc/chart/classify/distribute.html">
+              <span>分布类</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $.fn.isOnScreen = function(){
+      var win = $(window);
+      var viewport = {
+          top : win.scrollTop(),
+          left : win.scrollLeft()
+      };
+      viewport.right = viewport.left + win.width();
+      viewport.bottom = viewport.top + win.height();
+      var bounds = this.offset();
+      bounds.right = bounds.left + this.outerWidth();
+      bounds.bottom = bounds.top + this.outerHeight();
+      return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+    };
+    function ReplaceAll(str, sptr, sptr1){
+      while (str.indexOf(sptr) >= 0){
+         str = str.replace(sptr, sptr1);
+      }
+      return str;
+    }
+    function lazyLoad(codes) {
+      var isrun = [];
+      tryRun();
+      $(document).on('mousewheel',function(e){
+        tryRun();
+      });
+      function tryRun(){
+        codes.each(function(index,ele){
+          if (isrun.indexOf(ele) === -1) {
+            var $ele = $(ele);
+            if ( $ele.isOnScreen() ) {
+              setTimeout(function(){
+                var t = $ele.html();
+                t = ReplaceAll(t, '&lt;', '<');
+                t = ReplaceAll(t, '&gt;', '>');
+                t = ReplaceAll(t, '&amp;', '&');
+                eval(t);
+                $ele.hide();
+              },500);
+              isrun.push(ele);
+            };
+          };
+        });
+      }
+    }
+    var codes = $('.code');
+    lazyLoad(codes);
+  </script>
+
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>比较类</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item hover last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+
+  <div class="main-container clearfix">
+  <div class="body-content tutorial-body-content"><div class="doc-nav">
+  <p class="title">可视化基础</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <div>
+        <div class="menu-dir active">图表用法</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="active">
+            <a href="../../../../vis/doc/chart/classify/compare.html" >比较类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/distribute.html" >分布类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/flow.html" >流程类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/proportion.html" >占比类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/range.html" >区间类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/relation.html" >关联类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/trend.html" >趋势类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/time.html" >时间类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/location.html" >地图类</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">图表设计指引</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="sub-title">设计原则</li>
+          <li class="">
+            <a href="../../../../vis/doc/design/principle/color.html" >颜色使用原则</a>
+          </li>
+          <li class="sub-title">组件规范</li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/base/axis.html" >坐标轴</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/base/grid.html" >栅格</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/base/legend.html" >图例</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/base/title.html" >标题</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/base/tooltip.html" >提示信息</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/func/liveUpdate.html" >实时更新</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/func/rangeSelect.html" >值域选择</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/func/responsive.html" >图表自适应</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/assist/baseLine.html" >基线</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/assist/referLine.html" >参考线</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/assist/valueDisplayed.html" >值提示</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/assist/otherAssist.html" >其他</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/vis/doc/reference.html" >经典文献</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+    <div class="doc-content clearfix">
+      <div class="doc-inner">
+        <h2 id="比较类">比较类</h2><p>可视化的方法显示值与值之间的<strong>不同</strong>和<strong>相似</strong>之处。
+使用图形的长度、宽度、位置、面积、角度和颜色来比较数值的大小，
+通常用于展示不同分类间的数值对比，不同时间点的数据对比。</p>
+
+          <div>
+            <ul class="vis-chart-list clearfix">
+              <li>
+                <a href="../../../../vis/doc/chart/details/bar.html" target="_blank">
+                  <i class="iconfont icon-bar"></i>
+                  <span>柱状图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/bubble-chart.html" target="_blank">
+                  <i class="iconfont icon-bubble-chart"></i>
+                  <span>气泡图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/bi-directional-bar.html" target="_blank">
+                  <i class="iconfont icon-bi-directional-bar"></i>
+                  <span>双向柱状图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/Bullet.html" target="_blank">
+                  <i class="iconfont icon-Bullet"></i>
+                  <span>子弹图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/color-map.html" target="_blank">
+                  <i class="iconfont icon-color-map"></i>
+                  <span>色块图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/funnel.html" target="_blank">
+                  <i class="iconfont icon-funnel"></i>
+                  <span>漏斗图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/histogram.html" target="_blank">
+                  <i class="iconfont icon-histogram"></i>
+                  <span>直方图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/k-chart.html" target="_blank">
+                  <i class="iconfont icon-k-chart"></i>
+                  <span>K 线图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/mosaic.html" target="_blank">
+                  <i class="iconfont icon-mosaic"></i>
+                  <span>马赛克图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/multi-set-bar.html" target="_blank">
+                  <i class="iconfont icon-multi-set-bar"></i>
+                  <span>分组柱状图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/radar-chart.html" target="_blank">
+                  <i class="iconfont icon-radar-chart"></i>
+                  <span>雷达图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/radial-bar.html" target="_blank">
+                  <i class="iconfont icon-radial-bar"></i>
+                  <span>玉玦图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/rose.html" target="_blank">
+                  <i class="iconfont icon-rose"></i>
+                  <span>南丁格尔玫瑰图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/spiral.html" target="_blank">
+                  <i class="iconfont icon-spiral"></i>
+                  <span>螺旋图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/stacked-area.html" target="_blank">
+                  <i class="iconfont icon-stacked-area"></i>
+                  <span>层叠面积图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/stacked-bar.html" target="_blank">
+                  <i class="iconfont icon-stacked-bar"></i>
+                  <span>层叠柱状图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/treemap.html" target="_blank">
+                  <i class="iconfont icon-treemap"></i>
+                  <span>矩形树图</span>
+                </a>
+              </li>
+              <li>
+                <a href="../../../../vis/doc/chart/details/wordCloud.html" target="_blank">
+                  <i class="iconfont icon-wordCloud"></i>
+                  <span>词云</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

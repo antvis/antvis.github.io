@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>升级指南</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g6/1.1.6/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item hover">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+  <link rel="stylesheet" href="../../../../static/prettify-min.css">
+
+
+  <div class="main-container clearfix">
+  <div class="body-content tutorial-body-content"><div class="doc-nav">
+  <p class="title">G6</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g6/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">使用教程</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="">
+            <a href="../../../../g6/doc/tutorial/start/base.html" >基础指南</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/doc/tutorial/start/net.html" >网图指南</a>
+          </li>
+          <li class="active">
+            <a href="../../../../g6/doc/tutorial/start/updateDoc.html" >升级指南</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/doc/tutorial/start/custom-shape.html" >自定义图形</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g6/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">API</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="">
+            <a href="../../../../g6/api/index.html" >G6</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/graph.html" >Graph</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/item.html" >Item</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/net.html" >Net</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/tree.html" >Tree</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/handler.html" >Handler</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/matrix.html" >Matrix</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../../../g6/api/util.html" >Util</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g6/doc/history.html" >更新日志</a>
+    </li>
+    <li class="">
+      <a href="/g6/tools/index.html" >在线工具</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g6/1.1.6/index.js"></script>
+    <div class="doc-content clearfix">
+      <div class="doc-inner">
+        <h2 id="概述">概述</h2><p>该文档是 G6 0.X -&gt; G6 1.X 的升级指南文档，如果有你觉得描述的不够清晰的地方，升级有困难的话，敬请<a href="/about/index.html">联系我们</a>！</p>
+<ul>
+<li><a href="#原来的-graph-既是现在的-net">原来的 Graph 既是现在的 Net</a></li>
+<li><a href="#新的锚点描述">新的锚点描述</a></li>
+<li><a href="#再见无穷尽的xxxable">再见无穷尽的xxxable</a></li>
+<li><a href="#调整初始化视口应该用fitview">调整初始化视口应该用fitView</a></li>
+<li><a href="#统一输入输出-save-amp-amp-read">统一输入输出 save &amp;&amp; read</a></li>
+</ul>
+<h2 id="原来的-graph-既是现在的-net">原来的 Graph 既是现在的 Net</h2><p>Graph 在 G6 1.0 中已经沉为抽象类，用户不应该直接实例化 Graph 使用。1.0 中 Net 基本含 0.X Graph 所有属性、方法。从 0.X 迁 1.X 的用户应将所有的 Graph 改为 Net。</p>
+<h2 id="新的锚点描述">新的锚点描述</h2><p>锚点在关系图中无非是一个至关重要的概念，如果 0.X 中你使用了自定义锚点，应参看下文。</p>
+<p>过去的锚点，我们定义了上（0）右（1）下（2）左（3），四个边，然后在通过第二个参数确定锚点的位置，如左图所示。这样不仅理解起来复杂，而且还有一个硬伤 —— 锚点无法定义到图形上！在新的锚点机制里，我们以左上角为（0，0）点，将锚点的范围拓展至了整个图形的包围盒平面内，如右图所示：</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/dpLPhjRBQTvESnCydHwA.png" style = "width: 500px;"/></p>
+<p>这样我们不仅能把锚点定义到图形包围盒边上，还能定义到包围盒内图，以做到<code>锚点</code>跟图形精确关联，如下图所示：</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/lneevqEqTkjvGYJPKoiK.png" style = "width: 500px;"/></p>
+<h2 id="再见无穷尽的xxxable">再见无穷尽的xxxable</h2><p>诸如：<code>selectable</code>、<code>dragable</code>、<code>zoomable</code>，在 1.0 后，应用行为模式的交互插拔机制实现，比如：</p>
+<p>0.X 中</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> graph = <span class="keyword">new</span> Graph({
+  zoomable: <span class="literal">false</span>
+});</code></pre></div><p>等于 1.X 中</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> net = <span class="keyword">new</span> Net();
+net.removeBehaviour([<span class="string">'wheelZoom'</span>]);</code></pre></div><p>行为、模式的插拔组装，参见<a href="/g6/demo/06-other/mode.html">Demo</a>;</p>
+<h2 id="调整初始化视口应该用fitview">调整初始化视口应该用fitView</h2><p>0.x 中有时我们会<code>render</code>结束后，调用<code>autoZoom</code>方法，让图适应画布。1.X 中这种方法被废弃，需要在初始化图时配置<code>fitView</code>，以决定初始化时画布的视口。<a href="/g6/api/graph.html">Graph API</a>，fitView 属性。</p>
+<p><button id='autoZoom'>自动缩放 autoZoom</button>&nbsp;&nbsp;<button id='autoSize'>自动画布尺寸 autoSize</button>&nbsp;&nbsp;<button id='restore'>还原</button></p>
+<div id='fitView'></div>
+
+<script>
+var Matrix = G6.Matrix.Matrix3;
+var autoZoom = $('#autoZoom');
+var autoSize = $('#autoSize');
+var restore = $('#restore');
+// 第三步：设置数据
+var data = {
+  "nodes": [
+    {
+      "x": 140,
+      "y": 210,
+      "id": "node1"
+    },
+    {
+      "x": 270,
+      "y": 210,
+      "id": "node2"
+    }
+  ],
+  "edges": [
+    {
+      "source": "node1",
+      "id": "edge1",
+      "target": "node2"
+    }
+  ]
+};
+// 第四步：配置G6画布
+var net = new G6.Net({
+    id: 'fitView', // 容器ID
+    width: 500,    // 画布宽
+    height: 500    // 画布高
+  });
+// 第五步：载入数据
+net.source(data.nodes, data.edges);
+// 第六步：渲染关系图
+net.render();
+autoZoom.on('click', function(){
+  net.clear();
+  net.set('fitView', 'autoZoom');
+  net.source(data.nodes, data.edges);
+  net.render();
+});
+autoSize.on('click', function(){
+  net.clear();
+  net.set('fitView', 'autoSize');
+  net.source(data.nodes, data.edges);
+  net.render();
+});
+restore.on('click', function(){
+  net.changeSize(500, 500);
+  net.updateMatrix(new Matrix());
+  net.clear();
+  net.set('fitView', null);
+  net.source(data.nodes, data.edges);
+  net.render();
+});
+</script>
+
+<h2 id="统一输入输出-save-amp-amp-read">统一输入输出 save &amp;&amp; read</h2><p>在使用关系图开发的过程中，我们常常需要导出导入数据，以满足关系图的存储、分享、编辑的功能。0.X 中 <code>graph.save</code> 和 <code>graph.srouce</code> 并没有严格对照。 G6 1.0 后，我们对这部分的需求做了总结。在 Graph 定义了一对相互对照的接口，read &lt;==&gt; save，后面用户应该严格通过这两个该接口导入导出数据。</p>
+<h4 id="读入数据-read">读入数据 -- read</h4><div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 导入数据
+ * @param  {Object}  data   通过save导出的数据
+ */</span>
+graph.read(data);</code></pre></div><h4 id="保存数据-save">保存数据 -- save</h4><div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 导出数据
+ * @return  {Object}  data  导出的数据
+ */</span>
+graph.save();</code></pre></div>
+      </div>
+<div class="preNext clearfix">
+  <a href="../../../../g6/doc/tutorial/start/net.html" class="pull-left">
+    <i class="iconfont icon-left"></i>
+    网图指南
+  </a>
+  <a href="../../../../g6/doc/tutorial/start/custom-shape.html" class="pull-right">
+    自定义图形
+    <i class="iconfont icon-right"></i>
+  </a>
+</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../../../../static/nav-menu.js"></script>
+  <script src="../../../../static/prettify-min.js"></script>
+  <script src="../../../../static/clipboard.min.js"></script>
+  <script type="text/javascript">
+    var CLS_PRETTY = 'prettyprint linenums';
+    BUI.use('bui/common',function(BUI){
+      var preEls =  $('pre');
+      BUI.each(preEls,function(el){
+        var node = $(el), innerText;
+        node.addClass(CLS_PRETTY);
+        innerText = node.html();
+        var a = /^(\s+)/.exec(innerText);
+        var regex;
+        if(a){
+          regex = new RegExp('('+a[0]+')(\\s*)','ig');
+          innerText = innerText.replace(regex,'$2');
+        }
+          node.html(innerText);
+      });
+      if(window.prettyPrint){
+        prettyPrint();
+      }
+    });
+
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  </script>
+  
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

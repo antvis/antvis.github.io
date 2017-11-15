@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>双向柱状图</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item hover last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+
+  <div class="main-container clearfix">
+  <div class="doc-content vis-chart">
+    <div class="doc-inner vis-chart">
+      <h1>双向柱状图</h1>
+      <p><img src="https://zos.alipayobjects.com/rmsportal/CyErnoithFpAiLIqgfac.png" /></p>
+<h2 id="双向柱状图的简介">双向柱状图的简介</h2><p>双向柱状图（又名正负条形图），使用正向和反向的柱子显示类别之间的数值比较。其中分类轴表示需要对比的分类维度，连续轴代表相应的数值，分为两种情况，一种是正向刻度值与反向刻度值完全对称，另一种是正向刻度值与反向刻度值反向对称，即互为相反数。</p>
+<p>英文名：Bi-directional bar,Bi-directional column</p>
+<h2 id="双向柱状图的构成">双向柱状图的构成</h2><p><img src="https://zos.alipayobjects.com/rmsportal/okyGTjEPEOZSnopSapHQ.png" class="constitute-img"/></p>
+<table class="struct-table">
+  <tr>
+    <th>图表类型</th>
+    <th>双向柱状图</th>
+  </tr>
+  <tr>
+    <td>适合的数据</td>
+    <td>列表：一个分类数据字段、两个连续数据字段</td>
+  </tr>
+  <tr>
+    <td>功能</td>
+    <td>对比分类数据的数值大小</td>
+  </tr>
+  <tr>
+    <td>数据与图形的映射</td>
+    <td>分类数据字段映射到分类轴的位置<br>一个连续数据字段映射到正向矩形的长度、另一个连续数据字段映射到反向矩形的长度 <br>、正反向数据可以设置颜色或形状(shape)增强区分度、分类数据可以设置颜色增强分类的区分度</td>
+  </tr>
+  <tr>
+    <td>适合的数据条数</td>
+    <td>横向不超过 30 条数据、纵向不超过 12 条数据</td>
+  </tr>
+</table>
+
+<div style="clear: both;"></div>
+
+<h2 id="双向柱状图的应用场景">双向柱状图的应用场景</h2><h3 id="适合的场景">适合的场景</h3><p>例子1: <strong> 正反分类数据对比 </strong>
+下图是模拟某个公司各个部门对某项任务的完成情况数据的对比图，完成人数使用正向柱状图表示、未完成人数使用反向柱状图表示。</p>
+<table>
+<thead>
+<tr>
+<th>部门</th>
+<th>小组</th>
+<th>完成人数</th>
+<th>未完成人数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部门0</td>
+<td>组名0</td>
+<td>37</td>
+<td>9</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<div id="c1"></div>
+
+<div class="code hide">
+
+   var data = [
+    {"部门":"部门0","小组":"组名0","完成人数":37,"未完成人数":9},
+    {"部门":"部门0","小组":"组名2","完成人数":29,"未完成人数":10},
+    {"部门":"部门0","小组":"组名8","完成人数":59,"未完成人数":14},
+    {"部门":"部门0","小组":"组名9","完成人数":60,"未完成人数":8},
+    {"部门":"部门0","小组":"组名10","完成人数":83,"未完成人数":14},
+    {"部门":"部门0","小组":"组名12","完成人数":67,"未完成人数":21},
+    {"部门":"部门0","小组":"组名14","完成人数":46,"未完成人数":18},
+    {"部门":"部门0","小组":"组名17","完成人数":19,"未完成人数":27},
+    {"部门":"部门0","小组":"组名19","完成人数":74,"未完成人数":17},
+    {"部门":"部门1","小组":"组名15","完成人数":34,"未完成人数":19},
+    {"部门":"部门1","小组":"组名20","完成人数":71,"未完成人数":25},
+    {"部门":"部门1","小组":"组名26","完成人数":28,"未完成人数":23},
+    {"部门":"部门1","小组":"组名29","完成人数":90,"未完成人数":24},
+    {"部门":"部门2","小组":"组名7","完成人数":50,"未完成人数":5},
+    {"部门":"部门2","小组":"组名11","完成人数":86,"未完成人数":26},
+    {"部门":"部门2","小组":"组名13","完成人数":63,"未完成人数":16},
+    {"部门":"部门2","小组":"组名27","完成人数":76,"未完成人数":2},
+    {"部门":"部门2","小组":"组名28","完成人数":13,"未完成人数":28},
+    {"部门":"部门3","小组":"组名1","完成人数":33,"未完成人数":16},
+    {"部门":"部门3","小组":"组名3","完成人数":14,"未完成人数":1},
+    {"部门":"部门3","小组":"组名4","完成人数":43,"未完成人数":25},
+    {"部门":"部门3","小组":"组名16","完成人数":45,"未完成人数":13},
+    {"部门":"部门3","小组":"组名18","完成人数":50,"未完成人数":21},
+    {"部门":"部门3","小组":"组名22","完成人数":43,"未完成人数":7},
+    {"部门":"部门3","小组":"组名23","完成人数":38,"未完成人数":6},
+    {"部门":"部门3","小组":"组名24","完成人数":33,"未完成人数":24},
+    {"部门":"部门3","小组":"组名25","完成人数":13,"未完成人数":27},
+    {"部门":"部门4","小组":"组名5","完成人数":98,"未完成人数":4},
+    {"部门":"部门4","小组":"组名6","完成人数":88,"未完成人数":12},
+    {"部门":"部门4","小组":"组名21","完成人数":52,"未完成人数":9},
+  ];
+  // 按照部门排序
+  data.sort(function  (obj1,obj2) {
+    return obj1['部门'] > obj2['部门'] ? 1 : -1;
+  });
+  data.forEach(function(obj){
+    obj['未完成人数'] *= -1; // 将未完成人数转换成负数
+  });
+  var Frame = G2.Frame;
+  var frame = new Frame(data);
+  // 将'完成人数','未完成人数' 合并成一列，增加完成状态字段
+  frame = Frame.combinColumns(frame,['完成人数','未完成人数'],'人数','完成状态');
+  var chart = new G2.Chart({
+    id: 'c1',
+    forceFit: true,
+    height : 500,
+    plotCfg: {
+      margin: [50, 100, 80,70]
+    }
+  });
+  chart.source(frame);
+  chart.coord().transpose();
+  chart.legend('完成状态', {
+    position: 'bottom'
+  });
+  chart.axis('小组',{title: null});
+  chart.axis('人数',{
+    formatter: function(value){
+      value = parseInt(value);
+      return Math.abs(value); // 将负数格式化成正数
+    },
+    title: null
+  });
+  chart.interval().position('小组*人数').color('部门').shape('完成状态',['rect','hollowRect']).style({
+    lineWidth: 2
+  });
+  chart.render();
+</div>
+
+<p>说明：</p>
+<ul>
+<li>使用了<code>颜色</code>用于区分不同的部门</li>
+<li>使用两<code>形状</code>（空心和实心）用于区分完成人数和未完成人数</li>
+<li>使用了<code>位置</code>用于区分不同小组</li>
+</ul>
+<h3 id="不适合的场景">不适合的场景</h3><p>双向柱状图不适合不含相反含义的数据</p>
+<h2 id="双向柱状图的扩展">双向柱状图的扩展</h2><p>例子1: <strong> 层叠双向柱状图 </strong>
+下图展示了不同类型的人群对某个问题的同意程度的统计数据，分为非常不同意、不同意、没意见、同意和非常同意五种程度，其中非常不同意和不同意作为反向柱状图，不同程度用不同颜色来表示。</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>Strongly Agree</th>
+<th>Agree</th>
+<th>No Opinion</th>
+<th>Disagree</th>
+<th>Strongly Disagree</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All Survey Responses</td>
+<td>50.1</td>
+<td>40.7</td>
+<td>4.8</td>
+<td>3.7</td>
+<td>0.7</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<div id="c4"></div>
+
+<div class="code hide">
+var data = [{"group":"All Survey Responses","type":"All Survey Responses","total":565,"Strongly Agree":50.1,"Agree":40.7,"No Opinion":4.8,"Disagree":3.7,"Strongly Disagree":0.7},{"group":"Employment sector","type":"Academic(nonstudent)","total":253,"Strongly Agree":64.0,"Agree":30.8,"No Opinion":3.2,"Disagree":2.0,"Strongly Disagree":0.0},{"group":"Employment sector","type":"Business and industry","total":176,"Strongly Agree":40.6,"Agree":50.0,"No Opinion":2.8,"Disagree":6.3,"Strongly Disagree":0.0},{"group":"Employment sector","type":"Federal, state, and local government","total":71,"Strongly Agree":38.0,"Agree":47.9,"No Opinion":7.0,"Disagree":4.2,"Strongly Disagree":2.8},{"group":"Employment sector","type":"Private consultant/self-employed","total":28,"Strongly Agree":39.3,"Agree":53.6,"No Opinion":7.1,"Disagree":0.0,"Strongly Disagree":0.0},{"group":"Employment sector","type":"Other (Including retired, student, not employed, etc.)","total":34,"Strongly Agree":29.4,"Agree":44.1,"No Opinion":14.7,"Disagree":5.9,"Strongly Disagree":5.9},{"group":"Race","type":"White","total":400,"Strongly Agree":50.0,"Agree":41.8,"No Opinion":4.5,"Disagree":2.8,"Strongly Disagree":1.0},{"group":"Race","type":"Asian","total":122,"Strongly Agree":53.3,"Agree":40.2,"No Opinion":3.3,"Disagree":3.3,"Strongly Disagree":0.0},{"group":"Race","type":"Black or African American","total":10,"Strongly Agree":40.0,"Agree":30.0,"No Opinion":20.0,"Disagree":10.0,"Strongly Disagree":0.0},{"group":"Race","type":"Other","total":17,"Strongly Agree":47.1,"Agree":35.3,"No Opinion":5.9,"Disagree":11.8,"Strongly Disagree":0.7},{"group":"Education","type":"Associate's and Bachelor's","total":175,"Strongly Agree":37.1,"Agree":49.1,"No Opinion":5.7,"Disagree":6.9,"Strongly Disagree":1.1},{"group":"Education","type":"Master's and Above","total":388,"Strongly Agree":55.9,"Agree":36.9,"No Opinion":4.4,"Disagree":2.3,"Strongly Disagree":0.5},{"group":"Gender","type":"Male","total":356,"Strongly Agree":50.6,"Agree":41,"No Opinion":4.2,"Disagree":3.4,"Strongly Disagree":0.8},{"group":"Gender","type":"Female","total":200,"Strongly Agree":51.0,"Agree":39.0,"No Opinion":6.0,"Disagree":3.5,"Strongly Disagree":0.5}];
+
+var Frame = G2.Frame;
+var frame = new Frame(data);
+var stronglyArr = frame.colArray('Strongly Disagree');
+var disagreeArr = frame.colArray('Disagree');
+for(var i = 0,l = stronglyArr.length; i < l; i++) {
+  stronglyArr[i] = stronglyArr[i] * (-1);
+  disagreeArr[i] = disagreeArr[i] * (-1);
+}
+frame.colReplace('Strongly Disagree', stronglyArr);
+frame.colReplace('Disagree', disagreeArr);
+frame = Frame.combinColumns(frame, ['Disagree', 'Strongly Disagree', 'No Opinion', 'Agree','Strongly Agree'], 'value', 'opinion', ['group', 'type']);
+
+var colorMap = {
+  "Strongly Agree": '#3561A7',
+  "Agree": '#80B2D3',
+  "No Opinion": '#D9F0F6',
+  "Disagree": '#EC7743',
+  "Strongly Disagree": '#CB2920',
+}
+
+var chart = new G2.Chart({
+  id : 'c4',
+  forceFit: true,
+  height : 500,
+  plotCfg: {
+     margin: [60, 60, 60, 150]
+  }
+});
+
+chart.source(frame, {
+  value: {
+    tickInterval: 10
+  }
+});
+chart.axis('type',{
+  title: null
+});
+chart.axis('value',{
+  position: 'right',
+  title: null,
+  tickLine: null,
+  formatter: function(val) {
+    return val + '%';
+  }
+});
+chart.legend({
+  position: 'bottom'
+});
+chart.coord().transpose();
+chart.intervalStack().position('type*value').color('opinion', function(opinion) {
+  return colorMap[opinion];
+});
+
+chart.render();
+</div>
+
+<p>例子2: <strong> 分组双向柱状图 </strong></p>
+<p>下图展示了通过收入数据和支出数据绘制出包涵净利润的分组双向柱状图</p>
+<table>
+<thead>
+<tr>
+<th>time</th>
+<th>收入</th>
+<th>支出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>周一</td>
+<td>130</td>
+<td>-54</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<div id="c5"></div>
+
+<div class="code hide">
+var data = [
+  {"time": '周一',"收入": 130,"支出": -54},
+  {"time": '周二',"收入": 322,"支出": -23},
+  {"time": '周三',"收入": 220,"支出": -54},
+  {"time": '周四',"收入": 236,"支出": -32},
+  {"time": '周五',"收入": 210,"支出": -54},
+  {"time": '周六',"收入": 246,"支出": -65},
+  {"time": '周日',"收入": 228,"支出": -45}
+];
+data.map(function(obj){
+  obj['利润'] = obj['收入'] + obj['支出'];
+});
+
+var Frame = G2.Frame;
+var frame = new Frame(data);
+frame = Frame.combinColumns(frame,['收入','支出','利润'],'金额','收支状态');
+console.log(frame);
+var chart = new G2.Chart({
+  id: 'c5',
+  width : 1000,
+  height : 500,
+  plotCfg: {
+    margin: [50, 100, 80]
+  }
+});
+chart.source(frame);
+chart.coord().transpose();
+chart.legend('收支状态', {
+  position: 'bottom'
+});
+chart.axis('time',{title: null});
+chart.axis('金额',{
+  formatter: function(value){
+    value = parseInt(value);
+    return Math.abs(value); // 将负数格式化成正数
+  },
+  title: null
+});
+chart.intervalDodge().position('time*金额').color('收支状态').shape('收支状态',['rect','hollowRect']).style({
+  lineWidth: 2
+});
+chart.render();
+</div>
+
+<h2 id="双向柱状图与其他图表的对比">双向柱状图与其他图表的对比</h2><h3 id="双向柱状图和柱状图">双向柱状图和<a href="bar.html">柱状图</a></h3><ul>
+<li>柱状图只能绘制在同一个坐标轴内，每个柱子只能表示一个数据</li>
+<li>双向柱状图包含正向和反向两个坐标轴，每个柱子可以表示一个正向数据和一个反向数据</li>
+</ul>
+
+      <h2 id="变型">变型</h2>
+      <div class="detail-list">
+        <ul class="vis-chart-list clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/details/bar.html">
+              <i class="iconfont icon-bar"></i>
+              <span>柱状图</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../vis/doc/chart/details/multi-set-bar.html">
+              <i class="iconfont icon-multi-set-bar"></i>
+              <span>分组柱状图</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../vis/doc/chart/details/radial-bar.html">
+              <i class="iconfont icon-radial-bar"></i>
+              <span>玉玦图</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../../../vis/doc/chart/details/stacked-bar.html">
+              <i class="iconfont icon-stacked-bar"></i>
+              <span>层叠柱状图</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <h2 id="标签">标签</h2>
+      <div>
+
+        <ul class="vis-classify-list small clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/classify/compare.html">
+              <span>比较类</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $.fn.isOnScreen = function(){
+      var win = $(window);
+      var viewport = {
+          top : win.scrollTop(),
+          left : win.scrollLeft()
+      };
+      viewport.right = viewport.left + win.width();
+      viewport.bottom = viewport.top + win.height();
+      var bounds = this.offset();
+      bounds.right = bounds.left + this.outerWidth();
+      bounds.bottom = bounds.top + this.outerHeight();
+      return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+    };
+    function ReplaceAll(str, sptr, sptr1){
+      while (str.indexOf(sptr) >= 0){
+         str = str.replace(sptr, sptr1);
+      }
+      return str;
+    }
+    function lazyLoad(codes) {
+      var isrun = [];
+      tryRun();
+      $(document).on('mousewheel',function(e){
+        tryRun();
+      });
+      function tryRun(){
+        codes.each(function(index,ele){
+          if (isrun.indexOf(ele) === -1) {
+            var $ele = $(ele);
+            if ( $ele.isOnScreen() ) {
+              setTimeout(function(){
+                var t = $ele.html();
+                t = ReplaceAll(t, '&lt;', '<');
+                t = ReplaceAll(t, '&gt;', '>');
+                t = ReplaceAll(t, '&amp;', '&');
+                eval(t);
+                $ele.hide();
+              },500);
+              isrun.push(ele);
+            };
+          };
+        });
+      }
+    }
+    var codes = $('.code');
+    lazyLoad(codes);
+  </script>
+
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>常见问题</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item hover">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+  <link rel="stylesheet" href="../../../../static/prettify-min.css">
+
+
+  <div class="main-container clearfix">
+  <div class="body-content tutorial-body-content"><div class="doc-nav">
+  <p class="title">G2</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g2/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">使用教程</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="sub-title">基础教程</li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/index.html" >G2 图表的主要组成</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/chart.html" >图表对象配置（chart）</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/working-with-data.html" >data 数据</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/frame.html" >Frame 常见操作</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/scale.html" >度量</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/col-defs.html" >列定义操作</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/geom.html" >geom 几何标记</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/attr.html" >attr 图形属性</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/coord.html" >coord 坐标系</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/axis.html" >axis 坐标轴</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/legend.html" >legend 图例</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/tooltip.html" >tooltip 提示信息</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/guide.html" >guide 辅助标记</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/stat.html" >stat 统计变换</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/facet.html" >facet 分面</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/theme.html" >theme 图表样式</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/label.html" >label 文本标签</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/chart-event.html" >图表事件 event</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/action.html" >图表交互</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/changedata.html" >数据异步加载与动态更新</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/g2-plugin-slider.html" >数据滑动条插件使用</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/start/rc-g2.html" >在 react 中使用 G2</a>
+          </li>
+          <li class="active">
+            <a href="../../../../g2/doc/tutorial/start/fqas.html" >常见问题</a>
+          </li>
+          <li class="sub-title">高级教程</li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/index.html" >G2 图形语法简介</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/data-flow.html" >G2 的数据处理流程</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/data-type-and-scale.html" >数据类型与度量</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/coord-detailed.html" >坐标系详解</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/chart-type.html" >图表类型</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/geom-and-adjust.html" >几何标记和数据调整</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/custom-shape.html" >自定义 shape</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/view.html" >多视图 view 绘制</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/layout.html" >layout 布局</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/draw-word-cloud.html" >使用 G2 绘制词云</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/doc/tutorial/advance/animate.html" >自定义动画</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">API</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="">
+            <a href="../../../../g2/api/index.html" >G2</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/chart.html" >Chart</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/view.html" >View</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/geom.html" >Geom</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/scale.html" >Scale</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/stat.html" >Stat</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/frame.html" >Frame</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/shape.html" >Shape</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/animate.html" >Animate</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/util.html" >Util</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="">
+            <a href="../../../../g2/api/chart-options.html" >配置项支持</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g2/doc/history.html" >更新日志</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+    <div class="doc-content clearfix">
+      <div class="doc-inner">
+        <ul>
+<li><a href="#图表如何支持自适应宽度">图表如何支持自适应宽度</a></li>
+<li><a href="#如何格式化坐标轴文本">如何格式化坐标轴文本</a></li>
+<li><a href="#怎么控制坐标轴刻度线个数以及刻度线的间距">怎么控制坐标轴刻度线个数以及刻度线的间距</a></li>
+<li><a href="#如何控制坐标轴的显示的数值范围">如何控制坐标轴的显示的数值范围</a></li>
+<li><a href="#如何格式化图例的显示文本">如何格式化图例的显示文本</a></li>
+<li><a href="#如何设置图例项的初始状态">如何设置图例项的初始状态</a></li>
+<li><a href="#如何绘制多-y-轴图表">如何绘制多 y 轴图表</a></li>
+<li><a href="#如何绘制混合图表">如何绘制混合图表</a></li>
+<li><a href="#如何修改-tooltip-的显示内容">如何修改 tooltip 的显示内容</a></li>
+<li><a href="#如何导出图片">如何导出图片</a></li>
+</ul>
+<h2 id="图表如何支持自适应宽度">图表如何支持自适应宽度</h2><p>(1) 方式一</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id: <span class="string">'c1'</span>,
+  forceFit: <span class="literal">true</span>,
+  height : <span class="number">400</span>
+});</code></pre></div><p>(2) 方式二</p>
+<p><code>chart.forceFit();</code></p>
+<h2 id="如何格式化坐标轴文本">如何格式化坐标轴文本</h2><div class="highlight"><pre><code class="javascript">chart.axis(<span class="string">'dim'</span>, {
+  formatter: <span class="function"><span class="keyword">function</span><span class="params">(val)</span> {</span>
+      <span class="keyword">return</span> val + <span class="string">'k'</span>;
+  }
+});</code></pre></div><p><a href="/g2/demo/01-point/bubble-a.html">在线试一试</a></p>
+<h2 id="怎么控制坐标轴刻度线个数以及刻度线的间距">怎么控制坐标轴刻度线个数以及刻度线的间距</h2><p>列定义中为对应的数据字段设置 tickCount 用于控制刻度线的个数；</p>
+<div class="highlight"><pre><code class="javascript">chart.source(data, {
+  y: {
+    tickCount: <span class="number">8</span>
+  }
+});</code></pre></div><div class="highlight"><pre><code class="javascript"><span class="comment">// 或者使用 chart.col()</span>
+chart.col(<span class="string">'y'</span>, {
+  tickCount: <span class="number">8</span>
+});</code></pre></div><p>列定义中为对应的数据字段设置 tickInterval 用于控制刻度线的间距；</p>
+<div class="highlight"><pre><code class="javascript">chart.source(data, {
+  y: {
+    tickInterval: <span class="number">1000</span>, <span class="comment">// 当为时间类型时，请传入单位为微秒的数据</span>
+  }
+});</code></pre></div><div class="highlight"><pre><code class="javascript"><span class="comment">// 或者使用 chart.col()</span>
+chart.col(<span class="string">'y'</span>, {
+  tickInterval: <span class="number">1000</span>
+});</code></pre></div><p>注意 tickCount 和 tickInterval 不可以同时设置。</p>
+<p>示例：</p>
+<div id="chart1"></div>
+
+<script>(function(){"use strict";
+
+var data = [{ "value": 10, "time": "2015-03-01T00:00:00.000Z" }, { "value": 15, "time": "2015-03-02T00:00:00.000Z" }, { "value": 26, "time": "2015-03-03T00:00:00.000Z" }, { "value": 9, "time": "2015-03-04T00:00:00.000Z" }, { "value": 12, "time": "2015-03-05T00:00:00.000Z" }, { "value": 23, "time": "2015-03-06T00:00:00.000Z" }, { "value": 18, "time": "2015-03-07T00:00:00.000Z" }, { "value": 21, "time": "2015-03-08T00:00:00.000Z" }, { "value": 52, "time": "2015-03-09T00:00:00.000Z" }, { "value": 35, "time": "2015-03-10T00:00:00.000Z" }, { "value": 47, "time": "2015-03-11T00:00:00.000Z" }, { "value": 30, "time": "2015-03-12T00:00:00.000Z" }, { "value": 45, "time": "2015-03-13T00:00:00.000Z" }, { "value": 75, "time": "2015-03-14T00:00:00.000Z" }, { "value": 34, "time": "2015-03-15T00:00:00.000Z" }];
+var chart = new G2.Chart({
+  id: 'chart1',
+  forceFit: true,
+  height: 334
+});
+var defs = {
+  'time': {
+    type: 'time',
+    nice: false,
+    mask: 'mm-dd',
+    tickInterval: 2 * 24 * 60 * 60 * 1000 // 对于 linear 类型的数据，可以设置 tickInterval 参数来设定每个刻度之间的间距，time 类型的单位为微秒
+  },
+  value: {
+    tickInterval: 10
+  }
+};
+chart.source(data, defs);
+chart.line().position('time*value').color('red');
+chart.render();})()</script><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {<span class="string">"value"</span>:<span class="number">10</span>,<span class="string">"time"</span>:<span class="string">"2015-03-01T00:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">15</span>,<span class="string">"time"</span>:<span class="string">"2015-03-02T00:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">26</span>,<span class="string">"time"</span>:<span class="string">"2015-03-03T00:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">9</span>,<span class="string">"time"</span>:<span class="string">"2015-03-04T00:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">12</span>,<span class="string">"time"</span>:<span class="string">"2015-03-05T00:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">23</span>,<span class="string">"time"</span>:<span class="string">"2015-03-06T00:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">18</span>,<span class="string">"time"</span>:<span class="string">"2015-03-07T00:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">21</span>,<span class="string">"time"</span>:<span class="string">"2015-03-08T00:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">52</span>,<span class="string">"time"</span>:<span class="string">"2015-03-09T00:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">35</span>,<span class="string">"time"</span>:<span class="string">"2015-03-10T00:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">47</span>,<span class="string">"time"</span>:<span class="string">"2015-03-11T00:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">30</span>,<span class="string">"time"</span>:<span class="string">"2015-03-12T00:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">45</span>,<span class="string">"time"</span>:<span class="string">"2015-03-13T00:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">75</span>,<span class="string">"time"</span>:<span class="string">"2015-03-14T00:00:00.000Z"</span>},
+  {<span class="string">"value"</span>:<span class="number">34</span>,<span class="string">"time"</span>:<span class="string">"2015-03-15T00:00:00.000Z"</span>},
+];
+<span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id : <span class="string">'chart1'</span>,
+  forceFit: <span class="literal">true</span>,
+  height : <span class="number">334</span>
+});
+<span class="keyword">var</span> defs = {
+  <span class="string">'time'</span>: {
+    type: <span class="string">'time'</span>,
+    nice: <span class="literal">false</span>,
+    mask: <span class="string">'mm-dd'</span>,
+    tickInterval: <span class="number">2</span> * <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span> <span class="comment">// 对于 linear 类型的数据，可以设置 tickInterval 参数来设定每个刻度之间的间距，time 类型的单位为微秒</span>
+  },
+  value: {
+    tickInterval: <span class="number">10</span>
+  }
+};
+chart.source(data,defs);
+chart.line().position(<span class="string">'time*value'</span>).color(<span class="string">'red'</span>);
+chart.render();</code></pre></div><h2 id="如何控制坐标轴的显示的数值范围">如何控制坐标轴的显示的数值范围</h2><p>列定义中，为对应的数据字段设置 <code>min</code> 和 <code>max</code> 字段。</p>
+<div class="highlight"><pre><code class="javascript">chart.source(data, {
+  y: {
+    min: <span class="number">0</span>,
+    max: <span class="number">100</span>
+  }
+});</code></pre></div><div class="highlight"><pre><code class="javascript"><span class="comment">// 或者使用 chart.col()</span>
+chart.col(<span class="string">'y'</span>, {
+  min: <span class="number">0</span>,
+  max: <span class="number">100</span>
+});</code></pre></div><h2 id="如何格式化图例的显示文本">如何格式化图例的显示文本</h2><p>在列定义中，为对应字段设置 formatter 函数。</p>
+<div class="highlight"><pre><code class="javascript">chart.source(data, {
+  y: {
+    formatter: <span class="function"><span class="keyword">function</span><span class="params">(val)</span> {</span>
+      <span class="keyword">if</span> (val === <span class="string">'male'</span>) {
+        <span class="keyword">return</span> <span class="string">'男'</span>;
+      } <span class="keyword">else</span> {
+        <span class="keyword">return</span> <span class="string">'女'</span>;
+      }
+    }
+  }
+});</code></pre></div><div class="highlight"><pre><code class="javascript"><span class="comment">// 或者使用 chart.col()</span>
+chart.col(<span class="string">'y'</span>, {
+  formatter: <span class="function"><span class="keyword">function</span><span class="params">(val)</span> {</span>
+    <span class="keyword">if</span> (val === <span class="string">'male'</span>) {
+      <span class="keyword">return</span> <span class="string">'男'</span>;
+    } <span class="keyword">else</span> {
+      <span class="keyword">return</span> <span class="string">'女'</span>;
+    }
+  }
+});</code></pre></div><p>示例：</p>
+<div id="chart2"></div>
+
+<script>(function(){'use strict';
+
+var data = [{ genre: 'Sports', sold: 275 }, { genre: 'Strategy', sold: 115 }, { genre: 'Action', sold: 120 }, { genre: 'Shooter', sold: 350 }, { genre: 'Other', sold: 150 }];
+
+var map = {
+  'Sports': '运动',
+  'Strategy': '策略',
+  'Action': '动作类',
+  'Shooter': '射击类',
+  'Other': '其他'
+};
+
+var chart = new G2.Chart({
+  id: 'chart2', // 指定图表容器 ID
+  height: 300, // 指定图表高度
+  forceFit: true
+});
+
+chart.source(data, {
+  genre: {
+    formatter: function formatter(val) {
+      return map[val];
+    }, // **关键代码**：在列定义中调用 formatter 回调函数，
+    alias: '游戏种类' // 列定义，定义该属性显示的别名
+  },
+  sold: {
+    alias: '销售量'
+  }
+});
+chart.interval().position('genre*sold').color('genre');
+chart.render();})()</script><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {genre: <span class="string">'Sports'</span>, sold: <span class="number">275</span>},
+  {genre: <span class="string">'Strategy'</span>, sold: <span class="number">115</span>},
+  {genre: <span class="string">'Action'</span>, sold: <span class="number">120</span>},
+  {genre: <span class="string">'Shooter'</span>, sold: <span class="number">350</span>},
+  {genre: <span class="string">'Other'</span>, sold: <span class="number">150</span>},
+];
+
+<span class="keyword">var</span> map = {
+  <span class="string">'Sports'</span>: <span class="string">'运动'</span>,
+  <span class="string">'Strategy'</span>: <span class="string">'策略'</span>,
+  <span class="string">'Action'</span>: <span class="string">'动作类'</span>,
+  <span class="string">'Shooter'</span>: <span class="string">'射击类'</span>,
+  <span class="string">'Other'</span>: <span class="string">'其他'</span>
+};
+
+<span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id: <span class="string">'chart2'</span>,  <span class="comment">// 指定图表容器 ID</span>
+  height : <span class="number">300</span>,     <span class="comment">// 指定图表高度</span>
+  forceFit: <span class="literal">true</span>,
+});
+
+chart.source(data, {
+  genre: {
+    formatter: <span class="function"><span class="keyword">function</span><span class="params">(val)</span> {</span>
+      <span class="keyword">return</span> map[val];
+    }, <span class="comment">// **关键代码**：在列定义中调用 formatter 回调函数，</span>
+    alias: <span class="string">'游戏种类'</span> <span class="comment">// 列定义，定义该属性显示的别名</span>
+  },
+  sold: {
+    alias: <span class="string">'销售量'</span>
+  }
+});
+chart.interval().position(<span class="string">'genre*sold'</span>).color(<span class="string">'genre'</span>);
+chart.render();</code></pre></div><h2 id="如何设置图例项的初始状态">如何设置图例项的初始状态</h2><p><code>chart.filter(&#39;dim&#39;, arr)</code> </p>
+<p>可以过滤指定字段的数据，其中 arr 是一个数组，代表该 dim 字段你要保留的数据值。如果存在对应字段的图例，那么被过滤掉的类型会被取消选中，如下图表所示：</p>
+<div id="c1"></div>
+
+<script>(function(){"use strict";
+
+var data = [{ "month": 0, "tem": 7, "city": "tokyo" }, { "month": 1, "tem": 6.9, "city": "tokyo" }, { "month": 2, "tem": 9.5, "city": "tokyo" }, { "month": 3, "tem": 14.5, "city": "tokyo" }, { "month": 4, "tem": 18.2, "city": "tokyo" }, { "month": 5, "tem": 21.5, "city": "tokyo" }, { "month": 6, "tem": 25.2, "city": "tokyo" }, { "month": 7, "tem": 26.5, "city": "tokyo" }, { "month": 8, "tem": 23.3, "city": "tokyo" }, { "month": 9, "tem": 18.3, "city": "tokyo" }, { "month": 10, "tem": 13.9, "city": "tokyo" }, { "month": 11, "tem": 9.6, "city": "tokyo" }, { "month": 0, "tem": -0.2, "city": "newYork" }, { "month": 1, "tem": 0.8, "city": "newYork" }, { "month": 2, "tem": 5.7, "city": "newYork" }, { "month": 3, "tem": 11.3, "city": "newYork" }, { "month": 4, "tem": 17, "city": "newYork" }, { "month": 5, "tem": 22, "city": "newYork" }, { "month": 6, "tem": 24.8, "city": "newYork" }, { "month": 7, "tem": 24.1, "city": "newYork" }, { "month": 8, "tem": 20.1, "city": "newYork" }, { "month": 9, "tem": 14.1, "city": "newYork" }, { "month": 10, "tem": 8.6, "city": "newYork" }, { "month": 11, "tem": 2.5, "city": "newYork" }, { "month": 0, "tem": -0.9, "city": "berlin" }, { "month": 1, "tem": 0.6, "city": "berlin" }, { "month": 2, "tem": 3.5, "city": "berlin" }, { "month": 3, "tem": 8.4, "city": "berlin" }, { "month": 4, "tem": 13.5, "city": "berlin" }, { "month": 5, "tem": 17, "city": "berlin" }, { "month": 6, "tem": 18.6, "city": "berlin" }, { "month": 7, "tem": 17.9, "city": "berlin" }, { "month": 8, "tem": 14.3, "city": "berlin" }, { "month": 9, "tem": 9, "city": "berlin" }, { "month": 10, "tem": 3.9, "city": "berlin" }, { "month": 11, "tem": 1, "city": "berlin" }];
+
+var chart = new G2.Chart({
+  id: 'c1',
+  width: 800,
+  height: 350
+});
+
+var defs = { 'month': {
+    type: 'cat',
+    values: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+  } };
+
+chart.source(data, defs);
+
+chart.filter('city', ['berlin']); // 只展示 berlin 的数据
+chart.line().position('month*tem').color('city');
+chart.render();})()</script><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {<span class="string">"month"</span>:<span class="number">0</span>,<span class="string">"tem"</span>:<span class="number">7</span>,<span class="string">"city"</span>:<span class="string">"tokyo"</span>},
+  {<span class="string">"month"</span>:<span class="number">1</span>,<span class="string">"tem"</span>:<span class="number">6.9</span>,<span class="string">"city"</span>:<span class="string">"tokyo"</span>},
+  {<span class="string">"month"</span>:<span class="number">2</span>,<span class="string">"tem"</span>:<span class="number">9.5</span>,<span class="string">"city"</span>:<span class="string">"tokyo"</span>},
+  {<span class="string">"month"</span>:<span class="number">3</span>,<span class="string">"tem"</span>:<span class="number">14.5</span>,<span class="string">"city"</span>:<span class="string">"tokyo"</span>},
+  {<span class="string">"month"</span>:<span class="number">4</span>,<span class="string">"tem"</span>:<span class="number">18.2</span>,<span class="string">"city"</span>:<span class="string">"tokyo"</span>},
+  {<span class="string">"month"</span>:<span class="number">5</span>,<span class="string">"tem"</span>:<span class="number">21.5</span>,<span class="string">"city"</span>:<span class="string">"tokyo"</span>},
+  {<span class="string">"month"</span>:<span class="number">6</span>,<span class="string">"tem"</span>:<span class="number">25.2</span>,<span class="string">"city"</span>:<span class="string">"tokyo"</span>},
+  {<span class="string">"month"</span>:<span class="number">7</span>,<span class="string">"tem"</span>:<span class="number">26.5</span>,<span class="string">"city"</span>:<span class="string">"tokyo"</span>},
+  {<span class="string">"month"</span>:<span class="number">8</span>,<span class="string">"tem"</span>:<span class="number">23.3</span>,<span class="string">"city"</span>:<span class="string">"tokyo"</span>},
+  {<span class="string">"month"</span>:<span class="number">9</span>,<span class="string">"tem"</span>:<span class="number">18.3</span>,<span class="string">"city"</span>:<span class="string">"tokyo"</span>},
+  {<span class="string">"month"</span>:<span class="number">10</span>,<span class="string">"tem"</span>:<span class="number">13.9</span>,<span class="string">"city"</span>:<span class="string">"tokyo"</span>},
+  {<span class="string">"month"</span>:<span class="number">11</span>,<span class="string">"tem"</span>:<span class="number">9.6</span>,<span class="string">"city"</span>:<span class="string">"tokyo"</span>},
+  {<span class="string">"month"</span>:<span class="number">0</span>,<span class="string">"tem"</span>:-<span class="number">0.2</span>,<span class="string">"city"</span>:<span class="string">"newYork"</span>},
+  {<span class="string">"month"</span>:<span class="number">1</span>,<span class="string">"tem"</span>:<span class="number">0.8</span>,<span class="string">"city"</span>:<span class="string">"newYork"</span>},
+  {<span class="string">"month"</span>:<span class="number">2</span>,<span class="string">"tem"</span>:<span class="number">5.7</span>,<span class="string">"city"</span>:<span class="string">"newYork"</span>},
+  {<span class="string">"month"</span>:<span class="number">3</span>,<span class="string">"tem"</span>:<span class="number">11.3</span>,<span class="string">"city"</span>:<span class="string">"newYork"</span>},
+  {<span class="string">"month"</span>:<span class="number">4</span>,<span class="string">"tem"</span>:<span class="number">17</span>,<span class="string">"city"</span>:<span class="string">"newYork"</span>},
+  {<span class="string">"month"</span>:<span class="number">5</span>,<span class="string">"tem"</span>:<span class="number">22</span>,<span class="string">"city"</span>:<span class="string">"newYork"</span>},
+  {<span class="string">"month"</span>:<span class="number">6</span>,<span class="string">"tem"</span>:<span class="number">24.8</span>,<span class="string">"city"</span>:<span class="string">"newYork"</span>},
+  {<span class="string">"month"</span>:<span class="number">7</span>,<span class="string">"tem"</span>:<span class="number">24.1</span>,<span class="string">"city"</span>:<span class="string">"newYork"</span>},
+  {<span class="string">"month"</span>:<span class="number">8</span>,<span class="string">"tem"</span>:<span class="number">20.1</span>,<span class="string">"city"</span>:<span class="string">"newYork"</span>},
+  {<span class="string">"month"</span>:<span class="number">9</span>,<span class="string">"tem"</span>:<span class="number">14.1</span>,<span class="string">"city"</span>:<span class="string">"newYork"</span>},
+  {<span class="string">"month"</span>:<span class="number">10</span>,<span class="string">"tem"</span>:<span class="number">8.6</span>,<span class="string">"city"</span>:<span class="string">"newYork"</span>},
+  {<span class="string">"month"</span>:<span class="number">11</span>,<span class="string">"tem"</span>:<span class="number">2.5</span>,<span class="string">"city"</span>:<span class="string">"newYork"</span>},
+  {<span class="string">"month"</span>:<span class="number">0</span>,<span class="string">"tem"</span>:-<span class="number">0.9</span>,<span class="string">"city"</span>:<span class="string">"berlin"</span>},
+  {<span class="string">"month"</span>:<span class="number">1</span>,<span class="string">"tem"</span>:<span class="number">0.6</span>,<span class="string">"city"</span>:<span class="string">"berlin"</span>},
+  {<span class="string">"month"</span>:<span class="number">2</span>,<span class="string">"tem"</span>:<span class="number">3.5</span>,<span class="string">"city"</span>:<span class="string">"berlin"</span>},
+  {<span class="string">"month"</span>:<span class="number">3</span>,<span class="string">"tem"</span>:<span class="number">8.4</span>,<span class="string">"city"</span>:<span class="string">"berlin"</span>},
+  {<span class="string">"month"</span>:<span class="number">4</span>,<span class="string">"tem"</span>:<span class="number">13.5</span>,<span class="string">"city"</span>:<span class="string">"berlin"</span>},
+  {<span class="string">"month"</span>:<span class="number">5</span>,<span class="string">"tem"</span>:<span class="number">17</span>,<span class="string">"city"</span>:<span class="string">"berlin"</span>},
+  {<span class="string">"month"</span>:<span class="number">6</span>,<span class="string">"tem"</span>:<span class="number">18.6</span>,<span class="string">"city"</span>:<span class="string">"berlin"</span>},
+  {<span class="string">"month"</span>:<span class="number">7</span>,<span class="string">"tem"</span>:<span class="number">17.9</span>,<span class="string">"city"</span>:<span class="string">"berlin"</span>},
+  {<span class="string">"month"</span>:<span class="number">8</span>,<span class="string">"tem"</span>:<span class="number">14.3</span>,<span class="string">"city"</span>:<span class="string">"berlin"</span>},
+  {<span class="string">"month"</span>:<span class="number">9</span>,<span class="string">"tem"</span>:<span class="number">9</span>,<span class="string">"city"</span>:<span class="string">"berlin"</span>},
+  {<span class="string">"month"</span>:<span class="number">10</span>,<span class="string">"tem"</span>:<span class="number">3.9</span>,<span class="string">"city"</span>:<span class="string">"berlin"</span>},
+  {<span class="string">"month"</span>:<span class="number">11</span>,<span class="string">"tem"</span>:<span class="number">1</span>,<span class="string">"city"</span>:<span class="string">"berlin"</span>}
+];
+
+<span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id: <span class="string">'c1'</span>,
+  width: <span class="number">800</span>,
+  height: <span class="number">350</span>
+});
+
+<span class="keyword">var</span> defs = {<span class="string">'month'</span>:{
+  type: <span class="string">'cat'</span>,
+  values: [
+    <span class="string">'一月'</span>,<span class="string">'二月'</span>,<span class="string">'三月'</span>,<span class="string">'四月'</span>,<span class="string">'五月'</span>,<span class="string">'六月'</span>,
+    <span class="string">'七月'</span>,<span class="string">'八月'</span>,<span class="string">'九月'</span>,<span class="string">'十月'</span>,<span class="string">'十一月'</span>,<span class="string">'十二月'</span>]
+}};
+
+chart.source(data,defs);
+
+chart.filter(<span class="string">'city'</span>, [<span class="string">'berlin'</span>]); <span class="comment">// 只展示 berlin 的数据</span>
+chart.line().position(<span class="string">'month*tem'</span>).color(<span class="string">'city'</span>);
+chart.render();</code></pre></div><h2 id="如何绘制多-y-轴图表">如何绘制多 y 轴图表</h2><p>在 G2 中，实现多 Y 轴的绘制非常简单，用户完全不需要做任何配置。只要做到各个 geom 的 X 轴属性相同， Y 轴属性不同，G2 就会为您自动生成。</p>
+<div class="highlight"><pre><code class="javascript">chart.interval().position(<span class="string">'month*rainfall'</span>).color(<span class="string">'#95ceff'</span>); 
+chart.line().position(<span class="string">'month*temperature'</span>).color(<span class="string">'#90ed7d'</span>).size(<span class="number">2</span>).shape(<span class="string">'smooth'</span>);</code></pre></div><p>这个时候就会自动生成两条 y 轴，分别对应 <code>rainfall</code> 和 <code>temperature</code>。</p>
+<p>示例：</p>
+<div id="chart3"></div>
+
+<script>(function(){"use strict";
+
+var data = [{ "month": "Jan", "rainfall": 49.9, "seaLevelPressure": 1016, "temperature": 7 }, { "month": "Feb", "rainfall": 71.5, "seaLevelPressure": 1016, "temperature": 6.9 }, { "month": "Mar", "rainfall": 106.4, "seaLevelPressure": 1015.9, "temperature": 9.5 }, { "month": "Apr", "rainfall": 129.2, "seaLevelPressure": 1015.5, "temperature": 14.5 }, { "month": "May", "rainfall": 144, "seaLevelPressure": 1012.3, "temperature": 18.2 }, { "month": "Jun", "rainfall": 176, "seaLevelPressure": 1009.5, "temperature": 21.5 }, { "month": "Jul", "rainfall": 135.6, "seaLevelPressure": 1009.6, "temperature": 25.2 }, { "month": "Aug", "rainfall": 148.5, "seaLevelPressure": 1010.2, "temperature": 26.5 }, { "month": "Sep", "rainfall": 216.4, "seaLevelPressure": 1013.1, "temperature": 23.3 }, { "month": "Oct", "rainfall": 194.1, "seaLevelPressure": 1016.9, "temperature": 18.3 }, { "month": "Nov", "rainfall": 95.6, "seaLevelPressure": 1018.2, "temperature": 13.9 }, { "month": "Dec", "rainfall": 54.4, "seaLevelPressure": 1016.7, "temperature": 9.6 }];
+
+var chart = new G2.Chart({
+  id: 'chart3',
+  forceFit: true, // 宽度自适应
+  height: 300,
+  plotCfg: {
+    margin: [60, 160, 60, 90]
+  }
+});
+
+chart.source(data, {
+  rainfall: {
+    min: 0,
+    tickInterval: 50,
+    alias: '降雨量'
+  },
+  temperature: {
+    min: 5,
+    tickInterval: 5,
+    alias: '温度'
+  },
+  seaLevelPressure: {
+    min: 1008,
+    max: 1028,
+    tickInterval: 4,
+    alias: '海平面气压'
+  }
+});
+// 左侧 Y 轴，即降雨量轴
+chart.axis('rainfall', {
+  formatter: function formatter(val) {
+    return val + ' mm'; // 格式化坐标轴显示
+  },
+  line: null,
+  tickLine: null,
+  titleOffset: 80,
+  labels: {
+    label: {
+      fill: '#95ceff'
+    }
+  },
+  title: {
+    fill: '#95ceff',
+    fontSize: 14
+  }
+});
+// 右侧第一个 Y 轴，即温度轴
+chart.axis('temperature', {
+  formatter: function formatter(val) {
+    return val + ' °C'; // 格式化坐标轴显示
+  },
+  line: null,
+  tickLine: null,
+  titleOffset: 80,
+  labels: {
+    label: {
+      fill: '#90ed7d'
+    }
+  },
+  title: {
+    fill: '#90ed7d',
+    fontSize: 14
+  }
+});
+// 右侧第二个 Y 轴，即海平面气压轴
+chart.axis('seaLevelPressure', {
+  formatter: function formatter(val) {
+    return val + ' mb'; // 格式化坐标轴显示
+  },
+  line: null,
+  tickLine: null,
+  titleOffset: 210,
+  labelOffset: 80,
+  labels: {
+    label: {
+      fill: '#333'
+    }
+  },
+  title: {
+    fill: '#333',
+    fontSize: 14
+  }
+});
+
+chart.axis('month', { title: null });
+chart.legend({ position: 'top' });
+chart.tooltip({ crosshairs: true });
+
+chart.interval().position('month*rainfall').color('#95ceff'); // 降雨量
+chart.line().position('month*temperature').color('#90ed7d').size(2).shape('smooth'); // 温度
+chart.point().position('month*temperature').color('#90ed7d').shape('diamond');
+chart.line().position('month*seaLevelPressure').shape('dotSmooth').size(2).color('#333'); // 海平面气压
+chart.render();})()</script><div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = [
+  {<span class="string">"month"</span>:<span class="string">"Jan"</span>,<span class="string">"rainfall"</span>:<span class="number">49.9</span>,<span class="string">"seaLevelPressure"</span>:<span class="number">1016</span>,<span class="string">"temperature"</span>:<span class="number">7</span>},
+  {<span class="string">"month"</span>:<span class="string">"Feb"</span>,<span class="string">"rainfall"</span>:<span class="number">71.5</span>,<span class="string">"seaLevelPressure"</span>:<span class="number">1016</span>,<span class="string">"temperature"</span>:<span class="number">6.9</span>},
+  {<span class="string">"month"</span>:<span class="string">"Mar"</span>,<span class="string">"rainfall"</span>:<span class="number">106.4</span>,<span class="string">"seaLevelPressure"</span>:<span class="number">1015.9</span>,<span class="string">"temperature"</span>:<span class="number">9.5</span>},
+  {<span class="string">"month"</span>:<span class="string">"Apr"</span>,<span class="string">"rainfall"</span>:<span class="number">129.2</span>,<span class="string">"seaLevelPressure"</span>:<span class="number">1015.5</span>,<span class="string">"temperature"</span>:<span class="number">14.5</span>},
+  {<span class="string">"month"</span>:<span class="string">"May"</span>,<span class="string">"rainfall"</span>:<span class="number">144</span>,<span class="string">"seaLevelPressure"</span>:<span class="number">1012.3</span>,<span class="string">"temperature"</span>:<span class="number">18.2</span>},
+  {<span class="string">"month"</span>:<span class="string">"Jun"</span>,<span class="string">"rainfall"</span>:<span class="number">176</span>,<span class="string">"seaLevelPressure"</span>:<span class="number">1009.5</span>,<span class="string">"temperature"</span>:<span class="number">21.5</span>},
+  {<span class="string">"month"</span>:<span class="string">"Jul"</span>,<span class="string">"rainfall"</span>:<span class="number">135.6</span>,<span class="string">"seaLevelPressure"</span>:<span class="number">1009.6</span>,<span class="string">"temperature"</span>:<span class="number">25.2</span>},
+  {<span class="string">"month"</span>:<span class="string">"Aug"</span>,<span class="string">"rainfall"</span>:<span class="number">148.5</span>,<span class="string">"seaLevelPressure"</span>:<span class="number">1010.2</span>,<span class="string">"temperature"</span>:<span class="number">26.5</span>},
+  {<span class="string">"month"</span>:<span class="string">"Sep"</span>,<span class="string">"rainfall"</span>:<span class="number">216.4</span>,<span class="string">"seaLevelPressure"</span>:<span class="number">1013.1</span>,<span class="string">"temperature"</span>:<span class="number">23.3</span>},
+  {<span class="string">"month"</span>:<span class="string">"Oct"</span>,<span class="string">"rainfall"</span>:<span class="number">194.1</span>,<span class="string">"seaLevelPressure"</span>:<span class="number">1016.9</span>,<span class="string">"temperature"</span>:<span class="number">18.3</span>},
+  {<span class="string">"month"</span>:<span class="string">"Nov"</span>,<span class="string">"rainfall"</span>:<span class="number">95.6</span>,<span class="string">"seaLevelPressure"</span>:<span class="number">1018.2</span>,<span class="string">"temperature"</span>:<span class="number">13.9</span>},
+  {<span class="string">"month"</span>:<span class="string">"Dec"</span>,<span class="string">"rainfall"</span>:<span class="number">54.4</span>,<span class="string">"seaLevelPressure"</span>:<span class="number">1016.7</span>,<span class="string">"temperature"</span>:<span class="number">9.6</span>}
+];
+
+<span class="keyword">var</span> chart = <span class="keyword">new</span> G2.Chart({
+  id: <span class="string">'chart3'</span>,
+  forceFit: <span class="literal">true</span>, <span class="comment">// 宽度自适应</span>
+  height: <span class="number">300</span>,
+  plotCfg: {
+    margin: [<span class="number">60</span>, <span class="number">160</span>, <span class="number">60</span>, <span class="number">90</span>]
+  }
+});
+
+chart.source(data, {
+  rainfall: {
+    min: <span class="number">0</span>,
+    tickInterval: <span class="number">50</span>,
+    alias: <span class="string">'降雨量'</span>
+  },
+  temperature: {
+    min: <span class="number">5</span>,
+    tickInterval: <span class="number">5</span>,
+    alias: <span class="string">'温度'</span>
+  },
+  seaLevelPressure: {
+    min: <span class="number">1008</span>,
+    max: <span class="number">1028</span>,
+    tickInterval: <span class="number">4</span>,
+    alias: <span class="string">'海平面气压'</span>
+  }
+});
+<span class="comment">// 左侧 Y 轴，即降雨量轴</span>
+chart.axis(<span class="string">'rainfall'</span>, {
+  formatter: <span class="function"><span class="keyword">function</span><span class="params">(val)</span> {</span>
+    <span class="keyword">return</span> val + <span class="string">' mm'</span>; <span class="comment">// 格式化坐标轴显示</span>
+  },
+  line: <span class="literal">null</span>,
+  tickLine: <span class="literal">null</span>,
+  titleOffset: <span class="number">80</span>,
+  labels: {
+    label: {
+      fill: <span class="string">'#95ceff'</span>
+    }
+  },
+  title: {
+    fill: <span class="string">'#95ceff'</span>,
+    fontSize: <span class="number">14</span>
+  }
+});
+<span class="comment">// 右侧第一个 Y 轴，即温度轴</span>
+chart.axis(<span class="string">'temperature'</span>, {
+  formatter: <span class="function"><span class="keyword">function</span><span class="params">(val)</span> {</span>
+    <span class="keyword">return</span> val + <span class="string">' °C'</span>; <span class="comment">// 格式化坐标轴显示</span>
+  },
+  line: <span class="literal">null</span>,
+  tickLine: <span class="literal">null</span>,
+  titleOffset: <span class="number">80</span>,
+  labels: {
+    label: {
+      fill: <span class="string">'#90ed7d'</span>
+    }
+  },
+  title: {
+    fill: <span class="string">'#90ed7d'</span>,
+    fontSize: <span class="number">14</span>
+  }
+});
+<span class="comment">// 右侧第二个 Y 轴，即海平面气压轴</span>
+chart.axis(<span class="string">'seaLevelPressure'</span>, {
+  formatter: <span class="function"><span class="keyword">function</span><span class="params">(val)</span> {</span>
+    <span class="keyword">return</span> val + <span class="string">' mb'</span>; <span class="comment">// 格式化坐标轴显示</span>
+  },
+  line: <span class="literal">null</span>,
+  tickLine: <span class="literal">null</span>,
+  titleOffset: <span class="number">210</span>,
+  labelOffset: <span class="number">80</span>,
+  labels: {
+    label: {
+      fill: <span class="string">'#333'</span>
+    }
+  },
+  title: {
+    fill: <span class="string">'#333'</span>,
+    fontSize: <span class="number">14</span>
+  }
+});
+
+chart.axis(<span class="string">'month'</span>, {title: <span class="literal">null</span>});
+chart.legend({position: <span class="string">'top'</span>});
+chart.tooltip({crosshairs: <span class="literal">true</span>});
+
+chart.interval().position(<span class="string">'month*rainfall'</span>).color(<span class="string">'#95ceff'</span>); <span class="comment">// 降雨量</span>
+chart.line().position(<span class="string">'month*temperature'</span>).color(<span class="string">'#90ed7d'</span>).size(<span class="number">2</span>).shape(<span class="string">'smooth'</span>); <span class="comment">// 温度</span>
+chart.point().position(<span class="string">'month*temperature'</span>).color(<span class="string">'#90ed7d'</span>).shape(<span class="string">'diamond'</span>);
+chart.line().position(<span class="string">'month*seaLevelPressure'</span>).shape(<span class="string">'dotSmooth'</span>).size(<span class="number">2</span>).color(<span class="string">'#333'</span>); <span class="comment">// 海平面气压</span>
+chart.render();</code></pre></div><h2 id="如何绘制混合图表">如何绘制混合图表</h2><p>G2 采用图层的设计，每一个几何标记 geom 对应一个图形，当需要绘制混合图表时，直接在 chart 对象上创建不同的 geom 几何对象即可。</p>
+<p><img src="https://zos.alipayobjects.com/skylark/42c385d2-a600-42a0-b6ce-de36e97eae6d/attach/2768/dbcfdff45416334f/image.png" alt="image"></p>
+<p>在这个例子中除了生成多 Y 轴之外还绘制了混合图表（柱状图、线图以及点图）。</p>
+<p>示例详见：<a href="#如何绘制多-y-轴图表">如何绘制多 y 轴图表</a></p>
+<h2 id="如何修改-tooltip-的显示内容">如何修改 tooltip 的显示内容</h2><p>G2 提供了多种修改 tooltip 显示内容的方法，详见 <a href="/g2/doc/tutorial/start/tooltip.html">tooltip 提示信息</a> 教程。</p>
+<h2 id="如何导出图片">如何导出图片</h2><p>直接调用 <code>chart.downloadImage();</code>  即可导出图片。</p>
+<p>但是注意最好在 chart 生成后延时几秒调用，因为 chart 默认是有执行动画的，如：</p>
+<div class="highlight"><pre><code class="javascript">setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  chart.downloadImage();
+}, <span class="number">1500</span>);</code></pre></div>
+      </div>
+<div class="preNext clearfix">
+  <a href="../../../../g2/doc/tutorial/start/rc-g2.html" class="pull-left">
+    <i class="iconfont icon-left"></i>
+    在 react 中使用 G2
+  </a>
+</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../../../../static/nav-menu.js"></script>
+  <script src="../../../../static/prettify-min.js"></script>
+  <script src="../../../../static/clipboard.min.js"></script>
+  <script type="text/javascript">
+    var CLS_PRETTY = 'prettyprint linenums';
+    BUI.use('bui/common',function(BUI){
+      var preEls =  $('pre');
+      BUI.each(preEls,function(el){
+        var node = $(el), innerText;
+        node.addClass(CLS_PRETTY);
+        innerText = node.html();
+        var a = /^(\s+)/.exec(innerText);
+        var regex;
+        if(a){
+          regex = new RegExp('('+a[0]+')(\\s*)','ig');
+          innerText = innerText.replace(regex,'$2');
+        }
+          node.html(innerText);
+      });
+      if(window.prettyPrint){
+        prettyPrint();
+      }
+    });
+
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  </script>
+  
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

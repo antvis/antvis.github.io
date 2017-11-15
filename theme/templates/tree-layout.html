@@ -1,0 +1,410 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>G6树布局工具</title>
+  <!--
+  -->
+  <meta name="keywords"
+        content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+  <script src="https://gw.alipayobjects.com/as/g/datavis/g6/1.1.6/index.js"></script>
+  <style>
+    body {
+      margin: 0;
+    }
+    .demo-head {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 62px;
+      box-shadow: 0 1px 0 #ededed;
+      z-index: 13;
+    }
+    .demo-head .header {
+      width: 100%;
+      height: 62px;
+      line-height: 62px;
+      background: #fff;
+    }
+    .demo-head .header a.header-back {
+      height: 62px;
+      width: 74px;
+      margin-right: 30px;
+      text-align: center;
+      float: left;
+      color: #666;
+      border-right: 1px solid #efefef;
+      text-decoration: none;
+    }
+    @font-face {
+      font-family: 'iconfont';
+      /* project id 45271 */
+      src: url('//at.alicdn.com/t/font_fxepk8l6sr05p14i.eot');
+      src: url('//at.alicdn.com/t/font_fxepk8l6sr05p14i.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_fxepk8l6sr05p14i.woff') format('woff'), url('//at.alicdn.com/t/font_fxepk8l6sr05p14i.ttf') format('truetype'), url('//at.alicdn.com/t/font_fxepk8l6sr05p14i.svg#iconfont') format('svg');
+    }
+    .iconfont {
+      font-family: "iconfont" !important;
+      font-size: 16px;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke-width: 0.2px;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .icon-dribbble:before {
+      content: '\e646';
+    }
+    .icon-creations:before {
+      content: '\e645';
+    }
+    .icon-Bullet:before {
+      content: '\e6ee';
+    }
+    .icon-wordCloud:before {
+      content: '\e6ed';
+    }
+    .icon-bi-directional-bar:before {
+      content: '\e6ec';
+    }
+    .icon-facet:before {
+      content: "\e6ea";
+    }
+    .icon-other:before {
+      content: "\e6e9";
+    }
+    .icon-search:before {
+      content: "\e600";
+    }
+    .icon-arrowleft:before {
+      content: "\e601";
+    }
+    .icon-arrowright:before {
+      content: "\e602";
+    }
+    .icon-doubleleft:before {
+      content: "\e603";
+    }
+    .icon-doubleright:before {
+      content: "\e604";
+    }
+    .icon-down:before {
+      content: "\e605";
+    }
+    .icon-left:before {
+      content: "\e606";
+    }
+    .icon-right:before {
+      content: "\e607";
+    }
+    .icon-top:before {
+      content: "\e608";
+    }
+    .icon-design:before {
+      content: "\e62e";
+    }
+    .icon-compare:before {
+      content: "\e609";
+    }
+    .icon-relation:before {
+      content: "\e60b";
+    }
+    .icon-path:before {
+      content: "\e60d";
+    }
+    .icon-location:before {
+      content: "\e60e";
+    }
+    .icon-distribute:before {
+      content: "\e60c";
+    }
+    .icon-range:before {
+      content: "\e60f";
+    }
+    .icon-trend:before {
+      content: "\e62d";
+    }
+    .icon-time:before {
+      content: "\e610";
+    }
+    .icon-combine:before {
+      content: "\e611";
+    }
+    .icon-bar:before {
+      content: "\e612";
+    }
+    .icon-line:before {
+      content: "\e613";
+    }
+    .icon-donut-chart:before {
+      content: "\e617";
+    }
+    .icon-pie:before {
+      content: "\e615";
+    }
+    .icon-rose:before {
+      content: "\e616";
+    }
+    .icon-area:before {
+      content: "\e618";
+    }
+    .icon-radar-chart:before {
+      content: "\e619";
+    }
+    .icon-bubble-chart:before {
+      content: "\e61a";
+    }
+    .icon-treemap:before {
+      content: "\e61c";
+    }
+    .icon-heatmap:before {
+      content: "\e61b";
+    }
+    .icon-contourline:before {
+      content: "\e61d";
+    }
+    .icon-13shuxingtu:before {
+      content: "\e61f";
+    }
+    .icon-14liuchengtu:before {
+      content: "\e620";
+    }
+    .icon-chord:before {
+      content: "\e62b";
+    }
+    .icon-sankey:before {
+      content: "\e62c";
+    }
+    .icon-18wangzhuangtu:before {
+      content: "\e621";
+    }
+    .icon-19ditu:before {
+      content: "\e622";
+    }
+    .icon-boxplot:before {
+      content: "\e629";
+    }
+    .icon-histogram:before {
+      content: "\e623";
+    }
+    .icon-distributioncurve:before {
+      content: "\e625";
+    }
+    .icon-mosaic:before {
+      content: "\e626";
+    }
+    .icon-funnel:before {
+      content: "\e624";
+    }
+    .icon-k-chart:before {
+      content: "\e627";
+    }
+    .icon-gauge:before {
+      content: "\e62a";
+    }
+    .icon-venn:before {
+      content: "\e628";
+    }
+    .icon-regressioncurve:before {
+      content: "\e61e";
+    }
+    .icon-flow:before {
+      content: "\e62f";
+    }
+    .icon-multi-set-bar:before {
+      content: "\e630";
+    }
+    .icon-stacked-bar:before {
+      content: "\e632";
+    }
+    .icon-bubble-map:before {
+      content: "\e631";
+    }
+    .icon-stem-leaf:before {
+      content: "\e633";
+    }
+    .icon-dot-map:before {
+      content: "\e634";
+    }
+    .icon-radial-bar:before {
+      content: "\e635";
+    }
+    .icon-04qipaotu:before {
+      content: "\e614";
+    }
+    .icon-scatter-plot:before {
+      content: "\e637";
+    }
+    .icon-choropleth-map:before {
+      content: "\e638";
+    }
+    .icon-shejiguifan2:before {
+      content: "\e60a";
+    }
+    .icon-quanbu:before {
+      content: "\e639";
+    }
+    .icon-shejiyuanze:before {
+      content: "\e63a";
+    }
+    .icon-stacked-area:before {
+      content: "\e636";
+    }
+    .icon-wenzhang:before {
+      content: "\e63c";
+    }
+    .icon-zhoukan:before {
+      content: "\e63d";
+    }
+    .icon-anli:before {
+      content: "\e63b";
+    }
+    .icon-color-map:before {
+      content: "\e63e";
+    }
+    .icon-113fenleifenqunrelitu:before {
+      content: "\e63f";
+    }
+    .icon-114shijianrelitu:before {
+      content: "\e640";
+    }
+    .icon-jingxiangshutu:before {
+      content: "\e641";
+    }
+    .icon-jingxiangshutufuben:before {
+      content: "\e6c9";
+    }
+    .icon-kagi:before {
+      content: "\e6ca";
+    }
+    .icon-spiral:before {
+      content: "\e6cb";
+    }
+    .icon-proportion:before {
+      content: "\e6cf";
+    }
+    .icon-cross:before {
+      content: "\e6d0";
+    }
+    .icon-copy:before {
+      content: "\e6d1";
+    }
+    .icon-play:before {
+      content: "\e643";
+    }
+    .icon-to-top:before {
+      content: "\e69a";
+    }
+    .icon-xinlangweibo:before {
+      content: "\e644";
+    }
+    .icon-github:before {
+      content: "\e674";
+    }
+    .icon-arcDiagram:before {
+      content: "\e6c9";
+    }
+    .icon-xiayinhao:before {
+      content: "\e6f1";
+    }
+    .icon-shangyinhao:before {
+      content: "\e6f0";
+    }
+    .icon-icon-test1:before {
+      content: "\e6f2";
+    }
+    .main-container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #container {
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+    }
+
+    #control-panel {
+      width: 300px;
+      /*background-color: #eee;*/
+      padding: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    #canvas-container {
+      order: 1;
+      flex: 1 100%;
+    }
+
+    .form-item, .form-label {
+      display: block;
+      width: 100%;
+    }
+
+    input.form-item {
+      box-sizing: border-box;
+      padding: 1% 1% 1% 2%;
+      width: 98%;
+    }
+
+    textarea {
+      max-height: 500px;
+      width: 100%;
+    }
+
+    #canvas {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    #canvas-container {
+      /*font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, SimSun, sans-serif;*/
+    }
+
+    hr {
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+<div class="main-container clearfix">
+  <!-- g6-tree-layout 页面头部导航栏 -->
+  <div class="demo-head" style="position: relative;">
+    <div class="header clearfix">
+      <a class="header-back" href="/{{post.meta.chanel}}/doc">
+        <i class="iconfont icon-cross"></i>
+      </a>
+      <div class="header-crumb">
+        <span class="chanel">G6 树布局</span>
+      </div>
+    </div>
+  </div>
+  <div id='container'>
+    <aside id="control-panel">
+      <h3>参数</h3>
+      <form id="layout-props">
+        <label class="form-label">树节点数</label>
+        <input class="form-item" name="treeSize" type="range" min="5" max="300" value="20">
+        <label class="form-label">布局算法</label>
+        <select id="layout-type" class="form-item" name="layoutType"></select>
+        <label class="form-label">方向</label>
+        <select id="direction" class="form-item" name="direction"></select>
+        <hr>
+        <div id="props-container">
+        </div>
+      </form>
+      <hr>
+      <h3>代码</h3>
+      <textarea id="code" cols="32" rows="50"></textarea>
+    </aside>
+    <div id="canvas-container"></div>
+  </div>
+  <script src="/static/tree-layout.min.js"></script>
+</div>
+<!--<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>-->
+</body>
+</html>
+

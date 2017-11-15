@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>分布曲线图</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item hover last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+
+  <div class="main-container clearfix">
+  <div class="doc-content vis-chart">
+    <div class="doc-inner vis-chart">
+      <h1>分布曲线图</h1>
+      <p><img src="https://t.alipayobjects.com/images/T1BjJkXcxgXXXXXXXX.png"/></p>
+<h2 id="分布曲线图的简介">分布曲线图的简介</h2><p>分布曲线图展示的是一种概率分布，也是一种同统计学紧密结合的图表。分布曲线是一种对称的钟形曲线，具有均数等于0，标准差等于1的特点，从而使标准分数在实际运用时非常有用。较常用的概率密度函数有：</p>
+<ul>
+<li>核密度估计概率密度：核密度估计（kernel density estimation）是在概率论中用来估计未知的密度函数，属于非参数检验方法之一。由于核密度估计方法不利用有关数据分布的先验知识，对数据分布不附加任何假定，是一种从数据样本本身出发研究数据分布特征的方法，因而，在统计学理论和应用领域均受到高度的重视。下图展示了几种比较常用的核函数，图中展示的是某一品种的鸢尾花花瓣长度的分布曲线。</li>
+</ul>
+<div id="c1" style="float: left;width: 250px;">
+  <h5 style="text-align: center;margin-left: 65px;">高斯核函数</h5>
+</div>
+<div id="c2" style="float: left;width: 250px;">
+  <h5 style="text-align: center;margin-left: 65px;">三角核函数</h5>
+</div>
+<div id="c3" style="float: left;width: 250px;">
+  <h5 style="text-align: center;margin-left: 65px;">四次方核函数</h5>
+</div>
+
+<div style="clear: both;"></div>
+
+<ul>
+<li>正态分布概率密度：正态分布又名高斯分布，是一个在数学、物理及工程等领域都非常重要的概率分布，由于这个分布函数具有很多非常漂亮的性质，使得其在诸多涉及统计科学离散科学等领域的许多方面都有着重大的影响力。</li>
+</ul>
+<div id="c4" style="width:700px;margin: 0 auto;"></div>
+
+<div class="code hide">
+$.getJSON('./data/iris_flower_data.json?nowrap', function(data) {
+  var dataSet1 = [];
+  var dataSet2 = [];
+  var dataSet3 = [];
+
+  for(var i=0;i < data.length;i++){
+    var item = data[i];
+    if(item["品种"] === 'I. setosa') {
+      dataSet1.push(item);
+    } else if(item["品种"] === 'I. versicolor') {
+      dataSet2.push(item);
+    }else if(item["品种"] === 'I. virginica') {
+      dataSet3.push(item);
+    }
+  }
+
+  var Stat = G2.Stat;
+  var chart = new G2.Chart({
+    id: 'c1',
+    forceFit: true,
+    height: 300,
+    plotCfg:{
+      margin: [20,20,60,80]
+    }
+  });
+
+  chart.source(dataSet1);
+  chart.tooltip(false);
+  chart.line().position(Stat.density.kernel.gaussian('花瓣长度',0.03)).color(G2.Global.colors['intervalStack'][2]);
+  chart.render();
+
+  var chart2 = new G2.Chart({
+    id: 'c2',
+    forceFit: true,
+    height: 300,
+    plotCfg:{
+      margin: [20,20,60,80]
+    }
+  });
+
+  chart2.source(dataSet1);
+  chart2.tooltip(false);
+  chart2.line().position(Stat.density.kernel.triangular('花瓣长度',0.03)).color(G2.Global.colors['intervalStack'][1]);
+  chart2.render();
+
+  var chart3 = new G2.Chart({
+    id: 'c3',
+    forceFit: true,
+    height: 300,
+    plotCfg:{
+      margin: [20,20,60,80]
+    }
+  });
+
+  chart3.source(dataSet1);
+  chart3.tooltip(false);
+  chart3.line().position(Stat.density.kernel.quartic('花瓣长度',0.03)).color(G2.Global.colors['intervalStack'][0]);
+  chart3.render();
+
+  var chart4 = new G2.Chart({
+    id: 'c4',
+    forceFit: true,
+    height: 300
+  });
+
+  chart4.source(dataSet1);
+  chart4.tooltip(false);
+  chart4.line().position(Stat.density.normal('花瓣长度',0.01));
+  chart4.render();
+
+});
+</div>
+
+
+<h2 id="分布曲线图的构成">分布曲线图的构成</h2><p><img src="https://t.alipayobjects.com/images/T1AjNkXjNfXXXXXXXX.png" class="constitute-img"/></p>
+<p>分布曲线图由以下元素构成:</p>
+<ul>
+<li>横轴：表示自变量</li>
+<li>纵轴：表示因变量</li>
+<li>表示概率分布的分布曲线</li>
+</ul>
+<div style="clear: both;"></div>
+
+<h2 id="分布曲线图的应用场景">分布曲线图的应用场景</h2><p>分布主要用于统计学领域，表达了某一个或某几个维度上的样本数据的分布情况。</p>
+<p>现在我们有一组 2003 年抽样调查的男性的身高数据，借助分布曲线图我们可以很直观得观察身高这一属性是否符合正态分布。</p>
+<table>
+<thead>
+<tr>
+<th>性别</th>
+<th>身高（cm）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>男</td>
+<td>174</td>
+</tr>
+<tr>
+<td>男</td>
+<td>175.3</td>
+</tr>
+<tr>
+<td>男</td>
+<td>193.5</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>男</td>
+<td>180.3</td>
+</tr>
+</tbody>
+</table>
+<div id="c6"></div>
+
+<p>从上图中可以看出，该组数据基本符合正态分布。</p>
+<div class="code hide">
+$.getJSON('./data/scatter.json',function (data) {
+  var dataset = [];
+  for(var i=0;i < data.length;i++) {
+    var item = data[i];
+    if (item.gender === 'male'){
+      dataset.push(item);
+    }
+  }
+  var Stat = G2.Stat;
+  var chart = new G2.Chart({
+    id: 'c6',
+    forceFit: true,
+    height: 400
+  });
+
+  chart.source(dataset);
+  chart.interval().position(Stat.summary.count(Stat.bin.rect('height')));
+  chart.line().position(Stat.density.normal('height',0.01));
+  chart.render();
+});
+</div>
+
+
+<h2 id="分布曲线图的扩展阅读">分布曲线图的扩展阅读</h2><ul>
+<li><a href="http://wiki.mbalib.com/wiki/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83">正太分布</a></li>
+<li><a href="http://songshuhui.net/archives/77386">正态分布的前世今生</a></li>
+</ul>
+
+      <h2 id="标签">标签</h2>
+      <div>
+
+        <ul class="vis-classify-list small clearfix">
+          <li>
+            <a href="../../../../vis/doc/chart/classify/distribute.html">
+              <span>分布类</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $.fn.isOnScreen = function(){
+      var win = $(window);
+      var viewport = {
+          top : win.scrollTop(),
+          left : win.scrollLeft()
+      };
+      viewport.right = viewport.left + win.width();
+      viewport.bottom = viewport.top + win.height();
+      var bounds = this.offset();
+      bounds.right = bounds.left + this.outerWidth();
+      bounds.bottom = bounds.top + this.outerHeight();
+      return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+    };
+    function ReplaceAll(str, sptr, sptr1){
+      while (str.indexOf(sptr) >= 0){
+         str = str.replace(sptr, sptr1);
+      }
+      return str;
+    }
+    function lazyLoad(codes) {
+      var isrun = [];
+      tryRun();
+      $(document).on('mousewheel',function(e){
+        tryRun();
+      });
+      function tryRun(){
+        codes.each(function(index,ele){
+          if (isrun.indexOf(ele) === -1) {
+            var $ele = $(ele);
+            if ( $ele.isOnScreen() ) {
+              setTimeout(function(){
+                var t = $ele.html();
+                t = ReplaceAll(t, '&lt;', '<');
+                t = ReplaceAll(t, '&gt;', '>');
+                t = ReplaceAll(t, '&amp;', '&');
+                eval(t);
+                $ele.hide();
+              },500);
+              isrun.push(ele);
+            };
+          };
+        });
+      }
+    }
+    var codes = $('.code');
+    lazyLoad(codes);
+  </script>
+
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Graph API 文档</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../static/jquery.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g6/1.1.6/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item hover">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+<link rel="stylesheet" href="../../static/prettify-min.css">
+<script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g6/1.1.6/index.js"></script>
+
+
+  <div class="main-container clearfix">
+<div class="body-content api-body-content"><div class="doc-nav">
+  <p class="title">G6</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <a href="/g6/doc/index.html" >快速上手</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir">使用教程</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="">
+            <a href="../../g6/doc/tutorial/start/base.html" >基础指南</a>
+          </li>
+          <li class="">
+            <a href="../../g6/doc/tutorial/start/net.html" >网图指南</a>
+          </li>
+          <li class="">
+            <a href="../../g6/doc/tutorial/start/updateDoc.html" >升级指南</a>
+          </li>
+          <li class="">
+            <a href="../../g6/doc/tutorial/start/custom-shape.html" >自定义图形</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g6/demo/index.html" >图表示例</a>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">API</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="">
+            <a href="../../g6/api/index.html" >G6</a>
+          </li>
+          <li class="active">
+            <a href="../../g6/api/graph.html" >Graph</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/item.html" >Item</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/net.html" >Net</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/tree.html" >Tree</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/handler.html" >Handler</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/layout.html" >Layout</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/canvas.html" >Canvas</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/matrix.html" >Matrix</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/global.html" >Global</a>
+          </li>
+          <li class="">
+            <a href="../../g6/api/util.html" >Util</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/g6/doc/history.html" >更新日志</a>
+    </li>
+    <li class="">
+      <a href="/g6/tools/index.html" >在线工具</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+  <div class="doc-content clearfix">
+    <h1>Graph</h1>
+    <div id="J_pageNav"></div>
+    <div class="clearfix" style="margin-bottom: 40px;"></div>
+    <div class="doc-inner">
+      <p><strong>Abstract</strong></p>
+<p>所有上层图的抽象类，都继承于该类</p>
+<h2 id="属性">属性</h2><p>下面是创建关系图的语法，生成的 Graph 提供了关系图配置的各种方法，下面会介绍到。</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> graph = <span class="keyword">new</span> G6.Graph({
+  id: <span class="string">'c1'</span>,
+  width: <span class="number">500</span>,
+  height: <span class="number">500</span>
+});</code></pre></div><p>G6 对象的所有属性获取方式如下：</p>
+<div class="highlight"><pre><code class="javascript">graph.get(<span class="string">'属性名'</span>);</code></pre></div><p>下面对所有的属性依次作说明介绍：</p>
+<h3 id="id-string"><a href="#id">id</a> {String}</h3><p>创建关系图的 DOM 容器 id。</p>
+<h3 id="container-domobject"><a href="#container">container</a> {DOMobject}</h3><p>除了传递 id 值来指定关系图容器，也支持直接传入容器的 html 节点对象。</p>
+<h3 id="width-number"><a href="#width">width</a> {Number}</h3><p>设置关系图的宽度，单位像素。若不设置，则会根据父节点自适应宽度。</p>
+<h3 id="height-number"><a href="#height">height</a> {Number}</h3><p>设置关系图的高度，单位像素。</p>
+<h3 id="fitview-string-object"><a href="#fitView">fitView</a> {String|Object}</h3><p><code>初次绘制</code>适应视口，接收如下参数：</p>
+<ul>
+<li>&#39;autoSize&#39;       渲染完毕后，图形不变，自动缩放画布</li>
+<li>&#39;autoZoom&#39;       渲染完毕后，画布不变，自动缩放图形</li>
+<li>&#39;tl&#39;             渲染完毕后，画布不变，将图形放置在左上</li>
+<li>&#39;lc&#39;             渲染完毕后，画布不变，将图形放置在左中</li>
+<li>&#39;bl&#39;             渲染完毕后，画布不变，将图形放置在左下</li>
+<li>&#39;cc&#39;             渲染完毕后，画布不变，将图形放置在中间</li>
+<li>&#39;tc&#39;             渲染完毕后，画布不变，将图形放置在上中</li>
+<li>&#39;tr&#39;             渲染完毕后，画布不变，将图形放置在右上</li>
+<li>&#39;rc&#39;             渲染完毕后，画布不变，将图形放置在右中</li>
+<li>&#39;br&#39;             渲染完毕后，画布不变，将图形放置在右下</li>
+<li>&#39;bc&#39;             渲染完毕后，画布不变，将图形放置在下中</li>
+</ul>
+<div id='fitView'></div>
+
+<p><a href="/g6/demo/06-other/fitView.html">示例源码</a></p>
+<p></br></p>
+<script>
+$('#fitView').append("<button id='restore'>还原</button> ");
+$('#fitView').append("<button id='tl'>tl</button> ");
+$('#fitView').append("<button id='lc'>lc</button> ");
+$('#fitView').append("<button id='bl'>bl</button> ");
+$('#fitView').append("<button id='cc'>cc</button> ");
+$('#fitView').append("<button id='tc'>tc</button> ");
+$('#fitView').append("<button id='tr'>tr</button> ");
+$('#fitView').append("<button id='rc'>rc</button> ");
+$('#fitView').append("<button id='br'>br</button> ");
+$('#fitView').append("<button id='bc'>bc</button> ");
+$('#fitView').append("<button id='autoZoom'>autoZoom</button> ");
+$('#fitView').append("<button id='autoSize'>autoSize</button> </br>");
+
+var Matrix = G6.Matrix.Matrix3;
+var tl = $('#tl');
+var lc = $('#lc');
+var bl = $('#bl');
+var cc = $('#cc');
+var tc = $('#tc');
+var tr = $('#tr');
+var rc = $('#rc');
+var br = $('#br');
+var bc = $('#bc');
+var autoZoom = $('#autoZoom');
+var autoSize = $('#autoSize');
+var restore = $('#restore');
+var net = createNet();
+autoZoom.on('click', function(){
+  net.destroy();
+  net = createNet('autoZoom');
+});
+autoSize.on('click', function(){
+  net.destroy();
+  net = createNet('autoSize');
+});
+tl.on('click', function(){
+  net.destroy();
+  net = createNet('tl');
+});
+lc.on('click', function(){
+  net.destroy();
+  net = createNet('lc');
+});
+bl.on('click', function(){
+  net.destroy();
+  net = createNet('bl');
+});
+cc.on('click', function(){
+  net.destroy();
+  net = createNet('cc');
+});
+tc.on('click', function(){
+  net.destroy();
+  net = createNet('tc');
+});
+tr.on('click', function(){
+  net.destroy();
+  net = createNet('tr');
+});
+rc.on('click', function(){
+  net.destroy();
+  net = createNet('rc');
+});
+br.on('click', function(){
+  net.destroy();
+  net = createNet('br');
+});
+bc.on('click', function(){
+  net.destroy();
+  net = createNet('bc');
+});
+restore.on('click', function(){
+  net.destroy();
+  net = createNet();
+});
+function createNet(fitView){
+  // 第三步：设置数据
+  var data = {
+    "nodes": [
+      {
+        "x": 100,
+        "y": 130,
+        "id": "node1"
+      },
+      {
+        "x": 230,
+        "y": 130,
+        "id": "node2"
+      }
+    ],
+    "edges": [
+      {
+        "source": "node1",
+        "id": "edge1",
+        "target": "node2"
+      }
+    ]
+  };
+  // 第四步：配置G6画布
+  var net = new G6.Net({
+    id: 'fitView', // 容器ID
+    fitView: fitView,
+    width: 430,    // 画布宽
+    height: 430    // 画布高
+  });
+  // 第五步：载入数据
+  net.source(data.nodes, data.edges);
+  // 第六步：渲染关系图
+  net.render();
+  return net;
+}
+</script>
+
+<h3 id="behavioursignal-object"><a href="#behaviourSignal">behaviourSignal</a> {Object}</h3><p>只读字段，存储一些行为的信号量。如：</p>
+<p>{
+  draggingNode,   // 是否正在拖拽节点
+  frameSelecting, // 是否正在进行框选
+  draggingEdge,   // 是否正在进行拖拽边端点
+  resizingNode,   // 是否正在节点变形操作
+}</p>
+<h3 id="grid-object"><a href="#grid">grid</a> {Object}</h3><p>网格配置项</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/MsLODKhnZZmnUSlzNIIo.png" alt="image"></p>
+<p>G6 内置了一套网格系统，<code>cell</code> 可以配置单个网格的大小，<code>line</code> 配置网格线的样式。</p>
+<div class="highlight"><pre><code class="javascript"><span class="keyword">var</span> data = {
+  nodes: [],
+  edges: []
+};
+<span class="keyword">var</span> graph = <span class="keyword">new</span> G6.Graph({
+  id: <span class="string">'c1'</span>,           <span class="comment">// 容器ID</span>
+  width: <span class="number">500</span>,         <span class="comment">// 画布宽</span>
+  height: <span class="number">500</span>,        <span class="comment">// 画布高</span>
+  grid: {
+    forceAlign: <span class="literal">true</span>, <span class="comment">// 是否支持网格对齐</span>
+    cell: <span class="number">10</span>,         <span class="comment">// 网格大小</span>
+    line: {           <span class="comment">// 网格线样式</span>
+      stroke: <span class="string">'#333'</span>
+    }
+  }
+});
+graph.source(data.nodes, data.edges);
+graph.render();</code></pre></div><p>配置为 <code>null</code>，则不显示网格</p>
+<div class="highlight"><pre><code class="javascript">grid: <span class="literal">null</span></code></pre></div><p><code>forceAlign</code> 是配合内置交互的配置项，为 true，表示拖、拉、拽交互时节点会对齐网格节点。这点在手动布局时对齐节点，非常有用。见下动图。</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/dYZffesDrgEHgqMYbout.gif" alt="image"></p>
+<h3 id="useanchor-boolean"><a href="#useAnchor">useAnchor</a> {Boolean}</h3><p>是否使用锚点</p>
+<h3 id="el-domobject"><a href="#el">el</a> {DOMobject}</h3><p>最上层的canvas DOM，原生DOM事件由它捕获，可用于设置鼠标样式。</p>
+<h3 id="modes-object-string"><a href="#modes">modes</a> {Object|String}</h3><p>模式列表</p>
+<p>示例：</p>
+<div class="highlight"><pre><code class="javascript">{
+  <span class="keyword">default</span>: [<span class="string">'dragNode'</span>, <span class="string">'clickActive'</span>],
+  add: [<span class="string">'clickAddNode'</span>]
+}</code></pre></div><h3 id="mode-string"><a href="#mode">mode</a> {String}</h3><p>当前选择的模式，默认 <code>default</code></p>
+<h3 id="animate-boolean"><a href="#animate">animate</a> {Boolean}</h3><p>是否开启动画</p>
+<h2 id="实例方法">实例方法</h2><h3 id="source-function"><a href="#source">source</a> {Function}</h3><p>加载数据源</p>
+<p><strong>以下字段对默认的<code>node</code>有特定含义</strong></p>
+<div class="highlight"><pre><code class="javascript">{
+  id,      <span class="comment">// 唯一标识</span>
+  x,       <span class="comment">// x 坐标</span>
+  y,       <span class="comment">// y 坐标</span>
+  size,    <span class="comment">// 尺寸</span>
+  style,   <span class="comment">// 样式</span>
+  color,   <span class="comment">// 颜色</span>
+  shape,   <span class="comment">// 形状</span>
+  label    <span class="comment">// 标注</span>
+}</code></pre></div><p><strong>以下字段对默认的<code>edge</code>有特定含义</strong></p>
+<div class="highlight"><pre><code class="javascript">{
+  id,            <span class="comment">// 唯一标识</span>
+  size,          <span class="comment">// 尺寸</span>
+  style,         <span class="comment">// 样式</span>
+  color,         <span class="comment">// 颜色</span>
+  shape,         <span class="comment">// 形状</span>
+  label,         <span class="comment">// 标注</span>
+  controlPoints, <span class="comment">// 控制点</span>
+  sourceAnchor,  <span class="comment">// 连接源节点锚点索引</span>
+  targetAnchor   <span class="comment">// 连接目标节点锚点索引</span>
+}</code></pre></div><p><a href="/g6/demo/06-other/source.html">示例</a></p>
+<h3 id="render-function"><a href="#render">render</a> {Function}</h3><p>渲染数据</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 渲染
+ */</span>
+graph.render();</code></pre></div><h3 id="node-function"><a href="#node">node</a> {Function}</h3><p>param 可是是值，也可是回调函数</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 节点颜色映射
+ * @param  {String|Function} param 支持通用颜色
+ */</span>
+graph.node().color(param)    
+<span class="comment">/**
+ * 节点大小映射
+ * @param  {Number|Array|Function} param 
+ * Number 长宽均为该值
+ * Array [width, height] 长宽
+ */</span>
+graph.node().size(param)     
+<span class="comment">/**
+ * 节点形状映射
+ * @param  {String|Function} param
+ */</span>
+graph.node().shape(param)   
+<span class="comment">/**
+ * 节点文本映射
+ * @param  {String|Function} param
+ */</span>
+graph.node().label(param)
+<span class="comment">/**
+ * 节点样式映射
+ * @param  {Object|Function} param
+ */</span>
+graph.node().style(param)   
+<span class="comment">/**
+ * 提示信息映射
+ * @param  {Array|Function} param
+ */</span>
+graph.node().tooltip(param)</code></pre></div><p><a href="/g6/demo/06-other/mapping.html">示例</a></p>
+<h3 id="edge-function"><a href="#node">edge</a> {Function}</h3><p>param 可是是值，也可是回调函数</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 边颜色映射
+ * @param  {String|Function} param 支持通用颜色
+ */</span>
+graph.edge().color(param)
+<span class="comment">/**
+ * 边粗细映射
+ * @param  {Number|Function} param 
+ */</span>
+graph.edge().size(param)
+<span class="comment">/**
+ * 边形状映射
+ * @param  {String|Function} param 
+ */</span>
+graph.edge().shape(param)   
+<span class="comment">/**
+ * 边文本映射
+ * @param  {String|Function} param 
+ */</span>
+graph.edge().label(param)   
+<span class="comment">/**
+ * 样式映射
+ * @param  {Object} param 
+ */</span>
+graph.edge().style(param)   
+<span class="comment">/**
+ * 提示信息映射
+ * @param  {Array|Function} param 
+ */</span>
+graph.edge().tooltip(param)</code></pre></div><p><a href="/g6/demo/06-other/mapping.html">示例</a></p>
+<h3 id="tooltip-function"><a href="#tooltip">tooltip</a> {Function}</h3><p>G6 中提示信息功能默认关闭，若要开启，需要调用该方法。需要注意以下几点：</p>
+<ol>
+<li>该方法需配合tooltip映射才能生效。</li>
+<li>生成的提示框是DOM节点，可以在外部用css控制样式</li>
+</ol>
+<div class="highlight"><pre><code class="javascript">graph.tooltip(<span class="literal">true</span>)</code></pre></div><p>示例：</p>
+<style type="text/css">
+  .g6-tooltip ul li {
+    list-style: none;
+    color: #fff;
+  }
+  .g6-tooltip h4 {
+    font-size: 18px;
+  }
+  .g6-tooltip h4 {
+    background: none;
+    color: #fff;
+    padding-left: 0px;
+  }
+</style>
+
+<div id="tooltip_true"></div>
+
+<script type="text/javascript">
+var data = {
+  nodes: [
+    {
+      x: 200,
+      y: 210,
+      id: 'node1',
+    },
+    {
+      x: 330,
+      y: 170,
+      id: 'node2',
+    },
+  ],
+  edges: [
+    {
+      source: 'node1',
+      id: 'edge1',
+      target: 'node2',
+    },
+  ],
+};
+
+var graph = new G6.Graph({
+  id: 'tooltip_true',      // 容器ID
+  width: 500,    // 画布宽
+  height: 500,   // 画布高
+  grid: {
+    forceAlign: true, // 是否支持网格对齐
+    cell: 10,          // 网格大小
+  },
+});
+graph.tooltip(true);
+graph.source(data.nodes, data.edges);
+graph.node().tooltip('id');
+graph.render();
+</script>
+
+<p><a href="/g6/demo/06-other/tooltip-true.html">示例源码</a></p>
+<div class="highlight"><pre><code class="javascript">graph.tooltip({
+  title: <span class="string">'标题'</span>, <span class="comment">// @type {String} 标题</span>
+  split: <span class="string">'=&gt;'</span>,  <span class="comment">// @type {String} 分割符号</span>
+  dx: <span class="number">10</span>,       <span class="comment">// @type {Number} 水平偏移</span>
+  dy: <span class="number">10</span>        <span class="comment">// @type {Number} 竖直偏移</span>
+});</code></pre></div><p>示例：</p>
+<div id="tooltip_cfg"></div>
+
+<script type="text/javascript">
+var data = {
+  nodes: [
+    {
+      x: 200,
+      y: 210,
+      id: 'node1',
+    },
+    {
+      x: 330,
+      y: 170,
+      id: 'node2',
+    },
+  ],
+  edges: [
+    {
+      source: 'node1',
+      id: 'edge1',
+      target: 'node2',
+    },
+  ],
+};
+
+var graph = new G6.Graph({
+  id: 'tooltip_cfg',      // 容器ID
+  width: 500,
+  height: 500             // 画布高
+});
+graph.tooltip({
+  title: '标题', // @type {String} 标题
+  split: '=>',  // @type {String} 分割符号
+  dx: 10,       // @type {Number} 水平偏移
+  dy: 10        // @type {Number} 竖直偏移
+});
+graph.source(data.nodes, data.edges);
+graph.node().tooltip('id');
+graph.render();
+</script>
+
+<p><a href="/g6/demo/06-other/tooltip-cfg.html">示例源码</a></p>
+<h3 id="on-function"><a href="#on">on</a> {Function}</h3><p>事件绑定。<code>ev</code> 是事件对象，含下列字段：</p>
+<ul>
+<li>x 在画布上的坐标x</li>
+<li>y 在画布上的坐标y</li>
+<li>domX 相对于画布容器的坐标</li>
+<li>domY 相对于画布容器的坐标y</li>
+<li>item 节点或者边</li>
+<li>shape 当前的形</li>
+<li>itemType &#39;node&#39; or &#39;edge&#39;</li>
+<li>toEvObj 到达的目标事件对象 （mouseleave时可用）</li>
+</ul>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 事件绑定
+ * @param  {String}   eventType 事件类型
+ * @param  {Function} fn        回调函数
+ */</span>
+graph.on(eventType,fn);</code></pre></div><p>graph 上目前支持一下事件</p>
+<div class="highlight"><pre><code class="javascript">graph.on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});           <span class="comment">// 鼠标左键单击事件</span>
+graph.on(<span class="string">'dblclick'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});        <span class="comment">// 鼠标左键双击事件</span>
+graph.on(<span class="string">'mousedown'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});       <span class="comment">// 鼠标左键按下事件</span>
+graph.on(<span class="string">'mouseup'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});         <span class="comment">// 鼠标左键抬起事件</span>
+graph.on(<span class="string">'mousemove'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});       <span class="comment">// 鼠标移动事件</span>
+graph.on(<span class="string">'contextmenu'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});     <span class="comment">// 鼠标右键点击事件</span>
+graph.on(<span class="string">'mouseenter'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});      <span class="comment">// 鼠标进入元素事件</span>
+graph.on(<span class="string">'mouseleave'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});      <span class="comment">// 鼠标离开元素事件</span>
+graph.on(<span class="string">'keydown'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});         <span class="comment">// 键盘按键按下事件</span>
+graph.on(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});           <span class="comment">// 键盘按键抬起事件</span>
+graph.on(<span class="string">'mousewheel'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});      <span class="comment">// 鼠标滚轮事件</span>
+graph.on(<span class="string">'itemactived'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});     <span class="comment">// 子项激活后事件</span>
+graph.on(<span class="string">'itemunactived'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});   <span class="comment">// 子项取消激活后事件</span>
+graph.on(<span class="string">'itemhover'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});       <span class="comment">// 子项鼠标悬浮事件</span>
+graph.on(<span class="string">'itemupdate'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});      <span class="comment">// 子项更新后事件</span>
+graph.on(<span class="string">'itemremove'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});      <span class="comment">// 子项移除后事件</span>
+graph.on(<span class="string">'itemadd'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});         <span class="comment">// 添加子项结束后</span>
+graph.on(<span class="string">'itemmouseenter'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});  <span class="comment">// 子项鼠标进入事件</span>
+graph.on(<span class="string">'itemmouseleave'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>});  <span class="comment">// 子项鼠标离开事件</span>
+graph.on(<span class="string">'afteritemrender'</span>, <span class="function"><span class="keyword">function</span><span class="params">(ev)</span>{</span>}); <span class="comment">// 子项渲染结束后事件</span></code></pre></div><p><a href="/g6/demo/06-other/event.html">示例</a></p>
+<h3 id="off-function"><a href="#off">off</a> {Function}</h3><p>事件解除。<code>callBack</code> 用于指定要删除的回调方法，如果没有设置，则解除所有该事件类型下的方法。</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 事件解除
+ * @param  {String}   eventType 事件类型
+ * @param  {Function} fn        回调函数
+ */</span>
+graph.off(eventType,fn);</code></pre></div><h3 id="remove-function"><a href="#remove">remove</a> {Function}</h3><p>删除子项，<code>param</code> 是子项或是子项id</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 删除子项
+ * @param  {Item|String}   param
+ */</span>
+graph.remove(item)</code></pre></div><h3 id="update-function"><a href="#update">update</a> {Function}</h3><p>更新子项，<code>param</code> 是子项或是子项id，<code>model</code> 是数据模型。</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 更新子项数据模型
+ * @param  {Item|String}   param
+ * @param  {Object} model
+ */</span>
+graph.update(param, model)</code></pre></div><h3 id="find-function"><a href="#find">find</a> {Function}</h3><p>查找子项</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 通过 id 查找子项
+ * @param  {String} id
+ */</span>
+graph.find(id)</code></pre></div><h3 id="refresh-function"><a href="#refresh">refresh</a> {Function}</h3><p>调用了一些直接操作图形的接口，要刷新画布才能显示效果。</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 刷新画布
+ */</span>
+graph.refresh();</code></pre></div><h3 id="changedata-function"><a href="#changeData">changeData</a> {Function}</h3><p>重新加载数据，并刷新。(接收的数据 和 source 方法一致)</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 更改数据
+ */</span>
+graph.changeData(param1, param2, ……);</code></pre></div><h3 id="changemode-function"><a href="#changeMode">changeMode</a> {Function}</h3><p>改变模式</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 改变编辑模式
+ * @param  {String} modeName 模式名
+ */</span>
+graph.changeMode(modeName);</code></pre></div><h3 id="addbehaviour-function"><a href="#addBehaviour">addBehaviour</a> {Function}</h3><p>在某个模式下添加行为</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 添加行为
+ * @param  {String} modeName   模式
+ * @param  {String} behaviours 行为集
+ */</span>
+graph.addBehaviour(modeName, behaviours);</code></pre></div><p>也可以不传<code>modeName</code>，只传<code>behaviours</code>，则把所有模式中的该行为集合全部添加。</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 添加行为
+ * @param  {String} behaviours  行为集
+ */</span>
+graph.addBehaviour(behaviours);</code></pre></div><h3 id="removebehaviour-function"><a href="#removeBehaviour">removeBehaviour</a> {Function}</h3><p>移除行为（与<code>addBehaviour</code> 对应）</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 添加行为
+ * @param  {String} modeName   模式
+ * @param  {String} behaviours 行为集
+ */</span>
+graph.removeBehaviour(modeName, behaviours);</code></pre></div><p>也可以不传<code>modeName</code>，只传<code>behaviours</code>，则把所有模式中的该行为集合全部删除。</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 添加行为
+ * @param  {String} behaviours  行为集
+ */</span>
+graph.removeBehaviour(behaviours);</code></pre></div><h3 id="setitemactived-function"><a href="#setItemActived">setItemActived</a> {Function}</h3><p>设置子项激活，<code>item</code> 是子项。</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 设置子项激活，`item`是子项。
+ * @param  {Item}    item 子项
+ * @param  {Boolean} bool 设置是否激活
+ */</span>
+graph.setItemActived(item, bool);</code></pre></div><h3 id="autozoom-function"><a href="#autoZoom">autoZoom</a> {Function}</h3><p>自动缩放</p>
+<div class="highlight"><pre><code class="javascript">graph.autoZoom();</code></pre></div><h3 id="autosize-function"><a href="#autoSize">autoSize</a> {Function}</h3><p>自动图形居中，并缩放画布尺寸</p>
+<div class="highlight"><pre><code class="javascript">graph.autoSize();</code></pre></div><h3 id="resetzoom-function"><a href="#resetZoom">resetZoom</a> {Function}</h3><p>重置缩放</p>
+<div class="highlight"><pre><code class="javascript">graph.resetZoom();</code></pre></div><h3 id="read-function"><a href="#read">read</a> {Function}</h3><p>读数据，与 <code>save</code> 对应。</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 读数据
+ * @param  {Object} data 子项
+ */</span>
+graph.read(data);</code></pre></div><h3 id="save-function"><a href="#save">save</a> {Function}</h3><p>存数据，与 <code>read</code> 对应。</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 存数据
+ * @return {Object} data
+ */</span>
+graph.save();</code></pre></div><h3 id="focuspoint-function"><a href="#focusPoint">focusPoint</a> {Function}</h3><p>以某点为中心显示画布</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 聚焦某点
+ * @param  {Object} point 点
+ */</span>
+graph.focusPoint(point);</code></pre></div><h3 id="updatematrix-function"><a href="#updateMatrix">updateMatrix</a> {Function}</h3><p>更新画布根节点矩阵</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 更新画布根节点矩阵
+ * @param  {Object} matrix 矩阵
+ */</span>
+graph.updateMatrix(point);</code></pre></div><h3 id="changesize-function"><a href="#changeSize">changeSize</a> {Function}</h3><p>更改画布的尺寸</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 更改画布的尺寸
+ * @param  {Number} width  宽度
+ * @param  {Number} height 高度
+ */</span>
+graph.changeSize(width, height);</code></pre></div><h3 id="updatenodespositon-function"><a href="#updateNodesPositon">updateNodesPositon</a> {Function}</h3><p>更新节点位置信息（一般与动态布局联用）</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">/**
+ * 更新节点位置信息
+ */</span>
+graph.updateNodesPositon();</code></pre></div>
+    </div>
+  </div>
+</div>
+<script src="../../static/prettify-min.js"></script>
+<script src="../../static/clipboard.min.js"></script>
+<script type="text/javascript">
+var CLS_PRETTY = 'prettyprint linenums';
+BUI.use('bui/common',function(BUI){
+  var preEls = $('pre');
+  BUI.each(preEls,function(el){
+    var node = $(el), innerText;
+    node.addClass(CLS_PRETTY);
+    innerText = node.html();
+    var a = /^(\s+)/.exec(innerText),
+      regex;
+    if(a){
+      regex = new RegExp('('+a[0]+')(\\s*)','ig');
+      innerText = innerText.replace(regex,'$2');
+    }
+
+    node.html(innerText);
+  });
+  if(window.prettyPrint){
+    prettyPrint();
+  }
+});
+
+$(document).ready(function() {
+  var docEl = $('.doc-content');
+  var hEls = docEl.find('h2, h3');
+  var container = $('#J_pageNav');
+  var ulContainer;
+  var count = 0;
+  var hElsLen = hEls.length;
+  if (hElsLen > 0 && container.length > 0) {
+    for (var i = 0; i < hElsLen; i++) {
+      var el = hEls[i];
+      var node = $(el);
+      var text = node.text();
+      var id = node.attr('id');
+      var nodeName = el.nodeName;
+
+      if (nodeName === 'H2') {
+        count = 0;
+        if (ulContainer && ulContainer !== '<ul class="pagenav-columns">') {
+          ulContainer += '</ul>';
+          $(ulContainer).appendTo(container);
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<div class="clearfix separate"></div><p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        } else {
+          ulContainer = '<ul class="pagenav-columns">';
+          var title = '<p class="pagenav-title clearfix">' + text + '</p>';
+          $(title).appendTo(container);
+        }
+      } else {
+        var liItems = '<li><a href="#' + id + '">' + text + '</a></li>';
+        ulContainer += liItems;
+        count++;
+        if (count > 10) {
+          ulContainer += '</ul><ul class="pagenav-columns">';
+          count = 0;
+        }
+      }
+    }
+
+    ulContainer += '</ul>';
+    $(ulContainer).appendTo(container);
+
+    // 代码复制
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  }
+});
+</script>
+
+  </div><a href="javascript:void(0);" id='toTop' title="返回顶部">
+	<i class="iconfont icon-to-top"></i>
+</a>
+ 
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>

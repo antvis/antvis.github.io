@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>颜色使用原则</title>
+  <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
+  <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
+  <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../../../../static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../static/tipuesearch/tipuesearch.css" >
+  <script src="../../../../static/jquery.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch_set.js"></script>
+  <script src="../../../../static/tipuesearch/tipuesearch.js"></script>
+  <script src="https://g.alicdn.com/bui/??seajs/2.3.0/sea.js"></script>
+  <script src="https://g.alicdn.com/bui/bui/1.1.17/config.js"></script>
+  <script src="../../../../static/script.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+</head>
+<body><header id="header">
+  <div class="nav-wrapper gradient-line">
+    <div class="nav-content clearfix">
+      <div class="pull-left">
+        <a href="/index.html" class="nav-logo">
+          <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+          <span class="logo-text">AntV</span>
+        </a>
+        <div class="search-box">
+          <form action="/search.html">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+          </form>
+        </div>
+      </div>
+      <div class="nav pull-right">
+        <ul id="J_nav" class="clearfix nav-list">
+          <li id="g2" class="nav-item">
+            <a class="nav-item-link" href="/g2/doc/index.html">G2</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/tutorial/start/index.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g2-mobile" class="nav-item">
+            <a class="nav-item-link" href="/g2-mobile/doc/index.html">G2-mobile</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/tutorial/shape.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g2-mobile/doc/history.html">更新日志</a></li>
+            </ul>
+          </li>
+          <li id="g6" class="nav-item">
+            <a class="nav-item-link" href="/g6/doc/index.html">G6</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/g6/doc/index.html">快速上手</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/tutorial/start/base.html">使用教程</a></li>
+              <li class="nav-sub-item"><a href="/g6/demo/index.html">图表示例</a></li>
+              <li class="nav-sub-item"><a href="/g6/api/index.html">API</a></li>
+              <li class="nav-sub-item"><a href="/g6/doc/history.html">更新日志</a></li>
+              <li class="nav-sub-item"><a href="/g6/tools/index.html" target="_blank">在线工具</a></li>
+            </ul>
+          </li>
+          <li id="vis" class="nav-item hover last">
+            <a class="nav-item-link" href="/vis/doc/chart/index.html">可视化基础</a>
+            <ul class="nav-sub-list fadeUp">
+              <li class="nav-sub-item"><a href="/vis/doc/chart/classify/compare.html">图表用法</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/design/index.html">图表设计指引</a></li>
+              <li class="nav-sub-item"><a href="/vis/doc/reference.html">经典文献</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+ 
+  <link rel="stylesheet" href="../../../../static/prettify-min.css">
+
+
+  <div class="main-container clearfix">
+  <div class="body-content tutorial-body-content"><div class="doc-nav">
+  <p class="title">可视化基础</p>
+  <ul class="doc-nav-list">
+    <li class="">
+      <div>
+        <div class="menu-dir">图表用法</div>
+        <ul class="doc-sub-nav-list" style="display:none;">
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/compare.html" >比较类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/distribute.html" >分布类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/flow.html" >流程类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/proportion.html" >占比类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/range.html" >区间类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/relation.html" >关联类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/trend.html" >趋势类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/time.html" >时间类</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/chart/classify/location.html" >地图类</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <div>
+        <div class="menu-dir active">图表设计指引</div>
+        <ul class="doc-sub-nav-list" style="">
+          <li class="sub-title">设计原则</li>
+          <li class="active">
+            <a href="../../../../vis/doc/design/principle/color.html" >颜色使用原则</a>
+          </li>
+          <li class="sub-title">组件规范</li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/base/axis.html" >坐标轴</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/base/grid.html" >栅格</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/base/legend.html" >图例</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/base/title.html" >标题</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/base/tooltip.html" >提示信息</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/func/liveUpdate.html" >实时更新</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/func/rangeSelect.html" >值域选择</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/func/responsive.html" >图表自适应</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/assist/baseLine.html" >基线</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/assist/referLine.html" >参考线</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/assist/valueDisplayed.html" >值提示</a>
+          </li>
+          <li class="">
+            <a href="../../../../vis/doc/design/rule/assist/otherAssist.html" >其他</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="">
+      <a href="/vis/doc/reference.html" >经典文献</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(".menu-dir").on("click", function(e){
+  var span = $(e.target);
+  span.toggleClass("active");
+  var ul = span.next();
+  if (!span.hasClass('active')) {
+    ul.slideUp(300);
+  } else {
+    ul.slideDown(300);
+  }
+});
+</script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
+    <div class="doc-content clearfix">
+      <div class="doc-inner">
+        <h2 id="什么是颜色">什么是颜色</h2><p>我们的生活中充满了颜色，人们之所以能看到各种颜色，主要是因为可见光的存在。光的实质是一种电磁波。但是整个波段中只有一小部分可以被我们人类眼睛识别。颜色是人的视觉系统对所接收到的光信号的一种主观的视觉感知。</p>
+<p>这只是简单的把色彩理解成光，但是我们眼中的色彩还是存在差异化的，因为人类感知色彩的途径有很多种。</p>
+<h2 id="颜色的感知">颜色的感知</h2><p>人对颜色的感知是一个主观的过程，大脑需要响应光对人体视锥细胞产生的刺激。</p>
+<p>物体所呈现的颜色由物体的材料属性、光源中各种波长分布和人的心理认知所共同决定，因此存在个体差异。也就是说，不同的人对相同颜色的感知也可能是不一样的。</p>
+<h2 id="色彩空间">色彩空间</h2><p>颜色的表示方法有很多，其中，色彩空间是描述使用一组值表示颜色的方法的抽象数学模型。常见的色彩空间包括RGB色彩空间、CMYK色彩空间和HSV/HSL色彩空间等。</p>
+<p>RGB色彩空间采用笛卡尔坐标系定义颜色，三个轴分别对应红色(R)、绿色(G)、蓝色(B)三个分量。RGB色彩空间是迄今为止使用最为广泛的色彩空间，几乎所有的电子显示设备都在使用RGB色彩空间。而CMYK通常应用于印刷行业中。</p>
+<p>HSV/HSL色彩空间遵循了人类的感知方式。人类对于颜色感知的方式通常包括三个问题：是什么颜色？深浅如何？明暗如何？在HSV色彩空间中，H指色相(Hue)，S指饱和度(Saturation)，V指明度(Value)，在HSL色彩空间中，L表示亮度(Lightness)。它们比RGB色彩空间更加直观且符合人类对颜色的语言描述。在1979年的ACM SIGGRAPH(美国计算机协会计算机图形学专业组)年度会议上，计算机图形学标准委员会推荐将HSL色彩空间用于颜色设计。</p>
+<p>在我们制定的颜色使用原则中，采用了HSL色彩空间作为制定规则的参考依据。</p>
+<h2 id="颜色映射的基本规则">颜色映射的基本规则</h2><p>颜色映射指的是颜色和数据值之间的映射关系，也就是对颜色进行可视化编码的过程。</p>
+<p>从可视化编码的角度对颜色进行分析，可以将颜色分为色相、亮度和饱和度三个视觉通道。
+色相本身不具有明显的顺序性，因此一般被用作定性的视觉通道。而亮度和饱和度可以被用作定量或定序的视觉通道。</p>
+<p>针对不同类型的数据，我们通常也会选用不同的颜色映射方式。</p>
+<p>在对有序型数据使用颜色映射时，应当利用亮度、饱和度这些量级视觉通道。在对类别型数据使用颜色映射时，应当利用色相这一定性通道。在某些情况下，若是已经通过其他方式编码了有序型数据的数值，也可以不使用亮度或饱和度来进行编码。问题在于，如果一旦使用了颜色映射，就应当遵循前面所说的规则。</p>
+<h2 id="图表用色指南">图表用色指南</h2><p>我们提出了一些图表用色上的建议，希望能帮助更多人友好地使用图表颜色。这部分用色指南也会不断地完善和优化。</p>
+<p>我们尝试给出了一个标准的配色方案，尽管这个标准方案不一定能满足所有的业务需求或是所有人的色彩感知。但是它在大多数情况下可以给你一些良好的建议和参考。</p>
+<p>AntV 定义的七个标准颜色：</p>
+<p><img src="https://os.alipayobjects.com/rmsportal/qBmJjXwCrcJgWQH.png"></p>
+<h3 id="1-单色的使用">1.单色的使用</h3><p>在使用单色就能表达数据意义的情况下，建议不使用多色。</p>
+<p><strong>单色相的使用：</strong></p>
+<p>在图表只展示单一属性的情况下，建议不要使用多种色相。</p>
+<p><strong>单明度和单饱和度的使用：</strong></p>
+<p>如果数据的数值已经通过形状、位置、角度等其他视觉通道进行了编码，那就没有必要再设置不同的亮度和饱和度。</p>
+<p><img src="https://os.alipayobjects.com/rmsportal/ezxGJHeyJUjDqJV.png"></p>
+<h3 id="2-多色的使用">2.多色的使用</h3><p>人们在不连续区域的情况下通常可以分辨6~12种不同色相，以及有限个可辨亮度层次。过多的颜色使用将对人类的视觉感知产生困扰。建议谨慎选择颜色的数量。</p>
+<ul>
+<li>注意：在考虑图表中的颜色数量时，需要将背景色和图例颜色考虑进去，即显示区域所有颜色的总和。</li>
+<li>注意：如果着色区域比较小，由于视觉通道的相互影响，可分辨的数量将相应有所下降。</li>
+</ul>
+<p><strong>多色相的使用：</strong></p>
+<p>当图表展示了多种不同的属性时，建议用不同色相来区分不同属性。</p>
+<ul>
+<li>注意：尽量避免使用相近色相。</li>
+</ul>
+<p><img src="https://os.alipayobjects.com/rmsportal/ocBUSJeXFGBjUgo.png"></p>
+<p><img src="https://os.alipayobjects.com/rmsportal/OoeDpGwgQeDxCAd.png"></p>
+<p><strong>多亮度与多饱和度的使用：</strong></p>
+<p>亮度和饱和度可以编码数据的顺序或数量特征。通常我们只会在特定图表内使用到多亮度或多饱和度，例如在一个“热力图”中，用不同亮度的红色来表示不同的气温测量值。 </p>
+<h3 id="3-背景色的使用">3.背景色的使用</h3><p>图表设计中的颜色使用必须统一，建议背景颜色不要选取与图表主体内容相同或相近的颜色。</p>
+<p>在一个精心设计的图表中，背景颜色既要能良好地衬托图表主体，又不产生喧宾夺主的效果。</p>
+<p>通常我们较多地使用白色、浅灰色作为背景颜色，有些情况下也会使用黑色。</p>
+<h3 id="4-透明度的使用">4.透明度的使用</h3><p>透明度是与色相、亮度、饱和度紧密相关的另一个视觉通道。</p>
+<p>由于透明度编码本身受亮度和饱和度编码的强烈影响，建议不要同时使用这三个视觉通道。但是它可以和色相编码一起使用。</p>
+<p>通常使用透明度时，图表会有很多堆叠层次，我们需要做到使每一个前景层都能够在背景层之上良好地显示，并且不产生相互干扰。</p>
+<ul>
+<li>注意：由于视觉感知的限制，不要选择过多的透明度梯级。</li>
+</ul>
+<p><img src="https://os.alipayobjects.com/rmsportal/NFYgbNKVhBWmOvI.png"></p>
+<h3 id="5-辅助元素配色">5.辅助元素配色</h3><p>辅助元素的配色需要避免与图表主体配色产生冲突。</p>
+<p>在此基础上，尽量与图表主体配色统一。</p>
+<p><img src="https://os.alipayobjects.com/rmsportal/zqUrlzDCtLBUdSQ.png"></p>
+<h3 id="6-其他友好建议">6.其他友好建议</h3><h4 id="1-视觉缺陷">1.视觉缺陷</h4><p>人群中存在一部分人具有视觉缺陷，包括色盲、色弱等。为了帮助他们识别图表，我们可能需要采取一些特殊方法。</p>
+<p>一种可以实践的方法是在设计时通过软件模拟视觉缺陷人群的视觉感知，设计出安全的方案。这类功能在很多软件中都有，例如 Adobe Photoshop 和 Adobe Illustrator 等。另一种方法是，增加亮度和饱和度的变化，当然这是在这两者原本并未参与视觉编码的情况下。</p>
+<h4 id="2-不要过分依赖视觉表现">2.不要过分依赖视觉表现</h4><p>很多人喜欢在数据图表上加入更多视觉表现，来让这个图表更加丰富。但是往往这样做导致信息传达不聚合，尽量避免这种情况产生。我们的目的主要是为了传达数据本身。</p>
+<h4 id="3-大屏幕使用">3.大屏幕使用</h4><p>很多应用场景需要将数据展示到大屏幕上，传统的做法，希望在大屏幕上展示的时候颜色的饱和度越高越好。但是目前随着屏幕显示能力不断提高的情况下，其实选择一个贴近用户视觉的颜色更为合适。无论大屏幕还是小屏幕无非就是两点：</p>
+<ol>
+<li>让数据传达更清晰；</li>
+<li>让用户更友好的浏览。</li>
+</ol>
+
+      </div>
+<div class="preNext clearfix">
+</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../../../../static/nav-menu.js"></script>
+  <script src="../../../../static/prettify-min.js"></script>
+  <script src="../../../../static/clipboard.min.js"></script>
+  <script type="text/javascript">
+    var CLS_PRETTY = 'prettyprint linenums';
+    BUI.use('bui/common',function(BUI){
+      var preEls =  $('pre');
+      BUI.each(preEls,function(el){
+        var node = $(el), innerText;
+        node.addClass(CLS_PRETTY);
+        innerText = node.html();
+        var a = /^(\s+)/.exec(innerText);
+        var regex;
+        if(a){
+          regex = new RegExp('('+a[0]+')(\\s*)','ig');
+          innerText = innerText.replace(regex,'$2');
+        }
+          node.html(innerText);
+      });
+      if(window.prettyPrint){
+        prettyPrint();
+      }
+    });
+
+    $('.highlight').hover(function(e) {
+      var target = $(e.target);
+      if (target.attr('class') === 'prettyprint linenums') {
+        target = target.parent();
+      }
+      $('<button id="codeCopyBtn">复制代码</button>').appendTo(target);
+    }, function(e) {
+      $('#codeCopyBtn').remove();
+    });
+
+    var clipboard = new Clipboard('#codeCopyBtn', {
+      target: function() {
+        return $('#codeCopyBtn').parent().find('pre')[0];
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制成功!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+    clipboard.on('error', function(e) {
+      e.clearSelection();
+
+      $('#codeCopyBtn').text('复制失败!');
+      setTimeout(function() {
+        $('#codeCopyBtn').text('点击复制');
+      }, 2000);
+    });
+  </script>
+  
+  </div>
+ 
+  <div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1259109662&web_id=1259109662" language="JavaScript"></script>
+<script src="https://a.alipayobjects.com/g/component/tracert/1.0.0/index.js"></script>
+</div>
+</body>
+</html>
