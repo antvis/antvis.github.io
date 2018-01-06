@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>值域选择</title>
+  <title>实时更新</title>
   <meta name="keywords" content="G2, The Grammar of Graphics, 图形语法,图表绘制引擎,图表库,可视化,数据可视化,AntV,Data Visualization,visualization,visualisation, antd, ant, ant design, G6, 流程图, 关系图, 可视化规范, 地图, 河流图, 力导图, 网络图, UML图, 流图, 时序图, 图">
   <meta name="description" content="一套专业、简单、无限可能的可视化解决方案">
   <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/oNtwPuEICFyCWUHztcOA.png" type="image/x-icon">
@@ -146,26 +146,26 @@
           <li class="">
             <a href="../../../../../vis/doc/design/rule/base/tooltip.html" >提示信息</a>
           </li>
-          <li class="">
-            <a href="../../../../../vis/doc/design/rule/func/liveUpdate.html" >实时更新</a>
-          </li>
           <li class="active">
-            <a href="../../../../../vis/doc/design/rule/func/rangeSelect.html" >值域选择</a>
+            <a href="../../../../../vis/doc/design/rule/func/live-update.html" >实时更新</a>
+          </li>
+          <li class="">
+            <a href="../../../../../vis/doc/design/rule/func/range-select.html" >值域选择</a>
           </li>
           <li class="">
             <a href="../../../../../vis/doc/design/rule/func/responsive.html" >图表自适应</a>
           </li>
           <li class="">
-            <a href="../../../../../vis/doc/design/rule/assist/baseLine.html" >基线</a>
+            <a href="../../../../../vis/doc/design/rule/assist/base-line.html" >基线</a>
           </li>
           <li class="">
-            <a href="../../../../../vis/doc/design/rule/assist/referLine.html" >参考线</a>
+            <a href="../../../../../vis/doc/design/rule/assist/refer-line.html" >参考线</a>
           </li>
           <li class="">
-            <a href="../../../../../vis/doc/design/rule/assist/valueDisplayed.html" >值提示</a>
+            <a href="../../../../../vis/doc/design/rule/assist/value-displayed.html" >值提示</a>
           </li>
           <li class="">
-            <a href="../../../../../vis/doc/design/rule/assist/otherAssist.html" >其他</a>
+            <a href="../../../../../vis/doc/design/rule/assist/other-assist.html" >其他</a>
           </li>
         </ul>
       </div>
@@ -191,35 +191,18 @@ $(".menu-dir").on("click", function(e){
 <script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.13/index.js"></script>
     <div class="doc-content clearfix">
       <div class="doc-inner">
-        <h2 id="一、定义">一、定义</h2><p>对大阈值的图表，进行操作，X轴或内容区间选择。</p>
-<h2 id="二、结构">二、结构</h2><p><strong>滑面：</strong> 图表中展现的内容</p>
-<p><strong>滑柱：</strong> 图表 X 轴的边界。</p>
-<p><strong>阈值范围：</strong> 数据范围。</p>
-<p>刻度文字在值域中：</p>
-<p><img src="https://os.alipayobjects.com/rmsportal/aLltSGuHtEcYJMh.png" style="width: 100%;"></p>
-<p>刻度文字在值域外：</p>
-<p><img src="https://os.alipayobjects.com/rmsportal/dNLnhamCWsJmzRA.png" style="width: 100%;"></p>
-<h2 id="三、交互">三、交互</h2><p><strong>鼠标对两个滑柱或滑面进行拖动选择。</strong></p>
-<ol>
-<li><p>拖动滑柱滑动，增加或较少滑面。</p>
-</li>
-<li><p>拖动滑面滑动，保持滑面长度，进行前后移动。</p>
-</li>
-</ol>
-<p><strong>鼠标在非滑柱和滑面的区域点击，滑面移鼠标点击为中心点进行前后移动（中心点靠近阈值范围边界时，以边界为移动界限）</strong></p>
-<p><img src="https://os.alipayobjects.com/rmsportal/YErnDudFQiOKozi.png" style="width: 100%;"></p>
-<h2 id="四、场景">四、场景</h2><p>1.对过长的X轴图表（如：K线图）</p>
-<p><img src="https://os.alipayobjects.com/rmsportal/GlvschJQetpAPKc.png" style="width: 100%;"></p>
-<p><img src="https://os.alipayobjects.com/rmsportal/nnmBKEGzIGBkpDj.png" style="width: 100%;"></p>
+        <h2 id="一、定义">一、定义</h2><p>在实时数据进来时展现，页面不刷新，图表本身具有实时变化的功能。</p>
+<h2 id="二、内容">二、内容</h2><p><img src="https://os.alipayobjects.com/rmsportal/PIGyAqjqmCsWzUA.png" style="width: 100%;"></p>
+<h2 id="三、动效">三、动效</h2><p>过渡自然，不光是图表内容有动效，xy 轴的变化也有动效。</p>
 
       </div>
 <div class="preNext clearfix">
-  <a href="../../../../../vis/doc/design/rule/func/liveUpdate.html" class="pull-left">
+  <a href="../../../../../vis/doc/design/rule/base/tooltip.html" class="pull-left">
     <i class="iconfont icon-left"></i>
-    实时更新
+    提示信息
   </a>
-  <a href="../../../../../vis/doc/design/rule/func/responsive.html" class="pull-right">
-    图表自适应
+  <a href="../../../../../vis/doc/design/rule/func/range-select.html" class="pull-right">
+    值域选择
     <i class="iconfont icon-right"></i>
   </a>
 </div>
