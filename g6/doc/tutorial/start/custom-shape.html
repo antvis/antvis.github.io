@@ -646,7 +646,7 @@ net.render();</code></pre></div><h2 id="详解自定义节点">详解自定义�
 </blockquote>
 <h3 id="动态计算锚点">动态计算锚点</h3><p>有的时候，我们并不能写死锚点，需要根据节点本身动态计算锚点的数量和位置。这意味这 <code>draw</code> 方法里的信息要能传到，<code>getAnchorPoints</code> 里，此时我们不妨在 draw 方法中计算好锚点，再存到 <code>group</code> 里，然后在 <code>getAnchorPoints</code> 时将锚点信息取出，return 回去即可。</p>
 <p><img src="https://zos.alipayobjects.com/skylark/e537c24e-1976-41e7-b4f6-b3cc63e924db/attach/2816/68b3988f18d698b9/image.png" alt="image"></p>
-<p><a href="/g6/demo/05-gallery/dataBase.html">Demo源码</a></p>
+<p><a href="/g6/demo/05-gallery/database.html">Demo源码</a></p>
 <h2 id="详解自定义边">详解自定义边</h2><p>相较于自定义节点，自定义边相对比较复杂一点，这里给出一些最佳实践，以帮助用户更好的画边。</p>
 <p><code>注意</code>：由于画边相对复杂，不建议大家直接复写 draw 方法。</p>
 <h3 id="配置项详解">配置项详解</h3><ul>
