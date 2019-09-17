@@ -1,9 +1,21 @@
 {
-  "name": "antvis",
-  "private": true,
+  "name": "@antv/website",
   "description": "Ant Visualization solution home page",
   "version": "0.1.0",
   "author": "AntV Team <antv@antfin.com>",
+  "keywords": [
+    "gatsby",
+    "antvis",
+    "antv"
+  ],
+  "homepage": "https://antvis.github.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antvis/antvis.github.io"
+  },
+  "bugs": {
+    "url": "https://github.com/antvis/antvis.github.io/issues"
+  },
   "dependencies": {
     "gatsby": "^2.15.16",
     "gatsby-image": "^2.2.19",
@@ -23,11 +35,12 @@
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1"
   },
-  "keywords": [
-    "gatsby",
-    "antvis",
-    "antv"
-  ],
+  "devDependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-helmet": "^5.0.10",
+    "typescript": "^3.6.3"
+  },
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -36,19 +49,5 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
-  },
-  "homepage": "http://antvis.github.io",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/antvis/antvis.github.io"
-  },
-  "bugs": {
-    "url": "https://github.com/antvis/antvis.github.io/issues"
-  },
-  "devDependencies": {
-    "@types/react": "^16.9.2",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-helmet": "^5.0.10",
-    "typescript": "^3.6.3"
   }
 }
