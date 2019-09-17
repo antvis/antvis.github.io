@@ -7,20 +7,21 @@
   "dependencies": {
     "gatsby": "^2.15.16",
     "gatsby-image": "^2.2.19",
+    "gatsby-plugin-antd": "^2.0.2",
     "gatsby-plugin-google-analytics": "^2.1.16",
+    "gatsby-plugin-less": "^3.0.6",
     "gatsby-plugin-manifest": "^2.2.16",
     "gatsby-plugin-offline": "^3.0.7",
     "gatsby-plugin-react-helmet": "^3.1.7",
     "gatsby-plugin-sharp": "^2.2.22",
+    "gatsby-plugin-typescript": "^2.1.8",
     "gatsby-source-filesystem": "^2.1.22",
     "gatsby-transformer-sharp": "^2.2.14",
+    "less": "^3.10.3",
+    "prettier": "^1.18.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1",
-    "gatsby-plugin-antd": "^2.0.2",
-    "gatsby-plugin-less": "^3.0.6",
-    "gatsby-plugin-typescript": "^2.1.8",
-    "prettier": "^1.18.2"
+    "react-helmet": "^5.2.1"
   },
   "keywords": [
     "gatsby",
@@ -43,5 +44,11 @@
   },
   "bugs": {
     "url": "https://github.com/antvis/antvis.github.io/issues"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-helmet": "^5.0.10",
+    "typescript": "^3.6.3"
   }
 }
