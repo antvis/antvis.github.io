@@ -17,17 +17,16 @@
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1"
-  },
-  "devDependencies": {
+    "react-helmet": "^5.2.1",
     "gatsby-plugin-antd": "^2.0.2",
     "gatsby-plugin-less": "^3.0.6",
-    "gatsby-plugin-react-helmet": "^3.1.7",
     "gatsby-plugin-typescript": "^2.1.8",
     "prettier": "^1.18.2"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "antvis",
+    "antv"
   ],
   "license": "MIT",
   "scripts": {
