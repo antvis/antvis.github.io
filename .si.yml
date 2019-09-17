@@ -1,7 +1,0 @@
-before_deploy:
-  - tnpm install
-  - node_modules/.bin/nico build
-options:
-  branch: 'master'
-  dist: '_site'
-cname: 'antv.alipay.net'
