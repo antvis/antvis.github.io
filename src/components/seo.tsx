@@ -9,7 +9,14 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, title }) {
+interface SEOProps {
+  description?: string;
+  lang?: string;
+  meta?: any[];
+  title?: string;
+}
+
+const SEO: React.FC<SEOProps> = ({ description, lang, meta = [], title }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
