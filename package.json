@@ -1,38 +1,44 @@
 {
-  "name": "Antv2.0",
-  "version": "2.0.0",
-  "description": "ant visualization",
-  "homepage": "http://gitlab.alipay-inc.com/datavis/antv",
+  "name": "antvis",
+  "private": true,
+  "description": "Ant Visualization solution home page",
+  "version": "0.1.0",
+  "author": "AntV Team <antv@antfin.com>",
+  "dependencies": {
+    "gatsby": "^2.15.16",
+    "gatsby-image": "^2.2.19",
+    "gatsby-plugin-manifest": "^2.2.16",
+    "gatsby-plugin-offline": "^2.2.10",
+    "gatsby-plugin-react-helmet": "^3.1.7",
+    "gatsby-plugin-sharp": "^2.2.22",
+    "gatsby-source-filesystem": "^2.1.22",
+    "gatsby-transformer-sharp": "^2.2.14",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+  },
+  "homepage": "http://antvis.github.io",
   "repository": {
     "type": "git",
-    "url": "http://gitlab.alipay-inc.com/datavis/antv"
+    "url": "https://github.com/antvis/antvis.github.io"
   },
   "bugs": {
-    "url": "http://gitlab.alipay-inc.com/datavis/antv/issues"
-  },
-  "dependencies": {
-    "@alipay/site": "^1.8.2",
-    "cdn": "~0.15.0",
-    "concurrently": "~0.1.0",
-    "css-loader": "~0.13.1",
-    "gh-pages-cli": "~0.2.0",
-    "internal-ip": "^1.0.1",
-    "json-loader": "~0.5.1",
-    "jsx-loader": "~0.13.2",
-    "less": "~2.7.1",
-    "less-loader": "~2.2.0",
-    "lodash": "~3.8.0",
-    "nico-jsx": "~0.5.3",
-    "style-loader": "~0.12.2",
-    "webpack": "~1.9.7"
-  },
-  "scripts": {
-    "dev": "npm run start",
-    "build": "npm run clean && nico build && site build",
-    "start": "npm run clean && npm run less && concurrent -r 'nico server --watch'",
-    "clean": "rm -rf _site",
-    "less": "$(npm bin)/lessc static/less/index.less > static/style.css",
-    "deploy": "node deploy.js",
-    "xx": "$(npm bin)/nico"
+    "url": "https://github.com/antvis/antvis.github.io/issues"
   }
 }
