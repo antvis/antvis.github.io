@@ -41,7 +41,7 @@
     "jest": "^24.9.0",
     "less": "^3.10.3",
     "prettier": "^1.18.2",
-    "rc-footer": "^0.1.0",
+    "rc-footer": "^0.2.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
