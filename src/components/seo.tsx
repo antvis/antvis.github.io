@@ -71,7 +71,7 @@ const SEO: React.FC<SEOProps> = ({ description, lang, meta = [], title }) => {
       ].concat(meta)}
     />
   );
-}
+};
 
 SEO.defaultProps = {
   lang: `en`,
