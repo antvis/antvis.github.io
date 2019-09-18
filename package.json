@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/antvis/antvis.github.io/issues"
   },
-  "dependencies": {
+  "devDependencies": {
     "gatsby": "^2.15.16",
     "gatsby-image": "^2.2.19",
     "gatsby-plugin-antd": "^2.0.2",
@@ -33,9 +33,7 @@
     "prettier": "^1.18.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1"
-  },
-  "devDependencies": {
+    "react-helmet": "^5.2.1",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.1.4",
     "@types/jest": "^24.0.18",
