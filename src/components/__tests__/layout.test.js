@@ -1,8 +1,8 @@
-import React from 'react'
-import { render } from '@testing-library/react'
-import { useStaticQuery } from 'gatsby' // mocked
+import React from 'react';
+import { render } from '@testing-library/react';
+import { useStaticQuery } from 'gatsby'; // mocked
 
-import Layout from '../layout'
+import Layout from '../layout';
 
 beforeEach(() => {
   useStaticQuery.mockImplementationOnce(() => ({
@@ -11,8 +11,8 @@ beforeEach(() => {
         title: `GatsbyJS`,
       },
     },
-  }))
-})
+  }));
+});
 
 describe(`Layout`, () => {
   it(`renders a header`, () => {
@@ -21,24 +21,24 @@ describe(`Layout`, () => {
         <main>
           <h1>hello</h1>
         </main>
-      </Layout>
-    )
+      </Layout>,
+    );
 
-    expect(container.querySelector(`header`)).toBeInTheDocument()
-  })
+    expect(container.querySelector(`header`)).toBeInTheDocument();
+  });
 
   it(`renders children`, () => {
-    const text = `__Hello world__`
+    const text = `__Hello world__`;
     const { getByText } = render(
       <Layout>
         <main>
           <h1>{text}</h1>
         </main>
-      </Layout>
-    )
+      </Layout>,
+    );
 
-    const child = getByText(text)
+    const child = getByText(text);
 
-    expect(child).toBeInTheDocument()
-  })
-})
+    expect(child).toBeInTheDocument();
+  });
+});

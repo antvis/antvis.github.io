@@ -26,7 +26,12 @@ const Image = () => {
     }
   `);
 
-  return <Img alt="placeholder" fluid={data.placeholderImage.childImageSharp.fluid} />;
+  return (
+    <Img
+      alt="placeholder"
+      fluid={data.placeholderImage.childImageSharp.fluid}
+    />
+  );
 };
 
 export default Image;
