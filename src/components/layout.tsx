@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import Footer from 'rc-footer';
 
 import Header from './header';
 import './layout.less';
@@ -38,11 +39,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <Footer
+          columns={[]}
+          bottom={
+            <div>
+              © {new Date().getFullYear()}, Built with
+              {` `}
+              <a href="https://www.gatsbyjs.org">Gatsby</a>
+            </div>
+          }
+        />
       </div>
     </>
   );
