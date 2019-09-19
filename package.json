@@ -43,7 +43,7 @@
     "less": "^3.10.3",
     "normalize.css": "^8.0.1",
     "prettier": "^1.18.2",
-    "rc-footer": "^0.2.3",
+    "rc-footer": "^0.4.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
