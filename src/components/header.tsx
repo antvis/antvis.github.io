@@ -2,11 +2,13 @@ import { Link } from 'gatsby';
 import React from 'react';
 import GithubCorner from 'react-github-corner';
 import { Popover } from 'antd';
+import classNames from 'classnames';
 import Search from './search';
 import styles from './header.module.less';
 
 interface HeaderProps {
   siteTitle?: string;
+  location?: Location;
 }
 
 interface ProductProps {
@@ -230,7 +232,12 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
     <nav className={styles.nav}>
       <ul className={styles.menu}>
         <li>
-          <Link to="/docs/specification" activeClassName={styles.active}>
+          <Link
+            to="/docs/specification/getting-started"
+            className={classNames({
+              [styles.active]: location.pathname.startsWith('/docs'),
+            })}
+          >
             设计语言
           </Link>
         </li>

@@ -13,9 +13,10 @@ import styles from './layout.module.less';
 
 interface LayoutProps {
   children?: React.ReactNode;
+  location?: Location;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, location }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -160,11 +161,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         openExternal: true,
       },
     ],
-  }]
+  }];
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header siteTitle={data.site.siteMetadata.title} location={location} />
       <main className={styles.main}>{children}</main>
       <Footer
         columns={footerColumns}

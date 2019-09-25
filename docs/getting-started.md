@@ -1,7 +1,8 @@
 ---
-path: "/docs/specification/getting-started"
-date: "2019-05-04"
-title: "Getting Started"
+path: /docs/specification/getting-started
+date: 2019-05-04
+title: Getting Started
+order: 0
 ---
 
 # G2: The Grammar of Graphics in JavaScript
