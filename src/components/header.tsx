@@ -230,7 +230,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
     <nav className={styles.nav}>
       <ul className={styles.menu}>
         <li>
-          <Link to="/specification" activeClassName={styles.active}>
+          <Link to="/docs/specification" activeClassName={styles.active}>
             设计语言
           </Link>
         </li>
