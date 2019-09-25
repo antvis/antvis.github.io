@@ -1,12 +1,218 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import GithubCorner from 'react-github-corner';
+import { Popover } from 'antd';
 import Search from './search';
 import styles from './header.module.less';
 
 interface HeaderProps {
   siteTitle?: string;
 }
+
+interface ProductProps {
+  name?: string;
+  icon?: string;
+  description?: string;
+  links?: Array<{
+    name: string;
+    link: string;
+  }>;
+}
+
+const Product: React.FC<ProductProps> = ({ name, icon, description, links = [] }) => (
+  <li className={styles.product}>
+    <img alt={name} src={icon} />
+    <div className={styles.productContent}>
+      <h4>{name}</h4>
+      <div className={styles.productDescription}>{description}</div>
+      <div className={styles.productLinks}>
+        {links.map(({ link, name }) => <a target="_blank" href={link} key={name}>{name}</a>)}
+      </div>
+    </div>
+  </li>
+);
+
+const Products: React.FC<any> = () => (
+  <div className={styles.products}>
+    <h3>基础产品</h3>
+    <ul>
+      <Product
+        name="G2"
+        description="一套基于可视化编码的图形语法"
+        icon="https://gw.alipayobjects.com/zos/antfincdn/mpz%24sFOwuD/1852987f-0412-44e5-9d0d-75b06f392778.png"
+        links={[
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+        ]}
+      />
+      <Product
+        name="G2"
+        description="一套基于可视化编码的图形语法"
+        icon="https://gw.alipayobjects.com/zos/antfincdn/mpz%24sFOwuD/1852987f-0412-44e5-9d0d-75b06f392778.png"
+        links={[
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+        ]}
+      />
+      <Product
+        name="G2"
+        description="一套基于可视化编码的图形语法"
+        icon="https://gw.alipayobjects.com/zos/antfincdn/mpz%24sFOwuD/1852987f-0412-44e5-9d0d-75b06f392778.png"
+        links={[
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+        ]}
+      />
+      <Product
+        name="G2"
+        description="一套基于可视化编码的图形语法"
+        icon="https://gw.alipayobjects.com/zos/antfincdn/mpz%24sFOwuD/1852987f-0412-44e5-9d0d-75b06f392778.png"
+        links={[
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+        ]}
+      />
+      <Product
+        name="G2"
+        description="一套基于可视化编码的图形语法"
+        icon="https://gw.alipayobjects.com/zos/antfincdn/mpz%24sFOwuD/1852987f-0412-44e5-9d0d-75b06f392778.png"
+        links={[
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+        ]}
+      />
+      <Product
+        name="G2"
+        description="一套基于可视化编码的图形语法"
+        icon="https://gw.alipayobjects.com/zos/antfincdn/mpz%24sFOwuD/1852987f-0412-44e5-9d0d-75b06f392778.png"
+        links={[
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+        ]}
+      />
+      <Product
+        name="G2"
+        description="一套基于可视化编码的图形语法"
+        icon="https://gw.alipayobjects.com/zos/antfincdn/mpz%24sFOwuD/1852987f-0412-44e5-9d0d-75b06f392778.png"
+        links={[
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+        ]}
+      />
+    </ul>
+    <h3>扩展产品</h3>
+    <ul>
+      <Product
+        name="G2"
+        description="一套基于可视化编码的图形语法"
+        icon="https://gw.alipayobjects.com/zos/antfincdn/mpz%24sFOwuD/1852987f-0412-44e5-9d0d-75b06f392778.png"
+        links={[
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+        ]}
+      />
+      <Product
+        name="G2"
+        description="一套基于可视化编码的图形语法"
+        icon="https://gw.alipayobjects.com/zos/antfincdn/mpz%24sFOwuD/1852987f-0412-44e5-9d0d-75b06f392778.png"
+        links={[
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+          {
+            name: '关于',
+            link: '',
+          },
+        ]}
+      />
+    </ul>
+  </div>
+);
 
 const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
   <header className={styles.header}>
@@ -27,10 +233,24 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
           </Link>
         </li>
         <li>
-          <a>所有产品</a>
+          <Popover
+            title={null}
+            content={<Products />}
+            placement="bottomRight"
+            arrowPointAtCenter
+          >
+            <a>所有产品</a>
+          </Popover>
         </li>
         <li>
-          <a>生态</a>
+          <Popover
+            title={null}
+            content={<Products />}
+            placement="bottomRight"
+            arrowPointAtCenter
+          >
+            <a>生态</a>
+          </Popover>
         </li>
       </ul>
       <GithubCorner href="https://github.com/antvis" size={64} />
