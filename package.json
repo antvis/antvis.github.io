@@ -61,6 +61,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "gatsby-source-filesystem": "^2.1.26",
+    "gatsby-transformer-remark": "^2.6.24",
     "react-github-corner": "^2.3.0"
   }
 }
