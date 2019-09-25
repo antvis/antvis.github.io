@@ -8,9 +8,8 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Footer from 'rc-footer';
-
 import Header from './header';
-import './layout.less';
+import styles from './layout.module.less';
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -166,7 +165,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
       <Footer
         columns={footerColumns}
         bottom={

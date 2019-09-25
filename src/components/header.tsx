@@ -13,17 +13,18 @@ interface ProductProps {
   name?: string;
   icon?: string;
   description?: string;
+  url?: string;
   links?: Array<{
     name: string;
     link: string;
   }>;
 }
 
-const Product: React.FC<ProductProps> = ({ name, icon, description, links = [] }) => (
+const Product: React.FC<ProductProps> = ({ name, icon, url, description, links = [] }) => (
   <li className={styles.product}>
     <img alt={name} src={icon} />
     <div className={styles.productContent}>
-      <h4>{name}</h4>
+      <a href={url} target="_blank"><h4>{name}</h4></a>
       <div className={styles.productDescription}>{description}</div>
       <div className={styles.productLinks}>
         {links.map(({ link, name }) => <a target="_blank" href={link} key={name}>{name}</a>)}
@@ -38,6 +39,7 @@ const Products: React.FC<any> = () => (
     <ul>
       <Product
         name="G2"
+        url="/g2"
         description="一套基于可视化编码的图形语法"
         icon="https://gw.alipayobjects.com/zos/antfincdn/mpz%24sFOwuD/1852987f-0412-44e5-9d0d-75b06f392778.png"
         links={[
