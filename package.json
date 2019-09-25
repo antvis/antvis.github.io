@@ -19,6 +19,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.1.4",
+    "@types/classnames": "^2.2.9",
     "@types/jest": "^24.0.18",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
@@ -26,6 +27,7 @@
     "antd": "^3.23.3",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.13",
+    "classnames": "^2.2.6",
     "gatsby": "^2.15.16",
     "gatsby-image": "^2.2.19",
     "gatsby-plugin-antd": "^2.0.2",
@@ -37,6 +39,7 @@
     "gatsby-plugin-sharp": "^2.2.22",
     "gatsby-plugin-typescript": "^2.1.8",
     "gatsby-source-filesystem": "^2.1.22",
+    "gatsby-transformer-remark": "^2.6.24",
     "gatsby-transformer-sharp": "^2.2.14",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
@@ -46,6 +49,7 @@
     "rc-footer": "^0.5.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-github-corner": "^2.3.0",
     "react-helmet": "^5.2.1",
     "react-test-renderer": "^16.9.0",
     "ts-jest": "^24.1.0",
@@ -59,10 +63,5 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "jest"
-  },
-  "dependencies": {
-    "gatsby-source-filesystem": "^2.1.26",
-    "gatsby-transformer-remark": "^2.6.24",
-    "react-github-corner": "^2.3.0"
   }
 }
