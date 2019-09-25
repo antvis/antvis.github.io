@@ -20,15 +20,15 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
     <nav className={styles.nav}>
       <ul className={styles.menu}>
         <li>
-          <Link to="/specification">
+          <Link to="/specification" activeClassName={styles.active}>
             设计语言
           </Link>
         </li>
         <li>
-          所有产品
+          <a>所有产品</a>
         </li>
         <li>
-          生态
+          <a>生态</a>
         </li>
       </ul>
       <GithubCorner href="https://github.com/antvis" size={64} />
