@@ -5,8 +5,6 @@ title: Getting Started
 order: 0
 ---
 
-# G2: The Grammar of Graphics in JavaScript
-
 [![](https://img.shields.io/travis/antvis/g2.svg)](https://travis-ci.org/antvis/g2)
 ![](https://img.shields.io/badge/language-javascript-red.svg)
 ![](https://img.shields.io/badge/license-MIT-000000.svg)

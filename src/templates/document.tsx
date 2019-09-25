@@ -4,6 +4,7 @@ import { Layout as AntLayout, Menu } from 'antd';
 import Layout from '../components/layout';
 import Article from '../components/article';
 import SEO from '../components/seo';
+import styles from './markdown.module.less';
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -35,10 +36,9 @@ export default function Template({
             }
           </Menu>
         </AntLayout.Sider>
-        <Article>
-          <h2>{frontmatter.title}</h2>
+        <Article className={styles.markdown}>
+          <h1>{frontmatter.title}</h1>
           <div
-            className="blog-post-content"
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </Article>
