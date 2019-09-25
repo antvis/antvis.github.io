@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { Layout as AntLayout, Menu } from 'antd';
 import Layout from '../components/layout';
 import Article from '../components/article';
@@ -10,21 +10,29 @@ export default function Template({
 }: {
   data: any;
 }) {
-  const { markdownRemark } = data // data.markdownRemark holds our post data
+  const { markdownRemark, allMarkdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
+  const { edges = [] } = allMarkdownRemark
   return (
     <Layout>
       <SEO title="Home" />
       <AntLayout style={{ background: '#fff' }}>
         <AntLayout.Sider width={240} theme="light">
-          <Menu mode="inline" defaultSelectedKeys={['home']} style={{ height: '100%' }}>
-            <Menu.Item key="home">首页</Menu.Item>
-            <Menu.Item>文章</Menu.Item>
-            <Menu.Item>文章</Menu.Item>
-            <Menu.Item>文章</Menu.Item>
-            <Menu.Item>文章</Menu.Item>
-            <Menu.Item>文章</Menu.Item>
-            <Menu.Item>文章</Menu.Item>
+          <Menu
+            mode="inline"
+            selectedKeys={[frontmatter.path]}
+            style={{ height: '100%' }}
+          >
+            {
+              edges.map((edge: any) => {
+                const { node: { frontmatter: { title, path } }} = edge;
+                return (
+                  <Menu.Item key={path}>
+                    <Link to={path}>{title}</Link>
+                  </Menu.Item>
+                );
+              })
+            }
           </Menu>
         </AntLayout.Sider>
         <Article>
@@ -47,6 +55,20 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+      }
+    }
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      limit: 1000
+    ) {
+      edges {
+        node {
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            path
+            title
+          }
+        }
       }
     }
   }
