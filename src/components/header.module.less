@@ -26,19 +26,32 @@
     align-items: center;
 
     .menu {
-      margin-right: 20px;
+      font-weight: 500;
+      color: rgba(0, 0, 0, .65);
+      margin: 0 20px 0 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        display: inline-block;
+        margin-right: 32px;
+        line-height: 60px;
+
+        a {
+          color: rgba(0, 0, 0, .65);
+          transition: all .3s;
+          display: block;
+          border-top: 2px solid transparent;
+
+          &:hover {
+            color: #1890ff;
+          }
+        }
+      }
+
+      .active {
+        border-top: 2px solid #1890ff;
+      }
     }
-  }
-
-  ul,
-  li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  li {
-    display: inline-block;
-    margin-right: 32px;
   }
 }
