@@ -11,9 +11,11 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
   <header className={styles.header}>
     <div className={styles.left}>
-      <Link to="/">
-        <img src="https://gw.alipayobjects.com/os/s/prod/antv/assets/image/logo-with-text-73b8a.svg" alt={siteTitle} />
-      </Link>
+      <h1>
+        <Link to="/">
+          <img src="https://gw.alipayobjects.com/os/s/prod/antv/assets/image/logo-with-text-73b8a.svg" alt={siteTitle} />
+        </Link>
+      </h1>
       <span className={styles.divider} />
       <Search />
     </div>
