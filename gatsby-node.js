@@ -5,7 +5,8 @@
  */
 
 // You can delete this file if you're not using it
-const path = require(`path`)
+const path = require(`path`);
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
   const blogPostTemplate = path.resolve(`src/templates/document.tsx`)
