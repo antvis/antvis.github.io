@@ -55,9 +55,12 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop --open",
-    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,less}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "jest"
+  },
+  "dependencies": {
+    "react-github-corner": "^2.3.0"
   }
 }
