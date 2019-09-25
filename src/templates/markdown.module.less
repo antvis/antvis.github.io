@@ -1,0 +1,160 @@
+@import "~antd/es/style/themes/default.less";
+
+.markdown {
+  font-size: 14px;
+  line-height: 2;
+
+  > img {
+    max-width: ~'calc(100% - 32px)';
+    margin: 34px 0;
+  }
+
+  h1 {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 30px;
+    font-family: Avenir, @font-family, sans-serif;
+    line-height: 38px;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    clear: both;
+    margin: 1.6em 0 0.6em;
+    font-weight: 500;
+    font-family: Avenir, @font-family, sans-serif;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+  h5 {
+    font-size: 14px;
+  }
+  h6 {
+    font-size: 12px;
+  }
+
+  hr {
+    clear: both;
+    height: 1px;
+    margin: 56px 0;
+    background: @border-color-split;
+    border: 0;
+  }
+
+  p,
+  pre {
+    margin: 1em 0;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul > li {
+    margin-left: 20px;
+    padding-left: 4px;
+    list-style-type: circle;
+    &:empty {
+      display: none;
+    }
+  }
+
+  ol > li {
+    margin-left: 20px;
+    padding-left: 4px;
+    list-style-type: decimal;
+  }
+
+  ul > li > p,
+  ol > li > p {
+    margin: 0.2em 0;
+  }
+
+  code {
+    margin: 0 1px;
+    padding: 0.2em 0.4em;
+    font-size: 0.9em;
+    background: #f2f4f5;
+    border: 1px solid #eee;
+    border-radius: 3px;
+  }
+
+  pre {
+    font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    background: #f2f4f5;
+    border-radius: @border-radius-sm;
+    margin: 1em 0;
+    padding: 12px;
+    overflow: auto;
+    color: @text-color;
+    background: #f2f4f5;
+  }
+
+  pre code {
+    border: none;
+    background: transparent;
+    padding: 0;
+    font-size: @font-size-base - 1px;
+  }
+
+  strong,
+  b {
+    font-weight: 500;
+  }
+
+  > table {
+    width: 100%;
+    margin: 8px 0 16px;
+    empty-cells: show;
+    border: 1px solid @border-color-split;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  > table th {
+    color: #5c6b77;
+    font-weight: 500;
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  > table th,
+  > table td {
+    padding: 16px 24px;
+    text-align: left;
+    border: 1px solid @border-color-split;
+  }
+
+  blockquote {
+    margin: 1em 0;
+    padding-left: 0.8em;
+    color: @text-color-secondary;
+    font-size: 90%;
+    border-left: 4px solid @border-color-split;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  > br,
+  > p > br {
+    clear: both;
+  }
+}
