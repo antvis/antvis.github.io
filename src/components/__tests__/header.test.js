@@ -4,12 +4,11 @@ import { render } from '@testing-library/react';
 import Header from '../header';
 
 describe(`Header`, () => {
-  it(`renders siteTitle`, () => {
+  it(`renders menu`, () => {
     const siteTitle = `Hello World`;
     const { getByText } = render(<Header siteTitle={siteTitle} />);
-
-    const title = getByText(siteTitle);
-
-    expect(title).toBeInTheDocument();
+    expect(getByText('设计语言')).toBeInTheDocument();
+    expect(getByText('所有产品')).toBeInTheDocument();
+    expect(getByText('生态')).toBeInTheDocument();
   });
 });
