@@ -1,6 +1,5 @@
 ---
 path: /docs/specification/getting-started
-date: 2019-05-04
 title: Getting Started
 order: 0
 ---

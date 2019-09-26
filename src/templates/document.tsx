@@ -14,6 +14,7 @@ export default function Template({
   const { markdownRemark, allMarkdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
   const { edges = [] } = allMarkdownRemark
+  console.log(edges);
   return (
     <Layout>
       <SEO title="Home" />
@@ -52,19 +53,17 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
         path
         title
       }
     }
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { order: ASC, fields: [frontmatter___order] }
       limit: 1000
     ) {
       edges {
         node {
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
             path
             title
           }

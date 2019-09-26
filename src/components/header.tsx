@@ -29,7 +29,7 @@ const Product: React.FC<ProductProps> = ({ name, icon, url, description, links =
       <a href={url} target="_blank"><h4>{name}</h4></a>
       <div className={styles.productDescription}>{description}</div>
       <div className={styles.productLinks}>
-        {links.map(({ link, name }) => <a target="_blank" href={link} key={name}>{name}</a>)}
+        {links.map(({ link, name }, i) => <a target="_blank" href={link} key={i}>{name}</a>)}
       </div>
     </div>
   </li>
