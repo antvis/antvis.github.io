@@ -12,10 +12,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   if (node.internal.type === `File`) {
     const { dir, name } = path.parse(node.absolutePath)
+    const slug = path.relative(__dirname, path.join(dir, name));
     createNodeField({
       node,
       name: `slug`,
-      value: path.relative(__dirname, path.join(dir, name)),
+      value: `/${slug}`,
     })
   } else if (
     node.internal.type === `MarkdownRemark` &&
@@ -43,9 +44,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             fields {
               slug
             }
-            frontmatter {
-              path
-            }
           }
         }
       }
@@ -57,7 +55,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    console.log(node.fields.slug, '!');
     createPage({
       path: node.fields.slug, // required
       component: path.resolve(`src/templates/document.tsx`),
