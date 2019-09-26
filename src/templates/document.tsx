@@ -50,10 +50,12 @@ export default function Template({
 
 export const pageQuery = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+    markdownRemark(fields: { slug: { eq: $path } }) {
       html
+      fields {
+        slug
+      }
       frontmatter {
-        path
         title
       }
     }
@@ -63,8 +65,10 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          fields {
+            slug
+          }
           frontmatter {
-            path
             title
           }
         }
