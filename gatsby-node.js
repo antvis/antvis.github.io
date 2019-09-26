@@ -7,9 +7,31 @@
 // You can delete this file if you're not using it
 const path = require(`path`);
 
+// Add custom url pathname for posts
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `File`) {
+    const { dir, name } = path.parse(node.absolutePath)
+    createNodeField({
+      node,
+      name: `slug`,
+      value: path.relative(__dirname, path.join(dir, name)),
+    })
+  } else if (
+    node.internal.type === `MarkdownRemark` &&
+    typeof node.slug === `undefined`
+  ) {
+    const fileNode = getNode(node.parent)
+    createNodeField({
+      node,
+      name: `slug`,
+      value: fileNode.fields.slug,
+    })
+  }
+}
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
-  const blogPostTemplate = path.resolve(`src/templates/document.tsx`)
   const result = await graphql(`
     {
       allMarkdownRemark(
@@ -18,6 +40,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       ) {
         edges {
           node {
+            fields {
+              slug
+            }
             frontmatter {
               path
             }
@@ -32,9 +57,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    console.log(node.fields.slug, '!');
     createPage({
-      path: node.frontmatter.path,
-      component: blogPostTemplate,
+      path: node.fields.slug, // required
+      component: path.resolve(`src/templates/document.tsx`),
       context: {}, // additional data can be passed via context
     })
   })
