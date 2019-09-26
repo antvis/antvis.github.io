@@ -1,5 +1,4 @@
 ---
-path: /docs/specification/getting-started
 title: Getting Started
 order: 0
 ---
