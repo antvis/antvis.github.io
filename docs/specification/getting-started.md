@@ -8,7 +8,7 @@ order: 0
 ![](https://img.shields.io/badge/license-MIT-000000.svg)
 
 [![NPM Package](https://img.shields.io/npm/v/@antv/g2.svg)](https://www.npmjs.com/package/@antv/g2)
-[![NPM Downloads](http://img.shields.io/npm/dm/@antv/g2.svg)](https://npmjs.org/package/@antv/g2)
+[![NPM Downloads](https://img.shields.io/npm/dm/@antv/g2.svg)](https://npmjs.org/package/@antv/g2)
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/antvis/g2.svg)](http://isitmaintained.com/project/antvis/g2 'Percentage of issues still open')
 
 G2 是一套基于可视化编码的图形语法，以数据驱动，具有高度的易用性和扩展性，用户无需关注各种繁琐的实现细节，一条语句即可构建出各种各样的可交互的统计图表。
