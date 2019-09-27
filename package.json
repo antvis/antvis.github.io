@@ -42,12 +42,14 @@
     "gatsby-source-filesystem": "^2.1.22",
     "gatsby-transformer-remark": "^2.6.24",
     "gatsby-transformer-sharp": "^2.2.14",
+    "husky": "^3.0.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "less": "^3.10.3",
     "lodash-es": "^4.17.15",
     "normalize.css": "^8.0.1",
     "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.0",
     "rc-footer": "^0.5.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -65,5 +67,10 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }

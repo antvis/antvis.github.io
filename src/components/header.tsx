@@ -4,6 +4,7 @@ import GithubCorner from 'react-github-corner';
 import { Popover } from 'antd';
 import classNames from 'classnames';
 import Search from './search';
+import meta from '../../.antvisrc';
 import styles from './header.module.less';
 
 interface HeaderProps {
@@ -250,10 +251,12 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
           <Link
             to="/docs/specification/getting-started"
             className={classNames({
-              [styles.active]: location.pathname.startsWith('/docs/specification'),
+              [styles.active]: location.pathname.startsWith(
+                '/docs/specification',
+              ),
             })}
           >
-            设计语言
+            {meta.docs['specification'].title['zh-CN']}
           </Link>
         </li>
         <li>
@@ -263,7 +266,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
               [styles.active]: location.pathname.startsWith('/docs/other'),
             })}
           >
-            其他文档
+            {meta.docs['other'].title['zh-CN']}
           </Link>
         </li>
         <li>
