@@ -72,5 +72,8 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
+  },
+  "dependencies": {
+    "@hot-loader/react-dom": "^16.9.0+4.12.11"
   }
 }

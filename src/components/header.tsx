@@ -231,7 +231,10 @@ const Products: React.FC<any> = () => (
   </div>
 );
 
-const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
+const Header: React.FC<HeaderProps> = ({
+  siteTitle,
+  location = { pathname: '' },
+}) => (
   <header className={styles.header}>
     <div className={styles.left}>
       <h1>
