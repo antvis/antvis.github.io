@@ -5,24 +5,23 @@ import { groupBy } from 'lodash-es';
 import Layout from '../components/layout';
 import Article from '../components/article';
 import SEO from '../components/seo';
-import meta from '../../.antvisrc';
+import { docs } from '../../.antvisrc';
 import styles from './markdown.module.less';
 
-const { docs } = meta;
-
-const renderMenuItems = (edges: any[]) => edges.map((edge: any) => {
-  const {
-    node: {
-      frontmatter: { title },
-      fields: { slug },
-    },
-  } = edge;
-  return (
-    <Menu.Item key={slug}>
-      <Link to={slug}>{title}</Link>
-    </Menu.Item>
-  );
-});
+const renderMenuItems = (edges: any[]) =>
+  edges.map((edge: any) => {
+    const {
+      node: {
+        frontmatter: { title },
+        fields: { slug },
+      },
+    } = edge;
+    return (
+      <Menu.Item key={slug}>
+        <Link to={slug}>{title}</Link>
+      </Menu.Item>
+    );
+  });
 
 const shouldBeShown = (slug: string, path: string) => {
   const slugPieces = slug.split('/');
@@ -44,11 +43,14 @@ export default function Template({
     fields: { slug },
   } = markdownRemark;
   const { edges = [] } = allMarkdownRemark;
-  const groupedEdges = groupBy(edges, ({
-    node: {
-      parent: { relativeDirectory },
-    },
-  }: any) => relativeDirectory);
+  const groupedEdges = groupBy(
+    edges,
+    ({
+      node: {
+        parent: { relativeDirectory },
+      },
+    }: any) => relativeDirectory,
+  );
 
   const [openKeys, setOpenKeys] = useState<string[]>(Object.keys(groupedEdges));
 
@@ -64,33 +66,35 @@ export default function Template({
             openKeys={openKeys}
             onOpenChange={openKeys => setOpenKeys(openKeys)}
           >
-            {
-              Object.keys(groupedEdges)
-                .sort((a: string, b: string) => {
-                  if (docs[a] && docs[b]) {
-                    return docs[a].order - docs[b].order;
-                  }
-                  return 0;
-                })
-                .map(slug => {
-                  if (!shouldBeShown(slug, path)) {
-                    return null;
-                  }
-                  if (slug.split('/').length === 1 && docs[slug.split('/')[0]]) {
-                    return renderMenuItems(groupedEdges[slug]);
-                  }
-                  if (slug.split('/').length > 1) {
-                    return (
-                      <Menu.SubMenu
-                        key={slug}
-                        title={(docs[slug] && docs[slug].title) ? docs[slug].title['zh-CN'] : slug}
-                      >
-                        {renderMenuItems(groupedEdges[slug])}
-                      </Menu.SubMenu>
-                    );
-                  }
-                })
-            }
+            {Object.keys(groupedEdges)
+              .sort((a: string, b: string) => {
+                if (docs[a] && docs[b]) {
+                  return docs[a].order - docs[b].order;
+                }
+                return 0;
+              })
+              .map(slug => {
+                if (!shouldBeShown(slug, path)) {
+                  return null;
+                }
+                if (slug.split('/').length === 1 && docs[slug.split('/')[0]]) {
+                  return renderMenuItems(groupedEdges[slug]);
+                }
+                if (slug.split('/').length > 1) {
+                  return (
+                    <Menu.SubMenu
+                      key={slug}
+                      title={
+                        docs[slug] && docs[slug].title
+                          ? docs[slug].title['zh-CN']
+                          : slug
+                      }
+                    >
+                      {renderMenuItems(groupedEdges[slug])}
+                    </Menu.SubMenu>
+                  );
+                }
+              })}
           </Menu>
         </AntLayout.Sider>
         <Article className={styles.markdown}>
