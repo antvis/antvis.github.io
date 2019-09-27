@@ -17,6 +17,7 @@
     "url": "https://github.com/antvis/antvis.github.io/issues"
   },
   "devDependencies": {
+    "@hot-loader/react-dom": "^16.9.0+4.12.11",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.1.4",
     "@types/classnames": "^2.2.9",
@@ -39,6 +40,7 @@
     "gatsby-plugin-react-helmet": "^3.1.7",
     "gatsby-plugin-sharp": "^2.2.22",
     "gatsby-plugin-typescript": "^2.1.8",
+    "gatsby-remark-prismjs": "^3.3.16",
     "gatsby-source-filesystem": "^2.1.22",
     "gatsby-transformer-remark": "^2.6.24",
     "gatsby-transformer-sharp": "^2.2.14",
@@ -50,6 +52,8 @@
     "normalize.css": "^8.0.1",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.0",
+    "prism-themes": "^1.2.0",
+    "prismjs": "^1.17.1",
     "rc-footer": "^0.5.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -72,8 +76,5 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
-  },
-  "dependencies": {
-    "@hot-loader/react-dom": "^16.9.0+4.12.11"
   }
 }
