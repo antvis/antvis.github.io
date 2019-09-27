@@ -4,7 +4,7 @@ import GithubCorner from 'react-github-corner';
 import { Popover } from 'antd';
 import classNames from 'classnames';
 import Search from './search';
-import meta from '../../.antvisrc';
+import { docs } from '../../.antvisrc';
 import styles from './header.module.less';
 
 interface HeaderProps {
@@ -256,7 +256,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
               ),
             })}
           >
-            {meta.docs['specification'].title['zh-CN']}
+            {docs['specification'].title['zh-CN']}
           </Link>
         </li>
         <li>
@@ -266,7 +266,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
               [styles.active]: location.pathname.startsWith('/docs/other'),
             })}
           >
-            {meta.docs['other'].title['zh-CN']}
+            {docs['other'].title['zh-CN']}
           </Link>
         </li>
         <li>
