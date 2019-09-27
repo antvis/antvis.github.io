@@ -65,7 +65,7 @@ const chart = new G2.Chart({
 chart.source(data);
 chart
   .interval()
-  .position('genre*sold')
+  .position('genre*sold') // highlight-line
   .color('genre');
 chart.render();
 ```
@@ -113,3 +113,5 @@ G2.track(false);
 如果您在使用的过程中碰到问题，可以先通过 [issues](https://github.com/antvis/g2/issues) 看看有没有类似的 bug 或者建议。
 
 如需提交代码，请遵从我们的[贡献指南](https://github.com/antvis/g2/blob/master/CONTRIBUTING.md)。
+
+I can highlight `css±.some-class { background-color: red }` with CSS syntax.
