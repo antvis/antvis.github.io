@@ -250,10 +250,20 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
           <Link
             to="/docs/specification/getting-started"
             className={classNames({
-              [styles.active]: location.pathname.startsWith('/docs'),
+              [styles.active]: location.pathname.startsWith('/docs/specification'),
             })}
           >
             设计语言
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/docs/other/other"
+            className={classNames({
+              [styles.active]: location.pathname.startsWith('/docs/other'),
+            })}
+          >
+            其他文档
           </Link>
         </li>
         <li>

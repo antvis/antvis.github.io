@@ -21,5 +21,12 @@ export default {
       },
       order: 2,
     },
+    'other': {
+      'title': {
+        'zh-CN': '其他文档',
+        'en-US': 'other',
+      },
+      order: 0,
+    },
   } as { [key: string] : any },
 };

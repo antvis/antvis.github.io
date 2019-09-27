@@ -24,10 +24,18 @@ const renderMenuItems = (edges: any[]) => edges.map((edge: any) => {
   );
 });
 
+const shouldBeShown = (slug: string, path: string) => {
+  const slugPieces = slug.split('/');
+  const pathPieces = path.split('/').slice(2);
+  return slugPieces.some(slugPiece => pathPieces.includes(slugPiece));
+};
+
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
+  path,
 }: {
   data: any;
+  path: string;
 }) {
   const { markdownRemark, allMarkdownRemark } = data; // data.markdownRemark holds our post data
   const {
@@ -36,7 +44,6 @@ export default function Template({
     fields: { slug },
   } = markdownRemark;
   const { edges = [] } = allMarkdownRemark;
-
   const groupedEdges = groupBy(edges, ({
     node: {
       parent: { relativeDirectory },
@@ -59,19 +66,30 @@ export default function Template({
           >
             {
               Object.keys(groupedEdges)
-                .sort((a: string, b: string) => docs[a].order - docs[b].order)
-                .map(path => {
-                if (path === 'specification') {
-                  return renderMenuItems(groupedEdges[path]);
-                }
-                if (path.split('/').length > 1) {
-                  return (
-                    <Menu.SubMenu key={path} title={docs[path].title['zh-CN']}>
-                      {renderMenuItems(groupedEdges[path])}
-                    </Menu.SubMenu>
-                  );
-                }
-              })
+                .sort((a: string, b: string) => {
+                  if (docs[a] && docs[b]) {
+                    return docs[a].order - docs[b].order;
+                  }
+                  return 0;
+                })
+                .map(slug => {
+                  if (!shouldBeShown(slug, path)) {
+                    return null;
+                  }
+                  if (slug.split('/').length === 1 && docs[slug.split('/')[0]]) {
+                    return renderMenuItems(groupedEdges[slug]);
+                  }
+                  if (slug.split('/').length > 1) {
+                    return (
+                      <Menu.SubMenu
+                        key={slug}
+                        title={(docs[slug] && docs[slug].title) ? docs[slug].title['zh-CN'] : slug}
+                      >
+                        {renderMenuItems(groupedEdges[slug])}
+                      </Menu.SubMenu>
+                    );
+                  }
+                })
             }
           </Menu>
         </AntLayout.Sider>
