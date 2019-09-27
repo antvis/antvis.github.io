@@ -26,7 +26,7 @@ const renderMenuItems = (edges: any[]) =>
 const shouldBeShown = (slug: string, path: string) => {
   const slugPieces = slug.split('/');
   const pathPieces = path.split('/').slice(2);
-  return slugPieces.some(slugPiece => pathPieces.includes(slugPiece));
+  return slugPieces[0] === pathPieces[0];
 };
 
 export default function Template({
