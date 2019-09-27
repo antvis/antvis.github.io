@@ -23,6 +23,7 @@ module.exports = {
               inlineCodeMarker: '±',
             },
           },
+          `gatsby-remark-autolink-headers`,
         ],
       },
     },
