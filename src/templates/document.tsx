@@ -12,9 +12,9 @@ export default function Template({
   data: any;
 }) {
   const { markdownRemark, allMarkdownRemark } = data // data.markdownRemark holds our post data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter, html, fields: { slug } } = markdownRemark
   const { edges = [] } = allMarkdownRemark
-  console.log(edges);
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -22,15 +22,15 @@ export default function Template({
         <AntLayout.Sider width={240} theme="light">
           <Menu
             mode="inline"
-            selectedKeys={[frontmatter.path]}
+            selectedKeys={[slug]}
             style={{ height: '100%' }}
           >
             {
               edges.map((edge: any) => {
-                const { node: { frontmatter: { title, path } }} = edge;
+                const { node: { frontmatter: { title }, fields: { slug } }} = edge;
                 return (
-                  <Menu.Item key={path}>
-                    <Link to={path}>{title}</Link>
+                  <Menu.Item key={slug}>
+                    <Link to={slug}>{title}</Link>
                   </Menu.Item>
                 );
               })
