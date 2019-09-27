@@ -174,7 +174,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <Location>
       {({ location }) => (
         <>
-          <Header siteTitle={data.site.siteMetadata.title} location={location} />
+          <Header
+            siteTitle={data.site.siteMetadata.title}
+            location={location}
+          />
           <main className={styles.main}>{children}</main>
           <Footer
             columns={footerColumns}
@@ -182,7 +185,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <div>
                 © {new Date().getFullYear()}, Built with
                 {` `}
-                <a href="http://xtech.antfin.com/">AFX</a>
+                <a href="https://xtech.antfin.com/">AFX</a>
               </div>
             }
           />
