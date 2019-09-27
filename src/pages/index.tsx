@@ -1,11 +1,17 @@
 import React from 'react';
+import { Skeleton } from 'antd';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
+    <SEO title="首页" />
+    <div style={{ margin: '0 auto', padding: '0 80px' }}>
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+    </div>
   </Layout>
 );
 
