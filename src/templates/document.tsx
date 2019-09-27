@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, Link } from 'gatsby';
 import { Layout as AntLayout, Menu } from 'antd';
 import { groupBy } from 'lodash-es';
@@ -43,12 +43,20 @@ export default function Template({
     },
   }: any) => relativeDirectory);
 
+  const [openKeys, setOpenKeys] = useState<string[]>(Object.keys(groupedEdges));
+
   return (
     <Layout>
       <SEO title="Home" />
       <AntLayout style={{ background: '#fff' }}>
-        <AntLayout.Sider width={240} theme="light">
-          <Menu mode="inline" selectedKeys={[slug]} style={{ height: '100%' }}>
+        <AntLayout.Sider width={280} theme="light">
+          <Menu
+            mode="inline"
+            selectedKeys={[slug]}
+            style={{ height: '100%' }}
+            openKeys={openKeys}
+            onOpenChange={openKeys => setOpenKeys(openKeys)}
+          >
             {
               Object.keys(groupedEdges)
                 .sort((a: string, b: string) => docs[a].order - docs[b].order)
