@@ -9,7 +9,7 @@ order: 0
 
 [![NPM Package](https://img.shields.io/npm/v/@antv/g2.svg)](https://www.npmjs.com/package/@antv/g2)
 [![NPM Downloads](http://img.shields.io/npm/dm/@antv/g2.svg)](https://npmjs.org/package/@antv/g2)
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/antvis/g2.svg)](http://isitmaintained.com/project/antvis/g2 "Percentage of issues still open")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/antvis/g2.svg)](http://isitmaintained.com/project/antvis/g2 'Percentage of issues still open')
 
 G2 是一套基于可视化编码的图形语法，以数据驱动，具有高度的易用性和扩展性，用户无需关注各种繁琐的实现细节，一条语句即可构建出各种各样的可交互的统计图表。
 
@@ -59,11 +59,14 @@ const data = [
 const chart = new G2.Chart({
   container: 'c1',
   width: 500,
-  height: 500
+  height: 500,
 });
 
 chart.source(data);
-chart.interval().position('genre*sold').color('genre');
+chart
+  .interval()
+  .position('genre*sold')
+  .color('genre');
 chart.render();
 ```
 
@@ -96,7 +99,7 @@ $ npm run demos
 
 ```js
 // 关闭 G2 的体验改进计划打点请求
-G2.track(false)
+G2.track(false);
 ```
 
 **更新**

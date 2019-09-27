@@ -22,14 +22,26 @@ interface ProductProps {
   }>;
 }
 
-const Product: React.FC<ProductProps> = ({ name, icon, url, description, links = [] }) => (
+const Product: React.FC<ProductProps> = ({
+  name,
+  icon,
+  url,
+  description,
+  links = [],
+}) => (
   <li className={styles.product}>
     <img alt={name} src={icon} />
     <div className={styles.productContent}>
-      <a href={url} target="_blank"><h4>{name}</h4></a>
+      <a href={url} target="_blank">
+        <h4>{name}</h4>
+      </a>
       <div className={styles.productDescription}>{description}</div>
       <div className={styles.productLinks}>
-        {links.map(({ link, name }, i) => <a target="_blank" href={link} key={i}>{name}</a>)}
+        {links.map(({ link, name }, i) => (
+          <a target="_blank" href={link} key={i}>
+            {name}
+          </a>
+        ))}
       </div>
     </div>
   </li>
@@ -223,7 +235,10 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
     <div className={styles.left}>
       <h1>
         <Link to="/">
-          <img src="https://gw.alipayobjects.com/os/s/prod/antv/assets/image/logo-with-text-73b8a.svg" alt={siteTitle} />
+          <img
+            src="https://gw.alipayobjects.com/os/s/prod/antv/assets/image/logo-with-text-73b8a.svg"
+            alt={siteTitle}
+          />
         </Link>
       </h1>
       <span className={styles.divider} />
