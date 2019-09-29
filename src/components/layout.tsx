@@ -22,10 +22,7 @@ interface LayoutProps {
   location?: Location;
 }
 
-const Layout: React.FC<LayoutProps> = ({
-  children,
-  location,
-}) => {
+const Layout: React.FC<LayoutProps> = ({ children, location }) => {
   const { i18n } = useTranslation();
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -232,9 +229,7 @@ export default function App(props: any) {
   return (
     <Suspense fallback={<div />}>
       <RouterLocation>
-        {({ location }) => (
-          <Layout location={location} {...props} />
-        )}
+        {({ location }) => <Layout location={location} {...props} />}
       </RouterLocation>
     </Suspense>
   );
