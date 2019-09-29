@@ -237,7 +237,7 @@ const Products: React.FC<any> = () => (
 const Header: React.FC<HeaderProps> = ({
   siteTitle = '',
   location = { pathname: '' },
-  currentLangKey,
+  currentLangKey = '',
 }) => (
   <header className={styles.header}>
     <div className={styles.left}>
@@ -263,7 +263,7 @@ const Header: React.FC<HeaderProps> = ({
               ),
             })}
           >
-            {docs['specification'].title['zh-CN']}
+            {docs['specification'].title[currentLangKey]}
           </Link>
         </li>
         <li>
@@ -275,7 +275,7 @@ const Header: React.FC<HeaderProps> = ({
               ),
             })}
           >
-            {docs['other'].title['zh-CN']}
+            {docs['other'].title[currentLangKey]}
           </Link>
         </li>
         <li>

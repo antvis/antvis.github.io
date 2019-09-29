@@ -30,6 +30,15 @@ const shouldBeShown = (slug: string, path: string) => {
   return slugPieces[0] === pathPieces[0];
 };
 
+const getMenuItemlocaleKey = (slug: string = '') => {
+  const slugPieces = slug.split('/');
+  const menuItemlocaleKey = slugPieces
+    .slice(slugPieces.indexOf('docs') + 1)
+    .filter(key => key)
+    .join('/');
+  return menuItemlocaleKey;
+};
+
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
   path,
@@ -74,8 +83,10 @@ export default function Template({
             {Object.keys(groupedEdges)
               .filter(key => key.startsWith(`/${currentLangKey}/`))
               .sort((a: string, b: string) => {
-                if (docs[a] && docs[b]) {
-                  return docs[a].order - docs[b].order;
+                const aKey = getMenuItemlocaleKey(a);
+                const bKey = getMenuItemlocaleKey(b);
+                if (docs[aKey] && docs[bKey]) {
+                  return docs[aKey].order - docs[bKey].order;
                 }
                 return 0;
               })
@@ -87,10 +98,7 @@ export default function Template({
                 if (slugPieces.length <= 4) {
                   return renderMenuItems(groupedEdges[slug]);
                 } else {
-                  const menuItemlocaleKey = slugPieces
-                    .slice(slugPieces.indexOf('docs') + 1)
-                    .filter(key => key)
-                    .join('/');
+                  const menuItemlocaleKey = getMenuItemlocaleKey(slug);
                   return (
                     <Menu.SubMenu
                       key={slug}
