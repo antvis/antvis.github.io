@@ -1,11 +1,14 @@
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import React from 'react';
 import GithubCorner from 'react-github-corner';
-import { Popover } from 'antd';
+import { Popover, Select } from 'antd';
 import classNames from 'classnames';
+import { getCurrentLangKey } from 'ptz-i18n';
 import Search from './search';
 import { docs } from '../../.antvisrc';
 import styles from './header.module.less';
+
+const { Option } = Select;
 
 interface HeaderProps {
   siteTitle?: string;
@@ -234,69 +237,89 @@ const Products: React.FC<any> = () => (
 const Header: React.FC<HeaderProps> = ({
   siteTitle,
   location = { pathname: '' },
-}) => (
-  <header className={styles.header}>
-    <div className={styles.left}>
-      <h1>
-        <Link to="/">
-          <img
-            src="https://gw.alipayobjects.com/os/s/prod/antv/assets/image/logo-with-text-73b8a.svg"
-            alt={siteTitle}
-          />
-        </Link>
-      </h1>
-      <span className={styles.divider} />
-      <Search />
-    </div>
-    <nav className={styles.nav}>
-      <ul className={styles.menu}>
-        <li>
-          <Link
-            to="/docs/specification/getting-started"
-            className={classNames({
-              [styles.active]: location.pathname.startsWith(
-                '/docs/specification',
-              ),
-            })}
-          >
-            {docs['specification'].title['zh-CN']}
+}) => {
+  const currentLangKey = getCurrentLangKey(
+    ['en', 'zh'],
+    'en',
+    location.pathname,
+  );
+  return (
+    <header className={styles.header}>
+      <div className={styles.left}>
+        <h1>
+          <Link to="/">
+            <img
+              src="https://gw.alipayobjects.com/os/s/prod/antv/assets/image/logo-with-text-73b8a.svg"
+              alt={siteTitle}
+            />
           </Link>
-        </li>
-        <li>
-          <Link
-            to="/docs/other/other"
-            className={classNames({
-              [styles.active]: location.pathname.startsWith('/docs/other'),
-            })}
-          >
-            {docs['other'].title['zh-CN']}
-          </Link>
-        </li>
-        <li>
-          <Popover
-            title={null}
-            content={<Products />}
-            placement="bottomRight"
-            arrowPointAtCenter
-          >
-            <a>所有产品</a>
-          </Popover>
-        </li>
-        <li>
-          <Popover
-            title={null}
-            content={<Products />}
-            placement="bottomRight"
-            arrowPointAtCenter
-          >
-            <a>生态</a>
-          </Popover>
-        </li>
-      </ul>
-      <GithubCorner href="https://github.com/antvis" size={64} />
-    </nav>
-  </header>
-);
+        </h1>
+        <span className={styles.divider} />
+        <Search />
+      </div>
+      <nav className={styles.nav}>
+        <ul className={styles.menu}>
+          <li>
+            <Link
+              to="/docs/specification/getting-started"
+              className={classNames({
+                [styles.active]: location.pathname.startsWith(
+                  '/docs/specification',
+                ),
+              })}
+            >
+              {docs['specification'].title['zh-CN']}
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/docs/other/other"
+              className={classNames({
+                [styles.active]: location.pathname.startsWith('/docs/other'),
+              })}
+            >
+              {docs['other'].title['zh-CN']}
+            </Link>
+          </li>
+          <li>
+            <Popover
+              title={null}
+              content={<Products />}
+              placement="bottomRight"
+              arrowPointAtCenter
+            >
+              <a>所有产品</a>
+            </Popover>
+          </li>
+          <li>
+            <Popover
+              title={null}
+              content={<Products />}
+              placement="bottomRight"
+              arrowPointAtCenter
+            >
+              <a>生态</a>
+            </Popover>
+          </li>
+        </ul>
+        <Select
+          size="small"
+          style={{ width: 80, fontSize: 12 }}
+          value={currentLangKey}
+          onChange={(value: string) => {
+            navigate(
+              location.pathname.replace(`/${currentLangKey}/`, `/${value}/`),
+            );
+          }}
+        >
+          <Option value="en">🇺🇸 Eng</Option>
+          <Option value="zh">🇨🇳 中文</Option>
+        </Select>
+        <GithubCorner href="https://github.com/antvis" size={64} />
+      </nav>
+    </header>
+  );
+};
 
 Header.defaultProps = {
   siteTitle: ``,
