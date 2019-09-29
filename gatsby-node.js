@@ -6,27 +6,35 @@
 
 // You can delete this file if you're not using it
 const path = require(`path`);
+const { getSlugAndLang } = require('ptz-i18n');
 
 // Add custom url pathname for posts
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   if (node.internal.type === `File`) {
-    const { dir, name } = path.parse(node.absolutePath);
-    const slug = path.relative(__dirname, path.join(dir, name));
     createNodeField({
       node,
-      name: `slug`,
-      value: `/${slug}`,
     });
-  } else if (
-    node.internal.type === `MarkdownRemark` &&
-    typeof node.slug === `undefined`
-  ) {
-    const fileNode = getNode(node.parent);
+  } else if (node.internal.type === `MarkdownRemark`) {
+    const { slug, langKey } = getSlugAndLang(
+      {
+        langKeyForNull: 'any',
+        langKeyDefault: 'en',
+        useLangKeyLayout: false,
+        pagesPaths: [__dirname],
+        prefixDefault: true,
+      },
+      node.fileAbsolutePath,
+    );
     createNodeField({
       node,
       name: `slug`,
-      value: fileNode.fields.slug,
+      value: slug,
+    });
+    createNodeField({
+      node,
+      name: `langKey`,
+      value: langKey,
     });
   }
 };
@@ -55,20 +63,24 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const { slug, langKey } = node.fields;
     createPage({
-      path: node.fields.slug, // required
+      path: slug, // required
       component: path.resolve(`src/templates/document.tsx`),
-      context: {}, // additional data can be passed via context
+      context: {
+        slug,
+        langKey,
+      },
     });
   });
 };
 
 exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
-  const config = getConfig()
+  const config = getConfig();
   if (stage.startsWith('develop') && config.resolve) {
     config.resolve.alias = {
       ...config.resolve.alias,
       'react-dom': '@hot-loader/react-dom',
-    }
+    };
   }
 };

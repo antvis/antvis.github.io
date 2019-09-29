@@ -1,18 +1,37 @@
 import React from 'react';
-import { Skeleton } from 'antd';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import { graphql, navigate, withPrefix } from 'gatsby';
+import { getUserLangKey } from 'ptz-i18n';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="首页" />
-    <div style={{ margin: '0 auto', padding: '0 80px' }}>
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
-    </div>
-  </Layout>
-);
+class RedirectIndex extends React.PureComponent {
+  constructor(args: any) {
+    super(args);
 
-export default IndexPage;
+    // Skip build, Browsers only
+    if (typeof window !== 'undefined') {
+      const { langs, defaultLangKey } = args.data.site.siteMetadata.languages;
+      const langKey = getUserLangKey(langs, defaultLangKey);
+      const homeUrl = withPrefix(`/${langKey}/`);
+      // https://github.com/angeloocana/gatsby-plugin-i18n/issues/52#issuecomment-451590961
+      navigate(homeUrl);
+    }
+  }
+
+  render() {
+    return <div />;
+  }
+}
+
+export default RedirectIndex;
+
+export const pageQuery = graphql`
+  query IndexQuery {
+    site{
+      siteMetadata {
+        languages {
+          defaultLangKey
+          langs
+        }
+      }
+    }
+  }
+`;

@@ -3,6 +3,10 @@ module.exports = {
     title: `AntV`,
     siteUrl: `https://antvis.github.io`,
     description: `Ant Visualization solution home page`,
+    languages: {
+      langs: ['en', 'zh'],
+      defaultLangKey: 'en',
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -12,6 +16,13 @@ module.exports = {
         name: `docs`,
         path: `${__dirname}/docs`,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyDefault: 'en',
+        useLangKeyLayout: false
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -61,8 +72,5 @@ module.exports = {
         trackingId: `UA-148148901-1`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };
