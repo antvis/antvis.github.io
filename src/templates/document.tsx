@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { graphql, Link } from 'gatsby';
 import { Layout as AntLayout, Menu } from 'antd';
 import { groupBy } from 'lodash-es';
+import { getCurrentLangKey } from 'ptz-i18n';
 import Layout from '../components/layout';
 import Article from '../components/article';
 import SEO from '../components/seo';
@@ -24,9 +25,8 @@ const renderMenuItems = (edges: any[]) =>
   });
 
 const shouldBeShown = (slug: string, path: string) => {
-  const slugPieces = slug.split('/').slice(0);
-  const pathPieces = path.split('/').slice(3);
-  console.log(slug, path);
+  const slugPieces = slug.split('/').slice(slug.split('/').indexOf('docs') + 1);
+  const pathPieces = path.split('/').slice(slug.split('/').indexOf('docs') + 1);
   return slugPieces[0] === pathPieces[0];
 };
 
@@ -37,20 +37,24 @@ export default function Template({
   data: any;
   path: string;
 }) {
-  const { markdownRemark, allMarkdownRemark } = data; // data.markdownRemark holds our post data
+  const { markdownRemark, allMarkdownRemark, site } = data; // data.markdownRemark holds our post data
   const {
     frontmatter,
     html,
     fields: { slug },
   } = markdownRemark;
   const { edges = [] } = allMarkdownRemark;
-  const groupedEdges = groupBy(
-    edges,
-    ({
-      node: {
-        parent: { relativeDirectory },
-      },
-    }: any) => relativeDirectory,
+  const {
+    siteMetadata: {
+      languages: { langs, defaultLangKey },
+    },
+  } = site;
+  const currentLangKey = getCurrentLangKey(langs, defaultLangKey, path);
+  const groupedEdges = groupBy(edges, ({ node: { fields: { slug } } }: any) =>
+    slug
+      .split('/')
+      .slice(0, -2)
+      .join('/'),
   );
 
   const [openKeys, setOpenKeys] = useState<string[]>(Object.keys(groupedEdges));
@@ -68,6 +72,7 @@ export default function Template({
             onOpenChange={openKeys => setOpenKeys(openKeys)}
           >
             {Object.keys(groupedEdges)
+              .filter(key => key.startsWith(`/${currentLangKey}/`))
               .sort((a: string, b: string) => {
                 if (docs[a] && docs[b]) {
                   return docs[a].order - docs[b].order;
@@ -78,17 +83,21 @@ export default function Template({
                 if (!shouldBeShown(slug, path)) {
                   return null;
                 }
-                if (slug.split('/').length === 1 && docs[slug.split('/')[0]]) {
+                const slugPieces = slug.split('/');
+                if (slugPieces.length <= 4) {
                   return renderMenuItems(groupedEdges[slug]);
-                }
-                if (slug.split('/').length > 1) {
+                } else {
+                  const menuItemlocaleKey = slugPieces
+                    .slice(slugPieces.indexOf('docs') + 1)
+                    .filter(key => key)
+                    .join('/');
                   return (
                     <Menu.SubMenu
                       key={slug}
                       title={
-                        docs[slug] && docs[slug].title
-                          ? docs[slug].title['zh-CN']
-                          : slug
+                        docs[menuItemlocaleKey] && docs[menuItemlocaleKey].title
+                          ? docs[menuItemlocaleKey].title[currentLangKey]
+                          : menuItemlocaleKey
                       }
                     >
                       {renderMenuItems(groupedEdges[slug])}
@@ -109,10 +118,20 @@ export default function Template({
 
 export const pageQuery = graphql`
   query($path: String!) {
+    site {
+      siteMetadata {
+        title
+        languages {
+          langs
+          defaultLangKey
+        }
+      }
+    }
     markdownRemark(fields: { slug: { eq: $path } }) {
       html
       fields {
         slug
+        langKey
       }
       frontmatter {
         title
@@ -126,14 +145,10 @@ export const pageQuery = graphql`
         node {
           fields {
             slug
+            langKey
           }
           frontmatter {
             title
-          }
-          parent {
-            ... on File {
-              relativeDirectory
-            }
           }
         }
       }
