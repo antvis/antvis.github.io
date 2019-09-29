@@ -17,7 +17,7 @@ npm install
 npm start
 ```
 
-Visit http://127.0.0.1:8000
+Visit https://127.0.0.1:8000
 
 ## Prettier
 
