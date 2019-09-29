@@ -47,6 +47,7 @@
     "gatsby-transformer-remark": "^2.6.24",
     "gatsby-transformer-sharp": "^2.2.14",
     "husky": "^3.0.5",
+    "i18next": "^17.0.16",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "less": "^3.10.3",
@@ -62,6 +63,7 @@
     "react-dom": "^16.9.0",
     "react-github-corner": "^2.3.0",
     "react-helmet": "^5.2.1",
+    "react-i18next": "^10.13.1",
     "react-test-renderer": "^16.9.0",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"
