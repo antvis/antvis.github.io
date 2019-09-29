@@ -38,5 +38,8 @@ Not ready.
 ## Used libraries
 
 - [Gatsby](https://www.gatsbyjs.org/docs/)
+- [Ant Design](https://github.com/ant-design/ant-design)
+- [gatsby-transformer-remark](https://www.gatsbyjs.org/packages/gatsby-transformer-remark/)
 - [Jest](https://jestjs.io/)
 - [Testing Library](https://testing-library.com/)
+- [react-i18next](https://react.i18next.com/)
