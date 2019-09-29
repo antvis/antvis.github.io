@@ -9,6 +9,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Location } from '@reach/router';
 import Footer from 'rc-footer';
+import { getCurrentLangKey } from 'ptz-i18n';
 import Header from './header';
 import styles from './layout.module.less';
 
@@ -22,6 +23,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       site {
         siteMetadata {
           title
+          languages {
+            langs
+            defaultLangKey
+          }
         }
       }
     }
@@ -172,25 +177,41 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <Location>
-      {({ location }) => (
-        <>
-          <Header
-            siteTitle={data.site.siteMetadata.title}
-            location={location}
-          />
-          <main className={styles.main}>{children}</main>
-          <Footer
-            columns={footerColumns}
-            bottom={
-              <div>
-                © {new Date().getFullYear()}, Built with
-                {` `}
-                <a href="https://xtech.antfin.com/">AFX</a>
-              </div>
-            }
-          />
-        </>
-      )}
+      {({ location }) => {
+        const {
+          site: {
+            siteMetadata: {
+              title,
+              languages: { langs, defaultLangKey },
+            },
+          },
+        } = data;
+        const currentLangKey = getCurrentLangKey(
+          langs,
+          defaultLangKey,
+          location.pathname,
+        );
+        return (
+          <>
+            <Header
+              siteTitle={title}
+              location={location}
+              currentLangKey={currentLangKey}
+            />
+            <main className={styles.main}>{children}</main>
+            <Footer
+              columns={footerColumns}
+              bottom={
+                <div>
+                  © {new Date().getFullYear()}, Built with
+                  {` `}
+                  <a href="https://xtech.antfin.com/">AFX</a>
+                </div>
+              }
+            />
+          </>
+        );
+      }}
     </Location>
   );
 };

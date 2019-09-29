@@ -1,30 +1,30 @@
 export const docs = {
   specification: {
     title: {
-      'zh-CN': '设计语言',
-      'en-US': 'Specification',
+      zh: '设计语言',
+      en: 'Specification',
     },
     order: 0,
   },
   'specification/category': {
     title: {
-      'zh-CN': '分类一',
-      'en-US': 'category',
+      zh: '分类一',
+      en: 'category1',
     },
     order: 1,
   },
-  'specification/category2': {
-    title: {
-      'zh-CN': '分类二',
-      'en-US': 'category',
-    },
-    order: 2,
-  },
   other: {
     title: {
-      'zh-CN': '其他文档',
-      'en-US': 'other',
+      zh: '其他文档',
+      en: 'other',
     },
     order: 0,
+  },
+  'other/category': {
+    title: {
+      zh: '分类二',
+      en: 'category2',
+    },
+    order: 2,
   },
 } as { [key: string]: any };
