@@ -261,10 +261,10 @@ const Header: React.FC<HeaderProps> = ({
         <ul className={styles.menu}>
           <li>
             <Link
-              to="/docs/specification/getting-started"
+              to={`/${currentLangKey}/docs/specification/getting-started`}
               className={classNames({
                 [styles.active]: location.pathname.startsWith(
-                  '/docs/specification',
+                  `/${currentLangKey}/docs/specification`,
                 ),
               })}
             >
@@ -273,9 +273,11 @@ const Header: React.FC<HeaderProps> = ({
           </li>
           <li>
             <Link
-              to="/docs/other/other"
+              to={`/${currentLangKey}/docs/other/getting-started`}
               className={classNames({
-                [styles.active]: location.pathname.startsWith('/docs/other'),
+                [styles.active]: location.pathname.startsWith(
+                  `/${currentLangKey}/docs/other`,
+                ),
               })}
             >
               {docs['other'].title['zh-CN']}

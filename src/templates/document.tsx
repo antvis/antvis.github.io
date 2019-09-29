@@ -24,8 +24,9 @@ const renderMenuItems = (edges: any[]) =>
   });
 
 const shouldBeShown = (slug: string, path: string) => {
-  const slugPieces = slug.split('/');
-  const pathPieces = path.split('/').slice(2);
+  const slugPieces = slug.split('/').slice(0);
+  const pathPieces = path.split('/').slice(3);
+  console.log(slug, path);
   return slugPieces[0] === pathPieces[0];
 };
 
