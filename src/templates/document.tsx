@@ -62,7 +62,7 @@ export default function Template({
   const groupedEdges = groupBy(edges, ({ node: { fields: { slug } } }: any) =>
     slug
       .split('/')
-      .slice(0, -2)
+      .slice(0, -1)
       .join('/'),
   );
 

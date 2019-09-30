@@ -29,12 +29,30 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `gatsby-remark-prettier`,
+            options: {
+              // Look for local .prettierrc file.
+              // The same as `prettier.resolveConfig(process.cwd())`
+              usePrettierrc: true,
+              // Overwrite prettier options, check out https://prettier.io/docs/en/options.html
+              prettierOptions: {},
+            },
+          },
+          {
             resolve: `gatsby-remark-prismjs`,
             options: {
               inlineCodeMarker: '±',
             },
           },
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_self',
+              rel: 'nofollow',
+            },
+          },
           `gatsby-remark-autolink-headers`,
+          `gatsby-remark-reading-time`,
         ],
       },
     },
@@ -72,5 +90,8 @@ module.exports = {
         trackingId: `UA-148148901-1`,
       },
     },
+    `gatsby-plugin-catch-links`,
+    `gatsby-plugin-nprogress`,
+    `gatsby-plugin-remove-trailing-slashes`,
   ],
 };
