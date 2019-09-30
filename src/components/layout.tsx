@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Location as RouterLocation } from '@reach/router';
 import Footer from 'rc-footer';
@@ -227,10 +227,8 @@ const Layout: React.FC<LayoutProps> = ({ children, location }) => {
 // here app catches the suspense from page in case translations are not yet loaded
 export default function App(props: any) {
   return (
-    <Suspense fallback={<div />}>
-      <RouterLocation>
-        {({ location }) => <Layout location={location} {...props} />}
-      </RouterLocation>
-    </Suspense>
+    <RouterLocation>
+      {({ location }) => <Layout location={location} {...props} />}
+    </RouterLocation>
   );
 }
