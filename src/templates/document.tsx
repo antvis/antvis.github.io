@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { graphql, Link } from 'gatsby';
-import { Layout as AntLayout, Menu } from 'antd';
+import { Layout as AntLayout, Menu, Icon, Tooltip } from 'antd';
 import { groupBy } from 'lodash-es';
 import { getCurrentLangKey } from 'ptz-i18n';
+import packageJson from '../../package.json';
 import Layout from '../components/layout';
 import Article from '../components/article';
 import SEO from '../components/seo';
@@ -50,7 +51,8 @@ export default function Template({
   const {
     frontmatter,
     html,
-    fields: { slug },
+    fields: { slug, readingTime },
+    parent: { relativePath },
   } = markdownRemark;
   const { edges = [] } = allMarkdownRemark;
   const {
@@ -116,7 +118,19 @@ export default function Template({
           </Menu>
         </AntLayout.Sider>
         <Article className={styles.markdown}>
-          <h1>{frontmatter.title}</h1>
+          <h1>
+            {frontmatter.title}
+            <Tooltip title="在 GitHub 上编辑">
+              <a
+                href={`${packageJson.repository.url}/edit/master/${relativePath}`}
+                target="_blank"
+                className={styles.editOnGtiHubButton}
+              >
+                <Icon type="edit" />
+              </a>
+            </Tooltip>
+          </h1>
+          <div>{readingTime.text}</div>
           <div dangerouslySetInnerHTML={{ __html: html }} />
         </Article>
       </AntLayout>
@@ -140,9 +154,17 @@ export const pageQuery = graphql`
       fields {
         slug
         langKey
+        readingTime {
+          text
+        }
       }
       frontmatter {
         title
+      }
+      parent {
+        ... on File {
+          relativePath
+        }
       }
     }
     allMarkdownRemark(
