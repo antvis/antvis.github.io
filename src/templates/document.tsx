@@ -72,7 +72,7 @@ export default function Template({
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title={frontmatter.title} lang={currentLangKey} />
       <AntLayout style={{ background: '#fff' }}>
         <AntLayout.Sider width={280} theme="light">
           <Menu
