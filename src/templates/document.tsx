@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { graphql, Link } from 'gatsby';
-import { Layout as AntLayout, Menu, Icon, Tooltip } from 'antd';
+import { Layout as AntLayout, Menu, Icon, Tooltip, Affix } from 'antd';
 import { groupBy } from 'lodash-es';
 import { getCurrentLangKey } from 'ptz-i18n';
 import packageJson from '../../package.json';
@@ -51,6 +51,7 @@ export default function Template({
   const {
     frontmatter,
     html,
+    tableOfContents,
     fields: { slug, readingTime },
     parent: { relativePath },
   } = markdownRemark;
@@ -118,20 +119,28 @@ export default function Template({
           </Menu>
         </AntLayout.Sider>
         <Article className={styles.markdown}>
-          <h1>
-            {frontmatter.title}
-            <Tooltip title="在 GitHub 上编辑">
-              <a
-                href={`${packageJson.repository.url}/edit/master/${relativePath}`}
-                target="_blank"
-                className={styles.editOnGtiHubButton}
-              >
-                <Icon type="edit" />
-              </a>
-            </Tooltip>
-          </h1>
-          <div>{readingTime.text}</div>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <Affix>
+            <div
+              className={styles.toc}
+              dangerouslySetInnerHTML={{ __html: tableOfContents }}
+            />
+          </Affix>
+          <div className={styles.main}>
+            <h1>
+              {frontmatter.title}
+              <Tooltip title="在 GitHub 上编辑">
+                <a
+                  href={`${packageJson.repository.url}/edit/master/${relativePath}`}
+                  target="_blank"
+                  className={styles.editOnGtiHubButton}
+                >
+                  <Icon type="edit" />
+                </a>
+              </Tooltip>
+            </h1>
+            <div>{readingTime.text}</div>
+            <div dangerouslySetInnerHTML={{ __html: html }} />
+          </div>
         </Article>
       </AntLayout>
     </Layout>
@@ -151,6 +160,7 @@ export const pageQuery = graphql`
     }
     markdownRemark(fields: { slug: { eq: $path } }) {
       html
+      tableOfContents
       fields {
         slug
         langKey
