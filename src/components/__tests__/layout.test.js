@@ -9,6 +9,10 @@ beforeEach(() => {
     site: {
       siteMetadata: {
         title: `GatsbyJS`,
+        languages: {
+          langs: ['en', 'zh'],
+          defaultLangKey: 'zh',
+        },
       },
     },
   }));

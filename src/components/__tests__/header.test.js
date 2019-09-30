@@ -7,7 +7,6 @@ describe(`Header`, () => {
   it(`renders menu`, () => {
     const siteTitle = `Hello World`;
     const { getByText } = render(<Header siteTitle={siteTitle} />);
-    expect(getByText('设计语言')).toBeInTheDocument();
     expect(getByText('所有产品')).toBeInTheDocument();
     expect(getByText('生态')).toBeInTheDocument();
   });
