@@ -4,8 +4,8 @@ module.exports = {
     siteUrl: `https://antvis.github.io`,
     description: `Ant Visualization solution home page`,
     languages: {
-      langs: ['en', 'zh'],
-      defaultLangKey: 'en',
+      langs: ['en', 'zh', 'none'],
+      defaultLangKey: 'zh',
     },
   },
   plugins: [
@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-i18n',
       options: {
-        langKeyDefault: 'en',
+        langKeyDefault: 'zh',
         useLangKeyLayout: false,
       },
     },
