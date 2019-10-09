@@ -86,7 +86,8 @@ const Header: React.FC<HeaderProps> = ({
         </ul>
         <Select
           size="small"
-          style={{ width: 80, fontSize: 12 }}
+          style={{ width: 90, fontSize: 12 }}
+          dropdownMatchSelectWidth={false}
           value={currentLangKey}
           onChange={(value: string) => {
             navigate(
@@ -94,7 +95,7 @@ const Header: React.FC<HeaderProps> = ({
             );
           }}
         >
-          <Option value="en">🇺🇸 Eng</Option>
+          <Option value="en">🇺🇸 English</Option>
           <Option value="zh">🇨🇳 中文</Option>
         </Select>
         <GithubCorner href="https://github.com/antvis" size={64} />
