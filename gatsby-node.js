@@ -10,7 +10,7 @@ const { getSlugAndLang } = require('ptz-i18n');
 
 // Add custom url pathname for posts
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
+  const { createNode, createNodeField } = actions;
   if (node.internal.type === `File`) {
     createNodeField({
       node,
@@ -19,7 +19,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const { slug, langKey } = getSlugAndLang(
       {
         langKeyForNull: 'any',
-        langKeyDefault: 'en',
+        langKeyDefault: 'none',
         useLangKeyLayout: false,
         pagesPaths: [__dirname],
         prefixDefault: true,
@@ -29,7 +29,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug.replace(/\/$/, ''),
+      value: (langKey === 'none' ? `/zh${slug}` : slug).replace(/\/$/, ''),
     });
     createNodeField({
       node,
@@ -51,6 +51,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           node {
             fields {
               slug
+              langKey
             }
           }
         }
@@ -67,10 +68,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createPage({
       path: slug, // required
       component: path.resolve(`src/templates/document.tsx`),
-      context: {
-        slug,
-        langKey,
-      },
     });
   });
 };
