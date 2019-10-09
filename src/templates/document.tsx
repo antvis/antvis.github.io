@@ -69,6 +69,8 @@ export default function Template({
       .join('/'),
   );
 
+  console.log(currentLangKey, groupedEdges, langs, defaultLangKey);
+
   const [openKeys, setOpenKeys] = useState<string[]>(Object.keys(groupedEdges));
 
   return (
