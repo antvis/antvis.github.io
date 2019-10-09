@@ -10,7 +10,7 @@ const { getSlugAndLang } = require('ptz-i18n');
 
 // Add custom url pathname for posts
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNode, createNodeField } = actions;
+  const { createNodeField } = actions;
   if (node.internal.type === `File`) {
     createNodeField({
       node,

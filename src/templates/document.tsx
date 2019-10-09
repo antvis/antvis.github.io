@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql, Link } from 'gatsby';
-import { Layout as AntLayout, Menu, Icon, Tooltip, Affix } from 'antd';
+import { Layout as AntLayout, Menu, Icon, Tooltip, Affix, Tag } from 'antd';
 import { groupBy } from 'lodash-es';
+import moment from 'moment';
+import { useTranslation } from 'react-i18next';
 import { getCurrentLangKey } from 'ptz-i18n';
 import packageJson from '../../package.json';
 import Layout from '../components/layout';
@@ -68,8 +70,12 @@ export default function Template({
       .slice(0, -1)
       .join('/'),
   );
-
   const [openKeys, setOpenKeys] = useState<string[]>(Object.keys(groupedEdges));
+  const { i18n } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+  useEffect(() => {
+    setCurrentLanguage(i18n.language);
+  }, [i18n.language]);
 
   return (
     <Layout>
@@ -138,7 +144,13 @@ export default function Template({
                 </a>
               </Tooltip>
             </h1>
-            <div>{readingTime.text}</div>
+            <div>
+              <Tag>
+                {currentLanguage === 'zh'
+                  ? moment(readingTime.time).format('阅读时间约 M 分钟')
+                  : readingTime.text}
+              </Tag>
+            </div>
             <div dangerouslySetInnerHTML={{ __html: html }} />
           </div>
         </Article>
@@ -166,6 +178,7 @@ export const pageQuery = graphql`
         langKey
         readingTime {
           text
+          time
         }
       }
       frontmatter {

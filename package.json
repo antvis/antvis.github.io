@@ -58,6 +58,7 @@
     "jest": "^24.9.0",
     "less": "^3.10.3",
     "lodash-es": "^4.17.15",
+    "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.0",
