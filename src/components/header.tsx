@@ -25,14 +25,18 @@ interface HeaderProps {
 }
 
 const getDocument = (docs: any[], slug: string = '') => {
-  return docs.find(doc => doc.slug === slug);
+  return (
+    docs.find(doc => doc.slug === slug) || {
+      title: {},
+    }
+  );
 };
 
 const Header: React.FC<HeaderProps> = ({
   siteTitle = '',
   location = { pathname: '' },
   currentLangKey = '',
-  docs,
+  docs = [],
 }) => {
   const { t } = useTranslation();
   return (
