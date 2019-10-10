@@ -33,6 +33,14 @@ const Layout: React.FC<LayoutProps> = ({ children, location }) => {
             langs
             defaultLangKey
           }
+          docs {
+            slug
+            title {
+              zh
+              en
+            }
+            order
+          }
         }
       }
     }
@@ -186,6 +194,7 @@ const Layout: React.FC<LayoutProps> = ({ children, location }) => {
       siteMetadata: {
         title,
         languages: { langs, defaultLangKey },
+        docs,
       },
     },
   } = data;
@@ -208,6 +217,7 @@ const Layout: React.FC<LayoutProps> = ({ children, location }) => {
         siteTitle={title}
         location={location}
         currentLangKey={currentLangKey}
+        docs={docs}
       />
       <main className={styles.main}>{children}</main>
       <Footer
