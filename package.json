@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/antvis/antvis.github.io/issues"
   },
-  "devDependencies": {
+  "dependencies": {
     "@hot-loader/react-dom": "^16.9.0+4.12.11",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.1.4",
