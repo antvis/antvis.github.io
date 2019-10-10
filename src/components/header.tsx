@@ -6,7 +6,6 @@ import { Popover, Select } from 'antd';
 import classNames from 'classnames';
 import Search from './search';
 import Products from './products';
-import { docs } from '../../.antvisrc';
 import styles from './header.module.less';
 
 const { Option } = Select;
@@ -15,12 +14,25 @@ interface HeaderProps {
   siteTitle?: string;
   location?: Location;
   currentLangKey?: string;
+  docs: Array<{
+    slug: string;
+    order: number;
+    title: {
+      zh: string;
+      en: string;
+    };
+  }>;
 }
+
+const getDocument = (docs: any[], slug: string = '') => {
+  return docs.find(doc => doc.slug === slug);
+};
 
 const Header: React.FC<HeaderProps> = ({
   siteTitle = '',
   location = { pathname: '' },
   currentLangKey = '',
+  docs,
 }) => {
   const { t } = useTranslation();
   return (
@@ -48,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({
                 ),
               })}
             >
-              {docs['specification'].title[currentLangKey]}
+              {getDocument(docs, 'specification').title[currentLangKey]}
             </Link>
           </li>
           <li>
@@ -60,7 +72,7 @@ const Header: React.FC<HeaderProps> = ({
                 ),
               })}
             >
-              {docs['other'].title[currentLangKey]}
+              {getDocument(docs, 'other').title[currentLangKey]}
             </Link>
           </li>
           <li>

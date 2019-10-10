@@ -9,7 +9,6 @@ import packageJson from '../../package.json';
 import Layout from '../components/layout';
 import Article from '../components/article';
 import SEO from '../components/seo';
-import { docs } from '../../.antvisrc';
 import styles from './markdown.module.less';
 
 const renderMenuItems = (edges: any[]) =>
@@ -42,6 +41,10 @@ const getMenuItemlocaleKey = (slug: string = '') => {
   return menuItemlocaleKey;
 };
 
+const getDocument = (docs: any[], slug: string = '') => {
+  return docs.find(doc => doc.slug === slug);
+};
+
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
   path,
@@ -61,6 +64,7 @@ export default function Template({
   const {
     siteMetadata: {
       languages: { langs, defaultLangKey },
+      docs,
     },
   } = site;
   const currentLangKey = getCurrentLangKey(langs, defaultLangKey, path);
@@ -94,8 +98,10 @@ export default function Template({
               .sort((a: string, b: string) => {
                 const aKey = getMenuItemlocaleKey(a);
                 const bKey = getMenuItemlocaleKey(b);
-                if (docs[aKey] && docs[bKey]) {
-                  return docs[aKey].order - docs[bKey].order;
+                const aDoc = getDocument(docs, aKey);
+                const bDoc = getDocument(docs, bKey);
+                if (aDoc && bDoc) {
+                  return aDoc.order - bDoc.order;
                 }
                 return 0;
               })
@@ -108,12 +114,13 @@ export default function Template({
                   return renderMenuItems(groupedEdges[slug]);
                 } else {
                   const menuItemlocaleKey = getMenuItemlocaleKey(slug);
+                  const doc = getDocument(docs, menuItemlocaleKey);
                   return (
                     <Menu.SubMenu
                       key={slug}
                       title={
-                        docs[menuItemlocaleKey] && docs[menuItemlocaleKey].title
-                          ? docs[menuItemlocaleKey].title[currentLangKey]
+                        doc && doc.title
+                          ? doc.title[currentLangKey]
                           : menuItemlocaleKey
                       }
                     >
@@ -167,6 +174,14 @@ export const pageQuery = graphql`
         languages {
           langs
           defaultLangKey
+        }
+        docs {
+          slug
+          title {
+            zh
+            en
+          }
+          order
         }
       }
     }
