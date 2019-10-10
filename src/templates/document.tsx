@@ -42,7 +42,7 @@ const getMenuItemlocaleKey = (slug: string = '') => {
 };
 
 const getDocument = (docs: any[], slug: string = '') => {
-  return docs.find(doc => doc.slug === slug);
+  return docs.find(doc => doc.slug === slug) || {};
 };
 
 export default function Template({
