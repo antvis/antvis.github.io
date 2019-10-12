@@ -38,6 +38,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop --open",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,less}\"",
+    "tsc": "tsc",
     "serve": "gatsby serve"
   },
   "husky": {
