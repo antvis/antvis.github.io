@@ -1,3 +1,5 @@
+const { homepage, repository } = require('./package.json');
+
 module.exports = {
   plugins: [
     {
@@ -7,8 +9,9 @@ module.exports = {
   ],
   siteMetadata: {
     title: `AntV`,
-    siteUrl: `https://antvis.github.io`,
     description: `Ant Visualization solution home page`,
+    siteUrl: homepage,
+    githubUrl: repository.url,
     languages: {
       langs: ['en', 'zh'],
       defaultLangKey: 'zh',
