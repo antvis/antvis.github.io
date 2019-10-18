@@ -1,0 +1,47 @@
+.resource-card {
+  background-color: #fff;
+  height: 650px;
+  margin-top: 130px;
+  box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  .resource-content-wrapper {
+    padding: 120px 70px 120px 70px;
+    .resource-card-title {
+      font-size: 3em;
+      color: #000;
+      padding-top: 40px;
+    }
+    .resource-card-description {
+      opacity: 0.6;
+      width: 100%;
+    }
+    .resource-card-detail-link {
+      margin-top: 80px;
+      color: rgb(71, 118, 232);
+      display: none;
+    }
+  }
+  .resource-card-bottom {
+    background: linear-gradient(135deg, rgb(157, 113, 247), rgb(116, 113, 246));
+    height: 8px;
+    display: none;
+    position: absolute;
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+.resource-card:hover {
+  margin-top: 70px;
+  height: 800px;
+  transition: all 0.3s;
+
+  .resource-card-detail-link {
+    display: block;
+  }
+  .resource-card-bottom {
+    display: block;
+    bottom: 0px;
+    opacity: 1;
+    transition: all 0.3s;
+  }
+}
