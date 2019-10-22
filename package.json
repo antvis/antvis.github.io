@@ -23,6 +23,7 @@
     "@types/react-dom": "^16.9.1",
     "antd": "^3.23.6",
     "gatsby": "^2.15.36",
+    "gh-pages": "^2.1.1",
     "husky": "^3.0.8",
     "i18next": "^17.2.0",
     "prettier": "^1.18.2",
@@ -35,8 +36,10 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run develop",
-    "build": "gatsby build",
+    "build": "npm run clean && gatsby build",
+    "clean": "gatsby clean",
     "develop": "gatsby develop --open",
+    "deploy": "npm run build && gh-pages -d public",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,less}\"",
     "tsc": "tsc",
     "serve": "gatsby serve"
