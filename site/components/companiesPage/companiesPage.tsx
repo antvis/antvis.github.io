@@ -1,5 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
+import QueueAnim from 'rc-queue-anim';
+import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import templecompany from '../../images/temple-company.png';
 import './companiesPage.less';
 
@@ -11,10 +13,8 @@ interface company {
   imgSrc: string;
 }
 
-const COLNUM = 4;
-
 class CompaniesPage extends React.Component<{}, States> {
-  constructor(props) {
+  constructor(props: Readonly<{}>) {
     super(props);
     this.state = {
       companies: [
@@ -55,38 +55,52 @@ class CompaniesPage extends React.Component<{}, States> {
   }
 
   getCompanies() {
-    const rows: Array<Object> = [];
     let children: Array<Object> = [];
     const length = this.state.companies.length;
     for (let i = 0; i < length; i++) {
       const Company = this.state.companies[i];
       children.push(
-        <Col key={i} className="gutter-row" span={6}>
-          {/* <div className="company-content"> */}
+        <Col key={i} className="company" md={6} sm={6} xs={24}>
           <img
             key="company"
-            className="company"
+            className="companyImg"
+            width="100%"
             src={Company.imgSrc}
-            alt={` ${Company.index}`}
+            alt={`${Company.index}`}
           />
-          {/* </div> */}
         </Col>,
       );
-      if ((i + 1) % COLNUM === 0 && children.length !== 0) {
-        rows.push(<Row gutter={16}>{children}</Row>);
-        children = [];
-      }
     }
-    return rows;
+    return children;
   }
 
   render() {
     return (
-      <div className="subpage-container companies-page-container">
-        <p className="companies-page-title subpage-title">2000+ 公司正在使用</p>
-        <div className="subpage-small-slicer companies-small-slicer"></div>
-        <div className="companies-container">{this.getCompanies()}</div>
-      </div>
+      <OverPack
+        playScale={0.3}
+        component="section"
+        className="subpage-container companies-page-container"
+      >
+        <QueueAnim
+          type="bottom"
+          leaveReverse
+          key="content"
+          className="subpage-content-container"
+        >
+          <p key="title" className="companies-page-title subpage-title">
+            2000+ 公司正在使用
+          </p>
+          <div
+            key="slicer"
+            className="subpage-small-slicer companies-small-slicer"
+          ></div>
+          <div key="companies-container" className="companies-container">
+            <Row key="companies" className="companies">
+              {this.getCompanies()}
+            </Row>
+          </div>
+        </QueueAnim>
+      </OverPack>
     );
   }
 }

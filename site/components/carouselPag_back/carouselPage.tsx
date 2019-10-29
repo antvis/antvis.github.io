@@ -1,6 +1,7 @@
 import React from 'react';
 import { Carousel } from 'antd';
 import QueueAnim from 'rc-queue-anim';
+import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import templeicon from '../../images/temple-resource-icon.jpg';
 import leftpad from '../../images/temple-leftpad.jpg';
 import './carouselPage.less';
@@ -61,11 +62,16 @@ class AdvantagesPage extends React.Component<Props, States> {
     for (let i = 0; i < length; i++) {
       const Q = this.state.quotes[i];
       children.push(
-        <QueueAnim type="bottom" key={i}>
+        <div key={i}>
           {!this.props.isMobile && (
             <img className="leftpad" src={leftpad} alt="" />
           )}
-          <div key="content" className="quote-content">
+          <QueueAnim
+            type="bottom"
+            leaveReverse
+            key="content"
+            className="quote-content"
+          >
             <img key="user" className="avatar" src={Q.avatar} alt="" />
             <p key="name" className="name">
               {Q.name}
@@ -76,8 +82,8 @@ class AdvantagesPage extends React.Component<Props, States> {
             <div key="comment" className="comment">
               <span>{Q.quote}</span>
             </div>
-          </div>
-        </QueueAnim>,
+          </QueueAnim>
+        </div>,
       );
     }
     return children;
@@ -86,21 +92,21 @@ class AdvantagesPage extends React.Component<Props, States> {
   render() {
     return (
       <div className="carousel-page-container subpage-container">
-        <QueueAnim
-          type="bottom"
-          className="page text-center"
-          leaveReverse
-          key="a"
-        >
-          <div key="1" className="carousel-wrapper">
+        <div className="page text-center">
+          <OverPack
+            playScale={0.3}
+            component="section"
+            key="carousel"
+            className="carousel-wrapper"
+          >
             <Carousel
               effect={this.props.isMobile ? 'scrollx' : 'fade'}
               autoplay
             >
               {this.getQuotes()}
             </Carousel>
-          </div>
-        </QueueAnim>
+          </OverPack>
+        </div>
       </div>
     );
   }

@@ -1,24 +1,166 @@
 .products-page-container {
-  height: 1600px;
+  height: 2300px;
   background: rgb(241, 245, 249);
-  .product-page-title {
+  #product-page-title {
     color: #fff;
+    margin-top: 100px;
   }
   .background-lefttop {
-    background: linear-gradient(135deg, rgb(157, 113, 247), rgb(116, 113, 246));
-    width: 85%;
-    height: 80%;
-    left: -100px;
+    width: 90%;
+    height: 74.5%;
     top: 0;
     position: absolute;
+    display: flex;
+    flex-direction: row;
+    .lefttop-block {
+      background: linear-gradient(
+        135deg,
+        rgb(157, 113, 247),
+        rgb(116, 113, 246)
+      );
+      position: relative;
+      height: 100%;
+      width: 50%;
+    }
+    .block1 {
+      width: 58.5%;
+    }
+    .block2 {
+      width: 41.5%;
+    }
   }
-  .background-rightbottom {
-    background: #fff;
-    width: 98%;
-    height: 85%;
-    left: 7%;
-    top: 14%;
-    position: absolute;
-    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+  .subpage-content-container {
+    margin-left: 7%;
+    .product-page-title {
+      position: relative;
+    }
+    .background-rightbottom {
+      background: #fff;
+      width: 110%;
+      height: inherit; //85%;
+      position: relative;
+      box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+      .slicer-bar {
+        position: absolute;
+        background-color: #f2f4f5;
+      }
+      .slicer-bar-h {
+        width: 100%;
+        height: 2px;
+        margin-top: 8%;
+      }
+      .slicer-bar-h2 {
+        margin-top: 24%;
+      }
+      .slicer-bar-h3 {
+        margin-top: 40%;
+      }
+      .slicer-bar-h4 {
+        margin-top: 56%;
+      }
+      .slicer-bar-h5 {
+        margin-top: 72%;
+        width: 200%;
+        left: -50%;
+      }
+      .slicer-bar-v {
+        width: 2px;
+        height: 120%;
+        margin-left: 8%;
+      }
+      .slicer-bar-v2 {
+        margin-left: 48%;
+      }
+      .slicer-bar-v3 {
+        margin-left: 88%;
+      }
+      .products-container {
+        width: 80%;
+        margin-left: 8%;
+        padding-top: 8%;
+        .ant-col {
+          width: 50%;
+          border-color: #f2f4f5;
+          border-style: solid;
+          border-width: 1px 1px 1px 1px;
+          border-radius: -20px;
+          .product {
+            width: 80%;
+            margin-bottom: 5%;
+            padding-top: 5%;
+            padding-left: 5%;
+          }
+        }
+        .product-title {
+          font-size: 3em;
+          color: #000;
+          font-weight: 450;
+        }
+        .product-description {
+          opacity: 0.5;
+          font-size: 2em;
+        }
+        .product-bottom-container {
+          width: 100%;
+          display: flex;
+          align-items: flex-end;
+          .links-container {
+            width: -webkit-fill-available;
+            font-size: 2em;
+            .api-link {
+              margin-left: 10%;
+            }
+          }
+          .product-img {
+            position: relative;
+            left: 0;
+          }
+        }
+      }
+    }
   }
+}
+
+.cro_left_top,
+.cro_right_top,
+.cro_left_bottom,
+.cro_right_bottom {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border: 1px solid #d8d8d8;
+  z-index: 1;
+  background: #d8d8d8;
+}
+
+.cro_left_top {
+  top: -1px;
+  left: -1px;
+  border-radius: 0 0 3px 0;
+  border-bottom: 1px solid #d8d8d8;
+  border-right: 1px solid #d8d8d8;
+}
+
+.cro_right_top {
+  top: -1px;
+  right: -1px;
+  border-radius: 0 0 0 3px;
+  border-bottom: 1px solid #d8d8d8;
+  border-left: 1px solid #d8d8d8;
+}
+
+.cro_left_bottom {
+  left: -1px;
+  bottom: -1px;
+  border-radius: 0 3px 0 0;
+  border-top: 1px solid #d8d8d8;
+  border-right: 1px solid #d8d8d8;
+}
+
+.cro_right_bottom {
+  right: -1px;
+  bottom: -1px;
+  border-radius: 3px 0 0 0;
+  border-top: 1px solid #d8d8d8;
+  border-left: 1px solid #d8d8d8;
 }

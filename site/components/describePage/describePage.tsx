@@ -1,4 +1,6 @@
 import React from 'react';
+import QueueAnim from 'rc-queue-anim';
+import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import './describePage.less';
 
 interface States {
@@ -7,7 +9,7 @@ interface States {
 }
 
 class DescribePage extends React.Component<{}, States> {
-  constructor(props) {
+  constructor(props: Readonly<{}>) {
     super(props);
     this.state = {
       description:
@@ -19,18 +21,39 @@ class DescribePage extends React.Component<{}, States> {
 
   render() {
     return (
-      <div className="subpage-container describe-page-container">
-        <p className="describe-page-title subpage-title">
-          AntV 企业级可视化解决方案
-        </p>
-        <div className="subpage-small-slicer describe-small-slicer"></div>
-        <div className="description-container">
-          <p className="describe-page-description">{this.state.description}</p>
-          <p className="describe-page-description">
-            {this.state.subDescription}
+      <OverPack
+        playScale={0.3}
+        component="section"
+        key="page"
+        className="subpage-container describe-page-container"
+      >
+        <QueueAnim
+          type="bottom"
+          key="title"
+          leaveReverse
+          className="subpage-content-container"
+        >
+          <p className="describe-page-title subpage-title">
+            AntV 企业级可视化解决方案
           </p>
-        </div>
-      </div>
+          <div
+            key="slicer"
+            className="subpage-small-slicer describe-small-slicer"
+          ></div>
+          <QueueAnim
+            key="content"
+            type="bottom"
+            className="description-container"
+          >
+            <p key="content1" className="describe-page-description">
+              {this.state.description}
+            </p>
+            <p key="content2" className="describe-page-description">
+              {this.state.subDescription}
+            </p>
+          </QueueAnim>
+        </QueueAnim>
+      </OverPack>
     );
   }
 }

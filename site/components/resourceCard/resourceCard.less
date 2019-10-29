@@ -7,7 +7,7 @@
   .resource-content-wrapper {
     padding: 120px 70px 120px 70px;
     .resource-card-title {
-      font-size: 3em;
+      font-size: 3rem;
       color: #000;
       padding-top: 40px;
     }
@@ -21,27 +21,35 @@
       display: none;
     }
   }
-  .resource-card-bottom {
-    background: linear-gradient(135deg, rgb(157, 113, 247), rgb(116, 113, 246));
-    height: 8px;
-    display: none;
-    position: absolute;
-    opacity: 1;
-    bottom: 0px;
-  }
 }
 .resource-card:hover {
   margin-top: 70px;
   height: 800px;
+  border-bottom: 8px solid;
+  border-image: -webkit-linear-gradient(
+      left,
+      rgb(157, 113, 247),
+      rgb(116, 113, 246)
+    )
+    30 30;
+  border-image: -moz-linear-gradient(
+      left,
+      rgb(157, 113, 247),
+      rgb(116, 113, 246)
+    )
+    30 30;
+  border-image: linear-gradient(left, rgb(157, 113, 247), rgb(116, 113, 246)) 30
+    30;
   transition: all 0.3s;
-
   .resource-card-detail-link {
     display: block;
   }
-  .resource-card-bottom {
-    display: block;
-    bottom: 0px;
-    opacity: 1;
-    transition: all 0.3s;
+}
+
+@media (max-width: 1144px) {
+  .resources-card-container {
+    .card-wrapper {
+      width: 100%;
+    }
   }
 }

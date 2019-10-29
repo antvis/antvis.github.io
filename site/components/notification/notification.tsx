@@ -6,10 +6,12 @@ interface States {
   height: number;
 }
 interface Props {
+  className: string;
   num: string;
   type: string;
   title: string;
   date: string;
+  isMobile: boolean;
 }
 
 class Notification extends React.Component<Props, States> {
@@ -20,21 +22,27 @@ class Notification extends React.Component<Props, States> {
     className: 'notification',
   };
 
-  constructor(props) {
+  constructor(props: Readonly<Props>) {
     super(props);
   }
 
   render() {
+    const { isMobile, className, num, type, title, date } = this.props;
     return (
-      <div className="notification">
+      <div className={`notification ${className}`}>
         <div className="notification-container">
-          <p className="notification-number">{this.props.num}</p>
+          <p
+            className="notification-number"
+            style={{ fontSize: isMobile ? '3em' : '6em' }}
+          >
+            {num}
+          </p>
           <div className="notification-contents">
             <div className="notification-title">
-              <p className="notification-type">{this.props.type}</p>
-              <p className="notification-description"> ‧ {this.props.title}</p>
+              <p className="notification-type">{type}</p>
+              <p className="notification-description"> ‧ {title}</p>
             </div>
-            <p className="notification-date">{this.props.date}</p>
+            <p className="notification-date">{date}</p>
           </div>
         </div>
       </div>
