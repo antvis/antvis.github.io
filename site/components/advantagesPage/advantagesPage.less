@@ -1,31 +1,35 @@
 .advantages-page-container {
-  height: 1150px;
+  min-height: 1150px;
   background: rgb(241, 245, 249);
-  .advantages-page-title {
+  height: auto;
+  #advantages-page-title {
     color: #fff;
+    margin-top: 100px;
   }
   .background-lefttop {
     background: linear-gradient(135deg, rgb(157, 113, 247), rgb(116, 113, 246));
     width: 94%;
-    height: 62%;
+    height: 52%;
     left: -100px;
     top: 0;
     position: absolute;
   }
   .background-rightbottom {
     background: #fff;
-    width: 98%;
+    width: 110%;
     height: 65%;
-    left: 7%;
     top: 25%;
-    position: absolute;
+    position: relative;
     box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
     .advantage-cards-container {
       margin-top: 7%;
       display: flex;
       text-align: center;
-      position: absolute;
+      position: relative;
       width: -webkit-fill-available;
+      flex-wrap: wrap;
+      padding-top: 8%;
+      padding-bottom: 8%;
       .card-divider {
         width: 2px;
         background-color: #000;

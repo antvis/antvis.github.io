@@ -1,18 +1,29 @@
 import React from 'react';
-import { Divider } from 'antd';
+import QueueAnim from 'rc-queue-anim';
+import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
+import { Row, Col } from 'antd';
 import AdvantageCard from '../advantageCard/advantageCard';
 import './advantagesPage.less';
-import templeicon from '../../images/temple-resource-icon.jpg';
+import { StringifyOptions } from 'querystring';
+
+const templeicon =
+  'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*9f3LQZfdpfMAAAAAAAAAAABkARQnAQ';
 
 interface States {
   cardMargin: number;
-  cardWidth: number;
+  // cardWidth: number;
   cardContainerMargin: number;
-  cards: Array<Object>;
+  cards: Array<Card>;
+}
+interface Card {
+  index: number;
+  icon: string;
+  title: string;
+  description: string;
 }
 
 class AdvantagesPage extends React.Component<{}, States> {
-  constructor(props) {
+  constructor(props: Readonly<{}>) {
     super(props);
     const cards = [
       {
@@ -34,55 +45,75 @@ class AdvantagesPage extends React.Component<{}, States> {
         description: '从数据出发，仅需几行代码可以轻松获得想要的图表展示效果。',
       },
     ];
-    const cardNumber = cards.length;
+    // const cardNumber = cards.length;
     const cardMargin = 60;
     const cardContainerMargin = 50;
-    const cardWidth =
-      (0.8 * window.innerWidth -
-        (cardNumber - 1) * cardMargin -
-        2 * cardContainerMargin) /
-      cardNumber;
+    // const cardWidth =
+    //   (0.8 * window.innerWidth -
+    //     (cardNumber - 1) * cardMargin -
+    //     2 * cardContainerMargin) /
+    //   cardNumber;
 
     this.state = {
-      cardWidth,
+      // cardWidth,
       cardMargin,
       cardContainerMargin,
       cards,
     };
   }
 
+  getCards() {
+    const children: Array<Object> = [];
+    const length = this.state.cards.length;
+    for (let i = 0; i < length; i++) {
+      const card = this.state.cards[0];
+      children.push(
+        <Col className="card-wrapper" key={i} md={8} xs={24}>
+          <AdvantageCard
+            cardContent={card}
+            // cardWidth={this.state.cardWidth}
+            horizontalMargin={this.state.cardMargin}
+          />
+        </Col>,
+      );
+      // if (i < length - 1) {
+      //   children.push(<div className="card-divider"></div>);
+      // };
+    }
+    return children;
+  }
+
   render() {
     return (
       <div className="advantages-page-container subpage-container">
         <div className="background-lefttop"></div>
-        <div className="background-rightbottom">
-          <div
-            className="advantage-cards-container"
-            style={{
-              marginLeft: this.state.cardContainerMargin,
-              marginRight: this.state.cardContainerMargin,
-            }}
-          >
-            <AdvantageCard
-              cardContent={this.state.cards[0]}
-              cardWidth={this.state.cardWidth}
-              horizontalMargin={this.state.cardMargin}
-            />
-            <div className="card-divider"></div>
-            <AdvantageCard
-              cardContent={this.state.cards[1]}
-              cardWidth={this.state.cardWidth}
-              horizontalMargin={this.state.cardMargin}
-            />
-            <div className="card-divider"></div>
-            <AdvantageCard
-              cardContent={this.state.cards[2]}
-              cardWidth={this.state.cardWidth}
-              horizontalMargin={this.state.cardMargin}
-            />
-          </div>
-        </div>
-        <p className="advantages-page-title subpage-title">我们的优势</p>
+        <OverPack
+          playScale={0.3}
+          component="section"
+          className="subpage-content-container"
+        >
+          <QueueAnim type="bottom" key="content">
+            <p
+              key="title"
+              className="advantages-page-title subpage-title"
+              id="advantages-page-title"
+            >
+              我们的优势
+            </p>
+            <div key="block" className="background-rightbottom">
+              <Row
+                key="cards"
+                className="advantage-cards-container"
+                style={{
+                  marginLeft: this.state.cardContainerMargin,
+                  marginRight: this.state.cardContainerMargin * 2,
+                }}
+              >
+                {this.getCards()}
+              </Row>
+            </div>
+          </QueueAnim>
+        </OverPack>
       </div>
     );
   }

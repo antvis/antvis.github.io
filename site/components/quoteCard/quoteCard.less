@@ -1,0 +1,92 @@
+.quote-card {
+  background-color: #fff;
+  height: 100%;
+  margin-top: 0px;
+  transition: all 0.3s;
+  text-align: center;
+  .quote-content-wrapper {
+    padding: 120px 70px 120px 70px;
+    .quote-card-avatar {
+      margin-top: -280px;
+      box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    .quote-card-name {
+      font-size: 3rem;
+      color: #000;
+      padding-top: 0px;
+    }
+    .quote-card-from {
+      opacity: 0.6;
+      width: 100%;
+    }
+    .quote-slicer {
+      display: none;
+      width: 60px;
+      height: 13px;
+      margin-top: 70px;
+      margin-bottom: 70px;
+      margin-left: 50%;
+      transform: translateX(-30px);
+      right: 0;
+      background: linear-gradient(25deg, rgb(181, 99, 243), rgb(67, 115, 246));
+    }
+    .quote-card-quote {
+      // padding-top: 70px;
+      margin-bottom: 70px;
+      line-height: 70px;
+      position: relative;
+      z-index: 10;
+    }
+    .pad {
+      position: absolute;
+      width: 100px;
+    }
+    .leftpad {
+      margin-left: -35%;
+      margin-top: 8%;
+    }
+    .rightpad {
+      margin-left: 15%;
+      margin-top: -37%;
+    }
+  }
+}
+.quote-card:hover {
+  border-bottom: 8px solid;
+  border-image: -webkit-linear-gradient(
+      left,
+      rgb(157, 113, 247),
+      rgb(116, 113, 246)
+    )
+    30 30;
+  border-image: -moz-linear-gradient(
+      left,
+      rgb(157, 113, 247),
+      rgb(116, 113, 246)
+    )
+    30 30;
+  border-image: linear-gradient(left, rgb(157, 113, 247), rgb(116, 113, 246)) 30
+    30;
+  transition: all 0.3s;
+}
+
+@media (max-width: 1450px) {
+  .quote-card-container {
+    .card-wrapper {
+      width: 100%;
+      margin-bottom: 15%;
+      box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+      .quote-slicer {
+        display: block;
+      }
+      .leftpad {
+        margin-left: -45%;
+        margin-top: 3%;
+      }
+      .rightpad {
+        margin-left: 25%;
+        margin-top: -12%;
+      }
+    }
+  }
+}

@@ -1,18 +1,99 @@
+@import '~antd/lib/style/themes/default.less';
 .resources-page-container {
   background-color: rgb(250, 251, 253);
-  height: 1450px;
+  height: auto;
+  min-height: 1450px;
   .resources-page-title {
-    padding-top: 120px;
     color: #000;
   }
   .resources-small-slicer {
-    margin-top: 18%;
     background-color: rgb(96, 128, 240);
   }
   .resources-card-container {
-    display: flex;
+    // display: flex;
     position: relative;
-    width: -webkit-fill-available;
+    width: 100%;
     text-align: center;
+    flex-wrap: wrap;
   }
 }
+
+// @media only screen and (max-width: @screen-md) {
+//   .banner-wrapper {
+//     // min-height: 100vh;
+//     .banner {
+//       overflow: hidden;
+//       .banner-img-wrapper,
+//       .banner-text-wrapper {
+//         width: 90%;
+//         margin: auto;
+//         display: block;
+//         position: relative;
+//       }
+//       .banner-img-wrapper {
+//         height: auto;
+//         margin: 40px auto;
+//       }
+//       .banner-text-wrapper {
+//         text-align: center;
+//         padding: 0;
+//         p {
+//           margin: 10% 0;
+//         }
+//       }
+//     }
+//   }
+
+//   .main-info {
+//     font-size: 16px;
+//     line-height: 2rem;
+//   }
+
+//   .page4 .slick-slide .comment {
+//     font-size: 16px;
+//   }
+
+//   .page4 .slick-slide > p {
+//     font-size: 12px;
+//   }
+// }
+
+// @media only screen and (max-width: @screen-xs) {
+//   .see-conf-banner {
+//     img {
+//       margin-top: 0;
+//     }
+//   }
+
+//   .banner-text-wrapper {
+//     h1 {
+//       font-size: 32px;
+//     }
+//     p {
+//       font-size: 14px;
+//       line-height: 1.5rem
+//     }
+//   }
+
+//   .main-info {
+//     font-size: 14px;
+//   }
+
+//   .page2 {
+//     min-height: 513px;
+//   }
+// }
+
+// @media only screen and (max-width: @screen-sm) {
+//   .banner-text-wrapper {
+//     height: auto;
+//   }
+
+//   .feature {
+//     margin: 24px auto;
+//   }
+
+//   .page4 .slick-slide {
+//     height: 540px;
+//   }
+// }

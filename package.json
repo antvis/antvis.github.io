@@ -31,7 +31,9 @@
     "react-dom": "^16.10.2",
     "react-i18next": "^10.13.1",
     "typescript": "^3.6.4",
-    "rc-queue-anim": "^1.4.0"
+    "rc-queue-anim": "^1.4.0",
+    "rc-scroll-anim": "^2.0.2",
+    "enquire.js": "^2.1.6"
   },
   "license": "MIT",
   "scripts": {

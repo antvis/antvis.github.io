@@ -4,12 +4,11 @@ import './advantageCard.less';
 
 interface Props {
   cardContent: {
+    index: number;
     icon: string;
     title: string;
     description: string;
-    link: string;
   };
-  cardWidth: number;
   horizontalMargin: number;
 }
 interface States {
@@ -24,7 +23,7 @@ class AdvantageCard extends React.Component<Props, States> {
     className: 'advantageCard',
   };
 
-  constructor(props) {
+  constructor(props: Readonly<Props>) {
     super(props);
     this.state = {
       isHover: false,
@@ -40,12 +39,11 @@ class AdvantageCard extends React.Component<Props, States> {
   };
 
   render() {
-    console.log(this.props.cardWidth);
     return (
       <div
         className="advantage-card"
         style={{
-          width: this.props.cardWidth,
+          // width: this.props.cardWidth,
           marginLeft: this.props.horizontalMargin,
           marginRight: this.props.horizontalMargin,
         }}
