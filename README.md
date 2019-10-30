@@ -24,4 +24,6 @@ npm run format
 
 ## Deploy
 
-Not ready.
+```bash
+npm run deploy
+```
