@@ -4,7 +4,9 @@ import { Avatar } from 'antd';
 import './quoteCard.less';
 
 const leftpad =
-  'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*YoxpSZg3lX0AAAAAAAAAAABkARQnAQ';
+  'https://gw.alipayobjects.com/zos/basement_prod/50fbdc16-bac3-4ecd-8210-f4ed2c116fdb.svg';
+const rightpad =
+  'https://gw.alipayobjects.com/zos/basement_prod/194a96ef-be8c-4e51-85e1-69b34aa2a697.svg';
 
 interface Props {
   cardContent: {
@@ -66,7 +68,7 @@ class QuoteCard extends React.Component<Props, States> {
       >
         <div className="quote-content-wrapper">
           <Avatar
-            size={160}
+            // size={160}
             src={this.props.cardContent.avatar}
             className="quote-card-avatar"
           />
@@ -75,7 +77,7 @@ class QuoteCard extends React.Component<Props, States> {
           <img className="pad leftpad" src={leftpad} />
           <div className="quote-slicer"></div>
           <p className="quote-card-quote">{this.props.cardContent.quote}</p>
-          <img className="pad rightpad" src={leftpad} />
+          <img className="pad rightpad" src={rightpad} />
         </div>
       </div>
     );

@@ -5,7 +5,6 @@ import './describePage.less';
 
 interface States {
   description: string;
-  subDescription: string;
 }
 
 class DescribePage extends React.Component<{}, States> {
@@ -13,9 +12,8 @@ class DescribePage extends React.Component<{}, States> {
     super(props);
     this.state = {
       description:
-        'AntV 3.0 已全新升级，主要包含 G2、F2、G6 以及一套完整的图表使用和设计规范。',
-      subDescription:
-        'AntV 3.0 已全新升级，AntV 3.0 已全新升级，AntV 3.0 已全新升级，AntV 3.0 已全新升级，AntV 3.0 已全新升级，AntV 3.0 已全新升级，AntV 3.0 已全新升级，AntV 3.0 已全新升级，AntV 3.0 已全新升级，AntV 3.0 已全新升级，AntV 3.0 已全新升级，AntV 3.0 已全新升级',
+        'AntV 3.0 已全新升级，主要包含 G2、G6、F2 以及一套完整的图表使用和设计规范。' +
+        '得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑阿里集团内外 6000+ 业务系统，通过了日均千万级 UV 产品的严苛考验后方敢与君见。',
     };
   }
 
@@ -47,9 +45,6 @@ class DescribePage extends React.Component<{}, States> {
           >
             <p key="content1" className="describe-page-description">
               {this.state.description}
-            </p>
-            <p key="content2" className="describe-page-description">
-              {this.state.subDescription}
             </p>
           </QueueAnim>
         </QueueAnim>

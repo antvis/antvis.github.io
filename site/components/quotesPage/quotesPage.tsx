@@ -5,9 +5,6 @@ import { Row, Col } from 'antd';
 import QuoteCard from '../quoteCard/quoteCard';
 import './quotesPage.less';
 
-const templeicon =
-  'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*9f3LQZfdpfMAAAAAAAAAAABkARQnAQ';
-
 interface quote {
   avatar: string | undefined;
   quote: string;
@@ -19,12 +16,10 @@ interface quote {
 interface States {
   quotes: Array<quote>;
   // cardWidth: number,
-  containerMarginPercent: number;
+  // containerMarginPercent: number;
 }
 
-interface Props {
-  isMobile: boolean;
-}
+interface Props {}
 
 class QuotesPage extends React.Component<Props, States> {
   constructor(props: Readonly<Props>) {
@@ -32,43 +27,46 @@ class QuotesPage extends React.Component<Props, States> {
     const quotes = [
       {
         index: 0,
-        avatar: templeicon,
-        name: '陈为',
-        from: '浙江大学计算机科学与技术学院 CAD & CG 国家重点实验室',
+        avatar:
+          'https://gw.alipayobjects.com/zos/rmsportal/fSPDqijMJrYFdODpgEBV.png',
+        name: 'Laland Wilkinson',
+        from: '伊利诺伊大学计算机科学客座教授，H2O.ai 首席科学家，G2 项目顾问',
         quote:
-          '在多年可视化设计与开发，在多年可视化设计与开发，在多年可视化设计与开发，在多年可视化设计与开发，在多年可视化设计与开发',
+          'I am thrill with G2. It is amazingly faithful to the GG system and has the potential to generate more graphics.',
       },
       {
         index: 1,
-        avatar: templeicon,
-        name: '林峰',
-        from: '蚂蚁金服',
-        quote: 'something something something something',
+        avatar: 'https://os.alipayobjects.com/rmsportal/CcFeLxXurbQmwrT.jpg',
+        name: '陈为',
+        from: '浙江大学计算机学院  CAD  &  CG  国家重点实验室教授',
+        quote:
+          '在多年可视化设计与开发的积累基础上，蚂蚁金服团队推出了 AntV 产品，这是工业界在基础可视化语法与实践方面发出的最强声音，也是工业界与学术界一道推进可视化研发进展的最佳利器。',
       },
       {
         index: 2,
-        avatar: templeicon,
-        name: '林峰峰',
-        from: '阿里巴巴 蚂蚁金服',
+        avatar:
+          'https://zos.alipayobjects.com/rmsportal/wtkIALmYDSmOIiAalkdv.jpg',
+        name: '林峰',
+        from: '爱烹饪的可视化攻城狮',
         quote:
-          'anything anything anything anything anything anything anything anything ',
+          'G2 是面粉，Echarts 是面条，皆微小而美好，因小食材怀大梦想，助力共筹东方巨龙崛起之盛宴，迎四海饕客。',
       },
     ];
 
-    const cardNumber = quotes.length;
-    const containerMarginPercent = 0.08;
-    const containerMargin = window.innerWidth * containerMarginPercent;
+    // const cardNumber = quotes.length;
+    // const containerMarginPercent = 0.08;
+    // const containerMargin = window.innerWidth * containerMarginPercent;
     // const cardWidth =
     //   (window.innerWidth - 2 * containerMargin) / cardNumber;
 
     this.state = {
       quotes,
-      containerMarginPercent,
+      // containerMarginPercent,
       // cardWidth
     };
   }
 
-  getCards(margin: number) {
+  getCards() {
     const length = this.state.quotes.length;
     const children: Array<Object> = [];
     // const cardWidth = (window.innerWidth - 2 * margin) / length;
@@ -92,7 +90,7 @@ class QuotesPage extends React.Component<Props, States> {
   }
 
   render() {
-    const margin = window.innerWidth * this.state.containerMarginPercent;
+    // const margin = window.innerWidth * this.state.containerMarginPercent;
     return (
       <OverPack
         playScale={0.3}
@@ -109,9 +107,9 @@ class QuotesPage extends React.Component<Props, States> {
             <Row
               className="quote-card-container"
               key="cards"
-              style={{ marginLeft: margin, marginRight: margin }}
+              // style={{ marginLeft: margin, marginRight: margin }}
             >
-              {this.getCards(margin)}
+              {this.getCards()}
             </Row>
           </div>
         </QueueAnim>

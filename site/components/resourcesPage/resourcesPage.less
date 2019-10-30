@@ -2,19 +2,40 @@
 .resources-page-container {
   background-color: rgb(250, 251, 253);
   height: auto;
-  min-height: 1450px;
-  .resources-page-title {
-    color: #000;
+  // min-height: 1450px;
+  .subpage-content-container {
+    padding-bottom: 100px;
+    .resources-page-title {
+      color: #000;
+    }
+    .resources-small-slicer {
+      background-color: #597ef7;
+    }
+    .resources-card-container {
+      // display: flex;
+      position: relative;
+      width: 100%;
+      text-align: center;
+      flex-wrap: wrap;
+      margin-top: 100px;
+    }
   }
-  .resources-small-slicer {
-    background-color: rgb(96, 128, 240);
-  }
-  .resources-card-container {
-    // display: flex;
-    position: relative;
-    width: 100%;
-    text-align: center;
-    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .resources-page-container {
+    .subpage-content-container {
+      margin-bottom: 12%;
+      .resources-page-title {
+        padding-top: 10px;
+      }
+      .resources-small-slicer {
+        display: none;
+      }
+      .resources-card-container {
+        margin-top: -20px;
+      }
+    }
   }
 }
 

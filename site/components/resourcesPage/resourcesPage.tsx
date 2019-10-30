@@ -5,12 +5,9 @@ import ResourceCard from '../resourceCard/resourceCard';
 import { Col, Row } from 'antd';
 import './resourcesPage.less';
 
-const templeicon =
-  'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*9f3LQZfdpfMAAAAAAAAAAABkARQnAQ';
-
 interface States {
-  cardMarginPercent: number;
-  cardWidthPercent: number;
+  // cardMarginPercent: number;
+  // cardWidthPercent: number;
   cards: Array<Card>;
 }
 
@@ -28,7 +25,8 @@ class ResourcesPage extends React.Component<{}, States> {
     const cards = [
       {
         index: 0,
-        icon: templeicon,
+        icon:
+          'https://gw.alipayobjects.com/zos/basement_prod/9ef1230e-6c3c-4506-98ab-77cfc6db9767.svg',
         title: '图表用法',
         description:
           '从数据出发，从功能角度对常见图表进行分类，提供规范使用指引。',
@@ -36,7 +34,8 @@ class ResourcesPage extends React.Component<{}, States> {
       },
       {
         index: 1,
-        icon: templeicon,
+        icon:
+          'https://gw.alipayobjects.com/zos/basement_prod/74e248e9-b024-47ef-8b35-1b06a8cb87a5.svg',
         title: '设计原则',
         description:
           '对数据图形进行拆解、提炼，抽象出一套数据图形可视化交互视觉规范。',
@@ -44,21 +43,22 @@ class ResourcesPage extends React.Component<{}, States> {
       },
       {
         index: 2,
-        icon: templeicon,
+        icon:
+          'https://gw.alipayobjects.com/zos/basement_prod/90df0bcb-5295-4b49-b419-a70248ea359f.svg',
         title: '工具资源',
         description:
           '从数据出发，从功能角度对常见图表进行分类，提供规范使用指引。',
         link: '#',
       },
     ];
-    const cardNumber = cards.length;
-    const cardMarginPercent = 0.013;
-    const cardWidthPercent = 1 / cardNumber;
+    // const cardNumber = cards.length;
+    // const cardMarginPercent = 0.013;
+    // const cardWidthPercent = 1 / cardNumber;
     // (window.innerWidth - (cardNumber - 1) * 2 * cardMargin) / cardNumber;
 
     this.state = {
-      cardWidthPercent,
-      cardMarginPercent,
+      // cardWidthPercent,
+      // cardMarginPercent,
       cards,
     };
   }
@@ -67,21 +67,21 @@ class ResourcesPage extends React.Component<{}, States> {
     const length = this.state.cards.length;
     const children: Array<Object> = [];
     for (let i = 0; i < length; i++) {
-      let marginLeftPercent = this.state.cardMarginPercent;
-      let marginRightPercent = this.state.cardMarginPercent;
-      if (i === 0) {
-        marginLeftPercent = 0;
-      } else if (i === length - 1) {
-        marginRightPercent = 0;
-      }
+      // let marginLeftPercent = this.state.cardMarginPercent;
+      // let marginRightPercent = this.state.cardMarginPercent;
+      // if (i === 0) {
+      //   marginLeftPercent = 0;
+      // } else if (i === length - 1) {
+      //   marginRightPercent = 0;
+      // }
       children.push(
         <Col className="card-wrapper" key={i} md={8} xs={24}>
           <ResourceCard
             key={i}
             cardContent={this.state.cards[i]}
             // cardWidth={this.state.cardWidthPercent}
-            marginLeftPercent={marginLeftPercent}
-            marginRightPercent={marginRightPercent}
+            // marginLeftPercent={marginLeftPercent}
+            // marginRightPercent={marginRightPercent}
           />
         </Col>,
       );

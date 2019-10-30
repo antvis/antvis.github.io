@@ -1,18 +1,44 @@
 .describe-page-container {
   min-height: 800px;
+  .describe-page-title {
+    padding-top: 210px;
+  }
   .describe-small-slicer {
-    background: linear-gradient(25deg, rgb(181, 99, 243), rgb(67, 115, 246));
+    background: linear-gradient(45deg, #c65aff, #248dff);
+    margin-top: -40px;
   }
   .description-container {
-    margin-top: 100px;
+    margin-top: 70px;
     left: 0;
     position: relative;
     width: 70%;
-    margin-bottom: 100px;
+    margin-bottom: 140px;
     .describe-page-description {
-      color: #000;
+      color: rgba(49, 70, 89, 1);
       opacity: 0.6;
-      font-size: 2rem;
+      font-size: 2.5em;
+      line-height: 2em;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .describe-page-container {
+    min-height: 600px;
+    .describe-page-title {
+      padding-top: 30px;
+      font-size: 1em;
+    }
+    .describe-small-slicer {
+      margin-top: -10px;
+    }
+    .description-container {
+      width: 100%;
+      margin-top: 70px;
+      margin-bottom: 80px;
+      .describe-page-description {
+        font-size: 1em;
+      }
     }
   }
 }

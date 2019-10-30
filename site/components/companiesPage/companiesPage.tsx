@@ -2,7 +2,6 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-import templecompany from '../../images/temple-company.png';
 import './companiesPage.less';
 
 interface States {
@@ -20,57 +19,56 @@ class CompaniesPage extends React.Component<{}, States> {
       companies: [
         {
           index: 0,
-          imgSrc: templecompany,
+          imgSrc:
+            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*VI1HRrRDfJAAAAAAAAAAAABkARQnAQ',
         },
         {
           index: 1,
-          imgSrc: templecompany,
+          imgSrc:
+            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*pgZ6TKhg5kAAAAAAAAAAAABkARQnAQ',
         },
         {
           index: 2,
-          imgSrc: templecompany,
+          imgSrc:
+            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*irm1TJHnvyUAAAAAAAAAAABkARQnAQ',
         },
         {
           index: 3,
-          imgSrc: templecompany,
+          imgSrc:
+            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*yLAjTbQEbU4AAAAAAAAAAABkARQnAQ',
         },
         {
           index: 4,
-          imgSrc: templecompany,
+          imgSrc:
+            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*tILUTryXYMsAAAAAAAAAAABkARQnAQ',
         },
         {
           index: 5,
-          imgSrc: templecompany,
+          imgSrc:
+            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*FSSdSqlLLaoAAAAAAAAAAABkARQnAQ',
         },
         {
           index: 6,
-          imgSrc: templecompany,
+          imgSrc:
+            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*J7z2SZGNJwAAAAAAAAAAAABkARQnAQ',
         },
         {
           index: 7,
-          imgSrc: templecompany,
+          imgSrc:
+            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*ISoZTJ-IlU0AAAAAAAAAAABkARQnAQ',
         },
       ],
     };
   }
-
   getCompanies() {
     let children: Array<Object> = [];
-    const length = this.state.companies.length;
-    for (let i = 0; i < length; i++) {
-      const Company = this.state.companies[i];
+    this.state.companies.forEach((company, i) => {
       children.push(
-        <Col key={i} className="company" md={6} sm={6} xs={24}>
-          <img
-            key="company"
-            className="companyImg"
-            width="100%"
-            src={Company.imgSrc}
-            alt={`${Company.index}`}
-          />
+        <Col key={i} className="company" md={6} sm={10} xs={24}>
+          <img className="company-img" src={company.imgSrc} alt="company-img" />
         </Col>,
       );
-    }
+    });
     return children;
   }
 

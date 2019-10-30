@@ -2,23 +2,46 @@
   .notification-container {
     display: flex;
     .notification-number {
-      font-size: 6em;
+      font-size: 7em;
       font-weight: 500;
       margin-top: -20px;
-      color: rgba(0, 0, 0, 0.2);
+      color: rgba(235, 237, 240, 1);
     }
     .notification-contents {
       padding-left: 20px;
+      color: rgba(49, 70, 89, 1);
+      font-size: 0.011em;
       .notification-title {
         display: flex;
         .notification-type {
-          font-weight: 'bolder';
-        }
-        .notification-description {
+          font-weight: 500;
         }
       }
       .notification-date {
-        color: rgba(0, 0, 0, 0.8);
+        color: rgba(163, 171, 191, 1);
+        margin-top: -10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .notification {
+    .notification-container {
+      .notification-number {
+        font-size: 3em;
+      }
+      .notification-contents {
+        margin-top: -3px;
+        text-align: left;
+        line-height: 12px;
+        font-size: 1em;
+        .notification-type {
+          width: 29px;
+        }
+        .notification-date {
+          margin-top: -5px;
+        }
       }
     }
   }

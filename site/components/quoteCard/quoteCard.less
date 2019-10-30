@@ -7,17 +7,22 @@
   .quote-content-wrapper {
     padding: 120px 70px 120px 70px;
     .quote-card-avatar {
+      width: 160px;
+      height: 160px;
       margin-top: -280px;
       box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.1);
     }
     .quote-card-name {
       font-size: 3rem;
       color: #000;
-      padding-top: 0px;
+      padding-top: 20px;
     }
     .quote-card-from {
       opacity: 0.6;
       width: 100%;
+      color: rgba(105, 123, 140, 1);
+      font-size: 2.2em;
+      margin-top: -40px;
     }
     .quote-slicer {
       display: none;
@@ -31,61 +36,114 @@
       background: linear-gradient(25deg, rgb(181, 99, 243), rgb(67, 115, 246));
     }
     .quote-card-quote {
-      // padding-top: 70px;
+      width: 80%;
       margin-bottom: 70px;
       line-height: 70px;
-      position: relative;
+      position: absolute;
       z-index: 10;
+      font-size: 2.5em;
+      top: 510px;
+      color: rgba(49, 70, 89, 1);
+      text-align: left;
     }
     .pad {
       position: absolute;
       width: 100px;
     }
     .leftpad {
-      margin-left: -35%;
-      margin-top: 8%;
+      margin-left: -40%;
+      margin-top: 15%;
     }
     .rightpad {
-      margin-left: 15%;
-      margin-top: -37%;
+      margin-left: 25%;
+      margin-top: 45%;
     }
   }
 }
 .quote-card:hover {
   border-bottom: 8px solid;
-  border-image: -webkit-linear-gradient(
-      left,
-      rgb(157, 113, 247),
-      rgb(116, 113, 246)
-    )
-    30 30;
-  border-image: -moz-linear-gradient(
-      left,
-      rgb(157, 113, 247),
-      rgb(116, 113, 246)
-    )
-    30 30;
-  border-image: linear-gradient(left, rgb(157, 113, 247), rgb(116, 113, 246)) 30
-    30;
+  border-image: -webkit-linear-gradient(left, #aa6aff, #706dff) 30 30;
+  border-image: -moz-linear-gradient(left, #aa6aff, #706dff) 30 30;
+  border-image: linear-gradient(left, #aa6aff, #706dff) 30 30;
   transition: all 0.3s;
 }
 
 @media (max-width: 1450px) {
-  .quote-card-container {
-    .card-wrapper {
-      width: 100%;
-      margin-bottom: 15%;
-      box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
-      .quote-slicer {
-        display: block;
+  .quotes-page-container {
+    .quote-card-container {
+      .card-wrapper {
+        width: 100%;
+        margin-bottom: 15%;
+        box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+        .quote-slicer {
+          display: block;
+        }
+        .leftpad {
+          margin-left: -45%;
+          margin-top: 3%;
+        }
+        .rightpad {
+          margin-left: 25%;
+          margin-top: -12%;
+        }
       }
-      .leftpad {
-        margin-left: -45%;
-        margin-top: 3%;
+    }
+  }
+  .quote-card {
+    .quote-content-wrapper {
+      .quote-card-quote {
+        width: 100%;
+        position: relative;
+        top: 0px;
       }
-      .rightpad {
-        margin-left: 25%;
-        margin-top: -12%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .card-wrapper {
+    .quote-card {
+      // height: auto;
+      .quote-content-wrapper {
+        padding: 120px 20px 10px 20px;
+        .quote-card-avatar {
+          width: 100px;
+          height: 100px;
+        }
+        .quote-card-name {
+          font-size: 1.5em;
+          font-weight: 500;
+          margin-top: -50px;
+        }
+        .quote-card-from {
+          font-size: 1em;
+          margin-top: 8px;
+        }
+        .quote-slicer {
+          width: 30px;
+          height: 7px;
+          transform: translateX(-15px);
+          margin-top: 40px;
+          margin-bottom: 40px;
+        }
+        .quote-card-quote {
+          line-height: 40px;
+          font-size: 1.2em;
+          top: 300px;
+          width: 90%;
+        }
+        .pad {
+          position: absolute;
+          width: 70px;
+        }
+        .leftpad {
+          margin-left: -40%;
+          margin-top: 15%;
+        }
+        .rightpad {
+          margin-left: 25%;
+          margin-top: 25%;
+        }
       }
     }
   }

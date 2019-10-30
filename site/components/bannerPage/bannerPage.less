@@ -10,34 +10,41 @@
   }
   .homepage-title {
     position: relative;
-    top: 13%;
+    top: 20%;
     z-index: 1;
     .title-text {
-      font-size: 6em;
-      font-weight: 'bolder';
+      font-size: 5.75em;
+      font-weight: 800;
+      color: rgba(0, 0, 0, 1);
+      // font-weight: 'bolder';
       position: relative;
       z-index: 10;
+      margin-left: 110px;
     }
     .banner-description {
       margin-top: 20px;
-      color: rgba(129, 141, 157, 0.85);
+      color: rgba(106, 123, 140, 1);
+      font-size: 0.009em;
+      font-weight: 200;
       position: relative;
       z-index: 10;
+      margin-left: 110px;
     }
     .btn-more {
       border: none;
       outline: none;
       color: #fff;
       padding: 8px 26px;
-      font-size: 16px;
-      background: linear-gradient(25deg, rgb(181, 99, 243), rgb(67, 115, 246));
+      font-size: 0.009em;
+      background: linear-gradient(25deg, #ff5efa, #404aff 80%, #3777ff);
       box-shadow: 0px 20px 30px rgba(181, 99, 243, 0.5);
       border-radius: 50px;
-      width: 250px;
-      height: 70px;
-      margin-top: 56px;
+      width: 268px;
+      height: 80px;
+      margin-top: 60px;
       position: relative;
       z-index: 10;
+      margin-left: 110px;
     }
     .notification-list {
       padding-top: 200px;
@@ -60,9 +67,37 @@
 @media (max-width: 1144px) {
   #banner-container {
     .homepage-title {
+      .notification-list {
+        padding-top: 60px;
+        .noti1 {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #banner-container {
+    .homepage-title {
+      top: 2%;
       text-align: center;
       .title-text {
         font-size: 3em;
+        margin-left: 0;
+      }
+      .banner-description {
+        margin-left: 0;
+        font-size: 1em;
+      }
+      .btn-more {
+        width: 150px;
+        height: 45px;
+        margin-left: 0;
+        font-size: 1em;
+      }
+      .notification-list {
+        padding-top: 40px;
       }
     }
     .banner-right-container {

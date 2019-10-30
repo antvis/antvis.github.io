@@ -9,14 +9,11 @@ const holderimg =
 interface States {
   height: number;
 }
-interface Props {
-  isMobile: boolean;
-}
+interface Props {}
 
 class BannerPage extends React.Component<Props, States> {
   static propTypes = {
     className: PropTypes.string,
-    isMobile: PropTypes.bool,
   };
   static defaultProps = {
     className: 'bannerPage',
@@ -24,7 +21,7 @@ class BannerPage extends React.Component<Props, States> {
 
   constructor(props: Readonly<Props>) {
     super(props);
-    this.state = { height: window.innerHeight };
+    this.state = { height: 1500 }; // window.innerHeight 1500
     this.onWindowResize = this.onWindowResize.bind(this);
   }
 
@@ -41,66 +38,52 @@ class BannerPage extends React.Component<Props, States> {
   }
 
   render() {
-    const { isMobile } = this.props;
-    // let titleFontsize = '6em';
-    // if (isMobile) {
-    //   titleFontsize = '3em';
-    // }
-
-    // style={{textAlign: isMobile ? 'center' : 'left'}}
-    //  style={{fontSize: titleFontsize}}
-    //style={{position: isMobile ? 'relative' : 'absolute'}}
-    // style={{marginTop: isMobile ? '80px' : '200px'}}
     return (
-      <div>
-        <section
-          id="banner-container"
-          className="subpage-container"
-          style={{ height: this.state.height }}
-        >
-          <div className="subpage-content-container">
-            <div className="homepage-title">
-              <div className="title-text">让数据栩栩如生</div>
-              <p className="banner-description">
-                AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单
-                <br />
-                方便、专业可靠、无限可能的数据可视化最佳实践。
-              </p>
+      <section
+        id="banner-container"
+        className="subpage-container"
+        style={{ height: this.state.height }}
+      >
+        <div className="subpage-content-container">
+          <div className="homepage-title">
+            <div className="title-text">让数据栩栩如生</div>
+            <p className="banner-description">
+              AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单
+              <br />
+              方便、专业可靠、无限可能的数据可视化最佳实践。
+            </p>
 
-              <div className="banner-right-container">
-                <img
-                  className="right-holder"
-                  src={holderimg}
-                  alt="astronaut"
-                  height="200"
-                />
-              </div>
+            <div className="banner-right-container">
+              <img
+                className="right-holder"
+                src={holderimg}
+                alt="astronaut"
+                height="200"
+              />
+            </div>
 
-              <a href="#__products">
-                <button className="btn-more">继续了解</button>
-              </a>
-              <div className="notification-list">
-                <Notification
-                  className="noti0"
-                  num="01"
-                  type="更新"
-                  title="L7 发布新版本，让地图动起来！"
-                  date="2019.12.04"
-                  isMobile={isMobile}
-                />
-                <Notification
-                  className="noti1"
-                  num="02"
-                  type="推荐"
-                  title="Kitchen 3.75 更新，效率大幅度提升！"
-                  date="2019.12.03"
-                  isMobile={isMobile}
-                />
-              </div>
+            <a href="#__products">
+              <button className="btn-more">继续了解</button>
+            </a>
+            <div className="notification-list">
+              <Notification
+                className="noti0"
+                num="01"
+                type="更新"
+                title="L7 发布新版本，让地图动起来！"
+                date="2019.12.04"
+              />
+              <Notification
+                className="noti1"
+                num="02"
+                type="推荐"
+                title="Kitchen 3.75 更新，效率大幅度提升！"
+                date="2019.12.03"
+              />
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     );
   }
 }

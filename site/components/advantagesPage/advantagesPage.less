@@ -1,26 +1,39 @@
 .advantages-page-container {
   min-height: 1150px;
-  background: rgb(241, 245, 249);
+  background: rgb(240, 245, 250);
   height: auto;
   #advantages-page-title {
     color: #fff;
     margin-top: 100px;
   }
+  .slicer-bar-v {
+    display: none;
+  }
+  .slicer-bar-v2 {
+    display: none;
+  }
   .background-lefttop {
-    background: linear-gradient(135deg, rgb(157, 113, 247), rgb(116, 113, 246));
-    width: 94%;
+    background: linear-gradient(130deg, #aa6aff 40%, #706dff);
+    width: 92%;
     height: 52%;
-    left: -100px;
     top: 0;
     position: absolute;
   }
   .background-rightbottom {
     background: #fff;
-    width: 110%;
+    width: 100%;
     height: 65%;
-    top: 25%;
     position: relative;
     box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: -80px;
+    .card-divider {
+      position: absolute;
+      width: 2px;
+      height: 60%;
+      top: 20%;
+      background-color: #000;
+      opacity: 0.1;
+    }
     .advantage-cards-container {
       margin-top: 7%;
       display: flex;
@@ -28,13 +41,135 @@
       position: relative;
       width: -webkit-fill-available;
       flex-wrap: wrap;
-      padding-top: 8%;
-      padding-bottom: 8%;
-      .card-divider {
+      padding-top: 100px;
+      padding-bottom: 7%;
+      margin-left: 3%;
+      width: 86.64%; // 1 - (0.08 * 0.92 + 0.06)
+    }
+  }
+}
+
+@media (max-width: 1144px) {
+  .advantages-page-container {
+    .background-rightbottom {
+      .advantage-cards-container {
+        margin-top: 100px;
+        padding-bottom: 3%;
+      }
+      margin-top: 30px;
+      .adv-slicer-bar-v {
+        position: absolute;
+        background-color: #f2f4f5;
         width: 2px;
-        background-color: #000;
-        opacity: 0.1;
+        height: 100%;
+        margin-left: 3%;
+        display: block;
+        z-index: 10;
+      }
+      .adv-slicer-bar-v2 {
+        margin-left: 86.5%;
+      }
+      .adv-slicer-bar-h {
+        position: absolute;
+        background-color: #f2f4f5;
+        width: 100%;
+        height: 2px;
+        display: block;
+        z-index: 10;
+        margin-top: 100px;
+      }
+      .adv-slicer-bar-h2 {
+        margin-top: 900px;
+      }
+      .adv-slicer-bar-h3 {
+        margin-top: 1700px;
+      }
+      .adv-slicer-bar-h4 {
+        margin-top: 2500px;
+      }
+
+      .card-divider {
+        display: none;
       }
     }
+  }
+}
+
+.advantage-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d8d8d8;
+  z-index: 10;
+}
+.advantage-medium-screen-dot {
+  display: none;
+}
+.advantage-small-screen-dot {
+  display: none;
+}
+
+@media (max-width: 1144px) {
+  .advantage-medium-screen-dot {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .advantages-page-container {
+    width: 100%;
+    .background-lefttop {
+      left: 0px;
+      height: 100%;
+      width: 96%;
+    }
+    #advantage-subpage-content-container {
+      width: 96%;
+      #advantages-page-title {
+        margin-top: 70px;
+      }
+      .background-rightbottom {
+        margin-top: 70px;
+        margin-bottom: 70px;
+        .advantage-cards-container {
+          margin-top: 60px;
+          margin-left: 3%;
+          width: 88.16%; // 1 - (0.96 * 0.04 + 0.08)
+          padding-top: 45px;
+          padding-bottom: 45px;
+        }
+
+        .adv-slicer-bar-v {
+          width: 1px;
+        }
+        .adv-slicer-bar-h {
+          height: 1px;
+          margin-top: 45px;
+        }
+        .adv-slicer-bar-h2 {
+          margin-top: 375px;
+        }
+        .adv-slicer-bar-h3 {
+          margin-top: 705px;
+        }
+        .adv-slicer-bar-h4 {
+          margin-top: 1035px;
+        }
+
+        .adv-slicer-bar-v2 {
+          margin-left: 92.16%; // 1 - (0.96 * 0.04 + 0.04)
+        }
+      }
+    }
+  }
+
+  .advantage-medium-screen-dot {
+    display: none;
+  }
+  .advantage-small-screen-dot {
+    width: 3px;
+    height: 3px;
+    display: block;
   }
 }
