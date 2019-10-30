@@ -2,17 +2,24 @@
   background-color: #fff;
   //   width: auto;
   height: auto;
-  padding-top: 8%;
-  padding-bottom: 8%;
+  margin-left: 60px;
+  margin-right: 60px;
   .advantage-content-wrapper {
+    .advantage-card-icon {
+      height: 120px;
+    }
     .advantage-card-title {
-      font-size: 3rem;
+      font-size: 3.5em;
       color: #000;
-      padding-top: 40px;
+      padding-top: 100px;
     }
     .advantage-card-description {
       opacity: 0.6;
       width: 100%;
+      color: rgba(105, 123, 140, 1);
+      font-size: 2em;
+      padding-top: 20px;
+      line-height: 1.8em;
     }
   }
 }
@@ -22,6 +29,47 @@
     .card-wrapper {
       width: 80%;
       margin-left: 10%;
+      margin-top: 60px;
+      margin-bottom: 60px;
+      height: 640px;
+
+      .advantage-card {
+        margin-top: 80px;
+        margin-bottom: 80px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .advantage-cards-container {
+    .card-wrapper {
+      margin-left: 10%;
+      width: 80%;
+      height: 300px;
+      margin-top: 5px;
+      margin-bottom: 25px;
+      .advantage-card {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        .advantage-content-wrapper {
+          .advantage-card-icon {
+            width: 70px;
+          }
+          .advantage-card-title {
+            font-size: 1.4em;
+            padding-top: 15px;
+          }
+          .advantage-card-description {
+            font-size: 1em;
+            padding-bottom: 0px;
+            padding-top: 0px;
+            margin-top: -10px;
+          }
+        }
+      }
     }
   }
 }

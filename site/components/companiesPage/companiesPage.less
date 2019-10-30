@@ -1,7 +1,7 @@
 .companies-page-container {
-  height: 1000px;
+  height: auto;
   .companies-small-slicer {
-    background: linear-gradient(25deg, rgb(181, 99, 243), rgb(67, 115, 246));
+    background: linear-gradient(145deg, #c65aff, #248dff);
   }
 
   .companies-container {
@@ -9,21 +9,15 @@
     margin: auto;
     margin-top: 100px;
     // margin: 5% 0 0 5%;
-    .ant-row > div {
-      margin-bottom: 20px;
-    }
-  }
-}
-
-@media (max-width: 1450px) {
-  .companies {
     .company {
-      width: 33%;
+      .company-img {
+        width: 60%;
+      }
     }
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1320px) {
   .companies {
     .company {
       width: 50%;
@@ -31,112 +25,13 @@
   }
 }
 
-// 响应式布局 暂存 from old site
-
-// @media only screen and (max-width: @screen-md) {
-//   .banner-wrapper {
-//     // min-height: 100vh;
-//     .banner {
-//       overflow: hidden;
-//       .banner-img-wrapper,
-//       .banner-text-wrapper {
-//         width: 90%;
-//         margin: auto;
-//         display: block;
-//         position: relative;
-//       }
-//       .banner-img-wrapper {
-//         height: auto;
-//         margin: 40px auto;
-//       }
-//       .banner-text-wrapper {
-//         text-align: center;
-//         padding: 0;
-//         p {
-//           margin: 10% 0;
-//         }
-//       }
-//     }
-//   }
-
-//   .main-info {
-//     font-size: 16px;
-//     line-height: 2rem;
-//   }
-
-//   .page4 .slick-slide .comment {
-//     font-size: 16px;
-//   }
-
-//   .page4 .slick-slide > p {
-//     font-size: 12px;
-//   }
-// }
-
-// @media only screen and (max-width: @screen-xs) {
-//   .see-conf-banner {
-//     img {
-//       margin-top: 0;
-//     }
-//   }
-
-//   .banner-text-wrapper {
-//     h1 {
-//       font-size: 32px;
-//     }
-//     p {
-//       font-size: 14px;
-//       line-height: 1.5rem
-//     }
-//   }
-
-//   .main-info {
-//     font-size: 14px;
-//   }
-
-//   .page2 {
-//     min-height: 513px;
-//   }
-// }
-
-// @media only screen and (max-width: @screen-sm) {
-//   .banner-text-wrapper {
-//     height: auto;
-//   }
-
-//   .feature {
-//     margin: 24px auto;
-//   }
-
-//   .page4 .slick-slide {
-//     height: 540px;
-//   }
-// }
-
-// @media only screen and (max-width: @screen-md) {
-//   .navbar-collapse.collapse.show {
-//     margin-bottom: 65px;
-//   }
-
-//   .homepage {
-//     color: #fff;
-//     z-index: 1;
-//     background-color: transparent !important;
-
-//     #sub-site-nav .nav-link {
-//       color: #314659 !important;
-//     }
-
-//     #navbarHeader .nav-separator {
-//       border-left: 1px solid #fff;
-//     }
-
-//     #btn-search .iconfont {
-//       color: #314659 !important;
-//     }
-
-//     #navbarHeader .navbar-nav .nav-link, #sub-site-nav .navbar-nav .nav-link {
-//       color: #314659 !important;
-//     }
-//   }
-// }
+@media (max-width: 768px) {
+  .companies-page-container {
+    .companies-container {
+      margin-top: 50px;
+      .company-img {
+        width: 120px;
+      }
+    }
+  }
+}

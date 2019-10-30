@@ -9,7 +9,6 @@ interface Props {
     title: string;
     description: string;
   };
-  horizontalMargin: number;
 }
 interface States {
   isHover: boolean;
@@ -42,14 +41,20 @@ class AdvantageCard extends React.Component<Props, States> {
     return (
       <div
         className="advantage-card"
-        style={{
-          // width: this.props.cardWidth,
-          marginLeft: this.props.horizontalMargin,
-          marginRight: this.props.horizontalMargin,
-        }}
+        style={
+          {
+            // width: this.props.cardWidth,
+            // marginLeft: this.props.horizontalMargin,
+            // marginRight: this.props.horizontalMargin,
+          }
+        }
       >
         <div className="advantage-content-wrapper">
-          <img src={this.props.cardContent.icon} alt="advantage" />
+          <img
+            className="advantage-card-icon"
+            src={this.props.cardContent.icon}
+            alt="advantage"
+          />
           <p className="advantage-card-title">{this.props.cardContent.title}</p>
           <p className="advantage-card-description">
             {this.props.cardContent.description}

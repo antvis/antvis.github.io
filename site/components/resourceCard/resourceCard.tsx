@@ -11,8 +11,8 @@ interface Props {
     link: string;
   };
   // cardWidthPercent: number;
-  marginLeftPercent: number;
-  marginRightPercent: number;
+  // marginLeftPercent: number;
+  // marginRightPercent: number;
 }
 interface States {
   isHover: boolean;
@@ -47,14 +47,20 @@ class ResourceCard extends React.Component<Props, States> {
         className="resource-card"
         onMouseOver={this.onMouseover}
         onMouseOut={this.onMouseleave}
-        style={{
-          // width: `${(this.props.cardWidthPercent) * 100}%`,
-          marginLeft: `${this.props.marginLeftPercent * 100}%`,
-          marginRight: `${this.props.marginRightPercent * 100}%`,
-        }}
+        style={
+          {
+            // width: `${(this.props.cardWidthPercent) * 100}%`,
+            // marginLeft: `${this.props.marginLeftPercent * 100}%`,
+            // marginRight: `${this.props.marginRightPercent * 100}%`,
+          }
+        }
       >
         <div className="resource-content-wrapper">
-          <img src={this.props.cardContent.icon} alt="resource" />
+          <img
+            className="resource-card-icon"
+            src={this.props.cardContent.icon}
+            alt="resource"
+          />
           <p className="resource-card-title">{this.props.cardContent.title}</p>
           <p className="resource-card-description">
             {this.props.cardContent.description}

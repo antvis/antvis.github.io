@@ -11,7 +11,6 @@ interface Props {
   type: string;
   title: string;
   date: string;
-  isMobile: boolean;
 }
 
 class Notification extends React.Component<Props, States> {
@@ -27,16 +26,11 @@ class Notification extends React.Component<Props, States> {
   }
 
   render() {
-    const { isMobile, className, num, type, title, date } = this.props;
+    const { className, num, type, title, date } = this.props;
     return (
       <div className={`notification ${className}`}>
         <div className="notification-container">
-          <p
-            className="notification-number"
-            style={{ fontSize: isMobile ? '3em' : '6em' }}
-          >
-            {num}
-          </p>
+          <p className="notification-number">{num}</p>
           <div className="notification-contents">
             <div className="notification-title">
               <p className="notification-type">{type}</p>

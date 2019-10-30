@@ -18,9 +18,7 @@ interface States {
   quotes: Array<quote>;
 }
 
-interface Props {
-  isMobile: boolean;
-}
+interface Props {}
 
 class AdvantagesPage extends React.Component<Props, States> {
   constructor(props) {
@@ -63,9 +61,7 @@ class AdvantagesPage extends React.Component<Props, States> {
       const Q = this.state.quotes[i];
       children.push(
         <div key={i}>
-          {!this.props.isMobile && (
-            <img className="leftpad" src={leftpad} alt="" />
-          )}
+          <img className="leftpad" src={leftpad} alt="" />
           <QueueAnim
             type="bottom"
             leaveReverse
@@ -100,7 +96,8 @@ class AdvantagesPage extends React.Component<Props, States> {
             className="carousel-wrapper"
           >
             <Carousel
-              effect={this.props.isMobile ? 'scrollx' : 'fade'}
+              // effect={this.props.isMobile ? 'scrollx' : 'fade'}
+              effect="fade"
               autoplay
             >
               {this.getQuotes()}
