@@ -4,71 +4,83 @@
   margin-top: 0px;
   transition: all 0.3s;
   text-align: center;
+  .quote-border-slicer {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.01);
+  }
+  .quote-border-slicer-left {
+    left: 0;
+  }
+  .quote-border-slicer-right {
+    right: 0;
+  }
   .quote-content-wrapper {
-    padding: 120px 70px 120px 70px;
+    padding: 120px 45px 120px 45px;
     .quote-card-avatar {
-      width: 160px;
-      height: 160px;
-      margin-top: -280px;
+      width: 94px;
+      height: 94px;
+      margin-top: -250px;
       box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.1);
     }
     .quote-card-name {
-      font-size: 3rem;
+      font-size: 1.5rem;
       color: #000;
-      padding-top: 20px;
+      margin-top: -40px;
     }
     .quote-card-from {
       opacity: 0.6;
       width: 100%;
       color: rgba(105, 123, 140, 1);
-      font-size: 2.2em;
-      margin-top: -40px;
+      font-size: 1.1em;
+      margin-top: -20px;
+      height: 4.5em;
     }
     .quote-slicer {
-      display: none;
-      width: 60px;
-      height: 13px;
-      margin-top: 70px;
-      margin-bottom: 70px;
-      margin-left: 50%;
-      transform: translateX(-30px);
+      display: block;
+      position: absolute;
+      width: 30px;
+      height: 6px;
+      margin-top: 20px;
+      left: 50%;
+      transform: translateX(-15px);
       right: 0;
       background: linear-gradient(25deg, rgb(181, 99, 243), rgb(67, 115, 246));
     }
     .quote-card-quote {
-      width: 80%;
-      margin-bottom: 70px;
-      line-height: 70px;
-      position: absolute;
+      width: 100%;
+      margin-top: 80px;
+      line-height: 35px;
+      position: relative;
       z-index: 10;
-      font-size: 2.5em;
-      top: 510px;
+      font-size: 1.25em;
       color: rgba(49, 70, 89, 1);
-      text-align: left;
+      text-align: justify;
     }
     .pad {
       position: absolute;
-      width: 100px;
-    }
-    .leftpad {
-      margin-left: -40%;
-      margin-top: 15%;
-    }
-    .rightpad {
-      margin-left: 25%;
-      margin-top: 45%;
+      width: 50px;
     }
   }
 }
+.leftpad {
+  left: 10%;
+  top: 50%;
+}
+.rightpad {
+  right: 10%;
+  margin-top: -12%;
+}
 .quote-card:hover {
-  border-bottom: 8px solid;
+  border-bottom: 4px solid;
   border-image: -webkit-linear-gradient(left, #aa6aff, #706dff) 30 30;
   border-image: -moz-linear-gradient(left, #aa6aff, #706dff) 30 30;
   border-image: linear-gradient(left, #aa6aff, #706dff) 30 30;
   transition: all 0.3s;
 }
 
-@media (max-width: 1450px) {
+@media (max-width: 1014px) {
   .quotes-page-container {
     .quote-card-container {
       .card-wrapper {
@@ -76,20 +88,16 @@
         margin-bottom: 15%;
         box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
         .quote-slicer {
+          margin-top: 0px;
           display: block;
-        }
-        .leftpad {
-          margin-left: -45%;
-          margin-top: 3%;
-        }
-        .rightpad {
-          margin-left: 25%;
-          margin-top: -12%;
         }
       }
     }
   }
   .quote-card {
+    .quote-border-slicer {
+      display: none;
+    }
     .quote-content-wrapper {
       .quote-card-quote {
         width: 100%;
@@ -98,12 +106,19 @@
       }
     }
   }
+  .leftpad {
+    left: 5%;
+    top: 50%;
+  }
+  .rightpad {
+    right: 5%;
+    margin-top: -5%;
+  }
 }
 
 @media (max-width: 768px) {
   .card-wrapper {
     .quote-card {
-      // height: auto;
       .quote-content-wrapper {
         padding: 120px 20px 10px 20px;
         .quote-card-avatar {
@@ -123,28 +138,35 @@
           width: 30px;
           height: 7px;
           transform: translateX(-15px);
-          margin-top: 40px;
-          margin-bottom: 40px;
         }
         .quote-card-quote {
           line-height: 40px;
           font-size: 1.2em;
-          top: 300px;
-          width: 90%;
         }
         .pad {
           position: absolute;
           width: 70px;
         }
-        .leftpad {
-          margin-left: -40%;
-          margin-top: 15%;
-        }
-        .rightpad {
-          margin-left: 25%;
-          margin-top: 25%;
-        }
       }
     }
+  }
+  .leftpad {
+    left: 3%;
+    top: 47%;
+  }
+  .rightpad {
+    right: 3%;
+    margin-top: -8%;
+  }
+}
+
+@media (max-width: 480px) {
+  .leftpad {
+    left: 5%;
+    top: 47%;
+  }
+  .rightpad {
+    right: 5%;
+    margin-top: -15%;
   }
 }

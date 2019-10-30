@@ -2,9 +2,11 @@
 .resources-page-container {
   background-color: rgb(250, 251, 253);
   height: auto;
-  // min-height: 1450px;
+  #resources-subpage-content-container {
+    width: 84%;
+  }
   .subpage-content-container {
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     .resources-page-title {
       color: #000;
     }
@@ -12,18 +14,20 @@
       background-color: #597ef7;
     }
     .resources-card-container {
-      // display: flex;
       position: relative;
       width: 100%;
       text-align: center;
       flex-wrap: wrap;
-      margin-top: 100px;
+      margin-top: 50px;
     }
   }
 }
 
 @media (max-width: 768px) {
   .resources-page-container {
+    #resources-subpage-content-container {
+      width: 92%;
+    }
     .subpage-content-container {
       margin-bottom: 12%;
       .resources-page-title {
@@ -38,83 +42,3 @@
     }
   }
 }
-
-// @media only screen and (max-width: @screen-md) {
-//   .banner-wrapper {
-//     // min-height: 100vh;
-//     .banner {
-//       overflow: hidden;
-//       .banner-img-wrapper,
-//       .banner-text-wrapper {
-//         width: 90%;
-//         margin: auto;
-//         display: block;
-//         position: relative;
-//       }
-//       .banner-img-wrapper {
-//         height: auto;
-//         margin: 40px auto;
-//       }
-//       .banner-text-wrapper {
-//         text-align: center;
-//         padding: 0;
-//         p {
-//           margin: 10% 0;
-//         }
-//       }
-//     }
-//   }
-
-//   .main-info {
-//     font-size: 16px;
-//     line-height: 2rem;
-//   }
-
-//   .page4 .slick-slide .comment {
-//     font-size: 16px;
-//   }
-
-//   .page4 .slick-slide > p {
-//     font-size: 12px;
-//   }
-// }
-
-// @media only screen and (max-width: @screen-xs) {
-//   .see-conf-banner {
-//     img {
-//       margin-top: 0;
-//     }
-//   }
-
-//   .banner-text-wrapper {
-//     h1 {
-//       font-size: 32px;
-//     }
-//     p {
-//       font-size: 14px;
-//       line-height: 1.5rem
-//     }
-//   }
-
-//   .main-info {
-//     font-size: 14px;
-//   }
-
-//   .page2 {
-//     min-height: 513px;
-//   }
-// }
-
-// @media only screen and (max-width: @screen-sm) {
-//   .banner-text-wrapper {
-//     height: auto;
-//   }
-
-//   .feature {
-//     margin: 24px auto;
-//   }
-
-//   .page4 .slick-slide {
-//     height: 540px;
-//   }
-// }

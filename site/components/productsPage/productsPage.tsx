@@ -133,10 +133,10 @@ class ProductsPage extends React.Component<{}, States> {
     const cols = 3;
     const rows = Math.ceil(length / 2) + 1;
     const startLeftPercent = 0.08;
-    let startTop = 150;
-    const circleRadius = 3;
+    let startTop = 80;
+    const circleRadius = 1.5;
     const circleRadiusPercent = 0.0005;
-    const cardHeight = 370;
+    const cardHeight = 185;
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < cols; j++) {
         const top = `${startTop + cardHeight * i - circleRadius}px`;
@@ -154,59 +154,12 @@ class ProductsPage extends React.Component<{}, States> {
       }
     }
 
-    // for median screen
-    const mediumStartLeftPercent = 0.029;
-    const mrows = length + 1;
-    const leftColLeft = `${mediumStartLeftPercent * 100}%`;
-    const rigthColLeft = `${(mediumStartLeftPercent +
-      0.9 -
-      circleRadiusPercent) *
-      100}%`;
-    // const scols = 2;
-    for (let i = 0; i < mrows; i++) {
-      let top;
-      if (i === mrows / 2) {
-        top = `${startTop + cardHeight * i - circleRadius}px`;
-        dots.push(
-          <div
-            key={`dot-${i}-0-medium`}
-            className="product-dot product-medium-screen-dot"
-            style={{ marginLeft: leftColLeft, marginTop: top }}
-          ></div>,
-        );
-        dots.push(
-          <div
-            key={`dot-${i}-1-medium`}
-            className="product-dot product-medium-screen-dot"
-            style={{ marginLeft: rigthColLeft, marginTop: top }}
-          ></div>,
-        );
-        startTop *= 2;
-      }
-      top = `${startTop + cardHeight * i - circleRadius}px`;
-      dots.push(
-        <div
-          key={`dot-${i}-0-medium`}
-          className="product-dot product-medium-screen-dot"
-          style={{ marginLeft: leftColLeft, marginTop: top }}
-        ></div>,
-      );
-      dots.push(
-        <div
-          key={`dot-${i}-1-medium`}
-          className="product-dot product-medium-screen-dot"
-          style={{ marginLeft: rigthColLeft, marginTop: top }}
-        ></div>,
-      );
-    }
-
     // for small screen
-    const smallStartLeftPercent = mediumStartLeftPercent;
+    const smallStartLeftPercent = 0.029;
     const srows = length + 1;
     let sStartTop = 80;
     const sCardHeight = 210;
     const sCircleRadius = 1.5;
-    // const sCircleRadiusPercent = 0.00001;
     const sLeftColLeft = `${(smallStartLeftPercent + 0.00015) * 100}%`;
     const sRigthColLeft = `${(smallStartLeftPercent + 0.9 + 0.00015) * 100}%`;
     for (let i = 0; i < srows; i++) {
@@ -215,14 +168,14 @@ class ProductsPage extends React.Component<{}, States> {
         top = `${sStartTop + sCardHeight * i - sCircleRadius}px`;
         dots.push(
           <div
-            key={`dot-${i}-0-small`}
+            key={`dot-${i}-0-0-small`}
             className="product-dot product-small-screen-dot"
             style={{ marginLeft: sLeftColLeft, marginTop: top }}
           ></div>,
         );
         dots.push(
           <div
-            key={`dot-${i}-1-small`}
+            key={`dot-${i}-1-1-small`}
             className="product-dot product-small-screen-dot"
             style={{ marginLeft: sRigthColLeft, marginTop: top }}
           ></div>,

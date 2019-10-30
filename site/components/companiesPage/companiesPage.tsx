@@ -64,7 +64,7 @@ class CompaniesPage extends React.Component<{}, States> {
     let children: Array<Object> = [];
     this.state.companies.forEach((company, i) => {
       children.push(
-        <Col key={i} className="company" md={6} sm={10} xs={24}>
+        <Col key={i} className="company" md={6} sm={8} xs={12}>
           <img className="company-img" src={company.imgSrc} alt="company-img" />
         </Col>,
       );
@@ -84,6 +84,7 @@ class CompaniesPage extends React.Component<{}, States> {
           leaveReverse
           key="content"
           className="subpage-content-container"
+          id="companies-subpage-content-container"
         >
           <p key="title" className="companies-page-title subpage-title">
             2000+ 公司正在使用

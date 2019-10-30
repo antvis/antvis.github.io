@@ -21,7 +21,7 @@ class BannerPage extends React.Component<Props, States> {
 
   constructor(props: Readonly<Props>) {
     super(props);
-    this.state = { height: 1500 }; // window.innerHeight 1500
+    this.state = { height: 1500 };
     this.onWindowResize = this.onWindowResize.bind(this);
   }
 
@@ -39,11 +39,7 @@ class BannerPage extends React.Component<Props, States> {
 
   render() {
     return (
-      <section
-        id="banner-container"
-        className="subpage-container"
-        style={{ height: this.state.height }}
-      >
+      <section id="banner-container" className="subpage-container">
         <div className="subpage-content-container">
           <div className="homepage-title">
             <div className="title-text">让数据栩栩如生</div>
