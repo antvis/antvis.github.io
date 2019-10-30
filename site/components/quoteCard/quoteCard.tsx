@@ -16,9 +16,6 @@ interface Props {
     name: string;
     index: number;
   };
-  // cardWidth: number;
-  // marginLeft: number;
-  // marginRight: number;
   hasBorder: boolean;
 }
 interface States {
@@ -49,26 +46,26 @@ class QuoteCard extends React.Component<Props, States> {
   };
 
   render() {
-    let border;
+    const borderSlicer: Array<object> = [];
     if (this.props.hasBorder) {
-      border = '1px solid rgba(0,0,0,0.05)';
+      borderSlicer.push(
+        <div
+          key={1}
+          className="quote-border-slicer quote-border-slicer-left"
+        ></div>,
+      );
+      borderSlicer.push(
+        <div
+          key={1}
+          className="quote-border-slicer quote-border-slicer-right"
+        ></div>,
+      );
     }
     return (
-      <div
-        className="quote-card"
-        // onMouseOver={this.onMouseover}
-        // onMouseOut={this.onMouseleave}
-        style={{
-          // width: this.props.cardWidth,
-          // marginLeft: this.props.marginLeft,
-          // marginRight: this.props.marginRight,
-          borderLeft: border,
-          borderRight: border,
-        }}
-      >
+      <div className="quote-card">
+        {borderSlicer}
         <div className="quote-content-wrapper">
           <Avatar
-            // size={160}
             src={this.props.cardContent.avatar}
             className="quote-card-avatar"
           />

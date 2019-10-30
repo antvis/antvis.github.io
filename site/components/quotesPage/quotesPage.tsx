@@ -15,8 +15,6 @@ interface quote {
 
 interface States {
   quotes: Array<quote>;
-  // cardWidth: number,
-  // containerMarginPercent: number;
 }
 
 interface Props {}
@@ -52,24 +50,14 @@ class QuotesPage extends React.Component<Props, States> {
           'G2 是面粉，Echarts 是面条，皆微小而美好，因小食材怀大梦想，助力共筹东方巨龙崛起之盛宴，迎四海饕客。',
       },
     ];
-
-    // const cardNumber = quotes.length;
-    // const containerMarginPercent = 0.08;
-    // const containerMargin = window.innerWidth * containerMarginPercent;
-    // const cardWidth =
-    //   (window.innerWidth - 2 * containerMargin) / cardNumber;
-
     this.state = {
       quotes,
-      // containerMarginPercent,
-      // cardWidth
     };
   }
 
   getCards() {
     const length = this.state.quotes.length;
     const children: Array<Object> = [];
-    // const cardWidth = (window.innerWidth - 2 * margin) / length;
     for (let i = 0; i < length; i++) {
       let hasBorder = true;
       if (i === 0 || i === length - 1) {
@@ -80,7 +68,6 @@ class QuotesPage extends React.Component<Props, States> {
           <QuoteCard
             key={i}
             cardContent={this.state.quotes[i]}
-            // cardWidth={cardWidth}
             hasBorder={hasBorder}
           />
         </Col>,
@@ -90,7 +77,6 @@ class QuotesPage extends React.Component<Props, States> {
   }
 
   render() {
-    // const margin = window.innerWidth * this.state.containerMarginPercent;
     return (
       <OverPack
         playScale={0.3}
@@ -104,11 +90,7 @@ class QuotesPage extends React.Component<Props, States> {
           className="page text-center"
         >
           <div key="quotes" className="quotes-wrapper">
-            <Row
-              className="quote-card-container"
-              key="cards"
-              // style={{ marginLeft: margin, marginRight: margin }}
-            >
+            <Row className="quote-card-container" key="cards">
               {this.getCards()}
             </Row>
           </div>

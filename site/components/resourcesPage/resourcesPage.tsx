@@ -6,8 +6,6 @@ import { Col, Row } from 'antd';
 import './resourcesPage.less';
 
 interface States {
-  // cardMarginPercent: number;
-  // cardWidthPercent: number;
   cards: Array<Card>;
 }
 
@@ -51,14 +49,7 @@ class ResourcesPage extends React.Component<{}, States> {
         link: '#',
       },
     ];
-    // const cardNumber = cards.length;
-    // const cardMarginPercent = 0.013;
-    // const cardWidthPercent = 1 / cardNumber;
-    // (window.innerWidth - (cardNumber - 1) * 2 * cardMargin) / cardNumber;
-
     this.state = {
-      // cardWidthPercent,
-      // cardMarginPercent,
       cards,
     };
   }
@@ -67,22 +58,9 @@ class ResourcesPage extends React.Component<{}, States> {
     const length = this.state.cards.length;
     const children: Array<Object> = [];
     for (let i = 0; i < length; i++) {
-      // let marginLeftPercent = this.state.cardMarginPercent;
-      // let marginRightPercent = this.state.cardMarginPercent;
-      // if (i === 0) {
-      //   marginLeftPercent = 0;
-      // } else if (i === length - 1) {
-      //   marginRightPercent = 0;
-      // }
       children.push(
         <Col className="card-wrapper" key={i} md={8} xs={24}>
-          <ResourceCard
-            key={i}
-            cardContent={this.state.cards[i]}
-            // cardWidth={this.state.cardWidthPercent}
-            // marginLeftPercent={marginLeftPercent}
-            // marginRightPercent={marginRightPercent}
-          />
+          <ResourceCard key={i} cardContent={this.state.cards[i]} />
         </Col>,
       );
     }
@@ -102,6 +80,7 @@ class ResourcesPage extends React.Component<{}, States> {
           leaveReverse
           key="page"
           className="subpage-content-container"
+          id="resources-subpage-content-container"
         >
           <p key="title" className="resources-page-title subpage-title">
             工具和资源

@@ -1,23 +1,40 @@
 .quotes-page-container {
-  min-height: 1650px;
   height: auto;
-  // padding: 10px 0;
   background: #f8fafe;
-  // width: 100%;
   .quote-card-container {
     width: fit-content;
     position: relative;
-    // box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
-    margin-top: 240px;
+    margin-top: 150px;
+    margin-bottom: 120px;
     margin-left: 100px;
     margin-right: 100px;
     .card-wrapper {
-      height: 1200px;
+      height: 550px;
     }
   }
 }
 
-@media (max-width: 1450px) {
+@media (max-width: 1350px) {
+  .quotes-page-container {
+    .quote-card-container {
+      .card-wrapper {
+        height: 600px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .quotes-page-container {
+    .quote-card-container {
+      .card-wrapper {
+        height: 670px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1014px) {
   .quotes-page-container {
     .quote-card-container {
       box-shadow: -0px 0px 0px rgba(0, 0, 0, 0.1);
@@ -27,20 +44,16 @@
     }
   }
 }
-@media (min-width: 1451px) {
-  .quote-card-container {
-    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
-  }
-}
 
-@media (max-width: 768px) {
+@media (max-width: 1014px) {
   .quotes-page-container {
     .quote-card-container {
       margin-top: 150px;
       margin-left: 15px;
       margin-right: 15px;
+      margin-bottom: 0px;
       .card-wrapper {
-        margin-bottom: 40%;
+        margin-bottom: 140px;
         height: 550px;
       }
     }

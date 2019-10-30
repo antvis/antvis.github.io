@@ -39,16 +39,7 @@ class AdvantageCard extends React.Component<Props, States> {
 
   render() {
     return (
-      <div
-        className="advantage-card"
-        style={
-          {
-            // width: this.props.cardWidth,
-            // marginLeft: this.props.horizontalMargin,
-            // marginRight: this.props.horizontalMargin,
-          }
-        }
-      >
+      <div className="advantage-card">
         <div className="advantage-content-wrapper">
           <img
             className="advantage-card-icon"

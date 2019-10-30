@@ -1,6 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-// import Enquire from 'enquire.js';
 import SEO from '@antv/gatsby-theme-antv/site/components/seo';
 import BannerPage from '../components/bannerPage/bannerPage';
 import ProductsPage from '../components/productsPage/productsPage';
@@ -9,7 +7,6 @@ import DescribePage from '../components/describePage/describePage';
 import AdvantagesPage from '../components/advantagesPage/advantagesPage';
 import QuotesPage from '../components/quotesPage/quotesPage';
 import CompaniesPage from '../components/companiesPage/companiesPage';
-import './variables.less';
 import './index.less';
 
 const IndexPage = () => {
