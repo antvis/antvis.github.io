@@ -12,29 +12,7 @@ import CompaniesPage from '../components/companiesPage/companiesPage';
 import './variables.less';
 import './index.less';
 
-// function enquireScreen(): boolean {
-//   /* eslint-disable no-unused-expressions */
-//   // and (min-width: 320px)
-//   let isMobile = false;
-//   Enquire.register('only screen and (max-width: 768px)', {
-//     match: () => {
-//       isMobile = true;
-//     },
-//     unmatch: () => {
-//       isMobile = false;
-//     },
-//   });
-//   return isMobile;
-//   /* eslint-enable no-unused-expressions */
-// }
-
-//const isMobile = enquireScreen();
-
 const IndexPage = () => {
-  const { t } = useTranslation();
-  // const isMobile = enquireScreen();
-
-  // console.log('isMobile', isMobile);
   return (
     <>
       <SEO title="蚂蚁数据可视化" lang="zh" />
