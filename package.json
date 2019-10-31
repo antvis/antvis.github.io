@@ -18,19 +18,18 @@
     "url": "https://github.com/antvis/antvis.github.io/issues"
   },
   "dependencies": {
-    "@antv/gatsby-theme-antv": "^0.4.0",
+    "@antv/gatsby-theme-antv": "^0.7.5",
     "@types/react": "^16.9.5",
     "@types/react-dom": "^16.9.1",
     "antd": "^3.23.6",
     "gatsby": "^2.15.36",
     "gh-pages": "^2.1.1",
     "husky": "^3.0.8",
-    "i18next": "^17.2.0",
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-i18next": "^10.13.1",
+    "react-i18next": "^11.0.1",
     "typescript": "^3.6.4"
   },
   "license": "MIT",
