@@ -132,18 +132,14 @@ class ProductsPage extends React.Component<{}, States> {
     const length = this.state.products.length;
     const cols = 3;
     const rows = Math.ceil(length / 2) + 1;
-    const startLeftPercent = 0.08;
+    const startLeftPercent = 0.079;
     let startTop = 80;
     const circleRadius = 1.5;
-    const circleRadiusPercent = 0.0005;
     const cardHeight = 185;
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < cols; j++) {
         const top = `${startTop + cardHeight * i - circleRadius}px`;
-        const left = `${(startLeftPercent +
-          0.4163 * j -
-          (j + 1) * circleRadiusPercent) *
-          100}%`;
+        const left = `${(startLeftPercent + 0.4165 * j) * 100}%`;
         dots.push(
           <div
             key={`dot-${i}-${j}`}
@@ -155,13 +151,13 @@ class ProductsPage extends React.Component<{}, States> {
     }
 
     // for small screen
-    const smallStartLeftPercent = 0.029;
+    const smallStartLeftPercent = 0.028;
     const srows = length + 1;
     let sStartTop = 80;
     const sCardHeight = 210;
     const sCircleRadius = 1.5;
-    const sLeftColLeft = `${(smallStartLeftPercent + 0.00015) * 100}%`;
-    const sRigthColLeft = `${(smallStartLeftPercent + 0.9 + 0.00015) * 100}%`;
+    const sLeftColLeft = `${smallStartLeftPercent * 100}%`;
+    const sRigthColLeft = `${(smallStartLeftPercent + 0.9) * 100}%`;
     for (let i = 0; i < srows; i++) {
       let top;
       if (i === srows / 2) {
