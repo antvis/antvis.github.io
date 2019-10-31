@@ -20,42 +20,42 @@ class CompaniesPage extends React.Component<{}, States> {
         {
           index: 0,
           imgSrc:
-            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*VI1HRrRDfJAAAAAAAAAAAABkARQnAQ',
+            'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Z1NnQ6L4xCIAAAAAAAAAAABkARQnAQ',
         },
         {
           index: 1,
           imgSrc:
-            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*pgZ6TKhg5kAAAAAAAAAAAABkARQnAQ',
+            'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*6u3hTpsd7h8AAAAAAAAAAABkARQnAQ',
         },
         {
           index: 2,
           imgSrc:
-            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*irm1TJHnvyUAAAAAAAAAAABkARQnAQ',
+            'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*58snT4MwuGcAAAAAAAAAAABkARQnAQ',
         },
         {
           index: 3,
           imgSrc:
-            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*yLAjTbQEbU4AAAAAAAAAAABkARQnAQ',
+            'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*14yvRoRDs4wAAAAAAAAAAABkARQnAQ',
         },
         {
           index: 4,
           imgSrc:
-            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*tILUTryXYMsAAAAAAAAAAABkARQnAQ',
+            'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Fw8HTbFgUdAAAAAAAAAAAABkARQnAQ',
         },
         {
           index: 5,
           imgSrc:
-            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*FSSdSqlLLaoAAAAAAAAAAABkARQnAQ',
+            'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*lUdjTqQix48AAAAAAAAAAABkARQnAQ',
         },
         {
           index: 6,
           imgSrc:
-            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*J7z2SZGNJwAAAAAAAAAAAABkARQnAQ',
+            'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*1q8NQZ9GaN0AAAAAAAAAAABkARQnAQ',
         },
         {
           index: 7,
           imgSrc:
-            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*ISoZTJ-IlU0AAAAAAAAAAABkARQnAQ',
+            'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*SqmTSqj4FjEAAAAAAAAAAABkARQnAQ',
         },
       ],
     };
