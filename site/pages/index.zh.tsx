@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '@antv/gatsby-theme-antv/site/components/seo';
+import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
 import BannerPage from '../components/bannerPage/bannerPage';
 import ProductsPage from '../components/productsPage/productsPage';
 import ResourcesPage from '../components/resourcesPage/resourcesPage';
