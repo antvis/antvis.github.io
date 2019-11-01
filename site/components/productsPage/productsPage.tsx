@@ -4,6 +4,10 @@ import QueueAnim from 'rc-queue-anim';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import './productsPage.less';
 
+interface Props {
+  isMobile: boolean;
+}
+
 interface States {
   products: Array<product>;
 }
@@ -16,8 +20,8 @@ interface product {
   imgSrc: string;
 }
 
-class ProductsPage extends React.Component<{}, States> {
-  constructor(props: Readonly<{}>) {
+class ProductsPage extends React.Component<Props, States> {
+  constructor(props: Readonly<Props>) {
     super(props);
     this.state = {
       products: [
@@ -89,14 +93,35 @@ class ProductsPage extends React.Component<{}, States> {
     };
   }
 
+  mouseOverCard = (evt: any) => {
+    const target = evt.currentTarget;
+    if (this.props.isMobile) {
+      target.style.boxShadow = '0px 0px 0px rgba(0, 0, 0, 0.1)';
+    } else {
+      target.style.boxShadow = '5px 20px 30px rgba(0, 0, 0, 0.1)';
+    }
+  };
+
+  mouseOutCard = (evt: any) => {
+    const target = evt.currentTarget;
+    target.style.boxShadow = '0px 0px 0px rgba(0, 0, 0, 0.1)';
+  };
+
   getProcucts(beginIndex: number, length: number) {
     let children: Array<Object> = [];
     const products = this.state.products;
-    const windowWidth = window.innerWidth;
     for (let i = beginIndex; i < beginIndex + length; i++) {
       const product = products[i];
       children.push(
-        <Col key={i} className="gutter-row" md={1} sm={1} xs={1}>
+        <Col
+          key={i}
+          className="gutter-row"
+          md={1}
+          sm={1}
+          xs={1}
+          onMouseOver={this.mouseOverCard}
+          onMouseOut={this.mouseOutCard}
+        >
           <div className="product" key="product">
             <p key="product-title" className="product-title">
               {product.title}

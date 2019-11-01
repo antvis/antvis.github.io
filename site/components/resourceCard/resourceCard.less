@@ -1,6 +1,8 @@
+.resource-card:not(:hover) {
+  height: 375px;
+}
 .resource-card {
   background-color: #fff;
-  height: 375px;
   margin-top: 0px;
   box-shadow: 0px 8px 10px rgba(49, 70, 89, 0.05);
   transition: all 0.3s;
@@ -34,15 +36,21 @@
   }
 }
 .resource-card:hover {
-  margin-top: -20px;
+  // margin-top: -20px;
   height: 415px;
-  border-bottom: 4px solid;
-  border-image: -webkit-linear-gradient(left, #aa6aff, #706dff) 30 30;
-  border-image: -moz-linear-gradient(left, #aa6aff, #706dff) 30 30;
-  border-image: linear-gradient(left, #aa6aff, #706dff) 30 30;
-  transition: all 0.3s;
+  // border-bottom: 4px solid;
+  // border-image: -webkit-linear-gradient(left, #aa6aff, #706dff) 30 30;
+  // border-image: -moz-linear-gradient(left, #aa6aff, #706dff) 30 30;
+  // border-image: linear-gradient(left, #aa6aff, #706dff) 30 30;
+  // transition: all 0.3s;
   .resource-card-detail-link {
     display: block;
+  }
+}
+
+@media (max-width: 900px) {
+  .resource-card:not(:hover) {
+    height: 440px;
   }
 }
 
@@ -53,12 +61,14 @@
       margin-bottom: 20px;
     }
   }
-  .resource-card {
+  .resource-card:not(:hover) {
     height: auto;
+  }
+  .resource-card {
     margin-left: 0;
     margin-right: 0;
     .resource-content-wrapper {
-      padding: 45px 15px 40px 15px;
+      padding: 45px 15px 45px 15px;
       .resource-card-icon {
         width: 80px;
       }
@@ -76,16 +86,6 @@
         display: block;
         font-size: 1em;
         padding-bottom: 20px;
-      }
-    }
-  }
-}
-
-@media (max-width: 1144px) and (min-width: 768px) {
-  .resource-card {
-    .resource-content-wrapper {
-      .resource-card-icon {
-        width: 40%;
       }
     }
   }

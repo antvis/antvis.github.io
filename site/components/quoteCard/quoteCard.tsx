@@ -17,6 +17,7 @@ interface Props {
     index: number;
   };
   hasBorder: boolean;
+  isMobile: boolean;
 }
 interface States {
   isHover: boolean;
@@ -37,12 +38,28 @@ class QuoteCard extends React.Component<Props, States> {
     };
   }
 
-  onMouseover = () => {
+  mouseOverCard = (evt: any) => {
     this.setState({ isHover: true });
+    const target = evt.currentTarget;
+    if (!this.props.isMobile) {
+      target.style.borderBottom = '4px solid';
+      target.style.borderImage =
+        '-webkit-linear-gradient(left, #aa6aff, #706dff) 30 30';
+      target.style.borderImage =
+        '-moz-linear-gradient(left, #aa6aff, #706dff) 30 30';
+      target.style.borderImage =
+        'linear-gradient(left, #aa6aff, #706dff) 30 30';
+      target.style.translation = 'all 0.3s';
+    }
   };
 
-  onMouseleave = () => {
+  mouseOutCard = (evt: any) => {
     this.setState({ isHover: false });
+    const target = evt.currentTarget;
+    if (!this.props.isMobile) {
+      target.style.borderBottom = '0px solid';
+      target.style.translation = 'all 0.3s';
+    }
   };
 
   render() {
@@ -56,13 +73,17 @@ class QuoteCard extends React.Component<Props, States> {
       );
       borderSlicer.push(
         <div
-          key={1}
+          key={2}
           className="quote-border-slicer quote-border-slicer-right"
         ></div>,
       );
     }
     return (
-      <div className="quote-card">
+      <div
+        className="quote-card"
+        onMouseOver={this.mouseOverCard}
+        onMouseOut={this.mouseOutCard}
+      >
         {borderSlicer}
         <div className="quote-content-wrapper">
           <Avatar
