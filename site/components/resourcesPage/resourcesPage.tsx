@@ -9,6 +9,10 @@ interface States {
   cards: Array<Card>;
 }
 
+interface Props {
+  isMobile: boolean;
+}
+
 interface Card {
   index: number;
   icon: string;
@@ -17,8 +21,8 @@ interface Card {
   link: string;
 }
 
-class ResourcesPage extends React.Component<{}, States> {
-  constructor(props: Readonly<{}>) {
+class ResourcesPage extends React.Component<Props, States> {
+  constructor(props: Readonly<Props>) {
     super(props);
     const cards = [
       {
@@ -60,7 +64,11 @@ class ResourcesPage extends React.Component<{}, States> {
     for (let i = 0; i < length; i++) {
       children.push(
         <Col className="card-wrapper" key={i} md={8} xs={24}>
-          <ResourceCard key={i} cardContent={this.state.cards[i]} />
+          <ResourceCard
+            key={i}
+            cardContent={this.state.cards[i]}
+            isMobile={this.props.isMobile}
+          />
         </Col>,
       );
     }

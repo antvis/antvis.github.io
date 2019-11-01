@@ -17,7 +17,9 @@ interface States {
   quotes: Array<quote>;
 }
 
-interface Props {}
+interface Props {
+  isMobile: boolean;
+}
 
 class QuotesPage extends React.Component<Props, States> {
   constructor(props: Readonly<Props>) {
@@ -69,6 +71,7 @@ class QuotesPage extends React.Component<Props, States> {
             key={i}
             cardContent={this.state.quotes[i]}
             hasBorder={hasBorder}
+            isMobile={this.props.isMobile}
           />
         </Col>,
       );
