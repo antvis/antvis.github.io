@@ -10,19 +10,22 @@ import CompaniesPage from '../components/companiesPage/companiesPage';
 import { useTranslation } from 'react-i18next';
 import './index.less';
 
-const IndexPage = () => {
+interface Props {
+  lang: string;
+}
+const IndexPage = (props: Props) => {
   const { t } = useTranslation();
   return (
     <>
-      <SEO title="蚂蚁数据可视化" lang="zh" />
+      <SEO title="蚂蚁数据可视化" lang={props.lang} />
       <div className="home-container" style={{ marginTop: '-24px' }}>
-        <BannerPage />
-        <ProductsPage />
-        <ResourcesPage />
-        <DescribePage />
-        <AdvantagesPage />
-        <QuotesPage />
-        <CompaniesPage />
+        <BannerPage lang={props.lang} />
+        <ProductsPage lang={props.lang} />
+        <ResourcesPage lang={props.lang} />
+        <DescribePage lang={props.lang} />
+        <AdvantagesPage lang={props.lang} />
+        <QuotesPage lang={props.lang} />
+        <CompaniesPage lang={props.lang} />
       </div>
     </>
   );

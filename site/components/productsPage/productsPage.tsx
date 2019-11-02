@@ -1,118 +1,129 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import './productsPage.less';
+import classNames from 'classnames';
+import styles from './productsPage.module.less';
 
-interface States {
-  products: Array<product>;
+const products = [
+  {
+    index: 0,
+    title: 'G2 可视化图形语法',
+    description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
+    titleEn: `G2 - Grammar of Graphics for Visualization`,
+    descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
+    demoLink: '#',
+    APILink: '#',
+    imgSrc:
+      'https://gw.alipayobjects.com/zos/basement_prod/7f43cecb-994f-4b88-bbd0-4bb8fa50fca1.svg',
+  },
+  {
+    index: 1,
+    title: 'G6 图可视化引擎',
+    description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
+    titleEn: 'G6 - A Graph Visualization Engine',
+    descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
+    demoLink: '#',
+    APILink: '#',
+    imgSrc:
+      'https://gw.alipayobjects.com/zos/basement_prod/2033777d-5758-4d53-97a7-0983bc08d273.svg',
+  },
+  {
+    index: 2,
+    title: 'F2 移动端可视化方案',
+    description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
+    titleEn: 'F2 - A Visualization Solution for Mobile',
+    descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
+    demoLink: '#',
+    APILink: '#',
+    imgSrc:
+      'https://gw.alipayobjects.com/zos/basement_prod/08d94964-f1cd-41c0-b176-0f692e38b156.svg',
+  },
+
+  {
+    index: 3,
+    title: 'L7 地理空间数据可视化',
+    description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
+    titleEn: 'L7 - A Geospacial Data Visualization Engine',
+    descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
+    demoLink: '#',
+    APILink: '#',
+    imgSrc:
+      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*ImVhTaHfFVwAAAAAAAAAAABkARQnAQ',
+  },
+  {
+    index: 4,
+    title: 'G2plot',
+    description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
+    titleEn: 'G2plot',
+    descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
+    demoLink: '#',
+    APILink: '#',
+    imgSrc:
+      'https://gw.alipayobjects.com/zos/basement_prod/b775f81c-6080-4fe7-81c1-4a771daa721a.svg',
+  },
+  {
+    index: 5,
+    title: 'Graphin',
+    description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
+    titleEn: 'Graphin',
+    descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
+    demoLink: '#',
+    APILink: '#',
+    imgSrc:
+      'https://gw.alipayobjects.com/zos/basement_prod/44717864-9a86-45f2-adda-022119e9d9e7.svg',
+  },
+  {
+    index: 6,
+    title: 'ChartCube',
+    description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
+    titleEn: 'ChartCube',
+    descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
+    demoLink: '#',
+    APILink: '#',
+    imgSrc:
+      'https://gw.alipayobjects.com/zos/basement_prod/dbc7970d-3c1b-4245-9e8f-60703593a95d.svg',
+  },
+];
+interface Props {
+  lang: string;
 }
-interface product {
-  index: number;
-  title: string;
-  description: string;
-  demoLink: string;
-  APILink: string;
-  imgSrc: string;
-}
 
-class ProductsPage extends React.Component<{}, States> {
-  constructor(props: Readonly<{}>) {
-    super(props);
-    this.state = {
-      products: [
-        {
-          index: 0,
-          title: 'G2 可视化图形语法',
-          description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
-          demoLink: '#',
-          APILink: '#',
-          imgSrc:
-            'https://gw.alipayobjects.com/zos/basement_prod/7f43cecb-994f-4b88-bbd0-4bb8fa50fca1.svg',
-        },
-        {
-          index: 1,
-          title: 'G6 图可视化引擎',
-          description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
-          demoLink: '#',
-          APILink: '#',
-          imgSrc:
-            'https://gw.alipayobjects.com/zos/basement_prod/2033777d-5758-4d53-97a7-0983bc08d273.svg',
-        },
-        {
-          index: 2,
-          title: 'F2 移动端可视化方案',
-          description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
-          demoLink: '#',
-          APILink: '#',
-          imgSrc:
-            'https://gw.alipayobjects.com/zos/basement_prod/08d94964-f1cd-41c0-b176-0f692e38b156.svg',
-        },
-
-        {
-          index: 3,
-          title: 'L7 地理空间数据可视化',
-          description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
-          demoLink: '#',
-          APILink: '#',
-          imgSrc:
-            'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*ImVhTaHfFVwAAAAAAAAAAABkARQnAQ',
-        },
-        {
-          index: 4,
-          title: 'G2plot',
-          description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
-          demoLink: '#',
-          APILink: '#',
-          imgSrc:
-            'https://gw.alipayobjects.com/zos/basement_prod/b775f81c-6080-4fe7-81c1-4a771daa721a.svg',
-        },
-        {
-          index: 5,
-          title: 'Graphin',
-          description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
-          demoLink: '#',
-          APILink: '#',
-          imgSrc:
-            'https://gw.alipayobjects.com/zos/basement_prod/44717864-9a86-45f2-adda-022119e9d9e7.svg',
-        },
-        {
-          index: 6,
-          title: 'ChartCube',
-          description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
-          demoLink: '#',
-          APILink: '#',
-          imgSrc:
-            'https://gw.alipayobjects.com/zos/basement_prod/dbc7970d-3c1b-4245-9e8f-60703593a95d.svg',
-        },
-      ],
-    };
-  }
-
-  getProcucts(beginIndex: number, length: number) {
+const ProductsPage = (props: Props) => {
+  const getProcucts = (beginIndex: number, length: number) => {
     let children: Array<Object> = [];
-    const products = this.state.products;
+    let exampleLinkStr = '图表实例';
+    let apiLinkStr = 'API 文档';
+    if (props.lang === 'en') {
+      exampleLinkStr = 'Examples';
+      apiLinkStr = 'API Documents';
+    }
     for (let i = beginIndex; i < beginIndex + length; i++) {
       const product = products[i];
       children.push(
-        <Col key={i} className="gutter-row" md={1} sm={1} xs={1}>
-          <div className="product" key="product">
-            <p key="product-title" className="product-title">
-              {product.title}
+        <Col key={i} className={styles.col} md={1} sm={1} xs={1}>
+          <div className={styles.product} key="product">
+            <p key="product-title" className={styles.ptitle}>
+              {props.lang === 'en' ? product.titleEn : product.title}
             </p>
-            <p key="product-description" className="product-description">
-              {product.description}
+            <p key="product-description" className={styles.pdescription}>
+              {props.lang === 'en'
+                ? product.descriptionEn
+                : product.description}
             </p>
-            <div className="product-bottom-container" key="product-bottom">
-              <div className="links-container">
-                <a className="product-link" href={product.demoLink}>
-                  图表实例
+            <div key="product-bottom" className={styles.pbottom}>
+              <div className={styles.plinks}>
+                <a className={styles.plink} href={product.demoLink}>
+                  {exampleLinkStr}
                 </a>
-                <a className="product-link api-link" href={product.APILink}>
-                  API 文档
+                <a
+                  className={classNames(styles.plink, styles.apilink)}
+                  href={product.APILink}
+                >
+                  {apiLinkStr}
                 </a>
               </div>
               <img
                 key="product"
-                className="product-img"
+                className={styles.productimg}
                 src={product.imgSrc}
                 alt={`${product.index}`}
               />
@@ -122,11 +133,11 @@ class ProductsPage extends React.Component<{}, States> {
       );
     }
     return children;
-  }
+  };
 
-  getDots() {
+  const getDots = () => {
     let dots: Array<Object> = [];
-    const length = this.state.products.length;
+    const length = products.length;
     const cols = 3;
     const rows = Math.ceil(length / 2) + 1;
     const startLeftPercent = 0.079;
@@ -140,9 +151,9 @@ class ProductsPage extends React.Component<{}, States> {
         dots.push(
           <div
             key={`dot-${i}-${j}`}
-            className={`product-dot product-large-screen-dot`}
+            className={classNames(styles.dot, styles.largeDot)}
             style={{ marginLeft: left, marginTop: top }}
-          ></div>,
+          />,
         );
       }
     }
@@ -162,16 +173,16 @@ class ProductsPage extends React.Component<{}, States> {
         dots.push(
           <div
             key={`dot-${i}-0-0-small`}
-            className="product-dot product-small-screen-dot"
+            className={classNames(styles.dot, styles.smallDot)}
             style={{ marginLeft: sLeftColLeft, marginTop: top }}
-          ></div>,
+          />,
         );
         dots.push(
           <div
             key={`dot-${i}-1-1-small`}
-            className="product-dot product-small-screen-dot"
+            className={classNames(styles.dot, styles.smallDot)}
             style={{ marginLeft: sRigthColLeft, marginTop: top }}
-          ></div>,
+          />,
         );
         sStartTop *= 2;
       }
@@ -179,77 +190,165 @@ class ProductsPage extends React.Component<{}, States> {
       dots.push(
         <div
           key={`dot-${i}-0-small`}
-          className="product-dot product-small-screen-dot"
+          className={classNames(styles.dot, styles.smallDot)}
           style={{ marginLeft: sLeftColLeft, marginTop: top }}
-        ></div>,
+        />,
       );
       dots.push(
         <div
           key={`dot-${i}-1-small`}
-          className="product-dot product-small-screen-dot"
+          className={classNames(styles.dot, styles.smallDot)}
           style={{ marginLeft: sRigthColLeft, marginTop: top }}
-        ></div>,
+        />,
       );
     }
 
     return dots;
+  };
+
+  let titleStr = '我们的产品';
+  let subTitleStr1 = '基础产品';
+  let subTitleStr2 = '扩展产品';
+  if (props.lang === 'en') {
+    titleStr = 'Our Products';
+    subTitleStr1 = 'Basic Products';
+    subTitleStr2 = 'Extensions';
   }
 
-  render() {
-    return (
-      <div className="products-page-container subpage-container">
-        <div className="background-lefttop">
-          <div className="block1 lefttop-block"></div>
-          <div className="block2 lefttop-block"></div>
-        </div>
-        <div
-          className="subpage-content-container"
-          id="products-subpage-content-container"
-        >
-          <p
-            className="product-page-title subpage-title"
-            id="product-page-title"
+  return (
+    <div className={styles.wrapper}>
+      <div className={styles.lefttop}>
+        <div className={styles.ltblock1} />
+        <div className={styles.ltblock2} />
+      </div>
+      <div className={styles.content}>
+        <p className={styles.title}>{titleStr}</p>
+        <div className={styles.rightbottom}>
+          <div
+            className={classNames(
+              styles.slicerbar,
+              styles.slicerbarh,
+              styles.slicerbarh1,
+            )}
+          />
+          <div
+            className={classNames(
+              styles.slicerbar,
+              styles.slicerbarh,
+              styles.slicerbarh2,
+            )}
+          />
+          <div
+            className={classNames(
+              styles.slicerbar,
+              styles.slicerbarh,
+              styles.slicerbarh3,
+            )}
+          />
+          <div
+            className={classNames(
+              styles.slicerbar,
+              styles.slicerbarh,
+              styles.slicerbarh4,
+            )}
+          />
+          <div
+            className={classNames(
+              styles.slicerbar,
+              styles.slicerbarh,
+              styles.slicerbarh5,
+            )}
+          />
+          <div
+            className={classNames(
+              styles.slicerbar,
+              styles.slicerbarh,
+              styles.slicerbarh6,
+            )}
+          />
+          <div
+            className={classNames(
+              styles.slicerbar,
+              styles.slicerbarh,
+              styles.slicerbarh7,
+            )}
+          />
+          <div
+            className={classNames(
+              styles.slicerbar,
+              styles.slicerbarh,
+              styles.slicerbarh8,
+            )}
+          />
+          <div
+            className={classNames(
+              styles.slicerbar,
+              styles.slicerbarh,
+              styles.slicerbarh9,
+            )}
+          />
+          <div
+            className={classNames(
+              styles.slicerbar,
+              styles.slicerbarv,
+              styles.slicerbarv1,
+            )}
+          />
+          <div
+            className={classNames(
+              styles.slicerbar,
+              styles.slicerbarv,
+              styles.slicerbarv2,
+            )}
+          />
+          <div
+            className={classNames(
+              styles.slicerbar,
+              styles.slicerbarv,
+              styles.slicerbarv3,
+            )}
+          />
+          {getDots()}
+          <div
+            className={classNames(
+              styles.subTitleContainer,
+              styles.basicSubTitle,
+            )}
           >
-            我们的产品
-          </p>
-          <div className="background-rightbottom">
-            <div className="slicer-bar slicer-bar-h slicer-bar-h1"></div>
-            <div className="slicer-bar slicer-bar-h slicer-bar-h2"></div>
-            <div className="slicer-bar slicer-bar-h slicer-bar-h3"></div>
-            <div className="slicer-bar slicer-bar-h slicer-bar-h4"></div>
-            <div className="slicer-bar slicer-bar-h slicer-bar-h5"></div>
-            <div className="slicer-bar slicer-bar-h slicer-bar-h6"></div>
-            <div className="slicer-bar slicer-bar-h slicer-bar-h7"></div>
-            <div className="slicer-bar slicer-bar-h slicer-bar-h8"></div>
-            <div className="slicer-bar slicer-bar-h slicer-bar-h9"></div>
-            <div className="slicer-bar slicer-bar-v slicer-bar-v1"></div>
-            <div className="slicer-bar slicer-bar-v slicer-bar-v2"></div>
-            <div className="slicer-bar slicer-bar-v slicer-bar-v3"></div>
-            {this.getDots()}
-            <div className="products-sub-title-container basic-sub-title">
-              <div className="sub-title-bar"></div>
-              <div className="sub-title">基础产品</div>
+            <div className={styles.subTitleBar} />
+            <div className={styles.subTitleText}>{subTitleStr1}</div>
+          </div>
+          <div
+            className={classNames(
+              styles.subTitleContainer,
+              styles.extensionSubTitle,
+            )}
+          >
+            <div className={styles.subTitleBar} />
+            <div className={styles.subTitleText}>{subTitleStr2}</div>
+          </div>
+          <div className={styles.products}>
+            <div
+              className={classNames(styles.subProducts, styles.basicsWrapper)}
+            >
+              <Row key="products-basic" className={styles.basics}>
+                {getProcucts(0, 4)}
+              </Row>
             </div>
-            <div className="products-sub-title-container extension-sub-title">
-              <div className="sub-title-bar"></div>
-              <div className="sub-title">扩展产品</div>
-            </div>
-            <div className="products-container">
-              <div className="sub-container basic-products-container">
-                <Row key="products-basic" className="products-basic">
-                  {this.getProcucts(0, 4)}
-                </Row>
-              </div>
-              <div className="sub-container extension-products-container">
-                <Row key="products-extension" className="products-extension">
-                  {this.getProcucts(4, 3)}
-                </Row>
-              </div>
+            <div
+              className={classNames(
+                styles.subProducts,
+                styles.extensionsWrapper,
+              )}
+            >
+              <Row key="products-extension" className={styles.extensions}>
+                {getProcucts(4, 3)}
+              </Row>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 export default ProductsPage;

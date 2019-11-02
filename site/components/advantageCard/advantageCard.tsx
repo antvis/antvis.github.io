@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './advantageCard.less';
+import styles from './advantageCard.module.less';
 
 interface Props {
   cardContent: {
@@ -8,52 +7,34 @@ interface Props {
     icon: string;
     title: string;
     description: string;
+    titleEn: string;
+    descriptionEn: string;
   };
+  lang: string;
 }
-interface States {
-  isHover: boolean;
-}
 
-class AdvantageCard extends React.Component<Props, States> {
-  static propTypes = {
-    className: PropTypes.string,
-  };
-  static defaultProps = {
-    className: 'advantageCard',
-  };
-
-  constructor(props: Readonly<Props>) {
-    super(props);
-    this.state = {
-      isHover: false,
-    };
-  }
-
-  onMouseover = () => {
-    this.setState({ isHover: true });
-  };
-
-  onMouseleave = () => {
-    this.setState({ isHover: false });
-  };
-
-  render() {
-    return (
-      <div className="advantage-card">
-        <div className="advantage-content-wrapper">
-          <img
-            className="advantage-card-icon"
-            src={this.props.cardContent.icon}
-            alt="advantage"
-          />
-          <p className="advantage-card-title">{this.props.cardContent.title}</p>
-          <p className="advantage-card-description">
-            {this.props.cardContent.description}
-          </p>
-        </div>
+const AdvantageCard = (props: Props) => {
+  return (
+    <div className={styles.card}>
+      <div className={styles.content}>
+        <img
+          className={styles.icon}
+          src={props.cardContent.icon}
+          alt="advantage"
+        />
+        <p className={styles.title}>
+          {props.lang === 'en'
+            ? props.cardContent.titleEn
+            : props.cardContent.title}
+        </p>
+        <p className={styles.description}>
+          {props.lang === 'en'
+            ? props.cardContent.descriptionEn
+            : props.cardContent.description}
+        </p>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default AdvantageCard;

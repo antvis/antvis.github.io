@@ -1,47 +1,53 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './notification.less';
+import classNames from 'classNames';
+import styles from './notification.module.less';
 
-interface States {
-  height: number;
+interface Notification {
+  className: string;
+  numImg: string;
+  type: string;
+  title: string;
+  typeEn: string;
+  titleEn: string;
+  date: string;
 }
 interface Props {
   className: string;
-  num: string;
-  type: string;
-  title: string;
-  date: string;
+  notificationContent: {
+    numImg: string;
+    type: string;
+    title: string;
+    typeEn: string;
+    titleEn: string;
+    date: string;
+  };
+  lang: string;
 }
 
-class Notification extends React.Component<Props, States> {
-  static propTypes = {
-    className: PropTypes.string,
-  };
-  static defaultProps = {
-    className: 'notification',
-  };
-
-  constructor(props: Readonly<Props>) {
-    super(props);
+const Notification = (props: Props) => {
+  const {
+    numImg,
+    type,
+    title,
+    typeEn,
+    titleEn,
+    date,
+  } = props.notificationContent;
+  let description = `${type} ‧ ${title}`;
+  if (props.lang === 'en') {
+    description = `${typeEn} ‧ ${titleEn}`;
   }
-
-  render() {
-    const { className, num, type, title, date } = this.props;
-    return (
-      <div className={`notification ${className}`}>
-        <div className="notification-container">
-          <p className="notification-number">{num}</p>
-          <div className="notification-contents">
-            <div className="notification-title">
-              <p className="notification-type">{type}</p>
-              <p className="notification-description"> ‧ {title}</p>
-            </div>
-            <p className="notification-date">{date}</p>
-          </div>
+  return (
+    <div className={classNames(styles.notification, props.className)}>
+      <div className={styles.container}>
+        <img className={styles.number} src={numImg}></img>
+        <div className={styles.content}>
+          <p className={styles.description}>{description}</p>
+          <p className={styles.date}>{date}</p>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Notification;

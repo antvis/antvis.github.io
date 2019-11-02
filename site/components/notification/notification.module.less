@@ -1,0 +1,43 @@
+.notification {
+  margin-right: 5%;
+  .container {
+    height: 44px;
+    display: flex;
+    .number {
+      height: 100%;
+      width: auto;
+    }
+    .content {
+      padding-left: 20px;
+      color: rgba(49, 70, 89, 1);
+      .description {
+        top: 0;
+        font-size: 1em;
+        margin-bottom: 0;
+      }
+      .date {
+        color: rgba(216, 203, 249, 1);
+        bottom: 0;
+        font-size: 0.875em;
+        margin-top: 8px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .notification {
+    .container {
+      .content {
+        margin-top: -3px;
+        text-align: left;
+        line-height: 12px;
+        font-size: 1em;
+        .date {
+          margin-top: -5px;
+        }
+      }
+    }
+  }
+}

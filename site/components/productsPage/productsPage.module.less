@@ -1,56 +1,71 @@
-.products-page-container {
+@import '~antd/es/style/themes/default.less';
+
+.wrapper {
   height: auto;
   background: #f0f5fa;
-  #product-page-title {
-    color: #fff;
-  }
-  .background-lefttop {
+  display: flex;
+  margin: auto;
+  position: relative;
+  flex-direction: column;
+  padding: 0;
+  .lefttop {
     width: 92%;
     height: 74.5%;
     top: 0;
     position: absolute;
     display: flex;
     flex-direction: row;
-    .lefttop-block {
+    .ltblock1 {
+      width: 58.4%;
       background: linear-gradient(130deg, #aa6aff, #706dff);
       position: relative;
       height: 100%;
       width: 50%;
     }
-    .block1 {
-      width: 58.4%;
-    }
-    .block2 {
+    .ltblock2 {
       width: 41.6%;
+      background: linear-gradient(130deg, #aa6aff, #706dff);
+      position: relative;
+      height: 100%;
+      width: 50%;
     }
   }
-  #products-subpage-content-container {
+  .content {
     margin-left: 8%;
     width: 92%;
-    .product-page-title {
+
+    height: 100%;
+    margin-left: 8%;
+    margin-bottom: 5%;
+    position: relative;
+    .title {
       position: relative;
+      font-size: 2.8em;
+      font-weight: 500;
+      margin: 45px 0 45px 0;
+      color: #fff;
     }
-    .background-rightbottom {
+    .rightbottom {
       background: #fff;
       width: 100%;
       height: inherit;
       position: relative;
       box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.1);
       padding-bottom: 80px;
-      .products-sub-title-container {
+      .subTitleContainer {
         display: block;
         position: absolute;
         padding-left: 8%;
         display: flex;
         margin-top: 30px;
-        .sub-title {
+        .subTitleText {
           color: rgba(106, 123, 140, 1);
           font-weight: 300;
           width: 200px;
           font-size: 1em;
           margin-left: 20px;
         }
-        .sub-title-bar {
+        .subTitleBar {
           background: linear-gradient(
             135deg,
             rgb(157, 113, 247) 40%,
@@ -60,71 +75,71 @@
           width: 4px;
         }
       }
-      .extension-sub-title {
+      .extensionSubTitle {
         margin-left: 41.6%;
       }
-      .slicer-bar {
+      .slicerbar {
         position: absolute;
         background-color: #f2f4f5;
       }
-      .slicer-bar-h {
+      .slicerbarh {
         width: 100%;
         height: 1px;
       }
-      .slicer-bar-h1 {
+      .slicerbarh1 {
         margin-top: 80px;
       }
-      .slicer-bar-h2 {
+      .slicerbarh2 {
         margin-top: 265px;
       }
-      .slicer-bar-h3 {
+      .slicerbarh3 {
         margin-top: 450px;
       }
-      .slicer-bar-h4 {
+      .slicerbarh4 {
         margin-top: 635px;
       }
-      .slicer-bar-h5 {
+      .slicerbarh5 {
         margin-top: 820px;
         width: 108%;
         left: -8%;
       }
-      .slicer-bar-h6 {
+      .slicerbarh6 {
         margin-top: 1780px;
         display: none;
       }
-      .slicer-bar-h7 {
+      .slicerbarh7 {
         margin-top: 2150px;
         display: none;
       }
-      .slicer-bar-h8 {
+      .slicerbarh8 {
         margin-top: 2520px;
         display: none;
       }
-      .slicer-bar-h9 {
+      .slicerbarh9 {
         margin-top: 2890px;
         display: none;
       }
-      .slicer-bar-v {
+      .slicerbarv {
         width: 1px;
         height: 100%;
         margin-left: 8%;
       }
-      .slicer-bar-v2 {
+      .slicerbarv2 {
         margin-left: 49.63%;
         height: 120%;
       }
-      .slicer-bar-v3 {
+      .slicerbarv3 {
         margin-left: 91.26%;
       }
-      .products-container {
+      .products {
         margin-left: 8%;
         margin-right: 8.7%;
         padding-top: 80px;
         display: flex;
-        .sub-container {
+        .subProducts {
           width: 50%;
         }
-        .ant-col {
+        .col {
           width: 100%;
           height: 185px;
           .product {
@@ -133,40 +148,40 @@
             padding-top: 5%;
             padding-left: 5%;
           }
-        }
-        .ant-col:hover {
-          .product {
-            box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-            // width: 102%;
-            // height: 105%;
-            // margin-left: -1%;
-            // margin-top: -1%;
+          &:hover {
+            .product {
+              box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.1);
+              transition: all 0.3s;
+              // width: 102%;
+              // height: 105%;
+              // margin-left: -1%;
+              // margin-top: -1%;
+            }
           }
         }
-        .product-title {
+        .ptitle {
           font-size: 1.5em;
           color: #000;
           font-weight: 450;
         }
-        .product-description {
+        .pdescription {
           opacity: 0.5;
           font-size: 1em;
           color: rgba(106, 123, 140, 1);
         }
-        .product-bottom-container {
+        .pbottom {
           margin-top: -20px;
           width: 100%;
           display: flex;
-          .links-container {
+          .plinks {
             width: -webkit-fill-available;
             font-size: 1em;
             margin-top: 30px;
-            .api-link {
+            .apilink {
               margin-left: 10%;
             }
           }
-          .product-img {
+          .productimg {
             position: relative;
             left: 0;
             width: 90px;
@@ -176,41 +191,45 @@
     }
   }
 }
-.product-dot {
+.dot {
   position: absolute;
   width: 3px;
   height: 3px;
   border-radius: 50%;
   background: #d8d8d8;
 }
-.product-small-screen-dot {
+.smallDot {
   display: none;
 }
 
 @media (max-width: 768px) {
-  .products-page-container {
+  .wrapper {
     min-height: 0;
-    .background-lefttop {
+    .lefttop {
       height: 100%;
       width: 96%;
-      .block1 {
+      .ltblock1 {
         width: 100%;
       }
-      .block2 {
+      .ltblock2 {
         width: 0%;
       }
     }
-    #products-subpage-content-container {
+    .content {
       margin-left: 4%;
       width: 96%;
       margin-bottom: 85px;
-      .background-rightbottom {
+      .title {
+        font-size: 1.9rem;
+        margin: 70px 0 60px 0;
+      }
+      .rightbottom {
         padding-bottom: 50px;
-        .products-sub-title-container {
+        .subTitleContainer {
           position: absolute;
           padding-left: 3%;
           display: flex;
-          .sub-title-bar {
+          .subTitleBar {
             background: linear-gradient(
               135deg,
               rgb(157, 113, 247) 40%,
@@ -219,91 +238,93 @@
             height: 18px;
             width: 4px;
           }
-          .sub-title {
+          .subTitleText {
             width: 200px;
             font-size: 1em;
             margin-left: 20px;
           }
         }
-        .basic-sub-title {
+        .basicSubTitle {
           margin-top: 30px;
         }
-        .extension-sub-title {
+        .extensionSubTitle {
           margin-top: 950px;
           margin-left: 0;
         }
-        .slicer-bar-v {
+        .slicerbarv {
           width: 1px;
           margin-left: 3%;
         }
-        .slicer-bar-v2 {
+        .slicerbarv2 {
           display: none;
         }
-        .slicer-bar-v3 {
+        .slicerbarv3 {
           margin-left: 93%;
         }
-        .slicer-bar-h {
+        .slicerbarh {
           margin-top: 80px;
           height: 1px;
         }
-        .slicer-bar-h2 {
+        .slicerbarh2 {
           margin-top: 290px;
         }
-        .slicer-bar-h3 {
+        .slicerbarh3 {
           margin-top: 500px;
         }
-        .slicer-bar-h4 {
+        .slicerbarh4 {
           margin-top: 710px;
         }
-        .slicer-bar-h5 {
+        .slicerbarh5 {
           width: 100%;
           left: 0;
           margin-top: 920px;
         }
-        .slicer-bar-h6 {
+        .slicerbarh6 {
           margin-top: 1000px;
           display: block;
         }
-        .slicer-bar-h7 {
+        .slicerbarh7 {
           margin-top: 1210px;
           display: block;
         }
-        .slicer-bar-h8 {
+        .slicerbarh8 {
           margin-top: 1420px;
           display: block;
         }
-        .slicer-bar-h9 {
+        .slicerbarh9 {
           margin-top: 1630px;
           display: block;
         }
-        .products-container {
+        .products {
           width: 90.2%; // 0.04 * 0.96 + 0.03 * 2
           margin-left: 3%;
           padding-top: 80px;
           flex-flow: column;
-          .sub-container {
+          .subProducts {
             width: 100%;
           }
-          .extension-products-container {
+          .extensionsWapper {
             margin-top: 80px;
           }
-          .ant-col {
+          .col {
             width: 100%;
             height: 210px;
+            &:hover {
+              .product {
+                box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+              }
+            }
           }
-          .ant-col:hover {
-            box-shadow: 5px 20px 30px rgba(0, 0, 0, 0);
-          }
-          .product-title {
+          .ptitle {
             font-size: 1.4em;
             font-weight: 450;
           }
-          .product-description {
+          .pdescription {
             font-size: 1em;
           }
-          .product-bottom-container {
+          .pbottom {
             margin-top: -20px;
-            .links-container {
+            .plinks {
               font-size: 1em;
             }
             .product-img {
@@ -316,10 +337,10 @@
       }
     }
   }
-  .product-large-screen-dot {
+  .largeDot {
     display: none;
   }
-  .product-small-screen-dot {
+  .smallDot {
     display: block;
   }
 }

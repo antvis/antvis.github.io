@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Avatar } from 'antd';
-import './quoteCard.less';
+import styles from './quoteCard.module.less';
+import classNames from 'classNames';
 
 const leftpad =
   'https://gw.alipayobjects.com/zos/basement_prod/50fbdc16-bac3-4ecd-8210-f4ed2c116fdb.svg';
@@ -15,56 +15,58 @@ interface Props {
     from: string;
     name: string;
     index: number;
+    nameEn: string;
+    fromEn: string;
+    quoteEn: string;
   };
   hasBorder: boolean;
+  lang: string;
 }
 
-class QuoteCard extends React.Component<Props, {}> {
-  static propTypes = {
-    className: PropTypes.string,
-  };
-  static defaultProps = {
-    className: 'resourceCard',
-  };
-
-  constructor(props: Readonly<Props>) {
-    super(props);
-  }
-
-  render() {
-    const borderSlicer: Array<object> = [];
-    if (this.props.hasBorder) {
-      borderSlicer.push(
-        <div
-          key={1}
-          className="quote-border-slicer quote-border-slicer-left"
-        ></div>,
-      );
-      borderSlicer.push(
-        <div
-          key={2}
-          className="quote-border-slicer quote-border-slicer-right"
-        ></div>,
-      );
-    }
-    return (
-      <div className="quote-card">
-        {borderSlicer}
-        <div className="quote-content-wrapper">
-          <Avatar
-            src={this.props.cardContent.avatar}
-            className="quote-card-avatar"
-          />
-          <p className="quote-card-name">{this.props.cardContent.name}</p>
-          <p className="quote-card-from">{this.props.cardContent.from}</p>
-          <img className="pad leftpad" src={leftpad} />
-          <div className="quote-slicer"></div>
-          <p className="quote-card-quote">{this.props.cardContent.quote}</p>
-          <img className="pad rightpad" src={rightpad} />
-        </div>
-      </div>
+const QuoteCard = (props: Props) => {
+  const borderSlicer: Array<object> = [];
+  if (props.hasBorder) {
+    borderSlicer.push(
+      <div key={1} className={classNames(styles.border, styles.lborder)} />,
+    );
+    borderSlicer.push(
+      <div key={2} className={classNames(styles.border, styles.rborder)} />,
     );
   }
-}
+  return (
+    <div className={styles.card}>
+      {borderSlicer}
+      <div className={styles.content}>
+        <Avatar src={props.cardContent.avatar} className={styles.avatar} />
+        <p className={styles.name}>
+          {props.lang === 'en'
+            ? props.cardContent.nameEn
+            : props.cardContent.name}
+        </p>
+        <p className={styles.from}>
+          {props.lang === 'en'
+            ? props.cardContent.fromEn
+            : props.cardContent.from}
+        </p>
+        <img
+          className={classNames(styles.pad, styles.leftpad)}
+          src={leftpad}
+          alt="leftpad"
+        />
+        <div className={styles.qslicer} />
+        <p className={styles.quote}>
+          {props.lang === 'en'
+            ? props.cardContent.quoteEn
+            : props.cardContent.quote}
+        </p>
+        <img
+          className={classNames(styles.pad, styles.rightpad)}
+          src={rightpad}
+          alt="rightpad"
+        />
+      </div>
+    </div>
+  );
+};
 
 export default QuoteCard;

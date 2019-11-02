@@ -1,23 +1,28 @@
-.quotes-page-container {
+.wrapper {
+  display: flex;
+  margin: auto;
+  position: relative;
+  flex-direction: column;
+  padding: 0;
   height: auto;
   background: #f8fafe;
-  .quote-card-container {
+  .rows {
     width: fit-content;
     position: relative;
     margin-top: 150px;
     margin-bottom: 120px;
     margin-left: 100px;
     margin-right: 100px;
-    .card-wrapper {
+    .cardWrapper {
       height: 550px;
     }
   }
 }
 
 @media (max-width: 1350px) {
-  .quotes-page-container {
-    .quote-card-container {
-      .card-wrapper {
+  .wrapper {
+    .rows {
+      .cardWrapper {
         height: 600px;
       }
     }
@@ -25,9 +30,9 @@
 }
 
 @media (max-width: 1200px) {
-  .quotes-page-container {
-    .quote-card-container {
-      .card-wrapper {
+  .wrapper {
+    .rows {
+      .cardWrapper {
         height: 670px;
       }
     }
@@ -35,16 +40,16 @@
 }
 
 @media (max-width: 1014px) {
-  .quotes-page-container {
-    .quote-card-container {
+  .wrapper {
+    .rows {
       box-shadow: -0px 0px 0px rgba(0, 0, 0, 0.1);
       margin-top: 150px;
       margin-left: 15px;
       margin-right: 15px;
       margin-bottom: 0px;
-      .card-wrapper {
+      .cardWrapper {
         margin-bottom: 140px;
-        height: auto;
+        height: 710px;
       }
     }
   }

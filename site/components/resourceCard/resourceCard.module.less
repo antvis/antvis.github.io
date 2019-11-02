@@ -1,0 +1,90 @@
+.card {
+  background-color: #fff;
+  margin-top: 0px;
+  box-shadow: 0px 8px 10px rgba(49, 70, 89, 0.05);
+  transition: all 0.3s;
+  margin-right: 1.3%;
+  margin-left: 1.3%;
+  &:hover {
+    margin-top: -20px;
+    height: 415px;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(left, #aa6aff, #706dff) 30 30;
+    transition: all 0.3s;
+    .detail {
+      display: block;
+    }
+  }
+  &:not(:hover) {
+    height: 375px;
+    .detail {
+      margin-top: 30%;
+      color: rgb(71, 118, 232);
+      display: none;
+      font-size: 1em;
+    }
+  }
+  .content {
+    padding: 80px 10% 60px 10%;
+    .icon {
+      height: 45px;
+    }
+    .title {
+      font-size: 1.65em;
+      color: #000;
+      padding-top: 60px;
+    }
+    .description {
+      margin-top: -15px;
+      opacity: 0.6;
+      width: 100%;
+      font-size: 0.875em;
+      font-weight: 350;
+      line-height: 1.7em;
+      color: rgba(105, 123, 140, 1);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .rows {
+    .cardWrapper {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  .card {
+    margin-left: 0;
+    margin-right: 0;
+    &:hover {
+      margin-top: 0px;
+      height: auto;
+      border-bottom: 0px solid;
+      transition: all 0.3s;
+    }
+    &:not(:hover) {
+      height: auto;
+    }
+    .content {
+      padding: 45px 15px 45px 15px;
+      .icon {
+        width: 80px;
+      }
+      .title {
+        font-size: 1.3em;
+        padding-top: 30px;
+        font-weight: 445;
+      }
+      .description {
+        font-size: 1em;
+        padding-top: 2px;
+      }
+      .detail {
+        margin-top: 20px;
+        display: block;
+        font-size: 1em;
+        padding-bottom: 20px;
+      }
+    }
+  }
+}

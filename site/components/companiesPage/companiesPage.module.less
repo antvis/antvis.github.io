@@ -1,0 +1,65 @@
+.wrapper {
+  display: flex;
+  margin: auto;
+  position: relative;
+  flex-direction: column;
+  padding: 0;
+  height: auto;
+  .content {
+    width: 86%;
+    height: 100%;
+    margin-left: 8%;
+    margin-bottom: 5%;
+    position: relative;
+  }
+  .title {
+    font-size: 2.8em;
+    font-weight: 500;
+    margin: 45px 0 45px 0;
+    position: relative;
+    height: min-content;
+    color: rgba(0, 0, 0, 1);
+    padding-top: 70px;
+  }
+  .slicer {
+    width: 32px;
+    height: 6px;
+    background: linear-gradient(145deg, #c65aff, #248dff);
+    margin-top: -25px;
+  }
+
+  .companiesContainer {
+    position: relative;
+    margin: auto;
+    margin-top: 30px;
+    .company {
+      margin-bottom: 20px;
+      .companyimg {
+        width: 60%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    .title {
+      font-size: 1.9rem;
+      margin: 70px 0 60px 0;
+    }
+    .slicer {
+      width: 25px;
+      height: 6px;
+    }
+    .content {
+      margin-left: 4%;
+      width: 92%;
+    }
+    .companiesContainer {
+      margin-top: 50px;
+      .companyimg {
+        width: 120px;
+      }
+    }
+  }
+}
