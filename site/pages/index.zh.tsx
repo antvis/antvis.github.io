@@ -1,7 +1,7 @@
 import React from 'react';
 import { Skeleton } from 'antd';
 import { useTranslation } from 'react-i18next';
-import SEO from '@antv/gatsby-theme-antv/site/components/seo';
+import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
 import astronaut from '../images/gatsby-astronaut.png';
 
 const IndexPage = () => {
