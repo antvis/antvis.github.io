@@ -3,91 +3,92 @@ import { Row, Col } from 'antd';
 import classNames from 'classnames';
 import styles from './productsPage.module.less';
 
-const products = [
-  {
-    index: 0,
-    title: 'G2 可视化图形语法',
-    description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
-    titleEn: `G2 - Grammar of Graphics for Visualization`,
-    descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
-    demoLink: '#',
-    APILink: '#',
-    imgSrc:
-      'https://gw.alipayobjects.com/zos/basement_prod/7f43cecb-994f-4b88-bbd0-4bb8fa50fca1.svg',
-  },
-  {
-    index: 1,
-    title: 'G6 图可视化引擎',
-    description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
-    titleEn: 'G6 - A Graph Visualization Engine',
-    descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
-    demoLink: '#',
-    APILink: '#',
-    imgSrc:
-      'https://gw.alipayobjects.com/zos/basement_prod/2033777d-5758-4d53-97a7-0983bc08d273.svg',
-  },
-  {
-    index: 2,
-    title: 'F2 移动端可视化方案',
-    description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
-    titleEn: 'F2 - A Visualization Solution for Mobile',
-    descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
-    demoLink: '#',
-    APILink: '#',
-    imgSrc:
-      'https://gw.alipayobjects.com/zos/basement_prod/08d94964-f1cd-41c0-b176-0f692e38b156.svg',
-  },
-
-  {
-    index: 3,
-    title: 'L7 地理空间数据可视化',
-    description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
-    titleEn: 'L7 - A Geospacial Data Visualization Engine',
-    descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
-    demoLink: '#',
-    APILink: '#',
-    imgSrc:
-      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*ImVhTaHfFVwAAAAAAAAAAABkARQnAQ',
-  },
-  {
-    index: 4,
-    title: 'G2plot',
-    description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
-    titleEn: 'G2plot',
-    descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
-    demoLink: '#',
-    APILink: '#',
-    imgSrc:
-      'https://gw.alipayobjects.com/zos/basement_prod/b775f81c-6080-4fe7-81c1-4a771daa721a.svg',
-  },
-  {
-    index: 5,
-    title: 'Graphin',
-    description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
-    titleEn: 'Graphin',
-    descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
-    demoLink: '#',
-    APILink: '#',
-    imgSrc:
-      'https://gw.alipayobjects.com/zos/basement_prod/44717864-9a86-45f2-adda-022119e9d9e7.svg',
-  },
-  {
-    index: 6,
-    title: 'ChartCube',
-    description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
-    titleEn: 'ChartCube',
-    descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
-    demoLink: '#',
-    APILink: '#',
-    imgSrc:
-      'https://gw.alipayobjects.com/zos/basement_prod/dbc7970d-3c1b-4245-9e8f-60703593a95d.svg',
-  },
-];
 interface Props {
   lang: string;
 }
 
 const ProductsPage = (props: Props) => {
+  const products = [
+    {
+      index: 0,
+      title: 'G2 可视化图形语法',
+      description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
+      titleEn: `G2 - Grammar of Graphics for Visualization`,
+      descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
+      demoLink: '#',
+      APILink: '#',
+      imgSrc:
+        'https://gw.alipayobjects.com/zos/basement_prod/7f43cecb-994f-4b88-bbd0-4bb8fa50fca1.svg',
+    },
+    {
+      index: 1,
+      title: 'G6 图可视化引擎',
+      description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
+      titleEn: 'G6 - A Graph Visualization Engine',
+      descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
+      demoLink: '#',
+      APILink: '#',
+      imgSrc:
+        'https://gw.alipayobjects.com/zos/basement_prod/2033777d-5758-4d53-97a7-0983bc08d273.svg',
+    },
+    {
+      index: 2,
+      title: 'F2 移动端可视化方案',
+      description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
+      titleEn: 'F2 - A Visualization Solution for Mobile',
+      descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
+      demoLink: '#',
+      APILink: '#',
+      imgSrc:
+        'https://gw.alipayobjects.com/zos/basement_prod/08d94964-f1cd-41c0-b176-0f692e38b156.svg',
+    },
+
+    {
+      index: 3,
+      title: 'L7 地理空间数据可视化',
+      description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
+      titleEn: 'L7 - A Geospacial Data Visualization Engine',
+      descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
+      demoLink: '#',
+      APILink: '#',
+      imgSrc:
+        'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*ImVhTaHfFVwAAAAAAAAAAABkARQnAQ',
+    },
+    {
+      index: 4,
+      title: 'G2plot',
+      description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
+      titleEn: 'G2plot',
+      descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
+      demoLink: '#',
+      APILink: '#',
+      imgSrc:
+        'https://gw.alipayobjects.com/zos/basement_prod/b775f81c-6080-4fe7-81c1-4a771daa721a.svg',
+    },
+    {
+      index: 5,
+      title: 'Graphin',
+      description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
+      titleEn: 'Graphin',
+      descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
+      demoLink: '#',
+      APILink: '#',
+      imgSrc:
+        'https://gw.alipayobjects.com/zos/basement_prod/44717864-9a86-45f2-adda-022119e9d9e7.svg',
+    },
+    {
+      index: 6,
+      title: 'ChartCube',
+      description: '以数据驱动，以数据驱动以数据驱动以数据驱动以数据驱动',
+      titleEn: 'ChartCube',
+      descriptionEn: 'Data driven, Data driven, Data driven, Data driven',
+      demoLink: '#',
+      APILink: '#',
+      imgSrc:
+        'https://gw.alipayobjects.com/zos/basement_prod/dbc7970d-3c1b-4245-9e8f-60703593a95d.svg',
+    },
+  ];
+
   const getProcucts = (beginIndex: number, length: number) => {
     let children: Array<Object> = [];
     let exampleLinkStr = '图表实例';
