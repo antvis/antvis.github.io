@@ -40,7 +40,7 @@ const Notification = (props: Props) => {
   return (
     <div className={classNames(styles.notification, props.className)}>
       <div className={styles.container}>
-        <img className={styles.number} src={numImg}></img>
+        <img className={styles.number} src={numImg} alt="numberimg"></img>
         <div className={styles.content}>
           <p className={styles.description}>{description}</p>
           <p className={styles.date}>{date}</p>
