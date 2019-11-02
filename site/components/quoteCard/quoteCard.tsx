@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar } from 'antd';
 import styles from './quoteCard.module.less';
-import classNames from 'classNames';
+import classNames from 'classnames';
 
 const leftpad =
   'https://gw.alipayobjects.com/zos/basement_prod/50fbdc16-bac3-4ecd-8210-f4ed2c116fdb.svg';

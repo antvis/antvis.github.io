@@ -2,7 +2,7 @@ import React from 'react';
 import QueueAnim from 'rc-queue-anim';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { Row, Col } from 'antd';
-import classNames from 'classNames';
+import classNames from 'classnames';
 import AdvantageCard from '../advantageCard/advantageCard';
 import styles from './advantagesPage.module.less';
 

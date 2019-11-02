@@ -2,7 +2,6 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-import classNames from 'classNames';
 import styles from './companiesPage.module.less';
 
 interface Props {
