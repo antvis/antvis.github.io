@@ -1,6 +1,8 @@
 ---
 title: 开始使用
 order: 0
+redirect_from:
+  - /zh/docs/specification
 ---
 
 [![](https://img.shields.io/travis/antvis/g2.svg)](https://travis-ci.org/antvis/g2)

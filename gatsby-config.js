@@ -20,7 +20,6 @@ module.exports = {
           zh: '设计语言',
           en: 'Specification',
         },
-        redirect: 'getting-started',
       },
     ],
     docs: [],

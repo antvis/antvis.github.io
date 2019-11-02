@@ -1,6 +1,8 @@
 ---
 title: Getting Started
 order: 0
+redirect_from:
+  - /en/specification
 ---
 
 [![](https://img.shields.io/travis/antvis/g2.svg)](https://travis-ci.org/antvis/g2)

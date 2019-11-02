@@ -18,7 +18,7 @@
     "url": "https://github.com/antvis/antvis.github.io/issues"
   },
   "dependencies": {
-    "@antv/gatsby-theme-antv": "^0.9.2",
+    "@antv/gatsby-theme-antv": "^0.9.4",
     "@types/react": "^16.9.5",
     "@types/react-dom": "^16.9.1",
     "antd": "^3.23.6",
