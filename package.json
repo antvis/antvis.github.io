@@ -21,6 +21,7 @@
     "@antv/gatsby-theme-antv": "^0.9.4",
     "@types/react": "^16.9.5",
     "@types/react-dom": "^16.9.1",
+    "@types/classnames": "^2.2.9",
     "antd": "^3.23.6",
     "gatsby": "^2.15.36",
     "gh-pages": "^2.1.1",
@@ -32,7 +33,8 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-i18next": "^11.0.1",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "classnames": "^2.2.6"
   },
   "license": "MIT",
   "scripts": {
