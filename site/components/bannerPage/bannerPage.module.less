@@ -1,6 +1,7 @@
 .wrapper {
+  min-height: 550px;
   background: linear-gradient(225deg, #ffffff, #f0f5ff);
-  height: 100vh;
+  height: calc(100vh - 64px);
   position: relative;
   .content {
     width: 92%;
@@ -11,19 +12,20 @@
   }
   .text {
     position: relative;
-    top: 20%;
+    top: 16.32%;
     z-index: 1;
     .title {
-      font-size: 2.875em;
+      font-size: 3.43em; //2.875em;
       font-weight: 800;
       color: rgba(0, 0, 0, 1);
       position: relative;
       z-index: 10;
     }
     .description {
-      margin-top: 20px;
+      margin-top: 0.83%; //12px;
+      margin-bottom: 0px;
       color: rgba(106, 123, 140, 1);
-      font-size: 0.009em;
+      font-size: 1.14em;
       font-weight: 200;
       position: relative;
       z-index: 10;
@@ -39,14 +41,17 @@
       border-radius: 50px;
       width: 134px;
       height: 40px;
-      margin-top: 60px;
+      margin-top: 5.56%; //80px;
+      font-size: 1.14em;
       position: relative;
       z-index: 10;
     }
-    .notifications {
-      padding-top: 100px;
-      display: flex;
-    }
+  }
+  .notifications {
+    display: flex;
+    // margin-top: 21.8%;
+    bottom: 4.17%;
+    position: absolute;
   }
   .teaser {
     display: 'flex';
@@ -62,13 +67,27 @@
   }
 }
 
+@media (max-height: 660px) {
+  .wrapper {
+    .notifications {
+      display: none;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .wrapper {
+    .content {
+      width: 91.46%;
+      margin-left: 4.27%;
+      margin-bottom: 5%;
+      position: relative;
+    }
     .text {
-      top: 2%;
+      top: 10.7%;
       text-align: center;
       .title {
-        font-size: 3em;
+        font-size: 2.857em;
         margin-left: 0;
       }
       .description {
@@ -80,22 +99,25 @@
         height: 45px;
         margin-left: 0;
         font-size: 1em;
+        margin-top: 0px;
       }
-      .notifications {
-        padding-top: 60px;
-        .noti0 {
-          position: absolute;
-          animation: showAndHide0 6s infinite;
-        }
-        .noti1 {
-          position: absolute;
-          animation: showAndHide1 6s infinite;
-        }
+    }
+    .notifications {
+      bottom: 10%;
+      .noti0 {
+        position: absolute;
+        animation: showAndHide0 6s infinite;
+      }
+      .noti1 {
+        position: absolute;
+        animation: showAndHide1 6s infinite;
       }
     }
     .teaser {
       width: 100%;
       position: relative;
+      margin-top: 5%;
+      margin-bottom: 5%;
       .teaserimg {
         width: 50%;
       }
@@ -125,7 +147,7 @@
   }
   50% {
     opacity: 0;
-    margin-top: -50px;
+    margin-top: -30px;
   }
   83.3% {
     opacity: 0;
@@ -157,6 +179,6 @@
   }
   100% {
     opacity: 0;
-    margin-top: -50px;
+    margin-top: -30px;
   }
 }

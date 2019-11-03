@@ -21,13 +21,11 @@ const DescribePage = (props: Props) => {
       ' After being polishing by several years and benefit from the rich business scenarios, AntV passed the test of products with million UV.' +
       ' Finally, AntV is ready for you. // And finally meet the perfect you in its perfect shape.';
   }
+  // playScale={0.3}
+  //     component="section"
+  //     key="page"
   return (
-    <OverPack
-      playScale={0.3}
-      component="section"
-      key="page"
-      className={styles.wrapper}
-    >
+    <div className={styles.wrapper}>
       <QueueAnim
         type="bottom"
         key="title"
@@ -46,7 +44,7 @@ const DescribePage = (props: Props) => {
           </p>
         </QueueAnim>
       </QueueAnim>
-    </OverPack>
+    </div>
   );
 };
 export default DescribePage;

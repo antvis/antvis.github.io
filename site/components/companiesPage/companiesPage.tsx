@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
+import classNames from 'classnames';
 import styles from './companiesPage.module.less';
 
 interface Props {
@@ -50,12 +51,18 @@ const CompaniesPage = (props: Props) => {
       imgSrc:
         'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*SqmTSqj4FjEAAAAAAAAAAABkARQnAQ',
     },
-  ];
+  ]; //className={styles.company}
   const getCompanies = () => {
     let children: Array<Object> = [];
     companies.forEach((company, i) => {
       children.push(
-        <Col key={i} className={styles.company} md={6} sm={8} xs={12}>
+        <Col
+          key={i}
+          className={classNames(styles.company, 'gutter-row')}
+          md={6}
+          sm={8}
+          xs={12}
+        >
           <img
             className={styles.companyimg}
             src={company.imgSrc}
@@ -71,8 +78,10 @@ const CompaniesPage = (props: Props) => {
   if (props.lang === 'en') {
     title = '2000+ Companies are Using AntV';
   }
+  //type="flex" justify="space-between"
+  // OverPack playScale={0.3} component="section"
   return (
-    <OverPack playScale={0.3} component="section" className={styles.wrapper}>
+    <div className={styles.wrapper}>
       <QueueAnim
         type="bottom"
         leaveReverse
@@ -84,12 +93,16 @@ const CompaniesPage = (props: Props) => {
         </p>
         <div key="slicer" className={styles.slicer} />
         <div key="companies-container" className={styles.companiesContainer}>
-          <Row key="companies" className={styles.companies}>
+          <Row
+            key="companies"
+            gutter={[{ xs: 77, sm: 77, md: 30, lg: 50 }, 10]}
+            className={styles.companies}
+          >
             {getCompanies()}
           </Row>
         </div>
       </QueueAnim>
-    </OverPack>
+    </div>
   );
 };
 export default CompaniesPage;

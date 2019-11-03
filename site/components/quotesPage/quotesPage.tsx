@@ -79,9 +79,9 @@ const QuotesPage = (props: Props) => {
     }
     return children;
   };
-
+  // OverPack playScale={0.3} component="section"
   return (
-    <OverPack playScale={0.3} component="section" className={styles.wrapper}>
+    <div className={styles.wrapper}>
       <QueueAnim
         type="bottom"
         leaveReverse
@@ -94,7 +94,7 @@ const QuotesPage = (props: Props) => {
           </Row>
         </div>
       </QueueAnim>
-    </OverPack>
+    </div>
   );
 };
 

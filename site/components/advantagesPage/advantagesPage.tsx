@@ -20,7 +20,7 @@ const AdvantagesPage = (props: Props) => {
       description: '从数据出发，仅需几行代码可以轻松获得想要的图表展示效果。',
       titleEn: 'Simple and Convenient',
       descriptionEn:
-        'Starting from data, get the visualization results with only a few lines of codes.',
+        'Starting from the data, get the visualization results with only a few lines of codes.',
     },
     {
       index: 1,
@@ -41,7 +41,7 @@ const AdvantagesPage = (props: Props) => {
       description: '任何图表，都可以基于图形语法灵活绘制，满足你无限的创意。',
       titleEn: 'Infinite',
       descriptionEn:
-        'Based on grammar of graphics, any charts or diagrams can be flexibly created, satisfying your infinite ideas.',
+        'Based on the grammar of graphics, any charts or diagrams can be flexibly created, which will satisfy your infinite ideas.',
     },
   ];
 
@@ -107,10 +107,11 @@ const AdvantagesPage = (props: Props) => {
   if (props.lang === 'en') {
     title = 'Our Advantages';
   }
+  //playScale={0.3} component="section"
   return (
     <div className={styles.wrapper}>
       <div className={styles.lefttop} />
-      <OverPack playScale={0.3} component="section" className={styles.content}>
+      <div className={styles.content}>
         <QueueAnim type="bottom" key="content">
           <p key="title" className={styles.title}>
             {title}
@@ -165,7 +166,7 @@ const AdvantagesPage = (props: Props) => {
             </Row>
           </div>
         </QueueAnim>
-      </OverPack>
+      </div>
     </div>
   );
 };

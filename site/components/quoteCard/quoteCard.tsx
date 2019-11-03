@@ -48,22 +48,24 @@ const QuoteCard = (props: Props) => {
             ? props.cardContent.fromEn
             : props.cardContent.from}
         </p>
-        <img
-          className={classNames(styles.pad, styles.leftpad)}
-          src={leftpad}
-          alt="leftpad"
-        />
         <div className={styles.qslicer} />
-        <p className={styles.quote}>
-          {props.lang === 'en'
-            ? props.cardContent.quoteEn
-            : props.cardContent.quote}
-        </p>
-        <img
-          className={classNames(styles.pad, styles.rightpad)}
-          src={rightpad}
-          alt="rightpad"
-        />
+        <div className={styles.quoteWrapper}>
+          <img
+            className={classNames(styles.pad, styles.leftpad)}
+            src={leftpad}
+            alt="leftpad"
+          />
+          <p className={styles.quote}>
+            {props.lang === 'en'
+              ? props.cardContent.quoteEn
+              : props.cardContent.quote}
+          </p>
+          <img
+            className={classNames(styles.pad, styles.rightpad)}
+            src={rightpad}
+            alt="rightpad"
+          />
+        </div>
       </div>
     </div>
   );

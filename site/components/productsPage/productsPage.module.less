@@ -9,40 +9,31 @@
   flex-direction: column;
   padding: 0;
   .lefttop {
-    width: 92%;
+    width: 95.8%;
     height: 74.5%;
     top: 0;
     position: absolute;
     display: flex;
     flex-direction: row;
     .ltblock1 {
-      width: 58.4%;
+      width: 100%;
       background: linear-gradient(130deg, #aa6aff, #706dff);
       position: relative;
       height: 100%;
-      width: 50%;
-    }
-    .ltblock2 {
-      width: 41.6%;
-      background: linear-gradient(130deg, #aa6aff, #706dff);
-      position: relative;
-      height: 100%;
-      width: 50%;
     }
   }
   .content {
-    margin-left: 8%;
-    width: 92%;
-
+    margin-left: 4.2%;
+    width: 95.8%;
     height: 100%;
-    margin-left: 8%;
     margin-bottom: 5%;
     position: relative;
     .title {
+      padding-left: 4.06%;
       position: relative;
       font-size: 2.8em;
       font-weight: 500;
-      margin: 45px 0 45px 0;
+      margin: 48px 0 48px 0;
       color: #fff;
     }
     .rightbottom {
@@ -55,7 +46,7 @@
       .subTitleContainer {
         display: block;
         position: absolute;
-        padding-left: 8%;
+        padding-left: 4.06%;
         display: flex;
         margin-top: 30px;
         .subTitleText {
@@ -76,7 +67,7 @@
         }
       }
       .extensionSubTitle {
-        margin-left: 41.6%;
+        margin-left: 43.86%;
       }
       .slicerbar {
         position: absolute;
@@ -122,21 +113,24 @@
       .slicerbarv {
         width: 1px;
         height: 100%;
-        margin-left: 8%;
+        margin-left: 4.06%;
       }
       .slicerbarv2 {
-        margin-left: 49.63%;
+        margin-left: 47.85%;
         height: 120%;
       }
       .slicerbarv3 {
-        margin-left: 91.26%;
+        margin-left: 91.8%;
       }
       .products {
-        margin-left: 8%;
-        margin-right: 8.7%;
+        margin-left: 4.06%;
+        width: 87.8%;
         padding-top: 80px;
         display: flex;
-        .subProducts {
+        .extensionsWrapper {
+          width: 50%;
+        }
+        .basicsWrapper {
           width: 50%;
         }
         .col {
@@ -145,8 +139,7 @@
           .product {
             width: 100%;
             height: 100%;
-            padding-top: 5%;
-            padding-left: 5%;
+            padding: 4.64%;
           }
           &:hover {
             .product {
@@ -156,27 +149,35 @@
               // height: 105%;
               // margin-left: -1%;
               // margin-top: -1%;
+              // z-index: 100;
             }
           }
         }
         .ptitle {
-          font-size: 1.5em;
+          font-size: 1.714em;
           color: #000;
           font-weight: 450;
+          margin-bottom: 0;
         }
         .pdescription {
+          margin-top: 2%;
+          margin-bottom: 0;
           opacity: 0.5;
-          font-size: 1em;
+          font-size: 1.14em;
           color: rgba(106, 123, 140, 1);
         }
         .pbottom {
-          margin-top: -20px;
+          margin-bottom: 0%;
           width: 100%;
           display: flex;
           .plinks {
             width: -webkit-fill-available;
-            font-size: 1em;
-            margin-top: 30px;
+            margin-bottom: 0;
+            font-size: 1.14em;
+            margin-top: 8%;
+            .plink {
+              color: rgba(47, 84, 235, 1);
+            }
             .apilink {
               margin-left: 10%;
             }
@@ -207,21 +208,19 @@
     min-height: 0;
     .lefttop {
       height: 100%;
-      width: 96%;
+      width: 95.73%;
       .ltblock1 {
         width: 100%;
       }
-      .ltblock2 {
-        width: 0%;
-      }
     }
     .content {
-      margin-left: 4%;
-      width: 96%;
+      margin-left: 4.27%;
+      width: 95.73%;
       margin-bottom: 85px;
       .title {
-        font-size: 1.9rem;
-        margin: 70px 0 60px 0;
+        font-size: 2.14rem;
+        margin: 80px 0 60px 0;
+        padding-left: 0;
       }
       .rightbottom {
         padding-bottom: 50px;
@@ -296,41 +295,54 @@
           display: block;
         }
         .products {
-          width: 90.2%; // 0.04 * 0.96 + 0.03 * 2
-          margin-left: 3%;
+          width: 88.86%; // 0.04 * 0.96 + 0.03 * 2
+          margin-left: 3.34%;
           padding-top: 80px;
           flex-flow: column;
           .subProducts {
             width: 100%;
           }
-          .extensionsWapper {
+          .extensionsWrapper {
             margin-top: 80px;
+            width: 100%;
+          }
+          .basicsWrapper {
+            width: 100%;
           }
           .col {
             width: 100%;
             height: 210px;
+            .product {
+              padding: 7.5% 5.05% 5.05% 5.05%;
+              .ptitle {
+                margin-bottom: 0;
+                font-size: 1.29em;
+                font-weight: 450;
+              }
+              .pdescription {
+                margin-top: 8px;
+                margin-bottom: 0;
+                font-size: 1em;
+              }
+              .pbottom {
+                width: 100%;
+                margin-top: -20px;
+                bottom: 0;
+                .plinks {
+                  margin-top: 85px;
+                  font-size: 1em;
+                }
+                .productimg {
+                  right: 0;
+                  top: 20px;
+                  width: 25.2%;
+                }
+              }
+            }
             &:hover {
               .product {
                 box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
               }
-            }
-          }
-          .ptitle {
-            font-size: 1.4em;
-            font-weight: 450;
-          }
-          .pdescription {
-            font-size: 1em;
-          }
-          .pbottom {
-            margin-top: -20px;
-            .plinks {
-              font-size: 1em;
-            }
-            .product-img {
-              right: 0;
-              top: 20px;
-              width: 100px;
             }
           }
         }

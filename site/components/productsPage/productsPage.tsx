@@ -141,14 +141,14 @@ const ProductsPage = (props: Props) => {
     const length = products.length;
     const cols = 3;
     const rows = Math.ceil(length / 2) + 1;
-    const startLeftPercent = 0.079;
+    const startLeftPercent = 0.0395;
     let startTop = 80;
     const circleRadius = 1.5;
     const cardHeight = 185;
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < cols; j++) {
         const top = `${startTop + cardHeight * i - circleRadius}px`;
-        const left = `${(startLeftPercent + 0.4165 * j) * 100}%`;
+        const left = `${(startLeftPercent + 0.4385 * j) * 100}%`;
         dots.push(
           <div
             key={`dot-${i}-${j}`}
@@ -220,7 +220,7 @@ const ProductsPage = (props: Props) => {
     <div className={styles.wrapper}>
       <div className={styles.lefttop}>
         <div className={styles.ltblock1} />
-        <div className={styles.ltblock2} />
+        {/* <div className={styles.ltblock2} /> */}
       </div>
       <div className={styles.content}>
         <p className={styles.title}>{titleStr}</p>
@@ -329,19 +329,12 @@ const ProductsPage = (props: Props) => {
             <div className={styles.subTitleText}>{subTitleStr2}</div>
           </div>
           <div className={styles.products}>
-            <div
-              className={classNames(styles.subProducts, styles.basicsWrapper)}
-            >
+            <div className={styles.basicsWrapper}>
               <Row key="products-basic" className={styles.basics}>
                 {getProcucts(0, 4)}
               </Row>
             </div>
-            <div
-              className={classNames(
-                styles.subProducts,
-                styles.extensionsWrapper,
-              )}
-            >
+            <div className={styles.extensionsWrapper}>
               <Row key="products-extension" className={styles.extensions}>
                 {getProcucts(4, 3)}
               </Row>

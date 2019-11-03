@@ -20,7 +20,7 @@ const ResourcesPage = (props: Props) => {
         '从数据出发，从功能角度对常见图表进行分类，提供规范使用指引。',
       titleEn: 'Usage',
       descriptionEn:
-        'Starting from data, we classify the charts by their features and provide the usage guidelines.',
+        'Starting from the data, we classify the charts by their features and provide the usage guidelines.',
       link: '#',
     },
     {
@@ -32,7 +32,7 @@ const ResourcesPage = (props: Props) => {
         '对数据图形进行拆解、提炼，抽象出一套数据图形可视化交互视觉规范。',
       titleEn: 'Design Principle',
       descriptionEn:
-        'By decomposing and refining the graphics of data, we extract a set of interaction and visual standard for data visualization .',
+        'By decomposing and refining the graphics of data, we extract a set of interactive and visual standards for data visualization .',
       link: '#',
     },
     {
@@ -44,7 +44,7 @@ const ResourcesPage = (props: Props) => {
         '从数据出发，从功能角度对常见图表进行分类，提供规范使用指引。',
       titleEn: 'Tools',
       descriptionEn:
-        'Starting from data, we classify the charts by their features and provide the usage guidelines.',
+        'Starting from the data, we classify the charts by their features and provide the usage guidelines.',
       link: '#',
     },
   ];
@@ -66,8 +66,9 @@ const ResourcesPage = (props: Props) => {
   if (props.lang === 'en') {
     titleStr = 'Tools and Resources';
   }
+  // playScale={0.3} component="section"
   return (
-    <OverPack playScale={0.3} component="section" className={styles.wrapper}>
+    <div className={styles.wrapper}>
       <QueueAnim
         component={Row}
         type="bottom"
@@ -83,7 +84,7 @@ const ResourcesPage = (props: Props) => {
           {getCards()}
         </Row>
       </QueueAnim>
-    </OverPack>
+    </div>
   );
 };
 export default ResourcesPage;

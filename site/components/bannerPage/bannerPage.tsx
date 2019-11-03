@@ -19,7 +19,7 @@ const notifications = [
     numImg:
       'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*NFADS6PF0DYAAAAAAAAAAABkARQnAQ',
     type: '推荐',
-    title: 'Kitchen 3.75 ，效率大幅度提升！',
+    title: 'Kitchen 3.75 ，效率大幅提升！',
     typeEn: 'Recommand',
     titleEn: 'Kitchen 3.75, lift your efficient!',
     date: '2019.12.03',
@@ -39,9 +39,9 @@ const BannerPage = (props: Props) => {
   if (props.lang === 'en') {
     title = 'Make the Data Vivid';
     description =
-      'AntV is a new generation of data visualization solution of Ant Financial. We provide a best practice of data visualization ';
+      'AntV is a new generation of data visualization solution of Ant Financial.';
     subDescription =
-      'with simplicity and convenience, profession and reliability, and infinite possibilities.';
+      'We provide a best practice of data visualization with simplicity and convenience, profession and reliability, and infinite possibilities.';
     more = 'More';
   }
   return (
@@ -64,21 +64,21 @@ const BannerPage = (props: Props) => {
             />
           </div>
 
-          <a href="#__products">
+          <a href="#__products" className={styles.amore}>
             <button className={styles.more}>{more}</button>
           </a>
-          <div className={styles.notifications}>
-            <Notification
-              className={styles.noti0}
-              notificationContent={notifications[0]}
-              lang={props.lang}
-            />
-            <Notification
-              className={styles.noti1}
-              notificationContent={notifications[1]}
-              lang={props.lang}
-            />
-          </div>
+        </div>
+        <div className={styles.notifications}>
+          <Notification
+            className={styles.noti0}
+            notificationContent={notifications[0]}
+            lang={props.lang}
+          />
+          <Notification
+            className={styles.noti1}
+            notificationContent={notifications[1]}
+            lang={props.lang}
+          />
         </div>
       </div>
     </section>
