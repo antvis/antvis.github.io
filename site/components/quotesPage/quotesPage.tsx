@@ -5,11 +5,7 @@ import { Row, Col } from 'antd';
 import QuoteCard from '../quoteCard/quoteCard';
 import styles from './quotesPage.module.less';
 
-interface Props {
-  lang: string;
-}
-
-const QuotesPage = (props: Props) => {
+const QuotesPage = () => {
   const quotes = [
     {
       index: 0,
@@ -60,23 +56,17 @@ const QuotesPage = (props: Props) => {
 
   const getCards = () => {
     const length = quotes.length;
-    const children: Array<Object> = [];
-    for (let i = 0; i < length; i++) {
+    const children = quotes.map((quote, i) => {
       let hasBorder = true;
       if (i === 0 || i === length - 1) {
         hasBorder = false;
       }
-      children.push(
+      return (
         <Col className={styles.cardWrapper} key={i} md={8} xs={24}>
-          <QuoteCard
-            key={i}
-            cardContent={quotes[i]}
-            hasBorder={hasBorder}
-            lang={props.lang}
-          />
-        </Col>,
+          <QuoteCard key={i} cardContent={quote} hasBorder={hasBorder} />
+        </Col>
       );
-    }
+    });
     return children;
   };
   // OverPack playScale={0.3} component="section"

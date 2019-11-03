@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './notification.module.less';
+import { useTranslation } from 'react-i18next';
 
 interface Notification {
   className: string;
@@ -17,26 +18,17 @@ interface Props {
     numImg: string;
     type: string;
     title: string;
-    typeEn: string;
-    titleEn: string;
     date: string;
   };
-  lang: string;
 }
 
 const Notification = (props: Props) => {
-  const {
-    numImg,
-    type,
-    title,
-    typeEn,
-    titleEn,
-    date,
-  } = props.notificationContent;
-  let description = `${type} ‧ ${title}`;
-  if (props.lang === 'en') {
-    description = `${typeEn} ‧ ${titleEn}`;
-  }
+  const { t } = useTranslation();
+  const { numImg, type, title, date } = props.notificationContent;
+  let description = `${t(type)} ‧ ${t(title)}`;
+  // if (props.lang === 'en') {
+  //   description = `${typeEn} ‧ ${titleEn}`;
+  // }
   return (
     <div className={classNames(styles.notification, props.className)}>
       <div className={styles.container}>

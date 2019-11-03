@@ -3,13 +3,11 @@ import { Row, Col } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 import styles from './companiesPage.module.less';
 
-interface Props {
-  lang: string;
-}
-
-const CompaniesPage = (props: Props) => {
+const CompaniesPage = () => {
+  const { t } = useTranslation();
   const companies = [
     {
       index: 0,
@@ -53,9 +51,8 @@ const CompaniesPage = (props: Props) => {
     },
   ]; //className={styles.company}
   const getCompanies = () => {
-    let children: Array<Object> = [];
-    companies.forEach((company, i) => {
-      children.push(
+    const children = companies.map((company, i) => {
+      return (
         <Col
           key={i}
           className={classNames(styles.company, 'gutter-row')}
@@ -68,16 +65,16 @@ const CompaniesPage = (props: Props) => {
             src={company.imgSrc}
             alt="company-img"
           />
-        </Col>,
+        </Col>
       );
     });
     return children;
   };
 
   let title = '2000+ 公司正在使用';
-  if (props.lang === 'en') {
-    title = '2000+ Companies are Using AntV';
-  }
+  // if (props.lang === 'en') {
+  //   title = '2000+ Companies are Using AntV';
+  // }
   //type="flex" justify="space-between"
   // OverPack playScale={0.3} component="section"
   return (
@@ -89,7 +86,7 @@ const CompaniesPage = (props: Props) => {
         className={styles.content}
       >
         <p key="title" className={styles.title}>
-          {title}
+          {t(title)}
         </p>
         <div key="slicer" className={styles.slicer} />
         <div key="companies-container" className={styles.companiesContainer}>

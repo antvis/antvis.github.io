@@ -1,6 +1,7 @@
 import React from 'react';
 import { Avatar } from 'antd';
 import styles from './quoteCard.module.less';
+import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
 const leftpad =
@@ -20,10 +21,10 @@ interface Props {
     quoteEn: string;
   };
   hasBorder: boolean;
-  lang: string;
 }
 
 const QuoteCard = (props: Props) => {
+  const { t } = useTranslation();
   const borderSlicer: Array<object> = [];
   if (props.hasBorder) {
     borderSlicer.push(
@@ -39,14 +40,16 @@ const QuoteCard = (props: Props) => {
       <div className={styles.content}>
         <Avatar src={props.cardContent.avatar} className={styles.avatar} />
         <p className={styles.name}>
-          {props.lang === 'en'
+          {t(props.cardContent.name)}
+          {/* {props.lang === 'en'
             ? props.cardContent.nameEn
-            : props.cardContent.name}
+            : props.cardContent.name} */}
         </p>
         <p className={styles.from}>
-          {props.lang === 'en'
+          {t(props.cardContent.from)}
+          {/* {props.lang === 'en'
             ? props.cardContent.fromEn
-            : props.cardContent.from}
+            : props.cardContent.from} */}
         </p>
         <div className={styles.qslicer} />
         <div className={styles.quoteWrapper}>
@@ -56,9 +59,10 @@ const QuoteCard = (props: Props) => {
             alt="leftpad"
           />
           <p className={styles.quote}>
-            {props.lang === 'en'
+            {t(props.cardContent.quote)}
+            {/* {props.lang === 'en'
               ? props.cardContent.quoteEn
-              : props.cardContent.quote}
+              : props.cardContent.quote} */}
           </p>
           <img
             className={classNames(styles.pad, styles.rightpad)}

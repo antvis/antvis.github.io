@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './advantageCard.module.less';
 
 interface Props {
@@ -7,13 +8,13 @@ interface Props {
     icon: string;
     title: string;
     description: string;
-    titleEn: string;
-    descriptionEn: string;
+    // titleEn: string;
+    // descriptionEn: string;
   };
-  lang: string;
 }
 
 const AdvantageCard = (props: Props) => {
+  const { t } = useTranslation();
   return (
     <div className={styles.card}>
       <div className={styles.content}>
@@ -23,14 +24,16 @@ const AdvantageCard = (props: Props) => {
           alt="advantage"
         />
         <p className={styles.title}>
-          {props.lang === 'en'
+          {t(props.cardContent.title)}
+          {/* {props.lang === 'en'
             ? props.cardContent.titleEn
-            : props.cardContent.title}
+            : props.cardContent.title} */}
         </p>
         <p className={styles.description}>
-          {props.lang === 'en'
+          {t(props.cardContent.description)}
+          {/* {props.lang === 'en'
             ? props.cardContent.descriptionEn
-            : props.cardContent.description}
+            : props.cardContent.description} */}
         </p>
       </div>
     </div>

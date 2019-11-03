@@ -1,6 +1,7 @@
 import React from 'react';
 import Notification from '../notification/notification';
 import styles from './bannerPage.module.less';
+import { useTranslation } from 'react-i18next';
 
 const holderimg =
   'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*z0P2QpIbsS4AAAAAAAAAAABkARQnAQ';
@@ -26,33 +27,30 @@ const notifications = [
   },
 ];
 
-interface Props {
-  lang: string;
-}
-
-const BannerPage = (props: Props) => {
+const BannerPage = () => {
+  const { t } = useTranslation();
   let title = '让数据栩栩如生';
   let description =
     'AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单';
   let subDescription = '方便、专业可靠、无限可能的数据可视化最佳实践。';
   let more = '继续了解';
-  if (props.lang === 'en') {
-    title = 'Make the Data Vivid';
-    description =
-      'AntV is a new generation of data visualization solution of Ant Financial.';
-    subDescription =
-      'We provide a best practice of data visualization with simplicity and convenience, profession and reliability, and infinite possibilities.';
-    more = 'More';
-  }
+  // if (props.lang === 'en') {
+  //   title = 'Make the Data Vivid';
+  //   description =
+  //     'AntV is a new generation of data visualization solution of Ant Financial.';
+  //   subDescription =
+  //     'We provide a best practice of data visualization with simplicity and convenience, profession and reliability, and infinite possibilities.';
+  //   more = 'More';
+  // }
   return (
     <section className={styles.wrapper}>
       <div className={styles.content}>
         <div className={styles.text}>
-          <div className={styles.title}>{title}</div>
+          <div className={styles.title}>{t(title)}</div>
           <p className={styles.description}>
-            {description}
+            {t(description)}
             <br />
-            {subDescription}
+            {t(subDescription)}
           </p>
 
           <div className={styles.teaser}>
@@ -72,12 +70,12 @@ const BannerPage = (props: Props) => {
           <Notification
             className={styles.noti0}
             notificationContent={notifications[0]}
-            lang={props.lang}
+            // lang={props.lang}
           />
           <Notification
             className={styles.noti1}
             notificationContent={notifications[1]}
-            lang={props.lang}
+            // lang={props.lang}
           />
         </div>
       </div>

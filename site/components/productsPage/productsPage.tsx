@@ -1,14 +1,21 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 import styles from './productsPage.module.less';
 
-interface Props {
-  lang: string;
+interface Product {
+  index: number;
+  title: string;
+  description: string;
+  demoLink: string;
+  APILink: string;
+  imgSrc: string;
 }
 
-const ProductsPage = (props: Props) => {
-  const products = [
+const ProductsPage = () => {
+  const { t } = useTranslation();
+  const basicProducts = [
     {
       index: 0,
       title: 'G2 可视化图形语法',
@@ -54,6 +61,8 @@ const ProductsPage = (props: Props) => {
       imgSrc:
         'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*ImVhTaHfFVwAAAAAAAAAAABkARQnAQ',
     },
+  ];
+  const extendedProducts = [
     {
       index: 4,
       title: 'G2plot',
@@ -89,26 +98,26 @@ const ProductsPage = (props: Props) => {
     },
   ];
 
-  const getProcucts = (beginIndex: number, length: number) => {
-    let children: Array<Object> = [];
-    let exampleLinkStr = '图表实例';
-    let apiLinkStr = 'API 文档';
-    if (props.lang === 'en') {
-      exampleLinkStr = 'Examples';
-      apiLinkStr = 'API Documents';
-    }
-    for (let i = beginIndex; i < beginIndex + length; i++) {
-      const product = products[i];
-      children.push(
+  const getProcucts = (products: Array<Product>) => {
+    let exampleLinkStr = t('图表实例');
+    let apiLinkStr = t('API 文档');
+    // if (props.lang === 'en') {
+    //   exampleLinkStr = 'Examples';
+    //   apiLinkStr = 'API Documents';
+    // }
+    const children = products.map((product, i) => {
+      return (
         <Col key={i} className={styles.col} md={1} sm={1} xs={1}>
           <div className={styles.product} key="product">
             <p key="product-title" className={styles.ptitle}>
-              {props.lang === 'en' ? product.titleEn : product.title}
+              {/* {props.lang === 'en' ? product.titleEn : product.title} */}
+              {t(product.title)}
             </p>
             <p key="product-description" className={styles.pdescription}>
-              {props.lang === 'en'
+              {t(product.description)}
+              {/* {props.lang === 'en'
                 ? product.descriptionEn
-                : product.description}
+                : product.description} */}
             </p>
             <div key="product-bottom" className={styles.pbottom}>
               <div className={styles.plinks}>
@@ -130,15 +139,15 @@ const ProductsPage = (props: Props) => {
               />
             </div>
           </div>
-        </Col>,
+        </Col>
       );
-    }
+    });
     return children;
   };
 
   const getDots = () => {
     let dots: Array<Object> = [];
-    const length = products.length;
+    const length = basicProducts.length + extendedProducts.length;
     const cols = 3;
     const rows = Math.ceil(length / 2) + 1;
     const startLeftPercent = 0.0395;
@@ -173,14 +182,14 @@ const ProductsPage = (props: Props) => {
         top = `${sStartTop + sCardHeight * i - sCircleRadius}px`;
         dots.push(
           <div
-            key={`dot-${i}-0-0-small`}
+            key={`${i}-0`}
             className={classNames(styles.dot, styles.smallDot)}
             style={{ marginLeft: sLeftColLeft, marginTop: top }}
           />,
         );
         dots.push(
           <div
-            key={`dot-${i}-1-1-small`}
+            key={`${i}-1`}
             className={classNames(styles.dot, styles.smallDot)}
             style={{ marginLeft: sRigthColLeft, marginTop: top }}
           />,
@@ -190,14 +199,14 @@ const ProductsPage = (props: Props) => {
       top = `${sStartTop + sCardHeight * i - sCircleRadius}px`;
       dots.push(
         <div
-          key={`dot-${i}-0-small`}
+          key={`${i}-2`}
           className={classNames(styles.dot, styles.smallDot)}
           style={{ marginLeft: sLeftColLeft, marginTop: top }}
         />,
       );
       dots.push(
         <div
-          key={`dot-${i}-1-small`}
+          key={`${i}-3`}
           className={classNames(styles.dot, styles.smallDot)}
           style={{ marginLeft: sRigthColLeft, marginTop: top }}
         />,
@@ -210,11 +219,11 @@ const ProductsPage = (props: Props) => {
   let titleStr = '我们的产品';
   let subTitleStr1 = '基础产品';
   let subTitleStr2 = '扩展产品';
-  if (props.lang === 'en') {
-    titleStr = 'Our Products';
-    subTitleStr1 = 'Basic Products';
-    subTitleStr2 = 'Extensions';
-  }
+  // if (props.lang === 'en') {
+  //   titleStr = 'Our Products';
+  //   subTitleStr1 = 'Basic Products';
+  //   subTitleStr2 = 'Extensions';
+  // }
 
   return (
     <div className={styles.wrapper}>
@@ -223,7 +232,7 @@ const ProductsPage = (props: Props) => {
         {/* <div className={styles.ltblock2} /> */}
       </div>
       <div className={styles.content}>
-        <p className={styles.title}>{titleStr}</p>
+        <p className={styles.title}>{t(titleStr)}</p>
         <div className={styles.rightbottom}>
           <div
             className={classNames(
@@ -317,7 +326,7 @@ const ProductsPage = (props: Props) => {
             )}
           >
             <div className={styles.subTitleBar} />
-            <div className={styles.subTitleText}>{subTitleStr1}</div>
+            <div className={styles.subTitleText}>{t(subTitleStr1)}</div>
           </div>
           <div
             className={classNames(
@@ -326,17 +335,17 @@ const ProductsPage = (props: Props) => {
             )}
           >
             <div className={styles.subTitleBar} />
-            <div className={styles.subTitleText}>{subTitleStr2}</div>
+            <div className={styles.subTitleText}>{t(subTitleStr2)}</div>
           </div>
           <div className={styles.products}>
             <div className={styles.basicsWrapper}>
               <Row key="products-basic" className={styles.basics}>
-                {getProcucts(0, 4)}
+                {getProcucts(basicProducts)}
               </Row>
             </div>
             <div className={styles.extensionsWrapper}>
               <Row key="products-extension" className={styles.extensions}>
-                {getProcucts(4, 3)}
+                {getProcucts(extendedProducts)}
               </Row>
             </div>
           </div>
