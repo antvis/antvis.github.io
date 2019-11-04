@@ -73,7 +73,7 @@ const ProductsPage = () => {
     {
       index: 5,
       title: 'Graphin',
-      description: 'AntV 在线图表解决方案 让你拖拖拽拽搞定图表制作。',
+      description: 'Graphin 描述描述描述',
       demoLink: '#',
       APILink: '#',
       productLink: '#',
@@ -83,7 +83,7 @@ const ProductsPage = () => {
     {
       index: 6,
       title: 'ChartCube',
-      description: 'TODO TODO TODO',
+      description: 'AntV 在线图表解决方案 让你拖拖拽拽搞定图表制作。',
       demoLink: '#',
       APILink: '#',
       productLink: '#',
