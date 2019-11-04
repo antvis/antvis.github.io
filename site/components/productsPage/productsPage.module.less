@@ -53,7 +53,7 @@
           color: rgba(106, 123, 140, 1);
           font-weight: 300;
           width: 200px;
-          font-size: 1em;
+          font-size: 1.14em;
           margin-left: 20px;
         }
         .subTitleBar {
@@ -116,7 +116,7 @@
         margin-left: 4.06%;
       }
       .slicerbarv2 {
-        margin-left: 47.85%;
+        margin-left: 47.9%;
         height: 120%;
       }
       .slicerbarv3 {
@@ -165,11 +165,13 @@
           opacity: 0.5;
           font-size: 1.14em;
           color: rgba(106, 123, 140, 1);
+          max-height: 30px;
         }
         .pbottom {
-          margin-bottom: 0%;
-          width: 100%;
+          width: 91.84%;
           display: flex;
+          position: absolute;
+          bottom: 0;
           .plinks {
             width: -webkit-fill-available;
             margin-bottom: 0;
@@ -186,6 +188,7 @@
             position: relative;
             left: 0;
             width: 90px;
+            height: 90px;
           }
         }
       }
@@ -199,8 +202,51 @@
   border-radius: 50%;
   background: #d8d8d8;
 }
+.mediumDot {
+  display: none;
+}
 .smallDot {
   display: none;
+}
+
+@media (max-width: 950px) {
+  .wrapper {
+    .content {
+      .rightbottom {
+        .slicerbarh2 {
+          transition: all 0.1s;
+          margin-top: 320px;
+        }
+        .slicerbarh3 {
+          transition: all 0.1s;
+          margin-top: 560px;
+        }
+        .slicerbarh4 {
+          transition: all 0.1s;
+          margin-top: 800px;
+        }
+        .slicerbarh5 {
+          transition: all 0.1s;
+          margin-top: 1040px;
+        }
+        .products {
+          .col {
+            transition: all 0.1s;
+            height: 240px;
+          }
+        }
+      }
+    }
+  }
+  .largeDot {
+    display: none;
+  }
+  .mediumDot {
+    display: block;
+  }
+  .smallDot {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -325,17 +371,16 @@
                 font-size: 1em;
               }
               .pbottom {
-                width: 100%;
-                margin-top: -20px;
-                bottom: 0;
+                width: 92%;
                 .plinks {
-                  margin-top: 85px;
+                  margin-top: 13%;
                   font-size: 1em;
                 }
                 .productimg {
                   right: 0;
                   top: 20px;
                   width: 25.2%;
+                  height: 25.2%;
                 }
               }
             }
@@ -350,6 +395,9 @@
     }
   }
   .largeDot {
+    display: none;
+  }
+  .mediumDot {
     display: none;
   }
   .smallDot {

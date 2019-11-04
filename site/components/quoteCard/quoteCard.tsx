@@ -25,6 +25,7 @@ interface Props {
 
 const QuoteCard = (props: Props) => {
   const { t } = useTranslation();
+
   const borderSlicer: Array<object> = [];
   if (props.hasBorder) {
     borderSlicer.push(
@@ -39,18 +40,8 @@ const QuoteCard = (props: Props) => {
       {borderSlicer}
       <div className={styles.content}>
         <Avatar src={props.cardContent.avatar} className={styles.avatar} />
-        <p className={styles.name}>
-          {t(props.cardContent.name)}
-          {/* {props.lang === 'en'
-            ? props.cardContent.nameEn
-            : props.cardContent.name} */}
-        </p>
-        <p className={styles.from}>
-          {t(props.cardContent.from)}
-          {/* {props.lang === 'en'
-            ? props.cardContent.fromEn
-            : props.cardContent.from} */}
-        </p>
+        <p className={styles.name}>{t(props.cardContent.name)}</p>
+        <p className={styles.from}>{t(props.cardContent.from)}</p>
         <div className={styles.qslicer} />
         <div className={styles.quoteWrapper}>
           <img
@@ -58,12 +49,7 @@ const QuoteCard = (props: Props) => {
             src={leftpad}
             alt="leftpad"
           />
-          <p className={styles.quote}>
-            {t(props.cardContent.quote)}
-            {/* {props.lang === 'en'
-              ? props.cardContent.quoteEn
-              : props.cardContent.quote} */}
-          </p>
+          <p className={styles.quote}>{t(props.cardContent.quote)}</p>
           <img
             className={classNames(styles.pad, styles.rightpad)}
             src={rightpad}

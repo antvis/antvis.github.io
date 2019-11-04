@@ -6,6 +6,11 @@ import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import styles from './resourcesPage.module.less';
 
+const circleBackImg =
+  'https://gw.alipayobjects.com/zos/basement_prod/f7e4631f-973c-44b6-a00d-3c1878771720.svg';
+const diamandBackImg =
+  'https://gw.alipayobjects.com/zos/basement_prod/4f7c3632-66c5-43a8-acc2-c8bbe25738fc.svg';
+
 const ResourcesPage = () => {
   const { t } = useTranslation();
   const cards = [
@@ -16,9 +21,6 @@ const ResourcesPage = () => {
       title: '图表用法',
       description:
         '从数据出发，从功能角度对常见图表进行分类，提供规范使用指引。',
-      // titleEn: 'Usage',
-      // descriptionEn:
-      //   'Starting from the data, we classify the charts by their features and provide the usage guidelines.',
       link: '#',
     },
     {
@@ -28,9 +30,6 @@ const ResourcesPage = () => {
       title: '设计原则',
       description:
         '对数据图形进行拆解、提炼，抽象出一套数据图形可视化交互视觉规范。',
-      // titleEn: 'Design Principle',
-      // descriptionEn:
-      //   'By decomposing and refining the graphics of data, we extract a set of interactive and visual standards for data visualization .',
       link: '#',
     },
     {
@@ -38,11 +37,7 @@ const ResourcesPage = () => {
       icon:
         'https://gw.alipayobjects.com/zos/basement_prod/90df0bcb-5295-4b49-b419-a70248ea359f.svg',
       title: '工具资源',
-      description:
-        '从数据出发，从功能角度对常见图表进行分类，提供规范使用指引。',
-      // titleEn: 'Tools',
-      // descriptionEn:
-      //   'Starting from the data, we classify the charts by their features and provide the usage guidelines.',
+      description: '在进行模式、组件和语言的整理过程中发现的优秀书籍和资源。',
       link: '#',
     },
   ];
@@ -60,9 +55,6 @@ const ResourcesPage = () => {
   };
 
   let titleStr = '工具和资源';
-  // if (props.lang === 'en') {
-  //   titleStr = 'Tools and Resources';
-  // }
   // playScale={0.3} component="section"
   return (
     <div className={styles.wrapper}>
@@ -80,6 +72,16 @@ const ResourcesPage = () => {
         <Row key="cards" className={styles.rows}>
           {getCards()}
         </Row>
+        <img
+          src={circleBackImg}
+          className={styles.circleback}
+          alt="circle-background"
+        />
+        <img
+          src={diamandBackImg}
+          className={styles.diamandback}
+          alt="diamand-background"
+        />
       </QueueAnim>
     </div>
   );

@@ -26,9 +26,6 @@ const Notification = (props: Props) => {
   const { t } = useTranslation();
   const { numImg, type, title, date } = props.notificationContent;
   let description = `${t(type)} ‧ ${t(title)}`;
-  // if (props.lang === 'en') {
-  //   description = `${typeEn} ‧ ${titleEn}`;
-  // }
   return (
     <div className={classNames(styles.notification, props.className)}>
       <div className={styles.container}>

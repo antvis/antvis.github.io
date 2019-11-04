@@ -72,11 +72,6 @@ const CompaniesPage = () => {
   };
 
   let title = '2000+ 公司正在使用';
-  // if (props.lang === 'en') {
-  //   title = '2000+ Companies are Using AntV';
-  // }
-  //type="flex" justify="space-between"
-  // OverPack playScale={0.3} component="section"
   return (
     <div className={styles.wrapper}>
       <QueueAnim

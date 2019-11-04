@@ -12,6 +12,8 @@ import './index.less';
 
 const IndexPage = () => {
   const { t, i18n } = useTranslation();
+  i18n.options.keySeparator = '>';
+
   return (
     <>
       <SEO title={t('蚂蚁数据可视化')} lang={i18n.language} />

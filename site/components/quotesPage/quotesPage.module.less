@@ -6,16 +6,52 @@
   padding: 0;
   height: auto;
   background: #f8fafe;
+  overflow: hidden;
+  .quotesWrapper {
+    position: relative;
+    z-index: 10;
+  }
   .rows {
     width: fit-content;
     position: relative;
     margin-top: 10.8%;
     margin-bottom: 120px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 8.05%;
+    width: 83.89%;
     .cardWrapper {
-      height: 550px;
+      height: 600px;
+      transition: all 0.3s;
     }
+  }
+  .triangleback {
+    position: absolute;
+    width: 47.43%;
+    top: -450px;
+    right: -30%;
+    z-index: 1;
+  }
+  .rectback {
+    position: absolute;
+    width: 30%;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+  .circleback1 {
+    position: absolute;
+    width: 50%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    display: none;
+  }
+  .circleback2 {
+    position: absolute;
+    top: 55%;
+    width: 45%;
+    left: 5%;
+    z-index: 1;
+    display: none;
   }
 }
 
@@ -23,7 +59,8 @@
   .wrapper {
     .rows {
       .cardWrapper {
-        height: 600px;
+        height: 610px;
+        transition: all 0.3s;
       }
     }
   }
@@ -33,7 +70,8 @@
   .wrapper {
     .rows {
       .cardWrapper {
-        height: 670px;
+        height: 690px;
+        transition: all 0.3s;
       }
     }
   }
@@ -44,16 +82,37 @@
     .rows {
       box-shadow: -0px 0px 0px rgba(0, 0, 0, 0.1);
       margin-top: 150px;
-      margin-left: 15px;
-      margin-right: 15px;
+      margin-left: 4.27%;
+      width: 91.46%;
       margin-bottom: 0px;
       .cardWrapper {
         height: auto;
+        transition: all 0.3s;
         margin-bottom: 135px;
         width: 100%;
         box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
         background-color: #fff;
       }
+    }
+    .triangleback {
+      position: absolute;
+      width: 47.43%;
+      top: 88%;
+      right: -20%;
+      z-index: 1;
+    }
+    .rectback {
+      position: absolute;
+      width: 30%;
+      left: 20%;
+      top: 33%;
+      z-index: 1;
+    }
+    .circleback1 {
+      display: block;
+    }
+    .circleback2 {
+      display: block;
     }
   }
 }
