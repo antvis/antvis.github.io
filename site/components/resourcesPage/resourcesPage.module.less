@@ -1,7 +1,7 @@
 @import '~antd/lib/style/themes/default.less';
 .wrapper {
   background: rgb(250, 251, 253);
-  height: auto;
+  height: calc(9.375% + 450px);
   display: flex;
   margin: auto;
   position: relative;
@@ -30,13 +30,17 @@
       margin-top: 36px;
       background-color: #597ef7;
     }
-    .rows {
+    .rowsWrapper {
       position: relative;
-      width: 100%;
-      text-align: center;
-      flex-wrap: wrap;
       margin-top: 57px;
+      height: 400px;
       z-index: 10;
+      .rows {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        flex-wrap: wrap;
+      }
     }
     .circleback {
       position: absolute;

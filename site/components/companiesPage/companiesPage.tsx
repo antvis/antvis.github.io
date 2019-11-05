@@ -6,52 +6,19 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import styles from './companiesPage.module.less';
 
-const CompaniesPage = () => {
+interface Company {
+  index?: number;
+  imgSrc: string;
+}
+interface Props {
+  title: string;
+  companies: Array<Company>;
+}
+
+const CompaniesPage = (props: Props) => {
   const { t } = useTranslation();
-  const companies = [
-    {
-      index: 0,
-      imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Z1NnQ6L4xCIAAAAAAAAAAABkARQnAQ',
-    },
-    {
-      index: 1,
-      imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*6u3hTpsd7h8AAAAAAAAAAABkARQnAQ',
-    },
-    {
-      index: 2,
-      imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*58snT4MwuGcAAAAAAAAAAABkARQnAQ',
-    },
-    {
-      index: 3,
-      imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*14yvRoRDs4wAAAAAAAAAAABkARQnAQ',
-    },
-    {
-      index: 4,
-      imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Fw8HTbFgUdAAAAAAAAAAAABkARQnAQ',
-    },
-    {
-      index: 5,
-      imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*lUdjTqQix48AAAAAAAAAAABkARQnAQ',
-    },
-    {
-      index: 6,
-      imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*1q8NQZ9GaN0AAAAAAAAAAABkARQnAQ',
-    },
-    {
-      index: 7,
-      imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*SqmTSqj4FjEAAAAAAAAAAABkARQnAQ',
-    },
-  ]; //className={styles.company}
   const getCompanies = () => {
-    const children = companies.map((company, i) => {
+    const children = props.companies.map((company, i) => {
       return (
         <Col
           key={i}
@@ -71,7 +38,6 @@ const CompaniesPage = () => {
     return children;
   };
 
-  let title = '2000+ 公司正在使用';
   return (
     <div className={styles.wrapper}>
       <QueueAnim
@@ -81,7 +47,7 @@ const CompaniesPage = () => {
         className={styles.content}
       >
         <p key="title" className={styles.title}>
-          {t(title)}
+          {t(props.title)}
         </p>
         <div key="slicer" className={styles.slicer} />
         <div key="companies-container" className={styles.companiesContainer}>

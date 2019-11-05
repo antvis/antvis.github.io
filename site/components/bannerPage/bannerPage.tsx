@@ -2,6 +2,8 @@ import React from 'react';
 import Notification from '../notification/notification';
 import styles from './bannerPage.module.less';
 import { useTranslation } from 'react-i18next';
+import ProductsPage from '../productsPage/productsPage';
+import { POINT_CONVERSION_COMPRESSED } from 'constants';
 
 const holderimg =
   'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*z0P2QpIbsS4AAAAAAAAAAABkARQnAQ';
@@ -27,7 +29,11 @@ const notifications = [
   },
 ];
 
-const BannerPage = () => {
+interface Props {
+  bannerSVG: JSX.Element;
+}
+
+const BannerPage = (props: Props) => {
   const { t } = useTranslation();
   let title = '让数据栩栩如生';
   let description =
@@ -41,12 +47,7 @@ const BannerPage = () => {
           <p className={styles.description}>{t(description)}</p>
 
           <div className={styles.teaser}>
-            <img
-              className={styles.teaserimg}
-              src={holderimg}
-              alt="astronaut"
-              height="200"
-            />
+            <div className={styles.teaserimg}>{props.bannerSVG}</div>
           </div>
 
           <a href="#__products" className={styles.amore}>

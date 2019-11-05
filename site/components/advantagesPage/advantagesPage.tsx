@@ -9,7 +9,11 @@ import AdvantageCard from '../advantageCard/advantageCard';
 import { useTranslation } from 'react-i18next';
 import styles from './advantagesPage.module.less';
 
-const AdvantagesPage = () => {
+interface Props {
+  title?: string;
+}
+
+const AdvantagesPage = (props: Props) => {
   const { t } = useTranslation();
   const cards = [
     {
@@ -51,7 +55,7 @@ const AdvantagesPage = () => {
     const slicers = [];
     const slicerNum = cards.length - 1;
     for (let i = 0; i < slicerNum; i++) {
-      const left = `${(0.864 * 0.3333 * (i + 1) + 0.03) * 100}%`;
+      const left = `${(0.878 * 0.3333 * (i + 1) + 0.04) * 100}%`;
       slicers.push(
         <div key={i} className={styles.divider} style={{ marginLeft: left }} />,
       );
@@ -64,7 +68,7 @@ const AdvantagesPage = () => {
     let dots: Array<Object> = [];
     const length = cards.length;
     const startTop = 45;
-    const cardHeight = 330;
+    const cardHeight = 350;
     const startLeftPercent = 0.028;
     const rows = length + 1;
     for (let i = 0; i < rows; i++) {
@@ -91,7 +95,6 @@ const AdvantagesPage = () => {
     return dots;
   };
 
-  let title = '我们的优势';
   //playScale={0.3} component="section"
   return (
     <div className={styles.wrapper}>
@@ -99,7 +102,7 @@ const AdvantagesPage = () => {
       <div className={styles.content}>
         <QueueAnim type="bottom" key="content">
           <p key="title" className={styles.title}>
-            {t(title)}
+            {props.title && t(props.title)}
           </p>
           <div key="block" className={styles.rightbottom}>
             <div

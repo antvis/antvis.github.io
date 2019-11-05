@@ -69,9 +69,11 @@ const ResourcesPage = () => {
           {t(titleStr)}
         </p>
         <div key="slicer" className={styles.slicer} />
-        <Row key="cards" className={styles.rows}>
-          {getCards()}
-        </Row>
+        <div key="cards" className={styles.rowsWrapper}>
+          <Row key="rows" className={styles.rows}>
+            {getCards()}
+          </Row>
+        </div>
         <img
           src={circleBackImg}
           className={styles.circleback}
