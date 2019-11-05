@@ -55,7 +55,7 @@ const IndexPage = () => {
       imgSrc:
         'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*SqmTSqj4FjEAAAAAAAAAAABkARQnAQ',
     },
-  ]; //className={styles.company}
+  ];
 
   const bannerSVG = <svg></svg>;
 
