@@ -2147,7 +2147,7 @@ const BannerSVG = () => {
                       d="M111.248537,49.2552483 C107.33563,82.1953597 146.587514,105.361957 164.688607,98.6513257"
                     >
                       <animate
-                        attributeName="strokeDashoffset"
+                        attributeName="stroke-dashoffset"
                         from="132"
                         to="132"
                         dur="2s"
