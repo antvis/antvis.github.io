@@ -1,6 +1,5 @@
 import React from 'react';
 import QueueAnim from 'rc-queue-anim';
-import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { Row, Col } from 'antd';
 import QuoteCard from '../quoteCard/quoteCard';
 import styles from './quotesPage.module.less';

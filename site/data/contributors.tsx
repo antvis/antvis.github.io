@@ -1,4 +1,10 @@
-const contributors = [
+const contributors: {
+  name: string;
+  jobTitle: string;
+  avatar: string;
+  weibo: string;
+  github: string;
+}[] = [
   {
     name: '董珊珊',
     jobTitle: '设计师',

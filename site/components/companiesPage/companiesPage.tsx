@@ -1,7 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import QueueAnim from 'rc-queue-anim';
-import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import styles from './companiesPage.module.less';

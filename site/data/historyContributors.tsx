@@ -1,4 +1,10 @@
-const historyContributors = [
+const historyContributors: {
+  name: string;
+  jobTitle: string;
+  avatar: string;
+  weibo: string;
+  github: string;
+}[] = [
   {
     name: '巴思',
     jobTitle: '工程师',

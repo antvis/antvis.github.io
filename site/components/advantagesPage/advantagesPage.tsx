@@ -1,8 +1,5 @@
 import React from 'react';
 import QueueAnim from 'rc-queue-anim';
-import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-// var ScrollAnim = require('rc-scroll-anim');
-// var ScrollOverPack = ScrollAnim.OverPack;
 import { Row, Col } from 'antd';
 import classNames from 'classnames';
 import AdvantageCard from '../advantageCard/advantageCard';

@@ -1,6 +1,5 @@
 import React from 'react';
 import QueueAnim from 'rc-queue-anim';
-import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { useTranslation } from 'react-i18next';
 import styles from './joinUsPage.module.less';
 
