@@ -1,19 +1,20 @@
 .wrapper {
   min-height: 550px;
   background: linear-gradient(225deg, #ffffff, #f0f5ff);
-  height: calc(94vh - 64px);
+  height: calc(100vh - 64px);
   position: relative;
   overflow: hidden;
   .content {
-    width: 92%;
+    width: 84%;
     height: 100%;
     margin-left: 8%;
     margin-bottom: 5%;
     position: relative;
   }
   .text {
+    text-align: center;
     position: relative;
-    top: 23%;
+    top: 16.32%;
     z-index: 1;
     .title {
       font-size: 3.43em; //2.875em;
@@ -23,6 +24,7 @@
       z-index: 10;
     }
     .description {
+      width: 100%;
       margin-top: 0.83%; //12px;
       margin-bottom: 0px;
       color: rgba(106, 123, 140, 1);
@@ -30,8 +32,6 @@
       font-weight: 200;
       position: relative;
       z-index: 10;
-      width: 40%;
-      max-width: 700px;
     }
     .more {
       border: none;
@@ -42,7 +42,7 @@
       background: linear-gradient(60deg, #ff7efb, #9248fe 80%, #8a36ff);
       box-shadow: 0px 10px 10px rgba(125, 50, 228, 0.2);
       border-radius: 50px;
-      width: 134px;
+      width: 164px;
       height: 40px;
       margin-top: 5.56%; //80px;
       font-size: 1.14em;
@@ -53,42 +53,21 @@
       &:hover {
         box-shadow: 0px 16px 14px rgba(125, 50, 228, 0.2);
         background: linear-gradient(25deg, #ff3ff9, #8735ff 80%, #6b2bff);
-        transition: all 0.3s;
+        transition: all 0.3;
       }
-    }
-  }
-  .notifications {
-    width: 80%;
-    display: flex;
-    bottom: 40px;
-    position: absolute;
-    z-index: 10;
-    .noti0 {
-      width: 50%;
-    }
-    .noti1 {
-      width: 50%;
     }
   }
   .teaser {
     display: 'flex';
-    position: absolute;
-    right: 5%;
-    top: -20%;
-    top: -60%;
-    width: 52%;
+    right: 0;
+    top: 0;
+    width: 100%;
     z-index: 1;
     .teaserimg {
-      width: 100%;
+      margin-left: 17.5%;
+      width: 55%;
       height: auto;
-      z-index: 10;
-      position: relative;
     }
-  }
-  .backLeftBottom {
-    position: absolute;
-    left: -8%;
-    bottom: -20px;
   }
 }
 
@@ -123,12 +102,10 @@
     .notifications {
       width: 100%;
       .noti0 {
-        width: 100%;
         position: absolute;
         animation: showAndHide0 6s infinite;
       }
       .noti1 {
-        width: 100%;
         position: absolute;
         animation: showAndHide1 6s infinite;
       }
@@ -140,7 +117,6 @@
       margin-bottom: 5%;
       .teaserimg {
         width: 50%;
-        margin-left: 25%;
       }
     }
   }
@@ -151,7 +127,6 @@
     .teaser {
       .teaserimg {
         width: 35%;
-        margin-left: 32.5%;
       }
     }
   }

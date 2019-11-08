@@ -25,7 +25,7 @@ const ProductsPage = () => {
       APILink: '#',
       productLink: '#',
       imgSrc:
-        'https://gw.alipayobjects.com/zos/basement_prod/7f43cecb-994f-4b88-bbd0-4bb8fa50fca1.svg',
+        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*aVTOQpGkR6AAAAAAAAAAAABkARQnAQ',
     },
     {
       index: 1,
@@ -35,7 +35,7 @@ const ProductsPage = () => {
       APILink: '#',
       productLink: '#',
       imgSrc:
-        'https://gw.alipayobjects.com/zos/basement_prod/2033777d-5758-4d53-97a7-0983bc08d273.svg',
+        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*wAmHQJbNVdwAAAAAAAAAAABkARQnAQ',
     },
     {
       index: 2,
@@ -45,7 +45,7 @@ const ProductsPage = () => {
       APILink: '#',
       productLink: '#',
       imgSrc:
-        'https://gw.alipayobjects.com/zos/basement_prod/08d94964-f1cd-41c0-b176-0f692e38b156.svg',
+        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Zy4wS6mW6XoAAAAAAAAAAABkARQnAQ',
     },
 
     {
@@ -56,7 +56,7 @@ const ProductsPage = () => {
       APILink: '#',
       productLink: '#',
       imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*ImVhTaHfFVwAAAAAAAAAAABkARQnAQ',
+        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*iYE_Tqwv3n8AAAAAAAAAAABkARQnAQ',
     },
   ];
   const extendedProducts = [
@@ -68,7 +68,7 @@ const ProductsPage = () => {
       APILink: '#',
       productLink: '#',
       imgSrc:
-        'https://gw.alipayobjects.com/zos/basement_prod/b775f81c-6080-4fe7-81c1-4a771daa721a.svg',
+        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*MLiHT7MnkcQAAAAAAAAAAABkARQnAQ',
     },
     {
       index: 5,
@@ -78,7 +78,7 @@ const ProductsPage = () => {
       APILink: '#',
       productLink: '#',
       imgSrc:
-        'https://gw.alipayobjects.com/zos/basement_prod/44717864-9a86-45f2-adda-022119e9d9e7.svg',
+        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*9J-cT4njrAYAAAAAAAAAAABkARQnAQ',
     },
     {
       index: 6,
@@ -88,7 +88,7 @@ const ProductsPage = () => {
       APILink: '#',
       productLink: '#',
       imgSrc:
-        'https://gw.alipayobjects.com/zos/basement_prod/dbc7970d-3c1b-4245-9e8f-60703593a95d.svg',
+        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*UwFAQreGA4kAAAAAAAAAAABkARQnAQ',
     },
   ];
 

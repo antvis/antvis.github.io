@@ -2,11 +2,6 @@ import React from 'react';
 import Notification from '../notification/notification';
 import styles from './bannerPage.module.less';
 import { useTranslation } from 'react-i18next';
-import ProductsPage from '../productsPage/productsPage';
-import { POINT_CONVERSION_COMPRESSED } from 'constants';
-
-const holderimg =
-  'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*z0P2QpIbsS4AAAAAAAAAAABkARQnAQ';
 
 const notifications = [
   {
@@ -14,20 +9,19 @@ const notifications = [
       'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ViOPRKPsVzoAAAAAAAAAAABkARQnAQ',
     type: '更新',
     title: 'L7 发布新版本，让地图动起来！',
-    typeEn: 'Update',
-    titleEn: 'L7 has published the new viewsion!',
     date: '2019.12.04',
   },
   {
     numImg:
       'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*NFADS6PF0DYAAAAAAAAAAABkARQnAQ',
     type: '推荐',
-    title: 'Kitchen 3.75 ，效率大幅提升！',
-    typeEn: 'Recommand',
-    titleEn: 'Kitchen 3.75, lift your efficient!',
+    title: 'Kitchen 3.75，效率大幅提升！',
     date: '2019.12.03',
   },
 ];
+
+const backLeftBottom =
+  'https://gw.alipayobjects.com/zos/basement_prod/441d5eaf-e623-47cd-b9b9-2a581d9ce1e3.svg';
 
 interface Props {
   bannerSVG: JSX.Element;
@@ -64,6 +58,11 @@ const BannerPage = (props: Props) => {
             notificationContent={notifications[1]}
           />
         </div>
+        <img
+          className={styles.backLeftBottom}
+          src={backLeftBottom}
+          alt="back"
+        />
       </div>
     </section>
   );

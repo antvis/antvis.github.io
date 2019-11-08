@@ -8,8 +8,6 @@ interface Notification {
   numImg: string;
   type: string;
   title: string;
-  typeEn: string;
-  titleEn: string;
   date: string;
 }
 interface Props {

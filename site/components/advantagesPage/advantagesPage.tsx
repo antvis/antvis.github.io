@@ -9,39 +9,22 @@ import AdvantageCard from '../advantageCard/advantageCard';
 import { useTranslation } from 'react-i18next';
 import styles from './advantagesPage.module.less';
 
+interface Card {
+  index: number;
+  icon: string;
+  title: string;
+  description: string;
+}
 interface Props {
   title?: string;
+  advantages: Array<Card>;
 }
 
 const AdvantagesPage = (props: Props) => {
   const { t } = useTranslation();
-  const cards = [
-    {
-      index: 0,
-      icon:
-        'https://gw.alipayobjects.com/zos/basement_prod/5dbaf094-c064-4a0d-9968-76020b9f1510.svg',
-      title: '简单方便',
-      description: '从数据出发，仅需几行代码可以轻松获得想要的图表展示效果。',
-    },
-    {
-      index: 1,
-      icon:
-        'https://gw.alipayobjects.com/zos/basement_prod/0a0371ab-6bed-41ad-a99b-87a5044ba11b.svg',
-      title: '方便可靠',
-      description:
-        '大量产品实践之上，提供绘图引擎、完备图形语法，专业设计规范。',
-    },
-    {
-      index: 2,
-      icon:
-        'https://gw.alipayobjects.com/zos/basement_prod/716d0bc0-e311-4b28-b79f-afdd16e8148e.svg',
-      title: '无限可能',
-      description: '任何图表，都可以基于图形语法灵活绘制，满足你无限的创意。',
-    },
-  ];
 
   const getCards = () => {
-    const children = cards.map((card, i) => {
+    const children = props.advantages.map((card, i) => {
       return (
         <Col className={styles.cardWrapper} key={i} md={8} xs={24}>
           <AdvantageCard cardContent={card} />
@@ -53,7 +36,7 @@ const AdvantagesPage = (props: Props) => {
 
   const getSlicers = () => {
     const slicers = [];
-    const slicerNum = cards.length - 1;
+    const slicerNum = props.advantages.length - 1;
     for (let i = 0; i < slicerNum; i++) {
       const left = `${(0.878 * 0.3333 * (i + 1) + 0.04) * 100}%`;
       slicers.push(
@@ -66,7 +49,7 @@ const AdvantagesPage = (props: Props) => {
   // for small screen
   const getDots = () => {
     let dots: Array<Object> = [];
-    const length = cards.length;
+    const length = props.advantages.length;
     const startTop = 45;
     const cardHeight = 350;
     const startLeftPercent = 0.028;
@@ -95,10 +78,22 @@ const AdvantagesPage = (props: Props) => {
     return dots;
   };
 
-  //playScale={0.3} component="section"
+  let lefttop1Display = 'block';
+  let lefttop2Display = 'none';
+  if (!props.title) {
+    lefttop1Display = 'none';
+    lefttop2Display = 'block';
+  }
   return (
     <div className={styles.wrapper}>
-      <div className={styles.lefttop} />
+      <div
+        className={classNames(styles.lefttopWithTitle, styles.lefttop)}
+        style={{ display: lefttop1Display }}
+      />
+      <div
+        className={classNames(styles.lefttopWithoutTitle, styles.lefttop)}
+        style={{ display: lefttop2Display }}
+      />
       <div className={styles.content}>
         <QueueAnim type="bottom" key="content">
           <p key="title" className={styles.title}>

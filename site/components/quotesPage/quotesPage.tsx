@@ -6,13 +6,13 @@ import QuoteCard from '../quoteCard/quoteCard';
 import styles from './quotesPage.module.less';
 
 const triangleBackImg =
-  'https://gw.alipayobjects.com/zos/basement_prod/2477d398-ebe1-47df-8a3b-6357f03f8bb7.svg';
+  'https://gw.alipayobjects.com/zos/basement_prod/19b3ca21-8814-4f6c-ac1f-48de7fef9c1e.svg';
 const rectBackImg =
-  'https://gw.alipayobjects.com/zos/basement_prod/669f39d1-b8d2-4ca5-9192-7b709972a471.svg';
+  'https://gw.alipayobjects.com/zos/basement_prod/fcb07699-6159-4f9a-b473-73ad0e049203.svg';
 const circleBackImg =
-  'https://gw.alipayobjects.com/zos/basement_prod/e500557d-e8be-4c2f-887e-5a5e20e65869.svg';
+  'https://gw.alipayobjects.com/zos/basement_prod/5615f534-8d29-40bb-91c8-ac6ff18d075e.svg';
 const circleBack2Img =
-  'https://gw.alipayobjects.com/zos/basement_prod/4f577a87-2485-418a-9bc2-7f86e35c2017.svg';
+  'https://gw.alipayobjects.com/zos/basement_prod/5615f534-8d29-40bb-91c8-ac6ff18d075e.svg';
 
 const QuotesPage = () => {
   const quotes = [

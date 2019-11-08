@@ -7,12 +7,38 @@ import DescribePage from '../components/describePage/describePage';
 import AdvantagesPage from '../components/advantagesPage/advantagesPage';
 import QuotesPage from '../components/quotesPage/quotesPage';
 import CompaniesPage from '../components/companiesPage/companiesPage';
+import BannerSVG from '../components/bannerSVG/bannerSVG';
 import { useTranslation } from 'react-i18next';
 import './index.less';
 
 const IndexPage = () => {
   const { t, i18n } = useTranslation();
   i18n.options.keySeparator = '>';
+
+  const advantages = [
+    {
+      index: 0,
+      icon:
+        'https://gw.alipayobjects.com/zos/basement_prod/5dbaf094-c064-4a0d-9968-76020b9f1510.svg',
+      title: '简单方便',
+      description: '从数据出发，仅需几行代码可以轻松获得想要的图表展示效果。',
+    },
+    {
+      index: 1,
+      icon:
+        'https://gw.alipayobjects.com/zos/basement_prod/0a0371ab-6bed-41ad-a99b-87a5044ba11b.svg',
+      title: '方便可靠',
+      description:
+        '大量产品实践之上，提供绘图引擎、完备图形语法，专业设计规范。',
+    },
+    {
+      index: 2,
+      icon:
+        'https://gw.alipayobjects.com/zos/basement_prod/716d0bc0-e311-4b28-b79f-afdd16e8148e.svg',
+      title: '无限可能',
+      description: '任何图表，都可以基于图形语法灵活绘制，满足你无限的创意。',
+    },
+  ];
 
   const companies = [
     {
@@ -57,7 +83,7 @@ const IndexPage = () => {
     },
   ];
 
-  const bannerSVG = <svg></svg>;
+  const bannerSVG = BannerSVG();
 
   return (
     <>
@@ -67,8 +93,8 @@ const IndexPage = () => {
         <ProductsPage />
         <ResourcesPage />
         <DescribePage />
-        <AdvantagesPage title="我们的优势" />
-        {/* <AdvantagesPage/> */}
+        <AdvantagesPage title="我们的优势" advantages={advantages} />
+        {/* <AdvantagesPage advantages={advantages} /> */}
         <QuotesPage />
         <CompaniesPage title="2000+ 公司正在使用" companies={companies} />
       </div>

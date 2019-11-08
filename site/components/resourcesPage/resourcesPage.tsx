@@ -7,9 +7,9 @@ import { useTranslation } from 'react-i18next';
 import styles from './resourcesPage.module.less';
 
 const circleBackImg =
-  'https://gw.alipayobjects.com/zos/basement_prod/f7e4631f-973c-44b6-a00d-3c1878771720.svg';
+  'https://gw.alipayobjects.com/zos/basement_prod/e63aad85-573e-484b-94dd-dc8ea2334c09.svg';
 const diamandBackImg =
-  'https://gw.alipayobjects.com/zos/basement_prod/4f7c3632-66c5-43a8-acc2-c8bbe25738fc.svg';
+  'https://gw.alipayobjects.com/zos/basement_prod/bd846fce-bf9b-47f0-abba-87bb9bbd2982.svg';
 
 const ResourcesPage = () => {
   const { t } = useTranslation();

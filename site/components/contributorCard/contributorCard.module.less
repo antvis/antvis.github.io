@@ -1,0 +1,86 @@
+.card {
+  background-color: #fff;
+  height: 235px;
+  margin: 5px 10px 5px 10px;
+  padding: 32px 0 0 0;
+  &:hover {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    padding: 22px 0 10px 0;
+    transition: all 0.3s;
+  }
+  .content {
+    text-align: center;
+    .avatar {
+      height: 80px;
+      width: 80px;
+    }
+    .text {
+      flex: 1 1 auto;
+      padding: 1.25rem 1.25rem 0 1.25rem;
+      color: '#868e96';
+      .name {
+        font-size: 1em;
+        margin-bottom: 8px;
+      }
+      .jobTitle {
+        width: 100%;
+        font-size: 1em;
+        line-height: 1.8em;
+      }
+    }
+    .links {
+      height: 50px;
+      width: 100%;
+      .github {
+        .githubImg {
+          width: 20px;
+        }
+        .githubLightImg {
+          width: 20px;
+          position: absolute;
+        }
+      }
+      .weibo {
+        .weiboImg {
+          width: 20px;
+        }
+        .weiboLightImg {
+          width: 20px;
+          position: absolute;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1020px) {
+  .card {
+    width: 15%;
+  }
+}
+
+@media (max-width: 950px) {
+  .card {
+    width: 20%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 30%;
+    .content {
+      .icon {
+        width: 25.6%;
+      }
+      .title {
+        font-size: 1.4em;
+        margin-top: 28px;
+      }
+      .description {
+        font-size: 1em;
+        padding-bottom: 0px;
+        padding-top: 0px;
+        margin-top: 12px;
+      }
+    }
+  }
+}
