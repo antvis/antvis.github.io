@@ -164,7 +164,7 @@ const contributors: {
     avatar:
       'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*V7E0RqRAlG4AAAAAAAAAAABkARQnAQ',
     weibo: '',
-    github: '',
+    github: 'https://github.com/bubkoo',
   },
   {
     name: '沧东',

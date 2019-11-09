@@ -1,21 +1,24 @@
 import React from 'react';
 import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
-import BannerPage from '../components/bannerPage/bannerPage';
+import Banner from '@antv/gatsby-theme-antv/site/components/Banner';
+import Features from '@antv/gatsby-theme-antv/site/components/Features';
+import Companies from '@antv/gatsby-theme-antv/site/components/Companies';
+// import BannerPage from '../components/bannerPage/bannerPage';
 import ProductsPage from '../components/productsPage/productsPage';
 import ResourcesPage from '../components/resourcesPage/resourcesPage';
 import DescribePage from '../components/describePage/describePage';
-import AdvantagesPage from '../components/advantagesPage/advantagesPage';
+// import AdvantagesPage from '../components/advantagesPage/advantagesPage';
 import QuotesPage from '../components/quotesPage/quotesPage';
-import CompaniesPage from '../components/companiesPage/companiesPage';
+// import CompaniesPage from '../components/companiesPage/companiesPage';
 import BannerSVG from '../components/bannerSVG/bannerSVG';
 import { useTranslation } from 'react-i18next';
 import './index.less';
 
 const IndexPage = () => {
   const { t, i18n } = useTranslation();
-  i18n.options.keySeparator = '>';
+  // i18n.options.keySeparator = '>';
 
-  const advantages = [
+  const features = [
     {
       index: 0,
       icon:
@@ -42,43 +45,43 @@ const IndexPage = () => {
 
   const companies = [
     {
-      index: 0,
-      imgSrc:
+      name: 'alicloud',
+      img:
         'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Z1NnQ6L4xCIAAAAAAAAAAABkARQnAQ',
     },
     {
-      index: 1,
-      imgSrc:
+      name: 'alipay',
+      img:
         'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*6u3hTpsd7h8AAAAAAAAAAABkARQnAQ',
     },
     {
-      index: 2,
-      imgSrc:
+      name: 'tmall',
+      img:
         'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*58snT4MwuGcAAAAAAAAAAABkARQnAQ',
     },
     {
-      index: 3,
-      imgSrc:
+      name: 'taobao',
+      img:
         'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*14yvRoRDs4wAAAAAAAAAAABkARQnAQ',
     },
     {
-      index: 4,
-      imgSrc:
+      name: 'mybank',
+      img:
         'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Fw8HTbFgUdAAAAAAAAAAAABkARQnAQ',
     },
     {
-      index: 5,
-      imgSrc:
+      name: 'jd',
+      img:
         'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*lUdjTqQix48AAAAAAAAAAABkARQnAQ',
     },
     {
-      index: 6,
-      imgSrc:
+      name: 'yunos',
+      img:
         'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*1q8NQZ9GaN0AAAAAAAAAAABkARQnAQ',
     },
     {
-      index: 7,
-      imgSrc:
+      name: 'cainiao',
+      img:
         'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*SqmTSqj4FjEAAAAAAAAAAABkARQnAQ',
     },
   ];
@@ -89,14 +92,22 @@ const IndexPage = () => {
     <>
       <SEO title={t('蚂蚁数据可视化')} lang={i18n.language} />
       <div className="home-container" style={{ marginTop: '-24px' }}>
-        <BannerPage bannerSVG={bannerSVG} />
+        <Banner
+          coverImage={bannerSVG}
+          title={t('让数据栩栩如生')}
+          description={t(
+            'AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、无限可能的数据可视化最佳实践。',
+          )}
+          buttonText={t('继续了解')}
+          buttonHref={'#products'}
+          className="banner"
+        />
         <ProductsPage />
         <ResourcesPage />
         <DescribePage />
-        <AdvantagesPage title="我们的优势" advantages={advantages} />
-        {/* <AdvantagesPage advantages={advantages} /> */}
+        <Features title="我们的优势" features={features} />
         <QuotesPage />
-        <CompaniesPage title="2000+ 公司正在使用" companies={companies} />
+        <Companies title={t('2000+ 公司正在使用')} companies={companies} />
       </div>
     </>
   );
