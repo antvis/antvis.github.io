@@ -5,6 +5,7 @@ import Features from '@antv/gatsby-theme-antv/site/components/Features';
 import Companies from '@antv/gatsby-theme-antv/site/components/Companies';
 // import BannerPage from '../components/bannerPage/bannerPage';
 import ProductsPage from '../components/productsPage/productsPage';
+import DecisionTreePage from '../components/decisionTreePage/decisionTreePage';
 import ResourcesPage from '../components/resourcesPage/resourcesPage';
 import DescribePage from '../components/describePage/describePage';
 // import AdvantagesPage from '../components/advantagesPage/advantagesPage';
@@ -103,6 +104,7 @@ const IndexPage = () => {
           className="banner"
         />
         <ProductsPage />
+        {/* <DecisionTreePage /> */}
         <ResourcesPage />
         <DescribePage />
         <Features title="我们的优势" features={features} />
