@@ -1,0 +1,97 @@
+@import '~antd/lib/style/themes/default.less';
+.wrapper {
+  background: rgb(250, 251, 253);
+  height: calc(9.375% + 450px);
+  display: flex;
+  margin: auto;
+  position: relative;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  .content {
+    width: 91.95%;
+    height: 100%;
+    padding-bottom: 9.375%;
+    position: relative;
+    width: 1440px;
+    max-width: calc(100% - 120px);
+    margin-left: auto;
+    margin-right: auto;
+    .title {
+      font-size: 2.714em;
+      font-weight: 500;
+      margin: 100px 0 0 0;
+      position: relative;
+      height: min-content;
+      color: #000;
+      z-index: 10;
+      margin-left: 4.06%;
+    }
+    .slicer {
+      width: 32px;
+      height: 6px;
+      margin-top: 36px;
+      background-color: #597ef7;
+      margin-left: 4.06%;
+    }
+    .rowsWrapper {
+      position: relative;
+      margin-top: 57px;
+      height: 400px;
+      z-index: 10;
+      margin-left: 4.06%;
+      width: 91.88%;
+      .rows {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        flex-wrap: wrap;
+      }
+    }
+    .circleback {
+      position: absolute;
+      width: 40%;
+      top: -100px;
+      right: -15%;
+      z-index: 1;
+    }
+    .diamandback {
+      position: absolute;
+      width: 30%;
+      left: -10%;
+      bottom: -8%;
+      z-index: 1;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    .content {
+      padding-left: 4.27%;
+      padding-bottom: 23.47%;
+      width: 95.73%;
+      max-width: 95.73%;
+      margin-left: 0;
+      margin-right: 0;
+      .title {
+        font-size: 2.143rem;
+        margin: 80px 0 44px 0;
+      }
+      .slicer {
+        display: none;
+      }
+      .rowsWrapper {
+        margin-left: 0;
+        width: 100%;
+        .rows {
+          position: relative;
+          .cardWrapper {
+            width: 100%;
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}

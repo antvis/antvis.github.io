@@ -1,0 +1,213 @@
+.wrapper {
+  background: #f0f5fa;
+  .topContaner {
+    margin-left: 8.05%;
+    width: 91.95%;
+    width: 1440px;
+    max-width: calc(100% - 120px);
+    margin-left: auto;
+    margin-right: auto;
+    .title {
+      margin-left: 4.06%;
+      font-size: 2.714em;
+      color: #000;
+      margin-bottom: 0;
+      font-weight: 500;
+      position: relative;
+      height: min-content;
+    }
+    .tabsContaner {
+      display: flex;
+      margin-left: calc(4.06% - 4px);
+      .tab {
+        font-size: 1.714em;
+        color: #000;
+        margin-top: 48px;
+        margin-bottom: 51px;
+        padding-left: 4px;
+        padding-right: 4px;
+        background: linear-gradient(0deg, #b7a1ff 0%, #f0f5fa 0%);
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+      .dataTypeTab {
+        margin-left: 3.02%;
+      }
+      .goalTab {
+      }
+      .chartTypeTab {
+        margin-left: 3.02%;
+      }
+    }
+  }
+  .contentWrapper {
+    display: flex;
+    margin: auto;
+    position: relative;
+    flex-direction: column;
+    padding: 0;
+    background: #f0f5fa;
+    height: 800px;
+    overflow-x: hidden;
+    .rightbottom {
+      background: linear-gradient(130deg, #aa6aff 40%, #706dff);
+      width: 95.83%;
+      height: 80%;
+      right: 0;
+      margin-top: 48px;
+      position: absolute;
+    }
+    .content {
+      width: 95.8%;
+      height: 100%;
+      margin-left: 0;
+      margin-bottom: 5%;
+      position: relative;
+      .lefttop {
+        background: #fff;
+        width: 100%;
+        height: 85%;
+        position: relative;
+        box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+        .mountNode {
+          width: 100%;
+          height: 100%;
+        }
+        .canvasMask {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          background: rgba(255, 255, 255, 0.08);
+        }
+      }
+    }
+  }
+}
+.tooltip {
+  position: absolute;
+  width: 162px;
+  height: 128px;
+  border: 1px solid #ebedf0;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.9);
+  opacity: 0.9;
+  .tooltipTitle {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    height: 40px;
+    font-size: 12px;
+  }
+  .tooltipContent {
+    width: 162px;
+    height: 89px;
+    .tooltipImg {
+      width: 159px;
+      height: 86px;
+      margin-left: 1px;
+      border-top: 1px solid #ebedf0;
+      // border-bottom: 1px solid #EBEDF0;
+    }
+    .tooltipBtnsContainer {
+      position: absolute;
+      width: 159px;
+      margin-left: 1px;
+      height: 86px;
+      padding: auto;
+      display: flex;
+      padding-top: 23px;
+      background: #fff;
+      border-top: 1px solid #ebedf0;
+      opacity: 0;
+      // border-bottom: 1px solid #EBEDF0;
+      bottom: 0;
+      .button {
+        height: 100%;
+        margin-top: 10px;
+        text-align: center;
+        color: #597ef7;
+      }
+      &:hover {
+        opacity: 1;
+        transition: all 0.3s;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    .lefttop {
+      left: 0px;
+      height: 100%;
+      width: 95.73%;
+    }
+    .lefttopWithTitle {
+      height: 95.73%;
+    }
+    .lefttopWithoutTitle {
+      height: 95.73%;
+    }
+    .content {
+      width: 95.73%;
+      margin-left: 4.27%;
+      .title {
+        font-size: 2.143rem;
+        margin: 80px 0 60px 0;
+      }
+      .rightbottom {
+        margin-bottom: 70px;
+        .cards {
+          margin-top: 60px;
+          margin-left: 3.34%;
+          width: 88.86%; // 1 - (0.96 * 0.04 + 0.08)
+          padding-top: 45px;
+          padding-bottom: 45px;
+          .cardWrapper {
+            width: 100%;
+            height: 350px;
+          }
+        }
+
+        .slicerbarv {
+          position: absolute;
+          background-color: #f2f4f5;
+          width: 1px;
+          height: 100%;
+          margin-left: 3%;
+          display: block;
+          z-index: 10;
+        }
+        .slicerbarv2 {
+          margin-left: 92.16%; // 1 - (0.96 * 0.04 + 0.04)
+        }
+        .slicerbarh {
+          position: absolute;
+          background-color: #f2f4f5;
+          width: 100%;
+          height: 1px;
+          display: block;
+          z-index: 10;
+          margin-top: 45px;
+        }
+        .slicerbarh2 {
+          margin-top: 395px;
+        }
+        .slicerbarh3 {
+          margin-top: 745px;
+        }
+        .slicerbarh4 {
+          margin-top: 1095px;
+        }
+        .divider {
+          display: none;
+        }
+      }
+    }
+  }
+  .dot {
+    display: block;
+  }
+}

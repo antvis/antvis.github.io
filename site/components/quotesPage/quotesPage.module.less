@@ -1,0 +1,129 @@
+.wrapper {
+  display: flex;
+  margin: auto;
+  position: relative;
+  flex-direction: column;
+  padding: 0;
+  height: auto;
+  background: #f8fafe;
+  overflow: hidden;
+  .subWrapper {
+    width: 1440px;
+    max-width: calc(100% - 120px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .quotesWrapper {
+    position: relative;
+    z-index: 10;
+  }
+  .rows {
+    width: fit-content;
+    position: relative;
+    margin-top: 10.8%;
+    margin-bottom: 120px;
+    margin-left: 4.05%;
+    width: 91.89%;
+    .cardWrapper {
+      height: 600px;
+      transition: all 0.3s;
+    }
+  }
+  .triangleback {
+    position: absolute;
+    width: 50%;
+    max-width: 638px;
+    top: -80px;
+    right: -150px;
+    z-index: 1;
+  }
+  .rectback {
+    position: absolute;
+    width: 30%;
+    max-width: 620px;
+    left: 0;
+    bottom: -150px;
+    z-index: 1;
+  }
+  .circleback1 {
+    position: absolute;
+    width: 80%;
+    left: -100px;
+    top: -130px;
+    z-index: 1;
+    display: none;
+  }
+  .circleback2 {
+    position: absolute;
+    top: 60%;
+    width: 80%;
+    left: -30%;
+    z-index: 1;
+    display: none;
+  }
+}
+
+@media (max-width: 1350px) {
+  .wrapper {
+    .rows {
+      .cardWrapper {
+        height: 610px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .wrapper {
+    .rows {
+      .cardWrapper {
+        height: 690px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1014px) {
+  .wrapper {
+    .subWrapper {
+      width: 100%;
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .rows {
+      box-shadow: -0px 0px 0px rgba(0, 0, 0, 0.1);
+      margin-top: 150px;
+      margin-left: 4.27%;
+      width: 91.46%;
+      margin-bottom: 0px;
+      .cardWrapper {
+        height: auto;
+        margin-bottom: 135px;
+        width: 100%;
+        box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+      }
+    }
+    .triangleback {
+      position: absolute;
+      width: 65%;
+      top: 90%;
+      right: -20%;
+      z-index: 1;
+    }
+    .rectback {
+      position: absolute;
+      width: 50%;
+      left: 0%;
+      top: 31%;
+      z-index: 1;
+    }
+    .circleback1 {
+      display: block;
+    }
+    .circleback2 {
+      display: block;
+    }
+  }
+}

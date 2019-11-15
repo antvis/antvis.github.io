@@ -1,0 +1,1095 @@
+{
+  "nodes": [
+    {
+      "id": "statisticchart",
+      "name": "统计图表",
+      "level": 0,
+      "childrenNum": 65,
+      "tag": "statisticchart"
+    },
+    {
+      "id": "graph",
+      "name": "关系图",
+      "level": 0,
+      "childrenNum": 20,
+      "tag": "graph"
+    },
+    {
+      "id": "map",
+      "name": "地图",
+      "level": 0,
+      "childrenNum": 21,
+      "tag": "map"
+    },
+    {
+      "id": "linechart",
+      "name": "折线图",
+      "level": 1,
+      "tag": "linechart",
+      "childrenNum": 7,
+      "isLeaf": false,
+      "tags": ["statisticchart"]
+    },
+    {
+      "id": "statisticchartothers",
+      "name": "其他",
+      "level": 1,
+      "tag": "statisticchartothers",
+      "childrenNum": 7,
+      "isLeaf": false,
+      "tags": ["statisticchart"]
+    },
+    {
+      "id": "areachart",
+      "name": "面积图",
+      "level": 1,
+      "childrenNum": 8,
+      "tag": "areachart",
+      "isLeaf": false,
+      "tags": ["statisticchart"]
+    },
+    {
+      "id": "histogram",
+      "name": "柱状图",
+      "level": 1,
+      "childrenNum": 12,
+      "tag": "histogram",
+      "isLeaf": false,
+      "tags": ["statisticchart"]
+    },
+    {
+      "id": "barchart",
+      "name": "条形图",
+      "level": 1,
+      "childrenNum": 11,
+      "tag": "barchart",
+      "isLeaf": false,
+      "tags": ["statisticchart"]
+    },
+    {
+      "id": "piechart",
+      "name": "饼图",
+      "level": 1,
+      "childrenNum": 8,
+      "isLeaf": false,
+      "tags": ["statisticchart"]
+    },
+    {
+      "id": "scatterplot",
+      "name": "散点图",
+      "level": 1,
+      "childrenNum": 4,
+      "tag": "scatterplot",
+      "isLeaf": false,
+      "tags": ["statisticchart"]
+    },
+    {
+      "id": "flowplot",
+      "name": "流程图",
+      "level": 1,
+      "childrenNum": 3,
+      "tag": "flowplot",
+      "isLeaf": false,
+      "tags": ["statisticchart"]
+    },
+    {
+      "id": "stockplot",
+      "name": "股票",
+      "level": 1,
+      "tag": "stockplot",
+      "childrenNum": 5,
+      "isLeaf": false,
+      "tags": ["statisticchart"]
+    },
+    {
+      "id": "tree",
+      "name": "树图",
+      "level": 1,
+      "tag": "tree",
+      "childrenNum": 5,
+      "isLeaf": false,
+      "tags": ["graph"]
+    },
+    {
+      "id": "pointlayer",
+      "name": "点图层",
+      "level": 1,
+      "tag": "pointlayer",
+      "childrenNum": 8,
+      "isLeaf": false,
+      "tags": ["map"]
+    },
+    {
+      "id": "linelayer",
+      "name": "线图层",
+      "level": 1,
+      "childrenNum": 3,
+      "tag": "linelayer",
+      "isLeaf": false,
+      "tags": ["map"]
+    },
+    {
+      "id": "polygonlayer",
+      "name": "面图层",
+      "level": 1,
+      "childrenNum": 2,
+      "tag": "polygonlayer",
+      "isLeaf": false,
+      "tags": ["map"]
+    },
+    {
+      "id": "heatmap",
+      "name": "热力图",
+      "level": 1,
+      "childrenNum": 5,
+      "tag": "heatmap",
+      "isLeaf": false,
+      "tags": ["map"]
+    },
+
+    {
+      "id": "basiclinechart",
+      "name": "基础折线",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-linechart"]
+    },
+    {
+      "id": "multilinechart",
+      "name": "多折线图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-linechart"]
+    },
+    {
+      "id": "basicareachart",
+      "name": "基础面积图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-areachart"]
+    },
+    {
+      "id": "stackareachart",
+      "name": "堆叠面积图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-areachart"]
+    },
+    {
+      "id": "percentstackareachart",
+      "name": "百分比堆\n叠面积图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-areachart"]
+    },
+    {
+      "id": "intervalareachart",
+      "name": "区间面积图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-areachart"]
+    },
+    {
+      "id": "streamchart",
+      "name": "河流图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-areachart"]
+    },
+    {
+      "id": "basichistogram",
+      "name": "基础柱状图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-histogram"]
+    },
+    {
+      "id": "grouphistogram",
+      "name": "分组柱状图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-histogram"]
+    },
+    {
+      "id": "stackhistogram",
+      "name": "堆叠柱状图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-histogram"]
+    },
+    {
+      "id": "percentstackhistogram",
+      "name": "百分比堆\n叠柱状图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-histogram"]
+    },
+    {
+      "id": "intervalhistogram",
+      "name": "区间柱状图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-histogram"]
+    },
+    {
+      "id": "waterfall",
+      "name": "瀑布图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-histogram"]
+    },
+    {
+      "id": "histogramunit",
+      "name": "直方图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-histogram"]
+    },
+    {
+      "id": "basicbarchart",
+      "name": "基础条形图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-barchart"]
+    },
+    {
+      "id": "stackbarchart",
+      "name": "堆叠条形图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-barchart"]
+    },
+    {
+      "id": "percentstackbarchart",
+      "name": "百分比堆\n叠条形图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-barchart"]
+    },
+    {
+      "id": "groupbarchart",
+      "name": "分组条形图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-barchart"]
+    },
+    {
+      "id": "intervalbarchart",
+      "name": "区间条形图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-barchart"]
+    },
+    {
+      "id": "radiobarchart",
+      "name": "玉珏图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-barchart"]
+    },
+    {
+      "id": "symetricgroupbarchart",
+      "name": "对称分组\n条形图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-barchart"]
+    },
+    {
+      "id": "basicpiechart",
+      "name": "基础饼图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-piechart"]
+    },
+    {
+      "id": "ringpiechart",
+      "name": "环形饼图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-piechart"]
+    },
+    {
+      "id": "nestpiechart",
+      "name": "嵌套饼图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-piechart"]
+    },
+    {
+      "id": "nightingalechart",
+      "name": "南丁格尔图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-piechart"]
+    },
+    {
+      "id": "scatterplotunit",
+      "name": "散点图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-scatterplot"]
+    },
+    {
+      "id": "bublescatterplot",
+      "name": "散点\n气泡图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-scatterplot"]
+    },
+    {
+      "id": "radialdendrogram",
+      "name": "径向系统树",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "circulararcdiagram",
+      "name": "环形弧线图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "arcdiagram",
+      "name": "弧线图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "chorddiagram",
+      "name": "和弦图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "treemap",
+      "name": "矩阵树图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "sankey",
+      "name": "桑基图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "basicfunnel",
+      "name": "基础漏斗图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-flowplot"]
+    },
+    {
+      "id": "comparefunnel",
+      "name": "对比漏斗图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-flowplot"]
+    },
+    {
+      "id": "symetricfunnel",
+      "name": "对称漏斗图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-flowplot"]
+    },
+    {
+      "id": "bubblemap",
+      "name": "气泡地图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-pointlayer"]
+    },
+    {
+      "id": "binchart",
+      "name": "箱型图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-statisticchartothers"]
+    },
+    {
+      "id": "colorblockheatmap",
+      "name": "色块热力图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-statisticchartothers"]
+    },
+    {
+      "id": "basicheatmap",
+      "name": "基础热力图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-statisticchartothers"]
+    },
+    {
+      "id": "instrument",
+      "name": "仪表盘",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-statisticchartothers"]
+    },
+    {
+      "id": "radar",
+      "name": "雷达图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-statisticchartothers"]
+    },
+    {
+      "id": "stockklines",
+      "name": "股票k线图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-stockplot"]
+    },
+    {
+      "id": "wordcloud",
+      "name": "词云图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart"]
+    },
+    {
+      "id": "candlestick",
+      "name": "烛形图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["statisticchart-linechart", "statisticchart-stockplot"]
+    },
+    {
+      "id": "compactBox",
+      "name": "紧凑树",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph-tree"]
+    },
+    {
+      "id": "dendrogram",
+      "name": "系统树",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph-tree"]
+    },
+    {
+      "id": "mindmap",
+      "name": "脑图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph-tree"]
+    },
+    {
+      "id": "indented",
+      "name": "缩进树",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph-tree"]
+    },
+    {
+      "id": "radialtree",
+      "name": "辐射树",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph-tree"]
+    },
+    {
+      "id": "flowdiagram",
+      "name": "流程图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "fruchtermancluster",
+      "name": "Fruchterman\n聚类",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "fruchterman",
+      "name": "Fruchterman",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "forcedirected",
+      "name": "力导向图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "circular",
+      "name": "环形图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "spiral",
+      "name": "螺旋线图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "radial",
+      "name": "辐射图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "concentric",
+      "name": "同心圆",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "grid",
+      "name": "网格图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "arcdiagram",
+      "name": "弧线图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "circulararcdiagram",
+      "name": "环形弧线图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "bubbles",
+      "name": "气泡图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["graph"]
+    },
+    {
+      "id": "dotmap",
+      "name": "定点地图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-pointlayer"]
+    },
+
+    {
+      "id": "symbollayer",
+      "name": "符号地图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-pointlayer"]
+    },
+    {
+      "id": "clustermap",
+      "name": "聚合地图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-pointlayer"]
+    },
+    {
+      "id": "chartmap",
+      "name": "复合图表\n地图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-pointlayer"]
+    },
+    {
+      "id": "columnmap",
+      "name": "3D 柱状\n地图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-pointlayer"]
+    },
+    {
+      "id": "scattermap",
+      "name": "散点地图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-pointlayer"]
+    },
+    {
+      "id": "pathmap",
+      "name": "路径地图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-linelayer"]
+    },
+    {
+      "id": "relationmap",
+      "name": "关系地图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-linelayer"]
+    },
+    {
+      "id": "arc3dmap",
+      "name": "3D 弧线地图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-linelayer"]
+    },
+    {
+      "id": "choroplethmap",
+      "name": "分类填充图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-polygonlayer"]
+    },
+    {
+      "id": "hexagonalheatmap",
+      "name": "蜂窝热力图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-heatmap"]
+    },
+    {
+      "id": "3dgridbinheatmap",
+      "name": "3D 网格\n热力图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-heatmap"]
+    },
+    {
+      "id": "3dhexagonalheatmap",
+      "name": "3D 蜂窝\n热力图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-heatmap"]
+    },
+    {
+      "id": "classicalheatmap",
+      "name": "经典热力图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-heatmap"]
+    },
+    {
+      "id": "gridbinheatmap",
+      "name": "网格\n热力图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-heatmap"]
+    }
+  ],
+  "edges": [
+    {
+      "source": "statisticchart",
+      "target": "linechart"
+    },
+    {
+      "source": "statisticchart",
+      "target": "areachart"
+    },
+    {
+      "source": "statisticchart",
+      "target": "stockplot"
+    },
+    {
+      "source": "statisticchart",
+      "target": "histogram"
+    },
+    {
+      "source": "statisticchart",
+      "target": "barchart"
+    },
+    {
+      "source": "statisticchart",
+      "target": "piechart"
+    },
+    {
+      "source": "statisticchart",
+      "target": "scatterplot"
+    },
+    {
+      "source": "graph",
+      "target": "tree"
+    },
+    {
+      "source": "statisticchart",
+      "target": "flowplot"
+    },
+    {
+      "source": "map",
+      "target": "pointlayer"
+    },
+    {
+      "source": "map",
+      "target": "linelayer"
+    },
+    {
+      "source": "map",
+      "target": "polygonlayer"
+    },
+    {
+      "source": "map",
+      "target": "heatmap"
+    },
+    {
+      "source": "statisticchart",
+      "target": "stock"
+    },
+    {
+      "source": "statisticchart",
+      "target": "flowplot"
+    },
+    {
+      "source": "flowplot",
+      "target": "basicfunnel"
+    },
+
+    {
+      "source": "linechart",
+      "target": "basiclinechart"
+    },
+    {
+      "source": "linechart",
+      "target": "multilinechart"
+    },
+    {
+      "source": "areachart",
+      "target": "basicareachart"
+    },
+    {
+      "source": "areachart",
+      "target": "stackareachart"
+    },
+    {
+      "source": "areachart",
+      "target": "percentstackareachart"
+    },
+    {
+      "source": "areachart",
+      "target": "intervalareachart"
+    },
+    {
+      "source": "areachart",
+      "target": "streamchart"
+    },
+    {
+      "source": "histogram",
+      "target": "basichistogram"
+    },
+    {
+      "source": "histogram",
+      "target": "grouphistogram"
+    },
+    {
+      "source": "histogram",
+      "target": "stackhistogram"
+    },
+    {
+      "source": "histogram",
+      "target": "percentstackhistogram"
+    },
+    {
+      "source": "histogram",
+      "target": "intervalhistogram"
+    },
+    {
+      "source": "histogram",
+      "target": "waterfall"
+    },
+    {
+      "source": "histogram",
+      "target": "histogramunit"
+    },
+    {
+      "source": "barchart",
+      "target": "basicbarchart"
+    },
+    {
+      "source": "barchart",
+      "target": "percentstackbarchart"
+    },
+    {
+      "source": "barchart",
+      "target": "stackbarchart"
+    },
+    {
+      "source": "barchart",
+      "target": "percentbarchart"
+    },
+    {
+      "source": "barchart",
+      "target": "groupbarchart"
+    },
+    {
+      "source": "barchart",
+      "target": "intervalbarchart"
+    },
+    {
+      "source": "barchart",
+      "target": "radiobarchart"
+    },
+    {
+      "source": "barchart",
+      "target": "symetricgroupbarchart"
+    },
+    {
+      "source": "piechart",
+      "target": "basicpiechart"
+    },
+    {
+      "source": "piechart",
+      "target": "ringpiechart"
+    },
+    {
+      "source": "piechart",
+      "target": "nightingalechart"
+    },
+    {
+      "source": "piechart",
+      "target": "nestpiechart"
+    },
+    {
+      "source": "scatterplot",
+      "target": "scatterplotunit"
+    },
+    {
+      "source": "scatterplot",
+      "target": "bublescatterplot"
+    },
+    {
+      "source": "scatterplot",
+      "target": "bubblescatterplot"
+    },
+    {
+      "source": "tree",
+      "target": "radialdendrogram"
+    },
+    {
+      "source": "graph",
+      "target": "circulararcdiagram"
+    },
+    {
+      "source": "graph",
+      "target": "arcdiagram"
+    },
+    {
+      "source": "graph",
+      "target": "chorddiagram"
+    },
+    {
+      "source": "graph",
+      "target": "treemap"
+    },
+    {
+      "source": "graph",
+      "target": "sankey"
+    },
+    {
+      "source": "flowplot",
+      "target": "basicfunnel"
+    },
+    {
+      "source": "flowplot",
+      "target": "comparefunnel"
+    },
+    {
+      "source": "flowplot",
+      "target": "symetricfunnel"
+    },
+    {
+      "source": "pointlayer",
+      "target": "bubblemap"
+    },
+    {
+      "source": "statisticchart",
+      "target": "statisticchartothers"
+    },
+    {
+      "source": "statisticchartothers",
+      "target": "binchart"
+    },
+    {
+      "source": "statisticchartothers",
+      "target": "colorblockheatmap"
+    },
+    {
+      "source": "statisticchartothers",
+      "target": "basicheatmap"
+    },
+    {
+      "source": "statisticchartothers",
+      "target": "instrument"
+    },
+    {
+      "source": "statisticchartothers",
+      "target": "radar"
+    },
+    {
+      "source": "stockplot",
+      "target": "stockklines"
+    },
+    {
+      "source": "statisticchartothers",
+      "target": "wordcloud"
+    },
+    {
+      "source": "linechart",
+      "target": "candlestick"
+    },
+    {
+      "source": "stockplot",
+      "target": "candlestick"
+    },
+    {
+      "source": "tree",
+      "target": "compactBox"
+    },
+    {
+      "source": "tree",
+      "target": "dendrogram"
+    },
+    {
+      "source": "tree",
+      "target": "mindmap"
+    },
+    {
+      "source": "tree",
+      "target": "indented"
+    },
+    {
+      "source": "tree",
+      "target": "radialtree"
+    },
+    {
+      "source": "graph",
+      "target": "flowdiagram"
+    },
+    {
+      "source": "graph",
+      "target": "fruchtermancluster"
+    },
+
+    {
+      "source": "graph",
+      "target": "fruchterman"
+    },
+    {
+      "source": "graph",
+      "target": "forcedirected"
+    },
+    {
+      "source": "graph",
+      "target": "circular"
+    },
+    {
+      "source": "graph",
+      "target": "spiral"
+    },
+    {
+      "source": "graph",
+      "target": "radial"
+    },
+    {
+      "source": "graph",
+      "target": "concentric"
+    },
+    {
+      "source": "graph",
+      "target": "grid"
+    },
+    {
+      "source": "graph",
+      "target": "chorddiagram"
+    },
+    {
+      "source": "graph",
+      "target": "arddiagram"
+    },
+    {
+      "source": "graph",
+      "target": "circulararddiagram"
+    },
+    {
+      "source": "graph",
+      "target": "bubbles"
+    },
+    {
+      "source": "pointlayer",
+      "target": "dotmap"
+    },
+    {
+      "source": "pointlayer",
+      "target": "symbollayer"
+    },
+    {
+      "source": "pointlayer",
+      "target": "clustermap"
+    },
+    {
+      "source": "pointlayer",
+      "target": "chartmap"
+    },
+    {
+      "source": "pointlayer",
+      "target": "columnmap"
+    },
+    {
+      "source": "pointlayer",
+      "target": "scattermap"
+    },
+    {
+      "source": "pointlayer",
+      "target": "bubblemap"
+    },
+    {
+      "source": "linelayer",
+      "target": "pathmap"
+    },
+    {
+      "source": "linelayer",
+      "target": "relationmap"
+    },
+    {
+      "source": "linelayer",
+      "target": "arc3dmap"
+    },
+    {
+      "source": "polygonlayer",
+      "target": "horoplethmap"
+    },
+    {
+      "source": "polygonlayer",
+      "target": "choroplethmap"
+    },
+    {
+      "source": "heatmap",
+      "target": "3dhexagonalheatmap"
+    },
+    {
+      "source": "heatmap",
+      "target": "gridbinheatmap"
+    },
+    {
+      "source": "heatmap",
+      "target": "3dgridbinheatmap"
+    },
+    {
+      "source": "heatmap",
+      "target": "hexagonalheatmap"
+    },
+    {
+      "source": "heatmap",
+      "target": "classicalheatmap"
+    }
+  ]
+}

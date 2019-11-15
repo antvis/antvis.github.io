@@ -1,0 +1,154 @@
+.wrapper {
+  display: flex;
+  margin: auto;
+  position: relative;
+  flex-direction: column;
+  padding: 0;
+  background: #f0f5fa;
+  height: auto;
+  overflow-x: hidden;
+  .content {
+    width: 95.8%;
+    height: 100%;
+    margin-left: 4.2%;
+    margin-bottom: 5%;
+    position: relative;
+  }
+  .title {
+    font-size: 2.8em;
+    padding-left: 4.06%;
+    font-weight: 500;
+    margin: 48px 0 0 0;
+    position: relative;
+    height: min-content;
+    color: #fff;
+  }
+  .slicerbarv {
+    display: none;
+  }
+  .slicerbarv2 {
+    display: none;
+  }
+  .lefttop {
+    background: linear-gradient(130deg, #aa6aff 40%, #706dff);
+    width: 95.83%;
+    top: 0;
+    position: absolute;
+  }
+  .lefttopWithTitle {
+    height: 60%;
+  }
+  .lefttopWithoutTitle {
+    height: 75%;
+  }
+  .rightbottom {
+    background: #fff;
+    width: 100%;
+    height: 65%;
+    margin-top: 48px;
+    position: relative;
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+    .divider {
+      position: absolute;
+      width: 1px;
+      height: 60%;
+      top: 20%;
+      background-color: #000;
+      opacity: 0.1;
+    }
+    .cards {
+      display: flex;
+      text-align: center;
+      position: relative;
+      width: -webkit-fill-available;
+      flex-wrap: wrap;
+      margin-left: 4.06%;
+      width: 87.8%; // 1 - (0.08 * 0.92 + 0.06)
+    }
+  }
+}
+.dot {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #d8d8d8;
+  z-index: 10;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    .lefttop {
+      left: 0px;
+      height: 100%;
+      width: 95.73%;
+    }
+    .lefttopWithTitle {
+      height: 95.73%;
+    }
+    .lefttopWithoutTitle {
+      height: 95.73%;
+    }
+    .content {
+      width: 95.73%;
+      margin-left: 4.27%;
+      .title {
+        font-size: 2.143rem;
+        margin: 80px 0 60px 0;
+      }
+      .rightbottom {
+        margin-bottom: 70px;
+        .cards {
+          margin-top: 60px;
+          margin-left: 3.34%;
+          width: 88.86%; // 1 - (0.96 * 0.04 + 0.08)
+          padding-top: 45px;
+          padding-bottom: 45px;
+          .cardWrapper {
+            width: 100%;
+            height: 350px;
+          }
+        }
+
+        .slicerbarv {
+          position: absolute;
+          background-color: #f2f4f5;
+          width: 1px;
+          height: 100%;
+          margin-left: 3%;
+          display: block;
+          z-index: 10;
+        }
+        .slicerbarv2 {
+          margin-left: 92.16%; // 1 - (0.96 * 0.04 + 0.04)
+        }
+        .slicerbarh {
+          position: absolute;
+          background-color: #f2f4f5;
+          width: 100%;
+          height: 1px;
+          display: block;
+          z-index: 10;
+          margin-top: 45px;
+        }
+        .slicerbarh2 {
+          margin-top: 395px;
+        }
+        .slicerbarh3 {
+          margin-top: 745px;
+        }
+        .slicerbarh4 {
+          margin-top: 1095px;
+        }
+        .divider {
+          display: none;
+        }
+      }
+    }
+  }
+  .dot {
+    display: block;
+  }
+}
