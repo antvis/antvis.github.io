@@ -153,7 +153,6 @@ const ProductsPage = () => {
     const sRigthColLeft = `${(smallStartLeftPercent + 0.893) * 100}%`;
     for (let i = 0; i < srows; i++) {
       let top;
-      console.log(i, srows / 2);
       if (i === Math.ceil(srows / 2)) {
         top = `${sStartTop + sCardHeight * i - sCircleRadius}px`;
         dots.push(
