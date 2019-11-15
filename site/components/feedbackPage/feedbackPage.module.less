@@ -11,7 +11,7 @@
     width: 80%;
     height: 100%;
     margin-left: 10%;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
     position: relative;
     text-align: center;
   }
@@ -36,6 +36,7 @@
     line-height: 1.428em;
   }
   .more {
+    cursor: pointer;
     border: none;
     outline: none;
     color: #fff;
@@ -44,12 +45,17 @@
     background: linear-gradient(25deg, #ff7efb, #9248fe 80%, #8a36ff);
     box-shadow: 0px 20px 30px rgba(181, 99, 243, 0.5);
     border-radius: 50px;
-    width: 164px;
+    width: 134px;
     height: 40px;
     margin-top: 5.56%; //80px;
     font-size: 1.14em;
     position: relative;
     z-index: 10;
+    transition: all 0.3s;
+    &:hover {
+      box-shadow: 0px 16px 14px rgba(125, 50, 228, 0.2);
+      background: linear-gradient(25deg, #ff3ff9, #8735ff 80%, #6b2bff);
+    }
   }
 }
 

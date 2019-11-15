@@ -108,7 +108,7 @@ const ProductsPage = () => {
     const cols = 3;
     const rows = Math.ceil(length / 2) + 1;
     const lefts = [0.0398, 0.4983, 0.959];
-    let startTop = 80;
+    let startTop = 81;
     const circleRadius = 1.5;
     let cardHeight = 185;
     for (let i = 0; i < rows; i++) {

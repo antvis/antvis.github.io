@@ -551,7 +551,7 @@ const DecisionTreePage = () => {
         linkCenter: true,
         layout: layoutCfg,
         modes: {
-          default: ['double-finger-drag-canvas', 'drag-canvas'],
+          default: ['drag-canvas'], //'double-finger-drag-canvas',
         },
         defaultNode: {
           shape: 'bubble',
@@ -1247,11 +1247,6 @@ const DecisionTreePage = () => {
     graph.render();
   };
 
-  const clickMask = () => {
-    setMaskStates({
-      display: 'none',
-    });
-  };
   const clickWrapper = () => {
     setMaskStates({
       display: 'block',
@@ -1352,12 +1347,6 @@ const DecisionTreePage = () => {
             <div
               className={classNames(styles.mountNode, 'mountNode')}
               ref={element}
-            ></div>
-            <div
-              className={styles.canvasMask}
-              onClick={clickMask}
-              ref={mask}
-              style={{ display: maskStates.display }}
             ></div>
           </div>
         </div>

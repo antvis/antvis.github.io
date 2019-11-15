@@ -95,25 +95,25 @@
   animation: block2Bar1Width 3.5s ease-in-out 1;
 }
 .block2Bar1Infinite {
-  animation: block2Bar1Width 2s ease-in-out infinite;
+  animation: block2Bar1WidthInfinite 2s ease-in-out infinite;
 }
 .block2Bar2 {
   animation: block2Bar2Width 3.5s ease-in-out 1;
 }
 .block2Bar2Infinite {
-  animation: block2Bar2Width 2s ease-in-out infinite;
+  animation: block2Bar2WidthInfinite 2s ease-in-out infinite;
 }
 .block2Bar3 {
   animation: block2Bar3Width 3.5s ease-in-out 1;
 }
 .block2Bar3Infinite {
-  animation: block2Bar3Width 2s ease-in-out infinite;
+  animation: block2Bar3WidthInfinite 2s ease-in-out infinite;
 }
 .block2Bar4 {
   animation: block2Bar4Width 3.5s ease-in-out 1;
 }
 .block2Bar4Infinite {
-  animation: block2Bar4Width 2s ease-in-out infinite;
+  animation: block2Bar4WidthInfinite 2s ease-in-out infinite;
 }
 
 @keyframes block2Bar1Width {
@@ -184,18 +184,86 @@
     width: 34px;
   }
 }
+@keyframes block2Bar1WidthInfinite {
+  0% {
+    width: 27px;
+  }
+  10% {
+    width: 27px;
+  }
+  30% {
+    width: 53px;
+  }
+  80% {
+    width: 53px;
+  }
+  100% {
+    width: 27px;
+  }
+}
+@keyframes block2Bar2WidthInfinite {
+  0% {
+    width: 44px;
+  }
+  10% {
+    width: 44px;
+  }
+  30% {
+    width: 10px;
+  }
+  80% {
+    width: 10px;
+  }
+  100% {
+    width: 44px;
+  }
+}
+@keyframes block2Bar3WidthInfinite {
+  0% {
+    width: 17px;
+  }
+  10% {
+    width: 17px;
+  }
+  30% {
+    width: 50px;
+  }
+  80% {
+    width: 50px;
+  }
+  100% {
+    width: 17px;
+  }
+}
+@keyframes block2Bar4WidthInfinite {
+  0% {
+    width: 34px;
+  }
+  10% {
+    width: 34px;
+  }
+  30% {
+    width: 5px;
+  }
+  80% {
+    width: 5px;
+  }
+  100% {
+    width: 34px;
+  }
+}
 
 .block3ArcBig {
   animation: block3ArcBigLinedash 5s ease-in-out 1;
 }
 .block3ArcBigInfinite {
-  animation: block3ArcBigLinedash 3s ease-in-out infinite;
+  animation: block3ArcBigLinedashInfinite 2s ease-in-out infinite;
 }
 .block3ArcSmall {
   animation: block3ArcSmallLinedash 5s ease-in-out 1;
 }
 .block3ArcSmallInfinite {
-  animation: block3ArcSmallLinedash 3s ease-in-out infinite;
+  animation: block3ArcSmallLinedashInfinite 2s ease-in-out infinite;
 }
 
 @keyframes block3ArcBigLinedash {
@@ -226,6 +294,41 @@
     stroke-dashoffset: 25px;
   }
   90% {
+    stroke-dashoffset: 25px;
+  }
+  100% {
+    stroke-dashoffset: 6px;
+  }
+}
+
+@keyframes block3ArcBigLinedashInfinite {
+  0% {
+    stroke-dashoffset: 36px;
+  }
+  10% {
+    stroke-dashoffset: 36px;
+  }
+  30% {
+    stroke-dashoffset: 10px;
+  }
+  80% {
+    stroke-dashoffset: 10px;
+  }
+  100% {
+    stroke-dashoffset: 36px;
+  }
+}
+@keyframes block3ArcSmallLinedashInfinite {
+  0% {
+    stroke-dashoffset: 6px;
+  }
+  10% {
+    stroke-dashoffset: 6px;
+  }
+  30% {
+    stroke-dashoffset: 25px;
+  }
+  80% {
     stroke-dashoffset: 25px;
   }
   100% {
@@ -293,10 +396,10 @@
   35% {
     stroke-dashoffset: 193.5px;
   }
-  50% {
+  60% {
     stroke-dashoffset: 0px;
   }
-  85% {
+  80% {
     stroke-dashoffset: 0px;
   }
   100% {
@@ -308,103 +411,103 @@
   animation: block6CircleAPosition 3s ease-in-out 1;
 }
 .block6CircleAInfinite {
-  animation: block6CircleAPosition 3s ease-in-out infinite;
+  animation: block6CircleAPositionInfinite 3s ease-in-out infinite;
 }
 .block6CircleB {
   animation: block6CircleBPosition 3s ease-in-out 1;
 }
 .block6CircleBInfinite {
-  animation: block6CircleBPosition 3s ease-in-out infinite;
+  animation: block6CircleBPositionInfinite 3s ease-in-out infinite;
 }
 .block6CircleC {
   animation: block6CircleCPosition 3s ease-in-out 1;
 }
 .block6CircleCInfinite {
-  animation: block6CircleCPosition 3s ease-in-out infinite;
+  animation: block6CircleCPositionInfinite 3s ease-in-out infinite;
 }
 .block6CircleD {
   animation: block6CircleDPosition 3s ease-in-out 1;
 }
 .block6CircleDInfinite {
-  animation: block6CircleDPosition 3s ease-in-out infinite;
+  animation: block6CircleDPositionInfinite 3s ease-in-out infinite;
 }
 .block6CircleE {
   animation: block6CircleEPosition 3s ease-in-out 1;
 }
 .block6CircleEInfinite {
-  animation: block6CircleEPosition 3s ease-in-out infinite;
+  animation: block6CircleEPositionInfinite 3s ease-in-out infinite;
 }
 .block6CircleF {
   animation: block6CircleFPosition 3s ease-in-out 1;
 }
 .block6CircleFInfinite {
-  animation: block6CircleFPosition 3s ease-in-out infinite;
+  animation: block6CircleFPositionInfinite 3s ease-in-out infinite;
 }
 .block6CircleG {
   animation: block6CircleGPosition 3s ease-in-out 1;
 }
 .block6CircleGInfinite {
-  animation: block6CircleGPosition 3s ease-in-out infinite;
+  animation: block6CircleGPositionInfinite 3s ease-in-out infinite;
 }
 .block6CircleH {
   animation: block6CircleHPosition 3s ease-in-out 1;
 }
 .block6CircleHInfinite {
-  animation: block6CircleHPosition 3s ease-in-out infinite;
+  animation: block6CircleHPositionInfinite 3s ease-in-out infinite;
 }
 .block6CircleI {
   animation: block6CircleIPosition 3s ease-in-out 1;
 }
 .block6CircleIInfinite {
-  animation: block6CircleIPosition 3s ease-in-out infinite;
+  animation: block6CircleIPositionInfinite 3s ease-in-out infinite;
 }
 .block6CircleJ {
   animation: block6CircleJPosition 3s ease-in-out 1;
 }
 .block6CircleJInfinite {
-  animation: block6CircleJPosition 3s ease-in-out infinite;
+  animation: block6CircleJPositionInfinite 3s ease-in-out infinite;
 }
 .block6CircleK {
   animation: block6CircleKPosition 3s ease-in-out 1;
 }
 .block6CircleKInfinite {
-  animation: block6CircleKPosition 3s ease-in-out infinite;
+  animation: block6CircleKPositionInfinite 3s ease-in-out infinite;
 }
 .block6CircleL {
   animation: block6CircleLPosition 3s ease-in-out 1;
 }
 .block6CircleLInfinite {
-  animation: block6CircleLPosition 3s ease-in-out infinite;
+  animation: block6CircleLPositionInfinite 3s ease-in-out infinite;
 }
 .block6CircleM {
   animation: block6CircleMPosition 3s ease-in-out 1;
 }
 .block6CircleMInfinite {
-  animation: block6CircleMPosition 3s ease-in-out infinite;
+  animation: block6CircleMPositionInfinite 3s ease-in-out infinite;
 }
 .block6CircleN {
   animation: block6CircleNPosition 3s ease-in-out 1;
 }
 .block6CircleNInfinite {
-  animation: block6CircleNPosition 3s ease-in-out infinite;
+  animation: block6CircleNPositionInfinite 3s ease-in-out infinite;
 }
 .block6CircleO {
   animation: block6CircleOPosition 3s ease-in-out 1;
 }
 .block6CircleOInfinite {
-  animation: block6CircleOPosition 3s ease-in-out infinite;
+  animation: block6CircleOPositionInfinite 3s ease-in-out infinite;
 }
 .block6CircleP {
   animation: block6CirclePPosition 3s ease-in-out 1;
 }
 .block6CirclePInfinite {
-  animation: block6CirclePPosition 3s ease-in-out infinite;
+  animation: block6CirclePPositionInfinite 3s ease-in-out infinite;
 }
 .block6NodesContainer {
   animation: block6ContainerRotate 3s ease-in-out 1;
 }
 .block6NodesContainerInfinite {
-  animation: block6ContainerRotate 3s ease-in-out infinite;
+  animation: block6ContainerRotateInfinite 3s ease-in-out infinite;
 }
 @keyframes block6CircleAPosition {
   0% {
@@ -758,6 +861,360 @@
     cy: 105.5px;
   }
 }
+
+@keyframes block6CircleAPositionInfinite {
+  0% {
+    cx: 45.5px;
+    cy: 45.5px;
+  }
+  10% {
+    cx: 45.5px;
+    cy: 45.5px;
+  }
+  30% {
+    cx: 36.8px;
+    cy: 49.8px;
+  }
+  80% {
+    cx: 36.8px;
+    cy: 49.8px;
+  }
+  100% {
+    cx: 45.5px;
+    cy: 45.5px;
+  }
+}
+@keyframes block6CircleBPositionInfinite {
+  0% {
+    cx: 65.5px;
+    cy: 45.5px;
+  }
+  10% {
+    cx: 65.5px;
+    cy: 45.5px;
+  }
+  30% {
+    cx: 66.8px;
+    cy: 29.8px;
+  }
+  80% {
+    cx: 66.8px;
+    cy: 29.8px;
+  }
+  100% {
+    cx: 65.5px;
+    cy: 45.5px;
+  }
+}
+@keyframes block6CircleCPositionInfinite {
+  0% {
+    cx: 85.5px;
+    cy: 45.5px;
+  }
+  10% {
+    cx: 85.5px;
+    cy: 45.5px;
+  }
+  30% {
+    cx: 84.8px;
+    cy: 29.8px;
+  }
+  80% {
+    cx: 84.8px;
+    cy: 29.8px;
+  }
+  100% {
+    cx: 85.5px;
+    cy: 45.5px;
+  }
+}
+@keyframes block6CircleDPositionInfinite {
+  0% {
+    cx: 105.5px;
+    cy: 45.5px;
+  }
+  10% {
+    cx: 105.5px;
+    cy: 45.5px;
+  }
+  30% {
+    cx: 101.8px;
+    cy: 36.8px;
+  }
+  80% {
+    cx: 101.8px;
+    cy: 36.8px;
+  }
+  100% {
+    cx: 105.5px;
+    cy: 45.5px;
+  }
+}
+@keyframes block6CircleEPositionInfinite {
+  0% {
+    cx: 45.5px;
+    cy: 65.5px;
+  }
+  10% {
+    cx: 45.5px;
+    cy: 65.5px;
+  }
+  30% {
+    cx: 29.8px;
+    cy: 66.8px;
+  }
+  80% {
+    cx: 29.8px;
+    cy: 66.8px;
+  }
+  100% {
+    cx: 45.5px;
+    cy: 65.5px;
+  }
+}
+@keyframes block6CircleFPositionInfinite {
+  0% {
+    cx: 65.5px;
+    cy: 65.5px;
+  }
+  10% {
+    cx: 65.5px;
+    cy: 65.5px;
+  }
+  30% {
+    cx: 49.8px;
+    cy: 36.8px;
+  }
+  80% {
+    cx: 49.8px;
+    cy: 36.8px;
+  }
+  100% {
+    cx: 65.5px;
+    cy: 65.5px;
+  }
+}
+@keyframes block6CircleGPositionInfinite {
+  0% {
+    cx: 85.5px;
+    cy: 65.5px;
+  }
+  10% {
+    cx: 85.5px;
+    cy: 65.5px;
+  }
+  30% {
+    cx: 114.8px;
+    cy: 49.8px;
+  }
+  80% {
+    cx: 114.8px;
+    cy: 49.8px;
+  }
+  100% {
+    cx: 85.5px;
+    cy: 65.5px;
+  }
+}
+@keyframes block6CircleHPositionInfinite {
+  0% {
+    cx: 105.5px;
+    cy: 65.5px;
+  }
+  10% {
+    cx: 105.5px;
+    cy: 65.5px;
+  }
+  30% {
+    cx: 121.8px;
+    cy: 66.8px;
+  }
+  80% {
+    cx: 121.8px;
+    cy: 66.8px;
+  }
+  100% {
+    cx: 105.5px;
+    cy: 65.5px;
+  }
+}
+@keyframes block6CircleIPositionInfinite {
+  0% {
+    cx: 45.5px;
+    cy: 85.5px;
+  }
+  10% {
+    cx: 45.5px;
+    cy: 85.5px;
+  }
+  30% {
+    cx: 29.8px;
+    cy: 84.8px;
+  }
+  80% {
+    cx: 29.8px;
+    cy: 84.8px;
+  }
+  100% {
+    cx: 45.5px;
+    cy: 85.5px;
+  }
+}
+@keyframes block6CircleJPositionInfinite {
+  0% {
+    cx: 65.5px;
+    cy: 85.5px;
+  }
+  10% {
+    cx: 65.5px;
+    cy: 85.5px;
+  }
+  30% {
+    cx: 36.8px;
+    cy: 101.8px;
+  }
+  80% {
+    cx: 36.8px;
+    cy: 101.8px;
+  }
+  100% {
+    cx: 65.5px;
+    cy: 85.5px;
+  }
+}
+@keyframes block6CircleKPositionInfinite {
+  0% {
+    cx: 85.5px;
+    cy: 85.5px;
+  }
+  10% {
+    cx: 85.5px;
+    cy: 85.5px;
+  }
+  30% {
+    cx: 101.8px;
+    cy: 114.8px;
+  }
+  80% {
+    cx: 101.8px;
+    cy: 114.8px;
+  }
+  100% {
+    cx: 85.5px;
+    cy: 85.5px;
+  }
+}
+@keyframes block6CircleLPositionInfinite {
+  0% {
+    cx: 105.5px;
+    cy: 85.5px;
+  }
+  10% {
+    cx: 105.5px;
+    cy: 85.5px;
+  }
+  30% {
+    cx: 121.8px;
+    cy: 84.8px;
+  }
+  80% {
+    cx: 121.8px;
+    cy: 84.8px;
+  }
+  100% {
+    cx: 105.5px;
+    cy: 85.5px;
+  }
+}
+@keyframes block6CircleMPositionInfinite {
+  0% {
+    cx: 45.5px;
+    cy: 105.5px;
+  }
+  10% {
+    cx: 45.5px;
+    cy: 105.5px;
+  }
+  30% {
+    cx: 49.8px;
+    cy: 115.8px;
+  }
+  80% {
+    cx: 49.8px;
+    cy: 115.8px;
+  }
+  100% {
+    cx: 45.5px;
+    cy: 105.5px;
+  }
+}
+@keyframes block6CircleNPositionInfinite {
+  0% {
+    cx: 65.5px;
+    cy: 105.5px;
+  }
+  10% {
+    cx: 65.5px;
+    cy: 105.5px;
+  }
+  30% {
+    cx: 66.8px;
+    cy: 121.8px;
+  }
+  80% {
+    cx: 66.8px;
+    cy: 121.8px;
+  }
+  100% {
+    cx: 65.5px;
+    cy: 105.5px;
+  }
+}
+@keyframes block6CircleOPositionInfinite {
+  0% {
+    cx: 85.5px;
+    cy: 105.5px;
+  }
+  10% {
+    cx: 85.5px;
+    cy: 105.5px;
+  }
+  30% {
+    cx: 84.8px;
+    cy: 121.8px;
+  }
+  80% {
+    cx: 84.8px;
+    cy: 121.8px;
+  }
+  100% {
+    cx: 85.5px;
+    cy: 105.5px;
+  }
+}
+@keyframes block6CirclePPositionInfinite {
+  0% {
+    cx: 105.5px;
+    cy: 105.5px;
+  }
+  10% {
+    cx: 105.5px;
+    cy: 105.5px;
+  }
+  30% {
+    cx: 114.8px;
+    cy: 101.8px;
+  }
+  80% {
+    cx: 114.8px;
+    cy: 101.8px;
+  }
+  100% {
+    cx: 105.5px;
+    cy: 105.5px;
+  }
+}
+
 @keyframes block6ContainerRotate {
   0% {
     transform: rotate(0deg);
@@ -772,6 +1229,28 @@
     transform-origin: 77.5px 77.5px;
   }
   92% {
+    transform: rotate(180deg);
+    transform-origin: 77.5px 77.5px;
+  }
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 77.5px 77.5px;
+  }
+}
+@keyframes block6ContainerRotateInfinite {
+  0% {
+    transform: rotate(0deg);
+    transform-origin: 77.5px 77.5px;
+  }
+  10% {
+    transform: rotate(0deg);
+    transform-origin: 77.5px 77.5px;
+  }
+  30% {
+    transform: rotate(180deg);
+    transform-origin: 77.5px 77.5px;
+  }
+  80% {
     transform: rotate(180deg);
     transform-origin: 77.5px 77.5px;
   }
