@@ -3,21 +3,17 @@ import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
 import Banner from '@antv/gatsby-theme-antv/site/components/Banner';
 import Features from '@antv/gatsby-theme-antv/site/components/Features';
 import Companies from '@antv/gatsby-theme-antv/site/components/Companies';
-// import BannerPage from '../components/bannerPage/bannerPage';
 import ProductsPage from '../components/productsPage/productsPage';
 import DecisionTreePage from '../components/decisionTreePage/decisionTreePage';
 import ResourcesPage from '../components/resourcesPage/resourcesPage';
 import DescribePage from '../components/describePage/describePage';
-// import AdvantagesPage from '../components/advantagesPage/advantagesPage';
 import QuotesPage from '../components/quotesPage/quotesPage';
-// import CompaniesPage from '../components/companiesPage/companiesPage';
 import BannerSVG from '../components/bannerSVG/bannerSVG';
 import { useTranslation } from 'react-i18next';
 import './index.less';
 
 const IndexPage = () => {
   const { t, i18n } = useTranslation();
-  // i18n.options.keySeparator = '>';
 
   const features = [
     {
@@ -89,22 +85,31 @@ const IndexPage = () => {
 
   const bannerSVG = BannerSVG();
 
+  const bannerButtons = [
+    {
+      text: t('图表示例'),
+      link: '#products',
+      type: 'primary',
+    },
+  ];
+
   return (
     <>
       <SEO title={t('蚂蚁数据可视化')} lang={i18n.language} />
       <div className="home-container" style={{ marginTop: '-24px' }}>
         <Banner
+          className="banner"
           coverImage={bannerSVG}
           title={t('让数据栩栩如生')}
           description={t(
             'AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、无限可能的数据可视化最佳实践。',
           )}
-          buttonText={t('继续了解')}
-          buttonHref={'#products'}
-          className="banner"
+          showGithubStars={false}
+          buttons={bannerButtons}
+          video="https://mdn.alipayobjects.com/afts/file/A*qmPlRYhAlBkAAAAAAAAAAABjAQAAAQ?bz=antv_site"
         />
         <ProductsPage />
-        {/* <DecisionTreePage /> */}
+        <DecisionTreePage />
         <ResourcesPage />
         <DescribePage />
         <Features title="我们的优势" features={features} />

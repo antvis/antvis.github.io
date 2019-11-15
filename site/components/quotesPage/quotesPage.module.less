@@ -7,6 +7,12 @@
   height: auto;
   background: #f8fafe;
   overflow: hidden;
+  .subWrapper {
+    width: 1440px;
+    max-width: calc(100% - 120px);
+    margin-left: auto;
+    margin-right: auto;
+  }
   .quotesWrapper {
     position: relative;
     z-index: 10;
@@ -16,8 +22,8 @@
     position: relative;
     margin-top: 10.8%;
     margin-bottom: 120px;
-    margin-left: 8.05%;
-    width: 83.89%;
+    margin-left: 4.05%;
+    width: 91.89%;
     .cardWrapper {
       height: 600px;
       transition: all 0.3s;
@@ -62,7 +68,6 @@
     .rows {
       .cardWrapper {
         height: 610px;
-        transition: all 0.3s;
       }
     }
   }
@@ -73,7 +78,6 @@
     .rows {
       .cardWrapper {
         height: 690px;
-        transition: all 0.3s;
       }
     }
   }
@@ -81,6 +85,12 @@
 
 @media (max-width: 1014px) {
   .wrapper {
+    .subWrapper {
+      width: 100%;
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
     .rows {
       box-shadow: -0px 0px 0px rgba(0, 0, 0, 0.1);
       margin-top: 150px;
@@ -89,7 +99,6 @@
       margin-bottom: 0px;
       .cardWrapper {
         height: auto;
-        transition: all 0.3s;
         margin-bottom: 135px;
         width: 100%;
         box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);

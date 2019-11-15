@@ -77,15 +77,9 @@ const QuotesPage = () => {
     });
     return children;
   };
-  // OverPack playScale={0.3} component="section"
   return (
     <div className={styles.wrapper}>
-      <QueueAnim
-        type="bottom"
-        leaveReverse
-        key="page"
-        className={styles.subWrapper}
-      >
+      <div className={styles.subWrapper}>
         <div key="quotes" className={styles.quotesWrapper}>
           <Row className={styles.rows} key="cards">
             {getCards()}
@@ -111,7 +105,7 @@ const QuotesPage = () => {
           className={styles.circleback2}
           alt="circle-background"
         />
-      </QueueAnim>
+      </div>
     </div>
   );
 };

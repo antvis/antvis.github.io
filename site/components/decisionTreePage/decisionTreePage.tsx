@@ -1,12 +1,56 @@
-import React from 'react';
-import QueueAnim from 'rc-queue-anim';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import styles from './decisionTreePage.module.less';
 import G6 from '@antv/g6';
 
+import chartTypeData from '../../data/decision-tree-chartype.json';
+import goalData from '../../data/decision-tree-goal.json';
+import dataTypeData from '../../data/decision-tree-datatype.json';
+import { Row, Col } from 'antd';
+
+let graph: any;
+let showNodes: any[] = [];
+let showEdges: any[] = [];
+let curShowNodes: any[] = [];
+let curShowEdges: any[] = [];
+let nodes: any[] = [];
+let edges: any[] = [];
+let nodeMap = new Map();
+let edgesMap = new Map();
+let curShowNodesMap = new Map();
+let highlighting = false;
+let currentFocus: any;
+
 const DecisionTreePage = () => {
   const { t } = useTranslation();
+
+  const [maskStates, setMaskStates] = useState({
+    display: 'block',
+  });
+  const [tooltipStates, setTooltipStates] = useState({
+    display: 'none',
+    title: '',
+    imgSrc: '',
+    links: [],
+    names: [],
+    x: 0,
+    y: 0,
+    buttons: <a></a>,
+  });
+
+  const [tabStates, setTabStates] = useState({
+    goalTabBackground: 'linear-gradient(0deg, #B7A1FF 37.5%, #F0F5FA 37.5%)',
+    chartTypeTabBackground: '',
+    dataTypeTabBackground: '',
+    goalTextColor: '#0D1A26',
+    chartTypeTextColor: '#697B8C',
+    dataTypeTextColor: '#697B8C',
+    goalTextWeight: 450,
+    chartTypeTextWeight: 400,
+    dataTypeTextWeight: 400,
+    current: 'goal',
+  });
 
   const Util = G6.Util;
 
@@ -14,23 +58,23 @@ const DecisionTreePage = () => {
     '#8FE9FF',
     '#87EAEF',
     '#FFC9E3',
-    '#F59D89',
-    '#8FE9FF',
+    '#A7C2FF',
     '#FFA1E3',
     '#FFE269',
     '#BFCFEE',
-    '#FF7BAF',
+    '#FFA0C5',
+    '#D5FF86',
   ];
   const darkColors = [
     '#7DA8FF',
     '#44E6C1',
     '#FF68A7',
-    '#E86351',
-    '#959BFF',
+    '#7F86FF',
     '#AE6CFF',
     '#FF5A34',
     '#5D7092',
-    '#FF3030',
+    '#FF6565',
+    '#6BFFDE',
   ];
   const uLightColors = [
     '#CFF6FF',
@@ -307,7 +351,6 @@ const DecisionTreePage = () => {
         },
       ) {
         const shape = item.get('keyShape');
-        const parentGroup = shape.get('parent');
         const label = shape.get('parent').get('children')[1];
         if (name === 'disappearing' && value) {
           shape.animate(
@@ -357,7 +400,6 @@ const DecisionTreePage = () => {
           );
         } else if (name === 'dark') {
           if (value) {
-            // shape.attr('opacity', 0.2);
             if (shape.attr('fill') !== '#fff') {
               shape.oriFill = shape.attr('fill');
               const uColor = unlightColorMap.get(shape.attr('fill'));
@@ -471,7 +513,7 @@ const DecisionTreePage = () => {
       const height = graph.get('height');
       const width = graph.get('width');
       const padding = 10;
-      nodeItems.forEach(item => {
+      nodeItems.forEach((item: any) => {
         const model = item.getModel();
         if (model.x > width - padding) model.x = width - padding;
         else if (model.x < padding) model.x = padding;
@@ -482,162 +524,196 @@ const DecisionTreePage = () => {
     },
   };
 
-  const CANVAS_WIDTH = 1320;
-  const CANVAS_HEIGHT = 696;
+  let LIMIT_OVERFLOW_WIDTH = 1418.4;
+  let LIMIT_OVERFLOW_HEIGHT = 650;
 
-  const LIMIT_OVERFLOW_WIDTH = CANVAS_WIDTH - 100;
-  const LIMIT_OVERFLOW_HEIGHT = CANVAS_HEIGHT - 100;
+  let element = React.useRef<HTMLDivElement>(null);
+  let mask = React.useRef<HTMLDivElement>(null);
 
-  console.log(G6);
-  const graph = new G6.Graph({
-    container: 'mountNode',
-    width: CANVAS_WIDTH,
-    height: CANVAS_HEIGHT,
-    linkCenter: true,
-    layout: layoutCfg,
-    modes: {
-      default: ['double-finger-drag-canvas', 'drag-canvas'],
-    },
-    defaultNode: {
-      shape: 'bubble',
-      size: 50,
-      labelCfg: {
-        position: 'center',
-        style: {
-          fill: 'white',
-          fontStyle: 'bold',
+  let CANVAS_WIDTH = 1320;
+  let CANVAS_HEIGHT = 696;
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (element && element.current) {
+        CANVAS_WIDTH = element.current.offsetWidth; // 1320;
+        CANVAS_HEIGHT = element.current.offsetHeight; // 696;
+      }
+
+      LIMIT_OVERFLOW_WIDTH = CANVAS_WIDTH - 100;
+      LIMIT_OVERFLOW_HEIGHT = CANVAS_HEIGHT - 100;
+
+      // if (!graph) {
+
+      graph = new G6.Graph({
+        container: element.current as HTMLElement,
+        width: CANVAS_WIDTH,
+        height: CANVAS_HEIGHT,
+        linkCenter: true,
+        layout: layoutCfg,
+        modes: {
+          default: ['double-finger-drag-canvas', 'drag-canvas'],
         },
-      },
-    },
-    defaultEdge: {
-      color: '#888',
-      shape: 'animate-line',
-    },
-  });
-  let highlighting = false;
-  let currentFocus: any;
-  // decision-tree-chartype.json  fake-decision-tree.json
-  // $.getJSON('./assets/data/decision-tree-chartype.json', (data:any) => {
-  fetch('../../data/decision-tree-chartype.json')
-    .then(res => res.json())
-    .then(data => {
-      const nodes = data.nodes;
-      const edges = data.edges;
-
-      const showNodes: any[] = [];
-      const nodeMap = new Map();
-      // find the roots
-      nodes.forEach((node: any) => {
-        if (node.level === 0) {
-          // node.size = node.childrenNum * 50;
-          node.color = gColors[showNodes.length % gColors.length];
-          node.style = {
-            fill: gColors[showNodes.length % gColors.length],
-            lineWidth: 0,
-          };
-          node.labelCfg = {
+        defaultNode: {
+          shape: 'bubble',
+          size: 50,
+          labelCfg: {
+            position: 'center',
             style: {
-              fontSize: 25,
-              fill: '#fff',
-              fontWeight: 300,
+              fill: 'white',
+              fontStyle: 'bold',
             },
-          };
-          node.x = Math.random() * 800;
-          node.y = Math.random() * 800;
-          showNodes.push(node);
-        }
-        if (!node.isLeaf) {
-          const num = node.childrenNum ? `\n(${node.childrenNum})` : '';
-          node.label = `${node.label}${num}`;
-        }
-        nodeMap.set(node.id, node);
+          },
+        },
+        defaultEdge: {
+          color: '#888',
+          shape: 'animate-line',
+        },
       });
-      mapNodeSize(showNodes, 'childrenNum', [180, 250]);
 
-      // map the color to F nodes, same to its parent
-      nodes.forEach((node: any) => {
-        if (node.level !== 0 && !node.isLeaf) {
-          const parent = nodeMap.get(node.tags[0]);
-          node.color = parent.color;
-          node.style = {
-            fill: parent.color,
-          };
-        }
-      });
-      const showEdges: any[] = [];
-      const edgesMap = new Map();
-      edges.forEach((edge: any) => {
-        // map the id
-        edge.id = `${edge.source}-${edge.target}`;
-        edge.style = {
-          lineWidth: 0.5,
-          opacity: 1,
-          strokeOpacity: 1,
-        };
-        edgesMap.set(edge.id, edge);
-      });
-      graph.data({
-        nodes: showNodes,
-        edges: showEdges,
-      });
-      graph.render();
+      // }
 
-      let curShowNodes: any[] = [];
-      let curShowEdges: any[] = [];
-      // click root to expand
-      graph.on('node:click', (e: { item: any }) => {
-        // const forceLayout = graph.get('layoutController').layoutMethod;
-        // forceLayout.forceSimulation.stop();
+      graph.on('node:mouseenter', (e: any) => {
         const item = e.item;
-        // handleNodeClick(e);
+        const model = item.getModel();
+        if (model.level === 0) {
+          return;
+        }
+        highlighting = true;
+        graph.setAutoPaint(false);
+        const nodeItems = graph.getNodes();
+        const edgeItems = graph.getEdges();
+        nodeItems.forEach((node: any) => {
+          graph.setItemState(node, 'dark', true);
+          node.getModel().light = false;
+        });
+        graph.setItemState(item, 'dark', false);
+        model.light = true;
+        const tags = model.tags;
+        const findTagsMap = new Map();
+        let mid = 0;
+
+        let fTag: string = '';
+        // if the model is F node, find the leaves of it
+        if (!model.isLeaf && model.level !== 0) {
+          fTag = model.tag;
+          nodeItems.forEach((item: any) => {
+            const itemModel = item.getModel();
+            if (!itemModel.isLeaf) return;
+            const modelTags = itemModel.tags;
+            modelTags.forEach((mt: string) => {
+              const mts = mt.split('-');
+              if (mts[1] === fTag) {
+                graph.setItemState(item, 'dark', false);
+                itemModel.light = true;
+              }
+            });
+          });
+        }
+
+        // find the tags
+        tags.forEach((t: string) => {
+          const ts = t.split('-');
+          findTagsMap.set(ts[0], mid);
+          mid++;
+          if (ts[1]) {
+            findTagsMap.set(ts[1], mid);
+            mid++;
+          }
+        });
+        // find the nodes with tag === tags[?]
+        nodeItems.forEach((item: any) => {
+          const node = item.getModel();
+          if (findTagsMap.get(node.tag) !== undefined) {
+            graph.setItemState(item, 'dark', false);
+            node.light = true;
+          }
+        });
+        edgeItems.forEach((item: any) => {
+          const source = item.getSource().getModel();
+          const target = item.getTarget().getModel();
+          if (source.light && target.light) {
+            graph.setItemState(item, 'dark', false);
+          } else {
+            graph.setItemState(item, 'dark', true);
+          }
+        });
+        graph.paint();
+        graph.setAutoPaint(true);
+      });
+
+      graph.on('node:mouseleave', (e: any) => {
+        if (highlighting) {
+          const nodeItems = graph.getNodes();
+          const edgeItems = graph.getEdges();
+          highlighting = false;
+          nodeItems.forEach((item: any) => {
+            graph.setItemState(item, 'dark', false);
+          });
+          edgeItems.forEach((item: any) => {
+            graph.setItemState(item, 'dark', false);
+          });
+        }
+        setTooltipStates({
+          display: 'none',
+          title: '',
+          imgSrc: '',
+          links: [],
+          names: [],
+          x: 0,
+          y: 0,
+          buttons: <div></div>,
+        });
+      });
+
+      loadData(goalData);
+
+      // click root to expand
+      graph.on('node:click', (e: any) => {
+        console.log('clicking');
+        curShowNodes = [];
+        curShowEdges = [];
+        const item = e.item;
         const model = item.getModel();
         if (!model.isLeaf && model.level !== 0) {
           return;
         }
         // if clicked a leaf, highlight the relative items
         if (model.isLeaf) {
-          highlighting = true;
-          graph.setAutoPaint(false);
-          const nodeItems = graph.getNodes();
-          const edgeItems = graph.getEdges();
-          nodeItems.forEach(function(node) {
-            graph.setItemState(node, 'dark', true);
-            node.getModel().light = false;
+          model.imgSrc =
+            'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*2CRCQodgpLkAAAAAAAAAAABkARQnAQ';
+          model.links = [
+            'https://antv.alipay.com/zh-cn/g2/3.x/index.html',
+            'https://antv.alipay.com/zh-cn/g6/3.x/index.html',
+          ];
+          model.linkNames = ['G2', 'g2plot', 'G6'];
+          const buttonWidth = `${100 / model.linkNames.length}%`;
+          const buttons = model.linkNames.map((name: string, i: number) => {
+            return (
+              <a
+                key={i}
+                href={model.links[i]}
+                className={styles.button}
+                style={{ width: buttonWidth }}
+                target="frame1"
+              >
+                {name}
+              </a>
+            );
           });
-          graph.setItemState(item, 'dark', false);
-          model.light = true;
-          const tags = model.tags;
-          const findTagsMap = new Map();
-          let mid = 0;
-          // find the tags
-          tags.forEach((t: string) => {
-            const ts = t.split('-');
-            findTagsMap.set(ts[0], mid);
-            mid++;
-            if (ts[1]) {
-              findTagsMap.set(ts[1], mid);
-              mid++;
-            }
+
+          const point = graph.getPointByClient(e.clientX, e.clientY);
+          const pos = graph.getCanvasByPoint(point.x, point.y);
+          setTooltipStates({
+            display: 'block',
+            title: t(model.name),
+            imgSrc: model.imgSrc,
+            links: model.links,
+            names: model.linkNames,
+            x: pos.x,
+            y: pos.y,
+            buttons,
           });
-          // find the nodes with tag === tags[?]
-          nodeItems.forEach(item => {
-            const node = item.getModel();
-            if (findTagsMap.get(node.tag) !== undefined) {
-              graph.setItemState(item, 'dark', false);
-              node.light = true;
-            }
-          });
-          edgeItems.forEach(item => {
-            const source = item.getSource().getModel();
-            const target = item.getTarget().getModel();
-            if (source.light && target.light) {
-              graph.setItemState(item, 'dark', false);
-            } else {
-              graph.setItemState(item, 'dark', true);
-            }
-          });
-          graph.paint();
-          graph.setAutoPaint(true);
         }
         // if clicked a root, hide unrelated items and show the related items
         else if (model.level === 0) {
@@ -648,15 +724,25 @@ const DecisionTreePage = () => {
           showNodes.forEach(snode => {
             const item = graph.findById(snode.id);
             graph.setItemState(item, 'dark', false);
+            if (snode.x < 0.5 * CANVAS_WIDTH) {
+              snode.x = 300;
+            } else {
+              snode.x = CANVAS_WIDTH - 300;
+            }
           });
+          model.x = CANVAS_WIDTH / 2;
+          model.y = CANVAS_HEIGHT / 2;
           // animatively hide the items which are going to disappear
-          curShowEdges.forEach(csedge => {
-            const item = graph.findById(csedge.id);
-            graph.setItemState(item, 'disappearing', true);
-          });
+          if (curShowEdges.length) {
+            curShowEdges.forEach(csedge => {
+              const item = graph.findById(csedge.id);
+              item && graph.setItemState(item, 'disappearing', true);
+            });
+          }
           curShowNodes.forEach(csnode => {
             const item = graph.findById(csnode.id);
-            graph.setItemState(item, 'disappearing', true);
+            // console.log('setstate333 ', item);
+            item && graph.setItemState(item, 'disappearing', true);
           });
           graph.positionsAnimate();
 
@@ -681,7 +767,7 @@ const DecisionTreePage = () => {
             layoutController.layoutCfg.collideStrength = 0.2;
             layoutController.layoutCfg.linkDistance = (d: any) => {
               if (d.source.level !== 0) return 120;
-              const length = 300;
+              const length = 250;
               return length;
             };
             layoutController.layoutCfg.edgeStrength = () => {
@@ -690,7 +776,7 @@ const DecisionTreePage = () => {
 
             const tag = model.tag;
             const findTags: string[] = [];
-            const curShowNodesMap = new Map();
+            curShowNodesMap = new Map();
             // find the nodes which are the descendants of clicked model
             nodes.forEach((node: any) => {
               if (!node.tags) return;
@@ -707,8 +793,11 @@ const DecisionTreePage = () => {
               }
               if (isChild) {
                 const randomAngle = Math.random() * 2 * Math.PI;
-                node.x = model.x + (Math.cos(randomAngle) * model.size) / 2;
-                node.y = model.y + (Math.sin(randomAngle) * model.size) / 2;
+                node.x =
+                  model.x + (Math.cos(randomAngle) * model.size) / 2 + 10;
+                node.y =
+                  model.y + (Math.sin(randomAngle) * model.size) / 2 + 10;
+                // const dist = (model.x - node.x) * (model.x - node.x) + (model.y - node.y) * (model.y - node.y);
 
                 if (!node.style) node.style = {};
                 node.style.lineWidth = 0;
@@ -718,6 +807,7 @@ const DecisionTreePage = () => {
                   let color = 'l(0)';
                   const parentsNum = parents.length;
                   parents.forEach((parent, i) => {
+                    // console.log(parent);
                     const parentColor = parent.color.split(' ')[1].substr(2);
                     color += ` ${i / (parentsNum - 1)}:${parentColor}`;
                   });
@@ -791,7 +881,6 @@ const DecisionTreePage = () => {
             // find the edges whose target end source are in the curShowNodes
             curShowNodes.forEach((nu, i) => {
               const lu = nu.level;
-              const length = curShowNodes.length;
               curShowNodes.forEach((nv, j) => {
                 if (j <= i) return;
                 const lv = nv.level;
@@ -803,38 +892,15 @@ const DecisionTreePage = () => {
                 }
                 let color = model.color;
                 if (nu.isLeaf) {
-                  if (nv.level === 0 && nv.tag !== model.tag) color = '#eee';
+                  if (nv.level === 0 && nv.tag !== model.tag) color = '#DFE5EB';
                   else if (!nv.isLeaf && nv.tags[0] !== model.tag)
-                    color = '#eee';
-                  color === '#eee' &&
-                    console.log(
-                      color,
-                      'nu ',
-                      nu.label,
-                      ' is leaf',
-                      nv.label,
-                      nv.isLeaf,
-                      nv.level,
-                      nv.tag,
-                      nv.tags,
-                    );
+                    color = '#DFE5EB';
                 } else if (nv.isLeaf) {
-                  if (nu.level === 0 && nu.tag !== model.tag) color = '#eee';
+                  if (nu.level === 0 && nu.tag !== model.tag) color = '#DFE5EB';
                   else if (!nu.isLeaf && nu.tags[0] !== model.tag)
-                    color = '#eee';
-                  color === '#eee' &&
-                    console.log(
-                      color,
-                      'nv ',
-                      nv.label,
-                      ' is leaf',
-                      nu.label,
-                      nu.isLeaf,
-                      nu.level,
-                      nu.tag,
-                      nu.tags,
-                    );
+                    color = '#DFE5EB';
                 }
+                console.log('bbb', edgeId);
                 const edge = edgesMap.get(edgeId);
                 if (edge) {
                   edge.color = color;
@@ -843,18 +909,24 @@ const DecisionTreePage = () => {
               });
             });
           }
+          // debugger
+          console.log('aaaa', curShowEdges.length, curShowEdges);
 
           setTimeout(() => {
+            console.log('bbbb', curShowEdges.length, curShowEdges);
             graph.changeData({
               nodes: showNodes.concat(curShowNodes),
               edges: showEdges.concat(curShowEdges),
             });
             const nodeItems = graph.getNodes();
             const edgeItems = graph.getEdges();
-            edgeItems.forEach(item => {
+            // console.log('after change data');
+            edgeItems.forEach((item: any) => {
+              // console.log('edgeitem', item);
               graph.clearItemStates(item);
             });
-            nodeItems.forEach(item => {
+            nodeItems.forEach((item: any) => {
+              // console.log('nodeitem', item);
               graph.clearItemStates(item);
               graph.setItemState(item, 'appearing', true);
             });
@@ -862,20 +934,21 @@ const DecisionTreePage = () => {
         }
       });
       graph.on('canvas:click', () => {
+        currentFocus = undefined;
         const forceLayout = graph.get('layoutController').layoutMethod;
         forceLayout.forceSimulation.stop();
         const nodeItems = graph.getNodes();
         const edgeItems = graph.getEdges();
         if (highlighting) {
           highlighting = false;
-          nodeItems.forEach(item => {
+          nodeItems.forEach((item: any) => {
             graph.setItemState(item, 'dark', false);
           });
-          edgeItems.forEach(item => {
+          edgeItems.forEach((item: any) => {
             graph.setItemState(item, 'dark', false);
           });
         } else {
-          nodeItems.forEach(item => {
+          nodeItems.forEach((item: any) => {
             const model = item.getModel();
             if (model.level === 0) {
               graph.setItemState(item, 'dark', false);
@@ -883,7 +956,7 @@ const DecisionTreePage = () => {
               graph.setItemState(item, 'disappearing', true);
             }
           });
-          edgeItems.forEach(item => {
+          edgeItems.forEach((item: any) => {
             graph.setItemState(item, 'disappearing', true);
           });
           curShowNodes = [];
@@ -901,38 +974,25 @@ const DecisionTreePage = () => {
           }, 400);
         }
       });
-      graph.on('node:mouseenter', (e: { item: any }) => {
-        const item = e.item;
-        const model = item.getModel();
-        if (model.level === 0) {
-          graph.setItemState(item, 'hover', true);
-        }
-      });
-      graph.on('node:mouseout', (e: { item: any }) => {
-        const item = e.item;
-        const model = item.getModel();
-        if (model.level === 0) {
-          graph.setItemState(item, 'hover', false);
-        }
-      });
-    });
 
-  function refreshDragedNodePosition(e: { item: any; x: any; y: any }) {
-    const model = e.item.get('model');
-    model.fx = e.x;
-    model.fy = e.y;
-  }
-  graph.on('node:dragstart', (e: { item: any; x: any; y: any }) => {
-    graph.layout();
-    refreshDragedNodePosition(e);
-  });
-  graph.on('node:drag', (e: { item: any; x: any; y: any }) => {
-    refreshDragedNodePosition(e);
-  });
-  graph.on('node:dragend', (e: { item: any }) => {
-    e.item.get('model').fx = null;
-    e.item.get('model').fy = null;
-  });
+      function refreshDragedNodePosition(e: { item: any; x: any; y: any }) {
+        const model = e.item.get('model');
+        model.fx = e.x;
+        model.fy = e.y;
+      }
+      graph.on('node:dragstart', (e: { item: any; x: any; y: any }) => {
+        graph.layout();
+        refreshDragedNodePosition(e);
+      });
+      graph.on('node:drag', (e: { item: any; x: any; y: any }) => {
+        refreshDragedNodePosition(e);
+      });
+      graph.on('node:dragend', (e: { item: any }) => {
+        e.item.get('model').fx = null;
+        e.item.get('model').fy = null;
+      });
+    }, 2000);
+  }, []);
 
   const mapNodeSize = (
     nodes: any[],
@@ -990,13 +1050,331 @@ const DecisionTreePage = () => {
     graph.translate(-moveX, -moveY);
   }
 
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.rightbottom} />
-      <div className={styles.content}>
-        <div key="block" className={styles.lefttop}>
-          <div className="mountNode"></div>
+  const clickChartType = () => {
+    setTabStates({
+      goalTabBackground: '',
+      chartTypeTabBackground: 'linear-gradient(0deg, #B7A1FF 40%, #F0F5FA 40%)',
+      dataTypeTabBackground: '',
+      goalTextColor: '#697B8C',
+      chartTypeTextColor: '#0D1A26',
+      dataTypeTextColor: '#697B8C',
+      goalTextWeight: 400,
+      chartTypeTextWeight: 450,
+      dataTypeTextWeight: 400,
+      current: 'chartType',
+    });
+    graph && loadData(chartTypeData);
+  };
+  const clickDataType = () => {
+    setTabStates({
+      goalTabBackground: '',
+      chartTypeTabBackground: '',
+      dataTypeTabBackground: 'linear-gradient(0deg, #B7A1FF 40%, #F0F5FA 40%)',
+      goalTextColor: '#697B8C',
+      chartTypeTextColor: '#697B8C',
+      dataTypeTextColor: '#0D1A26',
+      goalTextWeight: 400,
+      chartTypeTextWeight: 400,
+      dataTypeTextWeight: 450,
+      current: 'dataType',
+    });
+    graph && loadData(dataTypeData);
+  };
+  const clickGoal = () => {
+    setTabStates({
+      goalTabBackground: 'linear-gradient(0deg, #B7A1FF 40%, #F0F5FA 40%)',
+      chartTypeTabBackground: '',
+      dataTypeTabBackground: '',
+      goalTextColor: '#0D1A26',
+      chartTypeTextColor: '#697B8C',
+      dataTypeTextColor: '#697B8C',
+      goalTextWeight: 450,
+      chartTypeTextWeight: 400,
+      dataTypeTextWeight: 400,
+      current: 'goal',
+    });
+    graph && loadData(goalData);
+  };
+
+  const hoverGoal = () => {
+    setTabStates({
+      goalTabBackground: tabStates.goalTabBackground,
+      chartTypeTabBackground: tabStates.chartTypeTabBackground,
+      dataTypeTabBackground: tabStates.dataTypeTabBackground,
+      goalTextColor: '#0D1A26',
+      chartTypeTextColor: tabStates.chartTypeTextColor,
+      dataTypeTextColor: tabStates.dataTypeTextColor,
+      goalTextWeight: tabStates.goalTextWeight,
+      chartTypeTextWeight: tabStates.chartTypeTextWeight,
+      dataTypeTextWeight: tabStates.dataTypeTextWeight,
+      current: tabStates.current,
+    });
+  };
+
+  const hoverChartType = () => {
+    setTabStates({
+      goalTabBackground: tabStates.goalTabBackground,
+      chartTypeTabBackground: tabStates.chartTypeTabBackground,
+      dataTypeTabBackground: tabStates.dataTypeTabBackground,
+      goalTextColor: tabStates.goalTextColor,
+      chartTypeTextColor: '#0D1A26',
+      dataTypeTextColor: tabStates.dataTypeTextColor,
+      goalTextWeight: tabStates.goalTextWeight,
+      chartTypeTextWeight: tabStates.chartTypeTextWeight,
+      dataTypeTextWeight: tabStates.dataTypeTextWeight,
+      current: tabStates.current,
+    });
+  };
+  const hoverDataType = () => {
+    setTabStates({
+      goalTabBackground: tabStates.goalTabBackground,
+      chartTypeTabBackground: tabStates.chartTypeTabBackground,
+      dataTypeTabBackground: tabStates.dataTypeTabBackground,
+      goalTextColor: tabStates.goalTextColor,
+      chartTypeTextColor: tabStates.chartTypeTextColor,
+      dataTypeTextColor: '#0D1A26',
+      goalTextWeight: tabStates.goalTextWeight,
+      chartTypeTextWeight: tabStates.chartTypeTextWeight,
+      dataTypeTextWeight: tabStates.dataTypeTextWeight,
+      current: tabStates.current,
+    });
+  };
+
+  const outGoal = () => {
+    setTabStates({
+      goalTabBackground: tabStates.goalTabBackground,
+      chartTypeTabBackground: tabStates.chartTypeTabBackground,
+      dataTypeTabBackground: tabStates.dataTypeTabBackground,
+      goalTextColor:
+        tabStates.current === 'goal' ? tabStates.goalTextColor : '#697B8C',
+      chartTypeTextColor: tabStates.chartTypeTextColor,
+      dataTypeTextColor: tabStates.dataTypeTextColor,
+      goalTextWeight: tabStates.goalTextWeight,
+      chartTypeTextWeight: tabStates.chartTypeTextWeight,
+      dataTypeTextWeight: tabStates.dataTypeTextWeight,
+      current: tabStates.current,
+    });
+  };
+
+  const outChartType = () => {
+    setTabStates({
+      goalTabBackground: tabStates.goalTabBackground,
+      chartTypeTabBackground: tabStates.chartTypeTabBackground,
+      dataTypeTabBackground: tabStates.dataTypeTabBackground,
+      goalTextColor: tabStates.goalTextColor,
+      chartTypeTextColor:
+        tabStates.current === 'chartType'
+          ? tabStates.chartTypeTextColor
+          : '#697B8C',
+      dataTypeTextColor: tabStates.dataTypeTextColor,
+      goalTextWeight: tabStates.goalTextWeight,
+      chartTypeTextWeight: tabStates.chartTypeTextWeight,
+      dataTypeTextWeight: tabStates.dataTypeTextWeight,
+      current: tabStates.current,
+    });
+  };
+  const outDataType = () => {
+    setTabStates({
+      goalTabBackground: tabStates.goalTabBackground,
+      chartTypeTabBackground: tabStates.chartTypeTabBackground,
+      dataTypeTabBackground: tabStates.dataTypeTabBackground,
+      goalTextColor: tabStates.goalTextColor,
+      chartTypeTextColor: tabStates.chartTypeTextColor,
+      dataTypeTextColor:
+        tabStates.current === 'dataType'
+          ? tabStates.dataTypeTextColor
+          : '#697B8C',
+      goalTextWeight: tabStates.goalTextWeight,
+      chartTypeTextWeight: tabStates.chartTypeTextWeight,
+      dataTypeTextWeight: tabStates.dataTypeTextWeight,
+      current: tabStates.current,
+    });
+  };
+
+  const loadData = (data: any) => {
+    const layoutController = graph.get('layoutController');
+    layoutController.layoutCfg.nodeStrength = 2500;
+    layoutController.layoutCfg.collideStrength = 0.8;
+    layoutController.layoutCfg.alphaDecay = 0.01;
+    nodes = data.nodes;
+    edges = data.edges;
+
+    showNodes = [];
+    showEdges = [];
+    nodeMap = new Map();
+    edgesMap = new Map();
+    // find the roots
+    nodes.forEach((node: any) => {
+      if (node.level === 0) {
+        node.color = gColors[showNodes.length % gColors.length];
+        node.style = {
+          fill: gColors[showNodes.length % gColors.length],
+          lineWidth: 0,
+        };
+        node.labelCfg = {
+          style: {
+            fontSize: 25,
+            fill: '#fff',
+            fontWeight: 300,
+          },
+        };
+        node.x = Math.random() * 800;
+        node.y = Math.random() * 800;
+        showNodes.push(node);
+      }
+      if (!node.isLeaf) {
+        const num = node.childrenNum ? `\n(${node.childrenNum})` : '';
+        node.label = `${t(node.name)}${num}`;
+      } else {
+        node.label = t(node.name);
+      }
+      nodeMap.set(node.id, node);
+    });
+    mapNodeSize(showNodes, 'childrenNum', [160, 230]);
+
+    // map the color to F nodes, same to its parent
+    nodes.forEach((node: any) => {
+      if (node.level !== 0 && !node.isLeaf) {
+        const parent = nodeMap.get(node.tags[0]);
+        node.color = parent.color;
+        node.style = {
+          fill: parent.color,
+        };
+      }
+    });
+    edges.forEach((edge: any) => {
+      // map the id
+      edge.id = `${edge.source}-${edge.target}`;
+      edge.style = {
+        lineWidth: 0.5,
+        opacity: 1,
+        strokeOpacity: 1,
+      };
+      edgesMap.set(edge.id, edge);
+    });
+    graph.data({
+      nodes: showNodes,
+      edges: showEdges,
+    });
+    graph.render();
+  };
+
+  const clickMask = () => {
+    setMaskStates({
+      display: 'none',
+    });
+  };
+  const clickWrapper = () => {
+    setMaskStates({
+      display: 'block',
+    });
+  };
+
+  const tooltip = (
+    <div
+      className={styles.tooltip}
+      style={{
+        display: tooltipStates.display,
+        left: tooltipStates.x,
+        top: tooltipStates.y,
+      }}
+    >
+      <div className={styles.tooltipTitle}>
+        {tooltipStates.title.replace('\n', '')}
+      </div>
+      <div className={styles.tooltipContent}>
+        <img
+          className={styles.tooltipImg}
+          src={tooltipStates.imgSrc}
+          alt="tooltip"
+        />
+        <div className={styles.tooltipBtnsContainer}>
+          {tooltipStates.buttons}
         </div>
+      </div>
+    </div>
+  );
+
+  // onWheel={handleScroll}
+  return (
+    <div className={classNames(styles.wrapper, 'decisionTreePage')}>
+      <div className={styles.topContaner}>
+        <a className={styles.title} href="#decisionTree">
+          {t('图表分类')}
+        </a>
+        <div className={styles.tabsContaner}>
+          <a id="decisionTree" />
+          <div
+            className={(styles.goalTab, styles.tab)}
+            style={{ background: tabStates.goalTabBackground }}
+          >
+            <a
+              style={{
+                color: tabStates.goalTextColor,
+                fontWeight: tabStates.goalTextWeight,
+              }}
+              href="#decisionTree"
+              onClick={clickGoal}
+              onMouseOver={hoverGoal}
+              onMouseOut={outGoal}
+            >
+              {t('按使用目的维度')}
+            </a>
+          </div>
+          <div
+            className={classNames(styles.chartTypeTab, styles.tab)}
+            style={{ background: tabStates.chartTypeTabBackground }}
+          >
+            <a
+              style={{
+                color: tabStates.chartTypeTextColor,
+                fontWeight: tabStates.chartTypeTextWeight,
+              }}
+              href="#decisionTree"
+              onClick={clickChartType}
+              onMouseOver={hoverChartType}
+              onMouseOut={outChartType}
+            >
+              {t('按图表类型维度')}
+            </a>
+          </div>
+          <div
+            className={classNames(styles.dataTypeTab, styles.tab)}
+            style={{ background: tabStates.dataTypeTabBackground }}
+          >
+            <a
+              style={{
+                color: tabStates.dataTypeTextColor,
+                fontWeight: tabStates.dataTypeTextWeight,
+              }}
+              href="#decisionTree"
+              onClick={clickDataType}
+              onMouseOver={hoverDataType}
+              onMouseOut={outDataType}
+            >
+              {t('按数据类型维度')}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className={styles.contentWrapper}>
+        <div className={styles.rightbottom} onClick={clickWrapper} />
+        {/* <a href="#decisionTree" /> */}
+        <div className={styles.content}>
+          <div key="block" className={styles.lefttop}>
+            <div
+              className={classNames(styles.mountNode, 'mountNode')}
+              ref={element}
+            ></div>
+            <div
+              className={styles.canvasMask}
+              onClick={clickMask}
+              ref={mask}
+              style={{ display: maskStates.display }}
+            ></div>
+          </div>
+        </div>
+        {tooltip}
       </div>
     </div>
   );

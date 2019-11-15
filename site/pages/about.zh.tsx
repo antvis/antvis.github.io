@@ -6,7 +6,6 @@ import JoinUsPage from '../components/joinUsPage/joinUsPage';
 import FeedbackPage from '../components/feedbackPage/feedbackPage';
 import ContributorsPage from '../components/contributorsPage/contributorsPage';
 import contributors from '../data/contributors';
-// import historyContributors from '../data/historyContributors';
 import { useTranslation } from 'react-i18next';
 
 const AboutUsPage = () => {

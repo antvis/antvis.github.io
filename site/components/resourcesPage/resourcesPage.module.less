@@ -11,9 +11,12 @@
   .content {
     width: 91.95%;
     height: 100%;
-    padding-left: 8.05%;
     padding-bottom: 9.375%;
     position: relative;
+    width: 1440px;
+    max-width: calc(100% - 120px);
+    margin-left: auto;
+    margin-right: auto;
     .title {
       font-size: 2.714em;
       font-weight: 500;
@@ -22,18 +25,22 @@
       height: min-content;
       color: #000;
       z-index: 10;
+      margin-left: 4.06%;
     }
     .slicer {
       width: 32px;
       height: 6px;
       margin-top: 36px;
       background-color: #597ef7;
+      margin-left: 4.06%;
     }
     .rowsWrapper {
       position: relative;
       margin-top: 57px;
       height: 400px;
       z-index: 10;
+      margin-left: 4.06%;
+      width: 91.88%;
       .rows {
         position: absolute;
         width: 100%;
@@ -64,6 +71,9 @@
       padding-left: 4.27%;
       padding-bottom: 23.47%;
       width: 95.73%;
+      max-width: 95.73%;
+      margin-left: 0;
+      margin-right: 0;
       .title {
         font-size: 2.143rem;
         margin: 80px 0 44px 0;
@@ -72,6 +82,8 @@
         display: none;
       }
       .rowsWrapper {
+        margin-left: 0;
+        width: 100%;
         .rows {
           position: relative;
           .cardWrapper {

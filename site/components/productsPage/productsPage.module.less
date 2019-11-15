@@ -23,12 +23,65 @@
       height: 100%;
     }
   }
+  .rightbottom {
+    position: absolute;
+    height: 900px;
+    background: #fff;
+    box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 95.94%;
+    left: 4.06%;
+    top: 154px;
+  }
+  .slicerbarh {
+    width: 104.06%;
+    height: 1px;
+    position: absolute;
+    width: 95.94%;
+    left: 4.06%;
+    z-index: 2;
+    background-color: #f2f4f5;
+  }
+  .slicerbarh1 {
+    margin-top: 234px;
+  }
+  .slicerbarh2 {
+    margin-top: 419px;
+  }
+  .slicerbarh3 {
+    margin-top: 604px;
+  }
+  .slicerbarh4 {
+    margin-top: 789px;
+  }
+  .slicerbarh5 {
+    margin-top: 974px;
+    width: 108%;
+    left: -8%;
+  }
+  .slicerbarh6 {
+    margin-top: 1780px;
+    display: none;
+  }
+  .slicerbarh7 {
+    margin-top: 2150px;
+    display: none;
+  }
+  .slicerbarh8 {
+    margin-top: 2520px;
+    display: none;
+  }
+  .slicerbarh9 {
+    margin-top: 2890px;
+    display: none;
+  }
   .content {
-    margin-left: 4.2%;
-    width: 95.8%;
     height: 100%;
     margin-bottom: 5%;
     position: relative;
+    width: 1440px;
+    max-width: calc(100% - 120px);
+    margin-left: auto;
+    margin-right: auto;
     .title {
       padding-left: 4.06%;
       position: relative;
@@ -37,12 +90,10 @@
       margin: 48px 0 48px 0;
       color: #fff;
     }
-    .rightbottom {
-      background: #fff;
+    .productsContainer {
       width: 100%;
       height: inherit;
       position: relative;
-      box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.1);
       padding-bottom: 80px;
       .subTitleContainer {
         display: block;
@@ -68,48 +119,11 @@
         }
       }
       .extensionSubTitle {
-        margin-left: 43.86%;
+        margin-left: 45.86%;
       }
       .slicerbar {
         position: absolute;
         background-color: #f2f4f5;
-      }
-      .slicerbarh {
-        width: 100%;
-        height: 1px;
-      }
-      .slicerbarh1 {
-        margin-top: 80px;
-      }
-      .slicerbarh2 {
-        margin-top: 265px;
-      }
-      .slicerbarh3 {
-        margin-top: 450px;
-      }
-      .slicerbarh4 {
-        margin-top: 635px;
-      }
-      .slicerbarh5 {
-        margin-top: 820px;
-        width: 108%;
-        left: -8%;
-      }
-      .slicerbarh6 {
-        margin-top: 1780px;
-        display: none;
-      }
-      .slicerbarh7 {
-        margin-top: 2150px;
-        display: none;
-      }
-      .slicerbarh8 {
-        margin-top: 2520px;
-        display: none;
-      }
-      .slicerbarh9 {
-        margin-top: 2890px;
-        display: none;
       }
       .slicerbarv {
         width: 1px;
@@ -117,15 +131,15 @@
         margin-left: 4.06%;
       }
       .slicerbarv2 {
-        margin-left: 47.9%;
+        margin-left: 49.9%;
         height: 100%;
       }
       .slicerbarv3 {
-        margin-left: 91.8%;
+        margin-left: 96%;
       }
       .products {
         margin-left: 4.06%;
-        width: 87.8%;
+        width: 91.88%;
         padding-top: 80px;
         display: flex;
         .extensionsWrapper {
@@ -167,14 +181,14 @@
           width: 91.84%;
           display: flex;
           position: absolute;
-          bottom: 0;
+          bottom: 5px;
           .plinks {
             width: -webkit-fill-available;
             margin-bottom: 0;
             font-size: 1.14em;
             margin-top: 8%;
             .plink {
-              color: rgba(89, 126, 247, 1);
+              color: #597ef7;
             }
             .apilink {
               margin-left: 10%;
@@ -197,6 +211,7 @@
   height: 3px;
   border-radius: 50%;
   background: #d8d8d8;
+  z-index: 3;
 }
 .mediumDot {
   display: none;
@@ -207,24 +222,27 @@
 
 @media (max-width: 950px) {
   .wrapper {
+    .rightbottom {
+      height: 1120px;
+    }
+    .slicerbarh2 {
+      transition: all 0.1s;
+      margin-top: 473px;
+    }
+    .slicerbarh3 {
+      transition: all 0.1s;
+      margin-top: 713px;
+    }
+    .slicerbarh4 {
+      transition: all 0.1s;
+      margin-top: 953px;
+    }
+    .slicerbarh5 {
+      transition: all 0.1s;
+      margin-top: 1193px;
+    }
     .content {
-      .rightbottom {
-        .slicerbarh2 {
-          transition: all 0.1s;
-          margin-top: 320px;
-        }
-        .slicerbarh3 {
-          transition: all 0.1s;
-          margin-top: 560px;
-        }
-        .slicerbarh4 {
-          transition: all 0.1s;
-          margin-top: 800px;
-        }
-        .slicerbarh5 {
-          transition: all 0.1s;
-          margin-top: 1040px;
-        }
+      .productsContainer {
         .products {
           .col {
             transition: all 0.1s;
@@ -255,16 +273,59 @@
         width: 100%;
       }
     }
+    .rightbottom {
+      top: 190px;
+      height: 1682px;
+    }
+    .slicerbarh {
+      margin-top: 270px;
+      height: 1px;
+      z-index: 2;
+    }
+    .slicerbarh2 {
+      margin-top: 480px;
+    }
+    .slicerbarh3 {
+      margin-top: 690px;
+    }
+    .slicerbarh4 {
+      margin-top: 900px;
+    }
+    .slicerbarh5 {
+      width: 100%;
+      left: 0;
+      margin-top: 1110px;
+      width: 100%;
+      left: 4%;
+    }
+    .slicerbarh6 {
+      margin-top: 1190px;
+      display: block;
+    }
+    .slicerbarh7 {
+      margin-top: 1400px;
+      display: block;
+    }
+    .slicerbarh8 {
+      margin-top: 1610px;
+      display: block;
+    }
+    .slicerbarh9 {
+      margin-top: 1820px;
+      display: block;
+    }
     .content {
       margin-left: 4.27%;
       width: 95.73%;
       margin-bottom: 85px;
+      max-width: 95.73%;
+      margin-right: 0;
       .title {
         font-size: 2.14rem;
         margin: 80px 0 60px 0;
         padding-left: 0;
       }
-      .rightbottom {
+      .productsContainer {
         padding-bottom: 50px;
         .subTitleContainer {
           position: absolute;
@@ -300,41 +361,7 @@
           display: none;
         }
         .slicerbarv3 {
-          margin-left: 93%;
-        }
-        .slicerbarh {
-          margin-top: 80px;
-          height: 1px;
-        }
-        .slicerbarh2 {
-          margin-top: 290px;
-        }
-        .slicerbarh3 {
-          margin-top: 500px;
-        }
-        .slicerbarh4 {
-          margin-top: 710px;
-        }
-        .slicerbarh5 {
-          width: 100%;
-          left: 0;
-          margin-top: 920px;
-        }
-        .slicerbarh6 {
-          margin-top: 1000px;
-          display: block;
-        }
-        .slicerbarh7 {
-          margin-top: 1210px;
-          display: block;
-        }
-        .slicerbarh8 {
-          margin-top: 1420px;
-          display: block;
-        }
-        .slicerbarh9 {
-          margin-top: 1630px;
-          display: block;
+          margin-left: 92.2%;
         }
         .products {
           width: 88.86%; // 0.04 * 0.96 + 0.03 * 2

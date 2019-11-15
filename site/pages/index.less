@@ -28,6 +28,30 @@ body {
     position: relative;
   }
 }
+:global {
+  .Banner-module--primary--165sv {
+    background: linear-gradient(
+      60deg,
+      #ff7efb,
+      #9248fe 80%,
+      #8a36ff
+    ) !important;
+    box-shadow: 0px 10px 10px rgba(125, 50, 228, 0.2) !important;
+
+    &:hover {
+      box-shadow: 0px 16px 14px rgba(125, 50, 228, 0.2) !important;
+      background: linear-gradient(
+        25deg,
+        #ff9bfc,
+        #a86dff 80%,
+        #a869ff
+      ) !important;
+    }
+  }
+  .Banner-module--teaser--3j9oT {
+    z-index: 2 !important;
+  }
+}
 
 @media (max-width: 768px) {
   .subpage-container {
@@ -43,5 +67,8 @@ body {
       width: 25px;
       height: 6px;
     }
+  }
+  .decisionTreePage {
+    display: none !important;
   }
 }

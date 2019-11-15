@@ -142,14 +142,15 @@ const ProductsPage = () => {
     const length = basicProducts.length + extendedProducts.length;
     const cols = 3;
     const rows = Math.ceil(length / 2) + 1;
-    const startLeftPercent = 0.04;
-    let startTop = 80;
+    const startLeftPercent = 0.0398;
+    const lefts = [0.0398, 0.4983, 0.959];
+    let startTop = 81;
     const circleRadius = 1.5;
     let cardHeight = 185;
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < cols; j++) {
         const top = `${startTop + cardHeight * i - circleRadius}px`;
-        const left = `${(startLeftPercent + 0.4385 * j) * 100}%`;
+        const left = `${lefts[j] * 100}%`;
         dots.push(
           <div
             key={`dot-${i}-${j}`}
@@ -161,16 +162,18 @@ const ProductsPage = () => {
     }
 
     // for medium screen
-    cardHeight = 240;
+    cardHeight = 239.5;
+    const mlefts = [0.0398, 0.4978, 0.958];
+    const mtops = [79, 318, 558, 798, 1038];
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < cols; j++) {
-        const top = `${startTop + cardHeight * i - circleRadius}px`;
-        const left = `${(startLeftPercent + 0.4385 * j) * 100}%`;
+        const top = `${mtops[i]}px`;
+        const left = `${mlefts[j] * 100}%`;
         dots.push(
           <div
             key={`dot-${i}-${j}-medium`}
             className={classNames(styles.dot, styles.mediumDot)}
-            style={{ marginLeft: left, marginTop: top }}
+            style={{ left: left, top: top }}
           />,
         );
       }
@@ -183,7 +186,7 @@ const ProductsPage = () => {
     const sCardHeight = 210;
     const sCircleRadius = 1.5;
     const sLeftColLeft = `${smallStartLeftPercent * 100}%`;
-    const sRigthColLeft = `${(smallStartLeftPercent + 0.9) * 100}%`;
+    const sRigthColLeft = `${(smallStartLeftPercent + 0.893) * 100}%`;
     for (let i = 0; i < srows; i++) {
       let top;
       if (i === srows / 2) {
@@ -230,75 +233,77 @@ const ProductsPage = () => {
 
   return (
     <div className={styles.wrapper}>
+      <a id="products"></a>
       <div className={styles.lefttop}>
         <div className={styles.ltblock1} />
       </div>
+      <div className={styles.rightbottom}></div>
+      <div
+        className={classNames(
+          styles.slicerbar,
+          styles.slicerbarh,
+          styles.slicerbarh1,
+        )}
+      />
+      <div
+        className={classNames(
+          styles.slicerbar,
+          styles.slicerbarh,
+          styles.slicerbarh2,
+        )}
+      />
+      <div
+        className={classNames(
+          styles.slicerbar,
+          styles.slicerbarh,
+          styles.slicerbarh3,
+        )}
+      />
+      <div
+        className={classNames(
+          styles.slicerbar,
+          styles.slicerbarh,
+          styles.slicerbarh4,
+        )}
+      />
+      <div
+        className={classNames(
+          styles.slicerbar,
+          styles.slicerbarh,
+          styles.slicerbarh5,
+        )}
+      />
+      <div
+        className={classNames(
+          styles.slicerbar,
+          styles.slicerbarh,
+          styles.slicerbarh6,
+        )}
+      />
+      <div
+        className={classNames(
+          styles.slicerbar,
+          styles.slicerbarh,
+          styles.slicerbarh7,
+        )}
+      />
+      <div
+        className={classNames(
+          styles.slicerbar,
+          styles.slicerbarh,
+          styles.slicerbarh8,
+        )}
+      />
+      <div
+        className={classNames(
+          styles.slicerbar,
+          styles.slicerbarh,
+          styles.slicerbarh9,
+        )}
+      />
       <div className={styles.content}>
         <p className={styles.title}>{t(titleStr)}</p>
-        <div className={styles.rightbottom}>
-          <div
-            className={classNames(
-              styles.slicerbar,
-              styles.slicerbarh,
-              styles.slicerbarh1,
-            )}
-          />
-          <div
-            className={classNames(
-              styles.slicerbar,
-              styles.slicerbarh,
-              styles.slicerbarh2,
-            )}
-          />
-          <div
-            className={classNames(
-              styles.slicerbar,
-              styles.slicerbarh,
-              styles.slicerbarh3,
-            )}
-          />
-          <div
-            className={classNames(
-              styles.slicerbar,
-              styles.slicerbarh,
-              styles.slicerbarh4,
-            )}
-          />
-          <div
-            className={classNames(
-              styles.slicerbar,
-              styles.slicerbarh,
-              styles.slicerbarh5,
-            )}
-          />
-          <div
-            className={classNames(
-              styles.slicerbar,
-              styles.slicerbarh,
-              styles.slicerbarh6,
-            )}
-          />
-          <div
-            className={classNames(
-              styles.slicerbar,
-              styles.slicerbarh,
-              styles.slicerbarh7,
-            )}
-          />
-          <div
-            className={classNames(
-              styles.slicerbar,
-              styles.slicerbarh,
-              styles.slicerbarh8,
-            )}
-          />
-          <div
-            className={classNames(
-              styles.slicerbar,
-              styles.slicerbarh,
-              styles.slicerbarh9,
-            )}
-          />
+        <div className={styles.productsContainer}>
           <div
             className={classNames(
               styles.slicerbar,

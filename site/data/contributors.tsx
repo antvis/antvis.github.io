@@ -295,14 +295,6 @@ const contributors: {
     github: 'https://github.com/hustcc',
   },
   {
-    name: '轻声',
-    jobTitle: '工程师',
-    avatar:
-      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*KXysS6pI-ioAAAAAAAAAAABkARQnAQ',
-    weibo: '',
-    github: '',
-  },
-  {
     name: '山果',
     jobTitle: '工程师',
     avatar:
