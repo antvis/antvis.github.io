@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import styles from './decisionTreePage.module.less';
-import G6 from '@antv/g6';
 
 import chartTypeData from '../../data/decision-tree-chartype.json';
 import goalData from '../../data/decision-tree-goal.json';
@@ -50,8 +49,6 @@ const DecisionTreePage = () => {
     dataTypeTextWeight: 400,
     current: 'goal',
   });
-
-  const Util = G6.Util;
 
   const lightColors = [
     '#8FE9FF',
@@ -137,12 +134,15 @@ const DecisionTreePage = () => {
   let LIMIT_OVERFLOW_HEIGHT = 650;
 
   let element = React.useRef<HTMLDivElement>(null);
-  let mask = React.useRef<HTMLDivElement>(null);
+  // let mask = React.useRef<HTMLDivElement>(null);
 
   let CANVAS_WIDTH = 1320;
   let CANVAS_HEIGHT = 696;
 
   useEffect(() => {
+    const G6 = require('@antv/g6');
+    const Util = G6.Util;
+
     G6.registerBehavior('double-finger-drag-canvas', {
       getEvents: function getEvents() {
         return {
@@ -555,7 +555,7 @@ const DecisionTreePage = () => {
         },
         defaultNode: {
           shape: 'bubble',
-          size: 50,
+          size: 95,
           labelCfg: {
             position: 'center',
             style: {
@@ -905,6 +905,7 @@ const DecisionTreePage = () => {
             });
           }
           setTimeout(() => {
+            console.log(curShowNodes);
             graph.changeData({
               nodes: showNodes.concat(curShowNodes),
               edges: showEdges.concat(curShowEdges),
