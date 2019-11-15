@@ -149,6 +149,7 @@
           width: 50%;
         }
         .col {
+          overflow: hidden;
           width: 100%;
           height: 185px;
           .product {
@@ -161,6 +162,19 @@
               box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.1);
               transition: all 0.3s;
             }
+          }
+          .imgHolder {
+            position: absolute;
+          }
+          .imgHolder1 {
+            left: 0;
+            top: 0;
+            width: 30%;
+          }
+          .imgHolder2 {
+            right: 0;
+            bottom: 0;
+            width: 45%;
           }
         }
         .ptitle {
@@ -198,7 +212,6 @@
             position: relative;
             left: 0;
             width: 80px;
-            height: 80px;
           }
         }
       }
@@ -247,6 +260,16 @@
           .col {
             transition: all 0.1s;
             height: 240px;
+            .imgHolder1 {
+              left: 0;
+              top: 0;
+              width: 50%;
+            }
+            .imgHolder2 {
+              right: 0;
+              bottom: 0;
+              width: 60%;
+            }
           }
         }
       }
@@ -408,6 +431,9 @@
                 box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
               }
             }
+          }
+          .imgHolderWrapper {
+            display: none;
           }
         }
       }

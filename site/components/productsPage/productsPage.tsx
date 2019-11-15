@@ -2,106 +2,31 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { getProducts } from '@antv/gatsby-theme-antv/site/components/getProducts';
 import styles from './productsPage.module.less';
 
-interface Product {
-  index: number;
-  title: string;
-  description: string;
-  demoLink: string;
-  APILink: string;
-  imgSrc: string;
-  productLink: string;
-}
-
 const ProductsPage = () => {
-  const { t } = useTranslation();
-  const basicProducts = [
-    {
-      index: 0,
-      title: 'G2 可视化图形语法',
-      description: '以数据驱动，具有高度的易用性和扩展性的可视化图形语法。',
-      demoLink: '#',
-      APILink: '#',
-      productLink: '#',
-      imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*aVTOQpGkR6AAAAAAAAAAAABkARQnAQ',
-    },
-    {
-      index: 1,
-      title: 'G6 图可视化引擎',
-      description: '一套便捷的关系数据可视化引擎与图分析工具。',
-      demoLink: '#',
-      APILink: '#',
-      productLink: '#',
-      imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*wAmHQJbNVdwAAAAAAAAAAABkARQnAQ',
-    },
-    {
-      index: 2,
-      title: 'F2 移动端可视化方案',
-      description: '一套为移动而生，开箱即用的可视化解决方案。',
-      demoLink: '#',
-      APILink: '#',
-      productLink: '#',
-      imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Zy4wS6mW6XoAAAAAAAAAAABkARQnAQ',
-    },
+  const { t, i18n } = useTranslation();
+  const data = getProducts({
+    t,
+    language: i18n.language,
+    rootDomain: '',
+  }).slice(0, 7);
 
-    {
-      index: 3,
-      title: 'L7 地理空间数据可视化',
-      description: '一套高性能，高渲染质量的地理空间数据可视化框架。',
-      demoLink: '#',
-      APILink: '#',
-      productLink: '#',
-      imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*iYE_Tqwv3n8AAAAAAAAAAABkARQnAQ',
-    },
-  ];
-  const extendedProducts = [
-    {
-      index: 4,
-      title: 'g2plot',
-      description: '开箱即用、易于配置、具有良好视觉和交互体验的通用图表。',
-      demoLink: '#',
-      APILink: '#',
-      productLink: '#',
-      imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*MLiHT7MnkcQAAAAAAAAAAABkARQnAQ',
-    },
-    {
-      index: 5,
-      title: 'Graphin',
-      description: 'Graphin 描述描述描述',
-      demoLink: '#',
-      APILink: '#',
-      productLink: '#',
-      imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*9J-cT4njrAYAAAAAAAAAAABkARQnAQ',
-    },
-    {
-      index: 6,
-      title: 'ChartCube',
-      description: 'AntV 在线图表解决方案 让你拖拖拽拽搞定图表制作。',
-      demoLink: '#',
-      APILink: '#',
-      productLink: '#',
-      imgSrc:
-        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*UwFAQreGA4kAAAAAAAAAAABkARQnAQ',
-    },
-  ];
-
-  const getProcucts = (products: Array<Product>) => {
-    let exampleLinkStr = t('图表示例');
-    let apiLinkStr = t('API 文档');
-    const children = products.map((product, i) => {
-      return (
-        <Col key={i} className={styles.col} md={1} sm={1} xs={1}>
-          <a href={product.productLink}>
+  const basicProducts = data.filter((item: any) => item.category === 'basic');
+  const extensionProducts = data.filter(
+    (item: any) => item.category === 'extension',
+  );
+  const getProductCols = (type: string) => {
+    const renderData = type === 'basic' ? basicProducts : extensionProducts;
+    const cols = [];
+    renderData.forEach((product: any) => {
+      cols.push(
+        <Col key={product.title} className={styles.col} md={1} sm={1} xs={1}>
+          <a href={product.links[0].url}>
             <div className={styles.product} key="product">
               <p key="product-title" className={styles.ptitle}>
-                {t(product.title)}
+                {`${product.title} ${product.slogan || ''}`}
               </p>
               <p key="product-description" className={styles.pdescription}>
                 {t(product.description)}
@@ -109,40 +34,79 @@ const ProductsPage = () => {
               <div key="product-bottom" className={styles.pbottom}>
                 <div className={styles.plinks}>
                   <object>
-                    <a className={styles.plink} href={product.demoLink}>
-                      {exampleLinkStr}
+                    <a
+                      className={styles.plink}
+                      href={
+                        product.links[2]
+                          ? product.links[1].url
+                          : product.links[0].url
+                      }
+                    >
+                      {product.links[2]
+                        ? product.links[1].title
+                        : product.links[0].title}
                     </a>
                   </object>
                   <object>
                     <a
                       className={classNames(styles.plink, styles.apilink)}
-                      href={product.APILink}
+                      href={
+                        product.links[2]
+                          ? product.links[2].url
+                          : product.links[1].url
+                      }
                     >
-                      {apiLinkStr}
+                      {product.links[2]
+                        ? product.links[2].title
+                        : product.links[1].title}
                     </a>
                   </object>
                 </div>
                 <img
                   key="product"
                   className={styles.productimg}
-                  src={product.imgSrc}
-                  alt={`${product.index}`}
+                  src={product.icon}
+                  alt={`${product.title}`}
                 />
               </div>
             </div>
           </a>
-        </Col>
+        </Col>,
       );
     });
-    return children;
+    if (
+      type === 'extension' &&
+      extensionProducts.length < basicProducts.length
+    ) {
+      cols.push(
+        <Col
+          key="imgholder"
+          className={classNames(styles.imgHolderWrapper, styles.col)}
+          md={1}
+          sm={1}
+          xs={1}
+        >
+          <img
+            src="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*thsKRLuQCv0AAAAAAAAAAABkARQnAQ"
+            alt="holderback1"
+            className={classNames(styles.imgHolder1, styles.imgHolder)}
+          />
+          <img
+            src="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*frvoQat_YsUAAAAAAAAAAABkARQnAQ"
+            alt="holderback2"
+            className={classNames(styles.imgHolder2, styles.imgHolder)}
+          />
+        </Col>,
+      );
+    }
+    return cols;
   };
 
   const getDots = () => {
     let dots: Array<Object> = [];
-    const length = basicProducts.length + extendedProducts.length;
+    const length = data.length;
     const cols = 3;
     const rows = Math.ceil(length / 2) + 1;
-    const startLeftPercent = 0.0398;
     const lefts = [0.0398, 0.4983, 0.959];
     let startTop = 81;
     const circleRadius = 1.5;
@@ -189,7 +153,8 @@ const ProductsPage = () => {
     const sRigthColLeft = `${(smallStartLeftPercent + 0.893) * 100}%`;
     for (let i = 0; i < srows; i++) {
       let top;
-      if (i === srows / 2) {
+      console.log(i, srows / 2);
+      if (i === Math.ceil(srows / 2)) {
         top = `${sStartTop + sCardHeight * i - sCircleRadius}px`;
         dots.push(
           <div
@@ -347,12 +312,12 @@ const ProductsPage = () => {
           <div className={styles.products}>
             <div className={styles.basicsWrapper}>
               <Row key="products-basic" className={styles.basics}>
-                {getProcucts(basicProducts)}
+                {getProductCols('basic')}
               </Row>
             </div>
             <div className={styles.extensionsWrapper}>
               <Row key="products-extension" className={styles.extensions}>
-                {getProcucts(extendedProducts)}
+                {getProductCols('extension')}
               </Row>
             </div>
           </div>
