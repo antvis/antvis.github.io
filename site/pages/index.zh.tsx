@@ -87,7 +87,7 @@ const IndexPage = () => {
 
   const bannerButtons = [
     {
-      text: t('图表示例'),
+      text: t('继续了解'),
       link: '#products',
       type: 'primary',
     },
@@ -108,6 +108,7 @@ const IndexPage = () => {
           buttons={bannerButtons}
           video="https://mdn.alipayobjects.com/afts/file/A*qmPlRYhAlBkAAAAAAAAAAABjAQAAAQ?bz=antv_site"
         />
+
         <ProductsPage />
         <DecisionTreePage />
         <ResourcesPage />
