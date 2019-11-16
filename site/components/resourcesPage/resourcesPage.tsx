@@ -41,13 +41,11 @@ const ResourcesPage = () => {
     },
   ];
 
-  const cardCols = cards.map((card, i) => {
-    return (
-      <Col className={styles.cardWrapper} key={i} md={8} xs={24}>
-        <ResourceCard key={i} cardContent={card} />
-      </Col>
-    );
-  });
+  const cardCols = cards.map((card, i) => (
+    <Col className={styles.cardWrapper} key={i} md={8} xs={24}>
+      <ResourceCard key={i} cardContent={card} />
+    </Col>
+  ));
 
   let titleStr = '工具和资源';
   return (
