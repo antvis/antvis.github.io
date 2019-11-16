@@ -21,9 +21,9 @@ interface Props {
 const ContributorsPage = (props: Props) => {
   const { t } = useTranslation();
   props.contributors.sort((a, b) => a.name.localeCompare(b.name, 'zh')); //a~z 排序
-  const contributors = props.contributors.map((contributor: Contributor) => {
-    return <ContributorCard key={contributor.name} cardContent={contributor} />;
-  });
+  const contributors = props.contributors.map((contributor: Contributor) => (
+    <ContributorCard key={contributor.name} cardContent={contributor} />
+  ));
 
   return (
     <div className={styles.wrapper}>
