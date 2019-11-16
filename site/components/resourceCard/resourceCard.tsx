@@ -25,7 +25,11 @@ const ResourceCard = (props: Props) => {
         />
         <p className={styles.title}>{t(props.cardContent.title)}</p>
         <p className={styles.description}>{t(props.cardContent.description)}</p>
-        <a className={styles.detail} href={props.cardContent.link}>
+        <a
+          className={styles.detail}
+          href={props.cardContent.link}
+          target="newtab"
+        >
           {t(detailLinkStr)}
         </a>
       </div>

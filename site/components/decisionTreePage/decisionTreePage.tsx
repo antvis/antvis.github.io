@@ -686,19 +686,17 @@ const DecisionTreePage = () => {
           ];
           model.linkNames = ['G2', 'g2plot', 'G6'];
           const buttonWidth = `${100 / model.linkNames.length}%`;
-          const buttons = model.linkNames.map((name: string, i: number) => {
-            return (
-              <a
-                key={i}
-                href={model.links[i]}
-                className={styles.button}
-                style={{ width: buttonWidth }}
-                target="frame1"
-              >
-                {name}
-              </a>
-            );
-          });
+          const buttons = model.linkNames.map((name: string, i: number) => (
+            <a
+              key={i}
+              href={model.links[i]}
+              className={styles.button}
+              style={{ width: buttonWidth }}
+              target="frame1"
+            >
+              {name}
+            </a>
+          ));
 
           const point = graph.getPointByClient(e.clientX, e.clientY);
           const pos = graph.getCanvasByPoint(point.x, point.y);

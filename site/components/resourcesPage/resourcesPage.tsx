@@ -20,7 +20,7 @@ const ResourcesPage = () => {
       title: '图表用法',
       description:
         '从数据出发，从功能角度对常见图表进行分类，提供规范使用指引。',
-      link: '#',
+      link: 'https://antv.alipay.com/zh-cn/vis/chart/index.html',
     },
     {
       index: 1,
@@ -29,7 +29,7 @@ const ResourcesPage = () => {
       title: '设计原则',
       description:
         '对数据图形进行拆解、提炼，抽象出一套数据图形可视化交互视觉规范。',
-      link: '#',
+      link: '/zh/docs/specification/getting-started',
     },
     {
       index: 2,
@@ -37,24 +37,17 @@ const ResourcesPage = () => {
         'https://gw.alipayobjects.com/zos/basement_prod/90df0bcb-5295-4b49-b419-a70248ea359f.svg',
       title: '工具资源',
       description: '在进行模式、组件和语言的整理过程中发现的优秀书籍和资源。',
-      link: '#',
+      link: 'https://antv.alipay.com/zh-cn/vis/resource/index.html',
     },
   ];
 
-  const getCards = () => {
-    const length = cards.length;
-    const children = cards.map((card, i) => {
-      return (
-        <Col className={styles.cardWrapper} key={i} md={8} xs={24}>
-          <ResourceCard key={i} cardContent={card} />
-        </Col>
-      );
-    });
-    return children;
-  };
+  const cardCols = cards.map((card, i) => (
+    <Col className={styles.cardWrapper} key={i} md={8} xs={24}>
+      <ResourceCard key={i} cardContent={card} />
+    </Col>
+  ));
 
   let titleStr = '工具和资源';
-  // playScale={0.3} component="section"
   return (
     <div className={styles.wrapper}>
       <QueueAnim
@@ -70,7 +63,7 @@ const ResourcesPage = () => {
         <div key="slicer" className={styles.slicer} />
         <div key="cards" className={styles.rowsWrapper}>
           <Row key="rows" className={styles.rows}>
-            {getCards()}
+            {cardCols}
           </Row>
         </div>
         <img
