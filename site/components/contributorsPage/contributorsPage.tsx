@@ -21,14 +21,9 @@ interface Props {
 const ContributorsPage = (props: Props) => {
   const { t } = useTranslation();
   props.contributors.sort((a, b) => a.name.localeCompare(b.name, 'zh')); //a~z 排序
-  const getContributors = () => {
-    const children = props.contributors.map((contributor: Contributor) => {
-      return (
-        <ContributorCard key={contributor.name} cardContent={contributor} />
-      );
-    });
-    return children;
-  };
+  const contributors = props.contributors.map((contributor: Contributor) => {
+    return <ContributorCard key={contributor.name} cardContent={contributor} />;
+  });
 
   return (
     <div className={styles.wrapper}>
@@ -49,7 +44,7 @@ const ContributorsPage = (props: Props) => {
             justify="center"
             className={styles.companies}
           >
-            {getContributors()}
+            {contributors}
           </Row>
         </div>
       </QueueAnim>
