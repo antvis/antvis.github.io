@@ -23,9 +23,6 @@ let currentFocus: any;
 const DecisionTreePage = () => {
   const { t } = useTranslation();
 
-  const [maskStates, setMaskStates] = useState({
-    display: 'block',
-  });
   const [tooltipStates, setTooltipStates] = useState({
     display: 'none',
     title: '',
@@ -134,7 +131,6 @@ const DecisionTreePage = () => {
   let LIMIT_OVERFLOW_HEIGHT = 650;
 
   let element = React.useRef<HTMLDivElement>(null);
-  // let mask = React.useRef<HTMLDivElement>(null);
 
   let CANVAS_WIDTH = 1320;
   let CANVAS_HEIGHT = 696;
@@ -1246,12 +1242,6 @@ const DecisionTreePage = () => {
     graph.render();
   };
 
-  const clickWrapper = () => {
-    setMaskStates({
-      display: 'block',
-    });
-  };
-
   const tooltip = (
     <div
       className={styles.tooltip}
@@ -1339,8 +1329,7 @@ const DecisionTreePage = () => {
         </div>
       </div>
       <div className={styles.contentWrapper}>
-        <div className={styles.rightbottom} onClick={clickWrapper} />
-        {/* <a href="#decisionTree" /> */}
+        <div className={styles.rightbottom} />
         <div className={styles.content}>
           <div key="block" className={styles.lefttop}>
             <div
