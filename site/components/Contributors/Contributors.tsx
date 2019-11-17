@@ -2,7 +2,7 @@ import React from 'react';
 import { Row } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import { useTranslation } from 'react-i18next';
-import ContributorCard from '../contributorCard/contributorCard';
+import ContributorCard from '../ContributorCard/ContributorCard';
 import styles from './Contributors.module.less';
 
 interface Contributor {

@@ -1,6 +1,6 @@
 import React from 'react';
 import QueueAnim from 'rc-queue-anim';
-import ResourceCard from '../resourceCard/resourceCard';
+import ResourceCard from '../ResourceCard/ResourceCard';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import styles from './Resources.module.less';
