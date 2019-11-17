@@ -108,7 +108,7 @@ const IndexPage = () => {
         />
 
         <ProductsPage />
-        <DecisionTreePage lang={i18n} />
+        <DecisionTreePage />
         <ResourcesPage />
         <DescribePage />
         <Features title="我们的优势" features={features} />

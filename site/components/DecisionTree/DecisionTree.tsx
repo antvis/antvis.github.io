@@ -20,12 +20,8 @@ let curShowNodesMap = new Map();
 let highlighting = false;
 let currentFocus: any;
 
-interface Props {
-  lang: string;
-}
-
-const DecisionTree: React.FC<Props> = ({ lang = 'zh' }) => {
-  const { t } = useTranslation();
+const DecisionTree = () => {
+  const { t, i18n } = useTranslation();
 
   const [tooltipStates, setTooltipStates] = useState({
     display: 'none',
@@ -678,24 +674,15 @@ const DecisionTree: React.FC<Props> = ({ lang = 'zh' }) => {
         }
         // if clicked a leaf, highlight the relative items
         if (model.isLeaf) {
-          // model.imgSrc =
-          //   'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*2CRCQodgpLkAAAAAAAAAAABkARQnAQ';
-          // model.links = [
-          //   'https://antv.alipay.com/zh-cn/g2/3.x/index.html',
-          //   'https://antv.alipay.com/zh-cn/g6/3.x/index.html',
-          // ];
-          // model.links_en = [
-          //   'https://baidu.com',
-          //   'https://baidu.com',
-          // ];
-          // model.linkNames = ['G2', 'g2plot', 'G6'];
           let buttons = <div></div>;
           if (model.linkNames) {
             const buttonWidth = `${100 / model.linkNames.length}%`;
             buttons = model.linkNames.map((name: string, i: number) => (
               <a
                 key={i}
-                href={lang === 'zh' ? model.links[i] : model.links_en[i]}
+                href={
+                  i18n.language === 'zh' ? model.links[i] : model.links_en[i]
+                }
                 className={styles.button}
                 style={{ width: buttonWidth }}
                 target="frame1"
