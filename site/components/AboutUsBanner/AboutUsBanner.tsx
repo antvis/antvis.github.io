@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './aboutUsBannerPage.module.less';
+import styles from './AboutUsBanner.module.less';
 import { useTranslation } from 'react-i18next';
 
 interface Props {
   bannerSVG: JSX.Element;
 }
 
-const AboutUsBannerPage = (props: Props) => {
+const AboutUsBanner = (props: Props) => {
   const { t } = useTranslation();
   let title = '蚂蚁金服数据可视化团队';
   let description = '「让人们在数据世界里获得视觉化思考能力」';
@@ -26,4 +26,4 @@ const AboutUsBannerPage = (props: Props) => {
   );
 };
 
-export default AboutUsBannerPage;
+export default AboutUsBanner;

@@ -1,9 +1,9 @@
 import React from 'react';
 import QueueAnim from 'rc-queue-anim';
 import { useTranslation } from 'react-i18next';
-import styles from './feedbackPage.module.less';
+import styles from './Feedback.module.less';
 
-const FeedbackPage = () => {
+const Feedback = () => {
   const { t } = useTranslation();
 
   return (
@@ -26,4 +26,4 @@ const FeedbackPage = () => {
   );
 };
 
-export default FeedbackPage;
+export default Feedback;

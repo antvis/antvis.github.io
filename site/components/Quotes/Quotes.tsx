@@ -2,7 +2,7 @@ import React from 'react';
 import QueueAnim from 'rc-queue-anim';
 import { Row, Col } from 'antd';
 import QuoteCard from '../quoteCard/quoteCard';
-import styles from './quotesPage.module.less';
+import styles from './Quotes.module.less';
 
 const triangleBackImg =
   'https://gw.alipayobjects.com/zos/basement_prod/19b3ca21-8814-4f6c-ac1f-48de7fef9c1e.svg';
@@ -13,7 +13,7 @@ const circleBackImg =
 const circleBack2Img =
   'https://gw.alipayobjects.com/zos/basement_prod/5615f534-8d29-40bb-91c8-ac6ff18d075e.svg';
 
-const QuotesPage = () => {
+const Quotes = () => {
   const quotes = [
     {
       index: 0,
@@ -110,4 +110,4 @@ const QuotesPage = () => {
   );
 };
 
-export default QuotesPage;
+export default Quotes;

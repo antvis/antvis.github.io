@@ -1,16 +1,15 @@
 import React from 'react';
 import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
-import AboutUsBannerPage from '../components/aboutUsBannerPage/aboutUsBannerPage';
+import AboutUsBannerPage from '../components/AboutUsBanner/AboutUsBanner';
 import BannerSVG from '../components/bannerSVG/bannerSVG';
-import JoinUsPage from '../components/joinUsPage/joinUsPage';
-import FeedbackPage from '../components/feedbackPage/feedbackPage';
-import ContributorsPage from '../components/contributorsPage/contributorsPage';
+import JoinUsPage from '../components/JoinUs/JoinUs';
+import FeedbackPage from '../components/Feedback/Feedback';
+import ContributorsPage from '../components/Contributors/Contributors';
 import contributors from '../data/contributors';
 import { useTranslation } from 'react-i18next';
 
 const AboutUsPage = () => {
   const { t, i18n } = useTranslation();
-  i18n.options.keySeparator = '>';
 
   const bannerSVG = BannerSVG();
 

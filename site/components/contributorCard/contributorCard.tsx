@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Row, Col } from 'antd';
 import { Avatar } from 'antd';
 import classNames from 'classnames';
-import styles from './contributorCard.module.less';
+import styles from './ContributorCard.module.less';
 
 interface Props {
   cardContent: {

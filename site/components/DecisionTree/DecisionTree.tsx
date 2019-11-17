@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import styles from './decisionTreePage.module.less';
+import styles from './DecisionTree.module.less';
 
 import chartTypeData from '../../data/decision-tree-chartype.json';
 import goalData from '../../data/decision-tree-goal.json';
@@ -20,7 +20,7 @@ let curShowNodesMap = new Map();
 let highlighting = false;
 let currentFocus: any;
 
-const DecisionTreePage = () => {
+const DecisionTree = () => {
   const { t } = useTranslation();
 
   const [tooltipStates, setTooltipStates] = useState({
@@ -1344,4 +1344,4 @@ const DecisionTreePage = () => {
   );
 };
 
-export default DecisionTreePage;
+export default DecisionTree;

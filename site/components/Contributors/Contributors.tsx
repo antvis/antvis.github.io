@@ -3,7 +3,7 @@ import { Row } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import { useTranslation } from 'react-i18next';
 import ContributorCard from '../contributorCard/contributorCard';
-import styles from './contributorsPage.module.less';
+import styles from './Contributors.module.less';
 
 interface Contributor {
   name: string;
@@ -18,7 +18,7 @@ interface Props {
   contributors: Contributor[];
 }
 
-const ContributorsPage = (props: Props) => {
+const Contributors = (props: Props) => {
   const { t } = useTranslation();
   props.contributors.sort((a, b) => a.name.localeCompare(b.name, 'zh')); //a~z 排序
   const contributors = props.contributors.map((contributor: Contributor) => (
@@ -51,4 +51,4 @@ const ContributorsPage = (props: Props) => {
     </div>
   );
 };
-export default ContributorsPage;
+export default Contributors;

@@ -1,9 +1,9 @@
 import React from 'react';
 import QueueAnim from 'rc-queue-anim';
 import { useTranslation } from 'react-i18next';
-import styles from './joinUsPage.module.less';
+import styles from './JoinUs.module.less';
 
-const JoinUsPage = () => {
+const JoinUs = () => {
   const { t } = useTranslation();
 
   return (
@@ -36,4 +36,4 @@ const JoinUsPage = () => {
   );
 };
 
-export default JoinUsPage;
+export default JoinUs;

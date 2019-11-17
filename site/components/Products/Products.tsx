@@ -3,9 +3,9 @@ import { Row, Col } from 'antd';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { getProducts } from '@antv/gatsby-theme-antv/site/components/getProducts';
-import styles from './productsPage.module.less';
+import styles from './Products.module.less';
 
-const ProductsPage = () => {
+const Products = () => {
   const { t, i18n } = useTranslation();
   const data = getProducts({
     t,
@@ -325,4 +325,4 @@ const ProductsPage = () => {
     </div>
   );
 };
-export default ProductsPage;
+export default Products;
