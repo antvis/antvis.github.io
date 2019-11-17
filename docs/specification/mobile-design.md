@@ -31,13 +31,13 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 **聚焦当前场景用户任务，避免不必要的视觉元素干扰。**移动端可视化信息传递需要更加聚焦用户在场景中的任务和具体的信息，最大程度刨除图表展示中的无用或相对次要的信息及图形元素，**减少信息维度交叉的复杂性和视觉干扰**，巧妙采用流程、排版、动效的方式将信息拆解。
 
-| PC                                                                                                                                         | 移动端                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| <br /><br /><br /><br /><br /><img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*mXngRZ_GO7MAAAAAAAAAAABkARQnAQ' width=358/> | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*0wgUSL1cR_0AAAAAAAAAAABkARQnAQ' width=255/> |
-|                                                                                                                                            |
-|                                                                                                                                            |
-|                                                                                                                                            |                                                                                                              |
-|                                                                                                                                            |                                                                                                              |
+| PC                                                                                                                                                       | 移动端                                                                                                                     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| <br /><br /><br /><br /><br /><img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*mXngRZ_GO7MAAAAAAAAAAABkARQnAQ' width=358 alt="mobile0"/> | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*0wgUSL1cR_0AAAAAAAAAAABkARQnAQ' width=255 alt="mobile1"/> |
+|                                                                                                                                                          |
+|                                                                                                                                                          |
+|                                                                                                                                                          |                                                                                                                            |
+|                                                                                                                                                          |                                                                                                                            |
 
 ## **2、手势操作自然**
 
@@ -45,25 +45,25 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 区别于游戏和其他沉浸式应用中的手势选择，在可视化场景中，**应该尽量避免高学习成本的手势，同时需要注意保持页面间交互的一致性。**以下为\*\* \*\*AntV 的设计师推荐使用的最常用的标准手势：
 
-<img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*HHVFTKUgu6cAAAAAAAAAAABkARQnAQ' width=846/>
+<img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*HHVFTKUgu6cAAAAAAAAAAABkARQnAQ' width=846 alt="mobile2"/>
 
 在 “信息轻量聚焦” 中我们提到移动端的可视化设计多聚焦于用户的直接任务，用 [可视化交互](https://yuque.antfin-inc.com/antv/visdesign/interaction-guideline) 一文中提及的任务层次来分析，移动端交互设计上会更聚焦在数据获取层，对复杂程度较高的交互行为要进行适度的克制。下图是 AntV 设计总结的常用手势表，给大家做参考。
 
-| **动作** | **目的**           | **操作**                                                                                                                         | **示例**                                                                                                      |
-| -------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| 浏览     | 寻找感兴趣的数据   | Touch and hold<br /><img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*_195TaqXH0sAAAAAAAAAAABkARQnAQ' width=120/> | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*mZKIRI-NS08AAAAAAAAAAABkARQnAQ' width=290/>  |
-|          |                    |                                                                                                                                  |
-|          |                    |                                                                                                                                  |
-|          |                    |                                                                                                                                  |
-|          |                    |                                                                                                                                  |                                                                                                               |
-|          |                    |                                                                                                                                  |                                                                                                               |
-|          |                    |                                                                                                                                  |                                                                                                               |
-| 选中     | 对单个数据点感兴趣 | Tap<br /><img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*LiIgTJuA5TAAAAAAAAAAAABkARQnAQ' width=120/>            | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*JSD3TqxZTZsAAAAAAAAAAABkARQnAQ' width=290/>  |
-|          |                    |                                                                                                                                  |
-|          |                    |                                                                                                                                  |                                                                                                               |
-| 过滤     | 聚焦重点信息       | Touch and hold<br /><img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*g8stQrr776UAAAAAAAAAAABkARQnAQ' width=120/> | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Q-n6Soi0niEAAAAAAAAAAABkARQnAQ' width=290/>  |
-| 缩放     | 探索、识别数据     | Pinch<br /><img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*aWitQ4vdOfYAAAAAAAAAAABkARQnAQ' width=120/>          | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*pO9OS6Z63xkAAAAAAAAAAABkARQnAQ' width=290/>) |
-| 平移     | 探索更大的数据空间 | Swipe<br /><img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*1Y34Qbz0UQQAAAAAAAAAAABkARQnAQ' width=120/>          | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5rdBQ5QwwPcAAAAAAAAAAABkARQnAQ' width=290/>  |
+| **动作** | **目的**           | **操作**                                                                                                                                       | **示例**                                                                                                                     |
+| -------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| 浏览     | 寻找感兴趣的数据   | Touch and hold<br /><img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*_195TaqXH0sAAAAAAAAAAABkARQnAQ' width=120 alt="mobile3"/> | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*mZKIRI-NS08AAAAAAAAAAABkARQnAQ' width=290 alt="mobile4"/>   |
+|          |                    |                                                                                                                                                |
+|          |                    |                                                                                                                                                |
+|          |                    |                                                                                                                                                |
+|          |                    |                                                                                                                                                |                                                                                                                              |
+|          |                    |                                                                                                                                                |                                                                                                                              |
+|          |                    |                                                                                                                                                |                                                                                                                              |
+| 选中     | 对单个数据点感兴趣 | Tap<br /><img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*LiIgTJuA5TAAAAAAAAAAAABkARQnAQ' width=120 alt="mobile5"/>            | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*JSD3TqxZTZsAAAAAAAAAAABkARQnAQ' width=290 alt="mobile6"/>   |
+|          |                    |                                                                                                                                                |
+|          |                    |                                                                                                                                                |                                                                                                                              |
+| 过滤     | 聚焦重点信息       | Touch and hold<br /><img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*g8stQrr776UAAAAAAAAAAABkARQnAQ' width=120 alt="mobile7"/> | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Q-n6Soi0niEAAAAAAAAAAABkARQnAQ' width=290 alt="mobile8"/>   |
+| 缩放     | 探索、识别数据     | Pinch<br /><img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*aWitQ4vdOfYAAAAAAAAAAABkARQnAQ' width=120 alt="mobile9"/>          | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*pO9OS6Z63xkAAAAAAAAAAABkARQnAQ' width=290 alt="mobile10"/>) |
+| 平移     | 探索更大的数据空间 | Swipe<br /><img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*1Y34Qbz0UQQAAAAAAAAAAABkARQnAQ' width=120 alt="mobile11"/>         | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5rdBQ5QwwPcAAAAAAAAAAABkARQnAQ' width=290 alt="mobile12"/>  |
 
 ## 3**、功能组件完善易用**
 
@@ -90,13 +90,13 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 移动端的界面尺寸非常多样，为了保证在浏览状态下图表各信息显示的完整性，并在主流尺寸下显示更多信息内容，AntV 移动端的容器尺寸（下面会给出定义）建议用 4：3 比例进行设计。
 
-<img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*-nc_QJO3KNAAAAAAAAAAAABkARQnAQ' width=602/>
+<img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*-nc_QJO3KNAAAAAAAAAAAABkARQnAQ' width=602 alt="mobile13"/>
 
 ### 4-2、布局及适配
 
 虽然 AntV 的图表组件在各个组块的配置上给出了足够的灵活性，但由于移动端的硬件的多变性，设计师更应该带着适配的概念，判断哪些模块应该是确定，哪些模块应该动态适应硬件的变化，具体的模块定义如下图。
 
-<img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*JVx4SJRgxWwAAAAAAAAAAABkARQnAQ' width=584/>
+<img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*JVx4SJRgxWwAAAAAAAAAAABkARQnAQ' width=584 alt="mobile14"/>
 
 ### 4-3、阅读模式切换
 
@@ -106,20 +106,20 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 在不同页面中相同图表可能承载的用户诉求类型不相同，需要通过不同场景的切换和变化，来更好的满足并达到较好的用户体验。
 
-|              | 在多图表的长页面中，多为浏览型的诉求，设计上更简明更快速做为主要体验目标。                                   | 对某一图表做进一步操作（详情、下钻等）时，可以通过切换场景或扩大面积方式，沉入式操作。                       |
-| ------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| **场景切换** | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Rek4R7bzhnUAAAAAAAAAAABkARQnAQ' width=283/> | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*bp-3QIXNWdEAAAAAAAAAAABkARQnAQ' width=269/> |
-|              |                                                                                                              |
-|              |                                                                                                              |                                                                                                              |
-| **纵向拉伸** | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ZkWnR4X7N-wAAAAAAAAAAABkARQnAQ' width=283/> | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*jmAKRrv2bXkAAAAAAAAAAABkARQnAQ' width=264/> |
+|              | 在多图表的长页面中，多为浏览型的诉求，设计上更简明更快速做为主要体验目标。                                                  | 对某一图表做进一步操作（详情、下钻等）时，可以通过切换场景或扩大面积方式，沉入式操作。                                      |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| **场景切换** | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Rek4R7bzhnUAAAAAAAAAAABkARQnAQ' width=283 alt="mobile15"/> | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*bp-3QIXNWdEAAAAAAAAAAABkARQnAQ' width=269 alt="mobile16"/> |
+|              |                                                                                                                             |
+|              |                                                                                                                             |                                                                                                                             |
+| **纵向拉伸** | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ZkWnR4X7N-wAAAAAAAAAAABkARQnAQ' width=283 alt="mobile17"/> | <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*jmAKRrv2bXkAAAAAAAAAAABkARQnAQ' width=264 alt="mobile18"/> |
 
 #### 阅读模式的切换
 
 在时间跨度比较大的时序数据图表中，纵向屏展示时很多数据细节会因清晰表达的原因隐藏掉，可以利用移动硬件的横竖屏的转换，横屏条件下展示更多信息。
 
-| 纵向                                                                                                         | 横向                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*zJMMRLai0LIAAAAAAAAAAABkARQnAQ' width=306/> | <br /><br /><br /><img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*qyxjQ6TprrAAAAAAAAAAAABkARQnAQ' width=401/><br /><br /><br /><br /><br /> |
+| 纵向                                                                                                                        | 横向                                                                                                                                                                        |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*zJMMRLai0LIAAAAAAAAAAABkARQnAQ' width=306 alt="mobile19"/> | <br /><br /><br /><img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*qyxjQ6TprrAAAAAAAAAAAABkARQnAQ' width=401 alt="mobile20"/><br /><br /><br /><br /><br /> |
 
 ## 总结
 
