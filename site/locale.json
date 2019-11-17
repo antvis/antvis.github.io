@@ -210,6 +210,9 @@
   "经典热力图": "Classical\n Heatmap",
   "网格\n热力图": "Grid\n Heatmap",
   "桑基图": "Sankey",
+  "自定义\n Maker": "Custom\n Maker",
+  "等值线地图": "Isoline Map",
+  "3D 填充地图": "Extrude Map",
 
   "统计图表": "Statistic",
   "关系图": "Graph",

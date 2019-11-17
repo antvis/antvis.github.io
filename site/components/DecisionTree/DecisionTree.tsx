@@ -20,7 +20,11 @@ let curShowNodesMap = new Map();
 let highlighting = false;
 let currentFocus: any;
 
-const DecisionTree = () => {
+interface Props {
+  lang: string;
+}
+
+const DecisionTree: React.FC<Props> = ({ lang = 'zh' }) => {
   const { t } = useTranslation();
 
   const [tooltipStates, setTooltipStates] = useState({
@@ -674,26 +678,32 @@ const DecisionTree = () => {
         }
         // if clicked a leaf, highlight the relative items
         if (model.isLeaf) {
-          model.imgSrc =
-            'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*2CRCQodgpLkAAAAAAAAAAABkARQnAQ';
-          model.links = [
-            'https://antv.alipay.com/zh-cn/g2/3.x/index.html',
-            'https://antv.alipay.com/zh-cn/g6/3.x/index.html',
-          ];
-          model.linkNames = ['G2', 'g2plot', 'G6'];
-          const buttonWidth = `${100 / model.linkNames.length}%`;
-          const buttons = model.linkNames.map((name: string, i: number) => (
-            <a
-              key={i}
-              href={model.links[i]}
-              className={styles.button}
-              style={{ width: buttonWidth }}
-              target="frame1"
-            >
-              {name}
-            </a>
-          ));
-
+          // model.imgSrc =
+          //   'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*2CRCQodgpLkAAAAAAAAAAABkARQnAQ';
+          // model.links = [
+          //   'https://antv.alipay.com/zh-cn/g2/3.x/index.html',
+          //   'https://antv.alipay.com/zh-cn/g6/3.x/index.html',
+          // ];
+          // model.links_en = [
+          //   'https://baidu.com',
+          //   'https://baidu.com',
+          // ];
+          // model.linkNames = ['G2', 'g2plot', 'G6'];
+          let buttons = <div></div>;
+          if (model.linkNames) {
+            const buttonWidth = `${100 / model.linkNames.length}%`;
+            buttons = model.linkNames.map((name: string, i: number) => (
+              <a
+                key={i}
+                href={lang === 'zh' ? model.links[i] : model.links_en[i]}
+                className={styles.button}
+                style={{ width: buttonWidth }}
+                target="frame1"
+              >
+                {name}
+              </a>
+            ));
+          }
           const point = graph.getPointByClient(e.clientX, e.clientY);
           const pos = graph.getCanvasByPoint(point.x, point.y);
           setTooltipStates({
@@ -1336,6 +1346,9 @@ const DecisionTree = () => {
               className={classNames(styles.mountNode, 'mountNode')}
               ref={element}
             ></div>
+            <a href="" className={styles.canvasDescription}>
+              Powered by G6
+            </a>
           </div>
         </div>
         {tooltip}

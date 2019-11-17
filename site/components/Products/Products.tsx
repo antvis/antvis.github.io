@@ -87,7 +87,7 @@ const Products = () => {
           xs={1}
         >
           <img
-            src="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*thsKRLuQCv0AAAAAAAAAAABkARQnAQ"
+            src="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*_trNQ5C2pHIAAAAAAAAAAABkARQnAQ"
             alt="holderback1"
             className={classNames(styles.imgHolder1, styles.imgHolder)}
           />

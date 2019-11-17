@@ -404,7 +404,16 @@
       "name": "气泡地图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["map-pointlayer"]
+      "tags": ["map-pointlayer"],
+      "links": [
+        "https://antvis.github.io/L7/zh/examples/point/basic",
+        "https://antvis.github.io/g2/zh/examples/map/map#bubble-map"
+      ],
+      "links_en": [
+        "https://antvis.github.io/L7/en/examples/point/basic",
+        "https://antvis.github.io/g2/en/examples/map/map#bubble-map"
+      ],
+      "linkNames": ["L7", "G2"]
     },
     {
       "id": "binchart",
@@ -467,197 +476,333 @@
       "name": "紧凑树",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph-tree"]
+      "tags": ["graph-tree"],
+      "links": [
+        "https://antvis.github.io/g6/zh/examples/tree/compactBox#tbCompactBox"
+      ],
+      "links_en": [
+        "https://antvis.github.io/g6/en/examples/tree/compactBox#tbCompactBox"
+      ],
+      "linkNames": ["G6"]
     },
     {
       "id": "dendrogram",
       "name": "系统树",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph-tree"]
+      "tags": ["graph-tree"],
+      "links": [
+        "https://antvis.github.io/g6/zh/examples/tree/dendrogram#tbDendrogram"
+      ],
+      "links_en": [
+        "https://antvis.github.io/g6/en/examples/tree/dendrogram#tbDendrogram"
+      ],
+      "linkNames": ["G6"]
     },
     {
       "id": "mindmap",
       "name": "脑图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph-tree"]
+      "tags": ["graph-tree"],
+      "links": ["https://antvis.github.io/g6/zh/examples/tree/mindmap"],
+      "links_en": ["https://antvis.github.io/g6/en/examples/tree/mindmap"],
+      "linkNames": ["G6"]
     },
     {
       "id": "indented",
       "name": "缩进树",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph-tree"]
+      "tags": ["graph-tree"],
+      "links": ["https://antvis.github.io/g6/zh/examples/tree/indented"],
+      "links_en": ["https://antvis.github.io/g6/en/examples/tree/indented"],
+      "linkNames": ["G6"]
     },
     {
       "id": "radialtree",
       "name": "辐射树",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph-tree"]
+      "tags": ["graph-tree"],
+      "links": ["https://antvis.github.io/g6/zh/examples/tree/radialtree"],
+      "links_en": ["https://antvis.github.io/g6/en/examples/tree/radialtree"],
+      "linkNames": ["G6"]
     },
     {
       "id": "flowdiagram",
       "name": "流程图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph"]
+      "tags": ["graph"],
+      "links": ["https://antvis.github.io/g6/zh/examples/net/dagreFlow"],
+      "links_en": ["https://antvis.github.io/g6/en/examples/net/dagreFlow"],
+      "linkNames": ["G6"]
     },
     {
       "id": "fruchtermancluster",
       "name": "Fruchterman\n聚类",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph"]
+      "tags": ["graph"],
+      "links": [
+        "https://antvis.github.io/g6/zh/examples/net/furchtermanLayout#fruchtermanClustering"
+      ],
+      "links_en": [
+        "https://antvis.github.io/g6/en/examples/net/furchtermanLayout#fruchtermanClustering"
+      ],
+      "linkNames": ["G6"]
     },
     {
       "id": "fruchterman",
       "name": "Fruchterman",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph"]
+      "tags": ["graph"],
+      "links": [
+        "https://antvis.github.io/g6/zh/examples/net/furchtermanLayout"
+      ],
+      "links_en": [
+        "https://antvis.github.io/g6/en/examples/net/furchtermanLayout"
+      ],
+      "linkNames": ["G6"]
     },
     {
       "id": "forcedirected",
       "name": "力导向图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph"]
+      "tags": ["graph"],
+      "links": ["https://antvis.github.io/g6/zh/examples/net/forceDirected"],
+      "links_en": ["https://antvis.github.io/g6/en/examples/net/forceDirected"],
+      "linkNames": ["G6"]
     },
     {
       "id": "circular",
       "name": "环形图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph"]
+      "tags": ["graph"],
+      "links": ["https://antvis.github.io/g6/zh/examples/net/circular"],
+      "links_en": ["https://antvis.github.io/g6/en/examples/net/circular"],
+      "linkNames": ["G6"]
     },
     {
       "id": "spiral",
       "name": "螺旋线图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph"]
+      "tags": ["graph"],
+      "links": [
+        "https://antvis.github.io/g6/zh/examples/net/circular#spiralCircular"
+      ],
+      "links_en": [
+        "https://antvis.github.io/g6/en/examples/net/circular#spiralCircular"
+      ],
+      "linkNames": ["G6"]
     },
     {
       "id": "radial",
       "name": "辐射图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph"]
+      "tags": ["graph"],
+      "links": ["https://antvis.github.io/g6/zh/examples/net/radialLayout"],
+      "links_en": ["https://antvis.github.io/g6/en/examples/net/radialLayout"],
+      "linkNames": ["G6"]
     },
     {
       "id": "concentric",
       "name": "同心圆",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph"]
+      "tags": ["graph"],
+      "links": ["https://antvis.github.io/g6/zh/examples/net/concentricLayout"],
+      "links_en": [
+        "https://antvis.github.io/g6/en/examples/net/concentricLayout"
+      ],
+      "linkNames": ["G6"]
     },
     {
       "id": "grid",
       "name": "网格图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph"]
+      "tags": ["graph"],
+      "links": ["https://antvis.github.io/g6/zh/examples/net/gridLayout"],
+      "links_en": ["https://antvis.github.io/g6/en/examples/net/gridLayout"],
+      "linkNames": ["G6"]
     },
     {
       "id": "arcdiagram",
       "name": "弧线图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph"]
+      "tags": ["graph"],
+      "links": ["https://antvis.github.io/g6/zh/examples/net/arcDiagram"],
+      "links_en": ["https://antvis.github.io/g6/en/examples/net/arcDiagram"],
+      "linkNames": ["G6"]
     },
     {
       "id": "circulararcdiagram",
       "name": "环形弧线图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph"]
+      "tags": ["graph"],
+      "links": [
+        "https://antvis.github.io/g6/zh/examples/net/arcDiagram#circularArcDiagram"
+      ],
+      "links_en": [
+        "https://antvis.github.io/g6/en/examples/net/arcDiagram#circularArcDiagram"
+      ],
+      "linkNames": ["G6"]
     },
     {
       "id": "bubbles",
       "name": "气泡图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["graph"]
+      "tags": ["graph"],
+      "links": [
+        "https://antvis.github.io/g6/zh/examples/net/forceDirected#forceBubbles"
+      ],
+      "links_en": [
+        "https://antvis.github.io/g6/en/examples/net/forceDirected#forceBubbles"
+      ],
+      "linkNames": ["G6"]
     },
-    {
-      "id": "dotmap",
-      "name": "定点地图",
-      "level": 2,
-      "isLeaf": true,
-      "tags": ["map-pointlayer"]
-    },
-
     {
       "id": "symbollayer",
       "name": "符号地图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["map-pointlayer"]
-    },
-    {
-      "id": "clustermap",
-      "name": "聚合地图",
-      "level": 2,
-      "isLeaf": true,
-      "tags": ["map-pointlayer"]
+      "tags": ["map-pointlayer"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Af7tQJ_sFdwAAAAAAAAAAABkARQnAQ",
+      "links": ["https://antvis.github.io/L7/zh/examples/point/image"],
+      "links_en": ["https://antvis.github.io/L7/en/examples/point/image"],
+      "linkNames": ["L7"]
     },
     {
       "id": "chartmap",
       "name": "复合图表\n地图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["map-pointlayer"]
+      "tags": ["map-pointlayer"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*KEmSSIB3scwAAAAAAAAAAABkARQnAQ",
+      "links": ["https://antvis.github.io/L7/zh/examples/point/chartmap"],
+      "links_en": ["https://antvis.github.io/L7/en/examples/point/chartmap"],
+      "linkNames": ["L7"]
     },
     {
       "id": "columnmap",
       "name": "3D 柱状\n地图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["map-pointlayer"]
+      "tags": ["map-pointlayer"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*1X4mS4yNGSgAAAAAAAAAAABkARQnAQ",
+      "links": ["https://antvis.github.io/L7/zh/examples/point/3d"],
+      "links_en": ["https://antvis.github.io/L7/en/examples/point/3d"],
+      "linkNames": ["L7"]
     },
     {
       "id": "scattermap",
       "name": "散点地图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["map-pointlayer"]
+      "tags": ["map-pointlayer"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*c2EOQqwR-toAAAAAAAAAAABkARQnAQ",
+      "links": ["https://antvis.github.io/L7/zh/examples/point/scatter"],
+      "links_en": ["https://antvis.github.io/L7/en/examples/point/scatter"],
+      "linkNames": ["L7"]
     },
     {
       "id": "pathmap",
       "name": "路径地图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["map-linelayer"]
+      "tags": ["map-linelayer"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*J3sVRrzk3egAAAAAAAAAAABkARQnAQ",
+      "links": ["https://antvis.github.io/L7/zh/examples/line/path"],
+      "links_en": ["https://antvis.github.io/L7/en/examples/line/path"],
+      "linkNames": ["L7"]
     },
     {
-      "id": "relationmap",
-      "name": "关系地图",
+      "id": "isolinemap",
+      "name": "等值线地图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["map-linelayer"]
+      "tags": ["map-linelayer"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*hHKHSa1PH-MAAAAAAAAAAABkARQnAQ",
+      "links": ["https://antvis.github.io/L7/zh/examples/line/line"],
+      "links_en": ["https://antvis.github.io/L7/en/examples/line/arc"],
+      "linkNames": ["L7"]
+    },
+    {
+      "id": "custommakermap",
+      "name": "自定义\n Maker",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-pointlayer"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*_FJCRpEzM8YAAAAAAAAAAABkARQnAQ",
+      "links": ["https://antvis.github.io/L7/zh/examples/point/marker"],
+      "links_en": ["https://antvis.github.io/L7/en/examples/point/marker"],
+      "linkNames": ["L7"]
     },
     {
       "id": "arc3dmap",
       "name": "3D 弧线地图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["map-linelayer"]
+      "tags": ["map-linelayer"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5cnzS4A3968AAAAAAAAAAABkARQnAQ",
+      "links": ["https://antvis.github.io/L7/zh/examples/line/arc"],
+      "links_en": ["https://antvis.github.io/L7/en/examples/line/arc"],
+      "linkNames": ["L7"]
     },
     {
       "id": "choroplethmap",
       "name": "分类填充图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["map-polygonlayer"]
+      "tags": ["map-polygonlayer"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*TSGQRowxmmAAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "https://antvis.github.io/L7/zh/examples/polygon/basic",
+        "https://antvis.github.io/g2/zh/examples/map/map#choropleth-map"
+      ],
+      "links_en": [
+        "https://antvis.github.io/L7/en/examples/polygon/basic",
+        "https://antvis.github.io/g2/en/examples/map/map#choropleth-map"
+      ],
+      "linkNames": ["L7", "G2"]
+    },
+    {
+      "id": "extrudemap",
+      "name": "3D 填充地图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["map-polygonlayer"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*l9D1QK5-z-8AAAAAAAAAAABkARQnAQ",
+      "links": ["https://antvis.github.io/L7/zh/examples/polygon/3d"],
+      "links_en": ["https://antvis.github.io/L7/en/examples/polygon/3d"],
+      "linkNames": ["L7"]
     },
     {
       "id": "hexagonalheatmap",
       "name": "蜂窝热力图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["map-heatmap"]
+      "tags": ["map-heatmap"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*YbKcRbypQ_oAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "https://antvis.github.io/L7/zh/examples/heatmap/hexagon",
+        "https://antvis.github.io/g2/zh/examples/map/map#hex-choropleth-map"
+      ],
+      "links_en": [
+        "https://antvis.github.io/L7/en/examples/heatmap/hexagon",
+        "https://antvis.github.io/g2/en/examples/map/map#hex-choropleth-map"
+      ],
+      "linkNames": ["L7", "G2"]
     },
     {
       "id": "3dgridbinheatmap",
@@ -678,14 +823,28 @@
       "name": "经典热力图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["map-heatmap"]
+      "tags": ["map-heatmap"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*uIQmSZ0iHIwAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "https://antvis.github.io/L7/zh/examples/heatmap/heatmap",
+        "https://antvis.github.io/g2/zh/examples/map/map#with-heatmap"
+      ],
+      "links_en": [
+        "https://antvis.github.io/L7/en/examples/heatmap/heatmap",
+        "https://antvis.github.io/g2/en/examples/map/map#with-heatmap"
+      ],
+      "linkNames": ["L7", "G2"]
     },
     {
       "id": "gridbinheatmap",
       "name": "网格\n热力图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["map-heatmap"]
+      "tags": ["map-heatmap"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*MyybRIdKb00AAAAAAAAAAABkARQnAQ",
+      "links": ["https://antvis.github.io/L7/zh/examples/heatmap/grid#china"],
+      "links_en": ["https://antvis.github.io/L7/en/examples/heatmap/grid"],
+      "linkNames": ["L7"]
     }
   ],
   "edges": [
@@ -1025,15 +1184,7 @@
     },
     {
       "source": "pointlayer",
-      "target": "dotmap"
-    },
-    {
-      "source": "pointlayer",
       "target": "symbollayer"
-    },
-    {
-      "source": "pointlayer",
-      "target": "clustermap"
     },
     {
       "source": "pointlayer",
@@ -1049,6 +1200,10 @@
     },
     {
       "source": "pointlayer",
+      "target": "custommakermap"
+    },
+    {
+      "source": "pointlayer",
       "target": "bubblemap"
     },
     {
@@ -1057,7 +1212,7 @@
     },
     {
       "source": "linelayer",
-      "target": "relationmap"
+      "target": "isolinemap"
     },
     {
       "source": "linelayer",
@@ -1070,6 +1225,10 @@
     {
       "source": "polygonlayer",
       "target": "choroplethmap"
+    },
+    {
+      "source": "polygonlayer",
+      "target": "extrudemap"
     },
     {
       "source": "heatmap",
