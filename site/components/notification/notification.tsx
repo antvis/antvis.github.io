@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './notification.module.less';
+import styles from './Notification.module.less';
 import { useTranslation } from 'react-i18next';
 
 interface Notification {

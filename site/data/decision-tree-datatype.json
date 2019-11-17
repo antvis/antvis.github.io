@@ -11,21 +11,21 @@
       "id": "timeseries",
       "name": "时序型",
       "level": 0,
-      "childrenNum": 18,
+      "childrenNum": 17,
       "tag": "timeseries"
     },
     {
       "id": "category",
       "name": "分类型",
       "level": 0,
-      "childrenNum": 32,
+      "childrenNum": 36,
       "tag": "category"
     },
     {
       "id": "geography",
       "name": "地理型",
       "level": 0,
-      "childrenNum": 17,
+      "childrenNum": 15,
       "tag": "geography"
     },
     {
@@ -33,15 +33,15 @@
       "name": "关系型",
       "level": 0,
       "tag": "relational",
-      "childrenNum": 12
+      "childrenNum": 19
     },
 
     {
       "id": "tree",
       "name": "树",
       "level": 1,
-      "childrenNum": 7,
-      "tag": "clustering",
+      "childrenNum": 9,
+      "tag": "tree",
       "isLeaf": false,
       "tags": ["relational"]
     },
@@ -51,427 +51,831 @@
       "name": "基础折线",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "timeseries"]
+      "tags": ["numeric", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*JXRgQ4tcm1kAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/line/basic",
+        "/g2/zh/examples/line/basic",
+        "/f2/zh/examples/line/basic"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/line/basic",
+        "/g2/en/examples/line/basic",
+        "/f2/en/examples/line/basic"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "multilinechart",
       "name": "多折线图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "timeseries"]
+      "tags": ["numeric", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*gnbiSo8DaEwAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/line/multiple",
+        "/g2/zh/examples/line/multiple",
+        "/f2/zh/examples/line/multiple"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/line/multiple",
+        "/g2/en/examples/line/multiple",
+        "/f2/en/examples/line/multiple"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "basicareachart",
       "name": "基础面积图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "timeseries"]
+      "tags": ["numeric", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Zv4oSrF6JDYAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/area/basic",
+        "/g2/zh/examples/area/basic",
+        "/f2/zh/examples/area/basic"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/area/basic",
+        "/g2/en/examples/area/basic",
+        "/f2/en/examples/area/basic"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "stackareachart",
       "name": "堆叠面积图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "timeseries"]
+      "tags": ["numeric", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*YoCuRoNaN8kAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/area/stack",
+        "/g2/zh/examples/area/stacked#stacked",
+        "/g]f2/zh/examples/area/stacked#stacked"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/area/stacked",
+        "/g2/en/examples/area/stacked",
+        "/f2/en/examples/area/stacked"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "percentstackareachart",
       "name": "百分比堆\n叠面积图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "timeseries"]
+      "tags": ["numeric", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*NMkWRLm2_8IAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/area/percentageArea",
+        "/g2/zh/examples/area/stacked#percentage",
+        "/f2/zh/examples/area/stacked#percentage"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/area/stacked#percentage",
+        "/g2/en/examples/area/stacked#percentage",
+        "/f2/en/examples/area/stacked#percentage"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "intervalareachart",
       "name": "区间面积图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "timeseries"]
+      "tags": ["numeric", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*wX5sTajQpn4AAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/area/range"],
+      "links_en": ["/g2/en/examples/area/range"],
+      "linkNames": ["G2"]
     },
     {
       "id": "streamchart",
       "name": "河流图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "timeseries"]
+      "tags": ["numeric", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*-lFRTootQesAAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/area/stacked#streamgraph"],
+      "links_en": ["/g2/en/examples/area/stacked#streamgraph"],
+      "linkNames": ["G2"]
     },
     {
       "id": "basichistogram",
       "name": "基础柱状图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "timeseries", "category"]
+      "tags": ["numeric", "timeseries", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*V9UkSqvdud4AAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/column/basic",
+        "/g2/zh/examples/column/basic",
+        "/f2/zh/examples/column/basic"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/column/basic",
+        "/g2/en/examples/column/basic",
+        "/f2/en/examples/column/basic"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "grouphistogram",
       "name": "分组柱状图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*qjpuT6qOKG0AAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/column/group",
+        "/g2/zh/examples/column/dodge",
+        "/f2/zh/examples/column/dodge"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/column/dodge",
+        "/g2/en/examples/column/dodge",
+        "/f2/en/examples/column/dodge"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "stackhistogram",
       "name": "堆叠柱状图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*l8T0QYLvYocAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/column/stack#stacked",
+        "/g2/zh/examples/column/stack#stacked",
+        "/f2/zh/examples/column/stack#stacked"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/column/stack#stacked",
+        "/g2/en/examples/column/stack#stacked",
+        "/f2/en/examples/column/stack#stacked"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "percentstackhistogram",
       "name": "百分比堆\n叠柱状图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*nl5pTowaN5EAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/column/percentageStack",
+        "/g2/zh/examples/column/stack#stacked-percentage",
+        "/f2/zh/examples/column/stack#stacked-percentage"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/column/stack#stacked-percentage",
+        "/g2/en/examples/column/stack#stacked-percentage",
+        "/f2/en/examples/column/stack#stacked-percentage"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "intervalhistogram",
       "name": "区间柱状图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5FIvRblZNooAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2/zh/examples/column/basic#ranged",
+        "/f2/zh/examples/column/basic#ranged"
+      ],
+      "links_en": [
+        "/g2/en/examples/column/basic#ranged",
+        "/f2/zh/examples/column/basic#ranged"
+      ],
+      "linkNames": ["G2", "F2"]
     },
     {
       "id": "waterfall",
       "name": "瀑布图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*QLMTR4jmABYAAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/column/basic#waterfall"],
+      "links_en": ["/g2/en/examples/column/basic#waterfall"],
+      "linkNames": ["G2"]
     },
     {
       "id": "histogramunit",
       "name": "直方图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category", "timeseries"]
+      "tags": ["numeric", "category", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*WI97SJBgaCwAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/column/histogram",
+        "/g2/zh/examples/column/histogram#histogram"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/column/histogram#histogram",
+        "/g2/en/examples/column/histogram#histogram"
+      ],
+      "linkNames": ["g2plot", "G2"]
     },
     {
       "id": "basicbarchart",
       "name": "基础条形图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category", "timeseries"]
+      "tags": ["numeric", "category", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*RENoRrj3PugAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/bar/basic",
+        "/g2/zh/examples/bar/basic",
+        "/f2/zh/examples/bar/basic"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/bar/basic",
+        "/g2/en/examples/bar/basic",
+        "/f2/en/examples/bar/basic"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "stackbarchart",
       "name": "堆叠条形图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category", "timeseries"]
+      "tags": ["numeric", "category", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*JKcNRbvHZAwAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/bar/stack",
+        "/g2/zh/examples/bar/stack",
+        "/f2/zh/examples/bar/stack"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/bar/stack#stacked",
+        "/g2/en/examples/bar/stack#stacked",
+        "/f2/en/examples/bar/stack"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "percentstackbarchart",
       "name": "百分比堆\n叠条形图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category", "timeseries"]
+      "tags": ["numeric", "category", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*nl5pTowaN5EAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/bar/percentageStack",
+        "/g2/zh/examples/bar/stack#bar-percentage-stacked-marked",
+        "/f2/zh/examples/bar/stack#bar-percentage-stacked-marked"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/bar/stack#bar-percentage-stacked-marked",
+        "/g2/en/examples/bar/stack#bar-percentage-stacked-marked",
+        "/f2/en/examples/bar/stack#bar-percentage-stacked-marked"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "groupbarchart",
       "name": "分组条形图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category", "timeseries"]
+      "tags": ["numeric", "category", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ERLHR55JdTgAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/bar/group",
+        "/g2/zh/examples/bar/dodge",
+        "/f2/zh/examples/bar/dodge"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/bar/group",
+        "/g2/en/examples/bar/dodge",
+        "/f2/en/examples/bar/dodge"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "intervalbarchart",
       "name": "区间条形图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category", "timeseries"]
+      "tags": ["numeric", "category", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*G6vWT52rdz4AAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/bar/basic#ranged"],
+      "links_en": ["/g2/en/examples/bar/basic#ranged"],
+      "linkNames": ["G2"]
     },
     {
       "id": "radiobarchart",
       "name": "玉珏图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5EwoQYlQ4q4AAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/bar/basic#radial-bar"],
+      "links_en": ["/g2/en/examples/bar/basic#radial-bar"],
+      "linkNames": ["G2"]
     },
     {
       "id": "symetricgroupbarchart",
       "name": "对称分组\n条形图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*-y0dTbzSPycAAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/bar/dodge#bar5"],
+      "links_en": ["/g2/en/examples/bar/dodge#bar5"],
+      "linkNames": ["G2"]
     },
     {
       "id": "basicpiechart",
       "name": "基础饼图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ka5WSJgUllkAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/pie/basic",
+        "/g2/zh/examples/pie/basic",
+        "/f2/zh/examples/pie/basic"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/pie/basic",
+        "/g2/en/examples/pie/basic",
+        "/f2/en/examples/pie/basic"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "ringpiechart",
-      "name": "环形饼图",
+      "name": "环图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*NkK1T7VLgjkAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/pie/ring",
+        "/g2/zh/examples/pie/donut",
+        "/f2/zh/examples/pie/donut"
+      ],
+      "links_en": [
+        "/g2plot/en/examples/pie/ring",
+        "/g2/en/examples/pie/donut#donut",
+        "/f2/en/examples/pie/donut#donut"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "nestpiechart",
       "name": "嵌套饼图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*JFtYRK6qeeUAAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/pie/nested"],
+      "links_en": ["/g2/en/examples/pie/nested"],
+      "linkNames": ["G2"]
     },
     {
       "id": "nightingalechart",
       "name": "南丁格尔图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*FBnUR449kzYAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2/zh/examples/pie/rose#color-rose",
+        "/f2/zh/examples/pie/rose#color-rose"
+      ],
+      "links_en": [
+        "/g2/en/examples/pie/rose#color-rose",
+        "/f2/en/examples/pie/rose#color-rose"
+      ],
+      "linkNames": ["G2", "F2"]
     },
     {
       "id": "scatterplotunit",
       "name": "散点图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*UQo_Rav7tO4AAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2/zh/examples/point/scatter",
+        "/f2/zh/examples/point/scatter"
+      ],
+      "links_en": [
+        "/g2/en/examples/point/scatter#scatter",
+        "/f2/en/examples/point/scatter#scatter"
+      ],
+      "linkNames": ["G2", "F2"]
     },
     {
       "id": "bubblescatterplot",
       "name": "散点\n气泡图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
-    },
-    {
-      "id": "radialdendrogram",
-      "name": "径向系统树",
-      "level": 2,
-      "isLeaf": true,
-      "tags": ["numeric", "relational"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*tJcRQa5kI10AAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2/zh/examples/point/scatter#bubble",
+        "/f2/zh/examples/point/scatter#bubble"
+      ],
+      "links_en": [
+        "/g2/en/examples/point/scatter#bubble",
+        "/f2/en/examples/point/scatter#bubble"
+      ],
+      "linkNames": ["G2", "F2"]
     },
     {
       "id": "circulararcdiagram",
       "name": "环形弧线图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "relational"]
+      "tags": ["numeric", "relational"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*DltUTa3ASJ8AAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/net/arcDiagram#circularArcDiagram"],
+      "links_en": ["/g6/en/examples/net/arcDiagram#circularArcDiagram"],
+      "linkNames": ["G6"]
     },
     {
       "id": "arcdiagram",
       "name": "弧线图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "relational"]
+      "tags": ["numeric", "relational"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*aVzrSI3NAtAAAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/net/arcDiagram"],
+      "links_en": ["/g6/en/examples/net/arcDiagram"],
+      "linkNames": ["G6"]
     },
     {
       "id": "chorddiagram",
       "name": "和弦图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "relational"]
+      "tags": ["numeric", "relational"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*KEDoQrZdzXUAAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/relation/relation#chord"],
+      "links_en": ["/g2/en/examples/relation/relation#chord"],
+      "linkNames": ["G2"]
     },
     {
       "id": "treemap",
       "name": "矩阵树图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "relational"]
+      "tags": ["numeric", "relational"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*nUuaSpgmG6UAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2/zh/examples/relation/relation#treemap-children",
+        "/f2/zh/examples/relation/relation#treemap"
+      ],
+      "links_en": [
+        "/g2/en/examples/relation/relation#treemap-children",
+        "/f2/en/examples/relation/relation#treemap"
+      ],
+      "linkNames": ["G2"]
     },
     {
       "id": "sankey",
       "name": "桑基图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "relational"]
+      "tags": ["numeric", "relational"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*iuHTTJRzTW4AAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/relation/relation#sankey"],
+      "links_en": ["/g2/en/examples/relation/relation#sankey"],
+      "linkNames": ["G2"]
     },
     {
       "id": "basicfunnel",
       "name": "基础漏斗图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "relational", "category"]
+      "tags": ["numeric", "relational", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*TqKWT57XsrIAAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/funnel/funnel"],
+      "links_en": ["/g2/en/examples/funnel/funnel"],
+      "linkNames": ["G2"]
     },
     {
       "id": "comparefunnel",
       "name": "对比漏斗图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "relational", "category"]
+      "tags": ["numeric", "relational", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Q5tSQJMDvCoAAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/funnel/funnel#comparision"],
+      "links_en": ["/g2/en/examples/funnel/funnel#comparision"],
+      "linkNames": ["G2"]
     },
     {
       "id": "symetricfunnel",
       "name": "对称漏斗图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "relational", "category"]
-    },
-    {
-      "id": "bubblemap",
-      "name": "气泡地图",
-      "level": 2,
-      "isLeaf": true,
-      "tags": ["numeric", "geography", "category"]
+      "tags": ["numeric", "relational", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*GyMBTqqGY_wAAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/funnel/funnel#symmetric"],
+      "links_en": ["/g2/en/examples/funnel/funnel#symmetric"],
+      "linkNames": ["G2"]
     },
     {
       "id": "binchart",
       "name": "箱型图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*xhSaRb16RzYAAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/box/box"],
+      "links_en": ["/g2/en/examples/box/box"],
+      "linkNames": ["G2"]
     },
     {
       "id": "colorblockheatmap",
       "name": "色块热力图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category", "timeseries"]
+      "tags": ["numeric", "category", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*eS0LS5wt6wwAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2/zh/examples/heatmap/heatmap#basic",
+        "/f2/zh/examples/heatmap/heatmap#basic"
+      ],
+      "links_en": [
+        "/g2/en/examples/heatmap/heatmap#basic",
+        "/f2/en/examples/heatmap/heatmap#basic"
+      ],
+      "linkNames": ["G2", "F2"]
     },
     {
       "id": "basicheatmap",
       "name": "基础热力图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category", "geography"]
+      "tags": ["numeric", "category", "geography"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Te9gRYpVq0cAAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/heatmap/heatmap#image"],
+      "links_en": ["/g2/en/examples/heatmap/heatmap#image"],
+      "linkNames": ["G2"]
     },
     {
       "id": "instrument",
       "name": "仪表盘",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*McoQQpjJFwkAAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/gauge/gauge", "/f2/zh/examples/gauge/gauge"],
+      "links_en": [
+        "/g2/en/examples/gauge/gauge#basic",
+        "/f2/en/examples/gauge/gauge#basic"
+      ],
+      "linkNames": ["G2", "F2"]
     },
     {
       "id": "radar",
       "name": "雷达图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*NxMmSabzJGQAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2plot/zh/examples/radar/basic",
+        "/g2/zh/examples/radar/radar",
+        "/f2/zh/examples/radar/radar"
+      ],
+      "links_en": [
+        "/g2plot/zh/examples/radar/basic",
+        "/g2/en/examples/radar/radar",
+        "/f2/en/examples/radar/radar"
+      ],
+      "linkNames": ["g2plot", "G2", "F2"]
     },
     {
       "id": "stockklines",
       "name": "股票k线图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "timeseries"]
+      "tags": ["numeric", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*GbzaQLwYrFUAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2/zh/examples/candlestick/demo#basic",
+        "/f2/zh/examples/candlestick/demo#basic"
+      ],
+      "links_en": [
+        "/g2/en/examples/candlestick/demo",
+        "/f2/en/examples/candlestick/demo"
+      ],
+      "linkNames": ["G2", "F2"]
     },
     {
       "id": "wordcloud",
       "name": "词云图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "category"]
+      "tags": ["numeric", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*iHCmSaZ1tCwAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2/zh/examples/other/other#word-cloud",
+        "/f2/zh/examples/other/other#word-cloud"
+      ],
+      "links_en": [
+        "/g2/en/examples/other/other#word-cloud",
+        "/f2/en/examples/other/other#word-cloud"
+      ],
+      "linkNames": ["G2", "F2"]
     },
     {
       "id": "candlestick",
       "name": "烛形图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["numeric", "timeseries"]
+      "tags": ["numeric", "timeseries"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*nOPdTrLtpdMAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/g2/zh/examples/candlestick/demo#k-and-area",
+        "/g2/zh/examples/candlestick/demo#k-and-area"
+      ],
+      "links_en": [
+        "/g2/en/examples/candlestick/demo#k-and-area",
+        "/f2/zh/examples/candlestick/demo#k-and-area"
+      ],
+      "linkNames": ["G2", "F2"]
     },
     {
       "id": "compactBox",
       "name": "紧凑树",
       "level": 2,
       "isLeaf": true,
-      "tags": ["relational-tree"]
+      "tags": ["relational-tree"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*WGHWQYjLmXoAAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/tree/compactBox#tbCompactBox"],
+      "links_en": ["/g6/en/examples/tree/compactBox#tbCompactBox"],
+      "linkNames": ["G6"]
     },
     {
       "id": "dendrogram",
       "name": "系统树",
       "level": 2,
       "isLeaf": true,
-      "tags": ["relational-tree"]
+      "tags": ["relational-tree"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*r51nTJ-Ha5MAAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/tree/dendrogram#tbDendrogram"],
+      "links_en": ["/g6/en/examples/tree/dendrogram#tbDendrogram"],
+      "linkNames": ["G6"]
     },
     {
       "id": "mindmap",
       "name": "脑图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["relational-tree"]
+      "tags": ["relational-tree"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*VFXlT6A_g7wAAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/tree/mindmap"],
+      "links_en": ["/g6/en/examples/tree/mindmap"],
+      "linkNames": ["G6"]
     },
     {
       "id": "indented",
       "name": "缩进树",
       "level": 2,
       "isLeaf": true,
-      "tags": ["relational-tree"]
+      "tags": ["relational-tree"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ywVeSJIfeK8AAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/tree/indented"],
+      "links_en": ["/g6/en/examples/tree/indented"],
+      "linkNames": ["G6"]
     },
     {
       "id": "radialtree",
       "name": "辐射树",
       "level": 2,
       "isLeaf": true,
-      "tags": ["relational-tree"]
+      "tags": ["relational-tree"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*vUkTSpv9YqkAAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/tree/radialtree"],
+      "links_en": ["/g6/en/examples/tree/radialtree"],
+      "linkNames": ["G6"]
     },
     {
       "id": "flowdiagram",
       "name": "流程图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["relational"]
+      "tags": ["relational"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*35XETpuMRpsAAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/net/dagreFlow"],
+      "links_en": ["/g6/en/examples/net/dagreFlow"],
+      "linkNames": ["G6"]
     },
     {
       "id": "fruchtermancluster",
       "name": "Fruchterman\n聚类",
       "level": 2,
       "isLeaf": true,
-      "tags": ["relational"]
+      "tags": ["relational"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*8qAMTomesZcAAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/net/furchtermanLayout#fruchtermanClustering"],
+      "links_en": [
+        "/g6/en/examples/net/furchtermanLayout#fruchtermanClustering"
+      ],
+      "linkNames": ["G6"]
     },
     {
       "id": "fruchterman",
       "name": "Fruchterman",
       "level": 2,
       "isLeaf": true,
-      "tags": ["relational"]
+      "tags": ["relational"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*XD22Q7uxddEAAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/net/furchtermanLayout"],
+      "links_en": ["/g6/en/examples/net/furchtermanLayout"],
+      "linkNames": ["G6"]
     },
     {
       "id": "forcedirected",
       "name": "力导向图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["relational"]
+      "tags": ["relational"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*dokGR7uP50oAAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/net/forceDirected"],
+      "links_en": ["/g6/en/examples/net/forceDirected"],
+      "linkNames": ["G6"]
     },
     {
       "id": "circular",
       "name": "环形图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["relational"]
+      "tags": ["relational"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*2ZNjRqRzJggAAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/net/circular"],
+      "links_en": ["/g6/en/examples/net/circular"],
+      "linkNames": ["G6"]
     },
     {
       "id": "spiral",
       "name": "螺旋线图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["relational"]
+      "tags": ["relational"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5NkUTJyXfIcAAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/net/circular#spiralCircular"],
+      "links_en": ["/g6/en/examples/net/circular#spiralCircular"],
+      "linkNames": ["G6"]
     },
     {
       "id": "radial",
       "name": "辐射图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["relational"]
+      "tags": ["relational"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*KON0Rbv5XtEAAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/net/radialLayout"],
+      "links_en": ["/g6/en/examples/net/radialLayout"],
+      "linkNames": ["G6"]
     },
     {
       "id": "concentric",
       "name": "同心圆",
       "level": 2,
       "isLeaf": true,
-      "tags": ["relational"]
+      "tags": ["relational"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*zxlhRobv7VEAAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/net/concentricLayout"],
+      "links_en": ["/g6/en/examples/net/concentricLayout"],
+      "linkNames": ["G6"]
     },
     {
       "id": "grid",
       "name": "网格图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["relational"]
+      "tags": ["relational"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*wlkBRKmjVNgAAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/net/gridLayout"],
+      "links_en": ["/g6/en/examples/net/gridLayout"],
+      "linkNames": ["G6"]
     },
     {
       "id": "bubbles",
       "name": "气泡图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["relational"]
-    },
-    {
-      "id": "dotmap",
-      "name": "定点地图",
-      "level": 2,
-      "isLeaf": true,
-      "tags": ["geography"]
+      "tags": ["relational"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*EaIlRqda-VcAAAAAAAAAAABkARQnAQ",
+      "links": ["/g6/zh/examples/net/forceDirected#forceBubbles"],
+      "links_en": ["/g6/en/examples/net/forceDirected#forceBubbles"],
+      "linkNames": ["G6"]
     },
 
     {
@@ -479,101 +883,265 @@
       "name": "符号地图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["geography", "category"]
-    },
-    {
-      "id": "clustermap",
-      "name": "聚合地图",
-      "level": 2,
-      "isLeaf": true,
-      "tags": ["geography", "numeric"]
+      "tags": ["geography", "category"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Af7tQJ_sFdwAAAAAAAAAAABkARQnAQ",
+      "links": ["/L7/zh/examples/point/image"],
+      "links_en": ["/L7/en/examples/point/image"],
+      "linkNames": ["L7"]
     },
     {
       "id": "chartmap",
       "name": "复合图表\n地图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["geography"]
+      "tags": ["geography"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*KEmSSIB3scwAAAAAAAAAAABkARQnAQ",
+      "links": ["/L7/zh/examples/point/chart"],
+      "links_en": ["/L7/en/examples/point/chart"],
+      "linkNames": ["L7"]
     },
     {
       "id": "columnmap",
       "name": "3D 柱状\n地图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["geography", "numeric"]
+      "tags": ["geography", "numeric"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*1X4mS4yNGSgAAAAAAAAAAABkARQnAQ",
+      "links": ["/L7/zh/examples/point/3d"],
+      "links_en": ["/L7/en/examples/point/3d"],
+      "linkNames": ["L7"]
     },
     {
       "id": "scattermap",
       "name": "散点地图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["geography"]
+      "tags": ["geography"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*c2EOQqwR-toAAAAAAAAAAABkARQnAQ",
+      "links": ["/L7/zh/examples/point/scatter"],
+      "links_en": ["/L7/en/examples/point/scatter"],
+      "linkNames": ["L7"]
     },
     {
       "id": "pathmap",
       "name": "路径地图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["geography"]
+      "tags": ["geography"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*J3sVRrzk3egAAAAAAAAAAABkARQnAQ",
+      "links": ["/L7/zh/examples/line/path"],
+      "links_en": ["/L7/en/examples/line/path"],
+      "linkNames": ["L7"]
     },
     {
-      "id": "relationmap",
-      "name": "关系地图",
+      "id": "isolinemap",
+      "name": "等值线地图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["geography", "relational"]
+      "tags": ["category", "geography"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*hHKHSa1PH-MAAAAAAAAAAABkARQnAQ",
+      "links": ["/L7/zh/examples/line/isoline"],
+      "links_en": ["/L7/en/examples/line/isoline"],
+      "linkNames": ["L7"]
+    },
+    {
+      "id": "custommakermap",
+      "name": "自定义\n Maker",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["geography"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*_FJCRpEzM8YAAAAAAAAAAABkARQnAQ",
+      "links": ["/L7/zh/examples/point/marker"],
+      "links_en": ["/L7/en/examples/point/marker"],
+      "linkNames": ["L7"]
     },
     {
       "id": "arc3dmap",
       "name": "3D 弧线地图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["geography", "relational"]
+      "tags": ["relational", "geography"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5cnzS4A3968AAAAAAAAAAABkARQnAQ",
+      "links": ["/L7/zh/examples/line/arc"],
+      "links_en": ["/L7/en/examples/line/arc"],
+      "linkNames": ["L7"]
     },
     {
       "id": "choroplethmap",
       "name": "分类填充图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["geography", "category"]
+      "tags": ["category", "geography"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*TSGQRowxmmAAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/L7/zh/examples/polygon/fill",
+        "/g2/zh/examples/map/map#choropleth-map"
+      ],
+      "links_en": [
+        "/L7/en/examples/polygon/fill",
+        "/g2/en/examples/map/map#choropleth-map"
+      ],
+      "linkNames": ["L7", "G2"]
+    },
+    {
+      "id": "extrudemap",
+      "name": "3D 填充地图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["category", "geography"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*l9D1QK5-z-8AAAAAAAAAAABkARQnAQ",
+      "links": ["/L7/zh/examples/polygon/3d"],
+      "links_en": ["/L7/en/examples/polygon/3d"],
+      "linkNames": ["L7"]
     },
     {
       "id": "hexagonalheatmap",
       "name": "蜂窝热力图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["geography", "numeric"]
-    },
-    {
-      "id": "3dgridbinheatmap",
-      "name": "3D 网格\n热力图",
-      "level": 2,
-      "isLeaf": true,
-      "tags": ["geography", "numeric"]
+      "tags": ["numeric", "geography"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*YbKcRbypQ_oAAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/L7/zh/examples/heatmap/hexagon",
+        "/g2/zh/examples/map/map#hex-choropleth-map"
+      ],
+      "links_en": [
+        "/L7/en/examples/heatmap/hexagon",
+        "/g2/en/examples/map/map#hex-choropleth-map"
+      ],
+      "linkNames": ["L7", "G2"]
     },
     {
       "id": "3dhexagonalheatmap",
       "name": "3D 蜂窝\n热力图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["geography", "numeric"]
+      "tags": ["numeric", "geography"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*l9D1QK5-z-8AAAAAAAAAAABkARQnAQ",
+      "links": ["/L7/zh/examples/heatmap/hexagon#light"],
+      "links_en": ["/L7/en//examples/heatmap/hexagon#light"],
+      "linkNames": ["L7"]
     },
     {
       "id": "classicalheatmap",
       "name": "经典热力图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["geography", "numeric"]
+      "tags": ["numeric", "geography"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/antv_site/afts/img/A*HxpoRIcBA80AAAAAAAAAAABkARQnAQ",
+      "links": [
+        "/L7/zh/examples/heatmap/heatmap",
+        "/g2/zh/examples/map/map#with-heatmap"
+      ],
+      "links_en": [
+        "/L7/en/examples/heatmap/heatmap",
+        "/g2/en/examples/map/map#with-heatmap"
+      ],
+      "linkNames": ["L7", "G2"]
     },
     {
       "id": "gridbinheatmap",
       "name": "网格\n热力图",
       "level": 2,
       "isLeaf": true,
-      "tags": ["geography", "numeric"]
+      "tags": ["numeric", "geography"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/antv_site/afts/img/A*tAGKS6EClQ4AAAAAAAAAAABkARQnAQ",
+      "links": ["/L7/zh/examples/heatmap/grid#grid1"],
+      "links_en": ["/L7/en/examples/heatmap/grid#grid1"],
+      "linkNames": ["L7"]
+    },
+
+    {
+      "id": "circlepacking",
+      "name": "圆堆积图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["numeric", "category", "relational-tree"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*nbfsS6Fe8mgAAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/relation/relation#circle-packing"],
+      "links_en": ["/g2/en/examples/relation/relation#circle-packing"],
+      "linkNames": ["G2"]
+    },
+    {
+      "id": "polartreemap",
+      "name": "极坐标树图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["numeric", "category", "relational-tree"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*HGyHQbd3esQAAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/relation/relation#polar-treemap"],
+      "links_en": ["/g2/en/examples/relation/relation#polar-treemap"],
+      "linkNames": ["G2"]
+    },
+    {
+      "id": "sunburstdiagram",
+      "name": "旭日图",
+      "level": 2,
+      "isLeaf": true,
+      "tags": ["numeric", "category", "relational-tree"],
+      "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*6vuVTqshFqgAAAAAAAAAAABkARQnAQ",
+      "links": ["/g2/zh/examples/relation/relation#sunburst"],
+      "links_en": ["/g2/en/examples/relation/relation#sunburst"],
+      "linkNames": ["G2"]
     }
   ],
   "edges": [
+    {
+      "source": "geography",
+      "target": "custommakermap"
+    },
+    {
+      "source": "category",
+      "target": "isolinemap"
+    },
+    {
+      "source": "geography",
+      "target": "isolinemap"
+    },
+    {
+      "source": "category",
+      "target": "extrudemap"
+    },
+    {
+      "source": "geography",
+      "target": "extrudemap"
+    },
+    {
+      "source": "category",
+      "target": "sunburstdiagram"
+    },
+    {
+      "source": "numeric",
+      "target": "sunburstdiagram"
+    },
+    {
+      "source": "tree",
+      "target": "sunburstdiagram"
+    },
+    {
+      "source": "category",
+      "target": "polartreemap"
+    },
+    {
+      "source": "numeric",
+      "target": "polartreemap"
+    },
+    {
+      "source": "tree",
+      "target": "polartreemap"
+    },
+    {
+      "source": "numeric",
+      "target": "circlepacking"
+    },
+    {
+      "source": "category",
+      "target": "circlepacking"
+    },
+    {
+      "source": "tree",
+      "target": "circlepacking"
+    },
     {
       "source": "relational",
       "target": "tree"
@@ -823,14 +1391,6 @@
     {
       "source": "category",
       "target": "bubblescatterplot"
-    },
-    {
-      "source": "numeric",
-      "target": "radialdendrogram"
-    },
-    {
-      "source": "tree",
-      "target": "radialdendrogram"
     },
     {
       "source": "numeric",
@@ -1124,14 +1684,6 @@
     {
       "source": "numeric",
       "target": "hexagonalheatmap"
-    },
-    {
-      "source": "geography",
-      "target": "3dgridbinheatmap"
-    },
-    {
-      "source": "numeric",
-      "target": "3dgridbinheatmap"
     },
     {
       "source": "geography",

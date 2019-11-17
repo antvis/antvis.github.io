@@ -3,11 +3,11 @@ import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
 import Banner from '@antv/gatsby-theme-antv/site/components/Banner';
 import Features from '@antv/gatsby-theme-antv/site/components/Features';
 import Companies from '@antv/gatsby-theme-antv/site/components/Companies';
-import ProductsPage from '../components/productsPage/productsPage';
-import DecisionTreePage from '../components/decisionTreePage/decisionTreePage';
-import ResourcesPage from '../components/resourcesPage/resourcesPage';
-import DescribePage from '../components/describePage/describePage';
-import QuotesPage from '../components/quotesPage/quotesPage';
+import ProductsPage from '../components/Products/Products';
+import DecisionTreePage from '../components/DecisionTree/DecisionTree';
+import ResourcesPage from '../components/Resources/Resources';
+import DescribePage from '../components/Describe/Describe';
+import QuotesPage from '../components/Quotes/Quotes';
 import BannerSVG from '../components/bannerSVG/bannerSVG';
 import { useTranslation } from 'react-i18next';
 import './index.less';
@@ -83,8 +83,6 @@ const IndexPage = () => {
     },
   ];
 
-  const bannerSVG = BannerSVG();
-
   const bannerButtons = [
     {
       text: t('继续了解'),
@@ -96,10 +94,10 @@ const IndexPage = () => {
   return (
     <>
       <SEO title={t('蚂蚁数据可视化')} lang={i18n.language} />
-      <div className="home-container" style={{ marginTop: '-24px' }}>
+      <div className="home-container">
         <Banner
           className="banner"
-          coverImage={bannerSVG}
+          coverImage={<BannerSVG />}
           title={t('让数据栩栩如生')}
           description={t(
             'AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、无限可能的数据可视化最佳实践。',

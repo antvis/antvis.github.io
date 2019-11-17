@@ -1,0 +1,87 @@
+import React from 'react';
+import QueueAnim from 'rc-queue-anim';
+import ResourceCard from '../ResourceCard/ResourceCard';
+import { Col, Row } from 'antd';
+import { useTranslation } from 'react-i18next';
+import styles from './Resources.module.less';
+
+const circleBackImg =
+  'https://gw.alipayobjects.com/zos/basement_prod/e63aad85-573e-484b-94dd-dc8ea2334c09.svg';
+const diamandBackImg =
+  'https://gw.alipayobjects.com/zos/basement_prod/bd846fce-bf9b-47f0-abba-87bb9bbd2982.svg';
+
+const ResourcesPage = () => {
+  const { t } = useTranslation();
+  const cards = [
+    {
+      index: 0,
+      icon:
+        'https://gw.alipayobjects.com/zos/basement_prod/9ef1230e-6c3c-4506-98ab-77cfc6db9767.svg',
+      title: t('图表用法'),
+      description: t(
+        '从数据出发，从功能角度对常见图表进行分类，提供规范使用指引。',
+      ),
+      link: 'https://antv.alipay.com/zh-cn/vis/chart/index.html',
+    },
+    {
+      index: 1,
+      icon:
+        'https://gw.alipayobjects.com/zos/basement_prod/74e248e9-b024-47ef-8b35-1b06a8cb87a5.svg',
+      title: t('设计原则'),
+      description: t(
+        '对数据图形进行拆解、提炼，抽象出一套数据图形可视化交互视觉规范。',
+      ),
+      link: '/zh/docs/specification/getting-started',
+    },
+    {
+      index: 2,
+      icon:
+        'https://gw.alipayobjects.com/zos/basement_prod/90df0bcb-5295-4b49-b419-a70248ea359f.svg',
+      title: t('工具资源'),
+      description: t(
+        '在进行模式、组件和语言的整理过程中发现的优秀书籍和资源。',
+      ),
+      link: 'https://antv.alipay.com/zh-cn/vis/resource/index.html',
+    },
+  ];
+
+  const cardCols = cards.map((card, i) => (
+    <Col className={styles.cardWrapper} key={i} md={8} xs={24}>
+      <ResourceCard key={i} cardContent={card} />
+    </Col>
+  ));
+
+  let titleStr = '工具和资源';
+  return (
+    <div className={styles.wrapper}>
+      <QueueAnim
+        component={Row}
+        type="bottom"
+        leaveReverse
+        key="page"
+        className={styles.content}
+      >
+        <p key="title" className={styles.title}>
+          {t(titleStr)}
+        </p>
+        <div key="slicer" className={styles.slicer} />
+        <div key="cards" className={styles.rowsWrapper}>
+          <Row key="rows" className={styles.rows}>
+            {cardCols}
+          </Row>
+        </div>
+        <img
+          src={circleBackImg}
+          className={styles.circleback}
+          alt="circle-background"
+        />
+        <img
+          src={diamandBackImg}
+          className={styles.diamandback}
+          alt="diamand-background"
+        />
+      </QueueAnim>
+    </div>
+  );
+};
+export default ResourcesPage;
