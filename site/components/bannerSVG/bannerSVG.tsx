@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './BannerSVG.module.less';
+import styles from './bannerSVG.module.less';
 
 const BannerSVG = () => {
   const block6NodeRadius = '2';

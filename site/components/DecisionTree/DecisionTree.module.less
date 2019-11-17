@@ -72,10 +72,13 @@
           height: 100%;
         }
         .canvasDescription {
-          color: #ebedf0;
+          color: rgba(0, 0, 0, 0.1);
           position: absolute;
           bottom: 8px;
           right: 20px;
+          &:hover {
+            color: rgba(0, 0, 0, 1);
+          }
         }
       }
     }
@@ -86,16 +89,17 @@
   width: 162px;
   height: 128px;
   border: 1px solid #ebedf0;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px 4px 4px 4px;
+  background: rgba(255, 255, 255, 1);
   box-shadow: 0px 12px 16px rgba(49, 70, 89, 0.12);
-  opacity: 0.9;
   .tooltipTitle {
     width: 100%;
     text-align: center;
     padding: 10px;
     height: 40px;
     font-size: 12px;
+    font-weight: 500;
+    color: #314659;
   }
   .tooltipContent {
     width: 162px;
@@ -105,7 +109,7 @@
       height: 86px;
       margin-left: 1px;
       border-top: 1px solid #ebedf0;
-      // border-bottom: 1px solid #EBEDF0;
+      border-radius: 0px 0px 3px 3px;
     }
     .tooltipBtnsContainer {
       position: absolute;
@@ -120,13 +124,23 @@
       border-top: 1px solid #ebedf0;
       opacity: 0;
       bottom: 0;
+      .demoDescription {
+        width: 100%;
+        color: #ced4d9;
+        position: absolute;
+        top: 12px;
+        left: 50px;
+        font-size: 12px;
+      }
       .button {
-        height: 100%;
-        padding-top: 1px;
-        padding-bottom: 1px;
+        margin-top: 12px;
+        height: 20px;
         text-align: center;
         color: #2f54eb;
         border-right: 1px solid #ebedf0;
+        &:hover {
+          color: #597ef7;
+        }
         &:last-child {
           border-right: 0px;
         }

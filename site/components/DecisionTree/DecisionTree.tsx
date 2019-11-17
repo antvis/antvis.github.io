@@ -657,7 +657,7 @@ const DecisionTree = () => {
           names: [],
           x: 0,
           y: 0,
-          buttons: <div></div>,
+          buttons: <div />,
         });
       });
 
@@ -674,23 +674,23 @@ const DecisionTree = () => {
         }
         // if clicked a leaf, highlight the relative items
         if (model.isLeaf) {
-          let buttons = <div></div>;
-          if (model.linkNames) {
-            const buttonWidth = `${100 / model.linkNames.length}%`;
-            buttons = model.linkNames.map((name: string, i: number) => (
+          const buttons = model.linkNames ? (
+            model.linkNames.map((name: string, i: number) => (
               <a
                 key={i}
                 href={
                   i18n.language === 'zh' ? model.links[i] : model.links_en[i]
                 }
                 className={styles.button}
-                style={{ width: buttonWidth }}
+                style={{ width: `${100 / model.linkNames.length}%` }}
                 target="frame1"
               >
                 {name}
               </a>
-            ));
-          }
+            ))
+          ) : (
+            <div />
+          );
           const point = graph.getPointByClient(e.clientX, e.clientY);
           const pos = graph.getCanvasByPoint(point.x, point.y);
           setTooltipStates({
@@ -1258,6 +1258,7 @@ const DecisionTree = () => {
           alt="tooltip"
         />
         <div className={styles.tooltipBtnsContainer}>
+          <p className={styles.demoDescription}>{t('查看 demo')}</p>
           {tooltipStates.buttons}
         </div>
       </div>
@@ -1332,8 +1333,12 @@ const DecisionTree = () => {
             <div
               className={classNames(styles.mountNode, 'mountNode')}
               ref={element}
-            ></div>
-            <a href="" className={styles.canvasDescription}>
+            />
+            <a
+              href="/g6/zh"
+              target="g6newtag"
+              className={styles.canvasDescription}
+            >
               Powered by G6
             </a>
           </div>

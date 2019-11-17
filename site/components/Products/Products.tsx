@@ -201,7 +201,7 @@ const Products = () => {
       <div className={styles.lefttop}>
         <div className={styles.ltblock1} />
       </div>
-      <div className={styles.rightbottom}></div>
+      <div className={styles.rightbottom} />
       <div
         className={classNames(
           styles.slicerbar,
