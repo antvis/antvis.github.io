@@ -8,7 +8,7 @@ import DecisionTreePage from '../components/DecisionTree/DecisionTree';
 import ResourcesPage from '../components/Resources/Resources';
 import DescribePage from '../components/Describe/Describe';
 import QuotesPage from '../components/Quotes/Quotes';
-import BannerSVG from '../components/bannerSVG/BannerSVG';
+import BannerSVG from '../components/BannerSVG/BannerSVG';
 import { useTranslation } from 'react-i18next';
 import './index.less';
 
