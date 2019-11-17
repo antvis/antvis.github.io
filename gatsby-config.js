@@ -48,6 +48,10 @@ module.exports = {
       {
         from: '/zh-cn/vis/index\\.html',
       },
+      {
+        from: '^/l7',
+        keepUrl: true,
+      },
     ],
   },
 };
