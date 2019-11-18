@@ -11,7 +11,6 @@ import { useTranslation } from 'react-i18next';
 const AboutUsPage = () => {
   const { t, i18n } = useTranslation();
 
-  const bannerSVG = BannerSVG();
   return (
     <>
       <SEO title={t('蚂蚁数据可视化')} lang={i18n.language} />

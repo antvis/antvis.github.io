@@ -13,16 +13,7 @@ const Products = () => {
     rootDomain: '',
   }).slice(0, 7);
 
-  const icons: {
-    G2: string;
-    L7: string;
-    G6: string;
-    G2Plot: string;
-    g2plot: string;
-    F2: string;
-    Graphin: string;
-    ChartCube: string;
-  } = {
+  const icons: any = {
     G2:
       'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*okOLTbtVaH0AAAAAAAAAAABkARQnAQ',
     L7:
