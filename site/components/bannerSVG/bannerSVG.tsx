@@ -75,6 +75,7 @@ const BannerSVG = () => {
     'rgb(201, 112, 254)', //O
     'rgb(180, 101, 254)', //P
   ];
+
   const getBlock6Circles = () => {
     const circles = labels.map((label, i) => {
       const beginx = block6GridPositions[i].x;
@@ -95,110 +96,153 @@ const BannerSVG = () => {
     return circles;
   };
 
+  const hoverAnimate = false;
   const mouseEnterBlock1 = () => {
-    for (let i = 1; i <= 5; i++) {
-      const circleShadow = document.getElementById(`block1-circle${i}-shadow`);
-      const circle = document.getElementById(`block1-circle${i}-object`);
-      circleShadow &&
-        circleShadow.setAttribute('class', styles[`block1Circle${i}Infinite`]);
-      circle &&
-        circle.setAttribute('class', styles[`block1Circle${i}Infinite`]);
+    if (hoverAnimate) {
+      for (let i = 1; i <= 5; i++) {
+        const circleShadow = document.getElementById(
+          `block1-circle${i}-shadow`,
+        );
+        const circle = document.getElementById(`block1-circle${i}-object`);
+        circleShadow &&
+          circleShadow.setAttribute(
+            'class',
+            styles[`block1Circle${i}Infinite`],
+          );
+        circle &&
+          circle.setAttribute('class', styles[`block1Circle${i}Infinite`]);
+      }
     }
   };
   const mouseOutBlock1 = () => {
-    for (let i = 1; i <= 5; i++) {
-      const circleShadow = document.getElementById(`block1-circle${i}-shadow`);
-      const circle = document.getElementById(`block1-circle${i}-object`);
-      circleShadow && circleShadow.setAttribute('class', ''); //styles[`block1Circle${i}`]
-      circle && circle.setAttribute('class', ''); //styles[`block1Circle${i}`]
+    if (hoverAnimate) {
+      for (let i = 1; i <= 5; i++) {
+        const circleShadow = document.getElementById(
+          `block1-circle${i}-shadow`,
+        );
+        const circle = document.getElementById(`block1-circle${i}-object`);
+        circleShadow && circleShadow.setAttribute('class', ''); //styles[`block1Circle${i}`]
+        circle && circle.setAttribute('class', ''); //styles[`block1Circle${i}`]
+      }
     }
   };
   const mouseEnterBlock2 = () => {
-    for (let i = 1; i <= 4; i++) {
-      const bar = document.getElementById(`block2-bar${i}`);
-      bar && bar.setAttribute('class', styles[`block2Bar${i}Infinite`]);
+    if (hoverAnimate) {
+      for (let i = 1; i <= 4; i++) {
+        const bar = document.getElementById(`block2-bar${i}`);
+        bar && bar.setAttribute('class', styles[`block2Bar${i}Infinite`]);
+      }
     }
   };
   const mouseOutBlock2 = () => {
-    for (let i = 1; i <= 4; i++) {
-      const bar = document.getElementById(`block2-bar${i}`);
-      bar && bar.setAttribute('class', ''); // styles[`block2Bar${i}Infinite`]
+    if (hoverAnimate) {
+      for (let i = 1; i <= 4; i++) {
+        const bar = document.getElementById(`block2-bar${i}`);
+        bar && bar.setAttribute('class', ''); // styles[`block2Bar${i}Infinite`]
+      }
     }
   };
   const mouseEnterBlock3 = () => {
-    const bigArc = document.getElementById('block3-arc-big');
-    const smallArc = document.getElementById('block3-arc-small');
-    bigArc && bigArc.setAttribute('class', styles.block3ArcBigInfinite);
-    smallArc && smallArc.setAttribute('class', styles.block3ArcSmallInfinite);
+    if (hoverAnimate) {
+      if (hoverAnimate) {
+        const bigArc = document.getElementById('block3-arc-big');
+        const smallArc = document.getElementById('block3-arc-small');
+        bigArc && bigArc.setAttribute('class', styles.block3ArcBigInfinite);
+        smallArc &&
+          smallArc.setAttribute('class', styles.block3ArcSmallInfinite);
+      }
+    }
   };
   const mouseOutBlock3 = () => {
-    const bigArc = document.getElementById('block3-arc-big');
-    const smallArc = document.getElementById('block3-arc-small');
-    bigArc && bigArc.setAttribute('class', '');
-    smallArc && smallArc.setAttribute('class', '');
+    if (hoverAnimate) {
+      const bigArc = document.getElementById('block3-arc-big');
+      const smallArc = document.getElementById('block3-arc-small');
+      bigArc && bigArc.setAttribute('class', '');
+      smallArc && smallArc.setAttribute('class', '');
+    }
   };
   const mouseEnterBlock4 = () => {
-    const verti = document.getElementById('block4-back-line-verti');
-    const hori = document.getElementById('block4-back-line-hori');
-    const circle = document.getElementById('block4-back-circle');
-    verti && verti.setAttribute('class', styles.block4LineVertiInfinite);
-    hori && hori.setAttribute('class', styles.block4LineHoriInfinite);
-    circle && circle.setAttribute('class', styles.block4CircleInfinite);
+    if (hoverAnimate) {
+      const verti = document.getElementById('block4-back-line-verti');
+      const hori = document.getElementById('block4-back-line-hori');
+      const circle = document.getElementById('block4-back-circle');
+      verti && verti.setAttribute('class', styles.block4LineVertiInfinite);
+      hori && hori.setAttribute('class', styles.block4LineHoriInfinite);
+      circle && circle.setAttribute('class', styles.block4CircleInfinite);
+    }
   };
   const mouseOutBlock4 = () => {
-    const verti = document.getElementById('block4-back-line-verti');
-    const hori = document.getElementById('block4-back-line-hori');
-    const circle = document.getElementById('block4-back-circle');
-    verti && verti.setAttribute('class', '');
-    hori && hori.setAttribute('class', '');
-    circle && circle.setAttribute('class', '');
+    if (hoverAnimate) {
+      const verti = document.getElementById('block4-back-line-verti');
+      const hori = document.getElementById('block4-back-line-hori');
+      const circle = document.getElementById('block4-back-circle');
+      verti && verti.setAttribute('class', '');
+      hori && hori.setAttribute('class', '');
+      circle && circle.setAttribute('class', '');
+    }
   };
 
   const mouseEnterBlock5 = () => {
-    const fan = document.getElementById('block5-fan');
-    fan && fan.setAttribute('class', styles.block5FanInfinite);
+    if (hoverAnimate) {
+      const fan = document.getElementById('block5-fan');
+      fan && fan.setAttribute('class', styles.block5FanInfinite);
+    }
   };
   const mouseOutBlock5 = () => {
-    const fan = document.getElementById('block5-fan');
-    fan && fan.setAttribute('class', styles.block5Fan);
+    if (hoverAnimate) {
+      const fan = document.getElementById('block5-fan');
+      fan && fan.setAttribute('class', styles.block5Fan);
+    }
   };
 
   const mouseEnterBlock6 = () => {
-    labels.forEach(label => {
-      const circle = document.getElementById(`block6-circle-${label}`);
-      circle &&
-        circle.setAttribute('class', styles[`block6Circle${label}Infinite`]);
-    });
-    const container = document.getElementById('block6-nodes');
-    container &&
-      container.setAttribute('class', styles.block6NodesContainerInfinite);
+    if (hoverAnimate) {
+      labels.forEach(label => {
+        const circle = document.getElementById(`block6-circle-${label}`);
+        circle &&
+          circle.setAttribute('class', styles[`block6Circle${label}Infinite`]);
+      });
+      const container = document.getElementById('block6-nodes');
+      container &&
+        container.setAttribute('class', styles.block6NodesContainerInfinite);
+    }
   };
   const mouseOutBlock6 = () => {
-    labels.forEach(label => {
-      const circle = document.getElementById(`block6-circle-${label}`);
-      circle && circle.setAttribute('class', '');
-    });
-    const container = document.getElementById('block6-nodes');
-    container && container.setAttribute('class', '');
+    if (hoverAnimate) {
+      labels.forEach(label => {
+        const circle = document.getElementById(`block6-circle-${label}`);
+        circle && circle.setAttribute('class', '');
+      });
+      const container = document.getElementById('block6-nodes');
+      container && container.setAttribute('class', '');
+    }
   };
   const mouseEnterBlock7 = () => {
-    const curve = document.getElementById('block7-curve');
-    curve && curve.setAttribute('class', styles.block7CurveInfinite);
+    if (hoverAnimate) {
+      const curve = document.getElementById('block7-curve');
+      curve && curve.setAttribute('class', styles.block7CurveInfinite);
+    }
   };
   const mouseOutBlock7 = () => {
-    const curve = document.getElementById('block7-curve');
-    curve && curve.setAttribute('class', '');
+    if (hoverAnimate) {
+      const curve = document.getElementById('block7-curve');
+      curve && curve.setAttribute('class', '');
+    }
   };
   const mouseEnterBlock8 = () => {
-    for (let i = 1; i <= 3; i++) {
-      const bar = document.getElementById(`block8-bar${i}`);
-      bar && bar.setAttribute('class', styles[`block8Bar${i}Infinite`]);
+    if (hoverAnimate) {
+      for (let i = 1; i <= 3; i++) {
+        const bar = document.getElementById(`block8-bar${i}`);
+        bar && bar.setAttribute('class', styles[`block8Bar${i}Infinite`]);
+      }
     }
   };
   const mouseOutBlock8 = () => {
-    for (let i = 1; i <= 3; i++) {
-      const bar = document.getElementById(`block8-bar${i}`);
-      bar && bar.setAttribute('class', '');
+    if (hoverAnimate) {
+      for (let i = 1; i <= 3; i++) {
+        const bar = document.getElementById(`block8-bar${i}`);
+        bar && bar.setAttribute('class', '');
+      }
     }
   };
 
@@ -268,90 +312,6 @@ const BannerSVG = () => {
               in="shadowBlurOuter1"
             ></feColorMatrix>
           </filter>
-          <linearGradient
-            x1="78.4948196%"
-            y1="100%"
-            x2="0%"
-            y2="100%"
-            id="linearGradient-7"
-          >
-            <stop stopColor="#FBF6FF" offset="0%"></stop>
-            <stop stopColor="#FAF9FC" offset="100%"></stop>
-          </linearGradient>
-          <path
-            d="M0,0 L154,0 L154,152 C154,153.104569 153.104569,154 152,154 L2,154 C0.8954305,154 1.3527075e-16,153.104569 0,152 L0,0 L0,0 Z"
-            id="path-8"
-          ></path>
-          <filter
-            x="-65.9%"
-            y="-51.0%"
-            width="231.8%"
-            height="231.8%"
-            filterUnits="objectBoundingBox"
-            id="filter-10"
-          >
-            <feOffset
-              dx="0"
-              dy="23"
-              in="SourceAlpha"
-              result="shadowOffsetOuter1"
-            ></feOffset>
-            <feGaussianBlur
-              stdDeviation="30"
-              in="shadowOffsetOuter1"
-              result="shadowBlurOuter1"
-            ></feGaussianBlur>
-            <feColorMatrix
-              values="0 0 0 0 0.89233777   0 0 0 0 0.767282774   0 0 0 0 1  0 0 0 0.34298514 0"
-              type="matrix"
-              in="shadowBlurOuter1"
-            ></feColorMatrix>
-          </filter>
-          <filter
-            x="-71.4%"
-            y="-56.5%"
-            width="242.9%"
-            height="242.9%"
-            filterUnits="objectBoundingBox"
-            id="filter-11"
-          >
-            <feGaussianBlur
-              stdDeviation="30.5"
-              in="SourceAlpha"
-              result="shadowBlurInner1"
-            ></feGaussianBlur>
-            <feOffset
-              dx="39"
-              dy="-12"
-              in="shadowBlurInner1"
-              result="shadowOffsetInner1"
-            ></feOffset>
-            <feComposite
-              in="shadowOffsetInner1"
-              in2="SourceAlpha"
-              operator="arithmetic"
-              k2="-1"
-              k3="1"
-              result="shadowInnerInner1"
-            ></feComposite>
-            <feColorMatrix
-              values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.60003278 0"
-              type="matrix"
-              in="shadowInnerInner1"
-            ></feColorMatrix>
-          </filter>
-          <radialGradient
-            cx="-3.18731345%"
-            cy="149.566259%"
-            fx="-3.18731345%"
-            fy="149.566259%"
-            r="181.707698%"
-            id="radialGradient-15"
-          >
-            <stop stopColor="#E565FF" offset="0%"></stop>
-            <stop stopColor="#9C58FF" offset="58.1529772%"></stop>
-            <stop stopColor="#7818FF" offset="100%"></stop>
-          </radialGradient>
 
           <linearGradient
             x1="0%"
@@ -393,36 +353,6 @@ const BannerSVG = () => {
             <stop stopColor="#3EB0FF" offset="0%"></stop>
             <stop stopColor="#00FF97" offset="100%"></stop>
           </linearGradient>
-          <path
-            d="M0,0 L126,0 L126,124 C126,125.104569 125.104569,126 124,126 L2,126 C0.8954305,126 1.3527075e-16,125.104569 0,124 L0,0 L0,0 Z"
-            id="path-31"
-          ></path>
-          <filter
-            x="-73.8%"
-            y="-59.5%"
-            width="247.6%"
-            height="247.6%"
-            filterUnits="objectBoundingBox"
-            id="filter-32"
-          >
-            <feOffset
-              dx="0"
-              dy="18"
-              in="SourceAlpha"
-              result="shadowOffsetOuter1"
-            ></feOffset>
-            <feGaussianBlur
-              stdDeviation="28"
-              in="shadowOffsetOuter1"
-              result="shadowBlurOuter1"
-            ></feGaussianBlur>
-            <feColorMatrix
-              values="0 0 0 0 0.86820607   0 0 0 0 0.783993902   0 0 0 0 1  0 0 0 0.111505682 0"
-              type="matrix"
-              in="shadowBlurOuter1"
-            ></feColorMatrix>
-          </filter>
-          <rect id="path-33" x="25" y="37" width="64" height="64" rx="2"></rect>
           <filter
             x="-56.2%"
             y="-56.2%"
@@ -487,69 +417,6 @@ const BannerSVG = () => {
             <stop stopColor="#35FFAD" offset="100%"></stop>
           </linearGradient>
           <circle id="path-41" cx="65.5" cy="65.5" r="32.5"></circle>
-
-          <path
-            d="M0,0 L124,0 C125.104569,-2.02906125e-16 126,0.8954305 126,2 L126,124 C126,125.104569 125.104569,126 124,126 L0,126 L0,126 L0,0 Z"
-            id="path-46"
-          ></path>
-          <filter
-            x="-97.2%"
-            y="-67.1%"
-            width="294.4%"
-            height="294.4%"
-            filterUnits="objectBoundingBox"
-            id="filter-48"
-          >
-            <feOffset
-              dx="0"
-              dy="38"
-              in="SourceAlpha"
-              result="shadowOffsetOuter1"
-            ></feOffset>
-            <feGaussianBlur
-              stdDeviation="34.5"
-              in="shadowOffsetOuter1"
-              result="shadowBlurOuter1"
-            ></feGaussianBlur>
-            <feColorMatrix
-              values="0 0 0 0 0.751720252   0 0 0 0 0.56875   0 0 0 0 1  0 0 0 0.407096809 0"
-              type="matrix"
-              in="shadowBlurOuter1"
-            ></feColorMatrix>
-          </filter>
-          <filter
-            x="-83.3%"
-            y="-53.2%"
-            width="266.7%"
-            height="266.7%"
-            filterUnits="objectBoundingBox"
-            id="filter-49"
-          >
-            <feGaussianBlur
-              stdDeviation="33.5"
-              in="SourceAlpha"
-              result="shadowBlurInner1"
-            ></feGaussianBlur>
-            <feOffset
-              dx="5"
-              dy="-4"
-              in="shadowBlurInner1"
-              result="shadowOffsetInner1"
-            ></feOffset>
-            <feComposite
-              in="shadowOffsetInner1"
-              in2="SourceAlpha"
-              operator="arithmetic"
-              k2="-1"
-              k3="1"
-              result="shadowInnerInner1"
-            ></feComposite>
-            <feColorMatrix
-              values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.232927229 0"
-              type="matrix"
-              in="shadowInnerInner1"
-            ></feColorMatrix>
-          </filter>
           <linearGradient
             x1="50%"
             y1="3.85364977%"
@@ -595,101 +462,6 @@ const BannerSVG = () => {
             id="path-54"
           ></path>
 
-          <rect id="path-56" x="0" y="0" width="100" height="100"></rect>
-          <filter
-            x="-122.5%"
-            y="-84.5%"
-            width="345.0%"
-            height="345.0%"
-            filterUnits="objectBoundingBox"
-            id="filter-57"
-          >
-            <feOffset
-              dx="0"
-              dy="38"
-              in="SourceAlpha"
-              result="shadowOffsetOuter1"
-            ></feOffset>
-            <feGaussianBlur
-              stdDeviation="34.5"
-              in="shadowOffsetOuter1"
-              result="shadowBlurOuter1"
-            ></feGaussianBlur>
-            <feColorMatrix
-              values="0 0 0 0 0.751720252   0 0 0 0 0.56875   0 0 0 0 1  0 0 0 0.407096809 0"
-              type="matrix"
-              in="shadowBlurOuter1"
-            ></feColorMatrix>
-          </filter>
-          <filter
-            x="-105.0%"
-            y="-67.0%"
-            width="310.0%"
-            height="310.0%"
-            filterUnits="objectBoundingBox"
-            id="filter-58"
-          >
-            <feGaussianBlur
-              stdDeviation="33.5"
-              in="SourceAlpha"
-              result="shadowBlurInner1"
-            ></feGaussianBlur>
-            <feOffset
-              dx="5"
-              dy="-4"
-              in="shadowBlurInner1"
-              result="shadowOffsetInner1"
-            ></feOffset>
-            <feComposite
-              in="shadowOffsetInner1"
-              in2="SourceAlpha"
-              operator="arithmetic"
-              k2="-1"
-              k3="1"
-              result="shadowInnerInner1"
-            ></feComposite>
-            <feColorMatrix
-              values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.232927229 0"
-              type="matrix"
-              in="shadowInnerInner1"
-            ></feColorMatrix>
-          </filter>
-          <linearGradient
-            x1="61.28125%"
-            y1="0%"
-            x2="38.71875%"
-            y2="100%"
-            id="linearGradient-59"
-          >
-            <stop stopColor="#FFFFFF" offset="0%"></stop>
-            <stop stopColor="#FEFEFE" offset="100%"></stop>
-          </linearGradient>
-          <rect id="path-60" x="32" y="10" width="38" height="80" rx="6"></rect>
-          <filter
-            x="-223.7%"
-            y="-73.8%"
-            width="547.4%"
-            height="312.5%"
-            filterUnits="objectBoundingBox"
-            id="filter-62"
-          >
-            <feOffset
-              dx="0"
-              dy="26"
-              in="SourceAlpha"
-              result="shadowOffsetOuter1"
-            ></feOffset>
-            <feGaussianBlur
-              stdDeviation="24"
-              in="shadowOffsetOuter1"
-              result="shadowBlurOuter1"
-            ></feGaussianBlur>
-            <feColorMatrix
-              values="0 0 0 0 0.643049592   0 0 0 0 0.24772541   0 0 0 0 0.82178442  0 0 0 0.199874344 0"
-              type="matrix"
-              in="shadowBlurOuter1"
-            ></feColorMatrix>
-          </filter>
           <linearGradient
             x1="100%"
             y1="0%"
@@ -774,10 +546,6 @@ const BannerSVG = () => {
               in="shadowBlurOuter1"
             ></feColorMatrix>
           </filter>
-          <path
-            d="M2,0 L122,0 L122,0 L122,120 C122,121.104569 121.104569,122 120,122 L0,122 L0,122 L0,2 C-1.3527075e-16,0.8954305 0.8954305,2.02906125e-16 2,0 Z"
-            id="path-78"
-          ></path>
           <filter
             x="-69.7%"
             y="-48.4%"
@@ -1129,25 +897,14 @@ const BannerSVG = () => {
               </rect>
             </g>
             <g id="block6" transform="translate(131.000000, 218.000000)">
-              <g id="block6-back-white" opacity="0.966843378">
-                <use
-                  fill="black"
-                  fillOpacity="1"
-                  filter="url(#filter-10)"
-                  xlinkHref="#path-8"
-                ></use>
-                <use
-                  fill="url(#linearGradient-7)"
-                  fillRule="evenodd"
-                  xlinkHref="#path-8"
-                ></use>
-                <use
-                  fill="black"
-                  fillOpacity="1"
-                  filter="url(#filter-11)"
-                  xlinkHref="#path-8"
-                ></use>
-              </g>
+              <image
+                id="block6Back"
+                xlinkHref="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*zzQTRZPLhIgAAAAAAAAAAABkARQnAQ"
+                width="265px"
+                height="265px"
+                x="-56px"
+                y="-35px"
+              />
               <g id="block6-nodes" className={styles.block6NodesContainer}>
                 {getBlock6Circles()}
               </g>
@@ -1201,41 +958,14 @@ const BannerSVG = () => {
               </g>
             </g>
             <g id="block8" transform="translate(385.000000, 218.000000)">
-              <g id="block8-back-big-white">
-                <use
-                  fill="black"
-                  fillOpacity="1"
-                  filter="url(#filter-32)"
-                  xlinkHref="#path-31"
-                ></use>
-                <use
-                  fill="#FFFFFF"
-                  fillRule="evenodd"
-                  xlinkHref="#path-31"
-                ></use>
-              </g>
-              <g id="block8-back-purple">
-                <use
-                  fill="url(#radialGradient-15)"
-                  fillRule="evenodd"
-                  xlinkHref="#path-33"
-                ></use>
-                <use
-                  fill="black"
-                  fillOpacity="1"
-                  filter="url(#filter-34)"
-                  xlinkHref="#path-33"
-                ></use>
-              </g>
-              <rect
-                id="block8-back-white"
-                stroke="#F0E8FC"
-                fill="#FFFFFF"
-                x="37.5"
-                y="25.5"
-                width="63"
-                height="63"
-              ></rect>
+              <image
+                id="block8-back"
+                xlinkHref="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Vo-SR4jzAy8AAAAAAAAAAABkARQnAQ"
+                width="235px"
+                height="235px"
+                x="-55px"
+                y="-40px"
+              />
               <g id="block8-bars" transform="translate(54.000000, 40.000000)">
                 <rect
                   id="block8-bar2"
@@ -1294,28 +1024,14 @@ const BannerSVG = () => {
               ></path>
             </g>
             <g id="block4" transform="translate(439.000000, 92.000000)">
-              <mask id="mask-47" fill="white">
-                <use xlinkHref="#path-46"></use>
-              </mask>
-              <g id="block4-back-purple">
-                <use
-                  fill="black"
-                  fillOpacity="1"
-                  filter="url(#filter-48)"
-                  xlinkHref="#path-46"
-                ></use>
-                <use
-                  fill="url(#radialGradient-15)"
-                  fillRule="evenodd"
-                  xlinkHref="#path-46"
-                ></use>
-                <use
-                  fill="black"
-                  fillOpacity="1"
-                  filter="url(#filter-49)"
-                  xlinkHref="#path-46"
-                ></use>
-              </g>
+              <image
+                id="block4Back"
+                xlinkHref="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*B_F_QacItZYAAAAAAAAAAABkARQnAQ"
+                width="260px"
+                height="260px"
+                x="-68px"
+                y="-29px"
+              />
               <g id="block4-front-back" mask="url(#mask-47)">
                 <g transform="translate(64.994468, 55.918147) rotate(10.000000) translate(-64.994468, -55.918147) translate(-40.505532, -50.081853)">
                   <rect
@@ -1356,69 +1072,14 @@ const BannerSVG = () => {
               </g>
             </g>
             <g id="blcok7" transform="translate(285.000000, 218.000000)">
-              <g id="block7-back-purple">
-                <use
-                  fill="black"
-                  fillOpacity="1"
-                  filter="url(#filter-57)"
-                  xlinkHref="#path-56"
-                ></use>
-                <use
-                  fill="url(#radialGradient-15)"
-                  fillRule="evenodd"
-                  xlinkHref="#path-56"
-                ></use>
-                <use
-                  fill="black"
-                  fillOpacity="1"
-                  filter="url(#filter-58)"
-                  xlinkHref="#path-56"
-                ></use>
-              </g>
-              <path
-                d="M0.501347558,99.5 L99.4968058,99.5 L99.5000192,99.1328902 L99.5,99.1372666 C99.5,72.2776127 77.3400243,50.5 50,50.5 C22.6599757,50.5 0.5,72.2776127 0.5,99.1372666 C0.5,99.2582303 0.50044932,99.3791419 0.501347558,99.5 Z"
-                id="block7-back-fan2"
-                stroke="#FFFFFF"
-                opacity="0.0636151414"
-              ></path>
-              <path
-                d="M99.4968058,0.5 L0.501347558,0.5 C0.50044932,0.620858103 0.5,0.741769731 0.5,0.862733364 C0.5,27.7223873 22.6599757,49.5 50,49.5 C77.3400243,49.5 99.5,27.7223873 99.5,0.862733364 L99.5000192,0.867109806 L99.4968058,0.5 Z"
-                id="block7-back-fan1"
-                stroke="#FFFFFF"
-                opacity="0.0636151414"
-              ></path>
-              <g id="block7-phone">
-                <use
-                  fill="black"
-                  fillOpacity="1"
-                  filter="url(#filter-62)"
-                  xlinkHref="#path-60"
-                ></use>
-                <use
-                  fill="url(#linearGradient-59)"
-                  fillRule="evenodd"
-                  xlinkHref="#path-60"
-                ></use>
-              </g>
-              <rect
-                id="block7-yaxis"
-                fill="#DEC9F9"
-                mask="url(#mask-61)"
-                x="34"
-                y="33"
-                width="1"
-                height="34"
-              ></rect>
-              <rect
-                id="block7-xaxis"
-                fill="#DEC9F9"
-                mask="url(#mask-61)"
-                transform="translate(51.000000, 66.500000) scale(1, -1) translate(-51.000000, -66.500000) "
-                x="34"
-                y="66"
-                width="34"
-                height="1"
-              ></rect>
+              <image
+                id="block7-back"
+                xlinkHref="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*62E-Qa78EmMAAAAAAAAAAABkARQnAQ"
+                width="235px"
+                height="235px"
+                x="-68px"
+                y="-30px"
+              />
               <path
                 id="block7-curve"
                 className={styles.block7Curve}
@@ -1470,53 +1131,14 @@ const BannerSVG = () => {
               </g>
             </g>
             <g id="block1" transform="translate(63.000000, 96.000000)">
-              <g
-                id="block1-bars"
-                transform="translate(29.000000, 26.000000)"
-                fill="#DEC9F9"
-                opacity="0.503348214"
-                onMouseEnter={mouseEnterBlock1}
-                onMouseOut={mouseOutBlock1}
-              >
-                <rect id="矩形" x="32" y="0" width="1" height="70"></rect>
-                <rect
-                  id="矩形备份-18"
-                  x="48"
-                  y="0"
-                  width="1"
-                  height="70"
-                ></rect>
-                <rect
-                  id="矩形备份-19"
-                  x="64"
-                  y="0"
-                  width="1"
-                  height="70"
-                ></rect>
-                <rect
-                  id="矩形备份-16"
-                  x="16"
-                  y="0"
-                  width="1"
-                  height="70"
-                ></rect>
-                <rect id="矩形备份-17" x="0" y="0" width="1" height="70"></rect>
-              </g>
-              <g id="block1-back" opacity="0.693987165">
-                <use
-                  fill="black"
-                  fillOpacity="1"
-                  filter="url(#filter-79)"
-                  xlinkHref="#path-78"
-                ></use>
-                <use
-                  fill="url(#linearGradient-63)"
-                  fillRule="evenodd"
-                  xlinkHref="#path-78"
-                  onMouseEnter={mouseEnterBlock1}
-                  onMouseOut={mouseOutBlock1}
-                ></use>
-              </g>
+              <image
+                id="block1Back"
+                xlinkHref="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*AtjkSai-KUAAAAAAAAAAAABkARQnAQ"
+                width="216px"
+                height="216px"
+                x="-48px"
+                y="-21px"
+              />
               <g
                 id="block1-circles"
                 transform="translate(27.000000, 34.000000)"
@@ -1647,7 +1269,7 @@ const BannerSVG = () => {
           </g>
         </g>
 
-        <path
+        {/* <path
           onMouseEnter={mouseEnterBlock2}
           onMouseOut={mouseOutBlock2}
           d="M252,145 L252,245 L352,245 L352,145 Z"
@@ -1695,7 +1317,7 @@ const BannerSVG = () => {
           d="M453,245 L453,380 L583,380 L583,245 Z"
           opacity="0"
           id="block8listener"
-        ></path>
+        ></path> */}
       </svg>
     </section>
   );

@@ -1110,6 +1110,14 @@
   ],
   "edges": [
     {
+      "source": "compare",
+      "target": "isolinemap"
+    },
+    {
+      "source": "compare",
+      "target": "extrudemap"
+    },
+    {
       "source": "distribution",
       "target": "custommakermap"
     },

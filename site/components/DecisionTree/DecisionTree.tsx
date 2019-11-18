@@ -753,7 +753,7 @@ const DecisionTree = () => {
             // change data after the original items disappearing
             const layoutController = graph.get('layoutController');
             layoutController.layoutCfg.nodeStrength = () => {
-              return -80;
+              return -20;
             };
             layoutController.layoutCfg.collideStrength = 0.2;
             layoutController.layoutCfg.linkDistance = (d: any) => {
@@ -762,7 +762,11 @@ const DecisionTree = () => {
               return length;
             };
             layoutController.layoutCfg.edgeStrength = () => {
-              return 2;
+              return 0.1;
+            };
+            const simulation = layoutController.layoutMethod.forceSimulation;
+            simulation.velocityDecay = () => {
+              return 0.001;
             };
 
             const tag = model.tag;
@@ -783,13 +787,6 @@ const DecisionTree = () => {
                 parents.push(nodeMap.get(ts[0]));
               }
               if (isChild) {
-                const randomAngle = Math.random() * 2 * Math.PI;
-                node.x =
-                  model.x + (Math.cos(randomAngle) * model.size) / 2 + 10;
-                node.y =
-                  model.y + (Math.sin(randomAngle) * model.size) / 2 + 10;
-                // const dist = (model.x - node.x) * (model.x - node.x) + (model.y - node.y) * (model.y - node.y);
-
                 if (!node.style) node.style = {};
                 node.style.lineWidth = 0;
                 node.style.opacity = 1;
@@ -831,6 +828,17 @@ const DecisionTree = () => {
                     position: 'center',
                   };
                 }
+
+                const randomAngle = Math.random() * 2 * Math.PI;
+                node.x =
+                  model.x +
+                  (Math.cos(randomAngle) * model.size) / 2 -
+                  (Math.cos(Math.PI + randomAngle) * node.size) / 2;
+                node.y =
+                  model.y +
+                  (Math.sin(randomAngle) * model.size) / 2 -
+                  (Math.sin(Math.PI + randomAngle) * node.size) / 2;
+
                 curShowNodes.push(node);
                 curShowNodesMap.set(node.id, node);
 
@@ -899,7 +907,6 @@ const DecisionTree = () => {
             });
           }
           setTimeout(() => {
-            console.log(curShowNodes);
             graph.changeData({
               nodes: showNodes.concat(curShowNodes),
               edges: showEdges.concat(curShowEdges),
@@ -1181,6 +1188,7 @@ const DecisionTree = () => {
     layoutController.layoutCfg.alphaDecay = 0.01;
     nodes = data.nodes;
     edges = data.edges;
+    console.log(nodes);
 
     showNodes = [];
     showEdges = [];
@@ -1188,6 +1196,8 @@ const DecisionTree = () => {
     edgesMap = new Map();
     // find the roots
     nodes.forEach((node: any) => {
+      node.vx = 0.00001;
+      node.vy = 0.00001;
       if (node.level === 0) {
         node.color = gColors[showNodes.length % gColors.length];
         node.style = {
