@@ -5,7 +5,7 @@ interface BannerSVGProps {
   play: boolean;
 }
 
-const BannerSVG = (props: Props) => {
+const BannerSVG = (props: BannerSVGProps) => {
   const block6NodeRadius = '2';
   const block6CirclePositions = [
     { x: 36.8, y: 49.8 }, //A

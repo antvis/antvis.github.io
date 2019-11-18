@@ -5,25 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { getProducts } from '@antv/gatsby-theme-antv/site/components/getProducts';
 import styles from './Products.module.less';
 
-const icons = {
-  G2:
-    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*okOLTbtVaH0AAAAAAAAAAABkARQnAQ',
-  L7:
-    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*O_lVRL62Dw4AAAAAAAAAAABkARQnAQ',
-  G6:
-    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*eD7nT6tmYgAAAAAAAAAAAABkARQnAQ',
-  G2Plot:
-    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ASj8Qb4knEIAAAAAAAAAAABkARQnAQ',
-  g2plot:
-    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ASj8Qb4knEIAAAAAAAAAAABkARQnAQ',
-  F2:
-    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*z1KnQIYQoFEAAAAAAAAAAABkARQnAQ',
-  Graphin:
-    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*DqiRSYL2e4oAAAAAAAAAAABkARQnAQ',
-  ChartCube:
-    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Xbb_TKFApKYAAAAAAAAAAABkARQnAQ',
-};
-
 const Products = () => {
   const { t, i18n } = useTranslation();
   const data = getProducts({
@@ -31,6 +12,25 @@ const Products = () => {
     language: i18n.language,
     rootDomain: '',
   }).slice(0, 7);
+
+  const icons: string[] = {
+    G2:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*okOLTbtVaH0AAAAAAAAAAABkARQnAQ',
+    L7:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*O_lVRL62Dw4AAAAAAAAAAABkARQnAQ',
+    G6:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*eD7nT6tmYgAAAAAAAAAAAABkARQnAQ',
+    G2Plot:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ASj8Qb4knEIAAAAAAAAAAABkARQnAQ',
+    g2plot:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ASj8Qb4knEIAAAAAAAAAAABkARQnAQ',
+    F2:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*z1KnQIYQoFEAAAAAAAAAAABkARQnAQ',
+    Graphin:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*DqiRSYL2e4oAAAAAAAAAAABkARQnAQ',
+    ChartCube:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Xbb_TKFApKYAAAAAAAAAAABkARQnAQ',
+  };
 
   const basicProducts = data.filter((item: any) => item.category === 'basic');
   const extensionProducts = data.filter(
