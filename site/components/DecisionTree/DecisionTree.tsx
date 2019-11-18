@@ -676,17 +676,20 @@ const DecisionTree = () => {
         if (model.isLeaf) {
           const buttons = model.linkNames ? (
             model.linkNames.map((name: string, i: number) => (
-              <a
-                key={i}
-                href={
-                  i18n.language === 'zh' ? model.links[i] : model.links_en[i]
-                }
+              <div
                 className={styles.button}
                 style={{ width: `${100 / model.linkNames.length}%` }}
-                target="frame1"
+                key={i}
               >
-                {name}
-              </a>
+                <a
+                  href={
+                    i18n.language === 'zh' ? model.links[i] : model.links_en[i]
+                  }
+                  target="frame1"
+                >
+                  {name}
+                </a>
+              </div>
             ))
           ) : (
             <div />
@@ -701,7 +704,7 @@ const DecisionTree = () => {
             names: model.linkNames,
             x: pos.x,
             y: pos.y,
-            buttons,
+            buttons: <div className={styles.buttons}>{buttons}</div>,
           });
         }
         // if clicked a root, hide unrelated items and show the related items

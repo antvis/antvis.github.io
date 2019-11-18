@@ -45,7 +45,7 @@
     flex-direction: column;
     padding: 0;
     background: #f0f5fa;
-    height: 800px;
+    height: 100vh;
     overflow-x: hidden;
     .rightbottom {
       background: linear-gradient(130deg, #aa6aff 40%, #706dff);
@@ -118,31 +118,39 @@
       height: 86px;
       padding: auto;
       display: flex;
-      padding-top: 32px;
-      padding-bottom: 32px;
       background: #fff;
       border-top: 1px solid #ebedf0;
       opacity: 0;
       bottom: 0;
+      flex-direction: column;
       .demoDescription {
         width: 100%;
         color: #ced4d9;
-        position: absolute;
+        position: relative;
         top: 12px;
         left: 50px;
         font-size: 12px;
+        height: fit-content;
       }
-      .button {
-        margin-top: 12px;
-        height: 20px;
+      .buttons {
+        display: flex;
+        flex-direction: row;
         text-align: center;
-        color: #2f54eb;
-        border-right: 1px solid #ebedf0;
-        &:hover {
-          color: #597ef7;
-        }
-        &:last-child {
-          border-right: 0px;
+        margin-top: 12px;
+        .button {
+          position: relative;
+          height: 20px;
+          text-align: center;
+          border-right: 1px solid #ebedf0;
+          a {
+            color: #2f54eb;
+          }
+          &:hover {
+            color: #597ef7;
+          }
+          &:last-child {
+            border-right: 0px;
+          }
         }
       }
       &:hover {
