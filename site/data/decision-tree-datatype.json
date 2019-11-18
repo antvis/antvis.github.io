@@ -132,12 +132,12 @@
       "links": [
         "/g2plot/zh/examples/area/percentageArea",
         "/g2/zh/examples/area/stacked#percentage",
-        "/f2/zh/examples/area/stacked#percentage"
+        "/f2/zh/examples/area/stacked#percent"
       ],
       "links_en": [
-        "/g2plot/en/examples/area/stacked#percentage",
+        "/g2plot/en/examples/area/percentageArea",
         "/g2/en/examples/area/stacked#percentage",
-        "/f2/en/examples/area/stacked#percentage"
+        "/f2/en/examples/area/stacked#percent"
       ],
       "linkNames": ["g2plot", "G2", "F2"]
     },
@@ -230,7 +230,7 @@
       "links": [
         "/g2plot/zh/examples/column/percentageStack",
         "/g2/zh/examples/column/stack#stacked-percentage",
-        "/f2/zh/examples/column/stack#stacked-percentage"
+        "/f2/zh/examples/column/stack#percent"
       ],
       "links_en": [
         "/g2plot/en/examples/column/stack#stacked-percentage",
@@ -351,7 +351,7 @@
       "links": [
         "/g2plot/zh/examples/bar/group",
         "/g2/zh/examples/bar/dodge",
-        "/f2/zh/examples/bar/dodge"
+        "/f2/zh/examples/bar/stack#percent"
       ],
       "links_en": [
         "/g2plot/en/examples/bar/group",
@@ -451,7 +451,7 @@
       "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*FBnUR449kzYAAAAAAAAAAABkARQnAQ",
       "links": [
         "/g2/zh/examples/pie/rose#color-rose",
-        "/f2/zh/examples/pie/rose#color-rose"
+        "/f2/zh/examples/pie/rose#rose"
       ],
       "links_en": [
         "/g2/en/examples/pie/rose#color-rose",
@@ -633,7 +633,7 @@
       "isLeaf": true,
       "tags": ["numeric", "category"],
       "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*McoQQpjJFwkAAAAAAAAAAABkARQnAQ",
-      "links": ["/g2/zh/examples/gauge/gauge", "/f2/zh/examples/gauge/gauge"],
+      "links": ["/g2/zh/examples/gauge/gauge", "/f2/zh/examples/gallery/gauge"],
       "links_en": [
         "/g2/en/examples/gauge/gauge#basic",
         "/f2/en/examples/gauge/gauge#basic"
@@ -668,7 +668,7 @@
       "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*GbzaQLwYrFUAAAAAAAAAAABkARQnAQ",
       "links": [
         "/g2/zh/examples/candlestick/demo#basic",
-        "/f2/zh/examples/candlestick/demo#basic"
+        "/f2/zh/examples/candlestick/basic"
       ],
       "links_en": [
         "/g2/en/examples/candlestick/demo",
@@ -702,7 +702,7 @@
       "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*nOPdTrLtpdMAAAAAAAAAAABkARQnAQ",
       "links": [
         "/g2/zh/examples/candlestick/demo#k-and-area",
-        "/g2/zh/examples/candlestick/demo#k-and-area"
+        "/f2/zh/examples/candlestick/basic#k"
       ],
       "links_en": [
         "/g2/en/examples/candlestick/demo#k-and-area",

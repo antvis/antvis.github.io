@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from './bannerSVG.module.less';
 
-const BannerSVG = () => {
+interface BannerSVGProps {
+  play: boolean;
+}
+
+const BannerSVG = (props: Props) => {
   const block6NodeRadius = '2';
   const block6CirclePositions = [
     { x: 36.8, y: 49.8 }, //A
@@ -84,7 +88,7 @@ const BannerSVG = () => {
       return (
         <circle
           id={`block6-circle-${label}`}
-          className={styles[classname]}
+          className={props.play ? styles[classname] : 'block6CircleStatic'}
           key={label}
           fill={fills[i]}
           cx={beginx}
@@ -260,59 +264,7 @@ const BannerSVG = () => {
             <stop stopColor="#F0EFFD" offset="0%"></stop>
             <stop stopColor="#F9F8FF" offset="100%"></stop>
           </linearGradient>
-          <rect id="path-3" x="311" y="445" width="24" height="24"></rect>
-          <filter
-            x="-275.0%"
-            y="-225.0%"
-            width="650.0%"
-            height="650.0%"
-            filterUnits="objectBoundingBox"
-            id="filter-4"
-          >
-            <feOffset
-              dx="0"
-              dy="12"
-              in="SourceAlpha"
-              result="shadowOffsetOuter1"
-            ></feOffset>
-            <feGaussianBlur
-              stdDeviation="20"
-              in="shadowOffsetOuter1"
-              result="shadowBlurOuter1"
-            ></feGaussianBlur>
-            <feColorMatrix
-              values="0 0 0 0 0.1925   0 0 0 0 0.273875   0 0 0 0 0.35  0 0 0 0.1 0"
-              type="matrix"
-              in="shadowBlurOuter1"
-            ></feColorMatrix>
-          </filter>
           <rect id="path-5" x="39" y="0" width="24" height="24"></rect>
-          <filter
-            x="-275.0%"
-            y="-225.0%"
-            width="650.0%"
-            height="650.0%"
-            filterUnits="objectBoundingBox"
-            id="filter-6"
-          >
-            <feOffset
-              dx="0"
-              dy="12"
-              in="SourceAlpha"
-              result="shadowOffsetOuter1"
-            ></feOffset>
-            <feGaussianBlur
-              stdDeviation="20"
-              in="shadowOffsetOuter1"
-              result="shadowBlurOuter1"
-            ></feGaussianBlur>
-            <feColorMatrix
-              values="0 0 0 0 0.1925   0 0 0 0 0.273875   0 0 0 0 0.35  0 0 0 0.1 0"
-              type="matrix"
-              in="shadowBlurOuter1"
-            ></feColorMatrix>
-          </filter>
-
           <linearGradient
             x1="0%"
             y1="0%"
@@ -353,39 +305,6 @@ const BannerSVG = () => {
             <stop stopColor="#3EB0FF" offset="0%"></stop>
             <stop stopColor="#00FF97" offset="100%"></stop>
           </linearGradient>
-          <filter
-            x="-56.2%"
-            y="-56.2%"
-            width="212.5%"
-            height="212.5%"
-            filterUnits="objectBoundingBox"
-            id="filter-34"
-          >
-            <feGaussianBlur
-              stdDeviation="33.5"
-              in="SourceAlpha"
-              result="shadowBlurInner1"
-            ></feGaussianBlur>
-            <feOffset
-              dx="5"
-              dy="-4"
-              in="shadowBlurInner1"
-              result="shadowOffsetInner1"
-            ></feOffset>
-            <feComposite
-              in="shadowOffsetInner1"
-              in2="SourceAlpha"
-              operator="arithmetic"
-              k2="-1"
-              k3="1"
-              result="shadowInnerInner1"
-            ></feComposite>
-            <feColorMatrix
-              values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.232927229 0"
-              type="matrix"
-              in="shadowInnerInner1"
-            ></feColorMatrix>
-          </filter>
           <linearGradient
             x1="100%"
             y1="98.9231419%"
@@ -461,18 +380,6 @@ const BannerSVG = () => {
             d="M63,34 C74.045695,34 83,42.954305 83,54 C83,61.3637967 76.3333333,71.3637967 63,84 C49.6666667,71.3637967 43,61.3637967 43,54 C43,42.954305 51.954305,34 63,34 Z M63,39.8333333 C55.175966,39.8333333 48.8333333,46.1480369 48.8333333,53.9376185 C48.8333333,58.572673 53.4703894,66.0292388 63,75.6666667 L63,75.6666667 L63.4297955,75.230106 C72.669063,65.80393 77.1666667,58.5024449 77.1666667,53.9376185 C77.1666667,46.1480369 70.824034,39.8333333 63,39.8333333 Z M63,47 C66.3137085,47 69,49.6862915 69,53 C69,56.3137085 66.3137085,59 63,59 C59.6862915,59 57,56.3137085 57,53 C57,49.6862915 59.6862915,47 63,47 Z"
             id="path-54"
           ></path>
-
-          <linearGradient
-            x1="100%"
-            y1="0%"
-            x2="0%"
-            y2="100%"
-            id="linearGradient-63"
-          >
-            <stop stopColor="#FFFFFF" offset="0%"></stop>
-            <stop stopColor="#FEFEFE" offset="100%"></stop>
-          </linearGradient>
-
           <linearGradient
             id="arc-gradient1"
             x1="0"
@@ -520,56 +427,6 @@ const BannerSVG = () => {
             <feOffset result="offOut" in="SourceGraphic" dx="5" dy="5" />
             <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
             <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
-          </filter>
-          <filter
-            x="-2875.0%"
-            y="-2000.0%"
-            width="5850.0%"
-            height="5850.0%"
-            filterUnits="objectBoundingBox"
-            id="filter-75"
-          >
-            <feOffset
-              dx="0"
-              dy="35"
-              in="SourceAlpha"
-              result="shadowOffsetOuter1"
-            ></feOffset>
-            <feGaussianBlur
-              stdDeviation="32.5"
-              in="shadowOffsetOuter1"
-              result="shadowBlurOuter1"
-            ></feGaussianBlur>
-            <feColorMatrix
-              values="0 0 0 0 0.490799576   0 0 0 0 0.194812378   0 0 0 0 0.892436594  0 0 0 0.3046875 0"
-              type="matrix"
-              in="shadowBlurOuter1"
-            ></feColorMatrix>
-          </filter>
-          <filter
-            x="-69.7%"
-            y="-48.4%"
-            width="239.3%"
-            height="239.3%"
-            filterUnits="objectBoundingBox"
-            id="filter-79"
-          >
-            <feOffset
-              dx="0"
-              dy="26"
-              in="SourceAlpha"
-              result="shadowOffsetOuter1"
-            ></feOffset>
-            <feGaussianBlur
-              stdDeviation="24"
-              in="shadowOffsetOuter1"
-              result="shadowBlurOuter1"
-            ></feGaussianBlur>
-            <feColorMatrix
-              values="0 0 0 0 0.643049592   0 0 0 0 0.24772541   0 0 0 0 0.82178442  0 0 0 0.199874344 0"
-              type="matrix"
-              in="shadowBlurOuter1"
-            ></feColorMatrix>
           </filter>
           <filter
             x="-300.0%"
@@ -905,7 +762,14 @@ const BannerSVG = () => {
                 x="-56px"
                 y="-35px"
               />
-              <g id="block6-nodes" className={styles.block6NodesContainer}>
+              <g
+                id="block6-nodes"
+                className={
+                  props.play
+                    ? styles.block6NodesContainer
+                    : 'block6NodesContainerStatic'
+                }
+              >
                 {getBlock6Circles()}
               </g>
             </g>
@@ -921,7 +785,9 @@ const BannerSVG = () => {
               <g id="block2-bars" transform="translate(25.000000, 27.000000)">
                 <rect
                   id="block2-bar1"
-                  className={styles.block2Bar1}
+                  className={
+                    props.play ? styles.block2Bar1 : 'block2Bar1Static'
+                  }
                   fill="url(#linearGradient-27)"
                   x="0"
                   y="0"
@@ -930,7 +796,9 @@ const BannerSVG = () => {
                 ></rect>
                 <rect
                   id="block2-bar2"
-                  className={styles.block2Bar2}
+                  className={
+                    props.play ? styles.block2Bar2 : 'block2Bar2Static'
+                  }
                   fill="url(#linearGradient-28)"
                   x="0"
                   y="12"
@@ -939,7 +807,9 @@ const BannerSVG = () => {
                 ></rect>
                 <rect
                   id="block2-bar3"
-                  className={styles.block2Bar3}
+                  className={
+                    props.play ? styles.block2Bar3 : 'block2Bar3Static'
+                  }
                   fill="url(#linearGradient-29)"
                   x="0"
                   y="24"
@@ -948,7 +818,9 @@ const BannerSVG = () => {
                 ></rect>
                 <rect
                   id="block2-bar4"
-                  className={styles.block2Bar4}
+                  className={
+                    props.play ? styles.block2Bar4 : 'block2Bar4Static'
+                  }
                   fill="url(#linearGradient-30)"
                   x="0"
                   y="36"
@@ -969,7 +841,9 @@ const BannerSVG = () => {
               <g id="block8-bars" transform="translate(54.000000, 40.000000)">
                 <rect
                   id="block8-bar2"
-                  className={styles.block8Bar2}
+                  className={
+                    props.play ? styles.block8Bar2 : 'block8Bar2Static'
+                  }
                   fill="url(#linearGradient-35)"
                   x="12"
                   y="0"
@@ -978,7 +852,9 @@ const BannerSVG = () => {
                 ></rect>
                 <rect
                   id="block8-bar1"
-                  className={styles.block8Bar1}
+                  className={
+                    props.play ? styles.block8Bar1 : 'block8Bar1Static'
+                  }
                   fill="url(#linearGradient-36)"
                   x="0"
                   y="10"
@@ -987,7 +863,9 @@ const BannerSVG = () => {
                 ></rect>
                 <rect
                   id="block8-bar3"
-                  className={styles.block8Bar3}
+                  className={
+                    props.play ? styles.block8Bar3 : 'block8Bar3Static'
+                  }
                   fill="url(#linearGradient-37)"
                   x="24"
                   y="17"
@@ -1015,7 +893,7 @@ const BannerSVG = () => {
               </g>
               <path
                 id="block5-fan"
-                className={styles.block5Fan}
+                className={props.play ? styles.block5Fan : 'block5FanStatic'}
                 stroke="url(#block5-gradient)"
                 strokeWidth="32.5"
                 strokeDasharray="207.24"
@@ -1036,7 +914,11 @@ const BannerSVG = () => {
                 <g transform="translate(64.994468, 55.918147) rotate(10.000000) translate(-64.994468, -55.918147) translate(-40.505532, -50.081853)">
                   <rect
                     id="block4-back-line-verti"
-                    className={styles.block4LineVerti}
+                    className={
+                      props.play
+                        ? styles.block4LineVerti
+                        : 'block4LineVertiStatic'
+                    }
                     fill="url(#linearGradient-50)"
                     x="64"
                     y="20"
@@ -1045,7 +927,11 @@ const BannerSVG = () => {
                   ></rect>
                   <rect
                     id="block4-back-line-hori"
-                    className={styles.block4LineHori}
+                    className={
+                      props.play
+                        ? styles.block4LineHori
+                        : 'block4LineHoriStatic'
+                    }
                     fill="url(#linearGradient-51)"
                     x="-1.36424205e-11"
                     y="151"
@@ -1054,7 +940,9 @@ const BannerSVG = () => {
                   ></rect>
                   <path
                     id="block4-back-circle"
-                    className={styles.block4Circle}
+                    className={
+                      props.play ? styles.block4Circle : 'block4CircleStatic'
+                    }
                     stroke="url(#linearGradient-52)"
                     opacity="0.545549665"
                     strokeDasharray="132"
@@ -1082,7 +970,9 @@ const BannerSVG = () => {
               />
               <path
                 id="block7-curve"
-                className={styles.block7Curve}
+                className={
+                  props.play ? styles.block7Curve : 'block7CurveStatic'
+                }
                 strokeDasharray="90"
                 d="M36,65 C52.5685425,65 66,51.5685425 66,35"
                 stroke="#9655FE"
@@ -1100,7 +990,9 @@ const BannerSVG = () => {
               <g id="block3-arcs" transform="translate(33.000000, 33.000000)">
                 <circle
                   id="block3-arc-big"
-                  className={styles.block3ArcBig}
+                  className={
+                    props.play ? styles.block3ArcBig : 'block3ArcBigStatic'
+                  }
                   fill="none"
                   stroke="url(#arc-gradient1)"
                   filter="url(#arc-filter1)"
@@ -1115,7 +1007,9 @@ const BannerSVG = () => {
                 ></circle>
                 <circle
                   id="block3-arc-small"
-                  className={styles.block3ArcSmall}
+                  className={
+                    props.play ? styles.block3ArcSmall : 'block3ArcSmallStatic'
+                  }
                   fill="none"
                   stroke="url(#arc-gradient2)"
                   filter="url(#arc-filter2)"
@@ -1147,7 +1041,9 @@ const BannerSVG = () => {
               >
                 <circle
                   id="block1-circle1-shadow"
-                  className={styles.block1Circle1}
+                  className={
+                    props.play ? styles.block1Circle1 : 'block1Circle1Static'
+                  }
                   filter="url(#filter-81)"
                   stroke="#8D3FFD"
                   strokeWidth="1"
@@ -1159,7 +1055,9 @@ const BannerSVG = () => {
                 ></circle>
                 <circle
                   id="block1-circle1-object"
-                  className={styles.block1Circle1}
+                  className={
+                    props.play ? styles.block1Circle1 : 'block1Circle1Static'
+                  }
                   stroke="#8D3FFD"
                   strokeWidth="1"
                   fill="#FFFFFF"
@@ -1171,7 +1069,9 @@ const BannerSVG = () => {
 
                 <circle
                   id="block1-circle2-shadow"
-                  className={styles.block1Circle2}
+                  className={
+                    props.play ? styles.block1Circle2 : 'block1Circle2Static'
+                  }
                   filter="url(#filter-83)"
                   stroke="#8D3FFD"
                   strokeWidth="1"
@@ -1183,7 +1083,9 @@ const BannerSVG = () => {
                 ></circle>
                 <circle
                   id="block1-circle2-object"
-                  className={styles.block1Circle2}
+                  className={
+                    props.play ? styles.block1Circle2 : 'block1Circle2Static'
+                  }
                   stroke="#8D3FFD"
                   strokeWidth="1"
                   fill="#FFFFFF"
@@ -1195,7 +1097,9 @@ const BannerSVG = () => {
 
                 <circle
                   id="block1-circle3-shadow"
-                  className={styles.block1Circle3}
+                  className={
+                    props.play ? styles.block1Circle3 : 'block1Circle3Static'
+                  }
                   filter="url(#filter-85)"
                   stroke="#8D3FFD"
                   strokeWidth="1"
@@ -1207,7 +1111,9 @@ const BannerSVG = () => {
                 ></circle>
                 <circle
                   id="block1-circle3-object"
-                  className={styles.block1Circle3}
+                  className={
+                    props.play ? styles.block1Circle3 : 'block1Circle3Static'
+                  }
                   stroke="#8D3FFD"
                   strokeWidth="1"
                   fill="#FFFFFF"
@@ -1219,7 +1125,9 @@ const BannerSVG = () => {
 
                 <circle
                   id="block1-circle4-shadow"
-                  className={styles.block1Circle4}
+                  className={
+                    props.play ? styles.block1Circle4 : 'block1Circle4Static'
+                  }
                   filter="url(#filter-87)"
                   stroke="#8D3FFD"
                   strokeWidth="1"
@@ -1231,7 +1139,9 @@ const BannerSVG = () => {
                 ></circle>
                 <circle
                   id="block1-circle4-object"
-                  className={styles.block1Circle4}
+                  className={
+                    props.play ? styles.block1Circle4 : 'block1Circle4Static'
+                  }
                   stroke="#8D3FFD"
                   strokeWidth="1"
                   fill="#FFFFFF"
@@ -1243,7 +1153,9 @@ const BannerSVG = () => {
 
                 <circle
                   id="block1-circle5-shadow"
-                  className={styles.block1Circle5}
+                  className={
+                    props.play ? styles.block1Circle5 : 'block1Circle5Static'
+                  }
                   filter="url(#filter-89)"
                   stroke="#8D3FFD"
                   strokeWidth="1"
@@ -1255,7 +1167,9 @@ const BannerSVG = () => {
                 ></circle>
                 <circle
                   id="block1-circle5-object"
-                  className={styles.block1Circle5}
+                  className={
+                    props.play ? styles.block1Circle5 : 'block1Circle5Static'
+                  }
                   stroke="#8D3FFD"
                   strokeWidth="1"
                   fill="#FFFFFF"

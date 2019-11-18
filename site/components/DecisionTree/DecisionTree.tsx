@@ -716,11 +716,16 @@ const DecisionTree = () => {
           showNodes.forEach(snode => {
             const item = graph.findById(snode.id);
             graph.setItemState(item, 'dark', false);
-            if (snode.x < 0.5 * CANVAS_WIDTH) {
-              snode.x = 300;
-            } else {
-              snode.x = CANVAS_WIDTH - 300;
+            // make the clicked root on the top of all the nodes
+            if (snode.id === model.id) {
+              item.toFront();
             }
+            // move the other roots to the left and right side of the canvas
+            // if (snode.x < 0.5 * CANVAS_WIDTH) {
+            //   snode.x = 300;
+            // } else {
+            //   snode.x = CANVAS_WIDTH - 300;
+            // }
           });
           model.x = CANVAS_WIDTH / 2;
           model.y = CANVAS_HEIGHT / 2;

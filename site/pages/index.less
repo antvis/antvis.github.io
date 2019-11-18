@@ -50,6 +50,24 @@ body {
   .teaser {
     z-index: 2 !important;
   }
+  .ant-modal-confirm-content {
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 rgba(249, 93, 93, 0.15);
+  }
+  .ant-modal-content {
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 rgba(249, 93, 93, 0.15);
+    video {
+      border-radius: 4px;
+    }
+  }
+}
+@media (max-width: 900px) {
+  :global {
+    .teaser {
+      top: 38% !important;
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -69,5 +87,30 @@ body {
   }
   .decisionTreePage {
     display: none !important;
+  }
+}
+
+@media (max-width: 510px) {
+  :global {
+    .teaser {
+      z-index: 0 !important;
+      width: 105% !important;
+      left: -16% !important;
+      top: 2% !important;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  :global {
+    .primary-button {
+      left: -66px;
+    }
+    .teaser {
+      z-index: 0 !important;
+      width: 115% !important;
+      top: 18% !important;
+      left: -24% !important;
+    }
   }
 }

@@ -5,6 +5,25 @@ import { useTranslation } from 'react-i18next';
 import { getProducts } from '@antv/gatsby-theme-antv/site/components/getProducts';
 import styles from './Products.module.less';
 
+const icons = {
+  G2:
+    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*okOLTbtVaH0AAAAAAAAAAABkARQnAQ',
+  L7:
+    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*O_lVRL62Dw4AAAAAAAAAAABkARQnAQ',
+  G6:
+    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*eD7nT6tmYgAAAAAAAAAAAABkARQnAQ',
+  G2Plot:
+    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ASj8Qb4knEIAAAAAAAAAAABkARQnAQ',
+  g2plot:
+    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ASj8Qb4knEIAAAAAAAAAAABkARQnAQ',
+  F2:
+    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*z1KnQIYQoFEAAAAAAAAAAABkARQnAQ',
+  Graphin:
+    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*DqiRSYL2e4oAAAAAAAAAAABkARQnAQ',
+  ChartCube:
+    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Xbb_TKFApKYAAAAAAAAAAABkARQnAQ',
+};
+
 const Products = () => {
   const { t, i18n } = useTranslation();
   const data = getProducts({
@@ -65,7 +84,9 @@ const Products = () => {
                 <img
                   key="product"
                   className={styles.productimg}
-                  src={product.icon}
+                  src={
+                    icons[product.title] ? icons[product.title] : product.icon
+                  }
                   alt={`${product.title}`}
                 />
               </div>
@@ -107,10 +128,10 @@ const Products = () => {
     const length = data.length;
     const cols = 3;
     const rows = Math.ceil(length / 2) + 1;
-    const lefts = [0.0398, 0.4983, 0.959];
+    const lefts = [0.0398, 0.4983, 0.9591];
     let startTop = 81;
     const circleRadius = 1.5;
-    let cardHeight = 185;
+    let cardHeight = 192;
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < cols; j++) {
         const top = `${startTop + cardHeight * i - circleRadius}px`;
@@ -146,11 +167,11 @@ const Products = () => {
     // for small screen
     const smallStartLeftPercent = 0.028;
     const srows = length + 1;
-    let sStartTop = 80;
+    let sStartTop = 79.5;
     const sCardHeight = 210;
     const sCircleRadius = 1.5;
     const sLeftColLeft = `${smallStartLeftPercent * 100}%`;
-    const sRigthColLeft = `${(smallStartLeftPercent + 0.893) * 100}%`;
+    const sRigthColLeft = `${(smallStartLeftPercent + 0.891) * 100}%`;
     for (let i = 0; i < srows; i++) {
       let top;
       if (i === Math.ceil(srows / 2)) {
@@ -169,7 +190,7 @@ const Products = () => {
             style={{ marginLeft: sRigthColLeft, marginTop: top }}
           />,
         );
-        sStartTop *= 2;
+        sStartTop = sStartTop * 2 + 0.5;
       }
       top = `${sStartTop + sCardHeight * i - sCircleRadius}px`;
       dots.push(
