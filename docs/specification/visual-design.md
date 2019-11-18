@@ -1,8 +1,6 @@
 ---
 title: 视觉设计指引
 order: 2
-redirect_from:
-  - /zh/docs/specification
 ---
 
 AntV 色板（ 数据可视化色彩体系）是基于  [Ant Design 色彩体系](https://ant.design/docs/spec/colors-cn)，并结合数据可视化特性而设计的。<br />在数据可视化设计中，色彩的运用原则上应首先考虑准确性，先保证达到了信息传递、操作指引、交互反馈，或是强化、凸显某一个信息的目的，其次再去考虑品牌识别性。

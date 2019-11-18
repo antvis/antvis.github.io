@@ -1,8 +1,6 @@
 ---
 title: 交互设计指引
 order: 3
-redirect_from:
-  - /zh/docs/specification
 ---
 
 ## 交互式图表
