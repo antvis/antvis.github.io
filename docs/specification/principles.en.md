@@ -5,8 +5,6 @@ redirect_from:
   - /en/docs/specification
 ---
 
-# 设计原则
-
 AntV 数据可视化设计原则是基于  [Ant Design](https://ant.design/docs/spec/introduce-cn)  设计体系衍生的，具有数据可视化特性的指导原则。它遵循 Ant Design 设计价值观的同时，对数据可视化领域的进一步解读，如色彩、字体的指引。
 
 > 注：Ant Design 是一个致力于提升『用户』和『设计者』使用体验的中台设计语言。它将进行 UE 设计和 UI 设计人员统称为『设计者』，利用统一的规范进行设计赋能，全面提高中台产品体验和研发效率。
