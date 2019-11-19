@@ -27,7 +27,7 @@ const JoinUs = () => {
           <div key="email" className={styles.description}>
             {t('antv@antfin.com（注：此邮箱仅用于招聘）')}
           </div>
-          <a href="#" className={styles.join}>
+          <a href="mailto:antv@list.alibaba-inc.com" className={styles.join}>
             <button className={styles.more}>{t('立即加入')}</button>
           </a>
         </QueueAnim>
