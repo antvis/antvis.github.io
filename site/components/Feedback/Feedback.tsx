@@ -17,7 +17,7 @@ const Feedback = () => {
           <div key="description1" className={styles.description}>
             {t('任何问题，欢迎到我们的仓库提交相关的 issues。')}
           </div>
-          <a href="#" className={styles.join}>
+          <a href="https://github.com/antvis" className={styles.join}>
             <button className={styles.more}>{t('立即反馈')}</button>
           </a>
         </QueueAnim>
