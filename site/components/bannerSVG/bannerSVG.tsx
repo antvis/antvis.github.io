@@ -904,7 +904,7 @@ const BannerSVG = (props: BannerSVGProps) => {
             <g id="block4" transform="translate(439.000000, 92.000000)">
               <image
                 id="block4Back"
-                xlinkHref="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*B_F_QacItZYAAAAAAAAAAABkARQnAQ"
+                xlinkHref="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*F1eQQ4Gu40kAAAAAAAAAAABkARQnAQ"
                 width="260px"
                 height="260px"
                 x="-68px"
@@ -950,13 +950,6 @@ const BannerSVG = (props: BannerSVGProps) => {
                     d="M111.248537,49.2552483 C107.33563,82.1953597 146.587514,105.361957 164.688607,98.6513257"
                   ></path>
                 </g>
-              </g>
-              <g id="blockk4-pin" mask="url(#mask-47)">
-                <use
-                  fill="url(#linearGradient-53)"
-                  fillRule="evenodd"
-                  xlinkHref="#path-54"
-                ></use>
               </g>
             </g>
             <g id="blcok7" transform="translate(285.000000, 218.000000)">

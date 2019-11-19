@@ -11,7 +11,7 @@ const diamandBackImg =
   'https://gw.alipayobjects.com/zos/basement_prod/bd846fce-bf9b-47f0-abba-87bb9bbd2982.svg';
 
 const ResourcesPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const cards = [
     {
       index: 0,
@@ -31,7 +31,7 @@ const ResourcesPage = () => {
       description: t(
         '对数据图形进行拆解、提炼，抽象出一套数据图形可视化交互视觉规范。',
       ),
-      link: '/zh/docs/specification/getting-started',
+      link: `/${i18n.language}/docs/specification/principles`,
     },
     {
       index: 2,

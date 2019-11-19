@@ -20,23 +20,28 @@ const IndexPage = () => {
       index: 0,
       icon:
         'https://gw.alipayobjects.com/zos/basement_prod/5dbaf094-c064-4a0d-9968-76020b9f1510.svg',
-      title: '简单方便',
-      description: '从数据出发，仅需几行代码可以轻松获得想要的图表展示效果。',
+      title: t('简单方便'),
+      description: t(
+        '从数据出发，仅需几行代码可以轻松获得想要的图表展示效果。',
+      ),
     },
     {
       index: 1,
       icon:
         'https://gw.alipayobjects.com/zos/basement_prod/0a0371ab-6bed-41ad-a99b-87a5044ba11b.svg',
-      title: '方便可靠',
-      description:
+      title: t('方便可靠'),
+      description: t(
         '大量产品实践之上，提供绘图引擎、完备图形语法，专业设计规范。',
+      ),
     },
     {
       index: 2,
       icon:
         'https://gw.alipayobjects.com/zos/basement_prod/716d0bc0-e311-4b28-b79f-afdd16e8148e.svg',
-      title: '无限可能',
-      description: '任何图表，都可以基于图形语法灵活绘制，满足你无限的创意。',
+      title: t('无限可能'),
+      description: t(
+        '任何图表，都可以基于图形语法灵活绘制，满足你无限的创意。',
+      ),
     },
   ];
 
@@ -127,7 +132,7 @@ const IndexPage = () => {
         <DecisionTreePage />
         <ResourcesPage />
         <DescribePage />
-        <Features title="我们的优势" features={features} />
+        <Features title={t('我们的优势')} features={features} />
         <QuotesPage />
         <Companies title={t('2000+ 公司正在使用')} companies={companies} />
       </div>

@@ -13,24 +13,24 @@ const Products = () => {
     rootDomain: '',
   }).slice(0, 7);
 
-  const icons: any = {
-    G2:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*okOLTbtVaH0AAAAAAAAAAABkARQnAQ',
-    L7:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*O_lVRL62Dw4AAAAAAAAAAABkARQnAQ',
-    G6:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*eD7nT6tmYgAAAAAAAAAAAABkARQnAQ',
-    G2Plot:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ASj8Qb4knEIAAAAAAAAAAABkARQnAQ',
-    g2plot:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ASj8Qb4knEIAAAAAAAAAAABkARQnAQ',
-    F2:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*z1KnQIYQoFEAAAAAAAAAAABkARQnAQ',
-    Graphin:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*DqiRSYL2e4oAAAAAAAAAAABkARQnAQ',
-    ChartCube:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Xbb_TKFApKYAAAAAAAAAAABkARQnAQ',
-  };
+  // const icons: any = {
+  //   G2:
+  //     'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*okOLTbtVaH0AAAAAAAAAAABkARQnAQ',
+  //   L7:
+  //     'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*O_lVRL62Dw4AAAAAAAAAAABkARQnAQ',
+  //   G6:
+  //     'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*eD7nT6tmYgAAAAAAAAAAAABkARQnAQ',
+  //   G2Plot:
+  //     'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ASj8Qb4knEIAAAAAAAAAAABkARQnAQ',
+  //   g2plot:
+  //     'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ASj8Qb4knEIAAAAAAAAAAABkARQnAQ',
+  //   F2:
+  //     'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*z1KnQIYQoFEAAAAAAAAAAABkARQnAQ',
+  //   Graphin:
+  //     'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*DqiRSYL2e4oAAAAAAAAAAABkARQnAQ',
+  //   ChartCube:
+  //     'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Xbb_TKFApKYAAAAAAAAAAABkARQnAQ',
+  // };
 
   const basicProducts = data.filter((item: any) => item.category === 'basic');
   const extensionProducts = data.filter(
@@ -84,16 +84,14 @@ const Products = () => {
                 <img
                   key="product"
                   className={styles.productimg}
-                  src={
-                    icons[product.title] ? icons[product.title] : product.icon
-                  }
+                  src={product.icon}
                   alt={`${product.title}`}
                 />
               </div>
             </div>
           </a>
         </Col>,
-      );
+      ); //icons[product.title] ? icons[product.title] :
     });
     if (
       type === 'extension' &&

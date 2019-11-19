@@ -986,7 +986,7 @@ const DecisionTree = () => {
         e.item.get('model').fx = null;
         e.item.get('model').fy = null;
       });
-    }, 2000);
+    }, 1700);
   }, []);
 
   const mapNodeSize = (
@@ -1046,6 +1046,7 @@ const DecisionTree = () => {
   }
 
   const clickChartType = () => {
+    scrollToCanvas();
     setTabStates({
       goalTabBackground: '',
       chartTypeTabBackground: 'linear-gradient(0deg, #B7A1FF 40%, #F0F5FA 40%)',
@@ -1061,6 +1062,7 @@ const DecisionTree = () => {
     graph && loadData(chartTypeData);
   };
   const clickDataType = () => {
+    scrollToCanvas();
     setTabStates({
       goalTabBackground: '',
       chartTypeTabBackground: '',
@@ -1076,6 +1078,7 @@ const DecisionTree = () => {
     graph && loadData(dataTypeData);
   };
   const clickGoal = () => {
+    scrollToCanvas();
     setTabStates({
       goalTabBackground: 'linear-gradient(0deg, #B7A1FF 40%, #F0F5FA 40%)',
       chartTypeTabBackground: '',
@@ -1193,7 +1196,6 @@ const DecisionTree = () => {
     layoutController.layoutCfg.alphaDecay = 0.01;
     nodes = data.nodes;
     edges = data.edges;
-    console.log(nodes);
 
     showNodes = [];
     showEdges = [];
@@ -1276,71 +1278,74 @@ const DecisionTree = () => {
           alt="tooltip"
         />
         <div className={styles.tooltipBtnsContainer}>
-          <p className={styles.demoDescription}>{t('查看 demo')}</p>
+          <p className={styles.demoDescription}>demo</p>
           {tooltipStates.buttons}
         </div>
       </div>
     </div>
   );
 
+  const scrollToCanvas = () => {
+    const element = document.getElementById('decisionTree');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className={classNames(styles.wrapper, 'decisionTreePage')}>
       <div className={styles.topContaner}>
-        <a className={styles.title} href="#decisionTree">
+        <div className={styles.title} onClick={scrollToCanvas}>
           {t('图表分类')}
-        </a>
-        <div className={styles.tabsContaner}>
-          <a id="decisionTree" />
+        </div>
+        <div id="decisionTree" className={styles.tabsContaner}>
           <div
             className={(styles.goalTab, styles.tab)}
             style={{ background: tabStates.goalTabBackground }}
           >
-            <a
+            <div
               style={{
                 color: tabStates.goalTextColor,
                 fontWeight: tabStates.goalTextWeight,
               }}
-              href="#decisionTree"
               onClick={clickGoal}
               onMouseOver={hoverGoal}
               onMouseOut={outGoal}
             >
               {t('按使用目的维度')}
-            </a>
+            </div>
           </div>
           <div
             className={classNames(styles.chartTypeTab, styles.tab)}
             style={{ background: tabStates.chartTypeTabBackground }}
           >
-            <a
+            <div
               style={{
                 color: tabStates.chartTypeTextColor,
                 fontWeight: tabStates.chartTypeTextWeight,
               }}
-              href="#decisionTree"
               onClick={clickChartType}
               onMouseOver={hoverChartType}
               onMouseOut={outChartType}
             >
               {t('按图表类型维度')}
-            </a>
+            </div>
           </div>
           <div
             className={classNames(styles.dataTypeTab, styles.tab)}
             style={{ background: tabStates.dataTypeTabBackground }}
           >
-            <a
+            <div
               style={{
                 color: tabStates.dataTypeTextColor,
                 fontWeight: tabStates.dataTypeTextWeight,
               }}
-              href="#decisionTree"
               onClick={clickDataType}
               onMouseOver={hoverDataType}
               onMouseOut={outDataType}
             >
               {t('按数据类型维度')}
-            </a>
+            </div>
           </div>
         </div>
       </div>
