@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@antv/g6": "^3.1.8",
-    "@antv/gatsby-theme-antv": "^0.9.74",
+    "@antv/gatsby-theme-antv": "^0.9.75",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.5",
     "@types/react-dom": "^16.9.1",
