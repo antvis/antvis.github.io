@@ -259,7 +259,7 @@ const BannerSVG = (props: BannerSVGProps) => {
             y1="0%"
             x2="100%"
             y2="100%"
-            id="linearGradient-2"
+            id="back-rect1-gradient"
           >
             <stop stopColor="#F0EFFD" offset="0%"></stop>
             <stop stopColor="#F9F8FF" offset="100%"></stop>
@@ -682,7 +682,7 @@ const BannerSVG = (props: BannerSVGProps) => {
               />
               <rect
                 id="back-rect1"
-                fill="url(#linearGradient-2)"
+                fill="url(#back-rect1-gradient)"
                 x="290"
                 y="424"
                 width="21"
