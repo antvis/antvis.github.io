@@ -11,7 +11,8 @@ module.exports = {
   ],
   siteMetadata: {
     title: `AntV`,
-    description: `Ant Visualization solution home page`,
+    description: `Ant Visualization solution`,
+    siteUrl: 'https://antv.vision',
     githubUrl: repository.url,
     navs: [
       {
@@ -23,35 +24,5 @@ module.exports = {
       },
     ],
     docs: [],
-    // https://github.com/antvis/antvis.github.io/issues/18#issuecomment-552097061
-    /*
-    /zh-cn/g2/3.x/demo/index.html
-    /zh-cn/g2/3.x/demo/xxx/xxx.html
-    /zh-cn/g6/3.x/index.html
-    /zh-cn/g6/3.x/demo/index.html
-    /zh-cn/g6/3.x/demo/xxx/xxx.html
-    /zh-cn/f2/3.x/index.html
-    /zh-cn/f2/3.x/demo/index.html
-    /zh-cn/f2/3.x/demo/xxx/xxx.html
-    /zh-cn/l7/1.x/index.html
-    /zh-cn/l7/1.x/demo/index.html
-    /zh-cn/l7/1.x/demo/xxx/xxx.html
-    /zh-cn/vis/index.html
-    */
-    redirects: [
-      {
-        from: '/zh-cn/index\\.html',
-      },
-      {
-        from: '/zh-cn/(g2|g6|f2|l7)/[0-9]\\.x',
-      },
-      {
-        from: '/zh-cn/vis/index\\.html',
-      },
-      {
-        from: '^/l7',
-        keepUrl: true,
-      },
-    ],
   },
 };
