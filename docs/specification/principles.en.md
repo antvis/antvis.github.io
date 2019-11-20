@@ -21,7 +21,7 @@ AntV 数据可视化设计原则是基于  [Ant Design](https://ant.design/docs
 
 ### **有效**
 
-信息传达有重点，克制不冗余，避免信息过载，用最适量的数据-油墨比（Data-ink Ratio）[[1]](https://antv.alipay.com/zh-cn/vis/design/index.html#fn1)表达对用户最有用的信息。
+信息传达有重点，克制不冗余，避免信息过载，用最适量的数据-油墨比（Data-ink Ratio）表达对用户最有用的信息。
 
 <a name="u9e7nl"></a>
 
@@ -37,4 +37,4 @@ AntV 数据可视化设计原则是基于  [Ant Design](https://ant.design/docs
 
 ---
 
-1. 注 1 : Data-ink Ratio, Edward Tufte, The Visual Display of Quantitative Information, p. 51. [↩︎](https://antv.alipay.com/zh-cn/vis/design/index.html#fnref1)
+1. 注 1 : Data-ink Ratio, Edward Tufte, The Visual Display of Quantitative Information, p. 51.
