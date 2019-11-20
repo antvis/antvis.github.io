@@ -19,12 +19,12 @@ const Quotes = () => {
       index: 0,
       avatar:
         'https://gw.alipayobjects.com/zos/rmsportal/fSPDqijMJrYFdODpgEBV.png',
-      name: 'Laland Wilkinson',
+      name: 'Leland Wilkinson',
       from: '伊利诺伊大学计算机科学客座教授，H2O.ai 首席科学家，G2 项目顾问',
       quote:
         'I am thrill with G2. It is amazingly faithful to the GG system and has the potential to generate more graphics.',
 
-      nameEn: 'Laland Wilkinson',
+      nameEn: 'Leland Wilkinson',
       fromEn:
         'Visiting professor of Computer Science College, University of Illinois. Chief Scientist of H2O.ai. Project Consultant of G2',
       quoteEn:

@@ -21,7 +21,7 @@ const ResourcesPage = () => {
       description: t(
         '从数据出发，从功能角度对常见图表进行分类，提供规范使用指引。',
       ),
-      link: 'https://antv.alipay.com/zh-cn/vis/chart/index.html',
+      link: 'https://antv-2018.alipay.com/zh-cn/vis/chart/index.html',
     },
     {
       index: 1,
@@ -41,7 +41,7 @@ const ResourcesPage = () => {
       description: t(
         '在进行模式、组件和语言的整理过程中发现的优秀书籍和资源。',
       ),
-      link: 'https://antv.alipay.com/zh-cn/vis/resource/index.html',
+      link: `/${i18n.language}/docs/specification/resources`,
     },
   ];
 
