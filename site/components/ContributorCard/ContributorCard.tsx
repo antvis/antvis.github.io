@@ -74,7 +74,12 @@ const ContributorCard = (props: Props) => {
           onMouseEnter={mouseEnterGithub}
           onMouseLeave={mouseLeaveIcon}
         >
-          <a className={styles.github} href={props.cardContent.github}>
+          <a
+            className={styles.github}
+            href={props.cardContent.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               key="githubimg"
               className={styles.githubImg}
@@ -94,7 +99,12 @@ const ContributorCard = (props: Props) => {
           onMouseEnter={mouseEnterWeibo}
           onMouseLeave={mouseLeaveIcon}
         >
-          <a className={styles.weibo} href={props.cardContent.weibo}>
+          <a
+            className={styles.weibo}
+            href={props.cardContent.weibo}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               key="weiboimg"
               className={styles.weiboImg}
