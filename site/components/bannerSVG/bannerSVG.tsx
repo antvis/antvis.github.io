@@ -904,7 +904,7 @@ const BannerSVG = (props: BannerSVGProps) => {
             <g id="block4" transform="translate(439.000000, 92.000000)">
               <image
                 id="block4Back"
-                xlinkHref="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*F1eQQ4Gu40kAAAAAAAAAAABkARQnAQ"
+                xlinkHref="https://gw.alipayobjects.com/zos/antfincdn/p%24tXf8w8p5/location.png"
                 width="260px"
                 height="260px"
                 x="-68px"
