@@ -25,6 +25,7 @@
     "@types/react-dom": "^16.9.1",
     "antd": "^3.23.6",
     "classnames": "^2.2.6",
+    "dom-closest": "^0.2.0",
     "gatsby": "^2.15.36",
     "gh-pages": "^2.1.1",
     "husky": "^3.0.8",
@@ -35,7 +36,8 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-i18next": "^11.0.1",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "url-parse": "^1.4.7"
   },
   "license": "MIT",
   "scripts": {
