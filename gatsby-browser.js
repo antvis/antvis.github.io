@@ -10,8 +10,11 @@ window.addEventListener('click', e => {
   } else {
     node = closest(e.target, 'a');
   }
+  if (!node) {
+    return;
+  }
   const href = node.getAttribute('href');
-  if (!node || !href) {
+  if (!href) {
     return;
   }
   const { pathname } = new Url(href);
