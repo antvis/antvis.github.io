@@ -21,6 +21,13 @@ let highlighting = false;
 let currentFocus: any;
 let currentData: any = goalData;
 
+interface Element {
+  requestFullScreen?(): void;
+  mozRequestFullScreen?(): void;
+  msRequestFullscreen?(): void;
+  webkitRequestFullscreen?(): void;
+}
+
 const DecisionTree = () => {
   const { t, i18n } = useTranslation();
 
@@ -985,13 +992,15 @@ const DecisionTree = () => {
       });
 
       window.onresize = () => {
-        if (element) {
+        if (element && element.current) {
           CANVAS_WIDTH = element.current.offsetWidth; // 1320;
           CANVAS_HEIGHT = element.current.offsetHeight; // 696;
+        }
+        if (graph) {
           const layoutController = graph.get('layoutController');
           const forceLayout = layoutController.layoutMethod;
-          forceLayout.center = [CANVAS_WIDTH, CANVAS_HEIGHT];
-          graph && graph.changeSize(CANVAS_WIDTH, CANVAS_HEIGHT);
+          forceLayout.center = [CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2];
+          graph.changeSize(CANVAS_WIDTH, CANVAS_HEIGHT);
         }
       };
 
@@ -1332,11 +1341,14 @@ const DecisionTree = () => {
       } else if (fullscreenDom.webkitRequestFullscreen) {
         fullscreenDom.webkitRequestFullScreen();
       }
-      if (graph) {
+      if (graph && window.screen) {
         graph.changeSize(window.screen.width, window.screen.height);
         const layoutController = graph.get('layoutController');
         const forceLayout = layoutController.layoutMethod;
-        forceLayout.center = [window.screen.width, window.screen.height];
+        forceLayout.center = [
+          window.screen.width / 2,
+          window.screen.height / 2,
+        ];
         loadData(currentData);
       }
     }
