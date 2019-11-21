@@ -22,11 +22,19 @@ let highlighting = false;
 let currentFocus: any;
 let currentData: any = goalData;
 
-interface Element {
-  requestFullScreen?(): void;
-  mozRequestFullScreen?(): void;
-  msRequestFullscreen?(): void;
-  webkitRequestFullscreen?(): void;
+declare global {
+  interface HTMLElement {
+    requestFullscreen?(): void;
+    mozRequestFullscreen?(): void;
+    msRequestFullscreen?(): void;
+    webkitRequestFullscreen?(): void;
+
+    webkitExitFullscreen?(): void;
+    mozCancelFullscreen?(): void;
+    msExitFullscreen?(): void;
+    exitFullscreen?(): void;
+  }
+  interface Document extends HTMLElement {}
 }
 
 const DecisionTree = () => {
@@ -1344,12 +1352,12 @@ const DecisionTree = () => {
       });
       if (fullscreenDom.requestFullscreen) {
         fullscreenDom.requestFullscreen();
-      } else if (fullscreenDom.mozRequestFullScreen) {
-        fullscreenDom.mozRequestFullScreen();
+      } else if (fullscreenDom.mozRequestFullscreen) {
+        fullscreenDom.mozRequestFullscreen();
       } else if (fullscreenDom.msRequestFullscreen) {
         fullscreenDom.msRequestFullscreen();
       } else if (fullscreenDom.webkitRequestFullscreen) {
-        fullscreenDom.webkitRequestFullScreen();
+        fullscreenDom.webkitRequestFullscreen();
       }
       if (graph && window.screen) {
         graph.changeSize(window.screen.width, window.screen.height);
@@ -1373,8 +1381,8 @@ const DecisionTree = () => {
         document.exitFullscreen();
       } else if (document.webkitExitFullscreen) {
         document.webkitExitFullscreen();
-      } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
+      } else if (document.mozCancelFullscreen) {
+        document.mozCancelFullscreen();
       } else if (document.msExitFullscreen) {
         document.msExitFullscreen();
       }
