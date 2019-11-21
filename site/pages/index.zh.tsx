@@ -100,7 +100,6 @@ const IndexPage = () => {
     play: true,
   });
   const onPlayVideo = () => {
-    console.log('play video');
     setAnimationState({
       play: false,
     });
@@ -123,7 +122,7 @@ const IndexPage = () => {
           )}
           showGithubStars={false}
           buttons={bannerButtons}
-          video="https://mdn.alipayobjects.com/afts/file/A*qmPlRYhAlBkAAAAAAAAAAABjAQAAAQ?bz=antv_site"
+          video="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/file/A*PDpiR4U2oFEAAAAAAAAAAABkARQnAQ"
           onPlayVideo={onPlayVideo}
           onCloseVideo={onCloseVideo}
         />
