@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { Icon } from 'antd';
 import styles from './DecisionTree.module.less';
 
 import chartTypeData from '../../data/decision-tree-chartype.json';
@@ -40,6 +41,10 @@ const DecisionTree = () => {
     x: 0,
     y: 0,
     buttons: <a></a>,
+  });
+  const [screenStates, setScreenStates] = useState({
+    fullscreenDisplay: 'block',
+    exitfullscreenDisplay: 'none',
   });
 
   const [tabStates, setTabStates] = useState({
@@ -139,6 +144,7 @@ const DecisionTree = () => {
   let LIMIT_OVERFLOW_HEIGHT = 650;
 
   let element = React.useRef<HTMLDivElement>(null);
+  let wrapperElement = React.useRef<HTMLDivElement>(null);
 
   let CANVAS_WIDTH = 1320;
   let CANVAS_HEIGHT = 696;
@@ -867,7 +873,7 @@ const DecisionTree = () => {
                 curShowNodes.push(node);
                 curShowNodesMap.set(node.id, node);
 
-                // add the edge connect from model to node which exists in edges
+                // add the edge connect from model to node which exits in edges
                 const edgeId = `${model.id}-${node.id}`;
                 const edge = edgesMap.get(edgeId);
                 if (edge) {
@@ -1330,8 +1336,12 @@ const DecisionTree = () => {
   };
 
   const handleFullScreen = () => {
-    const fullscreenDom: Element = element.current as Element;
+    const fullscreenDom: HTMLDivElement = wrapperElement.current as HTMLDivElement;
     if (fullscreenDom) {
+      setScreenStates({
+        fullscreenDisplay: 'none',
+        exitfullscreenDisplay: 'block',
+      });
       if (fullscreenDom.requestFullscreen) {
         fullscreenDom.requestFullscreen();
       } else if (fullscreenDom.mozRequestFullScreen) {
@@ -1353,9 +1363,39 @@ const DecisionTree = () => {
       }
     }
   };
+  const handleExitFullscreen = () => {
+    if (document) {
+      setScreenStates({
+        fullscreenDisplay: 'block',
+        exitfullscreenDisplay: 'none',
+      });
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+      if (graph && window.screen) {
+        graph.changeSize(window.screen.width, window.screen.height);
+        const layoutController = graph.get('layoutController');
+        const forceLayout = layoutController.layoutMethod;
+        forceLayout.center = [
+          window.screen.width / 2,
+          window.screen.height / 2,
+        ];
+        loadData(currentData);
+      }
+    }
+  };
 
   return (
-    <div className={classNames(styles.wrapper, 'decisionTreePage')}>
+    <div
+      className={classNames(styles.wrapper, 'decisionTreePage')}
+      ref={wrapperElement}
+    >
       <div className={styles.topContaner}>
         <div className={styles.title} onClick={scrollToCanvas}>
           {t('图表分类')}
@@ -1409,10 +1449,6 @@ const DecisionTree = () => {
               {t('按数据类型维度')}
             </div>
           </div>
-
-          <div onClick={handleFullScreen} className={styles.fullscreenButton}>
-            {t('全屏显示')}
-          </div>
         </div>
       </div>
       <div className={styles.contentWrapper}>
@@ -1430,6 +1466,38 @@ const DecisionTree = () => {
             >
               Powered by G6
             </a>
+            <div
+              onClick={handleFullScreen}
+              className={classNames(
+                styles.fullscreenExitIcon,
+                styles.screenButton,
+              )}
+              style={{ display: screenStates.fullscreenDisplay }}
+            >
+              <Icon
+                type="fullscreen"
+                className={classNames(
+                  styles.fullscreenExitButton,
+                  styles.screenIcon,
+                )}
+              />
+            </div>
+            <div
+              onClick={handleExitFullscreen}
+              className={classNames(
+                styles.fullscreenExitButton,
+                styles.screenButton,
+              )}
+              style={{ display: screenStates.exitfullscreenDisplay }}
+            >
+              <Icon
+                type="fullscreen-exit"
+                className={classNames(
+                  styles.fullscreenExitIcon,
+                  styles.screenIcon,
+                )}
+              />
+            </div>
           </div>
         </div>
         {tooltip}

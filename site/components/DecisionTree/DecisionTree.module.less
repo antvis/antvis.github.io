@@ -37,18 +37,6 @@
       .chartTypeTab {
         margin-left: 3.02%;
       }
-      .fullscreenButton {
-        color: #697b8c;
-        transition: all 0.3s;
-        margin-top: 59px;
-        margin-bottom: 39px;
-        right: 4.6%;
-        position: absolute;
-        cursor: pointer;
-        &:hover {
-          color: #0d1a26;
-        }
-      }
     }
   }
   .contentWrapper {
@@ -92,6 +80,24 @@
           right: 20px;
           &:hover {
             color: rgba(0, 0, 0, 1);
+          }
+        }
+        .screenButton {
+          opacity: 0;
+          background: #fff;
+          width: 32px;
+          height: 32px;
+          transition: all 0.3s;
+          top: 16px;
+          right: 16px;
+          position: absolute;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.6;
+          }
+          .screenIcon {
+            opacity: 0.25;
+            font-size: 32px;
           }
         }
       }
