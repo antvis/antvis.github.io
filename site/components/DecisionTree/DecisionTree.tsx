@@ -19,7 +19,7 @@ let edgesMap = new Map();
 let curShowNodesMap = new Map();
 let highlighting = false;
 let currentFocus: any;
-let currentData = goalData;
+let currentData: any = goalData;
 
 const DecisionTree = () => {
   const { t, i18n } = useTranslation();
@@ -985,12 +985,14 @@ const DecisionTree = () => {
       });
 
       window.onresize = () => {
-        CANVAS_WIDTH = element.current.offsetWidth; // 1320;
-        CANVAS_HEIGHT = element.current.offsetHeight; // 696;
-        const layoutController = graph.get('layoutController');
-        const forceLayout = layoutController.layoutMethod;
-        forceLayout.center = [CANVAS_WIDTH, CANVAS_HEIGHT];
-        graph && graph.changeSize(CANVAS_WIDTH, CANVAS_HEIGHT);
+        if (element) {
+          CANVAS_WIDTH = element.current.offsetWidth; // 1320;
+          CANVAS_HEIGHT = element.current.offsetHeight; // 696;
+          const layoutController = graph.get('layoutController');
+          const forceLayout = layoutController.layoutMethod;
+          forceLayout.center = [CANVAS_WIDTH, CANVAS_HEIGHT];
+          graph && graph.changeSize(CANVAS_WIDTH, CANVAS_HEIGHT);
+        }
       };
 
       function refreshDragedNodePosition(e: { item: any; x: any; y: any }) {
@@ -1320,21 +1322,23 @@ const DecisionTree = () => {
 
   const handleFullScreen = () => {
     const fullscreenDom: Element = element.current;
-    if (fullscreenDom.requestFullscreen) {
-      fullscreenDom.requestFullscreen();
-    } else if (fullscreenDom.mozRequestFullScreen) {
-      fullscreenDom.mozRequestFullScreen();
-    } else if (fullscreenDom.msRequestFullscreen) {
-      fullscreenDom.msRequestFullscreen();
-    } else if (fullscreenDom.webkitRequestFullscreen) {
-      fullscreenDom.webkitRequestFullScreen();
-    }
-    if (graph) {
-      graph.changeSize(window.screen.width, window.screen.height);
-      const layoutController = graph.get('layoutController');
-      const forceLayout = layoutController.layoutMethod;
-      forceLayout.center = [window.screen.width, window.screen.height];
-      loadData(currentData);
+    if (fullscreenDom) {
+      if (fullscreenDom.requestFullscreen) {
+        fullscreenDom.requestFullscreen();
+      } else if (fullscreenDom.mozRequestFullScreen) {
+        fullscreenDom.mozRequestFullScreen();
+      } else if (fullscreenDom.msRequestFullscreen) {
+        fullscreenDom.msRequestFullscreen();
+      } else if (fullscreenDom.webkitRequestFullscreen) {
+        fullscreenDom.webkitRequestFullScreen();
+      }
+      if (graph) {
+        graph.changeSize(window.screen.width, window.screen.height);
+        const layoutController = graph.get('layoutController');
+        const forceLayout = layoutController.layoutMethod;
+        forceLayout.center = [window.screen.width, window.screen.height];
+        loadData(currentData);
+      }
     }
   };
 
