@@ -1330,7 +1330,7 @@ const DecisionTree = () => {
   };
 
   const handleFullScreen = () => {
-    const fullscreenDom: Element = element.current;
+    const fullscreenDom: Element = element.current as Element;
     if (fullscreenDom) {
       if (fullscreenDom.requestFullscreen) {
         fullscreenDom.requestFullscreen();
