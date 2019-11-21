@@ -19,6 +19,7 @@ let edgesMap = new Map();
 let curShowNodesMap = new Map();
 let highlighting = false;
 let currentFocus: any;
+let currentData = goalData;
 
 const DecisionTree = () => {
   const { t, i18n } = useTranslation();
@@ -523,6 +524,9 @@ const DecisionTree = () => {
           } else if (name === 'dark') {
             if (value) shape.attr('opacity', 0.2);
             else shape.attr('opacity', 1);
+          } else if (name === 'light') {
+            if (value) shape.attr('lineWidth', 1.5);
+            else shape.attr('lineWidth', 0.5);
           }
         },
       },
@@ -546,6 +550,10 @@ const DecisionTree = () => {
         height: CANVAS_HEIGHT,
         linkCenter: true,
         layout: layoutCfg,
+        animateCfg: {
+          duration: 400,
+          easing: 'easeQuadInOut',
+        },
         modes: {
           default: ['drag-canvas'], //'double-finger-drag-canvas',
         },
@@ -629,8 +637,10 @@ const DecisionTree = () => {
           const target = item.getTarget().getModel();
           if (source.light && target.light) {
             graph.setItemState(item, 'dark', false);
+            graph.setItemState(item, 'light', true);
           } else {
             graph.setItemState(item, 'dark', true);
+            graph.setItemState(item, 'light', false);
           }
         });
         graph.paint();
@@ -647,6 +657,7 @@ const DecisionTree = () => {
           });
           edgeItems.forEach((item: any) => {
             graph.setItemState(item, 'dark', false);
+            graph.setItemState(item, 'light', false);
           });
         }
         setTooltipStates({
@@ -660,7 +671,7 @@ const DecisionTree = () => {
           buttons: <div />,
         });
       });
-
+      currentData = goalData;
       loadData(goalData);
 
       // click root to expand
@@ -727,8 +738,10 @@ const DecisionTree = () => {
             //   snode.x = CANVAS_WIDTH - 300;
             // }
           });
-          model.x = CANVAS_WIDTH / 2;
-          model.y = CANVAS_HEIGHT / 2;
+          model.x = graph.get('width') / 2;
+          model.y = graph.get('height') / 2;
+          // graph.layout();
+
           // animatively hide the items which are going to disappear
           if (curShowEdges.length) {
             curShowEdges.forEach(csedge => {
@@ -941,6 +954,7 @@ const DecisionTree = () => {
           });
           edgeItems.forEach((item: any) => {
             graph.setItemState(item, 'dark', false);
+            graph.setItemState(item, 'light', false);
           });
         } else {
           nodeItems.forEach((item: any) => {
@@ -969,6 +983,15 @@ const DecisionTree = () => {
           }, 400);
         }
       });
+
+      window.onresize = () => {
+        CANVAS_WIDTH = element.current.offsetWidth; // 1320;
+        CANVAS_HEIGHT = element.current.offsetHeight; // 696;
+        const layoutController = graph.get('layoutController');
+        const forceLayout = layoutController.layoutMethod;
+        forceLayout.center = [CANVAS_WIDTH, CANVAS_HEIGHT];
+        graph && graph.changeSize(CANVAS_WIDTH, CANVAS_HEIGHT);
+      };
 
       function refreshDragedNodePosition(e: { item: any; x: any; y: any }) {
         const model = e.item.get('model');
@@ -1059,6 +1082,7 @@ const DecisionTree = () => {
       dataTypeTextWeight: 400,
       current: 'chartType',
     });
+    currentData = chartTypeData;
     graph && loadData(chartTypeData);
   };
   const clickDataType = () => {
@@ -1075,6 +1099,7 @@ const DecisionTree = () => {
       dataTypeTextWeight: 450,
       current: 'dataType',
     });
+    currentData = dataTypeData;
     graph && loadData(dataTypeData);
   };
   const clickGoal = () => {
@@ -1091,6 +1116,7 @@ const DecisionTree = () => {
       dataTypeTextWeight: 400,
       current: 'goal',
     });
+    currentData = goalData;
     graph && loadData(goalData);
   };
 
@@ -1292,6 +1318,26 @@ const DecisionTree = () => {
     }
   };
 
+  const handleFullScreen = () => {
+    const fullscreenDom: Element = element.current;
+    if (fullscreenDom.requestFullscreen) {
+      fullscreenDom.requestFullscreen();
+    } else if (fullscreenDom.mozRequestFullScreen) {
+      fullscreenDom.mozRequestFullScreen();
+    } else if (fullscreenDom.msRequestFullscreen) {
+      fullscreenDom.msRequestFullscreen();
+    } else if (fullscreenDom.webkitRequestFullscreen) {
+      fullscreenDom.webkitRequestFullScreen();
+    }
+    if (graph) {
+      graph.changeSize(window.screen.width, window.screen.height);
+      const layoutController = graph.get('layoutController');
+      const forceLayout = layoutController.layoutMethod;
+      forceLayout.center = [window.screen.width, window.screen.height];
+      loadData(currentData);
+    }
+  };
+
   return (
     <div className={classNames(styles.wrapper, 'decisionTreePage')}>
       <div className={styles.topContaner}>
@@ -1346,6 +1392,10 @@ const DecisionTree = () => {
             >
               {t('按数据类型维度')}
             </div>
+          </div>
+
+          <div onClick={handleFullScreen} className={styles.fullscreenButton}>
+            {t('全屏显示')}
           </div>
         </div>
       </div>
