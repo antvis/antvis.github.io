@@ -1,6 +1,6 @@
 ---
 title: Resource Download
-order: 5
+order: 10
 ---
 
 <style>

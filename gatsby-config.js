@@ -23,6 +23,23 @@ module.exports = {
         },
       },
     ],
-    docs: [],
+    docs: [
+      {
+        slug: 'specification/designPrinciples',
+        title: {
+          zh: '设计原则',
+          en: 'Design Principles',
+        },
+        order: 0,
+      },
+      {
+        slug: 'specification/componentDesignGuidance',
+        title: {
+          zh: '图表组件设计指引',
+          en: 'Design for Components of Charts',
+        },
+        order: 1,
+      },
+    ],
   },
 };
