@@ -34,7 +34,7 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（[F2](https:/
 
 区别于游戏和其他沉浸式应用中的手势选择，在可视化场景中，**应该尽量避免高学习成本的手势，同时需要注意保持页面间交互的一致性。**以下为\*\* \*\*AntV 的设计师推荐使用的最常用的标准手势：
 
-<img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*HHVFTKUgu6cAAAAAAAAAAABkARQnAQ' width=846 alt="mobile2"/>
+<img src='https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*HHVFTKUgu6cAAAAAAAAAAABkARQnAQ' width=750 alt="mobile2"/>
 
 在 “信息轻量聚焦” 中我们提到移动端的可视化设计多聚焦于用户的直接任务，用 [可视化交互](https://yuque.antfin-inc.com/antv/visdesign/interaction-guideline) 一文中提及的任务层次来分析，移动端交互设计上会更聚焦在数据获取层，对复杂程度较高的交互行为要进行适度的克制。下图是 AntV 设计总结的常用手势表，给大家做参考。
 
