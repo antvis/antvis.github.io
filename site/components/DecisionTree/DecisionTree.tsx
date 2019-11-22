@@ -554,487 +554,485 @@ const DecisionTree = () => {
       'line',
     );
 
-    setTimeout(() => {
+    if (element && element.current) {
+      CANVAS_WIDTH = element.current.offsetWidth; // 1320;
+      CANVAS_HEIGHT = element.current.offsetHeight; // 696;
+    }
+
+    LIMIT_OVERFLOW_WIDTH = CANVAS_WIDTH - 100;
+    LIMIT_OVERFLOW_HEIGHT = CANVAS_HEIGHT - 100;
+
+    // if (!graph) {
+
+    graph = new G6.Graph({
+      container: element.current as HTMLElement,
+      width: CANVAS_WIDTH,
+      height: CANVAS_HEIGHT,
+      linkCenter: true,
+      layout: layoutCfg,
+      animateCfg: {
+        duration: 400,
+        easing: 'easeQuadInOut',
+      },
+      modes: {
+        default: ['drag-canvas'], //'double-finger-drag-canvas',
+      },
+      defaultNode: {
+        shape: 'bubble',
+        size: 95,
+        labelCfg: {
+          position: 'center',
+          style: {
+            fill: 'white',
+            fontStyle: 'bold',
+          },
+        },
+      },
+      defaultEdge: {
+        color: '#888',
+        shape: 'animate-line',
+      },
+    });
+
+    // }
+
+    graph.on('node:mouseenter', (e: any) => {
+      const item = e.item;
+      const model = item.getModel();
+      if (model.level === 0) {
+        return;
+      }
+      highlighting = true;
+      graph.setAutoPaint(false);
+      const nodeItems = graph.getNodes();
+      const edgeItems = graph.getEdges();
+      nodeItems.forEach((node: any) => {
+        graph.setItemState(node, 'dark', true);
+        node.getModel().light = false;
+      });
+      graph.setItemState(item, 'dark', false);
+      model.light = true;
+      const tags = model.tags;
+      const findTagsMap = new Map();
+      let mid = 0;
+
+      let fTag: string = '';
+      // if the model is F node, find the leaves of it
+      if (!model.isLeaf && model.level !== 0) {
+        fTag = model.tag;
+        nodeItems.forEach((item: any) => {
+          const itemModel = item.getModel();
+          if (!itemModel.isLeaf) return;
+          const modelTags = itemModel.tags;
+          modelTags.forEach((mt: string) => {
+            const mts = mt.split('-');
+            if (mts[1] === fTag) {
+              graph.setItemState(item, 'dark', false);
+              itemModel.light = true;
+            }
+          });
+        });
+      }
+
+      // find the tags
+      tags.forEach((t: string) => {
+        const ts = t.split('-');
+        findTagsMap.set(ts[0], mid);
+        mid++;
+        if (ts[1]) {
+          findTagsMap.set(ts[1], mid);
+          mid++;
+        }
+      });
+      // find the nodes with tag === tags[?]
+      nodeItems.forEach((item: any) => {
+        const node = item.getModel();
+        if (findTagsMap.get(node.tag) !== undefined) {
+          graph.setItemState(item, 'dark', false);
+          node.light = true;
+        }
+      });
+      edgeItems.forEach((item: any) => {
+        const source = item.getSource().getModel();
+        const target = item.getTarget().getModel();
+        if (source.light && target.light) {
+          graph.setItemState(item, 'dark', false);
+          graph.setItemState(item, 'light', true);
+        } else {
+          graph.setItemState(item, 'dark', true);
+          graph.setItemState(item, 'light', false);
+        }
+      });
+      graph.paint();
+      graph.setAutoPaint(true);
+    });
+
+    graph.on('node:mouseleave', (e: any) => {
+      if (highlighting) {
+        const nodeItems = graph.getNodes();
+        const edgeItems = graph.getEdges();
+        highlighting = false;
+        nodeItems.forEach((item: any) => {
+          graph.setItemState(item, 'dark', false);
+        });
+        edgeItems.forEach((item: any) => {
+          graph.setItemState(item, 'dark', false);
+          graph.setItemState(item, 'light', false);
+        });
+      }
+      setTooltipStates({
+        display: 'none',
+        title: '',
+        imgSrc: '',
+        links: [],
+        names: [],
+        x: 0,
+        y: 0,
+        buttons: <div />,
+      });
+    });
+    currentData = goalData;
+    loadData(goalData);
+
+    // click root to expand
+    graph.on('node:click', (e: any) => {
+      curShowNodes = [];
+      curShowEdges = [];
+      const item = e.item;
+      const model = item.getModel();
+      if (!model.isLeaf && model.level !== 0) {
+        return;
+      }
+      // if clicked a leaf, highlight the relative items
+      if (model.isLeaf) {
+        const buttons = model.linkNames ? (
+          model.linkNames.map((name: string, i: number) => (
+            <div
+              className={styles.button}
+              style={{ width: `${100 / model.linkNames.length}%` }}
+              key={i}
+            >
+              <a
+                href={
+                  i18n.language === 'zh' ? model.links[i] : model.links_en[i]
+                }
+                target="frame1"
+              >
+                {name}
+              </a>
+            </div>
+          ))
+        ) : (
+          <div />
+        );
+        const point = graph.getPointByClient(e.clientX, e.clientY);
+        const pos = graph.getCanvasByPoint(point.x, point.y);
+        setTooltipStates({
+          display: 'block',
+          title: t(model.name),
+          imgSrc: model.imgSrc,
+          links: model.links,
+          names: model.linkNames,
+          x: pos.x,
+          y: pos.y,
+          buttons: <div className={styles.buttons}>{buttons}</div>,
+        });
+      }
+      // if clicked a root, hide unrelated items and show the related items
+      else if (model.level === 0) {
+        const layoutController = graph.get('layoutController');
+        const forceLayout = layoutController.layoutMethod;
+        forceLayout.forceSimulation.stop();
+        // light the level 0 nodes
+        showNodes.forEach(snode => {
+          const item = graph.findById(snode.id);
+          graph.setItemState(item, 'dark', false);
+          // make the clicked root on the top of all the nodes
+          if (snode.id === model.id) {
+            item.toFront();
+          }
+          // move the other roots to the left and right side of the canvas
+          // if (snode.x < 0.5 * CANVAS_WIDTH) {
+          //   snode.x = 300;
+          // } else {
+          //   snode.x = CANVAS_WIDTH - 300;
+          // }
+        });
+        model.x = graph.get('width') / 2;
+        model.y = graph.get('height') / 2;
+        // graph.layout();
+
+        // animatively hide the items which are going to disappear
+        if (curShowEdges.length) {
+          curShowEdges.forEach(csedge => {
+            const item = graph.findById(csedge.id);
+            item && graph.setItemState(item, 'disappearing', true);
+          });
+        }
+        curShowNodes.forEach(csnode => {
+          const item = graph.findById(csnode.id);
+          item && graph.setItemState(item, 'disappearing', true);
+        });
+        graph.positionsAnimate();
+
+        // reset curShowNodes nad curShowEdges
+        curShowNodes = [];
+        curShowEdges = [];
+
+        // click on the same node which is the current focus node, hide the small nodes, change the layout parameters to roots view
+        if (currentFocus && currentFocus.id === model.id) {
+          currentFocus = undefined;
+          layoutController.layoutCfg.nodeStrength = 2500;
+          layoutController.layoutCfg.collideStrength = 0.8;
+          layoutController.layoutCfg.alphaDecay = 0.01;
+        } else {
+          // click other focus node, hide the current small nodes and show the related nodes
+          currentFocus = model;
+          // change data after the original items disappearing
+          const layoutController = graph.get('layoutController');
+          layoutController.layoutCfg.nodeStrength = () => {
+            return -20;
+          };
+          layoutController.layoutCfg.collideStrength = 0.2;
+          layoutController.layoutCfg.linkDistance = (d: any) => {
+            if (d.source.level !== 0) return 120;
+            const length = 250;
+            return length;
+          };
+          layoutController.layoutCfg.edgeStrength = () => {
+            return 0.1;
+          };
+          const simulation = layoutController.layoutMethod.forceSimulation;
+          simulation.velocityDecay = () => {
+            return 0.001;
+          };
+
+          const tag = model.tag;
+          const findTags: string[] = [];
+          curShowNodesMap = new Map();
+          // find the nodes which are the descendants of clicked model
+          nodes.forEach((node: any) => {
+            if (!node.tags) return;
+            const tags = node.tags;
+            const tlength = tags.length;
+            let isChild = false;
+            const parents = [];
+            for (let i = 0; i < tlength; i++) {
+              const ts = tags[i].split('-');
+              if (ts[0] === tag) {
+                isChild = true;
+              }
+              parents.push(nodeMap.get(ts[0]));
+            }
+            if (isChild) {
+              if (!node.style) node.style = {};
+              node.style.lineWidth = 0;
+              node.style.opacity = 1;
+              if (node.isLeaf) {
+                node.shape = 'animate-circle';
+                let color = 'l(0)';
+                const parentsNum = parents.length;
+                parents.forEach((parent, i) => {
+                  const parentColor = parent.color.split(' ')[1].substr(2);
+                  color += ` ${i / (parentsNum - 1)}:${parentColor}`;
+                });
+                if (parentsNum === 1) {
+                  color = model.color.split(' ')[1].substr(2);
+                }
+                node.color = color;
+                node.style.fill = color;
+                node.style.fill = '#fff';
+                node.style.lineWidth = 1;
+                node.size = 60;
+                node.labelCfg = {
+                  style: {
+                    fontSize: 11,
+                    lineHeight: 19,
+                    fill: '#697B8C',
+                  },
+                  position: 'center',
+                };
+              } else if (node.level !== 0) {
+                node.shape = 'bubble';
+                node.size = 95;
+                if (!node.style) node.style = {};
+                node.color = model.color;
+                node.style.fill = model.color;
+                node.labelCfg = {
+                  style: {
+                    fill: '#fff',
+                    fontSize: 14,
+                  },
+                  position: 'center',
+                };
+              }
+
+              const randomAngle = Math.random() * 2 * Math.PI;
+              node.x =
+                model.x +
+                (Math.cos(randomAngle) * model.size) / 2 -
+                (Math.cos(Math.PI + randomAngle) * node.size) / 2;
+              node.y =
+                model.y +
+                (Math.sin(randomAngle) * model.size) / 2 -
+                (Math.sin(Math.PI + randomAngle) * node.size) / 2;
+
+              curShowNodes.push(node);
+              curShowNodesMap.set(node.id, node);
+
+              // add the edge connect from model to node which exits in edges
+              const edgeId = `${model.id}-${node.id}`;
+              const edge = edgesMap.get(edgeId);
+              if (edge) {
+                edge.color = model.color;
+                curShowEdges.push(edge);
+              }
+              tags.forEach((t: string) => {
+                const ts = t.split('-');
+                if (ts[0] !== tag) {
+                  findTags.push(ts[0]);
+                }
+                if (ts[1]) {
+                  findTags.push(ts[1]);
+                }
+              });
+            }
+          });
+
+          // find the nodes which are the ancestors of the current curShowNodes
+          nodes.forEach((node: any) => {
+            const findTagsLength = findTags.length;
+            for (let i = 0; i < findTagsLength; i++) {
+              if (
+                node.tag === findTags[i] &&
+                curShowNodesMap.get(node.id) === undefined
+              ) {
+                curShowNodes.push(node);
+                curShowNodesMap.set(node.id, node);
+                return;
+              }
+            }
+          });
+
+          // find the edges whose target end source are in the curShowNodes
+          curShowNodes.forEach((nu, i) => {
+            const lu = nu.level;
+            curShowNodes.forEach((nv, j) => {
+              if (j <= i) return;
+              const lv = nv.level;
+              let edgeId;
+              if (lu < lv) {
+                edgeId = `${nu.id}-${nv.id}`;
+              } else {
+                edgeId = `${nv.id}-${nu.id}`;
+              }
+              let color = model.color;
+              if (nu.isLeaf) {
+                if (nv.level === 0 && nv.tag !== model.tag) color = '#DFE5EB';
+                else if (!nv.isLeaf && nv.tags[0] !== model.tag)
+                  color = '#DFE5EB';
+              } else if (nv.isLeaf) {
+                if (nu.level === 0 && nu.tag !== model.tag) color = '#DFE5EB';
+                else if (!nu.isLeaf && nu.tags[0] !== model.tag)
+                  color = '#DFE5EB';
+              }
+              const edge = edgesMap.get(edgeId);
+              if (edge) {
+                edge.color = color;
+                curShowEdges.push(edge);
+              }
+            });
+          });
+        }
+        setTimeout(() => {
+          graph.changeData({
+            nodes: showNodes.concat(curShowNodes),
+            edges: showEdges.concat(curShowEdges),
+          });
+          const nodeItems = graph.getNodes();
+          const edgeItems = graph.getEdges();
+          edgeItems.forEach((item: any) => {
+            graph.clearItemStates(item);
+          });
+          nodeItems.forEach((item: any) => {
+            graph.clearItemStates(item);
+            graph.setItemState(item, 'appearing', true);
+          });
+        }, 400);
+      }
+    });
+    graph.on('canvas:click', () => {
+      currentFocus = undefined;
+      const forceLayout = graph.get('layoutController').layoutMethod;
+      forceLayout.forceSimulation.stop();
+      const nodeItems = graph.getNodes();
+      const edgeItems = graph.getEdges();
+      if (highlighting) {
+        highlighting = false;
+        nodeItems.forEach((item: any) => {
+          graph.setItemState(item, 'dark', false);
+        });
+        edgeItems.forEach((item: any) => {
+          graph.setItemState(item, 'dark', false);
+          graph.setItemState(item, 'light', false);
+        });
+      } else {
+        nodeItems.forEach((item: any) => {
+          const model = item.getModel();
+          if (model.level === 0) {
+            graph.setItemState(item, 'dark', false);
+          } else {
+            graph.setItemState(item, 'disappearing', true);
+          }
+        });
+        edgeItems.forEach((item: any) => {
+          graph.setItemState(item, 'disappearing', true);
+        });
+        curShowNodes = [];
+        curShowEdges = [];
+        setTimeout(() => {
+          const layoutController = graph.get('layoutController');
+          layoutController.layoutCfg.nodeStrength = 2500;
+          layoutController.layoutCfg.collideStrength = 0.8;
+          layoutController.layoutCfg.alphaDecay = 0.01;
+
+          graph.changeData({
+            nodes: showNodes,
+            edges: showEdges,
+          });
+        }, 400);
+      }
+    });
+
+    window.onresize = () => {
       if (element && element.current) {
         CANVAS_WIDTH = element.current.offsetWidth; // 1320;
         CANVAS_HEIGHT = element.current.offsetHeight; // 696;
       }
-
-      LIMIT_OVERFLOW_WIDTH = CANVAS_WIDTH - 100;
-      LIMIT_OVERFLOW_HEIGHT = CANVAS_HEIGHT - 100;
-
-      // if (!graph) {
-
-      graph = new G6.Graph({
-        container: element.current as HTMLElement,
-        width: CANVAS_WIDTH,
-        height: CANVAS_HEIGHT,
-        linkCenter: true,
-        layout: layoutCfg,
-        animateCfg: {
-          duration: 400,
-          easing: 'easeQuadInOut',
-        },
-        modes: {
-          default: ['drag-canvas'], //'double-finger-drag-canvas',
-        },
-        defaultNode: {
-          shape: 'bubble',
-          size: 95,
-          labelCfg: {
-            position: 'center',
-            style: {
-              fill: 'white',
-              fontStyle: 'bold',
-            },
-          },
-        },
-        defaultEdge: {
-          color: '#888',
-          shape: 'animate-line',
-        },
-      });
-
-      // }
-
-      graph.on('node:mouseenter', (e: any) => {
-        const item = e.item;
-        const model = item.getModel();
-        if (model.level === 0) {
-          return;
-        }
-        highlighting = true;
-        graph.setAutoPaint(false);
-        const nodeItems = graph.getNodes();
-        const edgeItems = graph.getEdges();
-        nodeItems.forEach((node: any) => {
-          graph.setItemState(node, 'dark', true);
-          node.getModel().light = false;
-        });
-        graph.setItemState(item, 'dark', false);
-        model.light = true;
-        const tags = model.tags;
-        const findTagsMap = new Map();
-        let mid = 0;
-
-        let fTag: string = '';
-        // if the model is F node, find the leaves of it
-        if (!model.isLeaf && model.level !== 0) {
-          fTag = model.tag;
-          nodeItems.forEach((item: any) => {
-            const itemModel = item.getModel();
-            if (!itemModel.isLeaf) return;
-            const modelTags = itemModel.tags;
-            modelTags.forEach((mt: string) => {
-              const mts = mt.split('-');
-              if (mts[1] === fTag) {
-                graph.setItemState(item, 'dark', false);
-                itemModel.light = true;
-              }
-            });
-          });
-        }
-
-        // find the tags
-        tags.forEach((t: string) => {
-          const ts = t.split('-');
-          findTagsMap.set(ts[0], mid);
-          mid++;
-          if (ts[1]) {
-            findTagsMap.set(ts[1], mid);
-            mid++;
-          }
-        });
-        // find the nodes with tag === tags[?]
-        nodeItems.forEach((item: any) => {
-          const node = item.getModel();
-          if (findTagsMap.get(node.tag) !== undefined) {
-            graph.setItemState(item, 'dark', false);
-            node.light = true;
-          }
-        });
-        edgeItems.forEach((item: any) => {
-          const source = item.getSource().getModel();
-          const target = item.getTarget().getModel();
-          if (source.light && target.light) {
-            graph.setItemState(item, 'dark', false);
-            graph.setItemState(item, 'light', true);
-          } else {
-            graph.setItemState(item, 'dark', true);
-            graph.setItemState(item, 'light', false);
-          }
-        });
-        graph.paint();
-        graph.setAutoPaint(true);
-      });
-
-      graph.on('node:mouseleave', (e: any) => {
-        if (highlighting) {
-          const nodeItems = graph.getNodes();
-          const edgeItems = graph.getEdges();
-          highlighting = false;
-          nodeItems.forEach((item: any) => {
-            graph.setItemState(item, 'dark', false);
-          });
-          edgeItems.forEach((item: any) => {
-            graph.setItemState(item, 'dark', false);
-            graph.setItemState(item, 'light', false);
-          });
-        }
-        setTooltipStates({
-          display: 'none',
-          title: '',
-          imgSrc: '',
-          links: [],
-          names: [],
-          x: 0,
-          y: 0,
-          buttons: <div />,
-        });
-      });
-      currentData = goalData;
-      loadData(goalData);
-
-      // click root to expand
-      graph.on('node:click', (e: any) => {
-        curShowNodes = [];
-        curShowEdges = [];
-        const item = e.item;
-        const model = item.getModel();
-        if (!model.isLeaf && model.level !== 0) {
-          return;
-        }
-        // if clicked a leaf, highlight the relative items
-        if (model.isLeaf) {
-          const buttons = model.linkNames ? (
-            model.linkNames.map((name: string, i: number) => (
-              <div
-                className={styles.button}
-                style={{ width: `${100 / model.linkNames.length}%` }}
-                key={i}
-              >
-                <a
-                  href={
-                    i18n.language === 'zh' ? model.links[i] : model.links_en[i]
-                  }
-                  target="frame1"
-                >
-                  {name}
-                </a>
-              </div>
-            ))
-          ) : (
-            <div />
-          );
-          const point = graph.getPointByClient(e.clientX, e.clientY);
-          const pos = graph.getCanvasByPoint(point.x, point.y);
-          setTooltipStates({
-            display: 'block',
-            title: t(model.name),
-            imgSrc: model.imgSrc,
-            links: model.links,
-            names: model.linkNames,
-            x: pos.x,
-            y: pos.y,
-            buttons: <div className={styles.buttons}>{buttons}</div>,
-          });
-        }
-        // if clicked a root, hide unrelated items and show the related items
-        else if (model.level === 0) {
-          const layoutController = graph.get('layoutController');
-          const forceLayout = layoutController.layoutMethod;
-          forceLayout.forceSimulation.stop();
-          // light the level 0 nodes
-          showNodes.forEach(snode => {
-            const item = graph.findById(snode.id);
-            graph.setItemState(item, 'dark', false);
-            // make the clicked root on the top of all the nodes
-            if (snode.id === model.id) {
-              item.toFront();
-            }
-            // move the other roots to the left and right side of the canvas
-            // if (snode.x < 0.5 * CANVAS_WIDTH) {
-            //   snode.x = 300;
-            // } else {
-            //   snode.x = CANVAS_WIDTH - 300;
-            // }
-          });
-          model.x = graph.get('width') / 2;
-          model.y = graph.get('height') / 2;
-          // graph.layout();
-
-          // animatively hide the items which are going to disappear
-          if (curShowEdges.length) {
-            curShowEdges.forEach(csedge => {
-              const item = graph.findById(csedge.id);
-              item && graph.setItemState(item, 'disappearing', true);
-            });
-          }
-          curShowNodes.forEach(csnode => {
-            const item = graph.findById(csnode.id);
-            item && graph.setItemState(item, 'disappearing', true);
-          });
-          graph.positionsAnimate();
-
-          // reset curShowNodes nad curShowEdges
-          curShowNodes = [];
-          curShowEdges = [];
-
-          // click on the same node which is the current focus node, hide the small nodes, change the layout parameters to roots view
-          if (currentFocus && currentFocus.id === model.id) {
-            currentFocus = undefined;
-            layoutController.layoutCfg.nodeStrength = 2500;
-            layoutController.layoutCfg.collideStrength = 0.8;
-            layoutController.layoutCfg.alphaDecay = 0.01;
-          } else {
-            // click other focus node, hide the current small nodes and show the related nodes
-            currentFocus = model;
-            // change data after the original items disappearing
-            const layoutController = graph.get('layoutController');
-            layoutController.layoutCfg.nodeStrength = () => {
-              return -20;
-            };
-            layoutController.layoutCfg.collideStrength = 0.2;
-            layoutController.layoutCfg.linkDistance = (d: any) => {
-              if (d.source.level !== 0) return 120;
-              const length = 250;
-              return length;
-            };
-            layoutController.layoutCfg.edgeStrength = () => {
-              return 0.1;
-            };
-            const simulation = layoutController.layoutMethod.forceSimulation;
-            simulation.velocityDecay = () => {
-              return 0.001;
-            };
-
-            const tag = model.tag;
-            const findTags: string[] = [];
-            curShowNodesMap = new Map();
-            // find the nodes which are the descendants of clicked model
-            nodes.forEach((node: any) => {
-              if (!node.tags) return;
-              const tags = node.tags;
-              const tlength = tags.length;
-              let isChild = false;
-              const parents = [];
-              for (let i = 0; i < tlength; i++) {
-                const ts = tags[i].split('-');
-                if (ts[0] === tag) {
-                  isChild = true;
-                }
-                parents.push(nodeMap.get(ts[0]));
-              }
-              if (isChild) {
-                if (!node.style) node.style = {};
-                node.style.lineWidth = 0;
-                node.style.opacity = 1;
-                if (node.isLeaf) {
-                  node.shape = 'animate-circle';
-                  let color = 'l(0)';
-                  const parentsNum = parents.length;
-                  parents.forEach((parent, i) => {
-                    const parentColor = parent.color.split(' ')[1].substr(2);
-                    color += ` ${i / (parentsNum - 1)}:${parentColor}`;
-                  });
-                  if (parentsNum === 1) {
-                    color = model.color.split(' ')[1].substr(2);
-                  }
-                  node.color = color;
-                  node.style.fill = color;
-                  node.style.fill = '#fff';
-                  node.style.lineWidth = 1;
-                  node.size = 60;
-                  node.labelCfg = {
-                    style: {
-                      fontSize: 11,
-                      lineHeight: 19,
-                      fill: '#697B8C',
-                    },
-                    position: 'center',
-                  };
-                } else if (node.level !== 0) {
-                  node.shape = 'bubble';
-                  node.size = 95;
-                  if (!node.style) node.style = {};
-                  node.color = model.color;
-                  node.style.fill = model.color;
-                  node.labelCfg = {
-                    style: {
-                      fill: '#fff',
-                      fontSize: 14,
-                    },
-                    position: 'center',
-                  };
-                }
-
-                const randomAngle = Math.random() * 2 * Math.PI;
-                node.x =
-                  model.x +
-                  (Math.cos(randomAngle) * model.size) / 2 -
-                  (Math.cos(Math.PI + randomAngle) * node.size) / 2;
-                node.y =
-                  model.y +
-                  (Math.sin(randomAngle) * model.size) / 2 -
-                  (Math.sin(Math.PI + randomAngle) * node.size) / 2;
-
-                curShowNodes.push(node);
-                curShowNodesMap.set(node.id, node);
-
-                // add the edge connect from model to node which exits in edges
-                const edgeId = `${model.id}-${node.id}`;
-                const edge = edgesMap.get(edgeId);
-                if (edge) {
-                  edge.color = model.color;
-                  curShowEdges.push(edge);
-                }
-                tags.forEach((t: string) => {
-                  const ts = t.split('-');
-                  if (ts[0] !== tag) {
-                    findTags.push(ts[0]);
-                  }
-                  if (ts[1]) {
-                    findTags.push(ts[1]);
-                  }
-                });
-              }
-            });
-
-            // find the nodes which are the ancestors of the current curShowNodes
-            nodes.forEach((node: any) => {
-              const findTagsLength = findTags.length;
-              for (let i = 0; i < findTagsLength; i++) {
-                if (
-                  node.tag === findTags[i] &&
-                  curShowNodesMap.get(node.id) === undefined
-                ) {
-                  curShowNodes.push(node);
-                  curShowNodesMap.set(node.id, node);
-                  return;
-                }
-              }
-            });
-
-            // find the edges whose target end source are in the curShowNodes
-            curShowNodes.forEach((nu, i) => {
-              const lu = nu.level;
-              curShowNodes.forEach((nv, j) => {
-                if (j <= i) return;
-                const lv = nv.level;
-                let edgeId;
-                if (lu < lv) {
-                  edgeId = `${nu.id}-${nv.id}`;
-                } else {
-                  edgeId = `${nv.id}-${nu.id}`;
-                }
-                let color = model.color;
-                if (nu.isLeaf) {
-                  if (nv.level === 0 && nv.tag !== model.tag) color = '#DFE5EB';
-                  else if (!nv.isLeaf && nv.tags[0] !== model.tag)
-                    color = '#DFE5EB';
-                } else if (nv.isLeaf) {
-                  if (nu.level === 0 && nu.tag !== model.tag) color = '#DFE5EB';
-                  else if (!nu.isLeaf && nu.tags[0] !== model.tag)
-                    color = '#DFE5EB';
-                }
-                const edge = edgesMap.get(edgeId);
-                if (edge) {
-                  edge.color = color;
-                  curShowEdges.push(edge);
-                }
-              });
-            });
-          }
-          setTimeout(() => {
-            graph.changeData({
-              nodes: showNodes.concat(curShowNodes),
-              edges: showEdges.concat(curShowEdges),
-            });
-            const nodeItems = graph.getNodes();
-            const edgeItems = graph.getEdges();
-            edgeItems.forEach((item: any) => {
-              graph.clearItemStates(item);
-            });
-            nodeItems.forEach((item: any) => {
-              graph.clearItemStates(item);
-              graph.setItemState(item, 'appearing', true);
-            });
-          }, 400);
-        }
-      });
-      graph.on('canvas:click', () => {
-        currentFocus = undefined;
-        const forceLayout = graph.get('layoutController').layoutMethod;
-        forceLayout.forceSimulation.stop();
-        const nodeItems = graph.getNodes();
-        const edgeItems = graph.getEdges();
-        if (highlighting) {
-          highlighting = false;
-          nodeItems.forEach((item: any) => {
-            graph.setItemState(item, 'dark', false);
-          });
-          edgeItems.forEach((item: any) => {
-            graph.setItemState(item, 'dark', false);
-            graph.setItemState(item, 'light', false);
-          });
-        } else {
-          nodeItems.forEach((item: any) => {
-            const model = item.getModel();
-            if (model.level === 0) {
-              graph.setItemState(item, 'dark', false);
-            } else {
-              graph.setItemState(item, 'disappearing', true);
-            }
-          });
-          edgeItems.forEach((item: any) => {
-            graph.setItemState(item, 'disappearing', true);
-          });
-          curShowNodes = [];
-          curShowEdges = [];
-          setTimeout(() => {
-            const layoutController = graph.get('layoutController');
-            layoutController.layoutCfg.nodeStrength = 2500;
-            layoutController.layoutCfg.collideStrength = 0.8;
-            layoutController.layoutCfg.alphaDecay = 0.01;
-
-            graph.changeData({
-              nodes: showNodes,
-              edges: showEdges,
-            });
-          }, 400);
-        }
-      });
-
-      window.onresize = () => {
-        if (element && element.current) {
-          CANVAS_WIDTH = element.current.offsetWidth; // 1320;
-          CANVAS_HEIGHT = element.current.offsetHeight; // 696;
-        }
-        if (graph) {
-          const layoutController = graph.get('layoutController');
-          const forceLayout = layoutController.layoutMethod;
-          forceLayout.center = [CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2];
-          graph.changeSize(CANVAS_WIDTH, CANVAS_HEIGHT);
-        }
-      };
-
-      function refreshDragedNodePosition(e: { item: any; x: any; y: any }) {
-        const model = e.item.get('model');
-        model.fx = e.x;
-        model.fy = e.y;
+      if (graph) {
+        const layoutController = graph.get('layoutController');
+        const forceLayout = layoutController.layoutMethod;
+        forceLayout.center = [CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2];
+        graph.changeSize(CANVAS_WIDTH, CANVAS_HEIGHT);
       }
-      graph.on('node:dragstart', (e: { item: any; x: any; y: any }) => {
-        graph.layout();
-        refreshDragedNodePosition(e);
-      });
-      graph.on('node:drag', (e: { item: any; x: any; y: any }) => {
-        refreshDragedNodePosition(e);
-      });
-      graph.on('node:dragend', (e: { item: any }) => {
-        e.item.get('model').fx = null;
-        e.item.get('model').fy = null;
-      });
-    }, 1700);
+    };
+
+    function refreshDragedNodePosition(e: { item: any; x: any; y: any }) {
+      const model = e.item.get('model');
+      model.fx = e.x;
+      model.fy = e.y;
+    }
+    graph.on('node:dragstart', (e: { item: any; x: any; y: any }) => {
+      graph.layout();
+      refreshDragedNodePosition(e);
+    });
+    graph.on('node:drag', (e: { item: any; x: any; y: any }) => {
+      refreshDragedNodePosition(e);
+    });
+    graph.on('node:dragend', (e: { item: any }) => {
+      e.item.get('model').fx = null;
+      e.item.get('model').fy = null;
+    });
   }, []);
 
   const mapNodeSize = (

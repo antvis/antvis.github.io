@@ -1,6 +1,6 @@
 ---
-title: Mobile Design
-order: 4
+title: Mobile
+order: 3
 ---
 
 AntV 拥有一套基于移动端的可视化图形语法图表库（[F2](https://antv.vision/f2)），我们设计师在 Ant Design 『准确、有效、清晰、美』的数据可视化原则的基础之上，融入移动端的特性，拓展出专门为移动端数据可视化而生的设计指引。
