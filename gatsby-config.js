@@ -25,7 +25,7 @@ module.exports = {
     ],
     docs: [
       {
-        slug: 'specification/designPrinciples',
+        slug: 'specification/principles',
         title: {
           zh: '设计原则',
           en: 'Design Principles',
@@ -33,7 +33,7 @@ module.exports = {
         order: 0,
       },
       {
-        slug: 'specification/componentDesignGuidance',
+        slug: 'specification/components',
         title: {
           zh: '图表组件设计指引',
           en: 'Design for Components of Charts',
