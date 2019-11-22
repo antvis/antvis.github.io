@@ -800,7 +800,7 @@ const DecisionTree = () => {
             return length;
           };
           layoutController.layoutCfg.edgeStrength = () => {
-            return 0.1;
+            return 0.2;
           };
           const simulation = layoutController.layoutMethod.forceSimulation;
           simulation.velocityDecay = () => {

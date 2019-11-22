@@ -1,5 +1,5 @@
 ---
-title: 图形
+title: 图形设计指引
 order: 8
 ---
 

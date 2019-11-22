@@ -71,6 +71,7 @@
       "name": "饼图",
       "level": 1,
       "childrenNum": 4,
+      "tag": "piechart",
       "isLeaf": false,
       "tags": ["statisticchart"]
     },
