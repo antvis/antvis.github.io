@@ -13,7 +13,7 @@ const AboutUsPage = () => {
 
   return (
     <>
-      <SEO title={t('蚂蚁数据可视化')} lang={i18n.language} />
+      <SEO title={t('关于我们')} lang={i18n.language} />
       <div className="home-container" style={{ marginTop: '-24px' }}>
         <AboutUsBanner bannerSVG={<BannerSVG play={true} />} />
         <Contributors title="贡献者名录" contributors={contributors} />

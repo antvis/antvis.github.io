@@ -2,7 +2,7 @@
   "name": "antv.vision",
   "private": true,
   "description": "Ant Visualization solution home page",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "AntV Team <antv@antfin.com>",
   "keywords": [
     "gatsby",
@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@antv/g6": "^3.1.8",
-    "@antv/gatsby-theme-antv": "^0.9.99",
+    "@antv/gatsby-theme-antv": "^0.9.102",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.5",
     "@types/react-dom": "^16.9.1",
