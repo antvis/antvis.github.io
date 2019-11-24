@@ -1,5 +1,3 @@
-const { repository } = require('./package.json');
-
 module.exports = {
   plugins: [
     {
@@ -13,7 +11,7 @@ module.exports = {
     title: `AntV`,
     description: `Ant Visualization solution`,
     siteUrl: 'https://antv.vision',
-    githubUrl: repository.url,
+    githubUrl: 'https://github.com/antvis',
     navs: [
       {
         slug: 'docs/specification',
