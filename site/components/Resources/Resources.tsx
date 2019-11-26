@@ -31,7 +31,7 @@ const ResourcesPage = () => {
       description: t(
         '对数据图形进行拆解、提炼，抽象出一套数据图形可视化交互视觉规范。',
       ),
-      link: `/${i18n.language}/docs/specification/principles`,
+      link: `/${i18n.language}/docs/specification/principles/basic`,
     },
     {
       index: 2,

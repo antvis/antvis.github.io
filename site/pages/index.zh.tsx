@@ -96,6 +96,21 @@ const IndexPage = () => {
     },
   ];
 
+  const notifications = [
+    {
+      type: t('语雀'),
+      title: t('我们都喜欢的文档工具'),
+      date: '2019.11.22',
+      link: 'https://www.yuque.com/?chInfo=ch_antv',
+    },
+    {
+      type: t('推荐'),
+      title: t('AntV 11-22 品牌日：知源·致远'),
+      date: '2019.11.22',
+      link: 'https://www.yuque.com/antv/blog/2019-release',
+    },
+  ];
+
   const [animationStates, setAnimationState] = useState({
     play: true,
   });
@@ -132,6 +147,7 @@ const IndexPage = () => {
           video="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/file/A*PDpiR4U2oFEAAAAAAAAAAABkARQnAQ"
           onPlayVideo={onPlayVideo}
           onCloseVideo={onCloseVideo}
+          notifications={notifications}
         />
 
         <ProductsPage />
