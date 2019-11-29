@@ -705,6 +705,24 @@ const DecisionTree = () => {
       }
       // if clicked a leaf, highlight the relative items
       if (model.isLeaf) {
+        const links = [];
+        const links_en = [];
+        model.linkNames.forEach((name, i) => {
+          const pro = model.links[i].split('/')[1];
+          const pro_en = model.links[i].split('/')[1];
+          const link =
+            'https://' +
+            pro +
+            '.antv.vision' +
+            model.links[i].substr(pro.length + 1);
+          const link_en =
+            'https://' +
+            pro_en +
+            '.antv.vision' +
+            model.links_en[i].substr(pro_en.length + 1);
+          links.push(link);
+          links_en.push(link_en);
+        });
         const buttons = model.linkNames ? (
           model.linkNames.map((name: string, i: number) => (
             <div
@@ -713,9 +731,7 @@ const DecisionTree = () => {
               key={i}
             >
               <a
-                href={
-                  i18n.language === 'zh' ? model.links[i] : model.links_en[i]
-                }
+                href={i18n.language === 'zh' ? links[i] : links_en[i]}
                 target="frame1"
               >
                 {name}
