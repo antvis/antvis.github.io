@@ -86,7 +86,7 @@
         "/g2/en/examples/line/basic",
         "/f2/en/examples/line/basic"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "multilinechart",
@@ -105,7 +105,7 @@
         "/g2/en/examples/line/multiple",
         "/f2/en/examples/line/multiple"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "basicareachart",
@@ -124,7 +124,7 @@
         "/g2/en/examples/area/basic",
         "/f2/en/examples/area/basic"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "stackareachart",
@@ -143,7 +143,7 @@
         "/g2/en/examples/area/stacked",
         "/f2/en/examples/area/stacked"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "percentstackareachart",
@@ -162,7 +162,7 @@
         "/g2/en/examples/area/stacked#percentage",
         "/f2/en/examples/area/stacked#percent"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "intervalareachart",
@@ -203,7 +203,7 @@
         "/g2/en/examples/column/basic",
         "/f2/en/examples/column/basic"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "grouphistogram",
@@ -222,7 +222,7 @@
         "/g2/en/examples/column/dodge",
         "/f2/en/examples/column/dodge"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "stackhistogram",
@@ -241,7 +241,7 @@
         "/g2/en/examples/column/stack#stacked",
         "/f2/en/examples/column/stack#stacked"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "percentstackhistogram",
@@ -260,7 +260,7 @@
         "/g2/en/examples/column/stack#stacked-percentage",
         "/f2/en/examples/column/stack#stacked-percentage"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "intervalhistogram",
@@ -305,7 +305,7 @@
         "/g2plot/en/examples/column/histogram#histogram",
         "/g2/en/examples/column/histogram#histogram"
       ],
-      "linkNames": ["g2plot", "G2"]
+      "linkNames": ["G2Plot", "G2"]
     },
     {
       "id": "basicbarchart",
@@ -324,7 +324,7 @@
         "/g2/en/examples/bar/basic",
         "/f2/en/examples/bar/basic"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "stackbarchart",
@@ -343,7 +343,7 @@
         "/g2/en/examples/bar/stack#stacked",
         "/f2/en/examples/bar/stack"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "percentstackbarchart",
@@ -362,7 +362,7 @@
         "/g2/en/examples/bar/stack#bar-percentage-stacked-marked",
         "/f2/en/examples/bar/stack#bar-percentage-stacked-marked"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "groupbarchart",
@@ -381,7 +381,7 @@
         "/g2/en/examples/bar/dodge",
         "/f2/en/examples/bar/dodge"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "intervalbarchart",
@@ -433,7 +433,7 @@
         "/g2/en/examples/pie/basic",
         "/f2/en/examples/pie/basic"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "ringpiechart",
@@ -452,7 +452,7 @@
         "/g2/en/examples/pie/donut#donut",
         "/f2/en/examples/pie/donut#donut"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "nestpiechart",
@@ -657,16 +657,16 @@
       "tags": ["compare"],
       "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*McoQQpjJFwkAAAAAAAAAAABkARQnAQ",
       "links": [
+        "/g2plot/zh/examples/gauge/basic",
         "/g2/zh/examples/gauge/gauge",
-        "/f2/zh/examples/gallery/gauge",
-        "/g2plot/zh/examples/gauge/basic"
+        "/f2/zh/examples/gallery/gauge"
       ],
       "links_en": [
+        "/g2plot/en/examples/gauge/basic",
         "/g2/en/examples/gauge/gauge#basic",
-        "/f2/en/examples/gauge/gauge#basic",
-        "/g2plot/en/examples/gauge/basic"
+        "/f2/en/examples/gauge/gauge#basic"
       ],
-      "linkNames": ["G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "radar",
@@ -685,7 +685,7 @@
         "/g2/en/examples/radar/radar",
         "/f2/en/examples/radar/radar"
       ],
-      "linkNames": ["g2plot", "G2", "F2"]
+      "linkNames": ["G2Plot", "G2", "F2"]
     },
     {
       "id": "stockklines",
