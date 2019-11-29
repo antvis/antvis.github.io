@@ -735,10 +735,15 @@
       "isLeaf": true,
       "tags": ["statisticchart-statisticchartothers"],
       "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*McoQQpjJFwkAAAAAAAAAAABkARQnAQ",
-      "links": ["/g2/zh/examples/gauge/gauge", "/f2/zh/examples/gallery/gauge"],
+      "links": [
+        "/g2/zh/examples/gauge/gauge",
+        "/f2/zh/examples/gallery/gauge",
+        "/g2plot/zh/examples/gauge/basic"
+      ],
       "links_en": [
         "/g2/en/examples/gauge/gauge#basic",
-        "/f2/en/examples/gauge/gauge#basic"
+        "/f2/en/examples/gauge/gauge#basic",
+        "/g2plot/en/examples/gauge/basic"
       ],
       "linkNames": ["G2", "F2"]
     },
