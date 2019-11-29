@@ -705,8 +705,8 @@ const DecisionTree = () => {
       }
       // if clicked a leaf, highlight the relative items
       if (model.isLeaf) {
-        const links = [];
-        const links_en = [];
+        const links: string[] = [];
+        const links_en: string[] = [];
         model.linkNames.forEach((name, i) => {
           const pro = model.links[i].split('/')[1];
           const pro_en = model.links[i].split('/')[1];
