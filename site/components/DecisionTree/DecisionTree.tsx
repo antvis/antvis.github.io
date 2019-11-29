@@ -1482,8 +1482,8 @@ const DecisionTree = () => {
               ref={element}
             />
             <a
-              href="/g6/zh"
-              target="g6newtag"
+              href="https://github.com/antvis/G6"
+              target="_blank"
               className={styles.canvasDescription}
             >
               Powered by G6
