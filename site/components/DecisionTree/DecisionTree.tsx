@@ -707,7 +707,7 @@ const DecisionTree = () => {
       if (model.isLeaf) {
         const links: string[] = [];
         const links_en: string[] = [];
-        model.linkNames.forEach((name, i) => {
+        model.linkNames.forEach((name: string, i: number) => {
           const pro = model.links[i].split('/')[1];
           const pro_en = model.links[i].split('/')[1];
           const link =
