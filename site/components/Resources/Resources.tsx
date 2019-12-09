@@ -1,5 +1,4 @@
 import React from 'react';
-import QueueAnim from 'rc-queue-anim';
 import ResourceCard from '../ResourceCard/ResourceCard';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
@@ -54,13 +53,7 @@ const ResourcesPage = () => {
   let titleStr = '工具和资源';
   return (
     <div className={styles.wrapper}>
-      <QueueAnim
-        component={Row}
-        type="bottom"
-        leaveReverse
-        key="page"
-        className={styles.content}
-      >
+      <div className={styles.content}>
         <p key="title" className={styles.title}>
           {t(titleStr)}
         </p>
@@ -80,7 +73,7 @@ const ResourcesPage = () => {
           className={styles.diamandback}
           alt="diamand-background"
         />
-      </QueueAnim>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import QueueAnim from 'rc-queue-anim';
 import { Row, Col } from 'antd';
 import QuoteCard from '../quoteCard/quoteCard';
 import styles from './Quotes.module.less';
