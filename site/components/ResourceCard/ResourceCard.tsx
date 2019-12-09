@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import classNames from 'classnames';
 import styles from './ResourceCard.module.less';
 
 interface Props {
@@ -26,7 +27,7 @@ const ResourceCard = (props: Props) => {
         <p className={styles.title}>{props.cardContent.title}</p>
         <p className={styles.description}>{props.cardContent.description}</p>
         <a
-          className={styles.detail}
+          className={classNames(styles.detail, 'detail')}
           href={props.cardContent.link}
           target="newtab"
         >
