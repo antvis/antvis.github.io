@@ -15,7 +15,7 @@ const ResourcesPage = () => {
     {
       index: 0,
       icon:
-        'https://gw.alipayobjects.com/zos/basement_prod/9ef1230e-6c3c-4506-98ab-77cfc6db9767.svg',
+        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*icqYSbEiNxIAAAAAAAAAAABkARQnAQ',
       title: t('图表用法'),
       description: t(
         '从数据出发，从功能角度对常见图表进行分类，提供规范使用指引。',
@@ -25,7 +25,7 @@ const ResourcesPage = () => {
     {
       index: 1,
       icon:
-        'https://gw.alipayobjects.com/zos/basement_prod/74e248e9-b024-47ef-8b35-1b06a8cb87a5.svg',
+        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*mt47RKxGy8kAAAAAAAAAAABkARQnAQ',
       title: t('设计原则'),
       description: t(
         '对数据图形进行拆解、提炼，抽象出一套数据图形可视化交互视觉规范。',
@@ -35,7 +35,7 @@ const ResourcesPage = () => {
     {
       index: 2,
       icon:
-        'https://gw.alipayobjects.com/zos/basement_prod/90df0bcb-5295-4b49-b419-a70248ea359f.svg',
+        'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*zBDKTaSg-7AAAAAAAAAAAABkARQnAQ',
       title: t('工具资源'),
       description: t(
         '在进行模式、组件和语言的整理过程中发现的优秀书籍和资源。',
