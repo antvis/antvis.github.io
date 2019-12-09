@@ -1,6 +1,5 @@
 import React from 'react';
 import { Row } from 'antd';
-import QueueAnim from 'rc-queue-anim';
 import { useTranslation } from 'react-i18next';
 import ContributorCard from '../ContributorCard/ContributorCard';
 import styles from './Contributors.module.less';
@@ -27,12 +26,7 @@ const Contributors = (props: Props) => {
 
   return (
     <div className={styles.wrapper}>
-      <QueueAnim
-        type="bottom"
-        leaveReverse
-        key="content"
-        className={styles.content}
-      >
+      <div key="content" className={styles.content}>
         <p key="title" className={styles.title}>
           {t(props.title)}
         </p>
@@ -47,7 +41,7 @@ const Contributors = (props: Props) => {
             {contributors}
           </Row>
         </div>
-      </QueueAnim>
+      </div>
     </div>
   );
 };

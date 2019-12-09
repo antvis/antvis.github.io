@@ -1,5 +1,4 @@
 import React from 'react';
-import QueueAnim from 'rc-queue-anim';
 import { useTranslation } from 'react-i18next';
 import styles from './JoinUs.module.less';
 
@@ -9,7 +8,7 @@ const JoinUs = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
-        <QueueAnim type="bottom" key="content">
+        <div key="content">
           <p key="title" className={styles.title}>
             {t('加入我们')}
           </p>
@@ -30,7 +29,7 @@ const JoinUs = () => {
           <a href="mailto:antv@list.alibaba-inc.com" className={styles.join}>
             <button className={styles.more}>{t('立即加入')}</button>
           </a>
-        </QueueAnim>
+        </div>
       </div>
     </div>
   );
