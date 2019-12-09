@@ -19,9 +19,10 @@
     font-size: 1.14em;
   }
   .content {
-    padding: 96px 10% 96px 10%;
+    padding: 69px 10% 96px 10%;
     .icon {
-      height: 45px;
+      transition: all 0.3s;
+      height: 96px;
     }
     .title {
       font-size: 1.71em;
@@ -37,6 +38,16 @@
       font-weight: 350;
       line-height: 1.7em;
       color: rgba(105, 123, 140, 1);
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .card {
+    .content {
+      .icon {
+        height: 70px;
+      }
     }
   }
 }
