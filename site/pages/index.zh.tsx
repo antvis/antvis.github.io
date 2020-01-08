@@ -98,16 +98,16 @@ const IndexPage = () => {
 
   const notifications = [
     {
+      type: t('推荐'),
+      title: t('欢迎进入 2020 可视化智能研发时代'),
+      date: '2020.01.08',
+      link: 'https://www.yuque.com/antv/blog/ygdubv',
+    },
+    {
       type: t('语雀'),
       title: t('我们都喜欢的文档工具'),
       date: '2019.11.22',
       link: 'https://www.yuque.com/?chInfo=ch_antv',
-    },
-    {
-      type: t('推荐'),
-      title: t('AntV 11-22 品牌日：知源·致远'),
-      date: '2019.11.22',
-      link: 'https://www.yuque.com/antv/blog/2019-release',
     },
   ];
 
