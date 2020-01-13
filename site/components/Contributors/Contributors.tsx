@@ -21,7 +21,7 @@ const Contributors = (props: Props) => {
   const { t } = useTranslation();
   props.contributors.sort((a, b) => a.name.localeCompare(b.name, 'zh')); //a~z 排序
   const contributors = props.contributors.map((contributor: Contributor) => (
-    <ContributorCard key={contributor.name} cardContent={contributor} />
+    <ContributorCard key={contributor.name} contributor={contributor} />
   ));
 
   return (

@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import styles from './ContributorCard.module.less';
 
 interface Props {
-  cardContent: {
+  contributor: {
     name: string;
     jobTitle: string;
     avatar: string;
@@ -65,7 +65,7 @@ const ContributorCard = (props: Props) => {
   const getIcons = () => {
     const children = [];
     const span = 4;
-    if (props.cardContent.github !== '') {
+    if (props.contributor.github !== '') {
       children.push(
         <Col
           span={span}
@@ -76,7 +76,7 @@ const ContributorCard = (props: Props) => {
         >
           <a
             className={styles.github}
-            href={props.cardContent.github}
+            href={props.contributor.github}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -90,7 +90,7 @@ const ContributorCard = (props: Props) => {
         </Col>,
       );
     }
-    if (props.cardContent.weibo !== '') {
+    if (props.contributor.weibo !== '') {
       children.push(
         <Col
           span={span}
@@ -101,7 +101,7 @@ const ContributorCard = (props: Props) => {
         >
           <a
             className={styles.weibo}
-            href={props.cardContent.weibo}
+            href={props.contributor.weibo}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -120,7 +120,6 @@ const ContributorCard = (props: Props) => {
 
   return (
     <Col
-      key={props.cardContent.name}
       className={classNames(styles.card, 'gutter-row')}
       md={3}
       sm={6}
@@ -129,10 +128,10 @@ const ContributorCard = (props: Props) => {
       onMouseLeave={mouseLeaveCard}
     >
       <div className={styles.content}>
-        <Avatar src={props.cardContent.avatar} className={styles.avatar} />
+        <Avatar src={props.contributor.avatar} className={styles.avatar} />
         <div className={styles.text}>
-          <p className={styles.name}>{t(props.cardContent.name)}</p>
-          <p className={styles.jobTitle}>{t(props.cardContent.jobTitle)}</p>
+          <p className={styles.name}>{t(props.contributor.name)}</p>
+          <p className={styles.jobTitle}>{t(props.contributor.jobTitle)}</p>
         </div>
         <Row className={styles.links} type="flex" justify="center">
           {getIcons()}

@@ -6,6 +6,7 @@ import JoinUs from '../components/JoinUs/JoinUs';
 import Feedback from '../components/Feedback/Feedback';
 import Contributors from '../components/Contributors/Contributors';
 import contributors from '../data/contributors';
+import historyContributors from '../data/historyContributors';
 import { useTranslation } from 'react-i18next';
 
 const AboutUsPage = () => {
@@ -17,7 +18,7 @@ const AboutUsPage = () => {
       <div className="home-container" style={{ marginTop: '-24px' }}>
         <AboutUsBanner bannerSVG={<BannerSVG play={true} />} />
         <Contributors title="贡献者名录" contributors={contributors} />
-        {/* <ContributorsPage title="历史贡献者" contributors={historyContributors}/> */}
+        <Contributors title="历史贡献者" contributors={historyContributors} />
         <JoinUs />
         <Feedback />
       </div>
