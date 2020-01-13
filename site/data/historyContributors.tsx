@@ -14,6 +14,14 @@ const historyContributors: {
     github: '',
   },
   {
+    name: '不过',
+    jobTitle: '设计师',
+    avatar:
+      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*z6bUQ7bvuAYAAAAAAAAAAABkARQnAQ',
+    weibo: '',
+    github: '',
+  },
+  {
     name: '沉鱼',
     jobTitle: '工程师',
     avatar:
