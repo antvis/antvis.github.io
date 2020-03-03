@@ -135,7 +135,7 @@ const IndexPage = () => {
         lang={i18n.language}
       />
       <div className="home-container">
-        <Banner
+        {/* <Banner
           className="banner"
           coverImage={<BannerSVG play={animationStates.play} />}
           title={t('让数据栩栩如生')}
@@ -150,13 +150,13 @@ const IndexPage = () => {
           notifications={notifications}
         />
 
-        <ProductsPage />
+        <ProductsPage /> */}
         <DecisionTreePage />
-        <ResourcesPage />
+        {/* <ResourcesPage />
         <DescribePage />
         <Features title={t('我们的优势')} features={features} />
         <QuotesPage />
-        <Companies title={t('2000+ 公司正在使用')} companies={companies} />
+        <Companies title={t('2000+ 公司正在使用')} companies={companies} /> */}
       </div>
     </>
   );
