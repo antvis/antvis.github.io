@@ -29,9 +29,31 @@
     "linkNames": ["G2Plot", "G2", "F2"]
   },
 
-  "single_step_line_chart": {},
+  "step_line_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*sheqT5vGsewAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/step-line/basic",
+      "/g2/zh/examples/line/step"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/step-line/basic",
+      "/g2/en/examples/line/step"
+    ],
+    "linkNames": ["G2Plot", "G2"]
+  },
 
-  "multi_step_line_chart": {},
+  "multi_step_line_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*IFo8S4Ax2uYAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/step-line/multiple",
+      "/g2/zh/examples/line/step#step-series"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/step-line/multiple",
+      "/g2/en/examples/line/step#step-series"
+    ],
+    "linkNames": ["G2Plot", "G2"]
+  },
 
   "basic_area_chart": {
     "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Zv4oSrF6JDYAAAAAAAAAAABkARQnAQ",
@@ -47,8 +69,6 @@
     ],
     "linkNames": ["G2Plot", "G2", "F2"]
   },
-
-  "multi_color_area_chart": {},
 
   "stacked_area_chart": {
     "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*YoCuRoNaN8kAAAAAAAAAAABkARQnAQ",
@@ -108,8 +128,6 @@
     ],
     "linkNames": ["G2Plot", "G2", "F2"]
   },
-
-  "multi_color_column_chart": {},
 
   "grouped_column_chart": {
     "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*qjpuT6qOKG0AAAAAAAAAAABkARQnAQ",
@@ -203,8 +221,6 @@
     ],
     "linkNames": ["G2Plot", "G2", "F2"]
   },
-
-  "multi_color_bar_chart": {},
 
   "grouped_bar_chart": {
     "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ERLHR55JdTgAAAAAAAAAAABkARQnAQ",
@@ -332,8 +348,6 @@
     "linkNames": ["G2", "F2"]
   },
 
-  "multi_color_scatter_plot": {},
-
   "basic_bubble_chart": {
     "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*tJcRQa5kI10AAAAAAAAAAABkARQnAQ",
     "links": [
@@ -346,8 +360,6 @@
     ],
     "linkNames": ["G2", "F2"]
   },
-
-  "multi_color_bubble_chart": {},
 
   "non_ribbon_chord_diagram": {
     "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*DltUTa3ASJ8AAAAAAAAAAABkARQnAQ",
@@ -454,8 +466,6 @@
     ],
     "linkNames": ["G2Plot", "G2", "F2"]
   },
-
-  "multi_color_radar_chart": {},
 
   "wordcloud": {
     "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*iHCmSaZ1tCwAAAAAAAAAAABkARQnAQ",
@@ -705,5 +715,39 @@
     "links": ["/g2/zh/examples/relation/relation#sunburst"],
     "links_en": ["/g2/en/examples/relation/relation#sunburst"],
     "linkNames": ["G2"]
+  },
+
+  "liquid_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*UuVdTY8CCgwAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2plot/zh/examples/liquid/basic#basic"],
+    "links_en": ["/g2plot/en/examples/liquid/basic#basic"],
+    "linkNames": ["G2Plot"]
+  },
+
+  "range_column_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*HnDyRbJLzRIAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2plot/zh/examples/column/range#range-column"],
+    "links_en": ["/g2plot/en/examples/column/range#range-column"],
+    "linkNames": ["G2Plot"]
+  },
+
+  "range_bar_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*3k3KRKkG0XcAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2plot/zh/examples/bar/range#range-bar"],
+    "links_en": ["/g2plot/en/examples/bar/range#range-bar"],
+    "linkNames": ["G2Plot"]
+  },
+
+  "bullet_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*n9NkQrE7Nf8AAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/other/other#bullet-graph",
+      "/g2/zh/examples/bullet/basic#basic"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/other/other#bullet-graph",
+      "/g2/en/examples/bullet/basic#basic"
+    ],
+    "linkNames": ["G2Plot", "G2"]
   }
 }

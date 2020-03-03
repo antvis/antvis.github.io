@@ -8,11 +8,13 @@ import uniqueId from '@antv/util/lib/unique-id';
 import clone from '@antv/util/lib/clone';
 import { transform } from '@antv/matrix-util';
 import chartUrls from '../../data/chart-urls.json';
+import { remove } from '_@types_lodash-es@4.17.3@@types/lodash-es';
 
 let graph: any;
 let decoGraph: any;
 let data: any;
 let backPaths: any = [];
+let purposeMap: any = {};
 
 declare global {
   interface HTMLElement {
@@ -107,6 +109,25 @@ const DecisionTree = () => {
     );
   });
 
+  const fadeOutItem = (item: any) => {
+    const nodeGroup = item.get('group');
+    nodeGroup.get('children').forEach((child: any) => {
+      child.animate(
+        (ratio: number) => {
+          let opacity = 1 - 3 * ratio;
+          if (opacity < 0) opacity = 0;
+          return {
+            opacity,
+          };
+        },
+        {
+          duration: 500,
+          repeat: false,
+        },
+      );
+    });
+  };
+
   const layoutCfg = {
     type: 'compactBox',
     direction: 'LR',
@@ -123,6 +144,38 @@ const DecisionTree = () => {
         return 160;
       }
       return 120;
+    },
+  };
+
+  const collapseExpandCfg = {
+    type: 'collapse-expand',
+    shouldBegin: (e: any) => {
+      const model = e.item.getModel();
+      if (model.tag === 'purpose') {
+        return true;
+      }
+      return false;
+    },
+    onChange: (item: any, collapsed: boolean) => {
+      if (collapsed) return;
+      const itemId = item.getModel().id;
+      const nodes = graph.getNodes();
+      nodes.forEach((node: any) => {
+        const nodeModel = node.getModel();
+        // collapse others
+        if (nodeModel.tag === 'purpose' && nodeModel.id !== itemId)
+          nodeModel.collapsed = true;
+        if (nodeModel.tag !== 'leaf' || nodeModel.parentId === itemId) return;
+        fadeOutItem(node);
+      });
+      const edges = graph.getEdges();
+      edges.forEach((edge: any) => {
+        const edgeModel = edge.getModel();
+        const targetNode = edge.get('targetNode');
+        if (targetNode.getModel().tag !== 'leaf' || edgeModel.source === itemId)
+          return;
+        fadeOutItem(edge);
+      });
     },
   };
 
@@ -467,7 +520,6 @@ const DecisionTree = () => {
           });
 
           const groupBBox = group.getBBox();
-          console.log('groupBBox', groupBBox);
           const mask = group.addShape('rect', {
             attrs: {
               x: groupBBox.minX,
@@ -479,7 +531,6 @@ const DecisionTree = () => {
               cursor: 'pointer',
             },
           });
-          console.log(mask);
         },
       },
       'circle',
@@ -524,7 +575,6 @@ const DecisionTree = () => {
       'tree-edge',
       {
         afterDraw(cfg: any, group: any) {
-          console.log(group);
           setTimeout(() => {
             const curve = group.get('children')[0];
             const backPath = group.get('parent').addShape('path', {
@@ -587,16 +637,7 @@ const DecisionTree = () => {
             type: 'drag-canvas',
             direction: 'y',
           },
-          {
-            type: 'collapse-expand',
-            shouldBegin: (e: any) => {
-              const model = e.item.getModel();
-              if (model.tag === 'purpose') {
-                return true;
-              }
-              return false;
-            },
-          },
+          collapseExpandCfg,
         ], //'double-finger-drag-canvas',
       },
       defaultEdge: {
@@ -619,17 +660,14 @@ const DecisionTree = () => {
     graph.moveTo(Math.abs(graphBBox.x) + 200, Math.abs(graphBBox.y) + 60);
 
     graph.on('itemcollapsed', () => {
-      backPaths.forEach((path: any) => {
-        path.remove();
-      });
+      // remove the white background of current leaf edges
+      removeBackPaths();
     });
     // click root to expand
     graph.on('node:click', (e: any) => {
       const item = e.item;
       const model = item.getModel();
       if (model.tag === 'purpose') {
-        // collapse it for next time
-        model.collapsed = true;
         // update the colors for decoration circles
         decoGraph.getNodes().forEach((node: any) => {
           node.update({
@@ -740,6 +778,15 @@ const DecisionTree = () => {
       });
     });
 
+    graph.on('canvas:click', () => {
+      Object.keys(purposeMap).forEach((purposeName: any) => {
+        const purpose = purposeMap[purposeName];
+        purpose.collapsed = true;
+      });
+      graph.layout();
+      removeBackPaths();
+    });
+
     window.onresize = () => {
       if (element && element.current) {
         CANVAS_WIDTH = element.current.offsetWidth; // 1320;
@@ -822,7 +869,7 @@ const DecisionTree = () => {
         },
       },
     };
-    const purposeMap: any = {};
+    purposeMap = {};
     let purposeCount = 0;
     Object.keys(data).forEach((chartId: any) => {
       const chart = data[chartId];
@@ -924,6 +971,7 @@ const DecisionTree = () => {
       label: chart.name,
       tag: 'leaf',
       size: 12,
+      parentId: parent.id,
       parentColor: parent.gradientColor,
       anchorPoints: [
         [-0.5, 0.5],
@@ -945,6 +993,12 @@ const DecisionTree = () => {
       },
     };
     return Object.assign({}, cloneChart, cfg);
+  };
+
+  const removeBackPaths = () => {
+    backPaths.forEach((path: any) => {
+      path.remove(true);
+    });
   };
   const tooltip = (
     <div
