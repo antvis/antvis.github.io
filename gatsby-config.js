@@ -39,5 +39,9 @@ module.exports = {
         order: 1,
       },
     ],
+    docsearchOptions: {
+      apiKey: '9d1cd586972bb492b7b41b13a949ef30',
+      indexName: 'antv_g6',
+    },
   },
 };

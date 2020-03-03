@@ -1,0 +1,709 @@
+{
+  "single_line_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*JXRgQ4tcm1kAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/line/basic",
+      "/g2/zh/examples/line/basic",
+      "/f2/zh/examples/line/basic"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/line/basic",
+      "/g2/en/examples/line/basic",
+      "/f2/en/examples/line/basic"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "multi_line_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*gnbiSo8DaEwAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/line/multiple",
+      "/g2/zh/examples/line/multiple",
+      "/f2/zh/examples/line/multiple"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/line/multiple",
+      "/g2/en/examples/line/multiple",
+      "/f2/en/examples/line/multiple"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "single_step_line_chart": {},
+
+  "multi_step_line_chart": {},
+
+  "basic_area_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Zv4oSrF6JDYAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/area/basic",
+      "/g2/zh/examples/area/basic",
+      "/f2/zh/examples/area/basic"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/area/basic",
+      "/g2/en/examples/area/basic",
+      "/f2/en/examples/area/basic"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "multi_color_area_chart": {},
+
+  "stacked_area_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*YoCuRoNaN8kAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/area/stack",
+      "/g2/zh/examples/area/stacked#stacked",
+      "/g]f2/zh/examples/area/stacked#stacked"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/area/stacked",
+      "/g2/en/examples/area/stacked",
+      "/f2/en/examples/area/stacked"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "percent_stacked_area_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*NMkWRLm2_8IAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/area/percentageArea",
+      "/g2/zh/examples/area/stacked#percentage",
+      "/f2/zh/examples/area/stacked#percent"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/area/percentageArea",
+      "/g2/en/examples/area/stacked#percentage",
+      "/f2/en/examples/area/stacked#percent"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "interval_area_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*wX5sTajQpn4AAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/area/range"],
+    "links_en": ["/g2/en/examples/area/range"],
+    "linkNames": ["G2"]
+  },
+
+  "stream_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*-lFRTootQesAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/area/stacked#streamgraph"],
+    "links_en": ["/g2/en/examples/area/stacked#streamgraph"],
+    "linkNames": ["G2"]
+  },
+
+  "basic_column_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*V9UkSqvdud4AAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/column/basic",
+      "/g2/zh/examples/column/basic",
+      "/f2/zh/examples/column/basic"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/column/basic",
+      "/g2/en/examples/column/basic",
+      "/f2/en/examples/column/basic"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "multi_color_column_chart": {},
+
+  "grouped_column_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*qjpuT6qOKG0AAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/column/group",
+      "/g2/zh/examples/column/dodge",
+      "/f2/zh/examples/column/dodge"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/column/dodge",
+      "/g2/en/examples/column/dodge",
+      "/f2/en/examples/column/dodge"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "stacked_column_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*l8T0QYLvYocAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/column/stack#stacked",
+      "/g2/zh/examples/column/stack#stacked",
+      "/f2/zh/examples/column/stack#stacked"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/column/stack#stacked",
+      "/g2/en/examples/column/stack#stacked",
+      "/f2/en/examples/column/stack#stacked"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "percent_stacked_column_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*nl5pTowaN5EAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/column/percentageStack",
+      "/g2/zh/examples/column/stack#stacked-percentage",
+      "/f2/zh/examples/column/stack#percent"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/column/stack#stacked-percentage",
+      "/g2/en/examples/column/stack#stacked-percentage",
+      "/f2/en/examples/column/stack#stacked-percentage"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "interval_column_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5FIvRblZNooAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2/zh/examples/column/basic#ranged",
+      "/f2/zh/examples/column/basic#ranged"
+    ],
+    "links_en": [
+      "/g2/en/examples/column/basic#ranged",
+      "/f2/zh/examples/column/basic#ranged"
+    ],
+    "linkNames": ["G2", "F2"]
+  },
+
+  "waterfall_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*QLMTR4jmABYAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/column/basic#waterfall"],
+    "links_en": ["/g2/en/examples/column/basic#waterfall"],
+    "linkNames": ["G2"]
+  },
+
+  "histogram": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*WI97SJBgaCwAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/column/histogram",
+      "/g2/zh/examples/column/histogram#histogram"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/column/histogram#histogram",
+      "/g2/en/examples/column/histogram#histogram"
+    ],
+    "linkNames": ["G2Plot", "G2"]
+  },
+
+  "basic_bar_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*RENoRrj3PugAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/bar/basic",
+      "/g2/zh/examples/bar/basic",
+      "/f2/zh/examples/bar/basic"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/bar/basic",
+      "/g2/en/examples/bar/basic",
+      "/f2/en/examples/bar/basic"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "multi_color_bar_chart": {},
+
+  "grouped_bar_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ERLHR55JdTgAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/bar/group",
+      "/g2/zh/examples/bar/dodge",
+      "/f2/zh/examples/bar/stack#percent"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/bar/group",
+      "/g2/en/examples/bar/dodge",
+      "/f2/en/examples/bar/dodge"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "stacked_bar_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*JKcNRbvHZAwAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/bar/stack",
+      "/g2/zh/examples/bar/stack",
+      "/f2/zh/examples/bar/stack"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/bar/stack#stacked",
+      "/g2/en/examples/bar/stack#stacked",
+      "/f2/en/examples/bar/stack"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "percent_stacked_bar_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*nl5pTowaN5EAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/bar/percentageStack",
+      "/g2/zh/examples/bar/stack#bar-percentage-stacked-marked",
+      "/f2/zh/examples/bar/stack#bar-percentage-stacked-marked"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/bar/stack#bar-percentage-stacked-marked",
+      "/g2/en/examples/bar/stack#bar-percentage-stacked-marked",
+      "/f2/en/examples/bar/stack#bar-percentage-stacked-marked"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "interval_bar_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*G6vWT52rdz4AAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/bar/basic#ranged"],
+    "links_en": ["/g2/en/examples/bar/basic#ranged"],
+    "linkNames": ["G2"]
+  },
+
+  "radial_bar_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5EwoQYlQ4q4AAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/bar/basic#radial-bar"],
+    "links_en": ["/g2/en/examples/bar/basic#radial-bar"],
+    "linkNames": ["G2"]
+  },
+
+  "mirror_bar_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*-y0dTbzSPycAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/bar/dodge#bar5"],
+    "links_en": ["/g2/en/examples/bar/dodge#bar5"],
+    "linkNames": ["G2"]
+  },
+
+  "basic_pie_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ka5WSJgUllkAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/pie/basic",
+      "/g2/zh/examples/pie/basic",
+      "/f2/zh/examples/pie/basic"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/pie/basic",
+      "/g2/en/examples/pie/basic",
+      "/f2/en/examples/pie/basic"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "donut_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*NkK1T7VLgjkAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/pie/ring",
+      "/g2/zh/examples/pie/donut",
+      "/f2/zh/examples/pie/donut"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/pie/ring",
+      "/g2/en/examples/pie/donut#donut",
+      "/f2/en/examples/pie/donut#donut"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "nested_pie_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*JFtYRK6qeeUAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/pie/nested"],
+    "links_en": ["/g2/en/examples/pie/nested"],
+    "linkNames": ["G2"]
+  },
+
+  "nightingale_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*FBnUR449kzYAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2/zh/examples/pie/rose#color-rose",
+      "/f2/zh/examples/pie/rose#rose"
+    ],
+    "links_en": [
+      "/g2/en/examples/pie/rose#color-rose",
+      "/f2/en/examples/pie/rose#color-rose"
+    ],
+    "linkNames": ["G2", "F2"]
+  },
+
+  "basic_scatter_plot": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*UQo_Rav7tO4AAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/point/scatter", "/f2/zh/examples/point/scatter"],
+    "links_en": [
+      "/g2/en/examples/point/scatter#scatter",
+      "/f2/en/examples/point/scatter#scatter"
+    ],
+    "linkNames": ["G2", "F2"]
+  },
+
+  "multi_color_scatter_plot": {},
+
+  "basic_bubble_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*tJcRQa5kI10AAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2/zh/examples/point/scatter#bubble",
+      "/f2/zh/examples/point/scatter#bubble"
+    ],
+    "links_en": [
+      "/g2/en/examples/point/scatter#bubble",
+      "/f2/en/examples/point/scatter#bubble"
+    ],
+    "linkNames": ["G2", "F2"]
+  },
+
+  "multi_color_bubble_chart": {},
+
+  "non_ribbon_chord_diagram": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*DltUTa3ASJ8AAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/net/arcDiagram#circularArcDiagram"],
+    "links_en": ["/g6/en/examples/net/arcDiagram#circularArcDiagram"],
+    "linkNames": ["G6"]
+  },
+
+  "arc_diagram": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*aVzrSI3NAtAAAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/net/arcDiagram"],
+    "links_en": ["/g6/en/examples/net/arcDiagram"],
+    "linkNames": ["G6"]
+  },
+
+  "chord_diagram": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*KEDoQrZdzXUAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/relation/relation#chord"],
+    "links_en": ["/g2/en/examples/relation/relation#chord"],
+    "linkNames": ["G2"]
+  },
+
+  "treemap": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*nUuaSpgmG6UAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2/zh/examples/relation/relation#treemap-children",
+      "/f2/zh/examples/relation/relation#treemap"
+    ],
+    "links_en": [
+      "/g2/en/examples/relation/relation#treemap-children",
+      "/f2/en/examples/relation/relation#treemap"
+    ],
+    "linkNames": ["G2"]
+  },
+
+  "sankey_diagram": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*iuHTTJRzTW4AAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/relation/relation#sankey"],
+    "links_en": ["/g2/en/examples/relation/relation#sankey"],
+    "linkNames": ["G2"]
+  },
+
+  "basic_funnel_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*TqKWT57XsrIAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/funnel/funnel"],
+    "links_en": ["/g2/en/examples/funnel/funnel"],
+    "linkNames": ["G2"]
+  },
+
+  "overlapping_funnel_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Q5tSQJMDvCoAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/funnel/funnel#comparision"],
+    "links_en": ["/g2/en/examples/funnel/funnel#comparision"],
+    "linkNames": ["G2"]
+  },
+
+  "mirror_funnel_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*GyMBTqqGY_wAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/funnel/funnel#symmetric"],
+    "links_en": ["/g2/en/examples/funnel/funnel#symmetric"],
+    "linkNames": ["G2"]
+  },
+
+  "boxplot": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*xhSaRb16RzYAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/box/box"],
+    "links_en": ["/g2/en/examples/box/box"],
+    "linkNames": ["G2"]
+  },
+
+  "heatmap": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Te9gRYpVq0cAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/heatmap/heatmap#image"],
+    "links_en": ["/g2/en/examples/heatmap/heatmap#image"],
+    "linkNames": ["G2"]
+  },
+
+  "gauge_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*McoQQpjJFwkAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/gauge/basic",
+      "/g2/zh/examples/gauge/gauge",
+      "/f2/zh/examples/gallery/gauge"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/gauge/basic",
+      "/g2/en/examples/gauge/gauge#basic",
+      "/f2/en/examples/gauge/gauge#basic"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "basic_radar_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*NxMmSabzJGQAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/radar/basic",
+      "/g2/zh/examples/radar/radar",
+      "/f2/zh/examples/radar/radar"
+    ],
+    "links_en": [
+      "/g2plot/zh/examples/radar/basic",
+      "/g2/en/examples/radar/radar",
+      "/f2/en/examples/radar/radar"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "multi_color_radar_chart": {},
+
+  "wordcloud": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*iHCmSaZ1tCwAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2/zh/examples/other/other#word-cloud",
+      "/f2/zh/examples/other/other#word-cloud"
+    ],
+    "links_en": [
+      "/g2/en/examples/other/other#word-cloud",
+      "/f2/en/examples/other/other#word-cloud"
+    ],
+    "linkNames": ["G2", "F2"]
+  },
+
+  "candlestick_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*nOPdTrLtpdMAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2/zh/examples/candlestick/demo#k-and-area",
+      "/f2/zh/examples/candlestick/basic#k"
+    ],
+    "links_en": [
+      "/g2/en/examples/candlestick/demo#k-and-area",
+      "/f2/zh/examples/candlestick/demo#k-and-area"
+    ],
+    "linkNames": ["G2", "F2"]
+  },
+
+  "compact_box_tree": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*WGHWQYjLmXoAAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/tree/compactBox#tbCompactBox"],
+    "links_en": ["/g6/en/examples/tree/compactBox#tbCompactBox"],
+    "linkNames": ["G6"]
+  },
+
+  "dendrogram": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*r51nTJ-Ha5MAAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/tree/dendrogram#tbDendrogram"],
+    "links_en": ["/g6/en/examples/tree/dendrogram#tbDendrogram"],
+    "linkNames": ["G6"]
+  },
+
+  "indented_tree": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ywVeSJIfeK8AAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/tree/indented"],
+    "links_en": ["/g6/en/examples/tree/indented"],
+    "linkNames": ["G6"]
+  },
+
+  "radial_tree": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*vUkTSpv9YqkAAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/tree/radialtree"],
+    "links_en": ["/g6/en/examples/tree/radialtree"],
+    "linkNames": ["G6"]
+  },
+
+  "flow_diagram": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*35XETpuMRpsAAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/net/dagreFlow"],
+    "links_en": ["/g6/en/examples/net/dagreFlow"],
+    "linkNames": ["G6"]
+  },
+
+  "fruchterman_layout_cluster_graph": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*8qAMTomesZcAAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/net/furchtermanLayout#fruchtermanClustering"],
+    "links_en": ["/g6/en/examples/net/furchtermanLayout#fruchtermanClustering"],
+    "linkNames": ["G6"]
+  },
+
+  "fruchterman_layout_graph": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*XD22Q7uxddEAAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/net/furchtermanLayout"],
+    "links_en": ["/g6/en/examples/net/furchtermanLayout"],
+    "linkNames": ["G6"]
+  },
+
+  "force_directed_layout_graph": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*dokGR7uP50oAAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/net/forceDirected"],
+    "links_en": ["/g6/en/examples/net/forceDirected"],
+    "linkNames": ["G6"]
+  },
+
+  "circular_layout_graph": {
+    "tags": ["relational"],
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*2ZNjRqRzJggAAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/net/circular"],
+    "links_en": ["/g6/en/examples/net/circular"],
+    "linkNames": ["G6"]
+  },
+
+  "spiral_layout_graph": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5NkUTJyXfIcAAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/net/circular#spiralCircular"],
+    "links_en": ["/g6/en/examples/net/circular#spiralCircular"],
+    "linkNames": ["G6"]
+  },
+
+  "radial_layout_graph": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*KON0Rbv5XtEAAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/net/radialLayout"],
+    "links_en": ["/g6/en/examples/net/radialLayout"],
+    "linkNames": ["G6"]
+  },
+
+  "concentric_layout_graph": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*zxlhRobv7VEAAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/net/concentricLayout"],
+    "links_en": ["/g6/en/examples/net/concentricLayout"],
+    "linkNames": ["G6"]
+  },
+
+  "grid_layout_graph": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*wlkBRKmjVNgAAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/net/gridLayout"],
+    "links_en": ["/g6/en/examples/net/gridLayout"],
+    "linkNames": ["G6"]
+  },
+
+  "bubbles_diagram": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*EaIlRqda-VcAAAAAAAAAAABkARQnAQ",
+    "links": ["/g6/zh/examples/net/forceDirected#forceBubbles"],
+    "links_en": ["/g6/en/examples/net/forceDirected#forceBubbles"],
+    "linkNames": ["G6"]
+  },
+
+  "symbol_map": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Af7tQJ_sFdwAAAAAAAAAAABkARQnAQ",
+    "links": ["/L7/zh/examples/point/image"],
+    "links_en": ["/L7/en/examples/point/image"],
+    "linkNames": ["L7"]
+  },
+
+  "chart_map": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*KEmSSIB3scwAAAAAAAAAAABkARQnAQ",
+    "links": ["/L7/zh/examples/point/chart"],
+    "links_en": ["/L7/en/examples/point/chart"],
+    "linkNames": ["L7"]
+  },
+
+  "column_map_3d": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*1X4mS4yNGSgAAAAAAAAAAABkARQnAQ",
+    "links": ["/L7/zh/examples/point/column"],
+    "links_en": ["/L7/en/examples/point/column"],
+    "linkNames": ["L7"]
+  },
+
+  "scatter_map": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*c2EOQqwR-toAAAAAAAAAAABkARQnAQ",
+    "links": ["/L7/zh/examples/point/scatter"],
+    "links_en": ["/L7/en/examples/point/scatter"],
+    "linkNames": ["L7"]
+  },
+
+  "path_map": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*J3sVRrzk3egAAAAAAAAAAABkARQnAQ",
+    "links": ["/L7/zh/examples/line/path"],
+    "links_en": ["/L7/en/examples/line/path"],
+    "linkNames": ["L7"]
+  },
+
+  "isoline_map": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*hHKHSa1PH-MAAAAAAAAAAABkARQnAQ",
+    "links": ["/L7/zh/examples/line/isoline"],
+    "links_en": ["/L7/en/examples/line/isoline"],
+    "linkNames": ["L7"]
+  },
+
+  "arc_map_3d": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5cnzS4A3968AAAAAAAAAAABkARQnAQ",
+    "links": ["/L7/zh/examples/line/arc"],
+    "links_en": ["/L7/en/examples/line/arc"],
+    "linkNames": ["L7"]
+  },
+
+  "choropleth_map": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*TSGQRowxmmAAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/L7/zh/examples/polygon/fill",
+      "/g2/zh/examples/map/map#choropleth-map"
+    ],
+    "links_en": [
+      "/L7/en/examples/polygon/fill",
+      "/g2/en/examples/map/map#choropleth-map"
+    ],
+    "linkNames": ["L7", "G2"]
+  },
+
+  "choropleth_map_3d": {},
+
+  "hexagonal_heat_map": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*YbKcRbypQ_oAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/L7/zh/examples/heatmap/hexagon",
+      "/g2/zh/examples/map/map#hex-choropleth-map"
+    ],
+    "links_en": [
+      "/L7/en/examples/heatmap/hexagon",
+      "/g2/en/examples/map/map#hex-choropleth-map"
+    ],
+    "linkNames": ["L7", "G2"]
+  },
+
+  "hexagonal_heat_map_3d": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*l9D1QK5-z-8AAAAAAAAAAABkARQnAQ",
+    "links": ["/L7/zh/examples/heatmap/hexagon#light"],
+    "links_en": ["/L7/en//examples/heatmap/hexagon#light"],
+    "linkNames": ["L7"]
+  },
+
+  "classical_heat_map": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/antv_site/afts/img/A*HxpoRIcBA80AAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/L7/zh/examples/heatmap/heatmap",
+      "/g2/zh/examples/map/map#with-heatmap"
+    ],
+    "links_en": [
+      "/L7/en/examples/heatmap/heatmap",
+      "/g2/en/examples/map/map#with-heatmap"
+    ],
+    "linkNames": ["L7", "G2"]
+  },
+
+  "grid_heat_map": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/antv_site/afts/img/A*tAGKS6EClQ4AAAAAAAAAAABkARQnAQ",
+    "links": ["/L7/zh/examples/heatmap/grid#grid1"],
+    "links_en": ["/L7/en/examples/heatmap/grid#grid1"],
+    "linkNames": ["L7"]
+  },
+
+  "packed_circles": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*nbfsS6Fe8mgAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/relation/relation#circle-packing"],
+    "links_en": ["/g2/en/examples/relation/relation#circle-packing"],
+    "linkNames": ["G2"]
+  },
+
+  "polar_treemap": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*HGyHQbd3esQAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/relation/relation#polar-treemap"],
+    "links_en": ["/g2/en/examples/relation/relation#polar-treemap"],
+    "linkNames": ["G2"]
+  },
+
+  "sunburst_diagram": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*6vuVTqshFqgAAAAAAAAAAABkARQnAQ",
+    "links": ["/g2/zh/examples/relation/relation#sunburst"],
+    "links_en": ["/g2/en/examples/relation/relation#sunburst"],
+    "linkNames": ["G2"]
+  }
+}
