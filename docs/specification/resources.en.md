@@ -80,4 +80,11 @@ We provide design resources and tools as below:
             <span class="description">Logos and icons</span>
         </span>
     </a>
+    <a href="https://gw.alipayobjects.com/os/bmw-prod/d5f4c0a4-0ae0-4f5d-8441-e48766b5ceec.sketch" class="resource-card">
+        <img src="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*xMzhQLZvDlcAAAAAAAAAAABkARQnAQ" alt="">
+        <span class="resource-content">
+            <span class="title">AntV Palette</span>
+            <span class="description">Logos and icons</span>
+        </span>
+    </a>
 </div>
