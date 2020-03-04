@@ -654,7 +654,12 @@
     "linkNames": ["L7", "G2"]
   },
 
-  "choropleth_map_3d": {},
+  "choropleth_map_3d": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*9b3zR6FNKh4AAAAAAAAAAABkARQnAQ",
+    "links": ["/l7/zh/examples/polygon/3d"],
+    "links_en": ["/l7/en/examples/polygon/3d"],
+    "linkNames": ["L7"]
+  },
 
   "hexagonal_heat_map": {
     "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*YbKcRbypQ_oAAAAAAAAAAABkARQnAQ",
@@ -749,5 +754,12 @@
       "/g2/en/examples/bullet/basic#basic"
     ],
     "linkNames": ["G2Plot", "G2"]
+  },
+
+  "density_heatmap": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*VX0VT7ejFJ4AAAAAAAAAAABkARQnAQ",
+    "links": ["/l7/zh/examples/heatmap/heatmap"],
+    "links_en": ["/l7/en/examples/heatmap/heatmap"],
+    "linkNames": ["L7"]
   }
 }

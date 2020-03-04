@@ -244,6 +244,9 @@
   "分类型": "Category",
   "地理型": "Geography",
   "树": "Tree",
-  "聚类": "Clustering",
-  "层次": "Hierarchy"
+  "聚类": "Cluster",
+  "层次": "Hierarchy",
+  "层级": "Hierarchy",
+  "流": "Flow",
+  "流向": "Flow"
 }
