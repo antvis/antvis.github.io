@@ -8,7 +8,6 @@ import uniqueId from '@antv/util/lib/unique-id';
 import clone from '@antv/util/lib/clone';
 import { transform } from '@antv/matrix-util';
 import chartUrls from '../../data/chart-urls.json';
-import { remove } from '_@types_lodash-es@4.17.3@@types/lodash-es';
 
 let graph: any;
 let decoGraph: any;
@@ -33,7 +32,10 @@ declare global {
 
 const DecisionTree = () => {
   const { t, i18n } = useTranslation();
-  const ckbData = CKBJson();
+  let ckbData = CKBJson('zh-CN');
+  if (i18n.language === 'en') {
+    ckbData = CKBJson();
+  }
 
   const [tooltipStates, setTooltipStates] = useState({
     title: '',
@@ -55,7 +57,7 @@ const DecisionTree = () => {
   });
 
   const lightColors = [
-    '#8FE9FF',
+    '#C8F279',
     '#87EAEF',
     '#FFC9E3',
     '#A7C2FF',
@@ -66,7 +68,7 @@ const DecisionTree = () => {
     '#D5FF86',
   ];
   const darkColors = [
-    '#7DA8FF',
+    '#38EF6B',
     '#44E6C1',
     '#FF68A7',
     '#7F86FF',
@@ -240,6 +242,8 @@ const DecisionTree = () => {
           cfg: {
             size: number;
             color: string;
+            label: string | undefined;
+            labelCfg: any | undefined;
           },
           group: any,
         ) {
@@ -425,34 +429,8 @@ const DecisionTree = () => {
           path.push(['Z']);
           return path;
         },
-        setState(
-          name: string,
-          value: boolean,
-          item: {
-            get: Function;
-          },
-        ) {
-          const shape = item.get('keyShape');
-          if (name === 'dark') {
-            if (value) {
-              if (shape.attr('fill') !== '#fff') {
-                shape.oriFill = shape.attr('fill');
-                const uColor = unlightColorMap.get(shape.attr('fill'));
-                shape.attr('fill', uColor);
-              } else {
-                shape.attr('opacity', 0.2);
-              }
-            } else {
-              if (shape.attr('fill') !== '#fff') {
-                shape.attr('fill', shape.oriFill || shape.attr('fill'));
-              } else {
-                shape.attr('opacity', 1);
-              }
-            }
-          }
-        },
       },
-      'single-shape',
+      'single-node',
     );
 
     G6.registerNode(
@@ -473,7 +451,7 @@ const DecisionTree = () => {
             const text = group.addShape('text', {
               attrs: {
                 text: cat,
-                fill: '#fff',
+                fill: cfg.style.stroke, //'#fff',
                 fontSize: 10, //10
                 textAlign: 'start',
                 textBaseline: 'middle',
@@ -492,8 +470,11 @@ const DecisionTree = () => {
                 height: textBBox.height + textPadding[0],
                 x: leftShapeBBox.maxX + tagOffset,
                 y: leftShapeBBox.minY,
-                fill: cfg.parentColor,
+                fill: '#fff', // cfg.parentColor,
+                stroke: cfg.parentColor,
+                lineWidth: 1,
                 opacity: 0,
+                fontSize: 10,
                 // shadowColor: cfg.style.stroke,
                 // shadowBlur: 50,
                 // shadowOffsetX: 0,
@@ -862,7 +843,7 @@ const DecisionTree = () => {
       ],
       labelCfg: {
         style: {
-          fontSize: 14,
+          fontSize: 300,
           fill: '#fff',
           fontWeight: 300,
           fontStyle: 'bold',
@@ -878,9 +859,9 @@ const DecisionTree = () => {
         parentExist = false,
         parentIdx = -1;
       chart.purpose.forEach((pur: string, i: number) => {
-        if (pur === 'Hierarchy' || pur === 'Flow') {
+        if (pur === t('层级') || pur === t('流向')) {
           childExist = true;
-        } else if (pur === 'Relation') {
+        } else if (pur === t('关系')) {
           parentExist = true;
           parentIdx = i;
         }
@@ -889,23 +870,24 @@ const DecisionTree = () => {
         delete chart.purpose[parentIdx];
       }
       chart.purpose.forEach((pur: string) => {
-        if (pur === 'Cluster' || !pur) return; // temperal
-        if (pur === 'Hierarchy' || pur === 'Flow') {
-          if (!purposeMap['Relation']) {
+        if (pur === t('聚类') || !pur) return; // temperal
+        if (pur === t('层级') || pur === t('流向')) {
+          if (!purposeMap[t('关系')]) {
             purposeCount++;
             const purpose = {
-              id: pur,
-              label: pur,
+              id: t('关系'),
+              label: t('关系'),
               children: [],
               color: gColors[purposeCount % gColors.length],
               gradientColor: gColors[purposeCount % gColors.length],
               ...bubbleCfg,
+              labelCfg: bubbleCfg.labelCfg,
             };
             root.children.push(purpose);
-            purposeMap[pur] = purpose;
+            purposeMap[t('关系')] = purpose;
           }
           if (!purposeMap[pur]) {
-            const color = purposeMap['Relation'].color.split(' ')[2].substr(2);
+            const color = purposeMap[t('关系')].color.split(' ')[2].substr(2);
             const midPoint = {
               id: pur,
               type: 'midpoint',
@@ -913,7 +895,7 @@ const DecisionTree = () => {
               size: 12,
               label: pur,
               color,
-              gradientColor: purposeMap['Relation'].color,
+              gradientColor: purposeMap[t('关系')].color,
               children: [],
               style: {
                 fill: '#fff',
@@ -933,7 +915,7 @@ const DecisionTree = () => {
                 [1.1, 0.5],
               ],
             };
-            purposeMap['Relation'].children.push(midPoint);
+            purposeMap[t('关系')].children.push(midPoint);
             purposeMap[pur] = midPoint;
           }
         }
@@ -947,6 +929,7 @@ const DecisionTree = () => {
             gradientColor: gColors[purposeCount % gColors.length],
             color: gColors[purposeCount % gColors.length],
             ...bubbleCfg,
+            labelCfg: bubbleCfg.labelCfg,
           };
           root.children.push(purpose);
           purposeMap[pur] = purpose;
@@ -1052,7 +1035,10 @@ const DecisionTree = () => {
       }
       if (graph && window.screen) {
         graph.changeSize(window.screen.width, window.screen.height);
-        loadData(ckbData);
+        loadData(data);
+        const group = graph.get('group');
+        const graphBBox = group.getBBox();
+        graph.moveTo(Math.abs(graphBBox.x) + 200, Math.abs(graphBBox.y) + 60);
       }
     }
   };
@@ -1073,7 +1059,10 @@ const DecisionTree = () => {
       }
       if (graph && window.screen) {
         graph.changeSize(window.screen.width, window.screen.height);
-        loadData(ckbData);
+        loadData(data);
+        const group = graph.get('group');
+        const graphBBox = group.getBBox();
+        graph.moveTo(Math.abs(graphBBox.x) + 200, Math.abs(graphBBox.y) + 60);
       }
     }
   };
