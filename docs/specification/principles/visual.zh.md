@@ -1,5 +1,5 @@
 ---
-title: 视觉
+title: 色板
 order: 1
 ---
 
@@ -19,11 +19,15 @@ AntV 色板是基于 [Ant Design 色彩体系](https://ant.design/docs/spec/colo
 | 饱和度（S） | <img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*8yVNQ6kKU9gAAAAAAAAAAABkARQnAQ" width=152 /> | = | 有序型 | 如多少、高低、大小 |
 | 明度（B） | <img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*KpGITpALYaQAAAAAAAAAAABkARQnAQ" width=152 /> |  | 数值型 | 如  9.5cm 、18 个 |
 
+<br/>
+
 ## 6 大色板类型
 
 AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用场景扩展出 6 种可视化色板类型，可完美兼容 Ant Design UI 资产。以下所有色板均通过无障碍测试校验，可放心使用。
 
 ![02-AntV 品牌色@3x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*pdBRSLgX79kAAAAAAAAAAABkARQnAQ)
+
+<br/>
 
 ### 分类色板
 
@@ -36,6 +40,8 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 如图水果价格走势对比，使用红色代表苹果价格、蓝色代表蓝莓价格、黄色代表香蕉价格。
 
 ![Artboard@2x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*Kh5NSai4X0cAAAAAAAAAAABkARQnAQ)
+
+<br/>
 
 ### 顺序色板
 
@@ -61,6 +67,8 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ![12.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*n-BbTJ0b8dQAAAAAAAAAAABkARQnAQ)
 
+<br/>
+
 ### 发散色板
 
 对比色渐变色板，一般是两种互补色（也可以是对比色）去展现数据从一个负向值到 0 点再到正向值的连续变化区间，显示相对立的两个值的大小关系，常用于气温的冷热、海拔高低、股票涨跌等
@@ -72,6 +80,8 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 全国等温线图，使用发散色板表示正负值的气温变化，暖色系的橙红色容易让人联系到太阳或炽热的感受，用于高温变化，颜色越红温度越高，反之，冷色系的蓝容易让人联想到冰和寒冷的感受，用于低温变化，颜色越深温度越低
 
 ![Artboard Copy@2x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*Z8oMRrRxsicAAAAAAAAAAABkARQnAQ)
+
+<br/>
 
 ### 叠加色板
 
@@ -85,6 +95,8 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ![Artboard Copy 2@2x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*HWlXR4aaSfkAAAAAAAAAAABkARQnAQ)
 
+<br/>
+
 ### 强调色板
 
 对比突出重点或特定数据，将重点关注的数据标以高饱和度的强调色，其他普通数据标以低饱和、低明度的基本色，常用于对比重点关注事物与其他分类事物的差别，如将自家产品与竞品的对比使用
@@ -96,6 +108,8 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 如图某工厂历年能源消耗占比趋势对比，分别用五种不同的颜色代表五种能源，其中「天然气」为重点关注的能源类型，使用饱和度高的蓝代表「天然气」，其他能源类型着以低饱和度的分类颜色，以便关注的「天然气」能够快速被观察到，同时其他类型可作为对比参考而不会因颜色过多而产生干扰。
 
 ![Artboard Copy 6@2x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*d7FMRa5JzqcAAAAAAAAAAABkARQnAQ)
+
+<br/>
 
 ### 语义色板
 
@@ -115,13 +129,13 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 我们发现，在提供官方色板的前提下，仍有用户并不是十分擅长在实际场景中应用色板，以下几条设计指引供使用时参考。
 
-### 避免使用过多的颜色数量
+### 避免使用过多颜色
 
 在实际应用中，经常会出现大量颜色使用的误区，建议高亮重要的数据（不超过 8 个），其他数据默认置灰，通过图例交互进行查看。
 
 ![](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*cztFQZfwO_MAAAAAAAAAAABkARQnAQ)
 
-### 数据映射的规则尽量简单
+### 数据映射规则从简
 
 同样的数据，映射规则尽量保持为一种。
 
@@ -129,7 +143,7 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ![](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*IwZLRaHaKu4AAAAAAAAAAABkARQnAQ)
 
-### 对应数据，做到准确的映射
+### 选择准确的色板
 
 对应自己的数据，按照数据特性选用对的色板，下图中分类数据应选用分类色板，而不是连续色板。
 
@@ -141,19 +155,19 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ![](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*75RVSIqnG6UAAAAAAAAAAABkARQnAQ)
 
-### 上下文保持颜色的一致性
+### 保持颜色一致性
 
 对于统一度量，使用同样的颜色方案，而且在整个页面（通常是仪表盘）使用时，注意保持整体颜色方案的一致性。
 
 ![image.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*zSxkR6YWhl8AAAAAAAAAAABkARQnAQ)
 
-### 不用彩虹色环表达连续数据
+### 彩虹色环不连续
 
 不以色环顺序来表达连续的有序型或数值型数据，因为色环顺序并非人眼自然记忆，且彩虹色变化并非均衡变化，如下图中灰阶的转化，很容易看出彩虹色并不是一个连续逐渐加深的色板，因此彩虹色环并不适合展示连续数据，容易引起误解。
 
 ![15.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*AauZRb3L6NAAAAAAAAAAAABkARQnAQ)
 
-### 顺序色板选择需均衡
+### 顺序色板需均衡
 
 下图右侧「不建议」图中，第 2 、第 3 个颜色很相近，难以区分，第 3 、第 4 个颜色跳跃很大，对于均衡的连续数据表达中，容易引起数据感知的误差，均衡选色可在 PhotoShop 的拾色器中使用 Lab 模式下固定色相不变，调节 L 值进行等距取色。
 
@@ -177,11 +191,11 @@ AntV 色板在做无障碍验证时，得出以下几点取色建议 ：
 
 ## 资源下载
 
-<img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*PUsdR6401PIAAAAAAAAAAABkARQnAQ" width=27 />[AntV 色板.sketch](https://www.yuque.com/attachments/yuque/0/2020/sketch/218706/1583201961356-1ce3fb8f-66b0-4b0c-b27c-691f306345ae.sketch?_lake_card=%7B%22uid%22%3A%221583201956414-0%22%2C%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2020%2Fsketch%2F218706%2F1583201961356-1ce3fb8f-66b0-4b0c-b27c-691f306345ae.sketch%22%2C%22name%22%3A%22AntV+%E8%89%B2%E6%9D%BF.sketch%22%2C%22size%22%3A5161276%2C%22type%22%3A%22%22%2C%22ext%22%3A%22sketch%22%2C%22progress%22%3A%7B%22percent%22%3A99%7D%2C%22status%22%3A%22done%22%2C%22percent%22%3A0%2C%22id%22%3A%22VLPws%22%2C%22card%22%3A%22file%22%7D)
+<img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*PUsdR6401PIAAAAAAAAAAABkARQnAQ" width=27 /> [AntV 色板.sketch](https://www.yuque.com/attachments/yuque/0/2020/sketch/218706/1583201961356-1ce3fb8f-66b0-4b0c-b27c-691f306345ae.sketch?_lake_card=%7B%22uid%22%3A%221583201956414-0%22%2C%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2020%2Fsketch%2F218706%2F1583201961356-1ce3fb8f-66b0-4b0c-b27c-691f306345ae.sketch%22%2C%22name%22%3A%22AntV+%E8%89%B2%E6%9D%BF.sketch%22%2C%22size%22%3A5161276%2C%22type%22%3A%22%22%2C%22ext%22%3A%22sketch%22%2C%22progress%22%3A%7B%22percent%22%3A99%7D%2C%22status%22%3A%22done%22%2C%22percent%22%3A0%2C%22id%22%3A%22VLPws%22%2C%22card%22%3A%22file%22%7D)
 
-<img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*7M88TLJPib4AAAAAAAAAAABkARQnAQ" width=30 />[AntV 色板.ase.zip](https://www.yuque.com/attachments/yuque/0/2020/zip/218706/1583201975252-c893c80e-4b31-49ae-8264-86baec447067.zip?_lake_card=%7B%22uid%22%3A%221583201975117-0%22%2C%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2020%2Fzip%2F218706%2F1583201975252-c893c80e-4b31-49ae-8264-86baec447067.zip%22%2C%22name%22%3A%22AntV+%E8%89%B2%E6%9D%BF.ase.zip%22%2C%22size%22%3A2881%2C%22type%22%3A%22application%2Fzip%22%2C%22ext%22%3A%22zip%22%2C%22progress%22%3A%7B%22percent%22%3A99%7D%2C%22status%22%3A%22done%22%2C%22percent%22%3A0%2C%22id%22%3A%22RrNV8%22%2C%22card%22%3A%22file%22%7D)
+<img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*7M88TLJPib4AAAAAAAAAAABkARQnAQ" width=27 /> [AntV 色板.ase.zip](https://www.yuque.com/attachments/yuque/0/2020/zip/218706/1583201975252-c893c80e-4b31-49ae-8264-86baec447067.zip?_lake_card=%7B%22uid%22%3A%221583201975117-0%22%2C%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2020%2Fzip%2F218706%2F1583201975252-c893c80e-4b31-49ae-8264-86baec447067.zip%22%2C%22name%22%3A%22AntV+%E8%89%B2%E6%9D%BF.ase.zip%22%2C%22size%22%3A2881%2C%22type%22%3A%22application%2Fzip%22%2C%22ext%22%3A%22zip%22%2C%22progress%22%3A%7B%22percent%22%3A99%7D%2C%22status%22%3A%22done%22%2C%22percent%22%3A0%2C%22id%22%3A%22RrNV8%22%2C%22card%22%3A%22file%22%7D)
 
-<img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*_UQtSpEHRdQAAAAAAAAAAABkARQnAQ" width=30 />[AntV 色板色值表](https://www.yuque.com/docs/share/98fd436e-bf79-4242-9ccd-2eeb74234ce6?#)
+<img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*_UQtSpEHRdQAAAAAAAAAAABkARQnAQ" width=27 /> [AntV 色板色值表](https://www.yuque.com/docs/share/98fd436e-bf79-4242-9ccd-2eeb74234ce6?#)
 
 ## 扩展阅读
 
