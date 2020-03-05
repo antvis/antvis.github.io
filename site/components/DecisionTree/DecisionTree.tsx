@@ -14,6 +14,8 @@ let decoGraph: any;
 let data: any;
 let backPaths: any = [];
 let purposeMap: any = {};
+let timeouts: any = [];
+let graphAnimating: boolean = false;
 
 declare global {
   interface HTMLElement {
@@ -57,58 +59,29 @@ const DecisionTree = () => {
   });
 
   const lightColors = [
-    '#C8F279',
-    '#87EAEF',
     '#FFC9E3',
-    '#A7C2FF',
-    '#FFA1E3',
+    '#7CDBF2',
+    '#5FE1E7',
+    '#A1E71D',
     '#FFE269',
-    '#BFCFEE',
-    '#FFA0C5',
-    '#D5FF86',
+    '#FFA8A8',
+    '#FFA1E3',
+    '#A7C2FF',
   ];
   const darkColors = [
-    '#38EF6B',
-    '#44E6C1',
     '#FF68A7',
-    '#7F86FF',
-    '#AE6CFF',
+    '#5B63FF',
+    '#44E6C1',
+    '#1BE6B9',
     '#FF5A34',
-    '#5D7092',
-    '#FF6565',
-    '#6BFFDE',
-  ];
-  const uLightColors = [
-    '#CFF6FF',
-    '#BCFCFF',
-    '#FFECF5',
-    '#ECFBFF',
-    '#EAD9FF',
-    '#FFF8DA',
-    '#DCE2EE',
-    '#FFE7F0',
-    '#EEFFCE',
-  ];
-  const uDarkColors = [
-    '#CADBFF',
-    '#A9FFEB',
-    '#FFC4DD',
-    '#CACDFF',
-    '#FFD4F2',
-    '#FFD3C9',
-    '#EBF2FF',
-    '#FFCBCB',
-    '#CAFFF3',
+    '#F76C6C',
+    '#AE6CFF',
+    '#7F86FF',
   ];
 
   const gColors: string[] = [];
-  const unlightColorMap = new Map();
   lightColors.forEach((lcolor, i) => {
     gColors.push('l(0) 0:' + lcolor + ' 1:' + darkColors[i]);
-    unlightColorMap.set(
-      gColors[i],
-      'l(0) 0:' + uLightColors[i] + ' 1:' + uDarkColors[i],
-    );
   });
 
   const fadeOutItem = (item: any) => {
@@ -137,7 +110,7 @@ const DecisionTree = () => {
     getWidth: () => 16,
     getVGap: (d: any) => {
       if (d.tag === 'purpose') {
-        return 33;
+        return 28;
       }
       return 10;
     },
@@ -153,29 +126,33 @@ const DecisionTree = () => {
     type: 'collapse-expand',
     shouldBegin: (e: any) => {
       const model = e.item.getModel();
-      if (model.tag === 'purpose') {
-        return true;
-      }
+      if (graphAnimating) return;
+      // graph.stopAnimate();
+
+      timeouts.forEach((timeout: any) => {
+        clearTimeout(timeout);
+      });
+      timeouts = [];
+
+      if (model.tag === 'purpose') return true;
       return false;
     },
     onChange: (item: any, collapsed: boolean) => {
-      if (collapsed) return;
-      const itemId = item.getModel().id;
+      const model = item.getModel();
+      const itemId = model.id;
       const nodes = graph.getNodes();
       nodes.forEach((node: any) => {
         const nodeModel = node.getModel();
         // collapse others
         if (nodeModel.tag === 'purpose' && nodeModel.id !== itemId)
           nodeModel.collapsed = true;
-        if (nodeModel.tag !== 'leaf' || nodeModel.parentId === itemId) return;
+        if (nodeModel.tag !== 'leaf') return;
         fadeOutItem(node);
       });
       const edges = graph.getEdges();
       edges.forEach((edge: any) => {
-        const edgeModel = edge.getModel();
         const targetNode = edge.get('targetNode');
-        if (targetNode.getModel().tag !== 'leaf' || edgeModel.source === itemId)
-          return;
+        if (targetNode.getModel().tag !== 'leaf') return;
         fadeOutItem(edge);
       });
     },
@@ -248,6 +225,7 @@ const DecisionTree = () => {
           group: any,
         ) {
           const self = this;
+          const hwRatio = 0.31;
           const r = cfg.size / 2; //cfg.size / 2;
           // a circle by path
           const path = [
@@ -264,12 +242,12 @@ const DecisionTree = () => {
               y: 0,
               path,
               fill: cfg.color || 'steelblue',
-              matrix: [1, 0, 0, 0, 0.357, 0, 0, 0, 1],
+              matrix: [1, 0, 0, 0, hwRatio, 0, 0, 0, 1],
               cursor: 'pointer',
             },
           });
 
-          let maskMatrix = [1, 0, 0, 0, 0.357, 0, 0, 0, 1];
+          let maskMatrix = [1, 0, 0, 0, hwRatio, 0, 0, 0, 1];
           maskMatrix = transform(maskMatrix, [
             ['r', 0.1 * (Math.random() * 2 - 1)],
           ]);
@@ -278,7 +256,7 @@ const DecisionTree = () => {
               x: 0,
               y: 0,
               path,
-              opacity: 0.25,
+              opacity: 0.15,
               fill: cfg.color || 'steelblue',
               shadowColor: cfg.color.split(' ')[2].substr(2),
               shadowBlur: 40,
@@ -352,6 +330,25 @@ const DecisionTree = () => {
             },
           );
 
+          // if (cfg.label) {
+          //   const labelCfg = cfg.labelCfg || {};
+          //   const labelStyle = labelCfg.style || {};
+          //   const label = group.addShape('text', {
+          //     attrs: {
+          //       text: cfg.label,
+          //       x: 0,
+          //       y: 0,
+          //       fill: labelStyle.fill || '#fff',
+          //       fontSize: labelStyle.fontSize || 30,
+          //       fontWeight: labelStyle.fontWeight || 300,
+          //     }
+          //   });
+          //   const labelBBox = label.getBBox();
+          //   label.attr({
+          //     x: -labelBBox.width / 2,
+          //     y: labelBBox.height / 2,
+          //   });
+          // }
           return keyShape;
         },
         changeDirections(num: number, directions: number[]) {
@@ -451,7 +448,7 @@ const DecisionTree = () => {
             const text = group.addShape('text', {
               attrs: {
                 text: cat,
-                fill: cfg.style.stroke, //'#fff',
+                fill: '#8C8C8C', //cfg.style.stroke, //'#fff',
                 fontSize: 10, //10
                 textAlign: 'start',
                 textBaseline: 'middle',
@@ -471,14 +468,10 @@ const DecisionTree = () => {
                 x: leftShapeBBox.maxX + tagOffset,
                 y: leftShapeBBox.minY,
                 fill: '#fff', // cfg.parentColor,
-                stroke: cfg.parentColor,
+                stroke: '#d8d8d8', // cfg.parentColor,
                 lineWidth: 1,
                 opacity: 0,
                 fontSize: 10,
-                // shadowColor: cfg.style.stroke,
-                // shadowBlur: 50,
-                // shadowOffsetX: 0,
-                // shadowOffsetY: 20
               },
             });
             shapes.push(rect);
@@ -501,7 +494,7 @@ const DecisionTree = () => {
           });
 
           const groupBBox = group.getBBox();
-          const mask = group.addShape('rect', {
+          group.addShape('rect', {
             attrs: {
               x: groupBBox.minX,
               y: groupBBox.minY,
@@ -557,6 +550,7 @@ const DecisionTree = () => {
       {
         afterDraw(cfg: any, group: any) {
           setTimeout(() => {
+            if (!group.get('children')) return;
             const curve = group.get('children')[0];
             const backPath = group.get('parent').addShape('path', {
               attrs: {
@@ -599,7 +593,7 @@ const DecisionTree = () => {
         type: 'circle',
         style: {
           lineWidth: 0,
-          opacity: 0.32,
+          opacity: 0.1,
           fill: 'l(1.6) 0:#FFA1E3 1:#AE6CFF',
         },
       },
@@ -630,7 +624,10 @@ const DecisionTree = () => {
       animate: true,
       animateCfg: {
         duration: 500,
-        easing: 'linearEasing',
+        easing: 'easeQuadInOut',
+        callback: () => {
+          graphAnimating = false;
+        },
       },
     });
 
@@ -640,9 +637,40 @@ const DecisionTree = () => {
     const graphBBox = group.getBBox();
     graph.moveTo(Math.abs(graphBBox.x) + 200, Math.abs(graphBBox.y) + 60);
 
-    graph.on('itemcollapsed', () => {
+    graph.on('itemcollapsed', (e: any) => {
+      const { item } = e;
+      const model = item.getModel();
       // remove the white background of current leaf edges
       removeBackPaths();
+      if (graphAnimating) return;
+      // move the graph
+      timeouts.forEach((timeout: any) => {
+        clearTimeout(timeout);
+      });
+      timeouts = [];
+      const timeout = setTimeout(e => {
+        const nodes = graph.getNodes();
+        const children = model.children;
+        let matrix = graph.get('group').getMatrix();
+        if (!matrix) matrix = [1, 0, 0, 0, 1, 0, 0, 0, 1];
+        const minY = children[0].y + matrix[7];
+        const maxY = children[children.length - 1].y + matrix[7];
+        const paddingTop = 40;
+        if (minY < paddingTop) {
+          nodes.forEach((node: any) => {
+            const nodeModel = node.getModel();
+            nodeModel.y = nodeModel.y - minY + paddingTop;
+          });
+        } else if (maxY > CANVAS_HEIGHT) {
+          nodes.forEach((node: any) => {
+            const nodeModel = node.getModel();
+            nodeModel.y = nodeModel.y - minY + paddingTop;
+          });
+        }
+        graphAnimating = true;
+        graph.positionsAnimate();
+      }, 550);
+      timeouts.push(timeout);
     });
     // click root to expand
     graph.on('node:click', (e: any) => {
@@ -760,10 +788,26 @@ const DecisionTree = () => {
     });
 
     graph.on('canvas:click', () => {
+      if (graphAnimating) return;
       Object.keys(purposeMap).forEach((purposeName: any) => {
         const purpose = purposeMap[purposeName];
+        if (purpose.tag !== 'purpose') return;
         purpose.collapsed = true;
       });
+
+      const nodes = graph.getNodes();
+      nodes.forEach((node: any) => {
+        const nodeModel = node.getModel();
+        if (nodeModel.tag !== 'leaf') return;
+        fadeOutItem(node);
+      });
+      const edges = graph.getEdges();
+      edges.forEach((edge: any) => {
+        const targetNode = edge.get('targetNode');
+        if (targetNode.getModel().tag !== 'leaf') return;
+        fadeOutItem(edge);
+      });
+
       graph.layout();
       removeBackPaths();
     });
@@ -843,15 +887,16 @@ const DecisionTree = () => {
       ],
       labelCfg: {
         style: {
-          fontSize: 300,
+          fontSize: 16,
           fill: '#fff',
-          fontWeight: 300,
-          fontStyle: 'bold',
+          fontWeight: 350,
+          // fontStyle: 'bold',
         },
       },
     };
     purposeMap = {};
     let purposeCount = 0;
+    const relationMidPoints: any = [];
     Object.keys(data).forEach((chartId: any) => {
       const chart = data[chartId];
       // remove the dulplicated parent-child tag such as Relation and Hierarchy
@@ -899,7 +944,7 @@ const DecisionTree = () => {
               children: [],
               style: {
                 fill: '#fff',
-                stroke: color,
+                stroke: '#d8d8d8',
                 lineWidth: 2,
               },
               labelCfg: {
@@ -915,7 +960,7 @@ const DecisionTree = () => {
                 [1.1, 0.5],
               ],
             };
-            purposeMap[t('关系')].children.push(midPoint);
+            relationMidPoints.push(midPoint);
             purposeMap[pur] = midPoint;
           }
         }
@@ -938,6 +983,21 @@ const DecisionTree = () => {
         purposeMap[pur].children.push(leaf);
       });
     });
+    relationMidPoints.forEach((midpoint: any) => {
+      purposeMap[t('关系')].children.push(midpoint);
+    });
+    Object.keys(purposeMap).forEach((purposeName: any) => {
+      const purpose = purposeMap[purposeName];
+      const children = purpose.children;
+      let childNum = children.length;
+      children.forEach((child: any) => {
+        const cc = child.children;
+        if (cc) {
+          childNum += cc.length;
+        }
+      });
+      purpose.label = `${purpose.label} (${childNum})`;
+    });
     return root;
   };
 
@@ -953,7 +1013,7 @@ const DecisionTree = () => {
       type: 'leaf',
       label: chart.name,
       tag: 'leaf',
-      size: 12,
+      size: 6,
       parentId: parent.id,
       parentColor: parent.gradientColor,
       anchorPoints: [
@@ -970,7 +1030,7 @@ const DecisionTree = () => {
       },
       style: {
         fill: '#fff',
-        stroke: color,
+        stroke: '#d8d8d8',
         lineWidth: 2,
         opacity: 0,
       },
