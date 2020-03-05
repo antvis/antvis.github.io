@@ -761,5 +761,165 @@
     "links": ["/l7/zh/examples/heatmap/heatmap"],
     "links_en": ["/l7/en/examples/heatmap/heatmap"],
     "linkNames": ["L7"]
+  },
+
+  "bubble_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Ju-vTbtJ2L4AAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/bubble/basic",
+      "/g2/zh/examples/point/bubble#bubble"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/bubble/basic",
+      "/g2/en/examples/point/bubble#bubble"
+    ],
+    "linkNames": ["G2Plot", "G2"]
+  },
+
+  "bubble_map": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*h8uZSar9UPEAAAAAAAAAAABkARQnAQ",
+    "links": ["/l7/zh/examples/point/bubble#point"],
+    "links_en": ["/l7/en/examples/point/bubble#point"],
+    "linkNames": ["L7"]
+  },
+
+  "bubble_light_map": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*8hJhRaqz5h0AAAAAAAAAAABkARQnAQ",
+    "links": ["/l7/zh/examples/point/dot"],
+    "links_en": ["/l7/en/examples/point/dot"],
+    "linkNames": ["L7"]
+  },
+
+  "column_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*APMLRan5SQkAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/gallery/column#column2",
+      "/g2/zh/examples/column/basic",
+      "/f2/zh/examples/column/basic"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/gallery/column#column2",
+      "/g2/en/examples/column/basic",
+      "/f2/en/examples/column/basic"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "bar_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*mxr-Q7aH970AAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/bar/basic",
+      "/g2/zh/examples/bar/basic",
+      "/f2/zh/examples/bar/basic"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/bar/basic",
+      "/g2/en/examples/bar/basic",
+      "/f2/en/examples/bar/basic"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "scatter_plot": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*UCKjQo1GzR0AAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/scatter/basic",
+      "/g2/zh/examples/point/scatter#scatter-series",
+      "/f2/zh/examples/point/scatter"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/scatter/basic",
+      "/g2/en/examples/point/scatter#scatter-series",
+      "/f2/en/examples/point/scatter"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "pie_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*cO3NQYaljgUAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/pie/basic",
+      "/g2/zh/examples/pie/basic",
+      "/f2/zh/examples/pie/basic"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/pie/basic",
+      "/g2/en/examples/pie/basic",
+      "/f2/en/examples/pie/basic"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "rose_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*v0leRYiKPWIAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/rose/basic",
+      "/g2/zh/examples/pie/rose#color-rose",
+      "/f2/zh/examples/pie/rose"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/rose/basic",
+      "/g2/en/examples/pie/rose#color-rose",
+      "/f2/en/examples/pie/rose"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "line_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*AXN-RL5AtWoAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/line/basic",
+      "/g2/zh/examples/line/basic",
+      "/f2/zh/examples/line/basic"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/line/basic",
+      "/g2/en/examples/line/basic",
+      "/f2/en/examples/line/basic"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "area_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*HnQ9TqZ8cl0AAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/area/basic",
+      "/g2/zh/examples/area/basic",
+      "/f2/zh/examples/area/basic"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/area/basic",
+      "/g2/en/examples/area/basic",
+      "/f2/en/examples/area/basic"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
+  },
+
+  "funnel_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*VFFTRp_9pBEAAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/funnel/basic",
+      "/g2/zh/examples/funnel/funnel"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/funnel/basic",
+      "/g2/en/examples/funnel/funnel"
+    ],
+    "linkNames": ["G2Plot", "G2"]
+  },
+
+  "radar_chart": {
+    "imgSrc": "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*71XVSojadu0AAAAAAAAAAABkARQnAQ",
+    "links": [
+      "/g2plot/zh/examples/radar/basic",
+      "/g2/zh/examples/radar/radar",
+      "/f2/zh/examples/radar/radar"
+    ],
+    "links_en": [
+      "/g2plot/en/examples/radar/basic",
+      "/g2/en/examples/radar/radar",
+      "/f2/en/examples/radar/radar"
+    ],
+    "linkNames": ["G2Plot", "G2", "F2"]
   }
 }
