@@ -127,7 +127,6 @@ const DecisionTree = () => {
     shouldBegin: (e: any) => {
       const model = e.item.getModel();
       if (graphAnimating) return;
-      // graph.stopAnimate();
 
       timeouts.forEach((timeout: any) => {
         clearTimeout(timeout);
@@ -146,14 +145,19 @@ const DecisionTree = () => {
         // collapse others
         if (nodeModel.tag === 'purpose' && nodeModel.id !== itemId)
           nodeModel.collapsed = true;
-        if (nodeModel.tag !== 'leaf') return;
-        fadeOutItem(node);
+        if (nodeModel.tag === 'leaf' || nodeModel.tag === 'midpoint') {
+          fadeOutItem(node);
+        }
       });
       const edges = graph.getEdges();
       edges.forEach((edge: any) => {
         const targetNode = edge.get('targetNode');
-        if (targetNode.getModel().tag !== 'leaf') return;
-        fadeOutItem(edge);
+        if (
+          targetNode.getModel().tag === 'leaf' ||
+          targetNode.getModel().tag === 'midpoint'
+        ) {
+          fadeOutItem(edge);
+        }
       });
     },
   };
@@ -224,9 +228,8 @@ const DecisionTree = () => {
           },
           group: any,
         ) {
-          const self = this;
           const hwRatio = 0.31;
-          const r = cfg.size / 2; //cfg.size / 2;
+          const r = cfg.size / 2;
           // a circle by path
           const path = [
             ['M', -r, 0],
@@ -251,7 +254,7 @@ const DecisionTree = () => {
           maskMatrix = transform(maskMatrix, [
             ['r', 0.1 * (Math.random() * 2 - 1)],
           ]);
-          const mask = group.addShape('path', {
+          group.addShape('path', {
             attrs: {
               x: 0,
               y: 0,
@@ -266,7 +269,11 @@ const DecisionTree = () => {
               cursor: 'pointer',
             },
           });
-
+          return keyShape;
+        },
+        afterDraw(cfg: any, group: any) {
+          const self = this;
+          const r = cfg.size / 2;
           const spNum = 10; // split points number
           const directions: number[] = [],
             rs: number[] = [];
@@ -279,8 +286,9 @@ const DecisionTree = () => {
             else if (rs[i] > (1 + floatRange) * r) rs[i] = (1 + floatRange) * r;
             rs.push(rr);
           }
-          keyShape.animate(
-            () => {
+          const children = group.get('children');
+          children[0].animate(
+            (ratio: number) => {
               const path = self.getBubblePath(
                 r,
                 spNum,
@@ -289,7 +297,9 @@ const DecisionTree = () => {
                 floatRange,
                 speedConst,
               );
-              return { path };
+              return {
+                path,
+              };
             },
             {
               repeat: true,
@@ -311,7 +321,7 @@ const DecisionTree = () => {
               rs2[i] = (1 + floatRange) * maskR;
             rs2.push(rr);
           }
-          mask.animate(
+          children[1].animate(
             () => {
               const path = self.getBubblePath(
                 maskR,
@@ -329,27 +339,6 @@ const DecisionTree = () => {
               delay: Math.random() * 1000,
             },
           );
-
-          // if (cfg.label) {
-          //   const labelCfg = cfg.labelCfg || {};
-          //   const labelStyle = labelCfg.style || {};
-          //   const label = group.addShape('text', {
-          //     attrs: {
-          //       text: cfg.label,
-          //       x: 0,
-          //       y: 0,
-          //       fill: labelStyle.fill || '#fff',
-          //       fontSize: labelStyle.fontSize || 30,
-          //       fontWeight: labelStyle.fontWeight || 300,
-          //     }
-          //   });
-          //   const labelBBox = label.getBBox();
-          //   label.attr({
-          //     x: -labelBBox.width / 2,
-          //     y: labelBBox.height / 2,
-          //   });
-          // }
-          return keyShape;
         },
         changeDirections(num: number, directions: number[]) {
           for (let i = 0; i < num; i++) {
@@ -392,15 +381,15 @@ const DecisionTree = () => {
             const spY = rs[i] * Math.sin(angleSum);
             sps.push({ x: spX, y: spY });
             for (let j = 0; j < 2; j++) {
-              const cpAngleRand = unitAngle / 3; //Math.random() * unitAngle / 2; // [0, unitAngle / 3]
+              const cpAngleRand = unitAngle / 3;
               const cpR = rs[i] / Math.cos(cpAngleRand);
               const sign = j === 0 ? -1 : 1;
               const x = cpR * Math.cos(angleSum + sign * cpAngleRand);
               const y = cpR * Math.sin(angleSum + sign * cpAngleRand);
               cps.push({ x, y });
             }
-            spAngleOffset = (Math.random() * unitAngle) / 3 - unitAngle / 6; // [ -unitAngle/6, unitAngle/6 ]
-            angleSum += unitAngle; //(unitAngle + spAngleOffset);
+            spAngleOffset = (Math.random() * unitAngle) / 3 - unitAngle / 6;
+            angleSum += unitAngle;
           }
           path.push(['M', sps[0].x, sps[0].y]);
           for (let i = 1; i < spNum; i++) {
@@ -448,8 +437,8 @@ const DecisionTree = () => {
             const text = group.addShape('text', {
               attrs: {
                 text: cat,
-                fill: '#8C8C8C', //cfg.style.stroke, //'#fff',
-                fontSize: 10, //10
+                fill: '#8C8C8C',
+                fontSize: 10,
                 textAlign: 'start',
                 textBaseline: 'middle',
                 x: leftShapeBBox.maxX + tagOffset + textPadding[1],
@@ -467,8 +456,8 @@ const DecisionTree = () => {
                 height: textBBox.height + textPadding[0],
                 x: leftShapeBBox.maxX + tagOffset,
                 y: leftShapeBBox.minY,
-                fill: '#fff', // cfg.parentColor,
-                stroke: '#d8d8d8', // cfg.parentColor,
+                fill: '#fff',
+                stroke: '#d8d8d8',
                 lineWidth: 1,
                 opacity: 0,
                 fontSize: 10,
@@ -506,6 +495,20 @@ const DecisionTree = () => {
             },
           });
         },
+        setState(name: string, value: boolean, item: any) {
+          if (name === 'dark') {
+            const group = item.get('group');
+            if (value) {
+              group.attr({
+                opacity: 0.5,
+              });
+            } else {
+              group.attr({
+                opacity: 1,
+              });
+            }
+          }
+        },
       },
       'circle',
     );
@@ -540,6 +543,20 @@ const DecisionTree = () => {
               cursor: 'pointer',
             },
           });
+        },
+        setState(name: string, value: boolean, item: any) {
+          if (name === 'dark') {
+            const group = item.get('group');
+            if (value) {
+              group.attr({
+                opacity: 0.5,
+              });
+            } else {
+              group.attr({
+                opacity: 1,
+              });
+            }
+          }
         },
       },
       'circle',
@@ -721,9 +738,21 @@ const DecisionTree = () => {
     graph.on('node:mouseenter', (e: any) => {
       const { item } = e;
       const model = item.getModel();
-      if (model.tag !== 'leaf') {
+      if (model.tag !== 'leaf' && model.tag !== 'midpoint') {
         return;
       }
+      // highlight
+      const nodes = graph.getNodes();
+      nodes.forEach((node: any) => {
+        const nodeModel = node.getModel();
+        if (nodeModel.id === model.id) {
+          graph.setItemState(node, 'dark', false);
+        } else {
+          graph.setItemState(node, 'dark', true);
+        }
+      });
+
+      // tooltip
       const urls = (chartUrls as any)[model.id.split('-')[0]];
       if (!urls || !urls.linkNames) {
         return;
@@ -764,14 +793,18 @@ const DecisionTree = () => {
       ) : (
         <div />
       );
-      const point = graph.getPointByClient(e.clientX, e.clientY);
-      const pos = graph.getCanvasByPoint(point.x, point.y);
+      const labelShape = item.get('group').findByClassName('node-label');
+      const shapeBBox = labelShape.getBBox();
+      const pos = graph.getCanvasByPoint(
+        model.x + shapeBBox.maxX,
+        model.y + shapeBBox.minY,
+      );
       setTooltipStates({
         title: t(model.name),
         imgSrc: urls.imgSrc,
         links: urls.links,
         names: urls.linkNames,
-        x: pos.x + 10,
+        x: pos.x + 8,
         y: pos.y,
         buttons: <div className={styles.buttons}>{buttons}</div>,
       });
@@ -781,6 +814,12 @@ const DecisionTree = () => {
       });
     });
     graph.on('node:mouseleave', (e: any) => {
+      // cancel highlight
+      const nodes = graph.getNodes();
+      nodes.forEach((node: any) => {
+        graph.setItemState(node, 'dark', false);
+      });
+
       setTooltipDisplayStates({
         opacity: 0,
         display: 'none',
@@ -890,7 +929,6 @@ const DecisionTree = () => {
           fontSize: 16,
           fill: '#fff',
           fontWeight: 350,
-          // fontStyle: 'bold',
         },
       },
     };
@@ -937,7 +975,7 @@ const DecisionTree = () => {
               id: pur,
               type: 'midpoint',
               tag: 'midpoint',
-              size: 12,
+              size: 6,
               label: pur,
               color,
               gradientColor: purposeMap[t('关系')].color,
@@ -957,7 +995,7 @@ const DecisionTree = () => {
               },
               anchorPoints: [
                 [-0.5, 0.5],
-                [1.1, 0.5],
+                [9, 0.5],
               ],
             };
             relationMidPoints.push(midPoint);
