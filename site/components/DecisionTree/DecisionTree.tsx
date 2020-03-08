@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Children } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { Icon } from 'antd';
@@ -12,10 +12,10 @@ import chartUrls from '../../data/chart-urls.json';
 let graph: any;
 let decoGraph: any;
 let data: any;
-let backPaths: any = [];
 let purposeMap: any = {};
-let timeouts: any = [];
 let graphAnimating: boolean = false;
+let aftercollapse: boolean = false;
+let animateShapes: any = [];
 
 declare global {
   interface HTMLElement {
@@ -86,7 +86,8 @@ const DecisionTree = () => {
 
   const fadeOutItem = (item: any) => {
     const nodeGroup = item.get('group');
-    nodeGroup.get('children').forEach((child: any) => {
+    const children = nodeGroup.get('children');
+    children.forEach((child: any, i: number) => {
       child.animate(
         (ratio: number) => {
           let opacity = 1 - 3 * ratio;
@@ -106,19 +107,26 @@ const DecisionTree = () => {
   const layoutCfg = {
     type: 'compactBox',
     direction: 'LR',
-    getHeight: () => 10,
-    getWidth: () => 16,
-    getVGap: (d: any) => {
+    getHeight: (d: any) => {
       if (d.tag === 'purpose') {
-        return 28;
+        return 72;
       }
-      return 10;
+      return 25;
+    },
+    getWidth: (d: any) => {
+      if (d.id === 'antv') {
+        return 10;
+      }
+      return 16;
+    },
+    getVGap: () => {
+      return 0;
     },
     getHGap: (d: any) => {
       if (d.id === 'antv') {
         return 160;
       }
-      return 120;
+      return 140;
     },
   };
 
@@ -126,14 +134,15 @@ const DecisionTree = () => {
     type: 'collapse-expand',
     shouldBegin: (e: any) => {
       const model = e.item.getModel();
-      if (graphAnimating) return;
+      if (graphAnimating) return false;
 
-      timeouts.forEach((timeout: any) => {
-        clearTimeout(timeout);
-      });
-      timeouts = [];
-
-      if (model.tag === 'purpose') return true;
+      if (model.tag === 'purpose') {
+        animateShapes.forEach((shape: any) => {
+          shape.pauseAnimate();
+        });
+        graphAnimating = true;
+        return true;
+      }
       return false;
     },
     onChange: (item: any, collapsed: boolean) => {
@@ -173,256 +182,248 @@ const DecisionTree = () => {
 
   useEffect(() => {
     data = processData(ckbData);
-    const G6 = require('@antv/g6');
+    const G6 = require('@antv/g6/es');
 
-    G6.registerBehavior('double-finger-drag-canvas', {
-      getEvents: function getEvents() {
-        return {
-          wheel: 'onWheel',
-        };
-      },
-
-      onWheel: (ev: {
-        ctrlKey: any;
-        clientX: any;
-        clientY: any;
-        wheelDelta: number;
-        deltaX: any;
-        movementX: any;
-        deltaY: any;
-        movementY: any;
-        preventDefault: () => void;
-      }) => {
-        if (ev.ctrlKey) {
-          const canvas = graph.get('canvas');
-          const pixelRatio = canvas.get('pixelRatio');
-          const point = canvas.getPointByClient(ev.clientX, ev.clientY);
-          let ratio = graph.getZoom();
-          if (ev.wheelDelta > 0) {
-            ratio = ratio + ratio * 0.05;
-          } else {
-            ratio = ratio - ratio * 0.05;
-          }
-          graph.zoomTo(ratio, {
-            x: point.x / pixelRatio,
-            y: point.y / pixelRatio,
-          });
-        } else {
-          const x = ev.deltaX || ev.movementX;
-          const y = ev.deltaY || ev.movementY;
-          translate(x, y);
-        }
-        ev.preventDefault();
-      },
-    });
-
-    G6.registerNode(
-      'bubble',
-      {
-        drawShape(
-          cfg: {
-            size: number;
-            color: string;
-            label: string | undefined;
-            labelCfg: any | undefined;
+    G6.registerNode('bubble', {
+      drawShape(
+        cfg: {
+          size: number;
+          color: string;
+          label: string | undefined;
+          labelCfg: any | undefined;
+        },
+        group: any,
+      ) {
+        const hwRatio = 0.31;
+        const r = cfg.size / 2;
+        // a circle by path
+        const path = [
+          ['M', -r, 0],
+          ['C', -r, r / 2, -r / 2, r, 0, r],
+          ['C', r / 2, r, r, r / 2, r, 0],
+          ['C', r, -r / 2, r / 2, -r, 0, -r],
+          ['C', -r / 2, -r, -r, -r / 2, -r, 0],
+          ['Z'],
+        ];
+        const keyShape = group.addShape('path', {
+          attrs: {
+            x: 0,
+            y: 0,
+            path,
+            fill: cfg.color || 'steelblue',
+            matrix: [1, 0, 0, 0, hwRatio, 0, 0, 0, 1],
           },
-          group: any,
-        ) {
-          const hwRatio = 0.31;
-          const r = cfg.size / 2;
-          // a circle by path
-          const path = [
-            ['M', -r, 0],
-            ['C', -r, r / 2, -r / 2, r, 0, r],
-            ['C', r / 2, r, r, r / 2, r, 0],
-            ['C', r, -r / 2, r / 2, -r, 0, -r],
-            ['C', -r / 2, -r, -r, -r / 2, -r, 0],
-            ['Z'],
-          ];
-          const keyShape = group.addShape('path', {
+        });
+
+        animateShapes.push(keyShape);
+
+        let maskMatrix = [1, 0, 0, 0, hwRatio + 0.05, 0, 0, 0, 1];
+        maskMatrix = transform(maskMatrix, [
+          ['r', 0.13 * (Math.random() * 2 - 1)],
+        ]);
+        group.addShape('path', {
+          attrs: {
+            x: 0,
+            y: 0,
+            path,
+            opacity: 0.15,
+            fill: cfg.color || 'steelblue',
+            shadowColor: cfg.color.split(' ')[2].substr(2),
+            shadowBlur: 40,
+            shadowOffsetX: 0,
+            shadowOffsetY: 30,
+            matrix: maskMatrix,
+          },
+        });
+
+        const height = 0.31 * 2 * r + 10;
+        const width = 2 * r + 10;
+        const rect = group.addShape('rect', {
+          attrs: {
+            x: -width / 2,
+            y: -height / 2,
+            width,
+            height,
+            fill: '#f00',
+            opacity: 0,
+          },
+        });
+        return rect;
+      },
+      afterDraw(cfg: any, group: any) {
+        const self = this;
+        const r = cfg.size / 2;
+
+        if (cfg.label) {
+          const labelCfg = cfg.labelCfg || {};
+          const labelStyle = labelCfg.style || {};
+          const label = group.addShape('text', {
             attrs: {
+              text: cfg.label,
               x: 0,
               y: 0,
-              path,
-              fill: cfg.color || 'steelblue',
-              matrix: [1, 0, 0, 0, hwRatio, 0, 0, 0, 1],
-              cursor: 'pointer',
+              fontSize: labelStyle.fontSize || 14,
+              fontWeight: labelStyle.fontWeight || 'bold',
+              fill: labelStyle.fill || '#fff',
             },
           });
-
-          let maskMatrix = [1, 0, 0, 0, hwRatio, 0, 0, 0, 1];
-          maskMatrix = transform(maskMatrix, [
-            ['r', 0.1 * (Math.random() * 2 - 1)],
-          ]);
-          group.addShape('path', {
-            attrs: {
-              x: 0,
-              y: 0,
-              path,
-              opacity: 0.15,
-              fill: cfg.color || 'steelblue',
-              shadowColor: cfg.color.split(' ')[2].substr(2),
-              shadowBlur: 40,
-              shadowOffsetX: 0,
-              shadowOffsetY: 30,
-              matrix: maskMatrix,
-              cursor: 'pointer',
-            },
+          const labelBBox = label.getBBox();
+          label.attr({
+            x: -labelBBox.width / 2,
+            y: labelBBox.height / 2,
           });
-          return keyShape;
-        },
-        afterDraw(cfg: any, group: any) {
-          const self = this;
-          const r = cfg.size / 2;
-          const spNum = 10; // split points number
-          const directions: number[] = [],
-            rs: number[] = [];
-          const floatRange = 0.1;
-          const speedConst = 0.0015;
-          self.changeDirections(spNum, directions);
-          for (let i = 0; i < spNum; i++) {
-            const rr = r + directions[i] * (Math.random() * r * speedConst); // +-r/6, the sign according to the directions
-            if (rs[i] < (1 - floatRange) * r) rs[i] = (1 - floatRange) * r;
-            else if (rs[i] > (1 + floatRange) * r) rs[i] = (1 + floatRange) * r;
-            rs.push(rr);
-          }
-          const children = group.get('children');
-          children[0].animate(
-            (ratio: number) => {
-              const path = self.getBubblePath(
-                r,
-                spNum,
-                directions,
-                rs,
-                floatRange,
-                speedConst,
-              );
-              return {
-                path,
-              };
-            },
-            {
-              repeat: true,
-              duration: 10000,
-              delay: Math.random() * 1000,
-            },
-          );
+        }
 
-          const directions2: number[] = [],
-            rs2: number[] = [];
-          self.changeDirections(spNum, directions2);
-          const maskR = r * 1.03;
-          for (let i = 0; i < spNum; i++) {
-            const rr =
-              maskR + directions2[i] * (Math.random() * maskR * speedConst); // +-r/6, the sign according to the directions
-            if (rs2[i] < (1 - floatRange) * maskR)
-              rs2[i] = (1 - floatRange) * maskR;
-            else if (rs2[i] > (1 + floatRange) * maskR)
-              rs2[i] = (1 + floatRange) * maskR;
-            rs2.push(rr);
+        const spNum = 10; // split points number
+        const directions: number[] = [],
+          rs: number[] = [];
+        const floatRange = 0.1;
+        const speedConst = 0.0015;
+        self.changeDirections(spNum, directions);
+        for (let i = 0; i < spNum; i++) {
+          const rr = r + directions[i] * (Math.random() * r * speedConst); // +-r/6, the sign according to the directions
+          if (rs[i] < (1 - floatRange) * r) rs[i] = (1 - floatRange) * r;
+          else if (rs[i] > (1 + floatRange) * r) rs[i] = (1 + floatRange) * r;
+          rs.push(rr);
+        }
+        const children = group.get('children');
+        const bubble = children[0];
+        bubble.animate(
+          (ratio: number) => {
+            const path = self.getBubblePath(
+              r,
+              spNum,
+              directions,
+              rs,
+              floatRange,
+              speedConst,
+            );
+            return {
+              path,
+            };
+          },
+          {
+            repeat: true,
+            duration: 10000,
+            delay: Math.random() * 1000,
+          },
+        );
+
+        // const directions2: number[] = [],
+        //   rs2: number[] = [];
+        // self.changeDirections(spNum, directions2);
+        // const maskR = r * 1.03;
+        // for (let i = 0; i < spNum; i++) {
+        //   const rr =
+        //     maskR + directions2[i] * (Math.random() * maskR * speedConst); // +-r/6, the sign according to the directions
+        //   if (rs2[i] < (1 - floatRange) * maskR)
+        //     rs2[i] = (1 - floatRange) * maskR;
+        //   else if (rs2[i] > (1 + floatRange) * maskR)
+        //     rs2[i] = (1 + floatRange) * maskR;
+        //   rs2.push(rr);
+        // }
+        // children[1].animate(
+        //   () => {
+        //     const path = self.getBubblePath(
+        //       maskR,
+        //       spNum,
+        //       directions2,
+        //       rs2,
+        //       floatRange,
+        //       speedConst,
+        //     );
+        //     return { path };
+        //   },
+        //   {
+        //     repeat: true,
+        //     duration: 10000,
+        //     delay: Math.random() * 1000,
+        //   },
+        // );
+      },
+      changeDirections(num: number, directions: number[]) {
+        for (let i = 0; i < num; i++) {
+          if (!directions[i]) {
+            const rand = Math.random();
+            const dire = rand > 0.5 ? 1 : -1;
+            directions.push(dire);
+          } else {
+            directions[i] = -1 * directions[i];
           }
-          children[1].animate(
-            () => {
-              const path = self.getBubblePath(
-                maskR,
-                spNum,
-                directions2,
-                rs2,
-                floatRange,
-                speedConst,
-              );
-              return { path };
-            },
-            {
-              repeat: true,
-              duration: 10000,
-              delay: Math.random() * 1000,
-            },
-          );
-        },
-        changeDirections(num: number, directions: number[]) {
-          for (let i = 0; i < num; i++) {
-            if (!directions[i]) {
-              const rand = Math.random();
-              const dire = rand > 0.5 ? 1 : -1;
-              directions.push(dire);
-            } else {
-              directions[i] = -1 * directions[i];
-            }
+        }
+        return directions;
+      },
+      getBubblePath(
+        r: number,
+        spNum: number,
+        directions: number[],
+        rs: number[],
+        floatRange: number = 0.3,
+        speedConst: number = 0.001,
+      ) {
+        const path = [];
+        const cpNum = spNum * 2; // control points number
+        const unitAngle = (Math.PI * 2) / spNum; // base angle for split points
+        let angleSum = 0;
+        let spAngleOffset = 0; // split point's offset
+        const sps = [];
+        const cps = [];
+        for (let i = 0; i < spNum; i++) {
+          const speed = speedConst * Math.random();
+          rs[i] = rs[i] + directions[i] * speed * r; // +-r/6, the sign according to the directions
+          if (rs[i] < (1 - floatRange) * r) {
+            rs[i] = (1 - floatRange) * r;
+            directions[i] = -1 * directions[i];
+          } else if (rs[i] > (1 + floatRange) * r) {
+            rs[i] = (1 + floatRange) * r;
+            directions[i] = -1 * directions[i];
           }
-          return directions;
-        },
-        getBubblePath(
-          r: number,
-          spNum: number,
-          directions: number[],
-          rs: number[],
-          floatRange: number = 0.3,
-          speedConst: number = 0.001,
-        ) {
-          const path = [];
-          const cpNum = spNum * 2; // control points number
-          const unitAngle = (Math.PI * 2) / spNum; // base angle for split points
-          let angleSum = 0;
-          let spAngleOffset = 0; // split point's offset
-          const sps = [];
-          const cps = [];
-          for (let i = 0; i < spNum; i++) {
-            const speed = speedConst * Math.random();
-            rs[i] = rs[i] + directions[i] * speed * r; // +-r/6, the sign according to the directions
-            if (rs[i] < (1 - floatRange) * r) {
-              rs[i] = (1 - floatRange) * r;
-              directions[i] = -1 * directions[i];
-            } else if (rs[i] > (1 + floatRange) * r) {
-              rs[i] = (1 + floatRange) * r;
-              directions[i] = -1 * directions[i];
-            }
-            const spX = rs[i] * Math.cos(angleSum);
-            const spY = rs[i] * Math.sin(angleSum);
-            sps.push({ x: spX, y: spY });
-            for (let j = 0; j < 2; j++) {
-              const cpAngleRand = unitAngle / 3;
-              const cpR = rs[i] / Math.cos(cpAngleRand);
-              const sign = j === 0 ? -1 : 1;
-              const x = cpR * Math.cos(angleSum + sign * cpAngleRand);
-              const y = cpR * Math.sin(angleSum + sign * cpAngleRand);
-              cps.push({ x, y });
-            }
-            spAngleOffset = (Math.random() * unitAngle) / 3 - unitAngle / 6;
-            angleSum += unitAngle;
+          const spX = rs[i] * Math.cos(angleSum);
+          const spY = rs[i] * Math.sin(angleSum);
+          sps.push({ x: spX, y: spY });
+          for (let j = 0; j < 2; j++) {
+            const cpAngleRand = unitAngle / 3;
+            const cpR = rs[i] / Math.cos(cpAngleRand);
+            const sign = j === 0 ? -1 : 1;
+            const x = cpR * Math.cos(angleSum + sign * cpAngleRand);
+            const y = cpR * Math.sin(angleSum + sign * cpAngleRand);
+            cps.push({ x, y });
           }
-          path.push(['M', sps[0].x, sps[0].y]);
-          for (let i = 1; i < spNum; i++) {
-            path.push([
-              'C',
-              cps[2 * i - 1].x,
-              cps[2 * i - 1].y,
-              cps[2 * i].x,
-              cps[2 * i].y,
-              sps[i].x,
-              sps[i].y,
-            ]);
-          }
+          spAngleOffset = (Math.random() * unitAngle) / 3 - unitAngle / 6;
+          angleSum += unitAngle;
+        }
+        path.push(['M', sps[0].x, sps[0].y]);
+        for (let i = 1; i < spNum; i++) {
           path.push([
             'C',
-            cps[cpNum - 1].x,
-            cps[cpNum - 1].y,
-            cps[0].x,
-            cps[0].y,
-            sps[0].x,
-            sps[0].y,
+            cps[2 * i - 1].x,
+            cps[2 * i - 1].y,
+            cps[2 * i].x,
+            cps[2 * i].y,
+            sps[i].x,
+            sps[i].y,
           ]);
-          path.push(['Z']);
-          return path;
-        },
+        }
+        path.push([
+          'C',
+          cps[cpNum - 1].x,
+          cps[cpNum - 1].y,
+          cps[0].x,
+          cps[0].y,
+          sps[0].x,
+          sps[0].y,
+        ]);
+        path.push(['Z']);
+        return path;
       },
-      'single-node',
-    );
+      update(cfg: any, group: any) {},
+    });
 
     G6.registerNode(
       'leaf',
       {
         afterDraw(cfg: any, group: any) {
+          graphAnimating = true;
           const label = group.get('children')[1];
           label.attr('opacity', 0);
           const shapes: any = [label];
@@ -477,7 +478,10 @@ const DecisionTree = () => {
               {
                 duration: 200,
                 repeat: false,
-                delay: 500,
+                delay: 200,
+                callback: () => {
+                  graphAnimating = false;
+                },
               },
             );
           });
@@ -519,6 +523,7 @@ const DecisionTree = () => {
         afterDraw(cfg: any, group: any) {
           const label = group.get('children')[1];
           label.attr('opacity', 0);
+          graphAnimating = true;
           label.animate(
             (ratio: number) => {
               return {
@@ -528,9 +533,13 @@ const DecisionTree = () => {
             {
               duration: 200,
               repeat: false,
-              delay: 500,
+              delay: 200,
+              callback: () => {
+                graphAnimating = false;
+              },
             },
           );
+          // transparent rect for hover responsing
           const groupBBox = group.getBBox();
           group.addShape('rect', {
             attrs: {
@@ -562,29 +571,6 @@ const DecisionTree = () => {
       'circle',
     );
 
-    G6.registerEdge(
-      'tree-edge',
-      {
-        afterDraw(cfg: any, group: any) {
-          setTimeout(() => {
-            if (!group.get('children')) return;
-            const curve = group.get('children')[0];
-            const backPath = group.get('parent').addShape('path', {
-              attrs: {
-                ...curve.attr(),
-                stroke: '#fff',
-                lineWidth: 3,
-              },
-            });
-            backPath.source = cfg.source;
-            backPath.toBack();
-            backPaths.push(backPath);
-          }, 500);
-        },
-      },
-      'cubic-horizontal',
-    );
-
     if (element && element.current) {
       CANVAS_WIDTH = element.current.offsetWidth; // 1320;
       CANVAS_HEIGHT = element.current.offsetHeight; // 696;
@@ -608,6 +594,7 @@ const DecisionTree = () => {
       height: CANVAS_HEIGHT,
       defaultNode: {
         type: 'circle',
+        shape: 'circle',
         style: {
           lineWidth: 0,
           opacity: 0.1,
@@ -633,14 +620,14 @@ const DecisionTree = () => {
         ], //'double-finger-drag-canvas',
       },
       defaultEdge: {
-        type: 'tree-edge',
+        type: 'cubic-horizontal',
         color: '#D8D8D8',
         sourceAnchor: 1,
         targetAnchor: 0,
       },
       animate: true,
       animateCfg: {
-        duration: 500,
+        duration: 300,
         easing: 'easeQuadInOut',
         callback: () => {
           graphAnimating = false;
@@ -648,49 +635,53 @@ const DecisionTree = () => {
       },
     });
 
-    loadData(data);
     graph.get('canvas').set('localRefresh', false);
+
+    loadData(data);
     const group = graph.get('group');
     const graphBBox = group.getBBox();
-    graph.moveTo(Math.abs(graphBBox.x) + 200, Math.abs(graphBBox.y) + 60);
+    graph.moveTo(Math.abs(graphBBox.x) + 200, Math.abs(graphBBox.y) + 40);
 
+    let currentPurpose: any;
     graph.on('itemcollapsed', (e: any) => {
       const { item } = e;
-      const model = item.getModel();
-      // remove the white background of current leaf edges
-      removeBackPaths();
-      if (graphAnimating) return;
-      // move the graph
-      timeouts.forEach((timeout: any) => {
-        clearTimeout(timeout);
-      });
-      timeouts = [];
-      const timeout = setTimeout(e => {
-        const nodes = graph.getNodes();
-        const children = model.children;
-        let matrix = graph.get('group').getMatrix();
-        if (!matrix) matrix = [1, 0, 0, 0, 1, 0, 0, 0, 1];
-        const minY = children[0].y + matrix[7];
-        const maxY = children[children.length - 1].y + matrix[7];
-        const paddingTop = 40;
-        if (minY < paddingTop) {
-          nodes.forEach((node: any) => {
-            const nodeModel = node.getModel();
-            nodeModel.y = nodeModel.y - minY + paddingTop;
-          });
-        } else if (maxY > CANVAS_HEIGHT) {
-          nodes.forEach((node: any) => {
-            const nodeModel = node.getModel();
-            nodeModel.y = nodeModel.y - minY + paddingTop;
-          });
-        }
-        graphAnimating = true;
-        graph.positionsAnimate();
-      }, 550);
-      timeouts.push(timeout);
+      currentPurpose = item;
+      aftercollapse = true;
     });
+
+    graph.on('afteranimate', () => {
+      if (!currentPurpose || !aftercollapse) return;
+      aftercollapse = false;
+      const model = currentPurpose.getModel();
+      const children = model.children;
+      let matrix = graph.get('group').getMatrix();
+      if (!matrix) matrix = [1, 0, 0, 0, 1, 0, 0, 0, 1];
+      const minY = children[0].y + matrix[7];
+      const maxY = children[children.length - 1].y + matrix[7];
+      const paddingTop = 40;
+      if (minY < paddingTop || maxY > CANVAS_HEIGHT) {
+        graphAnimating = true;
+        let intervalCount = 0;
+        const step = (-minY + paddingTop) / 19;
+        const inte = setInterval(() => {
+          graph.translate(0, step);
+          intervalCount++;
+          if (intervalCount === 19) clearInterval(inte);
+        }, 16);
+      } else {
+        return;
+      }
+    });
+
+    graph.on('afteranimate', () => {
+      animateShapes.forEach((shape: any) => {
+        shape.resumeAnimate();
+      });
+    });
+
     // click root to expand
     graph.on('node:click', (e: any) => {
+      graph.emit('pausebubble');
       const item = e.item;
       const model = item.getModel();
       if (model.tag === 'purpose') {
@@ -848,7 +839,6 @@ const DecisionTree = () => {
       });
 
       graph.layout();
-      removeBackPaths();
     });
 
     window.onresize = () => {
@@ -862,41 +852,6 @@ const DecisionTree = () => {
     };
   }, []);
 
-  function translate(x: number, y: number) {
-    let moveX = x;
-    let moveY = y;
-
-    const containerWidth = graph.get('width');
-    const containerHeight = graph.get('height');
-
-    /* 获得当前偏移量*/
-    const group = graph.get('group');
-    const bbox = group.getBBox();
-    const leftTopPoint = graph.getCanvasByPoint(bbox.minX, bbox.minY);
-    const rightBottomPoint = graph.getCanvasByPoint(bbox.maxX, bbox.maxY);
-    /* 如果 x 轴在区域内，不允许左右超过100 */
-    if (x < 0 && leftTopPoint.x - x > LIMIT_OVERFLOW_WIDTH) {
-      moveX = 0;
-    }
-    if (
-      x > 0 &&
-      rightBottomPoint.x - x < containerWidth - LIMIT_OVERFLOW_WIDTH
-    ) {
-      moveX = 0;
-    }
-
-    if (y < 0 && leftTopPoint.y - y > LIMIT_OVERFLOW_HEIGHT) {
-      moveY = 0;
-    }
-    if (
-      y > 0 &&
-      rightBottomPoint.y - y < containerHeight - LIMIT_OVERFLOW_HEIGHT
-    ) {
-      moveY = 0;
-    }
-    graph.translate(-moveX, -moveY);
-  }
-
   const loadData = (data: any) => {
     graph.data(data);
     graph.render();
@@ -907,6 +862,7 @@ const DecisionTree = () => {
       id: 'antv',
       children: [],
       type: 'image',
+      shape: 'image',
       size: 66,
       img: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png',
       anchorPoints: [
@@ -918,8 +874,9 @@ const DecisionTree = () => {
     const bubbleCfg = {
       collapsed: true,
       type: 'bubble',
+      shape: 'bubble',
       tag: 'purpose',
-      size: 170,
+      size: 165,
       anchorPoints: [
         [-0.08, 0.5],
         [1.1, 0.5],
@@ -1074,12 +1031,6 @@ const DecisionTree = () => {
       },
     };
     return Object.assign({}, cloneChart, cfg);
-  };
-
-  const removeBackPaths = () => {
-    backPaths.forEach((path: any) => {
-      path.remove(true);
-    });
   };
   const tooltip = (
     <div
