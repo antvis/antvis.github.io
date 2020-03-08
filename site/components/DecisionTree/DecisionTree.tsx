@@ -111,7 +111,7 @@ const DecisionTree = () => {
       if (d.tag === 'purpose') {
         return 72;
       }
-      return 25;
+      return 24;
     },
     getWidth: (d: any) => {
       if (d.id === 'antv') {
@@ -183,6 +183,33 @@ const DecisionTree = () => {
   useEffect(() => {
     data = processData(ckbData);
     const G6 = require('@antv/g6/es');
+
+    G6.registerEdge(
+      'tree-edge',
+      {
+        afterDraw(cfg: any, group: any) {
+          const keyShape = group.get('children')[0];
+          const sourceModel = cfg.source.getModel();
+          if (sourceModel.tag === 'purpose') {
+            keyShape.attr({
+              opacity: 0,
+            });
+            keyShape.animate(
+              (ratio: number) => {
+                return {
+                  opacity: ratio,
+                };
+              },
+              {
+                duration: 300,
+                delay: 100,
+              },
+            );
+          }
+        },
+      },
+      'cubic-horizontal',
+    );
 
     G6.registerNode('bubble', {
       drawShape(
@@ -621,7 +648,7 @@ const DecisionTree = () => {
         ], //'double-finger-drag-canvas',
       },
       defaultEdge: {
-        type: 'cubic-horizontal',
+        type: 'tree-edge',
         color: '#D8D8D8',
         sourceAnchor: 1,
         targetAnchor: 0,
@@ -676,7 +703,6 @@ const DecisionTree = () => {
 
     graph.on('afteranimate', () => {
       animateShapes.forEach((shape: any) => {
-        console.log(shape);
         if (shape && !shape.destroyed) shape.resumeAnimate();
       });
     });
@@ -705,7 +731,8 @@ const DecisionTree = () => {
               };
             },
             {
-              duration: 500,
+              duration: 200,
+              delay: 100,
             },
           );
         });
