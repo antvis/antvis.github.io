@@ -138,7 +138,7 @@ const DecisionTree = () => {
 
       if (model.tag === 'purpose') {
         animateShapes.forEach((shape: any) => {
-          shape.pauseAnimate();
+          if (shape && !shape.destroyed) shape.pauseAnimate();
         });
         graphAnimating = true;
         return true;
@@ -246,6 +246,7 @@ const DecisionTree = () => {
             height,
             fill: '#f00',
             opacity: 0,
+            cursor: 'pointer',
           },
         });
         return rect;
@@ -675,13 +676,13 @@ const DecisionTree = () => {
 
     graph.on('afteranimate', () => {
       animateShapes.forEach((shape: any) => {
-        shape.resumeAnimate();
+        console.log(shape);
+        if (shape && !shape.destroyed) shape.resumeAnimate();
       });
     });
 
     // click root to expand
     graph.on('node:click', (e: any) => {
-      graph.emit('pausebubble');
       const item = e.item;
       const model = item.getModel();
       if (model.tag === 'purpose') {
@@ -848,6 +849,7 @@ const DecisionTree = () => {
       }
       if (graph) {
         graph.changeSize(CANVAS_WIDTH, CANVAS_HEIGHT);
+        decoGraph.changeSize(window.screen.width, window.screen.height);
       }
     };
   }, []);
@@ -1084,6 +1086,7 @@ const DecisionTree = () => {
       }
       if (graph && window.screen) {
         graph.changeSize(window.screen.width, window.screen.height);
+        decoGraph.changeSize(window.screen.width, window.screen.height);
         loadData(data);
         const group = graph.get('group');
         const graphBBox = group.getBBox();
@@ -1108,6 +1111,7 @@ const DecisionTree = () => {
       }
       if (graph && window.screen) {
         graph.changeSize(window.screen.width, window.screen.height);
+        decoGraph.changeSize(window.screen.width, window.screen.height);
         loadData(data);
         const group = graph.get('group');
         const graphBBox = group.getBBox();
