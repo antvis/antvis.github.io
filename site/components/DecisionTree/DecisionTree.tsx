@@ -58,6 +58,10 @@ const DecisionTree = () => {
     exitfullscreenDisplay: 'none',
   });
 
+  const [heightStates, setHeightStates] = useState({
+    height: '800px',
+  });
+
   const lightColors = [
     '#FFC9E3',
     '#7CDBF2',
@@ -79,9 +83,22 @@ const DecisionTree = () => {
     '#7F86FF',
   ];
 
+  const shadowColors = [
+    '#f89fc9',
+    '#9ba9ff',
+    '#56d4d1',
+    '#87e240',
+    '#ffbe81',
+    '#ffb0b0',
+    '#d19fff',
+    '#b4bfff',
+  ];
+
   const gColors: string[] = [];
+  const shadowColorMap: any = {};
   lightColors.forEach((lcolor, i) => {
     gColors.push('l(0) 0:' + lcolor + ' 1:' + darkColors[i]);
+    shadowColorMap[lcolor] = shadowColors[i];
   });
 
   const fadeOutItem = (item: any) => {
@@ -238,6 +255,8 @@ const DecisionTree = () => {
             y: 0,
             path,
             fill: cfg.color || 'steelblue',
+            shadowColor: shadowColorMap[cfg.color.split(' ')[1].substr(2)],
+            shadowBlur: 0,
             matrix: [1, 0, 0, 0, hwRatio, 0, 0, 0, 1],
           },
         });
@@ -255,26 +274,23 @@ const DecisionTree = () => {
             path,
             opacity: 0.15,
             fill: cfg.color || 'steelblue',
-            shadowColor: cfg.color.split(' ')[2].substr(2),
-            shadowBlur: 40,
-            shadowOffsetX: 0,
-            shadowOffsetY: 30,
             matrix: maskMatrix,
           },
         });
 
-        const height = 0.31 * 2 * r + 10;
-        const width = 2 * r + 10;
+        const height = 0.31 * 2 * r + 30;
+        const width = 2 * r + 20;
         const rect = group.addShape('rect', {
           attrs: {
             x: -width / 2,
             y: -height / 2,
             width,
             height,
-            fill: '#f00',
+            fill: '#fff',
             opacity: 0,
             cursor: 'pointer',
           },
+          className: 'bubble-bbox-mask',
         });
         return rect;
       },
@@ -447,24 +463,31 @@ const DecisionTree = () => {
       },
       update(cfg: any, group: any) {},
       setState(name: string, value: boolean, item: any) {
-        if (name === 'dark') {
+        if (name === 'highlight') {
           const group = item.get('group');
+          const keyShape = group.get('children')[0];
           if (value) {
-            group.animate(
+            keyShape.animate(
               {
-                opacity: 0.4,
+                shadowBlur: 30,
               },
               {
-                duration: 100,
+                duration: 150,
+                callback: () => {
+                  graphAnimating = false;
+                },
               },
             );
           } else {
-            group.animate(
+            keyShape.animate(
               {
-                opacity: 1,
+                shadowBlur: 0,
               },
               {
-                duration: 100,
+                duration: 150,
+                callback: () => {
+                  graphAnimating = false;
+                },
               },
             );
           }
@@ -555,24 +578,11 @@ const DecisionTree = () => {
         setState(name: string, value: boolean, item: any) {
           if (name === 'dark') {
             const group = item.get('group');
+            group.stopAnimate();
             if (value) {
-              group.animate(
-                {
-                  opacity: 0.4,
-                },
-                {
-                  duration: 100,
-                },
-              );
+              group.animate({ opacity: 0.5 }, { duration: 150 });
             } else {
-              group.animate(
-                {
-                  opacity: 1,
-                },
-                {
-                  duration: 100,
-                },
-              );
+              group.animate({ opacity: 1 }, { duration: 150 });
             }
           }
         },
@@ -614,19 +624,17 @@ const DecisionTree = () => {
               fill: '#fff',
               cursor: 'pointer',
             },
+            className: 'bubble-bbox-mask',
           });
         },
         setState(name: string, value: boolean, item: any) {
           if (name === 'dark') {
             const group = item.get('group');
+            group.stopAnimate();
             if (value) {
-              group.attr({
-                opacity: 0.5,
-              });
+              group.animate({ opacity: 0.5 }, { duration: 150 });
             } else {
-              group.attr({
-                opacity: 1,
-              });
+              group.animate({ opacity: 1 }, { duration: 150 });
             }
           }
         },
@@ -654,7 +662,7 @@ const DecisionTree = () => {
     decoGraph = new G6.Graph({
       container: element.current as HTMLElement,
       width: CANVAS_WIDTH,
-      height: CANVAS_HEIGHT,
+      height: CANVAS_HEIGHT * 2,
       defaultNode: {
         type: 'circle',
         shape: 'circle',
@@ -671,7 +679,7 @@ const DecisionTree = () => {
     graph = new G6.TreeGraph({
       container: element.current as HTMLElement,
       width: CANVAS_WIDTH,
-      height: CANVAS_HEIGHT,
+      height: CANVAS_HEIGHT * 2,
       layout: layoutCfg,
       modes: {
         default: [
@@ -698,12 +706,10 @@ const DecisionTree = () => {
       },
     });
 
-    graph.get('canvas').set('localRefresh', false);
-
     loadData(data);
     const group = graph.get('group');
     const graphBBox = group.getBBox();
-    graph.moveTo(Math.abs(graphBBox.x) + 200, Math.abs(graphBBox.y) + 40);
+    graph.moveTo(Math.abs(graphBBox.x) + 200, Math.abs(graphBBox.y) + 60);
 
     let currentPurpose: any;
     graph.on('itemcollapsed', (e: any) => {
@@ -712,28 +718,39 @@ const DecisionTree = () => {
       aftercollapse = true;
     });
 
+    const paddingTop = 40;
+    const oriGroupBBoxHeight =
+      graph.get('group').getCanvasBBox().height + 2 * paddingTop;
     graph.on('afteranimate', () => {
       if (!currentPurpose || !aftercollapse) return;
       aftercollapse = false;
       const model = currentPurpose.getModel();
-      const children = model.children;
       let matrix = graph.get('group').getMatrix();
       if (!matrix) matrix = [1, 0, 0, 0, 1, 0, 0, 0, 1];
-      const minY = children[0].y + matrix[7];
-      const maxY = children[children.length - 1].y + matrix[7];
-      const paddingTop = 40;
-      if (minY < paddingTop || maxY > CANVAS_HEIGHT) {
-        graphAnimating = true;
-        let intervalCount = 0;
-        const step = (-minY + paddingTop) / 19;
-        const inte = setInterval(() => {
-          graph.translate(0, step);
-          intervalCount++;
-          if (intervalCount === 19) clearInterval(inte);
-        }, 16);
-      } else {
-        return;
-      }
+      const canvasBBox = graph.get('group').getCanvasBBox();
+      const minY = canvasBBox.minY;
+      const height = canvasBBox.height + paddingTop * 2;
+      const move = -(minY - paddingTop);
+
+      graphAnimating = true;
+      let lastY = 0;
+      graph.get('group').animate(
+        (ratio: number) => {
+          matrix = transform(matrix, [['t', 0, ratio * move - lastY]]);
+          lastY = ratio * move;
+          graph.get('group').setMatrix(matrix);
+        },
+        {
+          duration: 300,
+          callback: () => {
+            graphAnimating = false;
+          },
+        },
+      );
+      CANVAS_HEIGHT = (800 * height) / oriGroupBBoxHeight + 2 * paddingTop;
+      setHeightStates({
+        height: `${CANVAS_HEIGHT}px`,
+      });
     });
 
     graph.on('afteranimate', () => {
@@ -792,6 +809,16 @@ const DecisionTree = () => {
     graph.on('node:mouseenter', (e: any) => {
       const { item } = e;
       const model = item.getModel();
+
+      // update the colors for decoration circles
+      decoGraph.getNodes().forEach((node: any) => {
+        node.update({
+          style: {
+            fill: model.color,
+          },
+        });
+      });
+
       // highlight
       const nodes = graph.getNodes();
       if (model.tag === 'leaf' || model.tag === 'midpoint') {
@@ -807,15 +834,10 @@ const DecisionTree = () => {
       } else if (model.tag === 'purpose') {
         nodes.forEach((node: any) => {
           const nodeModel = node.getModel();
-          const parent = node.get('parent');
-          let parentId = '';
-          if (parent) {
-            parentId = node.get('parent').getModel().id;
-          }
-          if (nodeModel.id === model.id || parentId === model.id) {
-            graph.setItemState(node, 'dark', false);
+          if (nodeModel.id === model.id) {
+            graph.setItemState(node, 'highlight', true);
           } else {
-            graph.setItemState(node, 'dark', true);
+            graph.setItemState(node, 'highlight', false);
           }
         });
       }
@@ -886,6 +908,7 @@ const DecisionTree = () => {
       const nodes = graph.getNodes();
       nodes.forEach((node: any) => {
         graph.setItemState(node, 'dark', false);
+        graph.setItemState(node, 'highlight', false);
       });
 
       setTooltipDisplayStates({
@@ -915,6 +938,7 @@ const DecisionTree = () => {
         fadeOutItem(edge);
       });
 
+      aftercollapse = true;
       graph.layout();
     });
 
@@ -924,8 +948,8 @@ const DecisionTree = () => {
         CANVAS_HEIGHT = element.current.offsetHeight; // 696;
       }
       if (graph) {
-        graph.changeSize(CANVAS_WIDTH, CANVAS_HEIGHT);
-        decoGraph.changeSize(window.screen.width, window.screen.height);
+        graph.changeSize(CANVAS_WIDTH, CANVAS_HEIGHT * 2);
+        decoGraph.changeSize(window.screen.width, window.screen.height * 2);
       }
     };
   }, []);
@@ -1161,8 +1185,8 @@ const DecisionTree = () => {
         fullscreenDom.webkitRequestFullscreen();
       }
       if (graph && window.screen) {
-        graph.changeSize(window.screen.width, window.screen.height);
-        decoGraph.changeSize(window.screen.width, window.screen.height);
+        graph.changeSize(window.screen.width, window.screen.height * 2);
+        decoGraph.changeSize(window.screen.width, window.screen.height * 2);
         loadData(data);
         const group = graph.get('group');
         const graphBBox = group.getBBox();
@@ -1186,8 +1210,8 @@ const DecisionTree = () => {
         document.msExitFullscreen();
       }
       if (graph && window.screen) {
-        graph.changeSize(window.screen.width, window.screen.height);
-        decoGraph.changeSize(window.screen.width, window.screen.height);
+        graph.changeSize(window.screen.width, window.screen.height * 2);
+        decoGraph.changeSize(window.screen.width, window.screen.height * 2);
         loadData(data);
         const group = graph.get('group');
         const graphBBox = group.getBBox();
@@ -1206,7 +1230,10 @@ const DecisionTree = () => {
           {t('图表分类')}
         </div>
       </div>
-      <div className={styles.contentWrapper}>
+      <div
+        className={styles.contentWrapper}
+        style={{ height: heightStates.height }}
+      >
         <div className={styles.rightbottom} />
         <div className={styles.content}>
           <div key="block" className={styles.lefttop}>
