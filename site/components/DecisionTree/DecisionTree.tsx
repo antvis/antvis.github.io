@@ -293,6 +293,7 @@ const DecisionTree = () => {
               fontSize: labelStyle.fontSize || 14,
               fontWeight: labelStyle.fontWeight || 'bold',
               fill: labelStyle.fill || '#fff',
+              cursor: 'pointer',
             },
           });
           const labelBBox = label.getBBox();
@@ -445,6 +446,30 @@ const DecisionTree = () => {
         return path;
       },
       update(cfg: any, group: any) {},
+      setState(name: string, value: boolean, item: any) {
+        if (name === 'dark') {
+          const group = item.get('group');
+          if (value) {
+            group.animate(
+              {
+                opacity: 0.4,
+              },
+              {
+                duration: 100,
+              },
+            );
+          } else {
+            group.animate(
+              {
+                opacity: 1,
+              },
+              {
+                duration: 100,
+              },
+            );
+          }
+        }
+      },
     });
 
     G6.registerNode(
@@ -531,13 +556,23 @@ const DecisionTree = () => {
           if (name === 'dark') {
             const group = item.get('group');
             if (value) {
-              group.attr({
-                opacity: 0.5,
-              });
+              group.animate(
+                {
+                  opacity: 0.4,
+                },
+                {
+                  duration: 100,
+                },
+              );
             } else {
-              group.attr({
-                opacity: 1,
-              });
+              group.animate(
+                {
+                  opacity: 1,
+                },
+                {
+                  duration: 100,
+                },
+              );
             }
           }
         },
@@ -757,19 +792,33 @@ const DecisionTree = () => {
     graph.on('node:mouseenter', (e: any) => {
       const { item } = e;
       const model = item.getModel();
-      if (model.tag !== 'leaf' && model.tag !== 'midpoint') {
-        return;
-      }
       // highlight
       const nodes = graph.getNodes();
-      nodes.forEach((node: any) => {
-        const nodeModel = node.getModel();
-        if (nodeModel.id === model.id) {
-          graph.setItemState(node, 'dark', false);
-        } else {
-          graph.setItemState(node, 'dark', true);
-        }
-      });
+      if (model.tag === 'leaf' || model.tag === 'midpoint') {
+        nodes.forEach((node: any) => {
+          const nodeModel = node.getModel();
+          if (nodeModel.tag !== 'leaf' && nodeModel.tag !== 'midpoint') return;
+          if (nodeModel.id === model.id) {
+            graph.setItemState(node, 'dark', false);
+          } else {
+            graph.setItemState(node, 'dark', true);
+          }
+        });
+      } else if (model.tag === 'purpose') {
+        nodes.forEach((node: any) => {
+          const nodeModel = node.getModel();
+          const parent = node.get('parent');
+          let parentId = '';
+          if (parent) {
+            parentId = node.get('parent').getModel().id;
+          }
+          if (nodeModel.id === model.id || parentId === model.id) {
+            graph.setItemState(node, 'dark', false);
+          } else {
+            graph.setItemState(node, 'dark', true);
+          }
+        });
+      }
 
       // tooltip
       const urls = (chartUrls as any)[model.id.split('-')[0]];
