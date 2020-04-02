@@ -115,7 +115,7 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 色彩在可视化中的使用，不仅是数据信息传递的可视化通道，同时也是更深一层的文化故事的载体，用于表达意义或情感。重视用色习惯，遵循相关标准，色彩也不是都能寓意的，相当一部分图表色彩选择和感情因素无关，而是按照某种习惯来设定色彩，即所谓约定俗成，有的甚至形成来规范。如气象预警配色，红绿灯配色，股市的红涨绿跌等。
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*70QiRajPLjIAAAAAAAAAAABkARQnAQ)
+![image.png](https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*mgfTQp7rjHIAAAAAAAAAAABkARQnAQ)
 
 **用法示例**
 
