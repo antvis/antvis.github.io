@@ -79,21 +79,21 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 全国等温线图，使用发散色板表示正负值的气温变化，暖色系的橙红色容易让人联系到太阳或炽热的感受，用于高温变化，颜色越红温度越高，反之，冷色系的蓝容易让人联想到冰和寒冷的感受，用于低温变化，颜色越深温度越低
 
-![Artboard Copy@2x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*Z8oMRrRxsicAAAAAAAAAAABkARQnAQ)
+![Artboard Copy@2x.png](https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Xnp3T5QsQ5gAAAAAAAAAAABkARQnAQ)
 
 <br/>
 
 ### 叠加色板
 
-叠加色板，为了色尽其用的原则，将两组顺序色板通过图层叠加模式产生一组新的色板，一个颜色代表两种变量数据，常用于观察一个事物两个维度变化的相关性，如胖瘦和高矮两个维度的人数分布中，瘦且高的人群分布
+叠加色板，为了色尽其用的原则，将两组顺序色板通过图层叠加模式产生一组新的色板，一个颜色代表两种变量数据，常用于观察一个事物两个维度变化的相关性，如胖瘦和高矮两个维度的人数分布中，瘦且高的人群分布。
 
-![07-叠加色板@3x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*u1HxTLE1NCIAAAAAAAAAAABkARQnAQ)
+![07-叠加色板@3x.png](https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*8D-cQ76P7MAAAAAAAAAAAABkARQnAQ)
 
 **用法示例**
 
-双变量映射地图，假设如图分别有一组女性身高体重数据（数据纯属虚构，用于举例说明），右上角图例纵轴表示女性体重，颜色由浅到深映射女性体重由瘦到胖，横轴表示身高由矮到高，那么相交的某个颜色即表示体重和身高同时在某个范围的女性分别，例如图中体重 51 ～ 55 kg 且身高 161 ～ 170cm 的女性主要分布在盐城。相对于单变量映射的地图，该地图形式更加新颖，十分适合用来展示两个紧密联系的变量信息。
+双变量映射地图，相对于单变量映射的地图，该地图形式更加新颖，十分适合用来展示两个紧密联系的变量信息。如下图所示，图中展现了美国国民人口居住密度和家庭生产总值的分布关系，纵向由浅到深的紫色映射了人口密度，横向由浅到深的蓝色映射了家庭收入水平，相交的颜色可以总体反映出人口和家庭的分布情况。可以从地图中清晰地看到，人口多且收入高的大多分布在沿海地区，人口数少且收入低的则主要分布在中部地区。
 
-![Artboard Copy 2@2x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*HWlXR4aaSfkAAAAAAAAAAABkARQnAQ)
+![Artboard Copy 2@2x.png](https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*1XjNRZBf050AAAAAAAAAAABkARQnAQ)
 
 <br/>
 
