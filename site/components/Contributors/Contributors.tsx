@@ -31,12 +31,7 @@ const Contributors = (props: Props) => {
         </p>
         <div key="slicer" className={styles.slicer} />
         <div key="contributors-container" className={styles.companiesContainer}>
-          <Row
-            key="contributors"
-            type="flex"
-            justify="center"
-            className={styles.companies}
-          >
+          <Row key="contributors" justify="center" className={styles.companies}>
             {contributors}
           </Row>
         </div>

@@ -133,7 +133,7 @@ const ContributorCard = (props: Props) => {
           <p className={styles.name}>{t(props.contributor.name)}</p>
           <p className={styles.jobTitle}>{t(props.contributor.jobTitle)}</p>
         </div>
-        <Row className={styles.links} type="flex" justify="center">
+        <Row className={styles.links} justify="center">
           {getIcons()}
         </Row>
       </div>

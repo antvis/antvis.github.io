@@ -5,16 +5,6 @@ order: 1
 
 AntV 色板是基于 [Ant Design 色彩体系](https://ant.design/docs/spec/colors-cn)，并结合数据可视化特性而设计。在可视化设计中，色板的运用原则上优先保障准确性，考虑在操作指引、交互反馈上起到强化或凸显的作用。其次需兼顾色障碍群体，帮助有色盲色弱的人群也能在数据可视化中获取洞见。
 
-<swatch title="色板" colors="#F4664A,#30BF78,#FAAD14" colorNames="Red,Green,Yellow"></swatch>
-
-<swatch title="色板" colors="#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C,#5B8FF9" colorNames="Geek Blue,Geek Blue,Geek Blue"></swatch>
-
-<swatch title="色板" colors="#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C" colorNames="Red,Geek Blue,Geek Blue,Geek Blue,Geek Blue,Geek Blue"></swatch>
-
-<swatch title="色板" grid="sudoku" colors="#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C" colorNames="Geek Blue,Geek Blue,Geek Blue,Geek Blue,Geek Blue,Geek Blue"></swatch>
-
-<swatch title="色板" colors="#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C,#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C,#5B8FF9,#5B8FF9" colorNames="Geek Blue,Geek Blue,Geek Blue"></swatch>
-
 ## 颜色映射原理
 
 在数据可视化领域中，数据与颜色的映射是非常重要的一个环节。颜色有三个视觉通道，分别是色调（H）、饱和度（S）、明度（B），不同的视觉通道可以与不同的数据类型建议关联。
@@ -45,6 +35,10 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ![03-分类色板@3x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*qg0_TrkARU8AAAAAAAAAAABkARQnAQ)
 
+<swatch title="基础 10 色" colors="#5B8FF9,#5AD8A6,#5D7092,#F6BD16,#E8684A,#6DC8EC,#9270CA,#FF9D4D,#269A99,#FF99C3" colorNames="Geek Blue,Cyan,Grey,Sunrise Yellow,Dust Red,Daybreak Blue,Golden Purple,Sunset Orange,Dark Green,Magenta"></swatch>
+
+<swatch title="扩展 20 色" colors="#5B8FF9,#5AD8A6,#5D7092,#F6BD16,#E8684A,#6DC8EC,#9270CA,#FF9D4D,#269A99,#FF99C3" colorNames="Geek Blue,Cyan,Grey,Sunrise Yellow,Dust Red,Daybreak Blue,Golden Purple,Sunset Orange,Dark Green,Magenta"></swatch>
+
 **用法示例**
 
 如图水果价格走势对比，使用红色代表苹果价格、蓝色代表蓝莓价格、黄色代表香蕉价格。
@@ -65,11 +59,15 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ![04-单色连续色板@3x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*0oHWSIeFkk0AAAAAAAAAAABkARQnAQ)
 
+<swatch colors="#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C" colorNames="Red,Geek Blue,Geek Blue,Geek Blue,Geek Blue,Geek Blue"></swatch>
+
 **邻近色顺序色板**
 
 为拉开颜色差异，可用两个或以上个色相，通过明度或饱和度渐变，颜色连续而丰富，可产生更多色彩分级，表达更多的连续数值，常用于热力图中的热度变化，通过邻近色相的差异将聚集部分突显出来
 
 ![05-邻近色连续色板@3x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*8q3EQaFScWwAAAAAAAAAAABkARQnAQ)
+
+<swatch colors="#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C" colorNames="Red,Geek Blue,Geek Blue,Geek Blue,Geek Blue,Geek Blue"></swatch>
 
 **用法示例**
 
@@ -85,6 +83,8 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ![06-离散色板@3x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*ZR6oSqZyEK8AAAAAAAAAAABkARQnAQ)
 
+<swatch colors="#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C" colorNames="Red,Geek Blue,Geek Blue,Geek Blue,Geek Blue,Geek Blue"></swatch>
+
 **用法示例**
 
 全国等温线图，使用发散色板表示正负值的气温变化，暖色系的橙红色容易让人联系到太阳或炽热的感受，用于高温变化，颜色越红温度越高，反之，冷色系的蓝容易让人联想到冰和寒冷的感受，用于低温变化，颜色越深温度越低
@@ -98,6 +98,8 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 叠加色板，为了色尽其用的原则，将两组顺序色板通过图层叠加模式产生一组新的色板，一个颜色代表两种变量数据，常用于观察一个事物两个维度变化的相关性，如胖瘦和高矮两个维度的人数分布中，瘦且高的人群分布。
 
 ![07-叠加色板@3x.png](https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*8D-cQ76P7MAAAAAAAAAAAABkARQnAQ)
+
+<swatch grid="sudoku" colors="#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C" colorNames="Geek Blue,Geek Blue,Geek Blue,Geek Blue,Geek Blue,Geek Blue"></swatch>
 
 **用法示例**
 
@@ -113,6 +115,10 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ![08-强调色板@2x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*d7rsTIIKoWUAAAAAAAAAAABkARQnAQ)
 
+<swatch title="推荐 9 色" colors="#5B8FF9,#5AD8A6,#5D7092,#F6BD16,#E8684A,#6DC8EC,#9270CA,#FF9D4D,#269A99,#FF99C3" colorNames="Geek Blue,Cyan,Grey,Sunrise Yellow,Dust Red,Daybreak Blue,Golden Purple,Sunset Orange,Dark Green,Magenta"></swatch>
+
+<swatch title="扩展 19 色" colors="#5B8FF9,#5AD8A6,#5D7092,#F6BD16,#E8684A,#6DC8EC,#9270CA,#FF9D4D,#269A99,#FF99C3"></swatch>
+
 **用法示例**
 
 如图某工厂历年能源消耗占比趋势对比，分别用五种不同的颜色代表五种能源，其中「天然气」为重点关注的能源类型，使用饱和度高的蓝代表「天然气」，其他能源类型着以低饱和度的分类颜色，以便关注的「天然气」能够快速被观察到，同时其他类型可作为对比参考而不会因颜色过多而产生干扰。
@@ -126,6 +132,8 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 色彩在可视化中的使用，不仅是数据信息传递的可视化通道，同时也是更深一层的文化故事的载体，用于表达意义或情感。重视用色习惯，遵循相关标准，色彩也不是都能寓意的，相当一部分图表色彩选择和感情因素无关，而是按照某种习惯来设定色彩，即所谓约定俗成，有的甚至形成来规范。如气象预警配色，红绿灯配色，股市的红涨绿跌等。
 
 ![image.png](https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*mgfTQp7rjHIAAAAAAAAAAABkARQnAQ)
+
+<swatch colors="#F4664A,#30BF78,#FAAD14" colorNames="Red,Green,Yellow"></swatch>
 
 **用法示例**
 
