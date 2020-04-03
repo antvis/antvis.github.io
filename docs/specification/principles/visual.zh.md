@@ -5,6 +5,16 @@ order: 1
 
 AntV 色板是基于 [Ant Design 色彩体系](https://ant.design/docs/spec/colors-cn)，并结合数据可视化特性而设计。在可视化设计中，色板的运用原则上优先保障准确性，考虑在操作指引、交互反馈上起到强化或凸显的作用。其次需兼顾色障碍群体，帮助有色盲色弱的人群也能在数据可视化中获取洞见。
 
+<swatch title="色板" colors="#F4664A,#30BF78,#FAAD14" colorNames="Red,Green,Yellow"></swatch>
+
+<swatch title="色板" colors="#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C,#5B8FF9" colorNames="Geek Blue,Geek Blue,Geek Blue"></swatch>
+
+<swatch title="色板" colors="#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C" colorNames="Red,Geek Blue,Geek Blue,Geek Blue,Geek Blue,Geek Blue"></swatch>
+
+<swatch title="色板" grid="sudoku" colors="#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C" colorNames="Geek Blue,Geek Blue,Geek Blue,Geek Blue,Geek Blue,Geek Blue"></swatch>
+
+<swatch title="色板" colors="#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C,#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C,#5B8FF9,#5B8FF9" colorNames="Geek Blue,Geek Blue,Geek Blue"></swatch>
+
 ## 颜色映射原理
 
 在数据可视化领域中，数据与颜色的映射是非常重要的一个环节。颜色有三个视觉通道，分别是色调（H）、饱和度（S）、明度（B），不同的视觉通道可以与不同的数据类型建议关联。
