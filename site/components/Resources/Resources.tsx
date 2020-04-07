@@ -59,7 +59,7 @@ const ResourcesPage = () => {
         </p>
         <div key="slicer" className={styles.slicer} />
         <div key="cards" className={styles.rowsWrapper}>
-          <Row key="rows" className={styles.rows}>
+          <Row key="rows" className={styles.rows} gutter={12}>
             {cardCols}
           </Row>
         </div>

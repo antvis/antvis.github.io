@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Children } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { Icon } from 'antd';
+import { FullscreenOutlined, FullscreenExitOutlined } from '@ant-design/icons';
 import styles from './DecisionTree.module.less';
 import { CKBJson } from '@antv/knowledge';
 import uniqueId from '@antv/util/lib/unique-id';
@@ -1256,8 +1256,7 @@ const DecisionTree = () => {
               )}
               style={{ display: screenStates.fullscreenDisplay }}
             >
-              <Icon
-                type="fullscreen"
+              <FullscreenOutlined
                 className={classNames(
                   styles.fullscreenExitButton,
                   styles.screenIcon,
@@ -1272,8 +1271,7 @@ const DecisionTree = () => {
               )}
               style={{ display: screenStates.exitfullscreenDisplay }}
             >
-              <Icon
-                type="fullscreen-exit"
+              <FullscreenExitOutlined
                 className={classNames(
                   styles.fullscreenExitIcon,
                   styles.screenIcon,
