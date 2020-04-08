@@ -22,7 +22,7 @@ const Products = () => {
     const cols = [];
     renderData.forEach((product: any) => {
       cols.push(
-        <Col key={product.title} className={styles.col} md={1} sm={1} xs={1}>
+        <Col key={product.title} className={styles.col} span={24}>
           <a href={product.links[0].url}>
             <div className={styles.product} key="product">
               <p key="product-title" className={styles.ptitle}>
@@ -82,9 +82,7 @@ const Products = () => {
         <Col
           key="imgholder"
           className={classNames(styles.imgHolderWrapper, styles.col)}
-          md={1}
-          sm={1}
-          xs={1}
+          span={24}
         >
           <img
             src="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*_trNQ5C2pHIAAAAAAAAAAABkARQnAQ"

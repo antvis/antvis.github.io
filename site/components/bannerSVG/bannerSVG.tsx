@@ -201,7 +201,7 @@ const BannerSVG = (props: BannerSVGProps) => {
 
   const mouseEnterBlock6 = () => {
     if (hoverAnimate) {
-      labels.forEach(label => {
+      labels.forEach((label) => {
         const circle = document.getElementById(`block6-circle-${label}`);
         circle &&
           circle.setAttribute('class', styles[`block6Circle${label}Infinite`]);
@@ -213,7 +213,7 @@ const BannerSVG = (props: BannerSVGProps) => {
   };
   const mouseOutBlock6 = () => {
     if (hoverAnimate) {
-      labels.forEach(label => {
+      labels.forEach((label) => {
         const circle = document.getElementById(`block6-circle-${label}`);
         circle && circle.setAttribute('class', '');
       });
