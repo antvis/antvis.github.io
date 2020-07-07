@@ -98,10 +98,10 @@ const IndexPage = () => {
 
   const notifications = [
     {
-      type: t('推荐'),
-      title: t('欢迎进入 2020 可视化智能研发时代'),
-      date: '2020.01.08',
-      link: 'https://www.yuque.com/antv/blog/ygdubv',
+      type: t('招聘'),
+      title: t('蚂蚁金服体验技术部招聘啦！'),
+      date: '2020.05.18',
+      link: 'https://www.yuque.com/uf44r1/wqrwsg/alwufg',
     },
     {
       type: t('语雀'),
