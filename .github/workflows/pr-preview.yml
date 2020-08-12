@@ -22,11 +22,16 @@ jobs:
         run: |
           npm install
           npm run build
+      - uses: bluwy/substitute-string-action@v1
+        id: repository
+        with:
+          _input-text: ${{github.event.repository.name}}
+          .: '-'
       - name: Deploy to surge.sh
-        run: npx surge ./public antvis-${{github.event.repository.name}}-${{steps.finder.outputs.pr}}.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+        run: npx surge ./public antvis-${{steps.repository.outputs.result}}-pr-${{steps.finder.outputs.pr}}.surge.sh --token ${{ secrets.SURGE_TOKEN }}
       - uses: marocchino/sticky-pull-request-comment@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.finder.outputs.pr }}
           message: |
-            🎊 ${{ github.sha }} has been successfully deployed to https://antvis-${{github.event.repository.name}}-pr-${{steps.finder.outputs.pr}}.surge.sh !
+            🎊 ${{ github.sha }} has been successfully deployed to https://antvis-${{steps.repository.outputs.result}}-pr-${{steps.finder.outputs.pr}}.surge.sh !
