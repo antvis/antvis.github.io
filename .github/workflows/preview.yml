@@ -16,23 +16,27 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       # This will echo "Your PR is 7", or be skipped if there is no current PR.
-      - run: echo "Your PR is ${{steps.finder.outputs.pr}} ${{steps.finder.outputs.number}}"
-        if: success() && steps.finder.outputs.number
+      - run: echo "Your PR is ${{steps.finder.outputs.pr}}"
+        if: success() && steps.finder.outputs.pr
       - name: Install and Build site
         run: |
           npm install
           npm run build
+        if: success() && steps.finder.outputs.pr
       - uses: bluwy/substitute-string-action@v1
         id: repository
         with:
           _input-text: ${{github.repository}}
           .: '-'
           /: '-'
+        if: success() && steps.finder.outputs.pr
       - name: Deploy to surge.sh
         run: npx surge ./public ${{steps.repository.outputs.result}}-pr-${{steps.finder.outputs.pr}}.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+        if: success() && steps.finder.outputs.pr
       - uses: marocchino/sticky-pull-request-comment@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.finder.outputs.pr }}
           message: |
             🎊 ${{ github.sha }} has been successfully deployed to https://${{steps.repository.outputs.result}}-pr-${{steps.finder.outputs.pr}}.surge.sh !
+        if: success() && steps.finder.outputs.pr
