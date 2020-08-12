@@ -18,9 +18,13 @@ jobs:
       # This will echo "Your PR is 7", or be skipped if there is no current PR.
       - run: echo "Your PR is ${{steps.findPr.outputs.pr}}"
         if: success() && steps.findPr.outputs.number
-      - name: Install
-        run: npm install
-      - name: Build site
-        run: npm run build
-      - name: Deploying using surge
+      - name: Install and Build site
+        run: |
+          npm install
+          npm run build
+      - name: Deploy to surge.sh
         run: npx surge ./public antvis-${{github.event.repository.name}}-${{steps.findPr.outputs.pr}}.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+      - uses: github-actions-up-and-running/pr-comment@v1.0.0
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          message: Nice PR! 👍 https://antvis-${{github.event.repository.name}}-${{steps.findPr.outputs.pr}}.surge.sh
