@@ -12,20 +12,21 @@ jobs:
       - uses: actions/checkout@v2
       # Find the PR associated with this push, if there is one.
       - uses: jwalton/gh-find-current-pr@v1
-        id: findPr
+        id: findPfinderr
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       # This will echo "Your PR is 7", or be skipped if there is no current PR.
-      - run: echo "Your PR is ${{steps.findPr.outputs.pr}}"
-        if: success() && steps.findPr.outputs.number
+      - run: echo "Your PR is ${{steps.finder.outputs.pr}}"
+        if: success() && steps.finder.outputs.number
       - name: Install and Build site
         run: |
           npm install
           npm run build
       - name: Deploy to surge.sh
-        run: npx surge ./public antvis-${{github.event.repository.name}}-${{steps.findPr.outputs.pr}}.surge.sh --token ${{ secrets.SURGE_TOKEN }}
-      - name: Comment PR
-        uses: thollander/actions-comment-pull-request@master
+        run: npx surge ./public antvis-${{github.event.repository.name}}-${{steps.finder.outputs.pr}}.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+      - uses: marocchino/sticky-pull-request-comment@v1
         with:
-          message: 'Nice PR! 👍 https://antvis-${{github.event.repository.name}}-${{steps.findPr.outputs.pr}}.surge.sh'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ steps.finder.outputs.pr }}
+          message: |
+            🎊 ${{ github.sha }} has been successfully deployed to [antvis-${{github.event.repository.name}}-${{steps.finder.outputs.pr}}.surge.sh](https://antvis-${{github.event.repository.name}}-${{steps.finder.outputs.pr}}.surge.sh)!
