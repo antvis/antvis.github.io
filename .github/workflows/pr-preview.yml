@@ -24,7 +24,8 @@ jobs:
           npm run build
       - name: Deploy to surge.sh
         run: npx surge ./public antvis-${{github.event.repository.name}}-${{steps.findPr.outputs.pr}}.surge.sh --token ${{ secrets.SURGE_TOKEN }}
-      - uses: github-actions-up-and-running/pr-comment@v1.0.0
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@master
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          message: Nice PR! 👍 https://antvis-${{github.event.repository.name}}-${{steps.findPr.outputs.pr}}.surge.sh
+          message: 'Nice PR! 👍 https://antvis-${{github.event.repository.name}}-${{steps.findPr.outputs.pr}}.surge.sh'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
