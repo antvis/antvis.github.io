@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       # Find the PR associated with this push, if there is one.
       - uses: jwalton/gh-find-current-pr@v1
-        id: findPfinderr
+        id: finder
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       # This will echo "Your PR is 7", or be skipped if there is no current PR.
