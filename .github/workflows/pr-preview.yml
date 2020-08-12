@@ -1,0 +1,26 @@
+name: 🔂 Preview website on PRs
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: 12
+      - uses: actions/checkout@v2
+      # Find the PR associated with this push, if there is one.
+      - uses: jwalton/gh-find-current-pr@v1
+        id: findPr
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      # This will echo "Your PR is 7", or be skipped if there is no current PR.
+      - run: echo "Your PR is ${{steps.findPr.outputs.pr}}"
+        if: success() && steps.findPr.outputs.number
+      - name: Install
+        run: npm install
+      - name: Build site
+        run: npm run build
+      - name: Deploying using surge
+        run: npx surge ./public antvis-${{github.event.repository.name}}-${{steps.findPr.outputs.pr}}.surge.sh --token ${{ secrets.SURGE_TOKEN }}
