@@ -1,0 +1,38 @@
+name: 🔂 Preview website on PRs
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: 12
+      - uses: actions/checkout@v2
+      # Find the PR associated with this push, if there is one.
+      - uses: jwalton/gh-find-current-pr@v1
+        id: finder
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      # This will echo "Your PR is 7", or be skipped if there is no current PR.
+      - run: echo "Your PR is ${{steps.finder.outputs.pr}}"
+        if: success() && steps.finder.outputs.number
+      - name: Install and Build site
+        run: |
+          npm install
+          npm run build
+      - uses: bluwy/substitute-string-action@v1
+        id: repository
+        with:
+          _input-text: ${{github.repository}}
+          .: '-'
+          /: '-'
+      - name: Deploy to surge.sh
+        run: npx surge ./public ${{steps.repository.outputs.result}}-pr-${{steps.finder.outputs.pr}}.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+      - uses: marocchino/sticky-pull-request-comment@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ steps.finder.outputs.pr }}
+          message: |
+            🎊 ${{ github.sha }} has been successfully deployed to https://${{steps.repository.outputs.result}}-pr-${{steps.finder.outputs.pr}}.surge.sh !
