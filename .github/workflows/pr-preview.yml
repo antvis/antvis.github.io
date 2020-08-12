@@ -29,4 +29,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.finder.outputs.pr }}
           message: |
-            🎊 ${{ github.sha }} has been successfully deployed to [antvis-${{github.event.repository.name}}-${{steps.finder.outputs.pr}}.surge.sh](https://antvis-${{github.event.repository.name}}-${{steps.finder.outputs.pr}}.surge.sh)!
+            🎊 ${{ github.sha }} has been successfully deployed to https://antvis-${{github.event.repository.name}}-pr-${{steps.finder.outputs.pr}}.surge.sh !
