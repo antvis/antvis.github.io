@@ -1,3 +1,4 @@
+name: 🔂 Surge PR Preview
 on: [push]
 
 jobs:
