@@ -99,7 +99,7 @@ const IndexPage = () => {
   const notifications = [
     {
       type: t('论坛'),
-      title: t('第十五届D2前端技术论坛·无界'),
+      title: t('第十五届 D2 前端技术论坛·无界'),
       date: '2020.12.19',
       link: 'http://d2forum.alibaba-inc.com/',
     },
