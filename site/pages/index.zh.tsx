@@ -99,13 +99,13 @@ const IndexPage = () => {
   const notifications = [
     {
       type: t('论坛'),
-      title: t('第十五届 D2 前端技术论坛·无界'),
+      title: t('第十五届 D2 前端技术论坛·无界2222'),
       date: '2020.12.19',
       link: 'http://d2forum.alibaba-inc.com/',
     },
     {
       type: t('招聘'),
-      title: t('蚂蚁金服体验技术部招聘啦！'),
+      title: t('蚂蚁金服体验技术部招聘啦1111！'),
       date: '2020.05.18',
       link: 'https://www.yuque.com/uf44r1/wqrwsg/alwufg',
     },
