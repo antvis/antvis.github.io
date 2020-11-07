@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
-import Banner from '@antv/gatsby-theme-antv/site/components/Banner';
+// import Banner from '@antv/gatsby-theme-antv/site/components/Banner';
+import Banner from '../components/Banner/Banner';
 import Features from '@antv/gatsby-theme-antv/site/components/Features';
 import Companies from '@antv/gatsby-theme-antv/site/components/Companies';
 import ProductsPage from '../components/Products/Products';
@@ -135,7 +136,7 @@ const IndexPage = () => {
         lang={i18n.language}
       />
       <div className="home-container">
-        <Banner
+        {/* <Banner
           className="banner"
           coverImage={<BannerSVG play={animationStates.play} />}
           title={t('让数据栩栩如生')}
@@ -148,9 +149,9 @@ const IndexPage = () => {
           onPlayVideo={onPlayVideo}
           onCloseVideo={onCloseVideo}
           notifications={notifications}
-        />
-
-        <ProductsPage />
+        /> */}
+        <Banner />
+        {/* <ProductsPage /> */}
         <DecisionTreePage />
         <ResourcesPage />
         <DescribePage />
