@@ -1,0 +1,150 @@
+.header {
+  height: 296px;
+  position: relative;
+}
+
+.top {
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.backgound {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.mainImage {
+  position: absolute;
+  width: 100%;
+  height: 296px;
+  background-size: cover;
+  background-image: url('https://gw.alipayobjects.com/zos/finxbff/tinypng/a673f070-53aa-4a32-bfeb-0ec017a74433.png');
+  background-repeat: no-repeat;
+  left: 0;
+  top: 0;
+}
+
+.mainTitle {
+  font-size: 48px;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 112px;
+}
+
+.subTitle {
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.content {
+  height: calc(100vh - 396px);
+  min-height: 480px;
+  position: relative;
+}
+
+.productList {
+  position: absolute;
+  top: -40px;
+  height: 40px;
+  z-index: 12;
+  left: 60px;
+  display: flex;
+}
+
+.productItem {
+  font-size: 18px;
+  margin-right: 64px;
+  color: fade(#ffffff, 50%);
+  cursor: pointer;
+
+  &:hover {
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+  }
+}
+
+.productItemActive {
+  border-bottom: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.introduce {
+  height: 100%;
+}
+
+.introduceDetail {
+  display: flex;
+  height: 100%;
+}
+
+.guide {
+  width: 360px;
+  background: #8b6bff;
+  padding-top: 60px;
+  padding-left: 60px;
+  padding-right: 60px;
+  color: #ffffff;
+
+  .name {
+    font-size: 28px;
+  }
+  .info {
+    font-size: 14px;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+}
+
+.productShow {
+  flex: 1;
+  background: #e0c1ff;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  padding-top: 30px;
+}
+
+.play {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.playIcon {
+  width: 16px;
+  height: 15px;
+  background-size: 16px 15px;
+  background-image: url(./play.svg);
+  background-repeat: no-repeat;
+}
+.playText {
+  line-height: 1.5;
+  height: 20px;
+  margin-left: 8px;
+}
+
+.news {
+  margin-top: 80px;
+}
+.newsTitle {
+  font-size: 20px;
+}
+.time {
+  font-size: 10px;
+  margin-top: 20px;
+}
+.promo {
+  font-size: 14px;
+}

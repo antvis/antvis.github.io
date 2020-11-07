@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
-import Banner from '@antv/gatsby-theme-antv/site/components/Banner';
+// import Banner from '@antv/gatsby-theme-antv/site/components/Banner';
+import Banner from '../components/Banner/Banner';
 import Features from '@antv/gatsby-theme-antv/site/components/Features';
 import Companies from '@antv/gatsby-theme-antv/site/components/Companies';
 import ProductsPage from '../components/Products/Products';
@@ -8,7 +9,7 @@ import DecisionTreePage from '../components/DecisionTree/DecisionTree';
 import ResourcesPage from '../components/Resources/Resources';
 import DescribePage from '../components/Describe/Describe';
 import QuotesPage from '../components/Quotes/Quotes';
-import BannerSVG from '../components/bannerSVG/bannerSVG';
+// import BannerSVG from '../components/bannerSVG/bannerSVG';
 import { useTranslation } from 'react-i18next';
 import './index.less';
 
@@ -135,7 +136,7 @@ const IndexPage = () => {
         lang={i18n.language}
       />
       <div className="home-container">
-        <Banner
+        {/* <Banner
           className="banner"
           coverImage={<BannerSVG play={animationStates.play} />}
           title={t('让数据栩栩如生')}
@@ -148,9 +149,10 @@ const IndexPage = () => {
           onPlayVideo={onPlayVideo}
           onCloseVideo={onCloseVideo}
           notifications={notifications}
-        />
+        /> */}
 
-        <ProductsPage />
+        <Banner />
+        {/* <ProductsPage /> */}
         <DecisionTreePage />
         <ResourcesPage />
         <DescribePage />
