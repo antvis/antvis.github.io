@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import styles from './Banner.module.less';
+import Demos from '../Demos/Demos';
 
 const mockData = [
   {
@@ -8,7 +9,7 @@ const mockData = [
     title: '关于我们',
     info:
       '我们是蚂蚁金服数据可视化团队，一群有爱有梦的人，怀揣「让人们在数据世界里获得视觉化思考能力」的梦想前行，成就智能时代全球领先的数据可视化解决方案。',
-    content: '暂无内容',
+    content: <Demos />,
   },
   {
     name: 'G2 | G2Plot',
@@ -45,16 +46,17 @@ const mockData = [
       '我们是蚂蚁金服数据可视化团队，一群有爱有梦的人，怀揣「让人们在数据世界里获得视觉化思考能力」的梦想前行，成就智能时代全球领先的数据可视化解决方案。',
     content: '暂无内容',
   },
+
   {
-    name: 'ChartCube',
-    title: 'ChartCube',
+    name: 'AVA',
+    title: 'AVA',
     info:
       '我们是蚂蚁金服数据可视化团队，一群有爱有梦的人，怀揣「让人们在数据世界里获得视觉化思考能力」的梦想前行，成就智能时代全球领先的数据可视化解决方案。',
     content: '暂无内容',
   },
   {
-    name: 'AVA',
-    title: 'AVA',
+    name: 'ChartCube',
+    title: 'ChartCube',
     info:
       '我们是蚂蚁金服数据可视化团队，一群有爱有梦的人，怀揣「让人们在数据世界里获得视觉化思考能力」的梦想前行，成就智能时代全球领先的数据可视化解决方案。',
     content: '暂无内容',
@@ -104,6 +106,7 @@ export default () => {
               <div
                 className={styles.introduceDetail}
                 style={{ display: index === active ? '' : 'none' }}
+                key={item.name}
               >
                 <div className={styles.guide}>
                   <div className={styles.name}>{item.title}</div>
@@ -122,7 +125,9 @@ export default () => {
                   </div>
                 </div>
 
-                <div className={styles.productShow}>{item.content}</div>
+                <div className={styles.productShow}>
+                  <Demos />
+                </div>
               </div>
             );
           })}
