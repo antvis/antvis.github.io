@@ -104,7 +104,7 @@ export default (props: DemosProps) => {
           <div
             className={styles.cover}
             style={{
-              backgroundColor: colorScale(key / list.length),
+              backgroundColor: `#${colorScale(key / list.length)}`,
               width: `${item.width}px`,
               height: `${item.height}px`,
             }}
