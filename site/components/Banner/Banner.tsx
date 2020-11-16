@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import styles from './Banner.module.less';
 import { useTranslation } from 'react-i18next';
 import { getProducts } from '@antv/gatsby-theme-antv/site/components/getProducts';
 import Demos from '../Demos/Demos';
 import bannerInfo from '../../data/banner-info.json';
+
+interface NotificationProps {
+  index?: number;
+  type: string;
+  title: string;
+  date: string;
+  link: string;
+}
 
 export default () => {
   const { t, i18n } = useTranslation();
@@ -13,6 +21,20 @@ export default () => {
     language: i18n.language,
     rootDomain: '',
   });
+
+  const lang = i18n.language.includes('zh') ? 'zh' : 'en';
+  const notificationsUrl = `https://my-json-server.typicode.com/antvis/antvis-sites-data/notifications?lang=${lang}`;
+
+  const [remoteNews, setRemoteNews] = useState<NotificationProps>();
+
+  useEffect(() => {
+    fetch(notificationsUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        // 根据设计，目前只取最新的一条，两条放不下
+        setRemoteNews(data[0]);
+      });
+  }, [notificationsUrl]);
 
   const { about, products_tabs, extra_tabs } = bannerInfo;
   const [active, setActive] = useState(0);
@@ -81,11 +103,25 @@ export default () => {
             <div className={styles.guide}>
               <div className={styles.name}>{t(about.title)}</div>
               <div className={styles.info}>{t(about.info)}</div>
-              <div className={styles.news}>
-                <div className={styles.newsTitle}>最新资讯</div>
-                <div className={styles.time}>2020.11.22</div>
-                <div className={styles.promo}>蚂蚁集团体验技术部招聘啦！</div>
+              <div className={styles.urlList}>
+                <a href={`${i18n.language}/about`}>
+                  <div className={styles.home} />
+                  <div className={styles.text}>{t('关于我们')}</div>
+                </a>
               </div>
+              {remoteNews && (
+                <div className={styles.news}>
+                  <div className={styles.newsTitle}>
+                    {t('最新资讯')} ｜ {remoteNews.type}
+                  </div>
+                  <div className={styles.time}>{remoteNews.date}</div>
+                  <div className={styles.urlList}>
+                    <a href={remoteNews.link} target="_blank">
+                      <div className={styles.promo}>{remoteNews.title}</div>
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className={styles.productShow} id="productShow">
@@ -111,7 +147,7 @@ export default () => {
                 <div className={styles.guide}>
                   {item.products.map((record: string) => {
                     const product = products.find(
-                      (element) => element.title === record,
+                      (element: any) => element.title === record,
                     );
                     if (product)
                       return (

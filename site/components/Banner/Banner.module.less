@@ -136,40 +136,40 @@
         margin-top: 8px;
         line-height: 1.5;
       }
+    }
 
-      .urlList {
+    .urlList {
+      align-items: center;
+      margin-top: 10px;
+      a {
+        display: flex;
         align-items: center;
-        margin-top: 10px;
-        a {
-          display: flex;
-          align-items: center;
-          margin-top: 8px;
-          color: #fff;
-          .home {
-            background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/c193977b-776f-4e3a-9b93-7dd8ebadec5f.svg);
-          }
-          .example {
-            background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/e6caad33-6d2a-4f86-ace4-9c6cc8452894.svg);
-          }
-          .api {
-            background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/036568c0-3f42-4172-8220-f54ffe92fb37.svg);
-          }
-          .home,
-          .example,
-          .api {
-            width: 16px;
-            height: 15px;
-            background-size: 16px 15px;
+        margin-top: 8px;
+        color: #fff;
+        .home {
+          background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/c193977b-776f-4e3a-9b93-7dd8ebadec5f.svg);
+        }
+        .example {
+          background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/e6caad33-6d2a-4f86-ace4-9c6cc8452894.svg);
+        }
+        .api {
+          background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/036568c0-3f42-4172-8220-f54ffe92fb37.svg);
+        }
+        .home,
+        .example,
+        .api {
+          width: 16px;
+          height: 15px;
+          background-size: 16px 15px;
 
-            background-repeat: no-repeat;
-            cursor: pointer;
-          }
+          background-repeat: no-repeat;
+          cursor: pointer;
+        }
 
-          .text {
-            line-height: 1.5;
-            height: 20px;
-            margin-left: 8px;
-          }
+        .text {
+          line-height: 1.5;
+          height: 20px;
+          margin-left: 8px;
         }
       }
     }
@@ -177,7 +177,7 @@
 
   .productShow {
     flex: 1;
-
+    min-height: 480px;
     color: #fff;
     display: flex;
     align-items: center;
@@ -203,25 +203,6 @@
     }
   }
 
-  .play {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-  }
-  .playIcon {
-    width: 16px;
-    height: 15px;
-    background-size: 16px 15px;
-    background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/33d4a899-4516-4405-ab42-510c4d0851ff.svg);
-    background-repeat: no-repeat;
-    cursor: pointer;
-  }
-  .playText {
-    line-height: 1.5;
-    height: 20px;
-    margin-left: 8px;
-  }
-
   .news {
     margin-top: 40px;
   }
@@ -242,57 +223,6 @@
     right: 0px;
     min-width: 100%;
     z-index: -999;
-  }
-  :global {
-    nav {
-      ul {
-        li {
-          a {
-            color: #fff !important;
-          }
-        }
-      }
-    }
-  }
-}
-
-.videoModal {
-  :global {
-    .video-react-big-play-button {
-      display: none !important;
-    }
-    .video-react-control-bar {
-      border-radius: 0 0 4px 4px;
-    }
-    .video-react {
-      border-radius: 4px;
-      .video-react-video {
-        border-radius: 4px;
-      }
-    }
-    .ant-modal-close {
-      right: -50px;
-      top: -12px;
-      color: #fff;
-    }
-    .anticon-info-circle {
-      display: none !important;
-    }
-    .ant-modal-confirm-btns {
-      display: none !important;
-    }
-    .ant-modal-confirm-title {
-      display: none !important;
-    }
-    .ant-modal-close {
-      display: block !important;
-    }
-    .ant-modal-body {
-      padding: 0 !important;
-      .ant-modal-confirm-content {
-        margin: 0 !important;
-      }
-    }
   }
 }
 
