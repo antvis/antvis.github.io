@@ -1,132 +1,125 @@
 import React, { useState, useEffect } from 'react';
-
+import { useTranslation } from 'react-i18next';
+import chroma from 'chroma-js';
+import { assign, cloneDeep } from 'lodash';
 import styles from './Demos.module.less';
 
-interface DemosProps {}
+interface DemoProps {
+  imgurl: string;
+  title_zh: string;
+  title_en: string;
+  host: string;
+  path: string;
+  width?: number;
+  height?: number;
+}
+interface DemosProps {
+  list?: DemoProps[];
+  active: number;
+}
 
 export default (props: DemosProps) => {
+  const list = props.list || [];
+  const active = props.active;
+  const { i18n } = useTranslation();
+  const [imgs, setImgs] = useState<DemoProps[]>([]);
+  const getRandomNum = (min: number, max: number) => {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  };
   const getRandomSize = (min: number, max: number) => {
     return Math.round(Math.random() * (max - min) + min);
   };
-  const list = [
-    {
-      imgurl:
-        'https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*IZ9nRq-a6fIAAAAAAAAAAABkARQnAQ',
-      title: '折线图/二氧化硅排量放来源',
-      url:
-        'https://g2plot.antv.vision/zh/examples/line/multiple#line-large-data',
-    },
-    {
-      imgurl:
-        'https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*YPRMRI-lcIwAAAAAAAAAAAAAARQnAQ',
-      title: '折线图/二氧化硅排量放来源',
-      url:
-        'https://g2plot.antv.vision/zh/examples/line/multiple#line-large-data',
-    },
-    {
-      imgurl:
-        'https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*-HIwQbCnfFUAAAAAAAAAAAAAARQnAQ',
-      title: '折线图/二氧化硅排量放来源',
-      url:
-        'https://g2plot.antv.vision/zh/examples/line/multiple#line-large-data',
-    },
-    {
-      imgurl:
-        'https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*55KOQI2EhVUAAAAAAAAAAAAAARQnAQ',
-      title: '折线图/二氧化硅排量放来源',
-      url:
-        'https://g2plot.antv.vision/zh/examples/line/multiple#line-large-data',
-    },
-    {
-      imgurl:
-        'https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*vRbXTpFGp0QAAAAAAAAAAAAAARQnAQ',
+  const colorScale = chroma.scale(['E0C1FF', '5900C9']);
+  let index = 0; // list索引 即每次展示的图片总个数
 
-      title: '折线图/二氧化硅排量放来源',
-      url:
-        'https://g2plot.antv.vision/zh/examples/line/multiple#line-large-data',
-    },
-    {
-      imgurl:
-        'https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*vRbXTpFGp0QAAAAAAAAAAAAAARQnAQ',
+  let cols = getRandomNum(3, 5);
 
-      title: '折线图/二氧化硅排量放来源',
-      url:
-        'https://g2plot.antv.vision/zh/examples/line/multiple#line-large-data',
-    },
-    {
-      imgurl:
-        'https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*vRbXTpFGp0QAAAAAAAAAAAAAARQnAQ',
+  /* 布局规则： 取顺序靠前的为高频图表，越高频尺寸越大*/
+  const layout = () => {
+    let res: DemoProps[] = [];
+    const maxWidth = document.body.clientWidth - 360;
+    const maxHeight = document.body.clientHeight - 296;
+    const defaultRatio = 280 / 130; // 各栈点gallery缩略图原始尺寸
+    let totalWidth = maxWidth; // 总列宽
 
-      title: '折线图/二氧化硅排量放来源',
-      url:
-        'https://g2plot.antv.vision/zh/examples/line/multiple#line-large-data',
-    },
-    {
-      imgurl:
-        'https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*vRbXTpFGp0QAAAAAAAAAAAAAARQnAQ',
+    for (let i = 0; i < cols; i += 1) {
+      const averWidth = totalWidth / cols;
+      const rows = getRandomNum(i + 1, i + 2); // 每列的图片个数
+      if (rows === 1) {
+        assign(list[index], { height: maxHeight });
+        assign(list[index], { width: maxHeight * defaultRatio });
+        index += 1;
+      } else {
+        const colWidth =
+          i === cols - 1 ? totalWidth : averWidth + getRandomNum(10, 20); //当前列的列宽
+        totalWidth -= colWidth;
+        let totalHeight = 0; // 当前列的总高
 
-      title: '折线图/二氧化硅排量放来源',
-      url:
-        'https://g2plot.antv.vision/zh/examples/line/multiple#line-large-data',
-    },
-    {
-      imgurl:
-        'https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*vRbXTpFGp0QAAAAAAAAAAAAAARQnAQ',
+        for (let j = 0; j < rows; j += 1) {
+          assign(list[index], { width: colWidth });
 
-      title: '折线图/二氧化硅排量放来源',
-      url:
-        'https://g2plot.antv.vision/zh/examples/line/multiple#line-large-data',
-    },
-    {
-      imgurl:
-        'https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*vRbXTpFGp0QAAAAAAAAAAAAAARQnAQ',
+          const ratioHeight = colWidth / defaultRatio;
+          if (totalHeight + ratioHeight <= maxHeight) {
+            assign(list[index], { height: ratioHeight });
+            totalHeight += ratioHeight;
+            index += 1;
+          } else {
+            assign(list[index], { height: maxHeight - totalHeight });
+            index += 1;
+            break;
+          }
+        }
+      }
 
-      title: '折线图/二氧化硅排量放来源',
-      url:
-        'https://g2plot.antv.vision/zh/examples/line/multiple#line-large-data',
-    },
-    {
-      imgurl:
-        'https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*vRbXTpFGp0QAAAAAAAAAAAAAARQnAQ',
+      cols -= 1;
+    }
+    res = cloneDeep(list.slice(0, index));
+    console.log(res);
+    return res;
+  };
 
-      title: '折线图/二氧化硅排量放来源',
-      url:
-        'https://g2plot.antv.vision/zh/examples/line/multiple#line-large-data',
-    },
-  ];
-  // const [allImages, updateAllImages] = useState<JSX.Element>();
-  // let images: JSX.Element;
-  // for (let i = 0; i < 25; i++) {
-  //   const width = getRandomSize(200, 400);
-  //   const height = getRandomSize(200, 400);
-  //   images = (
-  //     <img
-  //       src={`https://placekitten.com/${width}/${height}`}
-  //       alt="pretty kitty"
-  //     />
-  //   );
-  // }
-
-  // useEffect(() => {
-  //   updateAllImages(images);
-  // }, []);
+  useEffect(() => {
+    if (!list || list.length <= 0 || !active) return;
+    setImgs(layout());
+  }, [list, active]);
 
   return (
-    <section id="demos" className={styles.demos}>
-      {list.map((item, key) => (
+    <section
+      id="demos"
+      className={styles.demos}
+      style={{
+        columnCount: cols,
+      }}
+    >
+      {imgs.map((item: DemoProps, key: number) => (
         <a
-          href={item.url}
-          style={{
-            width: getRandomSize(200, 400),
-            height: getRandomSize(200, 400),
-          }}
-          key={key}
+          href={`${item.host}/${i18n.language}/${item.path}`}
+          key={`${item.path}${key}`}
           target="_blank"
-          className={styles.demo}
+          // style={{
+          //   width: `${item.width}px`,
+          //   height: `${item.height}px`,
+          // }}
         >
-          <div className={styles.cover} />
-          <img src={item.imgurl} alt={item.title} />
-          <div className={styles.title}>{item.title}</div>
+          <div
+            className={styles.cover}
+            style={{
+              backgroundColor: colorScale(key / list.length),
+              width: `${item.width}px`,
+              height: `${item.height}px`,
+            }}
+          />
+          <div
+            className={styles.img}
+            style={{
+              backgroundImage: `url(${item.imgurl})`,
+              width: `${item.width}px`,
+              height: `${item.height}px`,
+            }}
+          />
+          <div className={styles.title}>
+            {i18n.language === 'zh' ? item.title_zh : item.title_en}
+          </div>
         </a>
       ))}
     </section>

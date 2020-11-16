@@ -12,6 +12,7 @@ module.exports = {
     description: `Ant Visualization solution`,
     siteUrl: 'https://antv.vision',
     githubUrl: 'https://github.com/antvis',
+    isAntVSite: true,
     navs: [
       {
         slug: 'docs/specification',

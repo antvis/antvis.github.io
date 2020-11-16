@@ -1,45 +1,46 @@
 .demos {
-  /* Prevent vertical gaps */
   line-height: 0;
-
-  -webkit-column-count: 5;
-  -webkit-column-gap: 0px;
-  -moz-column-count: 5;
-  -moz-column-gap: 0px;
-  column-count: 5;
   column-gap: 0px;
-  .demo {
-    display: block;
+  a {
     position: relative;
-    .cover {
-      opacity: 0.8;
-      width: 100%;
-      height: 100%;
-      display: block;
-      background-color: #e0c1ff;
-      position: absolute;
-      top: 0px;
-      z-index: 2;
-    }
-    img {
-      width: 100%;
-      height: 100%;
-    }
-    .title {
-      background-color: rgba(132, 57, 238, 0.8);
-      color: #fff;
-      position: absolute;
-      bottom: 0px;
-      z-index: 10;
-      width: 100%;
-
-      display: none;
-    }
-
+    display: block;
     &::after {
       content: '';
       display: block;
       clear: both;
+    }
+    .cover {
+      opacity: 0.6;
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0px;
+      z-index: 2;
+    }
+    .img {
+      width: 100%;
+      height: 100%;
+      background-image: url();
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .title {
+      background-color: rgba(132, 57, 238, 0.8);
+      color: #fff;
+      display: block;
+      position: absolute;
+      bottom: 0px;
+      z-index: 10;
+      width: 100%;
+      font-size: 12px;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 16px 8px;
+      height: 32px;
+      opacity: 0;
+      text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
     }
 
     &:hover {
@@ -49,11 +50,9 @@
         animation-fill-mode: forwards;
       }
       .title {
-        display: block;
         animation: showUp 0.5s;
         -webkit-animation: showUp 0.5s;
         animation-fill-mode: forwards;
-        overflow: hidden;
       }
     }
   }
@@ -80,31 +79,40 @@
   }
 }
 
-@media (max-width: 1200px) {
-  .demos {
-    -moz-column-count: 4;
-    -webkit-column-count: 4;
-    column-count: 4;
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
-@media (max-width: 1000px) {
-  .demos {
-    -moz-column-count: 3;
-    -webkit-column-count: 3;
-    column-count: 3;
-  }
-}
-@media (max-width: 800px) {
-  .demos {
-    -moz-column-count: 2;
-    -webkit-column-count: 2;
-    column-count: 2;
-  }
-}
-@media (max-width: 400px) {
-  .demos {
-    -moz-column-count: 1;
-    -webkit-column-count: 1;
-    column-count: 1;
-  }
-}
+
+// @media (max-width: 1200px) {
+//   .demos {
+//     -moz-column-count: 4;
+//     -webkit-column-count: 4;
+//     column-count: 4;
+//   }
+// }
+// @media (max-width: 1000px) {
+//   .demos {
+//     -moz-column-count: 3;
+//     -webkit-column-count: 3;
+//     column-count: 3;
+//   }
+// }
+// @media (max-width: 800px) {
+//   .demos {
+//     -moz-column-count: 2;
+//     -webkit-column-count: 2;
+//     column-count: 2;
+//   }
+// }
+// @media (max-width: 400px) {
+//   .demos {
+//     -moz-column-count: 1;
+//     -webkit-column-count: 1;
+//     column-count: 1;
+//   }
+// }

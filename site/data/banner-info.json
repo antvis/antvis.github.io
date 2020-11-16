@@ -1,0 +1,101 @@
+{
+  "about": {
+    "name": "About",
+    "title": "关于我们",
+    "info": "我们是蚂蚁集团数据可视化团队，一群有爱有梦的人，怀揣「让人们在数据世界里获得视觉化思考能力」的梦想前行，成就智能时代全球领先的数据可视化解决方案。",
+    "banner_img": "https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*VymwQoGYMyoAAAAAAAAAAAAAARQnAQ",
+    "banner_url": "/about"
+  },
+  "products_tabs": [
+    {
+      "name": "G2 | G2Plot",
+      "products": ["G2", "G2Plot"],
+      "demos": [
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*IZ9nRq-a6fIAAAAAAAAAAABkARQnAQ",
+          "title_zh": "折线图/二氧化硅排量放来源",
+          "title_en": "Multi Line/The causes of CO2 emissions",
+          "host": "https://g2plot.antv.vision/",
+          "path": "/examples/line/multiple#line-large-data"
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*IZ9nRq-a6fIAAAAAAAAAAABkARQnAQ",
+          "title_zh": "折线图/二氧化硅排量放来源",
+          "title_en": "Multi Line/The causes of CO2 emissions",
+          "host": "https://g2plot.antv.vision/",
+          "path": "/examples/line/multiple#line-large-data"
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*IZ9nRq-a6fIAAAAAAAAAAABkARQnAQ",
+          "title_zh": "折线图/二氧化硅排量放来源",
+          "title_en": "Multi Line/The causes of CO2 emissions",
+          "host": "https://g2plot.antv.vision/",
+          "path": "/examples/line/multiple#line-large-data"
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*IZ9nRq-a6fIAAAAAAAAAAABkARQnAQ",
+          "title_zh": "折线图/二氧化硅排量放来源",
+          "title_en": "Multi Line/The causes of CO2 emissions",
+          "host": "https://g2plot.antv.vision/",
+          "path": "/examples/line/multiple#line-large-data"
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*IZ9nRq-a6fIAAAAAAAAAAABkARQnAQ",
+          "title_zh": "折线图/二氧化硅排量放来源",
+          "title_en": "Multi Line/The causes of CO2 emissions",
+          "host": "https://g2plot.antv.vision/",
+          "path": "/examples/line/multiple#line-large-data"
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*IZ9nRq-a6fIAAAAAAAAAAABkARQnAQ",
+          "title_zh": "折线图/二氧化硅排量放来源",
+          "title_en": "Multi Line/The causes of CO2 emissions",
+          "host": "https://g2plot.antv.vision/",
+          "path": "/examples/line/multiple#line-large-data"
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*IZ9nRq-a6fIAAAAAAAAAAABkARQnAQ",
+          "title_zh": "折线图/二氧化硅排量放来源",
+          "title_en": "Multi Line/The causes of CO2 emissions",
+          "host": "https://g2plot.antv.vision/",
+          "path": "/examples/line/multiple#line-large-data"
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*IZ9nRq-a6fIAAAAAAAAAAABkARQnAQ",
+          "title_zh": "折线图/二氧化硅排量放来源",
+          "title_en": "Multi Line/The causes of CO2 emissions",
+          "host": "https://g2plot.antv.vision/",
+          "path": "/examples/line/multiple#line-large-data"
+        }
+      ]
+    },
+    {
+      "name": "G6 | Graphin",
+      "products": ["G6", "Graphin"]
+    },
+    {
+      "name": "X6",
+      "products": ["X6"]
+    },
+    {
+      "name": "L7",
+      "products": ["L7"]
+    },
+    {
+      "name": "F2 | F2Native",
+      "products": ["F2", "F2Native"]
+    },
+    {
+      "name": "AVA",
+      "products": ["AVA"],
+      "banner_img": "https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*cXDfSqZIceYAAAAAAAAAAAAAARQnAQ",
+      "banner_url": "https://ava.antv.vision"
+    }
+  ],
+  "extra_tabs": [
+    {
+      "name": "ChartCube",
+      "url": "https://chartcube.alipay.com"
+    }
+  ]
+}

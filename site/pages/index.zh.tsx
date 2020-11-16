@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
-// import Banner from '@antv/gatsby-theme-antv/site/components/Banner';
 import Banner from '../components/Banner/Banner';
 import Features from '@antv/gatsby-theme-antv/site/components/Features';
 import Companies from '@antv/gatsby-theme-antv/site/components/Companies';
@@ -106,7 +105,7 @@ const IndexPage = () => {
     },
     {
       type: t('招聘'),
-      title: t('蚂蚁金服体验技术部招聘啦！'),
+      title: t('蚂蚁集团体验技术部招聘啦！'),
       date: '2020.05.18',
       link: 'https://www.yuque.com/uf44r1/wqrwsg/alwufg',
     },
@@ -131,27 +130,13 @@ const IndexPage = () => {
         title={t('AntV')}
         titleSuffix={t('蚂蚁数据可视化')}
         description={t(
-          `AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、无限可能的数据可视化最佳实践。`,
+          `AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、无限可能的数据可视化最佳实践。`,
         )}
         lang={i18n.language}
       />
+
       <div className="home-container">
-        {/* <Banner
-          className="banner"
-          coverImage={<BannerSVG play={animationStates.play} />}
-          title={t('让数据栩栩如生')}
-          description={t(
-            'AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、无限可能的数据可视化最佳实践。',
-          )}
-          showGithubStars={false}
-          buttons={bannerButtons}
-          video="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/file/A*PDpiR4U2oFEAAAAAAAAAAABkARQnAQ"
-          onPlayVideo={onPlayVideo}
-          onCloseVideo={onCloseVideo}
-          notifications={notifications}
-        /> */}
         <Banner />
-        {/* <ProductsPage /> */}
         <DecisionTreePage />
         <ResourcesPage />
         <DescribePage />

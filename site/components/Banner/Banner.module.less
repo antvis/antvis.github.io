@@ -1,150 +1,306 @@
-.header {
-  height: 296px;
-  position: relative;
-}
-
-.top {
-  z-index: 10;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.backgound {
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.mainImage {
-  position: absolute;
-  width: 100%;
-  height: 296px;
-  background-size: cover;
-  background-image: url('https://gw.alipayobjects.com/zos/finxbff/tinypng/a673f070-53aa-4a32-bfeb-0ec017a74433.png');
-  background-repeat: no-repeat;
-  left: 0;
-  top: 0;
-}
-
-.mainTitle {
-  font-size: 48px;
-  font-weight: 800;
-  color: #ffffff;
-  text-align: center;
-  margin-top: 112px;
-}
-
-.subTitle {
-  color: #ffffff;
-  text-align: center;
-  font-size: 16px;
-  margin-top: 8px;
-}
-
-.content {
-  height: calc(100vh - 296px);
-  min-height: 480px;
-  position: relative;
-}
-
-.productList {
-  position: absolute;
-  top: -40px;
-  height: 40px;
-  z-index: 12;
-  left: 60px;
-  display: flex;
-}
-
-.productItem {
-  font-size: 18px;
-  margin-right: 64px;
-  color: fade(#ffffff, 50%);
-  cursor: pointer;
-
-  &:hover {
-    color: #ffffff;
-    border-bottom: 2px solid #ffffff;
+.banner {
+  .header {
+    height: 296px;
+    position: relative;
+    .extraTabs {
+      position: absolute;
+      bottom: -16px;
+      right: 40px;
+      z-index: 999;
+      a {
+        font-size: 18px;
+        margin-right: 64px;
+        color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        &:hover {
+          color: rgba(255, 255, 255, 1);
+          transition: 0.2s;
+        }
+      }
+    }
   }
-}
 
-.productItemActive {
-  border-bottom: 2px solid #ffffff;
-  color: #ffffff;
-}
-
-.introduce {
-  height: 100%;
-}
-
-.introduceDetail {
-  display: flex;
-  height: 100%;
-}
-
-.guide {
-  width: 360px;
-  background: #8b6bff;
-  padding-top: 60px;
-  padding-left: 60px;
-  padding-right: 60px;
-  color: #ffffff;
-
-  .name {
-    font-size: 28px;
+  .top {
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
   }
-  .info {
-    font-size: 14px;
+
+  .backgound {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 296px;
+    background-size: cover;
+    background-image: url('https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*EVoPQrwtL7AAAAAAAAAAAAAAARQnAQ');
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    left: 0;
+    top: 0;
+  }
+
+  .mainTitle {
+    font-size: 48px;
+    font-weight: 800;
+    color: #fff;
+    text-align: center;
+    margin-top: 112px;
+  }
+
+  .subTitle {
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
     margin-top: 8px;
+  }
+
+  .content {
+    height: calc(100vh - 396px);
+    min-height: 480px;
+    position: relative;
+  }
+
+  .productList {
+    position: absolute;
+    top: -40px;
+    height: 40px;
+    z-index: 12;
+    left: 60px;
+    display: flex;
+  }
+
+  .productItem {
+    font-size: 18px;
+    margin-right: 64px;
+    color: fade(#fff, 50%);
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      color: #fff;
+      transition: 0.2s;
+    }
+  }
+
+  .productItemActive {
+    color: #fff;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 2px;
+      background-color: #fff;
+      bottom: 0px;
+      left: 0px;
+      animation: slideIn 0.5s;
+      -webkit-animation: slideIn 0.5s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .introduce {
+    height: 100%;
+  }
+
+  .introduceDetail {
+    display: flex;
+    height: 100%;
+  }
+
+  .guide {
+    width: 360px;
+    background: #6d5bf9;
+    padding-top: 60px;
+    padding-left: 60px;
+    padding-right: 60px;
+    color: #fff;
+
+    .name {
+      font-size: 28px;
+    }
+    .info {
+      font-size: 14px;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .guideItem {
+      margin-bottom: 32px;
+      .name {
+        font-size: 28px;
+      }
+      .info {
+        font-size: 14px;
+        margin-top: 8px;
+        line-height: 1.5;
+      }
+
+      .urlList {
+        align-items: center;
+        margin-top: 10px;
+        a {
+          display: flex;
+          align-items: center;
+          margin-top: 8px;
+          color: #fff;
+          .home {
+            background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/c193977b-776f-4e3a-9b93-7dd8ebadec5f.svg);
+          }
+          .example {
+            background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/e6caad33-6d2a-4f86-ace4-9c6cc8452894.svg);
+          }
+          .api {
+            background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/036568c0-3f42-4172-8220-f54ffe92fb37.svg);
+          }
+          .home,
+          .example,
+          .api {
+            width: 16px;
+            height: 15px;
+            background-size: 16px 15px;
+
+            background-repeat: no-repeat;
+            cursor: pointer;
+          }
+
+          .text {
+            line-height: 1.5;
+            height: 20px;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  .productShow {
+    flex: 1;
+
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    overflow: hidden;
+
+    .bgCover {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      background-image: url(https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*gjLkSJCATtAAAAAAAAAAAAAAARQnAQ);
+      background-repeat: no-repeat;
+      z-index: -1;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .banner {
+      z-index: 9;
+      width: calc(100vw - 480px);
+      height: auto;
+    }
+  }
+
+  .play {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .playIcon {
+    width: 16px;
+    height: 15px;
+    background-size: 16px 15px;
+    background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/33d4a899-4516-4405-ab42-510c4d0851ff.svg);
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  .playText {
     line-height: 1.5;
+    height: 20px;
+    margin-left: 8px;
+  }
+
+  .news {
+    margin-top: 40px;
+  }
+  .newsTitle {
+    font-size: 20px;
+  }
+  .time {
+    font-size: 10px;
+    margin-top: 20px;
+  }
+  .promo {
+    font-size: 14px;
+  }
+
+  .bgVideo {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    min-width: 100%;
+    z-index: -999;
+  }
+  :global {
+    nav {
+      ul {
+        li {
+          a {
+            color: #fff !important;
+          }
+        }
+      }
+    }
   }
 }
 
-.productShow {
-  flex: 1;
-  background: #e0c1ff;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  overflow: hidden;
+.videoModal {
+  :global {
+    .video-react-big-play-button {
+      display: none !important;
+    }
+    .video-react-control-bar {
+      border-radius: 0 0 4px 4px;
+    }
+    .video-react {
+      border-radius: 4px;
+      .video-react-video {
+        border-radius: 4px;
+      }
+    }
+    .ant-modal-close {
+      right: -50px;
+      top: -12px;
+      color: #fff;
+    }
+    .anticon-info-circle {
+      display: none !important;
+    }
+    .ant-modal-confirm-btns {
+      display: none !important;
+    }
+    .ant-modal-confirm-title {
+      display: none !important;
+    }
+    .ant-modal-close {
+      display: block !important;
+    }
+    .ant-modal-body {
+      padding: 0 !important;
+      .ant-modal-confirm-content {
+        margin: 0 !important;
+      }
+    }
+  }
 }
 
-.play {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-}
-.playIcon {
-  width: 16px;
-  height: 15px;
-  background-size: 16px 15px;
-  background-image: url(./play.svg);
-  background-repeat: no-repeat;
-}
-.playText {
-  line-height: 1.5;
-  height: 20px;
-  margin-left: 8px;
-}
-
-.news {
-  margin-top: 80px;
-}
-.newsTitle {
-  font-size: 20px;
-}
-.time {
-  font-size: 10px;
-  margin-top: 20px;
-}
-.promo {
-  font-size: 14px;
+@keyframes slideIn {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
