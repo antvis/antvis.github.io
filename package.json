@@ -31,6 +31,7 @@
     "gatsby": "^2.15.36",
     "gh-pages": "^3.1.0",
     "husky": "^4.2.3",
+    "isotope-layout": "^3.0.6",
     "lodash": "^4.17.20",
     "prettier": "^2.0.0",
     "pretty-quick": "^2.0.0",
