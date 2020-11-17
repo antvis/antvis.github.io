@@ -1,0 +1,84 @@
+.grid {
+  position: relative;
+  /* height: 0px; */
+  width: 1600px;
+  height: 1600px;
+}
+
+.isotope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gridItemWrapperBox {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  // padding-bottom:100%;
+  .cover {
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+  }
+  .img {
+    width: 100%;
+    height: 100%;
+    background-image: url();
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .title {
+    background-color: rgba(132, 57, 238, 0.8);
+    color: #fff;
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    z-index: 10;
+    width: 100%;
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 16px 8px;
+    height: 32px;
+    opacity: 0;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+  }
+  &:hover {
+    .cover {
+      animation: slidOut 0.9s;
+      -webkit-animation: slidOut 0.9s;
+      animation-fill-mode: forwards;
+    }
+    .title {
+      animation: showUp 0.5s;
+      -webkit-animation: showUp 0.5s;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes showUp {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    padding: 20px 8px;
+    bottom: 0px;
+  }
+}
+
+@keyframes slidOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+  }
+}

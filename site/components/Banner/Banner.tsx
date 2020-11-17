@@ -3,7 +3,8 @@ import classNames from 'classnames';
 import styles from './Banner.module.less';
 import { useTranslation } from 'react-i18next';
 import { getProducts } from '@antv/gatsby-theme-antv/site/components/getProducts';
-import Demos from '../Demos/Demos';
+// import Demos from '../Demos/Demos';
+import DemoTwo from '../DemoTwo/DemoTwo';
 import bannerInfo from '../../data/banner-info.json';
 
 interface NotificationProps {
@@ -196,7 +197,8 @@ export default () => {
                       />
                     </a>
                   ) : (
-                    <Demos list={item.demos} active={active} />
+                    // <Demos list={item.demos} active={active} />
+                    <DemoTwo />
                   )}
                 </div>
               </div>
