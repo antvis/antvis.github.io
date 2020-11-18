@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import styles from './Banner.module.less';
 import { useTranslation } from 'react-i18next';
 import { getProducts } from '@antv/gatsby-theme-antv/site/components/getProducts';
-// import Demos from '../Demos/Demos';
-import DemoTwo from '../DemoTwo/DemoTwo';
+import Demos from '../Demos/Demos';
+import DemoTwo from '../DemoTwo/DemoTwo.js';
 import bannerInfo from '../../data/banner-info.json';
 
 interface NotificationProps {
@@ -59,7 +59,7 @@ export default () => {
 
         <div className={styles.backgound} />
         <div className={styles.extraTabs}>
-          {extra_tabs.map((item) => (
+          {extra_tabs.map((item: { url: string; name: string }) => (
             <a href={item.url} key={item.name} target="_blank">
               <div>{item.name}</div>
             </a>
@@ -197,8 +197,8 @@ export default () => {
                       />
                     </a>
                   ) : (
-                    // <Demos list={item.demos} active={active} />
-                    <DemoTwo />
+                    <Demos list={item.demos} active={active} />
+                    // <DemoTwo />
                   )}
                 </div>
               </div>
