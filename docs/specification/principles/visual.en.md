@@ -1,8 +1,7 @@
 ---
-title: Color Palette
+title: 色板
 order: 1
 ---
-
 
 AntV 色板是基于 [Ant Design 色彩体系](https://ant.design/docs/spec/colors-cn)，并结合数据可视化特性而设计。在可视化设计中，色板的运用原则上优先保障准确性，考虑在操作指引、交互反馈上起到强化或凸显的作用。其次需兼顾色障碍群体，帮助有色盲色弱的人群也能在数据可视化中获取洞见。
 
@@ -58,7 +57,7 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 单一色相渐变称之为单色顺序色板，人眼可识别的色彩数量 5 ～ 7 个，为保证信息的最佳识别度，尽可能的克制使用颜色数量。
 
-<swatch colors="#BDE8FF,#9EC9FF,#7EABFF,#5A8DF8,#3874DB,#005BBF,#0044A4,#122C6A|#D0E3FF,#B4C7EC,#99ACD0,#7F91B4,#657899,#4C5F7F,#344766,#1C314E|#7EFAC6,#60DDAB,#40C190,#14A577,#008A5E,#007046,#005730,#003E1B|#FFE244,#F6BD16,#D7A300,#B98800,#9C6F00,#7F5700,#633F00,#482900|#8BF4F2,#6ED8D6,#50BCBA,#2FA19F,#008685,#006C6C,#005354,#003C3D|#E8684B,#FF9F7C,#FF8363,#E8684B,#C94D33,#AA311C,#8C1004,#6F0000|#FDD5FF,#DDB6FF,#BE99F7,#A27FDA,#8765BE,#6C4DA3,#523588,#391E6F|#FFCFFA,#FFABD5,#EF8BB4,#D27099,#B55680,#993C67,#7D214F,#620038" colorNames="Geek Blue,Grey,Green,Yellow,Cyan,Red,Purple,Magenta"></swatch>
+<swatch colors="#BDE8FF,#9EC9FF,#7EABFF,#5A8DF8,#3874DB,#005BBF,#0044A4,#122C6A|#D0E3FF,#B4C7EC,#99ACD0,#7F91B4,#657899,#4C5F7F,#344766,#1C314E|#7EFAC6,#60DDAB,#40C190,#14A577,#008A5E,#007046,#005730,#003E1B|#FFE244,#F6BD16,#D7A300,#B98800,#9C6F00,#7F5700,#633F00,#482900|#8BF4F2,#6ED8D6,#50BCBA,#2FA19F,#008685,#006C6C,#005354,#003C3D|#FFBB97,#FF9F7C,#FF8363,#E8684B,#C94D33,#AA311C,#8C1004,#6F0000|#FDD5FF,#DDB6FF,#BE99F7,#A27FDA,#8765BE,#6C4DA3,#523588,#391E6F|#FFCFFA,#FFABD5,#EF8BB4,#D27099,#B55680,#993C67,#7D214F,#620038" colorNames="Geek Blue,Grey,Green,Yellow,Cyan,Red,Purple,Magenta"></swatch>
 
 **邻近色顺序色板**
 
@@ -196,13 +195,13 @@ AntV 色板在做无障碍验证时，得出以下几点取色建议 ：
 
 - 分类色板选取需明暗交替
 
-   虽然正常人眼中右侧分类色板通过色相可以区分差异，但在视障人士、甚至全色盲，则主要靠颜色的明暗差异来识别不同的数据类型，因此分类色板需要注意适度的明暗交替
+  虽然正常人眼中右侧分类色板通过色相可以区分差异，但在视障人士、甚至全色盲，则主要靠颜色的明暗差异来识别不同的数据类型，因此分类色板需要注意适度的明暗交替
 
 <img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*eKFoRaOyrv4AAAAAAAAAAABkARQnAQ" width="100%" alt="suggestion" />
 
 - 离散色板尽量选取蓝黄对比
 
-   一般场景中，我们常也会使用黄绿配色，黄绿对比中，黄是暖色系，绿是冷色系，同样能给到对比感受，且打破常规的蓝红对比色，给到新颖的色彩感受，但如果你的用户中视障人士占比较多，则尽量避免绿黄配色，如图为两种色板在正常人眼和红绿色盲眼中的对比效果，黄绿配色在红绿色盲眼中就失去了色彩对比，难以区分。
+  一般场景中，我们常也会使用黄绿配色，黄绿对比中，黄是暖色系，绿是冷色系，同样能给到对比感受，且打破常规的蓝红对比色，给到新颖的色彩感受，但如果你的用户中视障人士占比较多，则尽量避免绿黄配色，如图为两种色板在正常人眼和红绿色盲眼中的对比效果，黄绿配色在红绿色盲眼中就失去了色彩对比，难以区分。
 
 <img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*LZGKTq93oGsAAAAAAAAAAABkARQnAQ" width="100%" alt="suggestion" />
 

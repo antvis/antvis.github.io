@@ -17,7 +17,7 @@ module.exports = {
       {
         slug: 'docs/specification',
         title: {
-          zh: '设计语言',
+          zh: '设计',
           en: 'Specification',
         },
       },
