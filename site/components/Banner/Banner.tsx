@@ -4,7 +4,6 @@ import styles from './Banner.module.less';
 import { useTranslation } from 'react-i18next';
 import { getProducts } from '@antv/gatsby-theme-antv/site/components/getProducts';
 import Demos from '../Demos/Demos';
-import DemoTwo from '../DemoTwo/DemoTwo.js';
 import bannerInfo from '../../data/banner-info.json';
 
 interface NotificationProps {

@@ -20,7 +20,15 @@ module.exports = {
           zh: '设计',
           en: 'Specification',
         },
+        
       },
+      {
+        slug: 'docs/example',
+        title: {
+          zh: '场景案例',
+          en: 'Show Case',
+        },
+      }
     ],
     docs: [
       {
