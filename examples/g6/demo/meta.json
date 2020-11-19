@@ -1,0 +1,12 @@
+{
+  "title": {
+    "zh": "中文分类",
+    "en": "Category"
+  },
+  "demos": [
+    {
+      "filename": "g6.js",
+      "title": "g6"
+    }
+  ]
+}

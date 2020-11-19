@@ -13,6 +13,7 @@ module.exports = {
     siteUrl: 'https://antv.vision',
     githubUrl: 'https://github.com/antvis',
     isAntVSite: true,
+    showAPIDoc: true,
     navs: [
       {
         slug: 'docs/specification',
@@ -20,15 +21,14 @@ module.exports = {
           zh: '设计',
           en: 'Specification',
         },
-        
       },
       {
-        slug: 'docs/example',
+        slug: 'examples',
         title: {
           zh: '场景案例',
           en: 'Show Case',
         },
-      }
+      },
     ],
     docs: [
       {
