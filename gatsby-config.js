@@ -17,10 +17,18 @@ module.exports = {
       {
         slug: 'docs/specification',
         title: {
-          zh: '设计语言',
+          zh: '设计',
           en: 'Specification',
         },
+        
       },
+      {
+        slug: 'docs/example',
+        title: {
+          zh: '场景案例',
+          en: 'Show Case',
+        },
+      }
     ],
     docs: [
       {

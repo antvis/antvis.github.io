@@ -58,7 +58,7 @@ export default () => {
 
         <div className={styles.backgound} />
         <div className={styles.extraTabs}>
-          {extra_tabs.map((item) => (
+          {extra_tabs.map((item: { url: string; name: string }) => (
             <a href={item.url} key={item.name} target="_blank">
               <div>{item.name}</div>
             </a>
@@ -197,6 +197,7 @@ export default () => {
                     </a>
                   ) : (
                     <Demos list={item.demos} active={active} />
+                    // <DemoTwo />
                   )}
                 </div>
               </div>
