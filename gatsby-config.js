@@ -20,7 +20,6 @@ module.exports = {
           zh: '设计',
           en: 'Specification',
         },
-        
       },
       {
         slug: 'docs/example',
@@ -28,7 +27,7 @@ module.exports = {
           zh: '场景案例',
           en: 'Show Case',
         },
-      }
+      },
     ],
     docs: [
       {
@@ -103,6 +102,14 @@ module.exports = {
         },
         order: 7,
       },
+      // {
+      //   slug: 'specification/standby/chartDesign',
+      //   title: {
+      //     zh: '图表类型设计指引',
+      //     en: 'Chart type design guidelines',
+      //   },
+      //   order: 0,
+      // },
     ],
     docsearchOptions: {
       apiKey: '9d1cd586972bb492b7b41b13a949ef30',

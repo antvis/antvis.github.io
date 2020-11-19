@@ -19,7 +19,7 @@ order: 2
 
 Tooltip 的基本元素包括：视觉标记图形，文本标签，数值标记等。 <br />Tooltip 的可选元素：所在的 UI 容器还可以和其他 UI 组件配合使用，完成过滤，下钻等自助分析功能。
 
-![tooltip元素.svg](https://cdn.nlark.com/yuque/0/2019/svg/268442/1574330723800-269bdf1e-8159-4319-994d-421e80c91c2d.svg#align=left&display=inline&height=327&name=tooltip%E5%85%83%E7%B4%A0.svg&originHeight=327&originWidth=1120&size=43470&status=done&width=1120)
+![tooltip元素.svg](https://gw.alipayobjects.com/zos/bmw-prod/ba445038-421e-4e0a-8515-3e552c0700fe.svg#align=left&display=inline&height=327&name=tooltip%E5%85%83%E7%B4%A0.svg&originHeight=327&originWidth=1120&size=43470&status=done&width=1120)
 
 ---
 
@@ -34,25 +34,25 @@ Tooltip 的基本元素包括：视觉标记图形，文本标签，数值标记
 
 ### 跟随显示的浮层提示
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/174999/1574301311775-582cea8c-0836-423d-897f-a2aa3b0f9c19.png#align=left&display=inline&height=591&name=image.png&originHeight=591&originWidth=1492&size=105438&status=done&width=1492)
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Y2EzQ4FtDqUAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=591&name=image.png&originHeight=591&originWidth=1492&size=105438&status=done&width=1492)
 
 **适合设备：**PC 端<br />**出现位置：**悬浮即触发显示，跟随鼠标移动<br />**适合图表类型：**全部图表
 
 ### 与图例组合显示的提示
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/174999/1574301311770-82e4e513-b8dc-4e40-ba92-8434f3d3b99e.png#align=left&display=inline&height=591&name=image.png&originHeight=591&originWidth=1492&size=40183&status=done&width=1492)
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*PzysSIoVFyUAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=591&name=image.png&originHeight=591&originWidth=1492&size=40183&status=done&width=1492)
 
 **适合设备：**常用于移动端，PC 端也适用<br />**出现位置：**图表上方<br />**适合图表类型：**全部图表
 
 ### 与轴组合显示的提示
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/174999/1574301311770-9d5464cf-d05f-4b80-b1d1-bc173f4058d8.png#align=left&display=inline&height=591&name=image.png&originHeight=591&originWidth=1492&size=33636&status=done&width=1492)
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*OYYCQqvlOtEAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=591&name=image.png&originHeight=591&originWidth=1492&size=33636&status=done&width=1492)
 
 **适合设备：**常用于 PC 端，移动端也可使用<br />**出现位置：**轴上，覆盖轴标签<br />**适合图表类型：**散点图、气泡图等迪卡尔坐标系图表
 
 ### 图形上显示的提示
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/174999/1574301311696-d277fba0-a642-415d-81a9-619b16fa9656.png#align=left&display=inline&height=591&name=image.png&originHeight=591&originWidth=1492&size=42828&status=done&width=1492)
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ZbnNR7CHyGYAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=591&name=image.png&originHeight=591&originWidth=1492&size=42828&status=done&width=1492)
 
 **适合设备：**PC 端、移动端均可<br />**出现位置：**图形上<br />**适合图表类型：**环图
 

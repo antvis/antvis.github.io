@@ -13,7 +13,7 @@ order: 1
 
 ## 类型
 
-按照基础图表类型，图形可分为：折线，面积，散点，气泡，饼/环，柱形，条形。<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/268442/1574338495342-ae9cd0b1-b900-43b9-9293-41cde9138e57.png#align=left&display=inline&height=551&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1102&originWidth=1794&size=81842&status=done&style=none&width=897)
+按照基础图表类型，图形可分为：折线，面积，散点，气泡，饼/环，柱形，条形。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*TuBQT76fCmwAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=551&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1102&originWidth=1794&size=81842&status=done&style=none&width=897)
 
 ---
 
@@ -31,7 +31,7 @@ order: 1
 
 #### 填充样式
 
-根据图形元素在实际图表中的面积占比，我们定义了相应的填充样式。图形占比越大的图表，对应填充的透明度越高。如，在柱/条形图中，图形的填充比例为 95%；在面积图中，图形的填充比例为 25%；在折线图中，可以通过渐变填充的方式强调线条的位置。<br />![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605618198784-043ab12d-eb73-4f6d-a0bb-524520928258.png#align=left&display=inline&height=164&margin=%5Bobject%20Object%5D&name=image.png&originHeight=396&originWidth=579&size=19005&status=done&style=none&width=240)![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605618198798-8a0c9961-1d90-4999-95ff-40f7f02112a9.png#align=left&display=inline&height=164&margin=%5Bobject%20Object%5D&name=image.png&originHeight=396&originWidth=580&size=38749&status=done&style=none&width=240)![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605618198776-1fd70da5-7233-417d-abd6-79b7252bbc79.png#align=left&display=inline&height=164&margin=%5Bobject%20Object%5D&name=image.png&originHeight=396&originWidth=580&size=21727&status=done&style=none&width=240)
+根据图形元素在实际图表中的面积占比，我们定义了相应的填充样式。图形占比越大的图表，对应填充的透明度越高。如，在柱/条形图中，图形的填充比例为 95%；在面积图中，图形的填充比例为 25%；在折线图中，可以通过渐变填充的方式强调线条的位置。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*BsLlTZMjZzgAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=164&margin=%5Bobject%20Object%5D&name=image.png&originHeight=396&originWidth=579&size=19005&status=done&style=none&width=240)![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*BpLySKzrilEAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=164&margin=%5Bobject%20Object%5D&name=image.png&originHeight=396&originWidth=580&size=38749&status=done&style=none&width=240)![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*c22ERo00WQUAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=164&margin=%5Bobject%20Object%5D&name=image.png&originHeight=396&originWidth=580&size=21727&status=done&style=none&width=240)
 
 ####
 
@@ -42,10 +42,10 @@ order: 1
 | mouse-event | null | hover | click | click |
 | --- | --- | --- | --- | --- |
 | visual-state | default | highlighted | active | de-active |
-| Style | ![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2020/png/191639/1605496699729-5bceadfb-75e2-455e-bb21-2c58f6fdc217.png#align=left&display=inline&height=124&margin=%5Bobject%20Object%5D&name=image.png&originHeight=248&originWidth=248&size=23181&status=done&style=none&width=124) | ![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2020/png/191639/1605496708397-598ce6b9-a0a7-4a77-b54c-71c55b122961.png#align=left&display=inline&height=124&margin=%5Bobject%20Object%5D&name=image.png&originHeight=248&originWidth=248&size=20398&status=done&style=none&width=124) | ![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2020/png/191639/1605496719074-4eacd27c-1a85-4aa7-ab5c-638f82244d10.png#align=left&display=inline&height=124&margin=%5Bobject%20Object%5D&name=image.png&originHeight=248&originWidth=248&size=20694&status=done&style=none&width=124) | ![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2020/png/191639/1605496756481-76b00011-cb4c-49a8-9ab0-4ce6db94150c.png#align=left&display=inline&height=124&margin=%5Bobject%20Object%5D&name=image.png&originHeight=248&originWidth=248&size=20106&status=done&style=none&width=124) |
+| Style | ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*yMgBTp-7rSIAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=124&margin=%5Bobject%20Object%5D&name=image.png&originHeight=248&originWidth=248&size=23181&status=done&style=none&width=124) | ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*QYIkQqbquRgAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=124&margin=%5Bobject%20Object%5D&name=image.png&originHeight=248&originWidth=248&size=20398&status=done&style=none&width=124) | ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*HMFdQb6Gk7EAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=124&margin=%5Bobject%20Object%5D&name=image.png&originHeight=248&originWidth=248&size=20694&status=done&style=none&width=124) | ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*wFFnTrSJPMIAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=124&margin=%5Bobject%20Object%5D&name=image.png&originHeight=248&originWidth=248&size=20106&status=done&style=none&width=124) |
 
 ####
 
 #### 为信息重要性服务
 
-在不同尺寸下的响应式布局中，依据图形对应代表的信息优先级，决定图形的展现策略。<br />![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605618198812-4f109d34-c95b-4534-b0ce-ad18164e1786.png#align=left&display=inline&height=235&margin=%5Bobject%20Object%5D&name=image.png&originHeight=235&originWidth=995&size=53572&status=done&style=none&width=995)<br /> <br />持续更新中，敬请期待…
+在不同尺寸下的响应式布局中，依据图形对应代表的信息优先级，决定图形的展现策略。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*TlnxRIJrZ24AAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=235&margin=%5Bobject%20Object%5D&name=image.png&originHeight=235&originWidth=995&size=53572&status=done&style=none&width=995)<br /> <br />持续更新中，敬请期待…
