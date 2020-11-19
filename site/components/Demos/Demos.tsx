@@ -9,11 +9,12 @@ interface DemoProps {
   imgurl: string;
   title_zh: string;
   title_en: string;
-  host: string;
-  path: string;
+  host?: string;
+  path?: string;
   ratio: number; //图片比例
   width?: number;
   height?: number;
+  location?: string;
 }
 interface DemosProps {
   list?: DemoProps[];
@@ -111,7 +112,11 @@ export default (props: DemosProps) => {
         <div className={styles.col} key={`col${key}`}>
           {rows.map((item: number, index: number) => (
             <a
-              href={`${list[item].host}/${i18n.language}/${list[item].path}`}
+              href={
+                list[item].location
+                  ? list[item].location
+                  : `${list[item].host}/${i18n.language}/${list[item].path}`
+              }
               key={`${list[item].path}${index}`}
               target="_blank"
               style={{

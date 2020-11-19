@@ -1,7 +1,13 @@
 ---
 title: 色板
-order: 1
+order: 3
 ---
+
+[![](https://img.shields.io/travis/antvis/g2.svg)](https://travis-ci.org/antvis/g2) ![](https://img.shields.io/badge/language-javascript-red.svg) ![](https://img.shields.io/badge/license-MIT-000000.svg)
+
+[![NPM Package](https://img.shields.io/npm/v/@antv/g2.svg)](https://www.npmjs.com/package/@antv/g2) [![NPM Downloads](https://img.shields.io/npm/dm/@antv/g2.svg)](https://npmjs.org/package/@antv/g2) [![Percentage of issues still open](https://isitmaintained.com/badge/open/antvis/g2.svg)](https://isitmaintained.com/project/antvis/g2 'Percentage of issues still open')
+
+G2 是一套基于可视化编码的图形语法，以数据驱动，具有高度的易用性和扩展性，用户无需关注各种繁琐的实现细节，一条语句即可构建出各种各样的可交互的统计图表。
 
 AntV 色板是基于 [Ant Design 色彩体系](https://ant.design/docs/spec/colors-cn)，并结合数据可视化特性而设计。在可视化设计中，色板的运用原则上优先保障准确性，考虑在操作指引、交互反馈上起到强化或凸显的作用。其次需兼顾色障碍群体，帮助有色盲色弱的人群也能在数据可视化中获取洞见。
 
@@ -35,9 +41,11 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ![03-分类色板@3x.png](https://gw.alipayobjects.com/zos/antfincdn/dcADI7GBH%24/1.png)
 
-<swatch title="基础 10 色" colors="#5B8FF9,#5AD8A6,#5D7092,#F6BD16,#E8684A,#6DC8EC,#9270CA,#FF9D4D,#269A99,#FF99C3" colorNames="Geek Blue,Cyan,Grey,Sunrise Yellow,Dust Red,Daybreak Blue,Golden Purple,Sunset Orange,Dark Green,Magenta"></swatch>
+<swatch title="基础 10 色" colors="#5B8FF9,#61DDAA,#65789B,#F6BD16,#6F5EF9,#78D3F8,#9661BC,#F6903D,#008685,#F08BB4" colorNames="Geek Blue,Cyan,Grey,Sunrise Yellow,Deep Purple,Daybreak Blue,Golden Purple,Sunset Orange,Dark Green,Magenta"></swatch>
 
-<swatch title="扩展 20 色" colors="#5B8FF9,#BDD2FD,#5AD8A6,#BDEFDB,#5D7092,#C2C8D5,#F6BD16,#FBE5A2,#E8684A,#F6C3B7,#6DC8EC,#B6E3F5,#9270CA,#D3C6EA,#FF9D4D,#FFD8B8,#269A99,#AAD8D8,#FF99C3,#FFD6E7"></swatch>
+<swatch title="扩展 20 色" colors="#5B8FF9,#CDDDFD,#61DDAA,#CDF3E4,#65789B,#CED4DE,#F6BD16,#FCEBB9,#6F5EF9,#D3CEFD,#78D3F8,#D3EEF9,#9661BC,#DECFEA,#F6903D,#FFE0C7,#008685,#BBDEDE,#F08BB4,#FFE0ED"></swatch>
+
+<swatch title="更多主题分类色板 20 色" colors="#FF6B3B,#626681,#FFC100,#9FB40F,#76523B,#DAD5B5,#0E8E89,#E19348,#F383A2,#247FEA,#2BCB95,#B1ABF4,#1D42C2,#1D9ED1,#D64BC0,#255634,#8C8C47,#8CDAE5,#8E283B,#791DC9|#025DF4,#DB6BCF,#2498D1,#BBBDE6,#4045B2,#21A97A,#FF745A,#007E99,#FFA8A8,#2391FF,#FFC328,#A0DC2C,#946DFF,#626681,#EB4185,#CD8150,#36BCCB,#327039,#803488,#83BC99|#FF4500,#1AAF8B,#406C85,#F6BD16,#B40F0F,#2FB8FC,#4435FF,#FF5CA2,#BBE800,#FE8A26,#946DFF,#6C3E00,#6193FF,#FF988E,#36BCCB,#004988,#FFCF9D,#CCDC8A,#8D00A1,#1CC25E" colorNames="Autumn,Macaron,Contrasting Orange" descriptions="秋日橙色板，适用于橙色调的产品，可按需替换默认色板。|马卡龙色板，颜色明快，适用于较为活泼轻松的产品或蓝紫色调的产品，可按需替换默认色板。|强对比色板，建议用于投屏及讲演等场景。"></swatch>
 
 **用法示例**
 
@@ -57,7 +65,7 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 单一色相渐变称之为单色顺序色板，人眼可识别的色彩数量 5 ～ 7 个，为保证信息的最佳识别度，尽可能的克制使用颜色数量。
 
-<swatch colors="#BDE8FF,#9EC9FF,#7EABFF,#5A8DF8,#3874DB,#005BBF,#0044A4,#122C6A|#D0E3FF,#B4C7EC,#99ACD0,#7F91B4,#657899,#4C5F7F,#344766,#1C314E|#7EFAC6,#60DDAB,#40C190,#14A577,#008A5E,#007046,#005730,#003E1B|#FFE244,#F6BD16,#D7A300,#B98800,#9C6F00,#7F5700,#633F00,#482900|#8BF4F2,#6ED8D6,#50BCBA,#2FA19F,#008685,#006C6C,#005354,#003C3D|#FFBB97,#FF9F7C,#FF8363,#E8684B,#C94D33,#AA311C,#8C1004,#6F0000|#FDD5FF,#DDB6FF,#BE99F7,#A27FDA,#8765BE,#6C4DA3,#523588,#391E6F|#FFCFFA,#FFABD5,#EF8BB4,#D27099,#B55680,#993C67,#7D214F,#620038" colorNames="Geek Blue,Grey,Green,Yellow,Cyan,Red,Purple,Magenta"></swatch>
+<swatch colors="#B8E1FF,#9AC5FF,#7DAAFF,#5B8FF9,#3D76DD,#085EC0,#0047A5,#00318A,#001D70|#9DF5CA,#61DDAA,#42C090,#19A576,#008A5D,#006F45,#00562F,#003E19,#002800|#D0E4FF,#B4C8ED,#99ADD1,#7E92B5,#65789B,#4C6080,#334867,#1B324F,#021D38|#FFD83B,#F6BD16,#D7A100,#B98700,#9C6E00,#7F5600,#633F00,#482900,#2F1400|#EBCCFF,#CCB0FF,#AE95FF,#907BFF,#7262FD,#5349E0,#2F32C3,#001BA7,#00068C|#95F0FF,#78D3F8,#5AB8DB,#3A9DBF,#0A82A4,#00698A,#005170,#003958,#002440|#FFCCFF,#EBB0FF,#CE95F5,#B27AD8,#9661BC,#7B48A1,#613086,#48186C,#2E0054|#FFC771,#FFAB57,#F6903D,#D77622,#B85C00,#9B4300,#7D2A00,#601000,#450000|#8CF4F2,#6FD8D6,#52BCBA,#31A09F,#008685,#006C6C,#005354,#003B3D,#002627|#FFC2EC,#FFA6D0,#F08BB4,#D37099,#B65680,#9A3C67,#7E214F,#630038,#490022|#FFBB95,#FF9E7B,#FF8362,#E8684A,#C84D32,#AA311C,#8C1104,#6F0000,#510000|#E2E2E2,#C6C6C6,#ABABAB,#919191,#777777,#5E5E5E,#474747,#303030,#1B1B1B" colorNames="Geek Blue,Cyan,Grey,Sunrise Yellow,Deep Purple,Daybreak Blue,Golden Purple,Sunset Orange,Dark Green,Magenta,Dust Red,Dark"></swatch>
 
 **邻近色顺序色板**
 
@@ -79,7 +87,7 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ![06-离散色板@3x.png](https://gw.alipayobjects.com/zos/antfincdn/RjSAEfs7mK/2.png)
 
-<swatch colors="#227BA2,#22BAED,#8AD4FF,#C9E9FF,#F2EAEA,#FFC5AC,#FF895D,#F3470D,#A4300C|#B22C00,#FF6500,#FFB200,#FFDF80,#E0F2EB,#66D8FF,#00A5FF,#0059FF,#002CB2|#1B7536,#05B54F,#7ACF89,#BFE8C3,#EFF3DE,#FFE9B8,#FFD470,#EDB40A,#A37B16|#10686C,#16A37E,#65CF9B,#C1E8C5,#EAF3DB,#F1E3AF,#F2C354,#DE9111,#BB490F|#004C99,#0072E5,#4DA6FF,#B3D9FF,#EAE9EB,#FFD5B1,#FFAB66,#F17F0B,#A45411|#B22C00,#FF6500,#FFB200,#FFDF80,#FFE2DC,#EAACFF,#C53FFF,#8500FF,#3900E5" colorNames="Cyan/Red,Classic,Green/Yellow,Grow,Geek Blue/Yellow,Magic"></swatch>
+<swatch colors="#215B77,#227BA2,#1B9CD0,#22BAED,#61C9FF,#8AD4FF,#ABDFFF,#C9E9FF,#EFF3DE,#FFE9B8,#FFDE94,#FFD470,#FFC741,#EDB40A,#D09C10,#A37B16,#795B16|#014c63,#10686c,#168575,#16a37e,#0bc286,#65cf9b,#96dcb0,#c1e8c5,#F2EAEA,#FFC5AC,#FFA884,#FF895D,#FF6836,#F3470D,#D13808,#A4300C,#7A270E|#003F7F,#004C99,#0059B2,#0072E5,#1A8CFF,#4DA6FF,#80BFFF,#B3D9FF,#EAE9EB,#FFD5B1,#FFC08C,#FFAB66,#FF963E,#F17F0B,#D16A0C,#A45411,#794012|#014c63,#10686c,#168575,#16a37e,#0bc286,#65cf9b,#96dcb0,#c1e8c5,#eaf3db,#f1e3af,#f3d282,#f2c354,#eeb311,#de9111,#cd6e10,#bb490f,#a8190d|#661900,#B22C00,#E6450F,#FF6500,#FF8C00,#FFB200,#FFCB33,#FFDF80,#FFE2DC,#EAACFF,#DD78FF,#C53FFF,#A700FF,#8500FF,#620BE1,#3607C2,#27029A|#661900,#B22C00,#E6450F,#FF6500,#FF8C00,#FFB200,#FFCB33,#FFDF80,#E0F2EB,#66D8FF,#1AC5FF,#00A5FF,#007FFF,#0059FF,#0040FF,#002CB2,#001F7F" colorNames="Cyan/Yellow,Green/Red,Green/Yellow,Grow,Magic,Classic"></swatch>
 
 **用法示例**
 
@@ -139,6 +147,34 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ![Artboard Copy 5@2x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*WfR-QLKisxgAAAAAAAAAAABkARQnAQ)
 
+## 3 大颜色主题
+
+在默认主题的基础上，新增三大颜色主题，分别是秋日橙主题、马卡龙主题、强对比主题，这三类主题色板各有不同的使用场景。
+
+### 秋日橙主题
+
+以橙色调为主的主题色板，整体基调是秋日的丰收色，同时适应深浅模式，可按需替换默认主题。
+
+<swatch title="Autumn" colors="#FF6B3B,#626681,#FFC100,#9FB40F,#76523B,#DAD5B5,#0E8E89,#E19348,#F383A2,#247FEA,#2BCB95,#B1ABF4,#1D42C2,#1D9ED1,#D64BC0,#255634,#8C8C47,#8CDAE5,#8E283B,#791DC9" descriptions="秋日橙色板，适用于橙色调的产品，可按需替换默认色板。"></swatch>
+
+![秋日橙.gif](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*4eQ-Q7NX-wIAAAAAAAAAAAAAARQnAQ)
+
+### 马卡龙主题
+
+以粉紫色调为主的主题色板，整体基调是马卡龙糖果色，同时适应深浅模式，风格活泼明快，可按需替换默认主题。
+
+<swatch title="Macaron" colors="#025DF4,#DB6BCF,#2498D1,#BBBDE6,#4045B2,#21A97A,#FF745A,#007E99,#FFA8A8,#2391FF,#FFC328,#A0DC2C,#946DFF,#626681,#EB4185,#CD8150,#36BCCB,#327039,#803488,#83BC99" colorNames="Macaron" descriptions="马卡龙色板，颜色明快，适用于较为活泼轻松的产品或蓝紫色调的产品，可按需替换默认色板。"></swatch>
+
+![马卡龙.gif](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*PhfqRLQmq4QAAAAAAAAAAAAAARQnAQ)
+
+### 强对比主题
+
+强对比分类主题，颜色饱和度较高，强对比度，在投屏场景等降对比场景使用。
+
+<swatch title="Contrasting Orange" colors="#FF4500,#1AAF8B,#406C85,#F6BD16,#B40F0F,#2FB8FC,#4435FF,#FF5CA2,#BBE800,#FE8A26,#946DFF,#6C3E00,#6193FF,#FF988E,#36BCCB,#004988,#FFCF9D,#CCDC8A,#8D00A1,#1CC25E" colorNames=",Contrasting Orange" descriptions="强对比色板，建议用于投屏及讲演等场景。"></swatch>
+
+![强对比橙.gif](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*JGEATr_GLWoAAAAAAAAAAAAAARQnAQ)
+
 ---
 
 ## 8 条使用建议
@@ -195,20 +231,19 @@ AntV 色板在做无障碍验证时，得出以下几点取色建议 ：
 
 - 分类色板选取需明暗交替
 
-   虽然正常人眼中右侧分类色板通过色相可以区分差异，但在视障人士、甚至全色盲，则主要靠颜色的明暗差异来识别不同的数据类型，因此分类色板需要注意适度的明暗交替
+  虽然正常人眼中右侧分类色板通过色相可以区分差异，但在视障人士、甚至全色盲，则主要靠颜色的明暗差异来识别不同的数据类型，因此分类色板需要注意适度的明暗交替
 
 <img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*eKFoRaOyrv4AAAAAAAAAAABkARQnAQ" width="100%" alt="suggestion" />
 
 - 离散色板尽量选取蓝黄对比
 
-   一般场景中，我们常也会使用黄绿配色，黄绿对比中，黄是暖色系，绿是冷色系，同样能给到对比感受，且打破常规的蓝红对比色，给到新颖的色彩感受，但如果你的用户中视障人士占比较多，则尽量避免绿黄配色，如图为两种色板在正常人眼和红绿色盲眼中的对比效果，黄绿配色在红绿色盲眼中就失去了色彩对比，难以区分。
+  一般场景中，我们常也会使用黄绿配色，黄绿对比中，黄是暖色系，绿是冷色系，同样能给到对比感受，且打破常规的蓝红对比色，给到新颖的色彩感受，但如果你的用户中视障人士占比较多，则尽量避免绿黄配色，如图为两种色板在正常人眼和红绿色盲眼中的对比效果，黄绿配色在红绿色盲眼中就失去了色彩对比，难以区分。
 
 <img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*LZGKTq93oGsAAAAAAAAAAABkARQnAQ" width="100%" alt="suggestion" />
 
 ## 资源下载
 
-- <img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*PUsdR6401PIAAAAAAAAAAABkARQnAQ" width="27" alt="icon" /> [AntV 色板.sketch](https://www.yuque.com/attachments/yuque/0/2020/sketch/218706/1583201961356-1ce3fb8f-66b0-4b0c-b27c-691f306345ae.sketch?_lake_card=%7B%22uid%22%3A%221583201956414-0%22%2C%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2020%2Fsketch%2F218706%2F1583201961356-1ce3fb8f-66b0-4b0c-b27c-691f306345ae.sketch%22%2C%22name%22%3A%22AntV+%E8%89%B2%E6%9D%BF.sketch%22%2C%22size%22%3A5161276%2C%22type%22%3A%22%22%2C%22ext%22%3A%22sketch%22%2C%22progress%22%3A%7B%22percent%22%3A99%7D%2C%22status%22%3A%22done%22%2C%22percent%22%3A0%2C%22id%22%3A%22VLPws%22%2C%22card%22%3A%22file%22%7D)
-- <img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*7M88TLJPib4AAAAAAAAAAABkARQnAQ" width="27" alt="icon" /> [AntV 色板.ase.zip](https://www.yuque.com/attachments/yuque/0/2020/zip/218706/1583201975252-c893c80e-4b31-49ae-8264-86baec447067.zip?_lake_card=%7B%22uid%22%3A%221583201975117-0%22%2C%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2020%2Fzip%2F218706%2F1583201975252-c893c80e-4b31-49ae-8264-86baec447067.zip%22%2C%22name%22%3A%22AntV+%E8%89%B2%E6%9D%BF.ase.zip%22%2C%22size%22%3A2881%2C%22type%22%3A%22application%2Fzip%22%2C%22ext%22%3A%22zip%22%2C%22progress%22%3A%7B%22percent%22%3A99%7D%2C%22status%22%3A%22done%22%2C%22percent%22%3A0%2C%22id%22%3A%22RrNV8%22%2C%22card%22%3A%22file%22%7D)
+- <img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*PUsdR6401PIAAAAAAAAAAABkARQnAQ" width="27" alt="icon" /> [AntV 色板.sketch](https://gw.alipayobjects.com/os/bmw-prod/0dabf5eb-830a-4698-92a3-fe1a2681730c.sketch)
 - <img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*_UQtSpEHRdQAAAAAAAAAAABkARQnAQ" width="27" alt="icon" /> [AntV 色板色值表](https://www.yuque.com/docs/share/98fd436e-bf79-4242-9ccd-2eeb74234ce6?#)
 
 ## 扩展阅读
