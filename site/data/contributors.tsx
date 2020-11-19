@@ -333,6 +333,22 @@ const contributors: {
     weibo: 'https://www.weibo.com/u/6987384726',
     github: 'https://github.com/dengfuping',
   },
+  {
+    name: '青原',
+    jobTitle: '工程师',
+    avatar:
+      'https://gw.alipayobjects.com/mdn/rms_04a9e5/afts/img/A*ZmohRYwarWcAAAAAAAAAAAAAARQnAQ',
+    weibo: '',
+    github: 'https://github.com/yangxlei',
+  },
+  {
+    name: '夏珞',
+    jobTitle: '工程师',
+    avatar:
+      'https://gw.alipayobjects.com/mdn/rms_04a9e5/afts/img/A*1O_3R4Wcwy0AAAAAAAAAAAAAARQnAQ',
+    weibo: '',
+    github: 'https://github.com/JaneZhong',
+  },
 ];
 
 export default contributors;
