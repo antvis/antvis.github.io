@@ -13,27 +13,6 @@ import BannerSVG from '../components/bannerSVG/bannerSVG';
 import { useTranslation } from 'react-i18next';
 import './index.less';
 
-const cdns: any = {
-  'https://gw.alipayobjects.com/os/lib/antv/g2/4.1.0-beta.18/dist/g2.min.js': [
-    'G2',
-    'g2',
-  ],
-  'https://gw.alipayobjects.com/os/lib/antv/g2plot/2.0.9/dist/g2plot.min.js': [
-    'G2Plot',
-    'g2plot',
-  ],
-  'https://gw.alipayobjects.com/os/lib/antv/f2/3.7.8/dist/f2.min.js': [
-    'F2',
-    'f2',
-  ],
-  'https://gw.alipayobjects.com/os/lib/antv/g6/3.8.5/dist/g6.min.js': [
-    'G6',
-    'g6',
-  ],
-};
-
-const scripts = Object.keys(cdns).map((src) => ({ src }));
-
 const IndexPage = () => {
   const { t, i18n } = useTranslation();
 
@@ -149,22 +128,6 @@ const IndexPage = () => {
 
   return (
     <>
-      <Helmet
-        script={scripts}
-        onChangeClientState={(newState, addedTags) => {
-          addedTags.scriptTags.forEach((script) => {
-            if (cdns[script.src]) {
-              script.onload = () => {
-                const [name, babelName] = cdns[script.src];
-                if (window[name]) {
-                  console.log(`loaded ${name}`);
-                  window[babelName] = window[name];
-                }
-              };
-            }
-          });
-        }}
-      />
       <SEO
         title={t('AntV')}
         titleSuffix={t('蚂蚁数据可视化')}
