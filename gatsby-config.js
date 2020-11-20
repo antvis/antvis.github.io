@@ -18,12 +18,12 @@ module.exports = {
         slug: 'docs/specification',
         title: {
           zh: '设计',
-          en: 'Specification',
+          en: 'Design',
         },
         
       },
       {
-        slug: 'docs/example',
+        slug: 'case',
         title: {
           zh: '场景案例',
           en: 'Show Case',

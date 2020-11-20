@@ -3,95 +3,30 @@
     "name": "About",
     "title": "关于我们",
     "info": "我们是蚂蚁集团数据可视化团队，一群有爱有梦的人，怀揣「让人们在数据世界里获得视觉化思考能力」的梦想前行，成就智能时代全球领先的数据可视化解决方案。",
-    "banner_img": "https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*VymwQoGYMyoAAAAAAAAAAAAAARQnAQ",
+    "banner_img": "https://gw.alipayobjects.com/zos/bmw-prod/84f7b424-2003-452d-b9ff-e8c829095ebb.svg",
     "banner_url": "/about"
   },
   "products_tabs": [
     {
       "name": "G2 | G2Plot",
       "products": ["G2", "G2Plot"],
-      "demos": [
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*NSq2SJgS3lEAAAAAAAAAAAAAARQnAQ",
-          "title_zh": "各国趋势分析",
-          "title_en": "Trend analysis of several countries",
-          "host": "https://g2plot.antv.vision/",
-          "path": "/examples/case/customize#line-style",
-          "ratio": 1.8
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*WEOCQ6imB0gAAAAAAAAAAABkARQnAQ",
-          "title_zh": "blockchain 和 NLP 全球搜索趋势对比",
-          "title_en": "Trend of blockchain and NLQ",
-          "host": "https://g2.antv.vision/",
-          "path": "/examples/case/line#line6",
-          "ratio": 1.8
-        },
-
+     "demos": [
         {
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*WmOcQafphvEAAAAAAAAAAABkARQnAQ",
           "title_zh": "动态条形图",
           "title_en": "Dynamtic bar",
           "host": "https://g2.antv.vision/",
           "path": "/examples/case/dynamic#dynamic-bar",
-          "ratio": 1.8
+          "ratio": 1.3
         },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*CcFlQ7se_sAAAAAAAAAAAABkARQnAQ",
-          "title_zh": "2016 年全球十大转基因作物种植面积和耕地总",
-          "title_en": "Row facet",
-          "host": "https://g2.antv.vision/",
-          "path": "/examples/case/facet#facet3",
-          "ratio": 1.8
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*DIzzR6M4T94AAAAAAAAAAAAAARQnAQ",
-          "title_zh": "水波图",
-          "title_en": "Liquid charts",
-          "host": "https://g2plot.antv.vision/",
-          "path": "/examples/liquid/basic#style",
-          "ratio": 1.8
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*KDGDQLKrV_EAAAAAAAAAAABkARQnAQ",
-          "title_zh": "某水产公司 2017 年月盈利变化",
-          "title_en": "Month earnings",
-          "host": "https://g2.antv.vision/",
-          "path": "/examples/case/area#area2",
-          "ratio": 1.8
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*tdedT4uaPaYAAAAAAAAAAABkARQnAQ",
 
-          "title_zh": "四象限散点图",
-          "title_en": "Scatter with quadrants",
-          "host": "https://g2plot.antv.vision/",
-          "path": "/examples/scatter/basic#quadrant",
-          "ratio": 1.8
-        },
         {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*5bPrQK5F-toAAAAAAAAAAAAAARQnAQ",
-          "title_zh": "自定义 Tooltip",
-          "title_en": "Custom tooltip",
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*kHHZQa-fpAQAAAAAAAAAAAAAARQnAQ",
+          "title_zh": "指标卡联动",
+          "title_en": "Dynamtic bar",
           "host": "https://g2plot.antv.vision/",
-          "path": "/examples/case/customize#customize-tooltip",
-          "ratio": 1.8
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*S4CuR5J89jsAAAAAAAAAAAAAARQnAQ",
-          "title_zh": "Drinks",
-          "title_en": "Drinks",
-          "host": "https://g2plot.antv.vision/",
-          "path": "/examples/case/multi-view#drinks",
-          "ratio": 1.8
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*LVeFSYBPDBAAAAAAAAAAAAAAARQnAQ",
-          "title_zh": "环图统计指标卡",
-          "title_en": "Donut plot with statistics",
-          "host": "https://g2plot.antv.vision/",
-          "path": "/examples/pie/donut#statistics",
-          "ratio": 1.8
+          "path": "/examples/case/statistical-charts#line-association",
+          "ratio": 1.3
         },
         {
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*LVeFSYBPDBAAAAAAAAAAAAAAARQnAQ",
@@ -99,7 +34,25 @@
           "title_en": "Gauge",
           "host": "https://g2plot.antv.vision/",
           "path": "/examples/gauge/basic#complex",
-          "ratio": 1.8
+          "ratio": 1.3
+        },
+
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*5fg3Q7n3tFEAAAAAAAAAAAAAARQnAQ",
+          "title_zh": "自定义 Tooltip",
+          "title_en": "Custom tooltip",
+          "host": "https://g2plot.antv.vision/",
+          "path": "/examples/case/customize#customize-tooltip",
+          "ratio": 1.3
+        },
+
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*DIzzR6M4T94AAAAAAAAAAAAAARQnAQ",
+          "title_zh": "水波图",
+          "title_en": "Liquid charts",
+          "host": "https://g2plot.antv.vision/",
+          "path": "/examples/liquid/basic#style",
+          "ratio": 1.3
         },
         {
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*-9CLRItZrPMAAAAAAAAAAAAAARQnAQ",
@@ -107,7 +60,7 @@
           "title_en": "Bar plot conversion tag",
           "host": "https://g2plot.antv.vision/",
           "path": "/examples/bar/basic#conversion-tag",
-          "ratio": 1.8
+          "ratio": 1.3
         },
         {
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*uKKQQ4Xc3GMAAAAAAAAAAAAAARQnAQ",
@@ -115,31 +68,31 @@
           "title_en": "Waterfall plot with absolute-label-dataMode",
           "host": "https://g2plot.antv.vision/",
           "path": "/examples/waterfall/basic#absolute-label",
-          "ratio": 1.8
+          "ratio": 1.3
         },
         {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*aiU7SpgRN48AAAAAAAAAAAAAARQnAQ",
-          "title_zh": "柱线混合图表-更多示例",
-          "title_en": "Other column line",
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*tdedT4uaPaYAAAAAAAAAAABkARQnAQ",
+          "title_zh": "四象限散点图",
+          "title_en": "Scatter with quadrants",
           "host": "https://g2plot.antv.vision/",
-          "path": "/examples/dual-axes/column-line#demo-more-1",
-          "ratio": 1.8
+          "path": "/examples/scatter/basic#quadrant",
+          "ratio": 1.3
         },
         {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*Tk5gRqvyhzoAAAAAAAAAAABkARQnAQ",
-          "title_zh": "全球气候变化",
-          "title_en": "Global climate change",
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*S4CuR5J89jsAAAAAAAAAAAAAARQnAQ",
+          "title_zh": "Drinks",
+          "title_en": "Drinks",
+          "host": "https://g2plot.antv.vision/",
+          "path": "/examples/case/multi-view#drinks",
+          "ratio": 1.3
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*CcFlQ7se_sAAAAAAAAAAAABkARQnAQ",
+          "title_zh": "2016 年全球十大转基因作物种植面积和耕地总",
+          "title_en": "Row facet",
           "host": "https://g2.antv.vision/",
-          "path": "/examples/component/annotation#guide-region-filter1",
-          "ratio": 1.8
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*gexzT7Y8X0oAAAAAAAAAAAAAARQnAQ",
-          "title_zh": "雷达图(面-带底色)",
-          "title_en": "Area radar plot (with alternate grid)",
-          "host": "https://g2plot.antv.vision/",
-          "path": "/examples/radar/basic#area-alternate-grid",
-          "ratio": 1.8
+          "path": "/examples/case/facet#facet3",
+          "ratio": 1.3
         },
         {
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*id4CSZIMCtsAAAAAAAAAAABkARQnAQ",
@@ -147,7 +100,32 @@
           "title_en": "Word cloud plot - image mask",
           "host": "https://g2plot.antv.vision/",
           "path": "/examples/word-cloud/basic#image-mask",
-          "ratio": 1.8
+          "ratio": 1.3
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*d_LXSq9yXEYAAAAAAAAAAAAAARQnAQ",
+          "title_zh": "雷达图",
+          "title_en": "Area radar plot",
+          "host": "https://g2plot.antv.vision/",
+          "path": "/examples/radar/basic#basic",
+          "ratio": 1.3
+        },
+
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*KDGDQLKrV_EAAAAAAAAAAABkARQnAQ",
+          "title_zh": "某水产公司 2017 年月盈利变化",
+          "title_en": "Month earnings",
+          "host": "https://g2.antv.vision/",
+          "path": "/examples/case/area#area2",
+          "ratio": 1.3
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*aiU7SpgRN48AAAAAAAAAAAAAARQnAQ",
+          "title_zh": "柱线混合图表-更多示例",
+          "title_en": "Other column line",
+          "host": "https://g2plot.antv.vision/",
+          "path": "/examples/dual-axes/column-line#demo-more-1",
+          "ratio": 1.3
         },
         {
           "imgurl": "https://gw.alicdn.com/tfs/TB1EgtsuuT2gK0jSZFvXXXnFXXa-958-591.png",
@@ -155,7 +133,7 @@
           "title_en": "Funnel plot-transpose",
           "host": "https://g2plot.antv.vision/",
           "path": "/examples/funnel/basic#basic-transpose",
-          "ratio": 1.8
+          "ratio": 1.3
         }
       ]
     },
@@ -258,25 +236,25 @@
       "products": ["X6"],
       "demos": [
         {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*qQfARr39yaIAAAAAAAAAAAAAARQnAQ",
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*W9g1S7W-TOoAAAAAAAAAAAAAARQnAQ",
           "title_zh": "DAG",
           "title_en": "DAG",
           "location": "https://x6.antv.vision/apps/dag/",
-          "ratio": 1.3
+          "ratio": 1.4
         },
   			{
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*ejkSQp5UHMYAAAAAAAAAAAAAARQnAQ",
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*_0vpQ5sFL-8AAAAAAAAAAAAAARQnAQ",
           "title_zh": "流程图",
           "title_en": "Flow Chart",
           "location": "https://x6.antv.vision/apps/draw/",
-          "ratio": 1.3
+          "ratio": 1.4
         },
   			{
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*AVRUSrPL_dEAAAAAAAAAAAAAARQnAQ",
           "title_zh": "ER",
           "title_en": "ER",
           "location": "https://x6.antv.vision/apps/er/",
-          "ratio": 1.3
+          "ratio": 1.4
         }
       ]
     },
@@ -416,7 +394,7 @@
           "title_en": "Compare Line Chart",
           "host": "https://f2.antv.vision/",
           "path": "/examples/line/multiple",
-          "ratio": 1.9
+          "ratio": 1.3
         },
         {
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*_SQ6TItK-U8AAAAAAAAAAABkARQnAQ",
@@ -424,7 +402,7 @@
           "title_en": "Stacked Area Chart",
           "host": "https://f2.antv.vision/",
           "path": "/examples/area/stacked",
-          "ratio": 1.9
+          "ratio": 1.3
         },
        {
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*sDB-S6qxxsYAAAAAAAAAAABkARQnAQ",
@@ -432,39 +410,39 @@
           "title_en": "Forecast Line",
           "host": "https://f2.antv.vision/",
           "path": "/examples/gallery/forecast",
-          "ratio": 1.9
+          "ratio": 1.3
         },
-        {
+  			{
           "imgurl": "https://gw.alipayobjects.com/zos/finxbff/compress-tinypng/92dbeff4-526e-48df-b122-72ed50395b79.jpg",
           "title_zh": "基础演示",
           "title_en": "Basic Demo",
           "host": "https://f2.antv.vision/",
           "path": "/examples/basic",
-          "ratio": 1.9 
+          "ratio": 1.3 
         },
-        {
+  			{
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*WDqYSYm6HPAAAAAAAAAAAABkARQnAQ",
           "title_zh": "分组柱状图",
           "title_en": "Dodge Column Chart",
           "host": "https://f2.antv.vision/",
           "path": "/examples/column/dodge#negetive",
-          "ratio": 1.9 
+          "ratio": 1.3 
         },
-        {
+  			{
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*6v1fRatDBM4AAAAAAAAAAABkARQnAQ",
           "title_zh": "Guide",
           "title_en": "Guide",
           "host": "https://f2.antv.vision/",
           "path": "/examples/component/guide#region-filter",
-          "ratio": 1.9 
+          "ratio": 1.3 
         },
-          {
+    			{
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*fZ11RIsy8zQAAAAAAAAAAABkARQnAQ",
           "title_zh": "基础饼图",
           "title_en": "Basic Pie Chart",
           "host": "https://f2.antv.vision/",
           "path": "/examples/pie/basic#pie-with-label",
-          "ratio": 1.9 
+          "ratio": 1.3 
         },
         {
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*agBZRoedYKQAAAAAAAAAAABkARQnAQ",
@@ -472,7 +450,7 @@
           "title_en": "Nightingale Rose Chart",
           "host": "https://f2.antv.vision/",
           "path": "/examples/pie/rose",
-          "ratio": 1.9 
+          "ratio": 1.3 
         },
         {
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*tq5ERqXPyOUAAAAAAAAAAABkARQnAQ",
@@ -480,7 +458,7 @@
           "title_en": "Basic Radar Chart",
           "host": "https://f2.antv.vision/",
           "path": "/examples/radar/radar#area",
-          "ratio": 1.9 
+          "ratio": 1.3 
         },
         {
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*Xpt7QLmlgz0AAAAAAAAAAABkARQnAQ",
@@ -488,7 +466,7 @@
           "title_en": "Point Chart",
           "host": "https://f2.antv.vision/",
           "path": "/examples/point/scatter",
-          "ratio": 1.9 
+          "ratio": 1.3 
         },
         {
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*eKP_RJ2aMfgAAAAAAAAAAABkARQnAQ",
@@ -496,7 +474,7 @@
           "title_en": "Point Chart",
           "host": "https://f2.antv.vision/",
           "path": "/examples/point/scatter#bubble",
-          "ratio": 1.9 
+          "ratio": 1.3 
         },
         {
           "imgurl": "https://gw.alipayobjects.com/zos/finxbff/compress-tinypng/ca7a35dd-b1e9-46b4-a802-54ee4c5e3501.jpg",
@@ -504,7 +482,7 @@
           "title_en": "Pyramid Chart",
           "host": "https://f2.antv.vision/",
           "path": "/examples/funnel/pyramid#stroke",
-          "ratio": 1.9 
+          "ratio": 1.3 
         },
         {
           "imgurl": "https://gw.alipayobjects.com/zos/finxbff/compress-tinypng/4f420a5d-6a81-4ef8-9cba-62106bbdb593.jpg",
@@ -512,14 +490,14 @@
           "title_en": "Basic Funnel Chart",
           "host": "https://f2.antv.vision/",
           "path": "/examples/funnel/basic#stroke",
-          "ratio": 1.9 
+          "ratio": 1.3 
         }
       ]
     },
     {
       "name": "AVA",
       "products": ["AVA"],
-      "banner_img": "https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*cXDfSqZIceYAAAAAAAAAAAAAARQnAQ",
+      "banner_img": "https://gw.alipayobjects.com/zos/bmw-prod/2add3311-0f8b-4dc3-a943-8bcff56a3fec.svg",
       "banner_url": "https://ava.antv.vision"
     }
   ],

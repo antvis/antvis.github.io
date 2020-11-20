@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import chroma from 'chroma-js';
-import { assign, clone } from 'lodash';
+import { assign } from 'lodash';
 
 import styles from './Demos.module.less';
 
@@ -19,16 +19,18 @@ interface DemoProps {
 interface DemosProps {
   list?: DemoProps[];
   active: number;
+  type: string; // demo类型
 }
 
 export default (props: DemosProps) => {
   // 根据实际效果调整最大最小列数
-  const MAX_COLS = 4;
+  const MAX_COLS = 5;
   const MIN_COLS = 2;
   let list = props.list || [];
-  const active = props.active;
+  const { active, type } = props;
   const { i18n } = useTranslation();
   const [imgs, updateImgs] = useState<number[][]>([]);
+  const [totalImgs, updateTotalImgs] = useState<number>(0);
 
   const getRandomNum = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -48,8 +50,8 @@ export default (props: DemosProps) => {
     }
 
     // 比例阀值看实际情况调整
-    if (ratio <= 1.3) {
-      randomCols = getRandomNum(MIN_COLS, 3);
+    if (ratio === 1.3) {
+      randomCols = 3; // g2 g2plot只适合3列
     } else {
       randomCols = getRandomNum(MIN_COLS, MAX_COLS);
     }
@@ -80,9 +82,9 @@ export default (props: DemosProps) => {
     const height = document.body.clientHeight - 396;
     const maxHeight = height > 480 ? height : 480;
     const ratio = list[0].ratio;
-
     const cols = getCols(list.length, ratio);
     const totalImgNum = getSum(cols);
+    updateTotalImgs(totalImgNum);
     let index = getRandomNum(0, list.length - totalImgNum - 1); // list索引，随机截取
     let firtColNum = getRandomNum(1, 2);
     for (let i = 0; i < cols; i += 1) {
@@ -97,7 +99,6 @@ export default (props: DemosProps) => {
       res.push(rowIndex);
       firtColNum += 1;
     }
-
     return res;
   };
 
@@ -124,20 +125,38 @@ export default (props: DemosProps) => {
                 height: `${list[item].height}px`,
               }}
             >
-              <div
-                className={styles.cover}
-                style={{
-                  backgroundColor: `${colorScale(item / list.length)}`,
-                }}
-              />
-              <div
-                className={styles.img}
-                style={{
-                  backgroundImage: `url(${list[item].imgurl})`,
-                  width: `${list[item].width}px`,
-                  height: `${list[item].height}px`,
-                }}
-              />
+              {key + index !== 0 && (
+                <div
+                  className={styles.cover}
+                  style={{
+                    backgroundColor: `${colorScale((key + index) / totalImgs)}`,
+                    opacity: `${0.9 * ((key + index) / totalImgs)}`,
+                  }}
+                />
+              )}
+
+              {type === 'X6' || type === 'L7' ? (
+                <div
+                  className={styles.img}
+                  style={{
+                    backgroundImage: `url(${list[item].imgurl})`,
+                    backgroundSize: 'cover',
+                    width: `${list[item].width}px`,
+                    height: `${list[item].height}px`,
+                  }}
+                />
+              ) : (
+                <div
+                  className={styles.img}
+                  style={{
+                    backgroundImage: `url(${list[item].imgurl})`,
+                    backgroundSize: 'contain',
+                    width: `${list[item].width}px`,
+                    height: `${list[item].height}px`,
+                  }}
+                />
+              )}
+
               <div className={styles.title}>
                 {i18n.language === 'zh'
                   ? list[item].title_zh

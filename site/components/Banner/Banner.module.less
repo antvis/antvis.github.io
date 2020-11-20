@@ -5,11 +5,11 @@
     .extraTabs {
       position: absolute;
       bottom: -16px;
-      right: 40px;
+      right: 60px;
       z-index: 999;
       a {
         font-size: 18px;
-        margin-right: 64px;
+        margin-right: 60px;
         color: rgba(255, 255, 255, 0.7);
         cursor: pointer;
         &:hover {
@@ -71,12 +71,14 @@
     z-index: 12;
     left: 60px;
     display: flex;
+    overflow: hidden;
+    width: 880px;
   }
 
   .productItem {
     font-size: 18px;
     margin-right: 64px;
-    color: fade(#fff, 50%);
+    color: fade(#fff, 65%);
     cursor: pointer;
     position: relative;
 
@@ -114,10 +116,11 @@
   .guide {
     width: 360px;
     background: #6d5bf9;
-    padding-top: 60px;
+    padding-top: 40px;
     padding-left: 60px;
-    padding-right: 60px;
+    padding-right: 40px;
     color: #fff;
+    text-align: justify;
 
     .name {
       font-size: 28px;
@@ -125,7 +128,9 @@
     .info {
       font-size: 14px;
       margin-top: 8px;
-      line-height: 1.5;
+      line-height: 1.6;
+      font-weight: 300;
+      opacity: 0.85;
     }
     .guideItem {
       margin-bottom: 32px;
@@ -135,7 +140,9 @@
       .info {
         font-size: 14px;
         margin-top: 8px;
-        line-height: 1.5;
+        line-height: 1.6;
+        font-weight: 300;
+        opacity: 0.85;
       }
     }
 
@@ -171,6 +178,19 @@
           height: 20px;
           margin-left: 8px;
         }
+        &:hover {
+          color: #fed361;
+          transition: 0.2s;
+          .home {
+            background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/cbae6ccf-9930-45a8-91de-5b885ff0cc7b.svg);
+          }
+          .example {
+            background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/46ed9ca6-5cbf-4693-a02c-10c698d23ec5.svg);
+          }
+          .api {
+            background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/c590a4f8-3846-4c10-a523-d9be14eae14d.svg);
+          }
+        }
       }
     }
   }
@@ -196,11 +216,19 @@
       display: block;
       width: calc(100vw - 360px);
       height: 100%;
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #0000006b;
+        z-index: -3;
+      }
     }
 
     .banner {
       z-index: 9;
-      width: calc(100vw - 480px);
+      width: calc(100vw - 498px);
       height: auto;
     }
   }
@@ -214,9 +242,16 @@
   .time {
     font-size: 10px;
     margin-top: 20px;
+    margin-bottom: -6px;
+    opacity: 0.65;
   }
   .promo {
     font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    width: 260px;
+    text-overflow: ellipsis;
   }
 
   .bgVideo {
@@ -234,5 +269,14 @@
   }
   100% {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1069px) {
+  .extraTabs {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
   }
 }

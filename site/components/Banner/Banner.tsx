@@ -196,8 +196,7 @@ export default () => {
                       />
                     </a>
                   ) : (
-                    <Demos list={item.demos} active={active} />
-                    // <DemoTwo />
+                    <Demos type={item.name} list={item.demos} active={active} />
                   )}
                 </div>
               </div>
