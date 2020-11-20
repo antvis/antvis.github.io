@@ -14,6 +14,7 @@ export default () => {
       title: '图标1',
       href: 'https://www.baidu.com',
       screenshot: '',
+      lang: 'zh',
     },
     {
       type: 'p1',

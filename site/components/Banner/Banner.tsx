@@ -13,8 +13,11 @@ interface NotificationProps {
   date: string;
   link: string;
 }
+interface BannerProps {
+  remoteNews: NotificationProps[];
+}
 
-export default () => {
+export default (props: BannerProps) => {
   const { t, i18n } = useTranslation();
   const products = getProducts({
     t,
@@ -22,19 +25,9 @@ export default () => {
     rootDomain: '',
   });
 
+  const { remoteNews } = props;
+
   const lang = i18n.language.includes('zh') ? 'zh' : 'en';
-  const notificationsUrl = `https://my-json-server.typicode.com/antvis/antvis-sites-data/notifications?lang=${lang}`;
-
-  const [remoteNews, setRemoteNews] = useState<NotificationProps>();
-
-  useEffect(() => {
-    fetch(notificationsUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        // 根据设计，目前只取最新的一条，两条放不下
-        setRemoteNews(data[0]);
-      });
-  }, [notificationsUrl]);
 
   const { about, products_tabs, extra_tabs } = bannerInfo;
   const [active, setActive] = useState(0);
@@ -109,19 +102,20 @@ export default () => {
                   <div className={styles.text}>{t('关于我们')}</div>
                 </a>
               </div>
-              {remoteNews && (
-                <div className={styles.news}>
-                  <div className={styles.newsTitle}>
-                    {t('最新资讯')} ｜ {remoteNews.type}
+
+              <div className={styles.news}>
+                <div className={styles.newsTitle}>{t('最新资讯')}</div>
+                {remoteNews.map((item: any, index: number) => (
+                  <div key={`${item.title}${index}`}>
+                    <div className={styles.time}>{item.date}</div>
+                    <div className={styles.urlList}>
+                      <a href={item.link} target="_blank">
+                        <div className={styles.promo}>{item.title}</div>
+                      </a>
+                    </div>
                   </div>
-                  <div className={styles.time}>{remoteNews.date}</div>
-                  <div className={styles.urlList}>
-                    <a href={remoteNews.link} target="_blank">
-                      <div className={styles.promo}>{remoteNews.title}</div>
-                    </a>
-                  </div>
-                </div>
-              )}
+                ))}
+              </div>
             </div>
 
             <div className={styles.productShow} id="productShow">

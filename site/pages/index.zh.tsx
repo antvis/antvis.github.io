@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
 import Banner from '../components/Banner/Banner';
+import MobileBanner from '@antv/gatsby-theme-antv/site/components/Banner';
 import Features from '@antv/gatsby-theme-antv/site/components/Features';
 import Companies from '@antv/gatsby-theme-antv/site/components/Companies';
 import ProductsPage from '../components/Products/Products';
@@ -9,11 +10,35 @@ import ResourcesPage from '../components/Resources/Resources';
 import DescribePage from '../components/Describe/Describe';
 import QuotesPage from '../components/Quotes/Quotes';
 import BannerSVG from '../components/bannerSVG/bannerSVG';
+import { useMedia } from 'react-use';
 import { useTranslation } from 'react-i18next';
 import './index.less';
 
+interface NotificationProps {
+  index?: number;
+  type: string;
+  title: string;
+  date: string;
+  link: string;
+}
+
 const IndexPage = () => {
   const { t, i18n } = useTranslation();
+  const isWide = useMedia('(min-width: 767.99px)', true);
+
+  const lang = i18n.language.includes('zh') ? 'zh' : 'en';
+  const notificationsUrl = `https://my-json-server.typicode.com/antvis/antvis-sites-data/notifications?lang=${lang}`;
+
+  const [remoteNews, setRemoteNews] = useState<NotificationProps[]>([]);
+
+  useEffect(() => {
+    fetch(notificationsUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        // 根据设计，目前只取最新的两条
+        setRemoteNews(data.slice(0, 2));
+      });
+  }, [notificationsUrl]);
 
   const features = [
     {
@@ -96,21 +121,6 @@ const IndexPage = () => {
     },
   ];
 
-  const notifications = [
-    {
-      type: t('论坛'),
-      title: t('第十五届 D2 前端技术论坛·无界'),
-      date: '2020.12.19',
-      link: 'http://d2forum.alibaba-inc.com/',
-    },
-    {
-      type: t('招聘'),
-      title: t('蚂蚁集团体验技术部招聘啦！'),
-      date: '2020.05.18',
-      link: 'https://www.yuque.com/uf44r1/wqrwsg/alwufg',
-    },
-  ];
-
   const [animationStates, setAnimationState] = useState({
     play: true,
   });
@@ -136,7 +146,28 @@ const IndexPage = () => {
       />
 
       <div className="home-container">
-        <Banner />
+        {isWide ? (
+          <Banner remoteNews={remoteNews} />
+        ) : (
+          <>
+            <MobileBanner
+              className="banner"
+              coverImage={<BannerSVG play={animationStates.play} />}
+              description={t(
+                'AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、无限可能的数据可视化最佳实践。',
+              )}
+              title={t('蚂蚁数据可视化')}
+              showGithubStars={false}
+              buttons={bannerButtons}
+              video="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/file/A*PDpiR4U2oFEAAAAAAAAAAABkARQnAQ"
+              onPlayVideo={onPlayVideo}
+              onCloseVideo={onCloseVideo}
+              notifications={remoteNews}
+            />
+            <ProductsPage />
+          </>
+        )}
+
         <DecisionTreePage />
         <ResourcesPage />
         <DescribePage />

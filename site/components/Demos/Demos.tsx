@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import chroma from 'chroma-js';
-import { assign } from 'lodash';
+import { assign, debounce } from 'lodash';
 
 import styles from './Demos.module.less';
 
