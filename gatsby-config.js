@@ -20,7 +20,6 @@ module.exports = {
           zh: '设计',
           en: 'Specification',
         },
-        
       },
       {
         slug: 'docs/example',
@@ -28,7 +27,7 @@ module.exports = {
           zh: '场景案例',
           en: 'Show Case',
         },
-      }
+      },
     ],
     docs: [
       {
@@ -77,7 +76,7 @@ module.exports = {
           zh: '信息组件 Info Component',
           en: 'Design for Components of Charts',
         },
-        order: 0,
+        order: 6,
       },
       {
         slug: 'specification/resources',

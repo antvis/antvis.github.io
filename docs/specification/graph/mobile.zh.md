@@ -31,7 +31,7 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 | PC | 移动端 |
 | --- | --- |
-| <br /><br /><br /><br /><br />![](https://cdn.nlark.com/lark/0/2018/png/18983/1535524712603-6195cc66-02a6-44c0-b800-ab779621445d.png#width=358) | ![](https://cdn.nlark.com/lark/0/2018/png/18983/1535445049819-f9eba1bf-bd59-45f5-9d8e-8bfd2c15ee11.png#width=255) |
+| <br /><br /><br /><br /><br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*GT9kSaph_38AAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*UMuASYgxoJAAAAAAAAAAAAAAARQnAQ) |
 |  |
 |  |
 |  |  |
@@ -39,23 +39,23 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 ## **2、手势操作自然**
 
-移动端的硬件特质以及发展趋势，要求可视化的操作更符合人的自然行为反应，使交互操作更自然。手势方式的选择上应该源于生活经验，易于理解，学习成本低，用户无操作压力。<br /> <br />区别于游戏和其他沉浸式应用中的手势选择，在可视化场景中，**应该尽量避免高学习成本的手势，同时需要注意保持页面间交互的一致性。**以下为\*\* \*\*AntV 的设计师推荐使用的最常用的标准手势：<br /> <br />![](https://cdn.nlark.com/lark/0/2018/png/18983/1537185184636-284c7592-00d2-4dc9-918a-5edb3edaa8f6.png#align=left&display=inline&height=198&margin=%5Bobject%20Object%5D&originHeight=462&originWidth=1744&status=done&style=none&width=746)<br /> <br />在 “信息轻量聚焦” 中我们提到移动端的可视化设计多聚焦于用户的直接任务，用 [可视化交互](https://yuque.antfin-inc.com/antv/visdesign/interaction-guideline) 一文中提及的任务层次来分析，移动端交互设计上会更聚焦在数据获取层，对复杂程度较高的交互行为要进行适度的克制。下图是 AntV 设计总结的常用手势表，给大家做参考。
+移动端的硬件特质以及发展趋势，要求可视化的操作更符合人的自然行为反应，使交互操作更自然。手势方式的选择上应该源于生活经验，易于理解，学习成本低，用户无操作压力。<br /> <br />区别于游戏和其他沉浸式应用中的手势选择，在可视化场景中，**应该尽量避免高学习成本的手势，同时需要注意保持页面间交互的一致性。**以下为\*\* \*\*AntV 的设计师推荐使用的最常用的标准手势：<br /> <br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*SmlZQY1NH-8AAAAAAAAAAAAAARQnAQ)<br /> <br />在 “信息轻量聚焦” 中我们提到移动端的可视化设计多聚焦于用户的直接任务，用 [可视化交互](https://yuque.antfin-inc.com/antv/visdesign/interaction-guideline) 一文中提及的任务层次来分析，移动端交互设计上会更聚焦在数据获取层，对复杂程度较高的交互行为要进行适度的克制。下图是 AntV 设计总结的常用手势表，给大家做参考。
 
 | **动作** | **目的** | **操作** | **示例** |
 | --- | --- | --- | --- |
-| 浏览 | 寻找感兴趣的数据 | Touch and hold<br />![](https://cdn.nlark.com/lark/0/2018/png/18983/1537235411468-140aa447-0914-4715-8362-87d0e505e529.png#width=120) | ![](https://cdn.nlark.com/lark/0/2018/gif/18983/1538125905229-74308a08-17a3-4226-903d-f09836cfdd87.gif#width=290) |
+| 浏览 | 寻找感兴趣的数据 | Touch and hold<br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*sF5KQa9DBWAAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*EieBSL4__wgAAAAAAAAAAAAAARQnAQ) |
 |  |  |  |
 |  |  |  |
 |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
-| 选中 | 对单个数据点感兴趣 | Tap<br />![](https://cdn.nlark.com/lark/0/2018/png/18983/1537235445539-7b355456-54cf-4c79-957d-c4e18f8afff6.png#width=120) | ![](https://cdn.nlark.com/lark/0/2018/gif/18983/1538124900879-cd9bb001-2853-43f0-b59b-19ed5206b515.gif#width=290) |
+| 选中 | 对单个数据点感兴趣 | Tap<br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*tr5mR5kLBsIAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*nwHFTocgGM0AAAAAAAAAAAAAARQnAQ) |
 |  |  |  |
 |  |  |  |  |
-| 过滤 | 聚焦重点信息 | Touch and hold<br />![](https://cdn.nlark.com/lark/0/2018/png/18983/1537235502098-72787470-0316-46ce-8b85-47c48168c165.png#width=120) | ![](https://cdn.nlark.com/lark/0/2018/gif/18983/1538127057220-3b01fb54-c397-43ed-a7ae-d557291e7e2a.gif#width=290) |
-| 缩放 | 探索、识别数据 | Pinch<br />![](https://cdn.nlark.com/lark/0/2018/png/18983/1537235526858-670428ff-bcf5-4b47-a486-17c87faa53ff.png#width=120) | ![](https://cdn.nlark.com/lark/0/2018/gif/18983/1537189959901-23ac94fc-1f47-4a26-9f98-a40c041ad862.gif#width=290) |
-| 平移 | 探索更大的数据空间 | Swipe<br />![](https://cdn.nlark.com/lark/0/2018/png/18983/1537235549338-9684ff83-c1bc-4f6a-9824-3d0f5e5e3e04.png#width=120) | ![](https://cdn.nlark.com/lark/0/2018/gif/18983/1538125461825-c4caf0c9-b0bb-430f-9608-c17c0463373a.gif#width=290) |
+| 过滤 | 聚焦重点信息 | Touch and hold<br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*PeAUQpdwouwAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*dsrjRqD_PUcAAAAAAAAAAAAAARQnAQ) |
+| 缩放 | 探索、识别数据 | Pinch<br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*wE0sT7UUeesAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*KKKGRKluIg4AAAAAAAAAAAAAARQnAQ) |
+| 平移 | 探索更大的数据空间 | Swipe<br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ELAJS7z5iLkAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*yWrQQ5aLj6UAAAAAAAAAAAAAARQnAQ) |
 
 ## 3**、功能组件完善易用**
 
@@ -63,7 +63,7 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 | 名称 | 改造前（传统 PC） | 改造后 |
 | --- | --- | --- |
-|  | ![](https://cdn.nlark.com/lark/0/2018/png/18983/1537237371524-102c1b72-3d6f-487a-a4d5-eb70c2214ea0.png#width=311) | ![](https://cdn.nlark.com/lark/0/2018/png/18983/1537237332887-a9412710-8ee5-4d74-855c-72ae5456a5ca.png#width=280) |
+|  | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ZoSPT7_20ggAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*PwH6TaM68RgAAAAAAAAAAAAAARQnAQ) |
 |  | 传统的 tooltip 的展示方式在移动端上展示时，浪费了更多的信息空间，并遮挡了有效信息。 | 有效利用屏幕的空间并尝试结合图例展示详细信息。 |
 
 移动端可视化图表往往承载于卡片等“容器”的载体之上，对于图表本身而言也许并不需要复杂的栅格系统，但同样需要找到图表结构的动态空间秩序，达到无论硬件或“容器”如何变化，都有可遵循的『秩序之美』。<br /> <br />在移动端的可视化体系中，建议从三个方面出发：
@@ -76,11 +76,11 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 ### 4-1、容器尺寸
 
-移动端的界面尺寸非常多样，为了保证在浏览状态下图表各信息显示的完整性，并在主流尺寸下显示更多信息内容，AntV 移动端的容器尺寸（下面会给出定义）建议用 4：3 比例进行设计。<br /> <br />![](https://cdn.nlark.com/lark/0/2018/png/18983/1532594113222-0d8ad1c4-3011-438a-996d-fdf42fe9c328.png#align=left&display=inline&height=481&margin=%5Bobject%20Object%5D&originHeight=1312&originWidth=1642&status=done&style=none&width=602)<br />
+移动端的界面尺寸非常多样，为了保证在浏览状态下图表各信息显示的完整性，并在主流尺寸下显示更多信息内容，AntV 移动端的容器尺寸（下面会给出定义）建议用 4：3 比例进行设计。<br /> <br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*0pBBT6OStY8AAAAAAAAAAAAAARQnAQ)<br />
 
 ### 4-2、布局及适配
 
-虽然 AntV 的图表组件在各个组块的配置上给出了足够的灵活性，但由于移动端的硬件的多变性，设计师更应该带着适配的概念，判断哪些模块应该是确定，哪些模块应该动态适应硬件的变化，具体的模块定义如下图。<br /> <br />![](https://cdn.nlark.com/lark/0/2018/png/18983/1532599184320-777e1173-c11b-4096-a46b-5fd47eefcbb5.png#align=left&display=inline&height=440&margin=%5Bobject%20Object%5D&originHeight=1188&originWidth=1578&status=done&style=none&width=584)<br />
+虽然 AntV 的图表组件在各个组块的配置上给出了足够的灵活性，但由于移动端的硬件的多变性，设计师更应该带着适配的概念，判断哪些模块应该是确定，哪些模块应该动态适应硬件的变化，具体的模块定义如下图。<br /> <br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*c2dEQYQe0ZkAAAAAAAAAAAAAARQnAQ)<br />
 
 ### 4-3、阅读模式切换
 
@@ -92,10 +92,10 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 |  | 在多图表的长页面中，多为浏览型的诉求，设计上更简明更快速做为主要体验目标。 | 对某一图表做进一步操作（详情、下钻等）时，可以通过切换场景或扩大面积方式，沉入式操作。 |
 | --- | --- | --- |
-| **场景切换** | ![](https://cdn.nlark.com/lark/0/2018/png/18983/1535445049819-f9eba1bf-bd59-45f5-9d8e-8bfd2c15ee11.png#width=283) | ![](https://cdn.nlark.com/lark/0/2018/png/18983/1535443805710-2dc89e88-11d1-43fd-8bc9-a4adcb8979ec.png#width=269) |
+| **场景切换** | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*xvpbT7v0sCkAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Pp5mSYnkgbsAAAAAAAAAAAAAARQnAQ) |
 |  |  |
 |  |  |  |
-| **纵向拉伸** | ![](https://cdn.nlark.com/lark/0/2018/png/18983/1535445040274-cb6ac43b-f71b-4068-8e43-4d58b07d8b20.png#width=283) | ![](https://cdn.nlark.com/lark/0/2018/png/18983/1535444461316-38e6d8ce-b94c-4349-9141-42b076b019f2.png#width=264) |
+| **纵向拉伸** | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*awcdToQjvVkAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*LtZXR4Ix14IAAAAAAAAAAAAAARQnAQ) |
 
 #### 阅读模式的切换
 
@@ -103,7 +103,7 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 | 纵向 | 横向 |
 | --- | --- |
-| ![](https://cdn.nlark.com/lark/0/2018/png/18983/1535507942454-68dc80e7-d612-46d4-8948-fbcf12a7a246.png#width=306) | <br /><br /><br />![](https://cdn.nlark.com/lark/0/2018/png/18983/1535528605277-c969b93b-7c69-4bfa-acca-1553928fa53f.png#width=401)<br /><br /><br /><br /><br /> |
+| ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*-oR1RL2HMTcAAAAAAAAAAAAAARQnAQ) | <br /><br /><br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*wMmORoD03okAAAAAAAAAAAAAARQnAQ)<br /><br /><br /><br /><br /> |
 
 ## 总结
 
@@ -111,5 +111,5 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 | 名称 | 改造前（传统 PC） | 改造后 |
 | --- | --- | --- |
-|  | ![](https://cdn.nlark.com/lark/0/2018/png/18983/1537237371524-102c1b72-3d6f-487a-a4d5-eb70c2214ea0.png#width=311) | ![](https://cdn.nlark.com/lark/0/2018/png/18983/1537237332887-a9412710-8ee5-4d74-855c-72ae5456a5ca.png#width=280) |
+|  | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*fYivSZFbascAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*fYgRQbW6lfYAAAAAAAAAAAAAARQnAQ) |
 |  | 传统的 tooltip 的展示方式在移动端上展示时，浪费了更多的信息空间，并遮挡了有效信息。 | 有效利用屏幕的空间并尝试结合图例展示详细信息。 |

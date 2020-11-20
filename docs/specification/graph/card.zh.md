@@ -20,8 +20,8 @@ order: 0
 - Legend 图例：颜色图例、样式图例、指标型图例
 - Element 图表图形必选
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605617664858-d5dcad62-5361-4434-b6c3-0b07ce209fb9.png#align=left&display=inline&height=769&margin=%5Bobject%20Object%5D&name=image.png&originHeight=769&originWidth=1893&size=112477&status=done&style=none&width=1893)<br /> <br /> <br />
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*96W_T4fxggQAAAAAAAAAAAAAARQnAQ)<br /> <br /> <br />
 
 ## 信息优先级
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605617664838-d1f4ef82-67c6-41ab-8ac1-7b7317387d96.png#align=left&display=inline&height=171&margin=%5Bobject%20Object%5D&name=image.png&originHeight=171&originWidth=1200&size=62775&status=done&style=none&width=1200)<br />
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*-JzQQ4XL8bsAAAAAAAAAAAAAARQnAQ)<br />

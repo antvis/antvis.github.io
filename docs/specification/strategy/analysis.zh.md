@@ -10,11 +10,11 @@ order: 1
 - **设计者，**从数据到图表——数据元素到视觉编码的映射过程
 - **阅读者，**从图表到数据——视觉解码还原为数据结构的过程
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605617614085-4cf909e8-b055-4a4c-be82-149be3a866c8.png#align=left&display=inline&height=958&margin=%5Bobject%20Object%5D&name=image.png&originHeight=958&originWidth=3840&size=628139&status=done&style=none&width=3840)<br /> <br /> <br />
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*twtrS6DuNsAAAAAAAAAAAAAAARQnAQ)<br /> <br /> <br />
 
 ## 分析模型
 
-我们设计数据可视化时，应当站在用户的角度换位思考。用户面对可视化时，通常会套用一个固化的分析思路，它们环环相扣形成闭环，是固定的分析模式，我们称之“分析模型”。<br />![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605617613477-9dbed554-a017-460c-8f41-6eb6779101cb.png#align=left&display=inline&height=493&margin=%5Bobject%20Object%5D&name=image.png&originHeight=493&originWidth=1440&size=248454&status=done&style=none&width=1440)
+我们设计数据可视化时，应当站在用户的角度换位思考。用户面对可视化时，通常会套用一个固化的分析思路，它们环环相扣形成闭环，是固定的分析模式，我们称之“分析模型”。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*pwHGQJNBAd4AAAAAAAAAAAAAARQnAQ)
 
 > 5W 模型最早由 IBM 提出，作为通用分析模型指引分析师进行工作。
 
