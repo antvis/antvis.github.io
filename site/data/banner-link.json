@@ -1,0 +1,124 @@
+[
+  [
+    {
+      "title": "Ant Design Charts",
+      "path": "https://charts.ant.design/",
+      "span": 24,
+      "className": "antdChart"
+    }
+  ],
+  [
+    {
+      "span": 8,
+      "children": [
+        [
+          {
+            "title": "G2Plot",
+            "path": "https://g2plot.antv.vision/zh/",
+            "span": 12,
+            "className": "G2"
+          },
+          {
+            "title": "F2Native",
+            "path": "https://f2native.antv.vision/zh/",
+            "span": 12,
+            "className": "F2"
+          }
+        ],
+        [
+          {
+            "title": "G2",
+            "path": "https://g2.antv.vision/zh",
+            "span": 12,
+            "className": "G2"
+          },
+          {
+            "title": "F2",
+            "path": "https://f2.antv.vision/zh",
+            "span": 12,
+            "className": "F2"
+          }
+        ],
+        [
+          {
+            "title": "常规统计数据",
+            "span": 24,
+            "className": "conventional"
+          }
+        ]
+      ]
+    },
+    {
+      "span": 8,
+      "children": [
+        [
+          {
+            "title": "Graphin",
+            "path": "https://graphin.antv.vision/zh/",
+            "span": 12,
+            "className": "G6"
+          },
+          {
+            "title": "XFlow",
+            "span": 12,
+            "className": "G6"
+          }
+        ],
+        [
+          {
+            "title": "G6",
+            "path": "https://g6.antv.vision/zh/",
+            "span": 12,
+            "className": "G6"
+          },
+          {
+            "title": "X6",
+            "path": "https://x6.antv.vision/zh",
+            "span": 12,
+            "className": "G6"
+          }
+        ],
+        [
+          {
+            "title": "关系数据",
+            "span": 24,
+            "className": "relationship"
+          }
+        ]
+      ]
+    },
+    {
+      "span": 5,
+      "children": [
+        [
+          {
+            "title": "L7Boundary",
+            "span": 24,
+            "className": "L7"
+          }
+        ],
+        [
+          {
+            "title": "L7",
+            "path": "https://l7.antv.vision/zh",
+            "span": 24,
+            "className": "L7"
+          }
+        ],
+        [
+          {
+            "title": "地理空间数据",
+            "span": 24,
+            "className": "geography"
+          }
+        ]
+      ]
+    },
+    {
+      "title": "ava",
+      "path": "https://ava.antv.vision/zh/",
+      "span": 3,
+      "className": "ava"
+    }
+  ]
+]

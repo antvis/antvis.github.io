@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Children } from 'react';
 import classNames from 'classnames';
 import styles from './Banner.module.less';
+import { Row, Col } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { getProducts } from '@antv/gatsby-theme-antv/site/components/getProducts';
 import Demos from '../Demos/Demos';
 import bannerInfo from '../../data/banner-info.json';
+import bannerLink from '../../data/banner-link.json';
 
 interface NotificationProps {
   index?: number;
@@ -31,6 +33,41 @@ export default (props: BannerProps) => {
 
   const { about, products_tabs, extra_tabs } = bannerInfo;
   const [active, setActive] = useState(0);
+
+  const renderBannerNodes = (bannerList: any[]) => {
+    return bannerList.map((row, index) => {
+      return (
+        <Row gutter={[15, 15]} justify="space-between" key={index}>
+          {row.map((item: any) => {
+            if (item.children) {
+              return (
+                <Col span={item.span}>{renderBannerNodes(item.children)}</Col>
+              );
+            } else {
+              return (
+                <Col key={item.title} span={item.span}>
+                  {item.path ? (
+                    <a
+                      className={styles[item.className]}
+                      key={item.title}
+                      href={item.path}
+                      target="_blank"
+                    >
+                      {item.title}
+                    </a>
+                  ) : (
+                    <span className={styles[item.className]} key={item.title}>
+                      {item.title}
+                    </span>
+                  )}
+                </Col>
+              );
+            }
+          })}
+        </Row>
+      );
+    });
+  };
 
   return (
     <div className={styles.banner}>
@@ -120,13 +157,9 @@ export default (props: BannerProps) => {
 
             <div className={styles.productShow} id="productShow">
               <div className={styles.bgCover} />
-              <a href={`${i18n.language}${about.banner_url}`}>
-                <img
-                  className={styles.banner}
-                  src={about.banner_img}
-                  alt="AntV Structure"
-                />
-              </a>
+              <div className={styles.aboutLink}>
+                {renderBannerNodes(bannerLink)}
+              </div>
             </div>
           </div>
 
