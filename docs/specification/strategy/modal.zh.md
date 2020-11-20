@@ -7,7 +7,7 @@ order: 0
 
 2005 年，英国设计协会（The British Design Council）首次提出“双钻设计模型”（double-diamond design process model），他们将设计过程分为 4 个阶段（探索 > 聚焦 > 设计 > 评估）。该双钻模型同样适合于数据可视化设计。
 
-## ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Eo-NQLbbmyYAAAAAAAAAAAAAARQnAQ)\*\*
+<img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Eo-NQLbbmyYAAAAAAAAAAAAAARQnAQ" width="100%">
 
 值得注意的是，数据可视化中，如果一个双钻流程没能拿到结果，那么我们再次探索、聚焦，直至找到满意的可视化解决方案。<br /> <br /> <br /> <br />
 

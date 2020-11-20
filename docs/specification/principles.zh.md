@@ -9,11 +9,11 @@ redirect_from:
 
 ### **准确**
 
-可视表达时不歪曲，不误导，不遗漏，精准如实反应数据的特征信息。例：某基金收益率趋势图，合理的值域区间可以反映真实的数据波动趋势。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*txR0T5hk6PYAAAAAAAAAAAAAARQnAQ)<br />\*\*<br />
+可视表达时不歪曲，不误导，不遗漏，精准如实反应数据的特征信息。例：某基金收益率趋势图，合理的值域区间可以反映真实的数据波动趋势。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*txR0T5hk6PYAAAAAAAAAAAAAARQnAQ)<br />
 
 ### **清晰**
 
-清晰包括两个层面，**结构清晰** 与 **内容清晰。** <br />**<br />**结构清晰：**数据可视化呈现的是一幅作品，它是制作者分析思路的呈现，其布局决定阅读者的浏览顺序。清晰的平面布局以及清晰的数据纵深路径能很好的帮助阅读者获取信息。下图展示一个经典的仪表盘设计布局，上方的筛选区从顶层决定画布区呈现的数据，右侧区默认展示画布区的汇总信息，画布上激活数据点时，右侧则更新显示明细数据。<br /><img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ZoGhS5Xwr4UAAAAAAAAAAAAAARQnAQ" width="100%"><br /> <br /> <br />**内容清晰：\*\*不让用户带着疑惑看图是我们始终不变的追求。当图上有数据日期、数据来源、数据指标需要说明时，应当在恰当的时间、合适的位置给予说明，以帮助阅读者更好地理解数据、定位问题。<br />![结构清晰-1.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Y2hXRJTNkZYAAAAAAAAAAAAAARQnAQ)<br /> <br /> <br />
+清晰包括两个层面，**结构清晰**与**内容清晰。** <br />**<br />**结构清晰：**数据可视化呈现的是一幅作品，它是制作者分析思路的呈现，其布局决定阅读者的浏览顺序。清晰的平面布局以及清晰的数据纵深路径能很好的帮助阅读者获取信息。下图展示一个经典的仪表盘设计布局，上方的筛选区从顶层决定画布区呈现的数据，右侧区默认展示画布区的汇总信息，画布上激活数据点时，右侧则更新显示明细数据。<br /><img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ZoGhS5Xwr4UAAAAAAAAAAAAAARQnAQ" width="100%"><br /> <br /> <br />**内容清晰：不让用户带着疑惑看图是我们始终不变的追求。当图上有数据日期、数据来源、数据指标需要说明时，应当在恰当的时间、合适的位置给予说明，以帮助阅读者更好地理解数据、定位问题。<br />![结构清晰-1.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Y2hXRJTNkZYAAAAAAAAAAAAAARQnAQ)<br /> <br /> <br />
 
 ### **有效**
 

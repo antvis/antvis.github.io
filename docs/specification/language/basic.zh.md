@@ -11,11 +11,11 @@ AntV 的设计体系中，视觉设计尤为重要。本文主要包括 3 个篇
 
 ### 组件构成
 
-得益于图形语法的启发，AntV 设计团队从设计角度，将图表进行原子级拆分、抽象，形成这样一套通用组件，如下图中的标题、轴、图形、标签、注解、提示信息、图例等。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*uYO_TLo_kewAAAAAAAAAAAAAARQnAQ)<br />**<br />**<br />\*\*
+得益于图形语法的启发，AntV 设计团队从设计角度，将图表进行原子级拆分、抽象，形成这样一套通用组件，如下图中的标题、轴、图形、标签、注解、提示信息、图例等。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*uYO_TLo_kewAAAAAAAAAAAAAARQnAQ)<br />**<br />**<br />
 
 ### 平面空间布局
 
-将这些组件在平面空间上合理排布，可以分清主次，同时决定我们的阅读先后顺序。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*04ZLTqExEnwAAAAAAAAAAAAAARQnAQ)<br /> <br /> <br />\*\*
+将这些组件在平面空间上合理排布，可以分清主次，同时决定我们的阅读先后顺序。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*04ZLTqExEnwAAAAAAAAAAAAAARQnAQ)<br /> <br /> <br />
 
 ### 纵向空间层级
 
@@ -68,7 +68,7 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ### 定义系统字体
 
-引入外部扩展字体会增加数据包的容量，影响加载性能。如非必要，勿须引入。另外，在字体申明的列表中，建议遵循 fallback 机制对字体顺序进行编排。如下示意：\*\*
+引入外部扩展字体会增加数据包的容量，影响加载性能。如非必要，勿须引入。另外，在字体申明的列表中，建议遵循 fallback 机制对字体顺序进行编排。如下示意：
 
 ```css
 font-family: “Roboto","Helvetica Neue", 'Segoe UI', Tahoma,Verdana, -apple-system, BlinkMacSystemFont ,sans-serif;

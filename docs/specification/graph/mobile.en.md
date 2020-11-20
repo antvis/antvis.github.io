@@ -31,7 +31,7 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 | PC | 移动端 |
 | --- | --- |
-| <img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*GT9kSaph_38AAAAAAAAAAAAAARQnAQ" width="500pt" height="500pt"> | <img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*UMuASYgxoJAAAAAAAAAAAAAAARQnAQ" width="500pt"> |
+| <br /><br /><br /><br /><br /><img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*GT9kSaph_38AAAAAAAAAAAAAARQnAQ" width="100%"> | <img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*UMuASYgxoJAAAAAAAAAAAAAAARQnAQ" width="100%"> |
 |  |
 
 ## **2、手势操作自然**
@@ -41,7 +41,15 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 | **动作** | **目的** | **操作** | **示例** |
 | --- | --- | --- | --- |
 | 浏览 | 寻找感兴趣的数据 | Touch and hold<br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*sF5KQa9DBWAAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*EieBSL4__wgAAAAAAAAAAAAAARQnAQ) |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
 | 选中 | 对单个数据点感兴趣 | Tap<br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*tr5mR5kLBsIAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*nwHFTocgGM0AAAAAAAAAAAAAARQnAQ) |
+|  |  |  |
+|  |  |  |  |
 | 过滤 | 聚焦重点信息 | Touch and hold<br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*PeAUQpdwouwAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*dsrjRqD_PUcAAAAAAAAAAAAAARQnAQ) |
 | 缩放 | 探索、识别数据 | Pinch<br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*wE0sT7UUeesAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*KKKGRKluIg4AAAAAAAAAAAAAARQnAQ) |
 | 平移 | 探索更大的数据空间 | Swipe<br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ELAJS7z5iLkAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*yWrQQ5aLj6UAAAAAAAAAAAAAARQnAQ) |
@@ -82,6 +90,8 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 |  | 在多图表的长页面中，多为浏览型的诉求，设计上更简明更快速做为主要体验目标。 | 对某一图表做进一步操作（详情、下钻等）时，可以通过切换场景或扩大面积方式，沉入式操作。 |
 | --- | --- | --- |
 | **场景切换** | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*xvpbT7v0sCkAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Pp5mSYnkgbsAAAAAAAAAAAAAARQnAQ) |
+|  |  |
+|  |  |  |
 | **纵向拉伸** | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*awcdToQjvVkAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*LtZXR4Ix14IAAAAAAAAAAAAAARQnAQ) |
 
 #### 阅读模式的切换

@@ -9,7 +9,7 @@ order: 2
 
 ## 任务层次
 
-Shneiderman  于 1996 年提出可视化信息检索的箴言 “Overview First, Zoom and Filter, Then Details-on-Demand”，译为“概览第一，聚焦过滤，再按需查看详情”。它符合人类寻求信息的基本逻辑：先大体，再局部，然后聚焦兴趣点进行探索，这是一个由表及里的过程。<br /> <br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*REV9SLcEjSYAAAAAAAAAAAAAARQnAQ)<br /> <br />**数据获取：**该层解决用户的第一个问题“是什么”，用户主要通过浏览查看来获取数据，其通用交互范式为\*\* **Overview + Detail（概览+细节），常见于传统数据报表、汇报型图表、大屏等，比如流量监控、区域销售大盘。<br /> <br />**信息加工：**该层解决用户的第二个问题“为什么”，当图上有看不懂的信息时，用户期望有人告诉他为什么会这样，或者自己查探明究竟，其通用交互范式为 Focus + Context（聚焦+关联），常见于富交互的统计报表，或海量、高维、多源的可视分析系统。<br /> <br />**知识流转：\*\*该层解决用户的第三个问题“怎么办”，当获取洞见通用交互范式为 Annote + Guide（标记+指引），常见于可视分析系统、智能分析、智能决策系统，比如运营专员对异常点进行标记辅助管理员进行决策，智能系统对整体趋势进行解读与归因分析。<br /> <br /> <br /> <br />
+Shneiderman  于 1996 年提出可视化信息检索的箴言 “Overview First, Zoom and Filter, Then Details-on-Demand”，译为“概览第一，聚焦过滤，再按需查看详情”。它符合人类寻求信息的基本逻辑：先大体，再局部，然后聚焦兴趣点进行探索，这是一个由表及里的过程。<br /> <br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*REV9SLcEjSYAAAAAAAAAAAAAARQnAQ)<br /> <br />**数据获取：**该层解决用户的第一个问题“是什么”，用户主要通过浏览查看来获取数据，其通用交互范式为 **Overview + Detail（概览+细节），常见于传统数据报表、汇报型图表、大屏等，比如流量监控、区域销售大盘。<br /> <br />**信息加工：**该层解决用户的第二个问题“为什么”，当图上有看不懂的信息时，用户期望有人告诉他为什么会这样，或者自己查探明究竟，其通用交互范式为 Focus + Context（聚焦+关联），常见于富交互的统计报表，或海量、高维、多源的可视分析系统。<br /> <br />**知识流转：该层解决用户的第三个问题“怎么办”，当获取洞见通用交互范式为 Annote + Guide（标记+指引），常见于可视分析系统、智能分析、智能决策系统，比如运营专员对异常点进行标记辅助管理员进行决策，智能系统对整体趋势进行解读与归因分析。<br /> <br /> <br /> <br />
 
 ## 举个例子
 
@@ -25,7 +25,7 @@ Shneiderman  于 1996 年提出可视化信息检索的箴言 “Overview First
 
 ### 渐进呈现
 
-在复杂的可视化中，必须保证用户在不同层次的信息之间能进行无缝和直观的探索。<br />首先给出作为分析入口的概览视图，提供“数据获取”的交互操作辅助完成任务，同时给出可以看到具体内容的细节视图，各视图间协同一致。在渐进呈现过程中，“信息加工”相关组件安排在扩展窗口中，作为一个触发机关的通道。渐进呈现对于专家用户来说是顺势而为，对中级用户来说也是福利。<br /> <br />\*\*
+在复杂的可视化中，必须保证用户在不同层次的信息之间能进行无缝和直观的探索。<br />首先给出作为分析入口的概览视图，提供“数据获取”的交互操作辅助完成任务，同时给出可以看到具体内容的细节视图，各视图间协同一致。在渐进呈现过程中，“信息加工”相关组件安排在扩展窗口中，作为一个触发机关的通道。渐进呈现对于专家用户来说是顺势而为，对中级用户来说也是福利。<br /> <br />
 
 ### 构建系统，而不是单个图表
 
@@ -48,7 +48,7 @@ Shneiderman  于 1996 年提出可视化信息检索的箴言 “Overview First
 | 选中 | 对单个数据点感兴趣 | Click<br />Tap（📱 移动端） | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*n4-UQoUl_RYAAAAAAAAAAAAAARQnAQ) |
 |  | 对多个数据点或数据组感兴趣 | Brush 框选 | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*dcR-SpX0bZUAAAAAAAAAAAAAARQnAQ) |
 | 过滤 | 聚焦重点信息 | 值域漫游器区间定位 | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*SxbzQJkH300AAAAAAAAAAAAAARQnAQ) |
-| 缩放 | 探索、识别数据 | 触控板 改变缩略轴区间 滚动条<br />Pinch（📱 移动端） | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*A7YkSpXZsikAAAAAAAAAAAAAARQnAQ)<br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*nd5iT47KeCYAAAAAAAAAAAAAARQnAQ<br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*_72TQr-OlZcAAAAAAAAAAAAAARQnAQ) |
+| 缩放 | 探索、识别数据 | 触控板 改变缩略轴区间 滚动条<br />Pinch（📱 移动端） | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*A7YkSpXZsikAAAAAAAAAAAAAARQnAQ)<br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*nd5iT47KeCYAAAAAAAAAAAAAARQnAQ)<br />![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*_72TQr-OlZcAAAAAAAAAAAAAARQnAQ) |
 
 | 平移
 
