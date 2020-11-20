@@ -6,6 +6,13 @@ const contributors: {
   github: string;
 }[] = [
   {
+    name: '艾因',
+    jobTitle: '工程师',
+    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/z8eXl6l9GM/aiyin.jpg',
+    weibo: '',
+    github: 'https://github.com/liuzhenying',
+  },
+  {
     name: '白弦',
     jobTitle: '设计师',
     avatar:
@@ -18,6 +25,14 @@ const contributors: {
     jobTitle: '工程师',
     avatar:
       'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*IFYESbDDqI0AAAAAAAAAAABkARQnAQ',
+    weibo: '',
+    github: '',
+  },
+  {
+    name: '不过',
+    jobTitle: '设计师',
+    avatar:
+      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*z6bUQ7bvuAYAAAAAAAAAAABkARQnAQ',
     weibo: '',
     github: '',
   },
@@ -46,12 +61,28 @@ const contributors: {
     github: 'https://github.com/tarobjtu',
   },
   {
-    name: '董珊珊',
+    name: '多牧',
+    jobTitle: '工程师',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/n%26uTxqsNHe/IMG_3154.JPG',
+    weibo: 'https://weibo.com/u/2866327102',
+    github: 'https://github.com/mxz96102',
+  },
+  {
+    name: '耳铃',
     jobTitle: '设计师',
     avatar:
-      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*cOoVT53fMRAAAAAAAAAAAABkARQnAQ',
+      'http://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/sX13FkC4%26C/erling.jpg',
     weibo: '',
     github: '',
+  },
+  {
+    name: '佛肚',
+    jobTitle: '工程师',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/4VUXCQEiBd/c4f901c7-f591-4616-8dfc-83aecf839cd8.png',
+    weibo: '',
+    github: 'https://github.com/budlion',
   },
   {
     name: '福晋',
@@ -70,26 +101,10 @@ const contributors: {
     github: 'https://github.com/Esorakouki',
   },
   {
-    name: '顾倾',
+    name: '伽壹',
     jobTitle: '设计师',
     avatar:
-      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*xAQvQoGpucAAAAAAAAAAAABkARQnAQ',
-    weibo: '',
-    github: '',
-  },
-  {
-    name: '光生',
-    jobTitle: '工程师',
-    avatar:
-      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*bLcFRI5XuJAAAAAAAAAAAABkARQnAQ',
-    weibo: '',
-    github: 'github: github.com/zxc0328',
-  },
-  {
-    name: '广知',
-    jobTitle: '工程师',
-    avatar:
-      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*pqeZRI4PPQcAAAAAAAAAAABkARQnAQ',
+      'https://gw.alipayobjects.com/zos/antfincdn/aXQ3OTu6Er/IMG_3509.JPG',
     weibo: '',
     github: '',
   },
@@ -118,12 +133,12 @@ const contributors: {
     github: 'https://github.com/baizn',
   },
   {
-    name: '绝云',
+    name: '康奎',
     jobTitle: '工程师',
     avatar:
-      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*1jxSSK2O9XAAAAAAAAAAAABkARQnAQ',
-    weibo: 'https://weibo.com/omosirovincent',
-    github: 'https://github.com/leungwensen',
+      'https://gw.alipayobjects.com/zos/antfincdn/AefmmqKied/3ca2b3d8-e568-4bec-b10d-e4e432cb6f23.png',
+    weibo: '',
+    github: 'https://github.com/benjamin920813',
   },
   {
     name: '珂甫',
@@ -150,22 +165,6 @@ const contributors: {
     github: 'https://github.com/zqlu',
   },
   {
-    name: '米法',
-    jobTitle: '工程师',
-    avatar:
-      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*yvrBSIRx4OQAAAAAAAAAAABkARQnAQ',
-    weibo: '',
-    github: 'https://github.com/paleface001',
-  },
-  {
-    name: '芈乐',
-    jobTitle: '工程师',
-    avatar:
-      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*SZd2QaFV8KkAAAAAAAAAAABkARQnAQ',
-    weibo: '',
-    github: 'https://github.com/weepy3641',
-  },
-  {
     name: '幕阑',
     jobTitle: '设计师',
     avatar:
@@ -180,14 +179,6 @@ const contributors: {
       'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*-wAXRKlOrW4AAAAAAAAAAABkARQnAQ',
     weibo: '',
     github: 'https://github.com/afc163',
-  },
-  {
-    name: '轻声',
-    jobTitle: '工程师',
-    avatar:
-      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*ULIwSqt8mscAAAAAAAAAAABkARQnAQ',
-    weibo: '',
-    github: 'https://github.com/laispace',
   },
   {
     name: '璆鸣',
@@ -238,20 +229,19 @@ const contributors: {
     github: '',
   },
   {
+    name: '文瑀',
+    jobTitle: '工程师',
+    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/smBVaflWk5/my.jpg',
+    weibo: '',
+    github: 'https://github.com/newbyvector',
+  },
+  {
     name: '问崖',
     jobTitle: '工程师',
     avatar:
       'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*V7E0RqRAlG4AAAAAAAAAAABkARQnAQ',
     weibo: '',
     github: 'https://github.com/bubkoo',
-  },
-  {
-    name: '乌诺',
-    jobTitle: '工程师',
-    avatar:
-      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*NNrXRqwWfooAAAAAAAAAAABkARQnAQ',
-    weibo: '',
-    github: '',
   },
   {
     name: '象数',
@@ -282,8 +272,40 @@ const contributors: {
     jobTitle: '工程师',
     avatar:
       'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*CPXKQ76YlfwAAAAAAAAAAABkARQnAQ',
-    weibo: '',
+    weibo: 'https://weibo.com/kasmine/profile',
     github: 'https://github.com/me-momo',
+  },
+  {
+    name: '缨缨',
+    jobTitle: '工程师',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/c9K5r1m%26y9/d0b8a090-f034-43e6-aeeb-f59cb6c7c33c.png',
+    weibo: '',
+    github: 'https://github.com/xingwanying',
+  },
+  {
+    name: '鱼亦',
+    jobTitle: '设计师',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/L%261dAufvjL/IMG_1477.JPG',
+    weibo: '',
+    github: '',
+  },
+  {
+    name: '羽熙',
+    jobTitle: '工程师',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/NkfCEL7RTL/7cdd44fc-8624-4b6c-8947-67f78e79142f.png',
+    weibo: '',
+    github: 'https://github.com/bbsqq',
+  },
+  {
+    name: '羽依',
+    jobTitle: '工程师',
+    avatar:
+      'https://ch-resources.oss-cn-shanghai.aliyuncs.com/images/avatar/observedobserver.png',
+    weibo: '',
+    github: 'https://github.com/ObservedObserver',
   },
   {
     name: '玉伯',
@@ -302,6 +324,14 @@ const contributors: {
     github: 'https://github.com/kener',
   },
   {
+    name: '源子',
+    jobTitle: '设计师',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/KGawdl9Ahq/touxiang.JPG',
+    weibo: '',
+    github: '',
+  },
+  {
     name: '再飞',
     jobTitle: '工程师',
     avatar:
@@ -310,28 +340,20 @@ const contributors: {
     github: 'https://github.com/simaQ',
   },
   {
-    name: '早弦',
+    name: '杍鱼',
     jobTitle: '工程师',
     avatar:
-      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*1VQ3QrVIyMIAAAAAAAAAAABkARQnAQ',
-    weibo: 'https://www.weibo.com/markwhu',
-    github: 'https://github.com/fkysly',
-  },
-  {
-    name: '长哲',
-    jobTitle: '工程师',
-    avatar:
-      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*z2OZQq5QGfYAAAAAAAAAAABkARQnAQ',
+      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*qykaTLGttsgAAAAAAAAAAABkARQnAQ',
     weibo: '',
-    github: 'https://github.com/bzhangzju',
+    github: 'https://github.com/cycgit',
   },
   {
-    name: '诸岳',
-    jobTitle: '工程师',
+    name: '子晴',
+    jobTitle: '设计师',
     avatar:
-      'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*EkmcTa-uJDUAAAAAAAAAAABkARQnAQ',
-    weibo: 'https://www.weibo.com/u/6987384726',
-    github: 'https://github.com/dengfuping',
+      'https://gw.alipayobjects.com/zos/antfincdn/QL5d8rcf%24M/IMG_6534.JPG',
+    weibo: '',
+    github: '',
   },
 ];
 
