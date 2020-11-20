@@ -1,5 +1,5 @@
 ---
-title: 提示信息 Tooltip
+title: Tooltip
 order: 2
 ---
 

@@ -10,7 +10,7 @@ order: 1
 - **设计者，**从数据到图表——数据元素到视觉编码的映射过程
 - **阅读者，**从图表到数据——视觉解码还原为数据结构的过程
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*twtrS6DuNsAAAAAAAAAAAAAAARQnAQ)<br /> <br /> <br />
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*twtrS6DuNsAAAAAAAAAAAAAAARQnAQ)<br />
 
 ## 分析模型
 

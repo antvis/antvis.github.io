@@ -1,5 +1,5 @@
 ---
-title: 地图 Map
+title: Map
 order: 2
 ---
 
@@ -31,7 +31,7 @@ order: 2
 
 ## 坐标
 
-在地理空间（比如地球和地图）中，完整的坐标体系采用(经度、维度、海拔)的结构来表述，`position(longitude, latitude, altitude)` ，但绝大多数坐标信息仅包含经纬度信息，`position(longitude, latitude)`。<br />![position.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*2c9vT4tDIJsAAAAAAAAAAAAAARQnAQ)<br />绝大多数平面地图为地球球体采用莫帕托投影方式展开的平面图。因而，不管是平面地图还是立体地球，都可以采用同一套坐标体系。<br /> <br />
+在地理空间（比如地球和地图）中，完整的坐标体系采用(经度、维度、海拔)的结构来表述，`position(longitude, latitude, altitude)` ，但绝大多数坐标信息仅包含经纬度信息，`position(longitude, latitude)`。<br />![position.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*2c9vT4tDIJsAAAAAAAAAAAAAARQnAQ)<br />绝大多数平面地图为地球球体采用莫帕托投影方式展开的平面图。因而，不管是平面地图还是立体地球，都可以采用同一套坐标体系。<br />
 
 ## 数据
 
@@ -85,27 +85,27 @@ order: 2
 
 ## 亮点图
 
-散点图的变形，指用一个点代表一个值，连续渐进颜色代表数值大小，并通过色彩的叠加的达到效果增强，专为海量散点数据运用而生，解决散点图在远视角时，因面积变小导致色彩无法区分的情况，常用于海量数据的地理分布，如城市灯光数<br /> <br />![20191118131602.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*IAyRSKwaHjMAAAAAAAAAAAAAARQnAQ)
+散点图的变形，指用一个点代表一个值，连续渐进颜色代表数值大小，并通过色彩的叠加的达到效果增强，专为海量散点数据运用而生，解决散点图在远视角时，因面积变小导致色彩无法区分的情况，常用于海量数据的地理分布，如城市灯光数<br /> ![20191118131602.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*IAyRSKwaHjMAAAAAAAAAAAAAARQnAQ)
 
 ## 符号图
 
-散点地图的变体，用具象的图标指代抽象的圆点，无需图例就能直观看出数据点代表的内容，常用于地图上重要地标的显示或数据量较少时的信息表达，如某品牌的分店分布情况，可用品牌 LOGO 图标；如常见公交的士站点分布情况等<br /> <br />![ 符号地图.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*FOwXRY8c_WEAAAAAAAAAAAAAARQnAQ)<br />
+散点地图的变体，用具象的图标指代抽象的圆点，无需图例就能直观看出数据点代表的内容，常用于地图上重要地标的显示或数据量较少时的信息表达，如某品牌的分店分布情况，可用品牌 LOGO 图标；如常见公交的士站点分布情况等<br />![ 符号地图.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*FOwXRY8c_WEAAAAAAAAAAAAAARQnAQ)<br />
 
 ## 散点图
 
-指地图上可用一个形状大小相同的圆点来定位，用表达离散现象分布特征的地图，如人口、农作物、动植物等的分布，常用于海量数据分布<br /> <br />![20191118131855.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*j4D0QbM2B9kAAAAAAAAAAAAAARQnAQ)<br /> <br />
+指地图上可用一个形状大小相同的圆点来定位，用表达离散现象分布特征的地图，如人口、农作物、动植物等的分布，常用于海量数据分布<br />![20191118131855.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*j4D0QbM2B9kAAAAAAAAAAAAAARQnAQ)<br />
 
 ## 路径图
 
-指地图上可用一个形状大小相同的点状符号来定位，用表达离散现象分布特征的地图，如人口、农作物、动植物等的分布，通常用来表示线状或带状分布的地理要素，用于需要对路径详细变化观察的场景，如人类运动轨迹等等<br /> <br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*36wUTqKewxcAAAAAAAAAAAAAARQnAQ)<br />
+指地图上可用一个形状大小相同的点状符号来定位，用表达离散现象分布特征的地图，如人口、农作物、动植物等的分布，通常用来表示线状或带状分布的地理要素，用于需要对路径详细变化观察的场景，如人类运动轨迹等等<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*36wUTqKewxcAAAAAAAAAAAAAARQnAQ)<br />
 
 ## 弧线图
 
-将两个点的连线绘制成弧形，绘制的弧线可以是贝塞尔曲线，大圆航线，通常用来表示两种地理事物关系和联系，或者人口迁移，物流起点目的地等。通常用来表示线状或带状分布的地理要素，用于重点关注路径起止点以及两地理位置之间的关系，如航线轨迹等等<br /> <br />![20191118135935.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*totCSI3UzCsAAAAAAAAAAAAAARQnAQ)<br /> <br />
+将两个点的连线绘制成弧形，绘制的弧线可以是贝塞尔曲线，大圆航线，通常用来表示两种地理事物关系和联系，或者人口迁移，物流起点目的地等。通常用来表示线状或带状分布的地理要素，用于重点关注路径起止点以及两地理位置之间的关系，如航线轨迹等等<br />![20191118135935.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*totCSI3UzCsAAAAAAAAAAAAAARQnAQ)<br />
 
 ## 填充图
 
-填充图，也叫分级统计图，可在地图上不同领土区域进行着色，查看区域间的分布对比情况，通常用来表达区域范围具有分级现象的聚合面状分布，常以颜色或底纹填充的图斑，如：风险等级划分、降水量划分，等等<br /> <br />![Group@2x.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*2gQNR7UZSZUAAAAAAAAAAAAAARQnAQ)<br /> <br />更多地图类型详见 [AntV-L7](https://l7.antv.vision/zh/examples/gallery)<br />
+填充图，也叫分级统计图，可在地图上不同领土区域进行着色，查看区域间的分布对比情况，通常用来表达区域范围具有分级现象的聚合面状分布，常以颜色或底纹填充的图斑，如：风险等级划分、降水量划分，等等<br />![Group@2x.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*2gQNR7UZSZUAAAAAAAAAAAAAARQnAQ)<br />更多地图类型详见 [AntV-L7](https://l7.antv.vision/zh/examples/gallery)<br />
 
 # 设计规范
 

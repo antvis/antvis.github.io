@@ -5,7 +5,7 @@ order: 4
 
 ## 定义
 
-缩略轴是一种辅助看数据的组件，它将大量数据浓缩在一个轴上，既可以缩小宏观看数据全貌，又可以放大微观看数据的片断，同时还可以拖拽观察数据在一定区间内的演变。<br />![缩略轴-2.gif](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*h04bRqD8dvwAAAAAAAAAAAAAARQnAQ)<br /> <br /> <br />
+缩略轴是一种辅助看数据的组件，它将大量数据浓缩在一个轴上，既可以缩小宏观看数据全貌，又可以放大微观看数据的片断，同时还可以拖拽观察数据在一定区间内的演变。<br />![缩略轴-2.gif](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*h04bRqD8dvwAAAAAAAAAAAAAARQnAQ)<br />
 
 ## 何时使用
 
@@ -17,36 +17,34 @@ order: 4
 - 分类轴【不建议使用】。
 
 <br />
-<br />
-<br />
 
 ## 常见类型
 
 ### X 轴缩略轴
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*oqboQImwt4AAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=166&margin=%5Bobject%20Object%5D&name=image.png&originHeight=166&originWidth=1160&size=50382&status=done&style=none&width=1160)<br /> <br />
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*oqboQImwt4AAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=166&margin=%5Bobject%20Object%5D&name=image.png&originHeight=166&originWidth=1160&size=50382&status=done&style=none&width=1160)<br />
 
 ### Y 轴缩略轴
 
-![纵赂缩略轴.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*0TtIQIB9zMYAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=532&margin=%5Bobject%20Object%5D&name=%E7%BA%B5%E8%B5%82%E7%BC%A9%E7%95%A5%E8%BD%B4.jpg&originHeight=532&originWidth=1242&size=97364&status=done&style=none&width=1242)<br /> <br /> <br /> <br />
+![纵赂缩略轴.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*0TtIQIB9zMYAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=532&margin=%5Bobject%20Object%5D&name=%E7%BA%B5%E8%B5%82%E7%BC%A9%E7%95%A5%E8%BD%B4.jpg&originHeight=532&originWidth=1242&size=97364&status=done&style=none&width=1242)<br />
 
 ## 构成元素
 
-缩略轴主要包括轴“主体”与“轴刻度”，其中“轴刻度”可以隐藏不显示。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*iPZNTazNXNYAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=216&margin=%5Bobject%20Object%5D&name=image.png&originHeight=216&originWidth=1120&size=76714&status=done&style=none&width=1120)<br /> <br /> <br />
+缩略轴主要包括轴“主体”与“轴刻度”，其中“轴刻度”可以隐藏不显示。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*iPZNTazNXNYAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=216&margin=%5Bobject%20Object%5D&name=image.png&originHeight=216&originWidth=1120&size=76714&status=done&style=none&width=1120)<br />
 
 ## 出现位置
 
-缩略轴可出现在图的四个方向，一般建议摆放在左、下、右方，上方因为有过多的图表组件（标题、图例、筛选器等）不建议摆放。![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*jVIkRZCo7j8AAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=406&margin=%5Bobject%20Object%5D&name=image.png&originHeight=406&originWidth=913&size=143288&status=done&style=none&width=913)<br /> <br /> <br /> <br />
+缩略轴可出现在图的四个方向，一般建议摆放在左、下、右方，上方因为有过多的图表组件（标题、图例、筛选器等）不建议摆放。![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*jVIkRZCo7j8AAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=406&margin=%5Bobject%20Object%5D&name=image.png&originHeight=406&originWidth=913&size=143288&status=done&style=none&width=913)<br />
 
 ## 交互说明
 
 ### 缩略轴主题色
 
-缩略轴建议与图表主题配色搭配使用，让整体更加和谐美观。假设你的图表主题色为蓝色，那么缩略轴选定区域也应该为蓝色，同理也可以为橙色。<br />![缩略轴主题色.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*LdLOSZ-uWswAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=428&margin=%5Bobject%20Object%5D&name=%E7%BC%A9%E7%95%A5%E8%BD%B4%E4%B8%BB%E9%A2%98%E8%89%B2.jpg&originHeight=428&originWidth=1884&size=48190&status=done&style=none&width=1884)<br /> <br /> <br />
+缩略轴建议与图表主题配色搭配使用，让整体更加和谐美观。假设你的图表主题色为蓝色，那么缩略轴选定区域也应该为蓝色，同理也可以为橙色。<br />![缩略轴主题色.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*LdLOSZ-uWswAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=428&margin=%5Bobject%20Object%5D&name=%E7%BC%A9%E7%95%A5%E8%BD%B4%E4%B8%BB%E9%A2%98%E8%89%B2.jpg&originHeight=428&originWidth=1884&size=48190&status=done&style=none&width=1884)<br />
 
 ### 文本躲避规则
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*aW0qT5R2RC4AAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=706&margin=%5Bobject%20Object%5D&name=image.png&originHeight=706&originWidth=1884&size=333364&status=done&style=none&width=1884)<br /> <br /> <br />
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*aW0qT5R2RC4AAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=706&margin=%5Bobject%20Object%5D&name=image.png&originHeight=706&originWidth=1884&size=333364&status=done&style=none&width=1884)<br />
 
 ### 与时间轴的关系
 

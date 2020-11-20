@@ -1,5 +1,5 @@
 ---
-title: AntV 色板色值表
+title: AntV Color Board
 order: 0
 ---
 

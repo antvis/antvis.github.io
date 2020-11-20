@@ -42,7 +42,7 @@ module.exports = {
         slug: 'specification/language',
         title: {
           zh: '设计语言',
-          en: 'Design language',
+          en: 'Design Language',
         },
         order: 1,
       },
@@ -50,7 +50,7 @@ module.exports = {
         slug: 'specification/strategy',
         title: {
           zh: '设计策略',
-          en: 'EN 设计策略',
+          en: 'Design Strategy',
         },
         order: 2,
       },
@@ -58,7 +58,7 @@ module.exports = {
         slug: 'specification/graph',
         title: {
           zh: '图形设计指引',
-          en: 'EN 图形设计指引',
+          en: 'Graph Design Guide',
         },
         order: 3,
       },
@@ -66,7 +66,7 @@ module.exports = {
         slug: 'specification/module',
         title: {
           zh: '组件设计指引',
-          en: 'EN 组件设计指引',
+          en: 'Module Design Guide',
         },
         order: 4,
       },
@@ -74,7 +74,7 @@ module.exports = {
         slug: 'specification/module/infoCom',
         title: {
           zh: '信息组件 Info Component',
-          en: 'EN 信息组件',
+          en: 'Info Componen',
         },
         order: 6,
       },
@@ -82,7 +82,7 @@ module.exports = {
         slug: 'specification/resources',
         title: {
           zh: '资源下载',
-          en: 'EN 资源下载',
+          en: 'Resource Download',
         },
         order: 5,
       },
@@ -90,18 +90,18 @@ module.exports = {
         slug: 'specification/tool',
         title: {
           zh: '工具',
-          en: 'EN 工具',
+          en: 'Tool',
         },
         order: 6,
       },
-      {
-        slug: 'specification/standby',
-        title: {
-          zh: '备用',
-          en: 'EN 备用',
-        },
-        order: 7,
-      },
+      // {
+      //   slug: 'specification/standby',
+      //   title: {
+      //     zh: '备用',
+      //     en: 'EN 备用',
+      //   },
+      //   order: 7,
+      // },
     ],
     docsearchOptions: {
       apiKey: '9d1cd586972bb492b7b41b13a949ef30',

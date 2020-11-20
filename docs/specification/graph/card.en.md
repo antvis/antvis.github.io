@@ -1,11 +1,11 @@
 ---
-title: 卡片 Card
+title: Card
 order: 0
 ---
 
 # 定义
 
-图表卡片是页面级可视化应用的细粒度单位。一个应用于数据分析的页面，都会由页面框架（顶部、侧边导航）、页面级组件、内容卡片排列构成。使用 AntV 组件搭建的图表，都需了解到统计图表卡片设计规范。<br /> <br /> <img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Zf2bQI6Dn8gAAAAAAAAAAAAAARQnAQ" width="100%"><br />
+图表卡片是页面级可视化应用的细粒度单位。一个应用于数据分析的页面，都会由页面框架（顶部、侧边导航）、页面级组件、内容卡片排列构成。使用 AntV 组件搭建的图表，都需了解到统计图表卡片设计规范。<br /> <img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Zf2bQI6Dn8gAAAAAAAAAAAAAARQnAQ" width="100%"><br />
 
 # 构成
 
@@ -20,7 +20,7 @@ order: 0
 - Legend 图例：颜色图例、样式图例、指标型图例
 - Element 图表图形必选
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*96W_T4fxggQAAAAAAAAAAAAAARQnAQ)<br /> <br /> <br />
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*96W_T4fxggQAAAAAAAAAAAAAARQnAQ)<br />
 
 ## 信息优先级
 

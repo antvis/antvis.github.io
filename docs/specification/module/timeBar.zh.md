@@ -11,21 +11,21 @@ order: 5
 
 ## 何时使用
 
-如果需要观察一定时间内图数据的演变情况，分析变化趋势时，建议开启时间轴组件。例：在金融风控领域，保险公司和金融机构的反欺诈人员通过图可视化分析三个月内的案件情况，时间轴组件可以帮助快速分析可疑人脉、财务转账关系，定位嫌疑人。<br /> <br /> <br /> <br />
+如果需要观察一定时间内图数据的演变情况，分析变化趋势时，建议开启时间轴组件。例：在金融风控领域，保险公司和金融机构的反欺诈人员通过图可视化分析三个月内的案件情况，时间轴组件可以帮助快速分析可疑人脉、财务转账关系，定位嫌疑人。<br />
 
 ## 常见类型
 
 ### 趋势图时间轴
 
-该时间轴包括但不限于折线图、面积图、柱状图中的一种或多种组合用来表示某种数据属性趋势的时间轴组件，[查看演示 Demo](https://g6.antv.vision/zh/examples/tool/timebar#timebar)<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*fkZzQrw6pVMAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=220&margin=%5Bobject%20Object%5D&name=image.png&originHeight=220&originWidth=1160&size=28712&status=done&style=none&width=1160)<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*sbFESKIoEyEAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=220&margin=%5Bobject%20Object%5D&name=image.png&originHeight=220&originWidth=1160&size=38865&status=done&style=none&width=1160)<br /> <br />
+该时间轴包括但不限于折线图、面积图、柱状图中的一种或多种组合用来表示某种数据属性趋势的时间轴组件，[查看演示 Demo](https://g6.antv.vision/zh/examples/tool/timebar#timebar)<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*fkZzQrw6pVMAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=220&margin=%5Bobject%20Object%5D&name=image.png&originHeight=220&originWidth=1160&size=28712&status=done&style=none&width=1160)<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*sbFESKIoEyEAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=220&margin=%5Bobject%20Object%5D&name=image.png&originHeight=220&originWidth=1160&size=38865&status=done&style=none&width=1160)<br />
 
 ### 简版时间轴
 
-相对于趋势图时间轴而言，去掉了表示数据趋势的图表，使用更为简洁的线条来表示时间范围，[查看演示 Demo](https://g6.antv.vision/zh/examples/tool/timebar#simple-timebar)<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*fmVtRIhx4GYAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=220&margin=%5Bobject%20Object%5D&name=image.png&originHeight=220&originWidth=1160&size=19284&status=done&style=none&width=1160)<br /> <br />
+相对于趋势图时间轴而言，去掉了表示数据趋势的图表，使用更为简洁的线条来表示时间范围，[查看演示 Demo](https://g6.antv.vision/zh/examples/tool/timebar#simple-timebar)<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*fmVtRIhx4GYAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=220&margin=%5Bobject%20Object%5D&name=image.png&originHeight=220&originWidth=1160&size=19284&status=done&style=none&width=1160)<br />
 
 ### 时间刻度时间轴
 
-指表示时间刻度的时间轴组件，[查看演示 Demo](https://g6.antv.vision/zh/examples/tool/timebar#slice-timebar)<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*wDZoRZR3c50AAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=220&margin=%5Bobject%20Object%5D&name=image.png&originHeight=220&originWidth=1160&size=16421&status=done&style=none&width=1160)<br /> <br /> <br />
+指表示时间刻度的时间轴组件，[查看演示 Demo](https://g6.antv.vision/zh/examples/tool/timebar#slice-timebar)<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*wDZoRZR3c50AAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=220&margin=%5Bobject%20Object%5D&name=image.png&originHeight=220&originWidth=1160&size=16421&status=done&style=none&width=1160)<br />
 
 ## 构成元素
 
@@ -35,19 +35,15 @@ order: 5
 1. 播放器：播放时间动画，可配置是否显示；
 1. 时间配置：可配置播放速度、是否只看单一时间点；
 
-<br />
-<br />
-<br />
-
 ## 出现位置
 
-时间轴作为辅助组件，建议放在图形区下方。<br />![出现位置.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*3bGeQLQdaAsAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=1090&margin=%5Bobject%20Object%5D&name=%E5%87%BA%E7%8E%B0%E4%BD%8D%E7%BD%AE.png&originHeight=1090&originWidth=1884&size=162859&status=done&style=none&width=1884)<br /> <br /> <br />
+时间轴作为辅助组件，建议放在图形区下方。<br />![出现位置.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*3bGeQLQdaAsAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=1090&margin=%5Bobject%20Object%5D&name=%E5%87%BA%E7%8E%B0%E4%BD%8D%E7%BD%AE.png&originHeight=1090&originWidth=1884&size=162859&status=done&style=none&width=1884)<br />
 
 ## 交互说明
 
 ### 缩略轴
 
-支持拖拽、点击、平移改变时间范围。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*aW0qT5R2RC4AAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=706&margin=%5Bobject%20Object%5D&name=image.png&originHeight=706&originWidth=1884&size=124376&status=done&style=none&width=1884)<br /> <br />简版时间轴、时间刻度时间轴交互操作同上。鼠标滚轮滚动时，左右平移已选定区间，暂不支持触控版操作。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*1RYlTrrpvWsAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=270&margin=%5Bobject%20Object%5D&name=image.png&originHeight=270&originWidth=1884&size=36876&status=done&style=none&width=1884)<br /> <br />轴上数值文本内置自动躲避规则。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*8cVqT4pZw2sAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=824&margin=%5Bobject%20Object%5D&name=image.png&originHeight=824&originWidth=1884&size=137089&status=done&style=none&width=1884)<br /> <br /> <br />
+支持拖拽、点击、平移改变时间范围。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*aW0qT5R2RC4AAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=706&margin=%5Bobject%20Object%5D&name=image.png&originHeight=706&originWidth=1884&size=124376&status=done&style=none&width=1884)<br />简版时间轴、时间刻度时间轴交互操作同上。鼠标滚轮滚动时，左右平移已选定区间，暂不支持触控版操作。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*1RYlTrrpvWsAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=270&margin=%5Bobject%20Object%5D&name=image.png&originHeight=270&originWidth=1884&size=36876&status=done&style=none&width=1884)<br />轴上数值文本内置自动躲避规则。<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*8cVqT4pZw2sAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=824&margin=%5Bobject%20Object%5D&name=image.png&originHeight=824&originWidth=1884&size=137089&status=done&style=none&width=1884)<br />
 
 ### 播放器
 
@@ -55,9 +51,6 @@ order: 5
 
 - **累计时间段数据：**开始时间不变，结束时间持续增加，适合查看从一个时间点开始，持续观察累计变化趋势；
 - **区间时间段数据：**开始到结束时间的区间段固定不变，播放时该时间段水平移动，适合查看固定时间段内的数据变化趋势；
-
-<br />
-<br />
 
 ### 时间配置
 
