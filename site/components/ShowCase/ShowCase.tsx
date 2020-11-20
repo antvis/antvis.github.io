@@ -1,72 +1,85 @@
 // 场景案例模版
-import React, { useState } from 'react';
-import { Layout as AntLayout, Anchor, Affix, BackTop, Menu } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Layout as AntLayout, BackTop } from 'antd';
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
-import { groupBy } from 'lodash-es';
 import Article from '@antv/gatsby-theme-antv/site/components/Article';
+import { useTranslation } from 'react-i18next';
 //@ts-ignore
 import styles from '@antv/gatsby-theme-antv/site/templates/markdown.module.less';
 
+interface ShowCaseProps {
+  type: string;
+  title: string;
+  href: string;
+  link: string;
+  screenshot: string;
+}
+
 export default () => {
-  const demos = [
-    {
-      type: 'p1',
-      title: '图标1',
-      href: 'https://www.baidu.com',
-      screenshot: '',
-      lang: 'zh',
-    },
-    {
-      type: 'p1',
-      title: '图标2',
-      href: 'https://www.baidu.com1',
-      screenshot: '',
-    },
-    {
-      type: 'p2',
-      title: '图标3',
-      href: 'https://www.baidu.com2',
-      screenshot: '',
-    },
-  ];
-  const allDemo = groupBy(demos || [], (demo) => demo.type);
+  const { t, i18n } = useTranslation();
+
+  const lang = i18n.language.includes('zh') ? 'zh' : 'en';
+  const showCaseUrl = `https://my-json-server.typicode.com/antvis/antvis-sites-data/showCases?lang=${lang}`;
+
+  const [demos, setDemos] = useState<ShowCaseProps[]>([]);
+
+  useEffect(() => {
+    fetch(showCaseUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        // 根据设计，目前只取最新的两条
+        setDemos(data);
+      });
+  }, [demos]);
 
   const galleryPageContent = (
     <div className={styles.gallery}>
       <div className={styles.galleryContent}>
-        {Object.keys(allDemo).map((type: string, i) => (
-          <div key={i}>
-            <h2 id={`category-${type.replace(/\s/g, '')}`}>{type}</h2>
-            <ul className={styles.galleryList}>
-              {allDemo[type].map((demo) => {
-                return (
-                  <li
-                    className={styles.galleryCard}
-                    key={demo.href}
-                    title={demo.title}
+        <h2></h2>
+        <ul className={styles.galleryList}>
+          {demos.map((demo) => {
+            return (
+              <li
+                className={styles.galleryCard}
+                key={demo.href}
+                title={demo.title}
+              >
+                <a
+                  className={styles.galleryCardLink}
+                  href={demo.href}
+                  target="_blank"
+                >
+                  <div>
+                    <img
+                      src={
+                        demo.screenshot ||
+                        'https://gw.alipayobjects.com/os/s/prod/antv/assets/image/screenshot-placeholder-b8e70.png'
+                      }
+                      alt={demo.title}
+                    />
+                  </div>
+                  <h4
+                    style={{
+                      display: `inline-block`,
+                    }}
                   >
-                    <a
-                      className={styles.galleryCardLink}
-                      href={demo.href}
-                      target="_blank"
-                    >
-                      <div>
-                        <img
-                          src={
-                            demo.screenshot ||
-                            'https://gw.alipayobjects.com/os/s/prod/antv/assets/image/screenshot-placeholder-b8e70.png'
-                          }
-                          alt={demo.title}
-                        />
-                      </div>
-                      <h4>{demo.title}</h4>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ))}
+                    {demo.title}
+                  </h4>
+                  <span
+                    style={{
+                      position: `absolute`,
+                      display: `inline-block`,
+                      marginLeft: `16px`,
+                      bottom: `6px`,
+                    }}
+                  >
+                    {demo.type}
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </div>
   );
