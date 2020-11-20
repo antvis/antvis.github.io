@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Children } from 'react';
 import classNames from 'classnames';
 import styles from './Banner.module.less';
-import { Row, Col } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { getProducts } from '@antv/gatsby-theme-antv/site/components/getProducts';
 import Demos from '../Demos/Demos';
@@ -35,37 +34,28 @@ export default (props: BannerProps) => {
   const [active, setActive] = useState(0);
 
   const renderBannerNodes = (bannerList: any[]) => {
-    return bannerList.map((row, index) => {
+    return bannerList.map((item, index) => {
+      const { url, title_zh, title_en, className, row, col } = item;
       return (
-        <Row gutter={[15, 15]} justify="space-between" key={index}>
-          {row.map((item: any, key: number) => {
-            if (item.children) {
-              return (
-                <Col key={`${item.title_zh}${key}`} span={item.span}>
-                  {renderBannerNodes(item.children)}
-                </Col>
-              );
-            } else {
-              return (
-                <Col key={`${item.title_zh}${key}`} span={item.span}>
-                  {item.url ? (
-                    <a
-                      className={styles[item.className]}
-                      href={`${item.url}/${lang}`}
-                      target="_blank"
-                    >
-                      {lang === 'zh' ? item.title_zh : item.title_en}
-                    </a>
-                  ) : (
-                    <span className={styles[item.className]}>
-                      {lang === 'zh' ? item.title_zh : item.title_en}
-                    </span>
-                  )}
-                </Col>
-              );
-            }
-          })}
-        </Row>
+        <div
+          className={styles.node}
+          key={`${item.title_zh}${index}`}
+          style={{ gridRow: `${row}`, gridColumn: `${col}` }}
+        >
+          {url ? (
+            <a
+              className={styles[className]}
+              href={`${url}/${lang}`}
+              target="_blank"
+            >
+              {lang === 'zh' ? title_zh : title_en}
+            </a>
+          ) : (
+            <span className={styles[className]}>
+              {lang === 'zh' ? title_zh : title_en}
+            </span>
+          )}
+        </div>
       );
     });
   };

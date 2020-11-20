@@ -228,6 +228,16 @@
       width: 100%;
       height: 100%;
       padding: 40px 60px;
+      display: grid;
+      grid-row-gap: 30px;
+      grid-column-gap: 15px;
+      grid-template-columns: repeat(11, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+
+      .node {
+        display: flex;
+      }
+
       a {
         cursor: pointer;
         &:hover {
@@ -236,11 +246,12 @@
       }
       a,
       span {
-        display: block;
+        flex: 1;
+        display: flex;
         color: #fff;
-        text-align: center;
-        line-height: 66px;
-        height: 66px;
+        font-size: 16px;
+        justify-content: center;
+        align-items: center;
         border-radius: 4px;
         padding: 0 2px;
         overflow: hidden;
@@ -278,7 +289,6 @@
         border: rgba(232, 104, 74, 0.4) 1px solid;
       }
       .AVA {
-        height: 228px;
         background: rgba(38, 154, 153, 0.4);
         border: rgb(38, 154, 153) 1px solid;
         line-height: 228px;
