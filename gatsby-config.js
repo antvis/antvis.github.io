@@ -20,7 +20,6 @@ module.exports = {
           zh: '设计',
           en: 'Design',
         },
-        
       },
       {
         slug: 'case',
@@ -28,7 +27,7 @@ module.exports = {
           zh: '场景案例',
           en: 'Show Case',
         },
-      }
+      },
     ],
     docs: [
       {
@@ -40,12 +39,68 @@ module.exports = {
         order: 0,
       },
       {
-        slug: 'specification/components',
+        slug: 'specification/language',
         title: {
-          zh: '图表组件设计指引',
-          en: 'Design for Components of Charts',
+          zh: '设计语言',
+          en: 'Design Principles',
         },
         order: 1,
+      },
+      {
+        slug: 'specification/strategy',
+        title: {
+          zh: '设计策略',
+          en: 'Design for Components of Charts',
+        },
+        order: 2,
+      },
+      {
+        slug: 'specification/graph',
+        title: {
+          zh: '图形设计指引',
+          en: 'Design for Components of Charts',
+        },
+        order: 3,
+      },
+      {
+        slug: 'specification/module',
+        title: {
+          zh: '组件设计指引',
+          en: 'Design for Components of Charts',
+        },
+        order: 4,
+      },
+      {
+        slug: 'specification/module/infoCom',
+        title: {
+          zh: '信息组件 Info Component',
+          en: 'Design for Components of Charts',
+        },
+        order: 0,
+      },
+      {
+        slug: 'specification/resources',
+        title: {
+          zh: '资源下载',
+          en: 'Design for Components of Charts',
+        },
+        order: 5,
+      },
+      {
+        slug: 'specification/tool',
+        title: {
+          zh: '工具',
+          en: 'Design for Components of Charts',
+        },
+        order: 6,
+      },
+      {
+        slug: 'specification/standby',
+        title: {
+          zh: '备用',
+          en: 'Design for Components of Charts',
+        },
+        order: 7,
       },
     ],
     docsearchOptions: {
