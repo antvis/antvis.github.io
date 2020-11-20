@@ -1,5 +1,5 @@
 ---
-title: 标签 Label
+title: Label
 order: 2
 ---
 

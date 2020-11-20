@@ -1,5 +1,5 @@
 ---
-title: 标题与注释 Title &amp; Note
+title: Title &amp; Note
 order: 0
 ---
 

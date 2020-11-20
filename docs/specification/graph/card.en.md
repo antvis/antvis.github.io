@@ -1,5 +1,5 @@
 ---
-title: 卡片 Card
+title: Card
 order: 0
 ---
 

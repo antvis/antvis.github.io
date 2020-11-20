@@ -1,5 +1,5 @@
 ---
-title: 时间轴 TimeBar
+title: TimeBar
 order: 5
 ---
 

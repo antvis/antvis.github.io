@@ -1,5 +1,5 @@
 ---
-title: 生成自己的色板
+title: Creat Self Color
 order: 0
 ---
 

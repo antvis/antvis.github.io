@@ -1,5 +1,5 @@
 ---
-title: 标注 Annotation
+title: Annotation
 order: 9
 ---
 
@@ -32,7 +32,7 @@ order: 9
 1. 当文本内容宽度大于等于图表宽度 1/2 时，**隐藏文本显示文本 icon**
 1. 文本内容较多时，需设定最大宽度（例：10 个字符），超出显示「...」，用户可通过 hover 查看全部
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*jDkbQ7ivESIAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=289&margin=%5Bobject%20Object%5D&name=image.png&originHeight=854&originWidth=2716&size=361464&status=done&style=none&width=920)<br />
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*jDkbQ7ivESIAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=289&margin=%5Bobject%20Object%5D&name=image.png&originHeight=854&originWidth=2716&size=361464&status=done&style=none&width=920)<br />**<br />**
 
 ### 拉线
 

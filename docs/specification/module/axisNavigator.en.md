@@ -1,5 +1,5 @@
 ---
-title: 缩略轴 Axis Navigator
+title: Axis Navigator
 order: 4
 ---
 

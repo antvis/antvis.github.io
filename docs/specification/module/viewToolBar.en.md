@@ -1,5 +1,5 @@
 ---
-title: 视图控制栏 View ToolBar
+title: View ToolBar
 order: 10
 ---
 

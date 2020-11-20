@@ -1,5 +1,5 @@
 ---
-title: 通用 Dashboard
+title: Dashboard
 order: 3
 ---
 

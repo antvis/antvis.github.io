@@ -1,5 +1,5 @@
 ---
-title: 移动端 Mobile
+title: Mobile
 order: 5
 ---
 
