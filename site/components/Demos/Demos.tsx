@@ -99,12 +99,12 @@ export default (props: DemosProps) => {
       res.push(rowIndex);
       firtColNum += 1;
     }
-    return res;
+    updateImgs(res);
   };
 
   useEffect(() => {
     if (!list || list.length <= 0 || !active) return;
-    updateImgs(layout());
+    layout();
   }, [list, active]);
 
   return (

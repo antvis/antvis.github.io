@@ -1,8 +1,9 @@
 [
   [
     {
-      "title": "Ant Design Charts",
-      "path": "https://charts.ant.design/",
+      "title_zh": "Ant Design Charts",
+      "title_en": "Ant Design Charts",
+      "url": "https://charts.ant.design",
       "span": 24,
       "className": "antdChart"
     }
@@ -13,35 +14,40 @@
       "children": [
         [
           {
-            "title": "G2Plot",
-            "path": "https://g2plot.antv.vision/zh/",
+            "title_zh": "G2Plot",
+            "title_en": "G2Plot",
+            "url": "https://g2plot.antv.vision",
             "span": 12,
             "className": "G2"
           },
           {
-            "title": "F2Native",
-            "path": "https://f2native.antv.vision/zh/",
+            "title_zh": "F2Native",
+            "title_en": "F2Native",
+            "url": "https://f2native.antv.vision",
             "span": 12,
             "className": "F2"
           }
         ],
         [
           {
-            "title": "G2",
-            "path": "https://g2.antv.vision/zh",
+            "title_zh": "G2",
+            "title_en": "G2",
+            "url": "https://g2.antv.vision",
             "span": 12,
             "className": "G2"
           },
           {
-            "title": "F2",
-            "path": "https://f2.antv.vision/zh",
+            "title_zh": "F2",
+            "title_en": "F2",
+            "url": "https://f2.antv.vision",
             "span": 12,
             "className": "F2"
           }
         ],
         [
           {
-            "title": "常规统计数据",
+            "title_zh": "常规统计数据",
+            "title_en": "General Statistics",
             "span": 24,
             "className": "conventional"
           }
@@ -53,34 +59,40 @@
       "children": [
         [
           {
-            "title": "Graphin",
-            "path": "https://graphin.antv.vision/zh/",
+            "title_zh": "Graphin",
+            "title_en": "Graphin",
+            "url": "https://graphin.antv.vision",
             "span": 12,
             "className": "G6"
           },
           {
-            "title": "XFlow",
+            "title_zh": "XFlow",
+            "title_en": "XFlow",
+             "url": "https://g6.antv.vision",
             "span": 12,
             "className": "G6"
           }
         ],
         [
           {
-            "title": "G6",
-            "path": "https://g6.antv.vision/zh/",
+            "title_zh": "G6",
+            "title_en": "G6",
+            "url": "https://g6.antv.vision",
             "span": 12,
             "className": "G6"
           },
           {
-            "title": "X6",
-            "path": "https://x6.antv.vision/zh",
+            "title_zh": "X6",
+            "title_en": "X6",
+            "url": "https://x6.antv.vision",
             "span": 12,
             "className": "G6"
           }
         ],
         [
           {
-            "title": "关系数据",
+            "title_zh": "关系数据",
+            "title_en": "Relation Data",
             "span": 24,
             "className": "relationship"
           }
@@ -92,22 +104,26 @@
       "children": [
         [
           {
-            "title": "L7Boundary",
+            "title_zh": "L7Boundary",
+            "title_en": "L7Boundary",
+            "url": "https://l7.antv.vision",
             "span": 24,
             "className": "L7"
           }
         ],
         [
           {
-            "title": "L7",
-            "path": "https://l7.antv.vision/zh",
+            "title_zh": "L7",
+            "title_en": "L7",
+            "url": "https://l7.antv.vision",
             "span": 24,
             "className": "L7"
           }
         ],
         [
           {
-            "title": "地理空间数据",
+            "title_zh": "地理空间数据",
+            "title_en": "Geospatial Data",
             "span": 24,
             "className": "geography"
           }
@@ -115,10 +131,11 @@
       ]
     },
     {
-      "title": "ava",
-      "path": "https://ava.antv.vision/zh/",
+      "title_zh": "AVA",
+      "title_en": "AVA",
+      "url": "https://ava.antv.vision",
       "span": 3,
-      "className": "ava"
+      "className": "AVA"
     }
   ]
 ]

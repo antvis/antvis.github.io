@@ -38,26 +38,27 @@ export default (props: BannerProps) => {
     return bannerList.map((row, index) => {
       return (
         <Row gutter={[15, 15]} justify="space-between" key={index}>
-          {row.map((item: any) => {
+          {row.map((item: any, key: number) => {
             if (item.children) {
               return (
-                <Col span={item.span}>{renderBannerNodes(item.children)}</Col>
+                <Col key={`${item.title_zh}${key}`} span={item.span}>
+                  {renderBannerNodes(item.children)}
+                </Col>
               );
             } else {
               return (
-                <Col key={item.title} span={item.span}>
-                  {item.path ? (
+                <Col key={`${item.title_zh}${key}`} span={item.span}>
+                  {item.url ? (
                     <a
                       className={styles[item.className]}
-                      key={item.title}
-                      href={item.path}
+                      href={`${item.url}/${lang}`}
                       target="_blank"
                     >
-                      {item.title}
+                      {lang === 'zh' ? item.title_zh : item.title_en}
                     </a>
                   ) : (
-                    <span className={styles[item.className]} key={item.title}>
-                      {item.title}
+                    <span className={styles[item.className]}>
+                      {lang === 'zh' ? item.title_zh : item.title_en}
                     </span>
                   )}
                 </Col>
