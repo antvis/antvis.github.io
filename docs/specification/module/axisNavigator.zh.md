@@ -58,10 +58,5 @@ order: 4
 
 | 类型 | 支持数据类型 | 摆放位置 | 支持配件 |
 | --- | --- | --- | --- |
-<<<<<<< HEAD
 | [缩略轴 Axis Navigator](https://antv.vision/zh/docs/specification/module/axisNavigator) | 时间轴（时序数据）、连续轴（非连序数据）均可 | X、Y 轴均可 | 无时间配置有播放器 |
 | [时间轴 TimeBar](https://antv.vision/zh/docs/specification/module/timeBar) | 必须要有时间轴（时序数据） | X 轴 | 有时间配置与播放器 |
-=======
-| 缩略轴 Axis Navigator | 时间轴（时序数据）、连续轴（非连序数据）均可 | X、Y 轴均可 | 无时间配置有播放器 |
-| 时间轴 TimeBar | 必须要有时间轴（时序数据） | X 轴 | 有时间配置与播放器 |
->>>>>>> ee3705dac124ac45fba94d1c2a1dfbbbb166c52a
