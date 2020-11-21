@@ -11,7 +11,7 @@ const Products = () => {
     t,
     language: i18n.language,
     rootDomain: '',
-  }).slice(0, 7);
+  }).slice(0, 10);
 
   const basicProducts = data.filter((item: any) => item.category === 'basic');
   const extensionProducts = data.filter(
@@ -260,6 +260,27 @@ const Products = () => {
           styles.slicerbar,
           styles.slicerbarh,
           styles.slicerbarh9,
+        )}
+      />
+      <div
+        className={classNames(
+          styles.slicerbar,
+          styles.slicerbarh,
+          styles.slicerbarh10,
+        )}
+      />
+      <div
+        className={classNames(
+          styles.slicerbar,
+          styles.slicerbarh,
+          styles.slicerbarh11,
+        )}
+      />
+      <div
+        className={classNames(
+          styles.slicerbar,
+          styles.slicerbarh,
+          styles.slicerbarh12,
         )}
       />
       <div className={styles.content}>
