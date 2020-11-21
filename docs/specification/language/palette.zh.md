@@ -25,15 +25,11 @@ AntV 色板是基于 [Ant Design 色彩体系](https://ant.design/docs/spec/colo
 | 饱和度（S） | <img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*8yVNQ6kKU9gAAAAAAAAAAABkARQnAQ" width=152 /> | = | 有序型 | 如多少、高低、大小 |
 | 明度（B） | <img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*KpGITpALYaQAAAAAAAAAAABkARQnAQ" width=152 /> |  | 数值型 | 如  9.5cm 、18 个 |
 
-<br/>
-
 ## 6 大色板类型
 
 AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用场景扩展出 6 种可视化色板类型，可完美兼容 Ant Design UI 资产。以下所有色板均通过无障碍测试校验，可放心使用。
 
 ![02-AntV 品牌色@3x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*pdBRSLgX79kAAAAAAAAAAABkARQnAQ)
-
-<br/>
 
 ### 分类色板
 
@@ -79,8 +75,6 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ![12.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*n-BbTJ0b8dQAAAAAAAAAAABkARQnAQ)
 
-<br/>
-
 ### 发散色板
 
 对比色渐变色板，一般是两种互补色（也可以是对比色）去展现数据从一个负向值到 0 点再到正向值的连续变化区间，显示相对立的两个值的大小关系，常用于气温的冷热、海拔高低、股票涨跌等
@@ -94,8 +88,6 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 全国等温线图，使用发散色板表示正负值的气温变化，暖色系的橙红色容易让人联系到太阳或炽热的感受，用于高温变化，颜色越红温度越高，反之，冷色系的蓝容易让人联想到冰和寒冷的感受，用于低温变化，颜色越深温度越低
 
 ![Artboard Copy@2x.png](https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Xnp3T5QsQ5gAAAAAAAAAAABkARQnAQ)
-
-<br/>
 
 ### 叠加色板
 
@@ -113,8 +105,6 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ![Artboard Copy 2@2x.png](https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*1XjNRZBf050AAAAAAAAAAABkARQnAQ)
 
-<br/>
-
 ### 强调色板
 
 对比突出重点或特定数据，将重点关注的数据标以高饱和度的强调色，其他普通数据标以低饱和、低明度的基本色，常用于对比重点关注事物与其他分类事物的差别，如将自家产品与竞品的对比使用
@@ -130,8 +120,6 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 如图某工厂历年能源消耗占比趋势对比，分别用五种不同的颜色代表五种能源，其中「天然气」为重点关注的能源类型，使用饱和度高的蓝代表「天然气」，其他能源类型着以低饱和度的分类颜色，以便关注的「天然气」能够快速被观察到，同时其他类型可作为对比参考而不会因颜色过多而产生干扰。
 
 ![Artboard Copy 6@2x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*d7FMRa5JzqcAAAAAAAAAAABkARQnAQ)
-
-<br/>
 
 ### 语义色板
 

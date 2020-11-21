@@ -15,7 +15,7 @@ order: 6
 
 # 信息组件构成
 
-信息组件由三类元素组合构成，它们分别是 **视觉标记 Visual Mark，文本标签 Label，数值标签 Value** \*\* **视觉标记** 视觉标记是视觉通道映射的载体，常见的为颜色、形状等，具体详见[视觉篇](https://www.yuque.com/mo-college/vis-design/seqpy0)和[色板篇](https://www.yuque.com/mo-college/vis-design/ugbofr)。
+信息组件由三类元素组合构成，它们分别是 **视觉标记 Visual Mark，文本标签 Label，数值标签 Value** **视觉标记** 视觉标记是视觉通道映射的载体，常见的为颜色、形状等，具体详见[视觉篇](https://www.yuque.com/mo-college/vis-design/seqpy0)和[色板篇](https://www.yuque.com/mo-college/vis-design/ugbofr)。
 
 | **视觉通道** | **示例** |
 | --- | --- |
@@ -23,7 +23,7 @@ order: 6
 | 形状 | ![image.png](https://cdn.nlark.com/yuque/0/2020/png/268442/1605773104112-2e49cb9a-8e97-4238-8c6f-910a8dffc970.png#align=left&display=inline&height=91&margin=%5Bobject%20Object%5D&name=image.png&originHeight=182&originWidth=1428&size=58838&status=done&style=none&width=714) |
 | 尺寸 | ![image.png](https://cdn.nlark.com/yuque/0/2020/png/268442/1605773327033-32bed739-49e9-48d8-9bef-af579ad4e7a5.png#align=left&display=inline&height=126&margin=%5Bobject%20Object%5D&name=image.png&originHeight=252&originWidth=1092&size=68736&status=done&style=none&width=546) |
 
-\*\* **文本标签** 文本标签此处特指显示数据标签名称的文本组件。样式详见 全局样式-数据标签。 \*\* \*\* **数值标签** 文本标签此处特指显示数据数值的文本组件。样式详见全局样式-数据标签。
+**文本标签** 文本标签此处特指显示数据标签名称的文本组件。样式详见 全局样式-数据标签。**数值标签** 文本标签此处特指显示数据数值的文本组件。样式详见全局样式-数据标签。
 
 # 常见形态
 
@@ -34,9 +34,7 @@ order: 6
 1. 指标卡（Index Card）
 1. 提示信息（Tooltip）
 
-![信息组件.png](https://cdn.nlark.com/yuque/0/2020/png/268442/1605864585100-12432765-7f3e-41ec-a7cd-69a122efcbc3.png#align=left&display=inline&height=1194&margin=%5Bobject%20Object%5D&name=%E4%BF%A1%E6%81%AF%E7%BB%84%E4%BB%B6.png&originHeight=1194&originWidth=2240&size=299525&status=done&style=none&width=2240) \*\* \*\*
-
-\*\*
+![信息组件.png](https://cdn.nlark.com/yuque/0/2020/png/268442/1605864585100-12432765-7f3e-41ec-a7cd-69a122efcbc3.png#align=left&display=inline&height=1194&margin=%5Bobject%20Object%5D&name=%E4%BF%A1%E6%81%AF%E7%BB%84%E4%BB%B6.png&originHeight=1194&originWidth=2240&size=299525&status=done&style=none&width=2240)
 
 # 1.标签提示 Label
 
@@ -70,7 +68,7 @@ order: 6
 
 ![image.png](https://cdn.nlark.com/yuque/0/2020/png/268442/1605789024361-b046dcf0-f15c-4c8a-a81c-75fbf803c80d.png#align=left&display=inline&height=494&margin=%5Bobject%20Object%5D&name=image.png&originHeight=988&originWidth=2874&size=996989&status=done&style=none&width=1437)
 
-\*\* **布局** 图例遵循流式布局，横向和纵向排列时超出区域，可以启用翻页。 **1. 图例超出时翻页** 在 G2Plot 中，图例如果占据了图表大部分的位置，你可以发现内置提供了翻页功能。 ![image.png](https://cdn.nlark.com/yuque/0/2020/png/268442/1605789258030-8af548dd-9da5-495b-873a-050eb903d10c.png#align=left&display=inline&height=562&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1124&originWidth=2814&size=353833&status=done&style=none&width=1407)
+**布局** 图例遵循流式布局，横向和纵向排列时超出区域，可以启用翻页。 **1. 图例超出时翻页** 在 G2Plot 中，图例如果占据了图表大部分的位置，你可以发现内置提供了翻页功能。 ![image.png](https://cdn.nlark.com/yuque/0/2020/png/268442/1605789258030-8af548dd-9da5-495b-873a-050eb903d10c.png#align=left&display=inline&height=562&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1124&originWidth=2814&size=353833&status=done&style=none&width=1407)
 
 **2. 图例应该放在哪里？** 图例是对图形本身的概括。通常人的视觉动线是从上至下，从左到右。默认把图例放在左上角去做一个通用的方案看起来似乎很稳妥。但这样是最优做法吗？更好的做法：**缩短用户对照图例看图形的本能路径，提升信息获取效率。** ** 虽然图例的位置从技术上支持了 12 个位置，我们总结了图例在不同的图表类型中不同的位置后，经过克制收敛为两类，并应用在统计图表类库 [G2Plot](https://g2plot.antv.vision/zh/examples/gallery) 和以及智能生成图表 AVA（补 AVA 网址） 中。 ** **设计者和观看者甚至并不会感知到位置的变化，但获取信息的效率就在不经意间提升了。 ** ![image.png](https://cdn.nlark.com/yuque/0/2020/png/268442/1605839011127-994ff1ba-7a05-4894-b054-e0586a9c36b7.png#align=left&display=inline&height=1600&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1600&originWidth=3840&size=1076334&status=done&style=none&width=3840)
 
@@ -98,7 +96,7 @@ Tooltip 的基本元素包括：视觉标记图形，文本标签，数值标记
 | ------------------------- | ------------ | ------------ | ---------------- |
 | Visual Mark + Label+Value | PC 端        | 图表上方     | 全部图表         |
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/174999/1574301311775-582cea8c-0836-423d-897f-a2aa3b0f9c19.png#align=left&display=inline&height=591&margin=%5Bobject%20Object%5D&name=image.png&originHeight=591&originWidth=1492&size=105438&status=done&style=none&width=1492) \*\* \*\* \*\*
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/174999/1574301311775-582cea8c-0836-423d-897f-a2aa3b0f9c19.png#align=left&display=inline&height=591&margin=%5Bobject%20Object%5D&name=image.png&originHeight=591&originWidth=1492&size=105438&status=done&style=none&width=1492)
 
 # 4.指标卡 Index Card
 
@@ -108,7 +106,7 @@ Tooltip 的基本元素包括：视觉标记图形，文本标签，数值标记
 | --- | --- | --- | --- |
 | Visual Mark + Label+Value | PC 端、移动端均可，移动端适合代替 tooltip 交互显示 | 图表上方 | 全部图表 |
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/174999/1574301311770-82e4e513-b8dc-4e40-ba92-8434f3d3b99e.png#align=left&display=inline&height=591&margin=%5Bobject%20Object%5D&name=image.png&originHeight=591&originWidth=1492&size=40183&status=done&style=none&width=1492) \*\*
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/174999/1574301311770-82e4e513-b8dc-4e40-ba92-8434f3d3b99e.png#align=left&display=inline&height=591&margin=%5Bobject%20Object%5D&name=image.png&originHeight=591&originWidth=1492&size=40183&status=done&style=none&width=1492)
 
 # 高阶用法 Advanced
 
