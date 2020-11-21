@@ -15,7 +15,11 @@ order: 2
 
 ## 显示策略
 
-通常标签显示在图形外，但在「堆叠类」图表中，标签会显示在图形内。如下图：<br />![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*_mkHQKT8bogAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=262&name=image.png&originHeight=716&originWidth=1030&size=51288&status=done&width=377)<br />标签的文本和图形经常需要交叠展示，所以可读性需要足够良好，所以通过对 HS 值的判断，决定文字的颜色。这样对比度就在可控范围内，不会出现可读性的问题。
+通常标签显示在图形外，但在「堆叠类」图表中，标签会显示在图形内。如下图：
+
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*_mkHQKT8bogAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=262&name=image.png&originHeight=716&originWidth=1030&size=51288&status=done&width=377)
+
+标签的文本和图形经常需要交叠展示，所以可读性需要足够良好，所以通过对 HS 值的判断，决定文字的颜色。这样对比度就在可控范围内，不会出现可读性的问题。
 
 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*yTziRrxxIgwAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=318&name=image.png&originHeight=636&originWidth=500&size=44263&status=done&width=250)
 
@@ -23,7 +27,9 @@ order: 2
 
 ### 问题 1：图表标签重叠时怎么办？
 
-标签重叠时，g2plot 的默认方案为动态计算的抽样显示，在标签重叠时，自动隐藏其中一个，同时当 Hover 图表时，显示被隐藏的对应的数据。这样保证了图表的清晰度，也保证了信息的完整性。<br /> <img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*yxjZRbvQ7j0AAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=250&name=%E6%A0%87%E7%AD%BE%E8%87%AA%E9%80%82%E5%BA%94.gif&originHeight=797&originWidth=825&size=935159&status=done&width=259" width="50%">
+标签重叠时，g2plot 的默认方案为动态计算的抽样显示，在标签重叠时，自动隐藏其中一个，同时当 Hover 图表时，显示被隐藏的对应的数据。这样保证了图表的清晰度，也保证了信息的完整性。
+
+ <img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*yxjZRbvQ7j0AAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=250&name=%E6%A0%87%E7%AD%BE%E8%87%AA%E9%80%82%E5%BA%94.gif&originHeight=797&originWidth=825&size=935159&status=done&width=259" width="50%">
 
 ### 问题 2：我可以自定义标签吗？
 
