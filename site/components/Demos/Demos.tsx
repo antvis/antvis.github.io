@@ -103,9 +103,15 @@ export default (props: DemosProps) => {
     updateImgs([...res]);
   };
 
-  window.onresize = debounce(() => {
-    layout();
-  }, 100);
+  useEffect(() => {
+    const debounceLayout = debounce(() => {
+      layout();
+    }, 100);
+    (window as any).addEventListener('resize', debounceLayout);
+    return () => {
+      window.removeEventListener('resize', debounceLayout);
+    };
+  }, []);
 
   useEffect(() => {
     layout();
