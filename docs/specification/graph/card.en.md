@@ -5,7 +5,9 @@ order: 0
 
 # 定义
 
-图表卡片是页面级可视化应用的细粒度单位。一个应用于数据分析的页面，都会由页面框架（顶部、侧边导航）、页面级组件、内容卡片排列构成。使用 AntV 组件搭建的图表，都需了解到统计图表卡片设计规范。<br /> <img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Zf2bQI6Dn8gAAAAAAAAAAAAAARQnAQ" width="100%"><br />
+图表卡片是页面级可视化应用的细粒度单位。一个应用于数据分析的页面，都会由页面框架（顶部、侧边导航）、页面级组件、内容卡片排列构成。使用 AntV 组件搭建的图表，都需了解到统计图表卡片设计规范。
+
+<img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Zf2bQI6Dn8gAAAAAAAAAAAAAARQnAQ" width="100%">
 
 # 构成
 
@@ -20,8 +22,8 @@ order: 0
 - Legend 图例：颜色图例、样式图例、指标型图例
 - Element 图表图形必选
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*96W_T4fxggQAAAAAAAAAAAAAARQnAQ)<br />
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*96W_T4fxggQAAAAAAAAAAAAAARQnAQ)
 
 ## 信息优先级
 
-卡片尺寸不是固定的，卡片内容需要根据尺寸进行响应式调整，整体遵循下图响应规则，越 Low 的越可以优先进行裁剪或者省略，越 Constant 越需要强制显示，不可进行裁剪隐藏。 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*-JzQQ4XL8bsAAAAAAAAAAAAAARQnAQ)<br />
+卡片尺寸不是固定的，卡片内容需要根据尺寸进行响应式调整，整体遵循下图响应规则，越 Low 的越可以优先进行裁剪或者省略，越 Constant 越需要强制显示，不可进行裁剪隐藏。 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*-JzQQ4XL8bsAAAAAAAAAAAAAARQnAQ)
