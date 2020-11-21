@@ -1,5 +1,5 @@
 ---
-title: Color Board
+title: Color Palette
 order: 1
 ---
 

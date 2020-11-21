@@ -66,25 +66,25 @@ order: 10
 We provide design resources and tools as below:
 
 <div class="resource-cards">
-    <a href="https://github.com/antvis/feedback/releases/download/design/AntV.Charts.sketch" class="resource-card">
+    <a href="https://gw.alipayobjects.com/os/bmw-prod/707eaec1-5620-4a49-9f6c-fc3512838604.sketch" class="resource-card">
         <img src="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*xMzhQLZvDlcAAAAAAAAAAABkARQnAQ" alt="">
         <span class="resource-content">
-            <span class="title">AntV Charts</span>
+            <span class="title">AntV Charts 4.0</span>
             <span class="description">Chart components as Sketch template</span>
         </span>
     </a>
-    <a href="https://github.com/antvis/feedback/releases/download/design/AntV.Charts.Icons.sketch" class="resource-card">
+    <a href="https://gw.alipayobjects.com/os/bmw-prod/d9864de8-81e2-4be6-a595-4a3d81096874.sketch" class="resource-card">
         <img src="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*xMzhQLZvDlcAAAAAAAAAAABkARQnAQ" alt="">
         <span class="resource-content">
             <span class="title">AntV Charts Icons</span>
             <span class="description">Logos and icons</span>
         </span>
     </a>
-    <a href="https://gw.alipayobjects.com/os/bmw-prod/d5f4c0a4-0ae0-4f5d-8441-e48766b5ceec.sketch" class="resource-card">
+    <a href="https://gw.alipayobjects.com/os/bmw-prod/1a23578c-c79b-4900-9baa-32391c5467ac.sketch" class="resource-card">
         <img src="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*xMzhQLZvDlcAAAAAAAAAAABkARQnAQ" alt="">
         <span class="resource-content">
-            <span class="title">AntV Color Palette</span>
-            <span class="description">Color palette for visualization</span>
+            <span class="title">AntV Color Palette 2.0</span>
+            <span class="description">Color palette for visualization 2.0</span>
         </span>
     </a>
 </div>
