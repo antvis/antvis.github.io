@@ -10,15 +10,10 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 在移动端运用数据可视化之前应该清晰移动端的特性，主要有以下几方面：
 
 > 1. 用户碎片化时间、浏览行为多于深入交互行为；
-
 > 2. 多试用于触摸界面，和手势化的简单交互操作；
-
 > 3. 硬件界面多样性；
-
 > 4. 界面相对较小，内容信息呈纵向和多线性；
-
 > 5. 用户操作时环境条件多样；
-
 > 6. 网络电量相对不稳定，要求具有性能高及特殊状况下的良好体验。
 
 # 设计建议
@@ -42,21 +37,15 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*SmlZQY1NH-8AAAAAAAAAAAAAARQnAQ)
 
-在 “信息轻量聚焦” 中我们提到移动端的可视化设计多聚焦于用户的直接任务，用 [可视化交互](https://yuque.antfin-inc.com/antv/visdesign/interaction-guideline) 一文中提及的任务层次来分析，移动端交互设计上会更聚焦在数据获取层，对复杂程度较高的交互行为要进行适度的克制。下图是 AntV 设计总结的常用手势表，给大家做参考。
+在 “信息轻量聚焦” 中我们提到移动端的可视化设计多聚焦于用户的直接任务，用[可视化交互](../language/interact) 一文中提及的任务层次来分析，移动端交互设计上会更聚焦在数据获取层，对复杂程度较高的交互行为要进行适度的克制。下图是 AntV 设计总结的常用手势表，给大家做参考。
 
-| **动作** | **目的**         | **操作**       | **示例** |
-| -------- | ---------------- | -------------- | -------- |
-| 浏览     | 寻找感兴趣的数据 | Touch and hold |
-
-![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*sF5KQa9DBWAAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*EieBSL4__wgAAAAAAAAAAAAAARQnAQ) | | 选中 | 对单个数据点感兴趣 | Tap
-
-![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*tr5mR5kLBsIAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*nwHFTocgGM0AAAAAAAAAAAAAARQnAQ) | | 过滤 | 聚焦重点信息 | Touch and hold
-
-![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*PeAUQpdwouwAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*dsrjRqD_PUcAAAAAAAAAAAAAARQnAQ) | | 缩放 | 探索、识别数据 | Pinch
-
-![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*wE0sT7UUeesAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*KKKGRKluIg4AAAAAAAAAAAAAARQnAQ) | | 平移 | 探索更大的数据空间 | Swipe
-
-![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ELAJS7z5iLkAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*yWrQQ5aLj6UAAAAAAAAAAAAAARQnAQ) |
+| **动作** | **目的** | **操作** | **示例** |
+| --- | --- | --- | --- |
+| 浏览 | 寻找感兴趣的数据 | Touch and hold ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*sF5KQa9DBWAAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*EieBSL4__wgAAAAAAAAAAAAAARQnAQ) |
+| 选中 | 对单个数据点感兴趣 | Tap ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*tr5mR5kLBsIAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*nwHFTocgGM0AAAAAAAAAAAAAARQnAQ) |
+| 过滤 | 聚焦重点信息 | Touch and hold ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*PeAUQpdwouwAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*dsrjRqD_PUcAAAAAAAAAAAAAARQnAQ) |
+| 缩放 | 探索、识别数据 | Pinch ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*wE0sT7UUeesAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*KKKGRKluIg4AAAAAAAAAAAAAARQnAQ) |
+| 平移 | 探索更大的数据空间 | Swipe ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ELAJS7z5iLkAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*yWrQQ5aLj6UAAAAAAAAAAAAAARQnAQ) |
 
 ## 3**、功能组件完善易用**
 
@@ -108,11 +97,7 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 | 纵向 | 横向 |
 | --- | --- |
-| ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*-oR1RL2HMTcAAAAAAAAAAAAAARQnAQ) |
-
-![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*wMmORoD03okAAAAAAAAAAAAAARQnAQ)
-
-|
+| ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*-oR1RL2HMTcAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*wMmORoD03okAAAAAAAAAAAAAARQnAQ) |
 
 ## 总结
 

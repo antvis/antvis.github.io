@@ -15,7 +15,7 @@ order: 6
 
 # 信息组件构成
 
-信息组件由三类元素组合构成，它们分别是 **视觉标记 Visual Mark，文本标签 Label，数值标签 Value** **视觉标记** 视觉标记是视觉通道映射的载体，常见的为颜色、形状等，具体详见[视觉篇](https://antv.vision/zh/docs/specification/language/basic)和[色板篇](https://antv.vision/zh/docs/specification/language/palette)。
+信息组件由三类元素组合构成，它们分别是 **视觉标记 Visual Mark，文本标签 Label，数值标签 Value** **视觉标记** 视觉标记是视觉通道映射的载体，常见的为颜色、形状等，具体详见[视觉篇](../language/basic)和[色板篇](../language/palette)。
 
 | **视觉通道** | **示例** |
 | --- | --- |
@@ -80,7 +80,7 @@ order: 6
 
 更好的做法：**缩短用户对照图例看图形的本能路径，提升信息获取效率。**
 
-虽然图例的位置从技术上支持了 12 个位置，我们总结了图例在不同的图表类型中不同的位置后，经过克制收敛为两类，并应用在统计图表类库 [G2Plot](https://g2plot.antv.vision/zh/examples/gallery) 和以及智能生成图表 [AVA](https://ava.antv.vision/) 中。
+虽然图例的位置从技术上支持了 12 个位置，我们总结了图例在不同的图表类型中不同的位置后，经过克制收敛为两类，并应用在统计图表类库 <a href='https://g2plot.antv.vision/zh/examples/gallery' target='_blank'>G2Plot</a> 和以及智能生成图表 <a href='https://ava.antv.vision/' target='_blank'>AVA</a> 中。
 
 设计者和观看者甚至并不会感知到位置的变化，但获取信息的效率就在不经意间提升了。 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*HIgXSrHrbm0AAAAAAAAAAAAAARQnAQ)
 
@@ -128,14 +128,10 @@ Tooltip 的基本元素包括：视觉标记图形，文本标签，数值标记
 
 ## 适应设备环境多变
 
-组件依据当前的设备和环境，尺寸和交互降级时，用于解释性的信息，可选择变化信息组件的形态承载。如下图所示，PC 端的图形 Label +分类图例，在移动端可变换为指标卡，在极小尺寸的迷你图表中可变换为 tooltip。用户所付出的交互和时间成本不同，可以看到尽量一致的信息。具体可以查看 [响应式篇](https://www.yuque.com/mo-college/vis-design/gqrmxl)。 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ulwsQZ1i41MAAAAAAAAAAAAAARQnAQ)
+组件依据当前的设备和环境，尺寸和交互降级时，用于解释性的信息，可选择变化信息组件的形态承载。如下图所示，PC 端的图形 Label +分类图例，在移动端可变换为指标卡，在极小尺寸的迷你图表中可变换为 tooltip。用户所付出的交互和时间成本不同，可以看到尽量一致的信息。具体可以查看 [响应式篇](../language/media)。 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ulwsQZ1i41MAAAAAAAAAAAAAARQnAQ)
 
 # 扩展阅读
 
 下面是一份对照表，可以帮助你更快决定自己的图表中应该使用何种信息组件。
 
 ![扩展阅读](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*a3EqQ7KAh3YAAAAAAAAAAAAAARQnAQ)
-
-# 参考
-
-图例 [https://antv.vision/zh/docs/specification/components/legend](https://antv.vision/zh/docs/specification/components/legend) 提示信息 [https://antv.vision/zh/docs/specification/components/tooltip](https://antv.vision/zh/docs/specification/components/tooltip)
