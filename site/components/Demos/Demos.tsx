@@ -77,6 +77,7 @@ export default (props: DemosProps) => {
 
   /* 布局规则： 排序靠前的列宽大 */
   const layout = () => {
+    if (!list || list.length <= 0 || !active) return;
     let res: number[][] = [];
     const maxWidth = document.body.clientWidth - 360;
     const height = document.body.clientHeight - 396;
@@ -99,11 +100,14 @@ export default (props: DemosProps) => {
       res.push(rowIndex);
       firtColNum += 1;
     }
-    updateImgs(res);
+    updateImgs([...res]);
   };
 
+  window.onresize = debounce(() => {
+    layout();
+  }, 100);
+
   useEffect(() => {
-    if (!list || list.length <= 0 || !active) return;
     layout();
   }, [list, active]);
 
