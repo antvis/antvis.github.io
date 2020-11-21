@@ -122,7 +122,7 @@ G6 在 AntV 的基础色彩体系的基础上，结合关系图表达的特点�
 
 **定义** 色彩在可视化中的使用，不仅是数据信息传递的可视化通道，同时也是更深一层的文化故事的载体，用于表达意义或情感。
 
-**取色指南** 重视用色习惯，遵循相关标准，色彩也不是都能寓意的，相当一部分图表色彩选择和感情因素无关，而是按照某种习惯来设定色彩，即所谓约定俗成，有的甚至形成来规范。 ![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582972-bef0b9e9-1652-4ce4-8019-6f215389f4f6.png#align=left&display=inline&height=154&margin=%5Bobject%20Object%5D&name=image.png&originHeight=308&originWidth=970&size=79993&status=done&style=none&width=485) 语义色板（部分）
+**取色指南** 重视用色习惯，遵循相关标准，色彩也不是都能寓意的，相当一部分图表色彩选择和感情因素无关，而是按照某种习惯来设定色彩，即所谓约定俗成，有的甚至形成来规范。 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*O7j0QIOATF0AAAAAAAAAAAAAARQnAQ) 语义色板（部分）
 
 更多色板介绍，详见 [AntV 色板](https://antv.vision/zh/docs/specification/principles/visual)
 
@@ -130,11 +130,13 @@ G6 在 AntV 的基础色彩体系的基础上，结合关系图表达的特点�
 
 ## 节点（Node）
 
-以圆形节点为例，根据点不同的信息展示形式，基础形状的大小有所不同，在图展示中需将图相关信息做最优展示。 ![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582919-9e8abd97-275d-40cb-bf5a-490626071417.png#align=left&display=inline&height=277&margin=%5Bobject%20Object%5D&name=image.png&originHeight=554&originWidth=1630&size=234288&status=done&style=none&width=815)
+以圆形节点为例，根据点不同的信息展示形式，基础形状的大小有所不同，在图展示中需将图相关信息做最优展示。
+
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*6OBAT6xS8ooAAAAAAAAAAAAAARQnAQ)
 
 > 图 1，圆形节点——文本置内型，节点直径大小建议为 60px，文本大小为 12px
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582967-7ea7ad23-2ef8-41e1-8d3f-c4c010aa4edd.png#align=left&display=inline&height=230&margin=%5Bobject%20Object%5D&name=image.png&originHeight=460&originWidth=1540&size=204571&status=done&style=none&width=770)
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*9rInQ62PkOIAAAAAAAAAAAAAARQnAQ)
 
 > 图 2，圆形节点——文本非置内型，节点直径大小建议为 16px，文本大小为 12px
 
@@ -150,6 +152,6 @@ Combo 的大小跟随内容，Node 与 Combo 之间的间隙最小为 Small = 8p
 
 > **数据集：**又称为资料集、数据集合或资料集合，是一种由数据所组成的集合。 **连续数值：**统计学概念,又称连续变量。指在一定区间内可以任意取值、数值是连续不断的、相邻两个数值可作无限分割(即可取无限个数值)的数据。 **断点：**文中主要指数据集的中心值或参考值，例如零变化或平均值。 **端点：**文中主要指数据集极端值，例如最大最小值。 **语义：**文中主要指色彩心理学中色彩在客观上对人们对一种刺激和象征，它在主观上又是一种反应和行为。包含从知觉、感情而到记忆、思想、意志、象征等与色彩的因果关系。
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582938-43163305-4470-4dd8-a8a9-9d050341e97f.png#align=left&display=inline&height=762&margin=%5Bobject%20Object%5D&name=image.png&originHeight=762&originWidth=1736&size=157352&status=done&style=none&width=1736)
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*JxX5RIoxGO8AAAAAAAAAAAAAARQnAQ)
 
-当需要用颜色作为视觉通道时，数据性质可作为参考因素，选用色板的步骤大致如下图： ![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582958-731967cd-3123-4df2-9f15-c174430a78e6.png#align=left&display=inline&height=1698&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1698&originWidth=1872&size=530541&status=done&style=none&width=1872)
+当需要用颜色作为视觉通道时，数据性质可作为参考因素，选用色板的步骤大致如下图： ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*McaSTIbSrigAAAAAAAAAAAAAARQnAQ)
