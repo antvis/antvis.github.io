@@ -22,15 +22,17 @@ order: 3
 - 节点可加简短描述；
 - 节点可展开下级信息。
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582875-8dfa6ab9-f4a4-47d5-ac9e-bb532034a5da.png#align=left&display=inline&height=330&margin=%5Bobject%20Object%5D&name=image.png&originHeight=660&originWidth=2800&size=115252&status=done&style=none&width=1400) ![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582864-063f48ad-f10f-4c7d-890f-17720577ad86.png#align=left&display=inline&height=489&margin=%5Bobject%20Object%5D&name=image.png&originHeight=978&originWidth=2800&size=354195&status=done&style=none&width=1400)
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*et0bSbpk9VMAAAAAAAAAAAAAARQnAQ) ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*6OBAT6xS8ooAAAAAAAAAAAAAARQnAQ)
 
 ## 交互样式
 
-点交互基础样式有以下 6 种：基础状态：**Default-默认**、**Active-激活**、**Selected-选中**、**Disable-失效** 被动状态：**Highlight-强化**、**Inactive-弱化**（在交互场景中与 **Default-默认 **做出区分） ![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582872-2607bf05-a23e-4060-9574-f8d3ae97e3a7.png#align=left&display=inline&height=462&margin=%5Bobject%20Object%5D&name=image.png&originHeight=924&originWidth=2700&size=562231&status=done&style=none&width=1350)
+点交互基础样式有以下 6 种：基础状态：**Default-默认**、**Active-激活**、**Selected-选中**、**Disable-失效** 被动状态：**Highlight-强化**、**Inactive-弱化**（在交互场景中与 **Default-默认 **做出区分）
+
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*3IEvTLdQMWcAAAAAAAAAAAAAARQnAQ)
 
 > 以力导向图布局和辐射布局为例
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582877-9698ace9-dccc-4746-8280-ee68aae46465.png#align=left&display=inline&height=973&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1946&originWidth=5030&size=571043&status=done&style=none&width=2515)
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*PA3mSrATKBYAAAAAAAAAAAAAARQnAQ)
 
 # 边（Edge）
 
@@ -47,11 +49,11 @@ order: 3
 - 加标签、不加标签；
 - 不同粗细代表节点流量的……
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582878-1636be8e-a4aa-4421-ab6f-daa5b6366719.png#align=left&display=inline&height=305&margin=%5Bobject%20Object%5D&name=image.png&originHeight=610&originWidth=2800&size=104703&status=done&style=none&width=1400) ![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582915-75baab65-f534-45ab-9c7d-0980eff09deb.png#align=left&display=inline&height=305&margin=%5Bobject%20Object%5D&name=image.png&originHeight=610&originWidth=2800&size=123567&status=done&style=none&width=1400)
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*et0bSbpk9VMAAAAAAAAAAAAAARQnAQ) ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*iFyqQb8RUMIAAAAAAAAAAAAAARQnAQ)
 
 ## 交互样式
 
-边的交互基础样式跟节点同样有以下 6 种：**Default、Active、Selected、Disable、Highlight、Inactive** ![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582888-2c7b847d-8329-406b-a6c6-32f8e86e92be.png#align=left&display=inline&height=263&margin=%5Bobject%20Object%5D&name=image.png&originHeight=526&originWidth=2800&size=55862&status=done&style=none&width=1400)
+边的交互基础样式跟节点同样有以下 6 种：**Default、Active、Selected、Disable、Highlight、Inactive** ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*MV1hQ6D9KPwAAAAAAAAAAAAAARQnAQ)
 
 > 在节点的交互样式引用图例中同样可看到边的运用效果
 
@@ -70,13 +72,13 @@ G6 默认提供两种类型，使用带有不重叠约束的力导向图布局�
 - Circle 圆形
 - Rect 矩形
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582892-98f92004-97c3-4a15-9d16-232999d7da9d.png#align=left&display=inline&height=285&margin=%5Bobject%20Object%5D&name=image.png&originHeight=570&originWidth=2800&size=108241&status=done&style=none&width=1400)
+![image.png](https://gw.alipayobjects.com/zos/antfincdn/YujSCuKPPa/1605809150503-f49b0d6b-72d6-4b0b-a676-f16005732da4.png)
 
 > 在 Combo 的具体运用中，会出现 Combo 未展开/已展开、一级 Combo 和二级 Combo 及更多级相结合的形式，上图仅为未展开、展开（共一级）、展开（共二级）形式
 
 ## 交互样式
 
-节点组合形式千变万化，按常见形态延伸相应的交互样式如下： ![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582900-23f0a25d-9238-4236-ba9b-06f6b0426c7a.png#align=left&display=inline&height=1660&margin=%5Bobject%20Object%5D&name=image.png&originHeight=3320&originWidth=5642&size=1413962&status=done&style=none&width=2821)
+节点组合形式千变万化，按常见形态延伸相应的交互样式如下： ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*7oZNQ6SDm7oAAAAAAAAAAAAAARQnAQ)
 
 # 关系图色板
 
@@ -88,7 +90,7 @@ G6 在 AntV 的基础色彩体系的基础上，结合关系图表达的特点�
 
 ## 默认主题色
 
-选择蓝色为基础样式的案例色，也是基础样式的默认色 /G6 的主色；灰色作为辅助色。 ![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582912-1d6c8a52-c517-4242-b943-9b5ea0a9e925.png#align=left&display=inline&height=146&margin=%5Bobject%20Object%5D&name=image.png&originHeight=292&originWidth=2428&size=81458&status=done&style=none&width=1214)
+选择蓝色为基础样式的案例色，也是基础样式的默认色 /G6 的主色；灰色作为辅助色。 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*kV7pSL_tMKkAAAAAAAAAAAAAARQnAQ)
 
 ## 邻近色色板
 
@@ -102,7 +104,7 @@ G6 在 AntV 的基础色彩体系的基础上，结合关系图表达的特点�
 1. 暗色色板同理，起始色为 2 号色，中间色为相应邻近色调 5 号色，结束色为中间色邻近色调的 8 号色；
 1. 保留未分段的色带，便于用户自由分段取数。
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582951-4ace9d03-3e7a-45bb-96e4-cc504b95fa5c.png#align=left&display=inline&height=540&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1080&originWidth=2422&size=302650&status=done&style=none&width=1211) 邻近色色板（部分）\*\*
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*VLGeTo8a2e0AAAAAAAAAAAAAARQnAQ) 邻近色色板（部分）\*\*
 
 ## 发散色色板
 
@@ -116,7 +118,7 @@ G6 在 AntV 的基础色彩体系的基础上，结合关系图表达的特点�
 1. 暗色色板同理，其中 8 号色起始色和结束色，5 号色为过渡色，灰阶色的 2 号色作为中间色；
 1. 保留未分段的色带，便于用户自由分段取数。
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1605883582928-14e608ef-44a8-4ebf-adc8-9c3dc375917b.png#align=left&display=inline&height=618&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1236&originWidth=1584&size=378304&status=done&style=none&width=792) 发散色板（部分）
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Yx7-Rpm3ORwAAAAAAAAAAAAAARQnAQ) 发散色板（部分）
 
 ## 语义色板
 

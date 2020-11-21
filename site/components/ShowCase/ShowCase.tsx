@@ -4,7 +4,7 @@ import { Layout as AntLayout, BackTop } from 'antd';
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import Article from '@antv/gatsby-theme-antv/site/components/Article';
 import { useTranslation } from 'react-i18next';
-//@ts-ignore
+import customStyles from './ShowCase.module.less';
 import styles from '@antv/gatsby-theme-antv/site/templates/markdown.module.less';
 
 interface ShowCaseProps {
@@ -49,7 +49,11 @@ export default () => {
                   href={demo.href}
                   target="_blank"
                 >
-                  <div>
+                  <div
+                    style={{
+                      height: `180px`,
+                    }}
+                  >
                     <img
                       src={
                         demo.screenshot ||
@@ -71,6 +75,7 @@ export default () => {
                       display: `inline-block`,
                       marginLeft: `16px`,
                       bottom: `6px`,
+                      right: `0px`,
                     }}
                   >
                     {demo.type}
