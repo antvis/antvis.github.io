@@ -1,5 +1,5 @@
 ---
-title: Title &amp; Note
+title: Title and annotation
 order: 0
 ---
 
