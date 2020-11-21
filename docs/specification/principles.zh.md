@@ -5,7 +5,7 @@ redirect_from:
   - /zh/docs/specification
 ---
 
-数据可视化 AntV 的设计原则是基于 [Ant Design](https://ant.design/docs/spec/introduce-cn) 设计体系衍生的，具有数据可视化特性的指导原则。它在遵循 Ant Design 设计价值观的同时，对数据可视化领域的进一步解读，如色板、字体的指引。
+数据可视化 AntV 的设计原则是基于 <a href='https://ant.design/docs/spec/introduce-cn' target='_blank'>Ant Design</a> 设计体系衍生的，具有数据可视化特性的指导原则。它在遵循 Ant Design 设计价值观的同时，对数据可视化领域的进一步解读，如色板、字体的指引。
 
 AntV 经过大量的项目实战经验，总结了四条核心原则：准确、清晰、有效、美，这四条原则按重要等级先后排序，相辅相成且呈递进关系。![设计原则.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*aOiuRKvy_-UAAAAAAAAAAAAAARQnAQ)
 

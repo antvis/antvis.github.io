@@ -124,7 +124,7 @@ G6 在 AntV 的基础色彩体系的基础上，结合关系图表达的特点�
 
 **取色指南** 重视用色习惯，遵循相关标准，色彩也不是都能寓意的，相当一部分图表色彩选择和感情因素无关，而是按照某种习惯来设定色彩，即所谓约定俗成，有的甚至形成来规范。 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*O7j0QIOATF0AAAAAAAAAAAAAARQnAQ) 语义色板（部分）
 
-更多色板介绍，详见 [AntV 色板](https://antv.vision/zh/docs/specification/principles/visual)
+更多色板介绍，详见 [AntV 色板](../language/palette)。
 
 # 设计 Tips
 

@@ -5,7 +5,7 @@ order: 1
 
 # 折线图
 
-**定义：**折线图又叫趋势图，是用于显示数据在一个连续的时间间隔或者时间跨度上的变化，它的特点是反映事物随时间或有序类别而变化的趋势。详见 AntV 官网 [折线图 demo](https://g2plot.antv.vision/zh/examples/line/basic)。
+**定义：**折线图又叫趋势图，是用于显示数据在一个连续的时间间隔或者时间跨度上的变化，它的特点是反映事物随时间或有序类别而变化的趋势。详见 AntV 官网 <a href='https://g2plot.antv.vision/zh/examples/line/basic' target='_blank'>折线图 demo</a>。
 
 | 适合的数据 | 「两个连续字段数据」，或者「一个有序的分类」+「一个连续数据字段」 |
 | :-- | :-- |
@@ -23,11 +23,9 @@ order: 1
 
 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*z-M3QIorRgMAAAAAAAAAAAAAARQnAQ)
 
-#
-
 # 柱/条形图
 
-**定义：**柱状图用于描述分类数据之间的对比，如果我们把时间周期，如周、月、年，也理解为一种分类数据 (time category)，那么柱状图也可以用于描述时间周期之间的数值比较。详见 AntV 官网 [柱形图 demo](https://g2plot.antv.vision/zh/examples/column/basic#basic)。
+**定义：**柱状图用于描述分类数据之间的对比，如果我们把时间周期，如周、月、年，也理解为一种分类数据 (time category)，那么柱状图也可以用于描述时间周期之间的数值比较。详见 AntV 官网 <a href='https://g2plot.antv.vision/zh/examples/column/basic#basic' target='_blank'>柱形图 demo</a>。
 
 | 适合的数据 | 「一组或多组分类数据」+「一组或者多组对应的数值」 |
 | :-- | :-- |
@@ -68,7 +66,7 @@ order: 1
 
 # 饼图
 
-**定义：**饼图通过扇形区块的面积，弧度和颜色等视觉标记，展现数据的分类和占比情况。它的特点是展现部分与部分之间，以及部分与整体的关系。部分相加之和等于整体的 100%，用整圆表示。详见 AntV 官网 [饼图 demo](https://g2plot.antv.vision/zh/examples/pie/basic#pie-state)。
+**定义：**饼图通过扇形区块的面积，弧度和颜色等视觉标记，展现数据的分类和占比情况。它的特点是展现部分与部分之间，以及部分与整体的关系。部分相加之和等于整体的 100%，用整圆表示。详见 AntV 官网 <a href='https://g2plot.antv.vision/zh/examples/pie/basic#pie-state' target='_blank'>饼图 demo</a>。
 
 | **适合的数据** | 一个「分类维度字段」和一个「数值度量字段」 |
 | :-- | :-- |
@@ -88,7 +86,7 @@ order: 1
 
 # 迷你图表 Minichart
 
-**定义：**Minichart 通常在空间有限的情况下作为 fullsize chart 的降级显示形式，相比于 fullsize chart，Minichart 省略了轴和图例，标题，标签等组件，而只保留了图表图形的基本态势，因此展现的信息量是有限的，在静态展示状态下，只能体现数据的大概分布。详见 AntV 官网 [mini 图表](https://g2plot.antv.vision/zh/examples/gallery#category-%E8%BF%B7%E4%BD%A0%E6%8A%98%E7%BA%BF%E5%9B%BE)。
+**定义：**Minichart 通常在空间有限的情况下作为 fullsize chart 的降级显示形式，相比于 fullsize chart，Minichart 省略了轴和图例，标题，标签等组件，而只保留了图表图形的基本态势，因此展现的信息量是有限的，在静态展示状态下，只能体现数据的大概分布。详见 AntV 官网 <a href='https://g2plot.antv.vision/zh/examples/gallery#category-%E8%BF%B7%E4%BD%A0%E6%8A%98%E7%BA%BF%E5%9B%BE' target='_blank'>mini 图表</a>。
 
 **Minichart 类型：**可折线图、面积图、柱形图、直方图、饼图、环形/条形进度条、子弹图等。
 

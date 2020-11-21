@@ -57,7 +57,7 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ![02-AntV 品牌色@3x.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ob0rTbJccqgAAAAAAAAAAAAAARQnAQ)
 
-更多关于色板的信息请[阅读此链接](https://antv.vision/zh/docs/specification/language/palette)。
+更多关于色板的信息请[阅读此链接](./palette)。
 
 ### 色板示例
 
