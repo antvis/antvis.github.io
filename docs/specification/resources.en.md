@@ -1,5 +1,5 @@
 ---
-title: Resource Download
+title: Resources
 order: 10
 ---
 
