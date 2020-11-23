@@ -47,9 +47,10 @@
   "scripts": {
     "start": "npm run develop",
     "build": "npm run clean && gatsby build",
-    "clean": "gatsby clean",
-    "develop": "gatsby develop --open",
-    "deploy": "npm run build && gh-pages -d public -b master",
+    "clean": "gatsby clean",  
+    "develop": "gatsby develop --open",  
+    "deploy": " npm run build && npm run copy-mirror-action && gh-pages -d public -b master",
+    "copy-mirror-action": "mkdir -p public/.github/workflows && cp .github/workflows/mirror.yml public/.github/workflows",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,less}\"",
     "tsc": "tsc",
     "serve": "gatsby serve"
