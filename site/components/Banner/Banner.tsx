@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Children } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import styles from './Banner.module.less';
 import { useTranslation } from 'react-i18next';

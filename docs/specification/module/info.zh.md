@@ -1,6 +1,6 @@
 ---
 title: 信息组件 Info Component
-order: 6
+order: 7
 ---
 
 # 定义

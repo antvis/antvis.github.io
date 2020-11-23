@@ -1,6 +1,6 @@
 ---
 title: Info Component
-order: 6
+order: 7
 ---
 
 `markdown:docs/specification/module/info.zh.md`

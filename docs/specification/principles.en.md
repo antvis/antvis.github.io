@@ -1,5 +1,5 @@
 ---
-title: Design Principles
+title: Principles
 order: 0
 redirect_from:
   - /en/docs/specification

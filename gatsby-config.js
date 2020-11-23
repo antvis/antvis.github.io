@@ -34,7 +34,7 @@ module.exports = {
         slug: 'specification/principles',
         title: {
           zh: '设计原则',
-          en: 'Design Principles',
+          en: 'Principles',
         },
         order: 0,
       },
@@ -42,7 +42,7 @@ module.exports = {
         slug: 'specification/language',
         title: {
           zh: '设计语言',
-          en: 'Design Language',
+          en: 'Language',
         },
         order: 1,
       },
@@ -50,15 +50,15 @@ module.exports = {
         slug: 'specification/strategy',
         title: {
           zh: '设计策略',
-          en: 'Design Strategy',
+          en: 'Strategies',
         },
         order: 2,
       },
       {
         slug: 'specification/graph',
         title: {
-          zh: '图形设计指引',
-          en: 'Graph Design Guide',
+          zh: '图表设计指引',
+          en: 'Visualizations Guides',
         },
         order: 3,
       },
@@ -66,7 +66,7 @@ module.exports = {
         slug: 'specification/module',
         title: {
           zh: '组件设计指引',
-          en: 'Module Design Guide',
+          en: 'Components Guide',
         },
         order: 4,
       },
@@ -82,7 +82,7 @@ module.exports = {
         slug: 'specification/resources',
         title: {
           zh: '资源下载',
-          en: 'Resource Download',
+          en: 'Resource',
         },
         order: 5,
       },
@@ -90,18 +90,10 @@ module.exports = {
         slug: 'specification/tool',
         title: {
           zh: '工具',
-          en: 'Tool',
+          en: 'Tools',
         },
         order: 6,
       },
-      // {
-      //   slug: 'specification/standby',
-      //   title: {
-      //     zh: '备用',
-      //     en: 'EN 备用',
-      //   },
-      //   order: 7,
-      // },
     ],
     docsearchOptions: {
       apiKey: '9d1cd586972bb492b7b41b13a949ef30',
