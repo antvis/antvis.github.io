@@ -8,7 +8,7 @@ interface Props {
 
 const AboutUsBanner = (props: Props) => {
   const { t } = useTranslation();
-  let title = '蚂蚁金服数据可视化团队';
+  let title = '蚂蚁集团数据可视化团队';
   let description = '「让人们在数据世界里获得视觉化思考能力」';
   return (
     <section className={styles.wrapper}>

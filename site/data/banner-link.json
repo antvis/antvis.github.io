@@ -1,0 +1,119 @@
+[
+  {
+    "title_zh": "Ant Design Charts",
+    "title_en": "Ant Design Charts",
+    "url": "https://charts.ant.design",
+    "row": "1 / 2",
+    "col": "1 / 12",
+    "className": "antdChart"
+  },
+  {
+    "title_zh": "G2Plot",
+    "title_en": "G2Plot",
+    "url": "https://g2plot.antv.vision",
+    "row": "2 / 3",
+    "col": "1 / 3",
+    "className": "G2"
+  },
+  {
+    "title_zh": "F2Native",
+    "title_en": "F2Native",
+    "url": "https://f2native.antv.vision",
+    "row": "2 / 3",
+    "col": "3 / 5",
+    "className": "F2"
+  },
+  {
+    "title_zh": "G2",
+    "title_en": "G2",
+    "url": "https://g2.antv.vision",
+    "row": "3 / 4",
+    "col": "1 / 3",
+    "className": "G2"
+  },
+  {
+    "title_zh": "F2",
+    "title_en": "F2",
+    "url": "https://f2.antv.vision",
+    "row": "3 / 4",
+    "col": "3 / 5",
+    "className": "F2"
+  },
+  {
+    "title_zh": "常规统计数据",
+    "title_en": "General Statistics",
+    "row": "4 / 5",
+    "col": "1 / 5",
+    "className": "conventional"
+  },
+  {
+    "title_zh": "Graphin",
+    "title_en": "Graphin",
+    "url": "https://graphin.antv.vision",
+    "row": "2 / 3",
+    "col": "5 / 7",
+    "className": "G6"
+  },
+  {
+    "title_zh": "XFlow",
+    "title_en": "XFlow",
+    "url": "https://x6.antv.vision",
+    "row": "2 / 3",
+    "col": "7 / 9",
+    "className": "G6"
+  },
+  {
+    "title_zh": "G6",
+    "title_en": "G6",
+    "url": "https://g6.antv.vision",
+    "row": "3 / 4",
+    "col": "5 / 7",
+    "className": "G6"
+  },
+  {
+    "title_zh": "X6",
+    "title_en": "X6",
+    "url": "https://x6.antv.vision",
+    "row": "3 / 4",
+    "col": "7 / 9",
+    "className": "G6"
+  },
+  {
+    "title_zh": "关系数据",
+    "title_en": "Relation Data",
+    "row": "4 / 5",
+    "col": "5 / 9",
+    "className": "relationship"
+  },
+  {
+    "title_zh": "L7Boundary",
+    "title_en": "L7Boundary",
+    "url": "https://l7.antv.vision",
+    "row": "2 / 3",
+    "col": "9 / 11",
+    "className": "L7"
+  },
+  {
+    "title_zh": "L7",
+    "title_en": "L7",
+    "url": "https://l7.antv.vision",
+    "row": "3 / 4",
+    "col": "9 / 11",
+    "className": "L7"
+  },
+  {
+    "title_zh": "地理空间数据",
+    "title_en": "Geospatial Data",
+    "row": "4 / 5",
+    "col": "9 / 11",
+    "className": "geography"
+  },
+  {
+    "title_zh": "AVA",
+    "title_en": "AVA",
+    "url": "https://ava.antv.vision",
+    "row": "2 / 5",
+    "col": "11 / 12",
+    "className": "AVA"
+  }
+]
