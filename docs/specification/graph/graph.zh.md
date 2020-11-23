@@ -3,155 +3,193 @@ title: 图 Graph
 order: 3
 ---
 
-# 图构成元素
+# 0. 引言
 
-图的构成元素包括节点（Node）、边（Edge）和组（Combo），这些基础元素是图的原子组成部分，设计者可根据特定业务场景变更节点、边、组的配色和组合形式，搭建更复杂的图可视分析应用。
+在「科学与复杂性」一文中，科学家 Warren Weaver 按学界面临问题的复杂性，将现代科学史划分为「简单问题、无序复杂问题、有序复杂问题」3 个阶段。20 世纪中叶之后，学界开始面临更多不稳定性、非线性和多元性的有序复杂问题，业界急需一种基于网络模型的分析探索工具，和思考方式。后来，以 [柯尼斯堡七桥问题](https://zh.wikipedia.org/zh-hans/%E6%9F%AF%E5%B0%BC%E6%96%AF%E5%A0%A1%E4%B8%83%E6%A1%A5%E9%97%AE%E9%A2%98) 基于图的拓扑结构被解决为起始点，图可视分析在越来越多的领域发挥作用，在互联网行业，随着大数据与 AI 技术发展，越来越多的业务场景用上了图可视分析，如社区结构分析、聚类、消息传播、节点分类、链接预测、图表示学习、图神经网络、网络演化等。<br />
+![科学3个阶段.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*1j87SrrZKb0AAAAAAAAAAAAAARQnAQ)
+> 《Science of Complexity》 - Warren Weaver  1948<br />
 
-# 节点（Node）
+这些形形色色的图可视分析产品，对设计的需求越来越旺盛。设计在这一领域又能做什么？该如何设计一个复杂的图可视分析产品？图可视化的视觉和交互设计又有哪些值得注意和思考的点？AntV 设计小组把我们在这一领域的思考和沉淀总结成「G6 图可视化设计体系」，希望能给更多设计师在这一陌生的设计领域带来更多思考和帮助。<br />
 
-## 定义
 
-节点是构成图的基本单位，一般表示某个实体。如社交网络数据中，一个人就是一个实体，用一个节点来表示。
+# 1. 简介
 
-## 常见形态
+## 1.1 常见应用场景
 
-根据业务场景需要，信息可视化呈现时：
+在阿里、蚂蚁集团，图可视分析广泛应用于云安全、知识图谱、企业风控、图数据库等不同的业务场景。抽象来看基本上有两种类型：<br />
 
-- 节点可加标签、可不加标签；
-- 节点可存在不同形状；
-- 节点可加简短描述；
-- 节点可展开下级信息。
+- **对现状的记录、阐明、揭示**：如对机房安全，流量监控等现状的监控；
+- **对现状的扩展、抽象（对未来的预测）**：如基于人工智能的各类技术，对于图的预测和实时防控。
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*et0bSbpk9VMAAAAAAAAAAAAAARQnAQ) ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*6OBAT6xS8ooAAAAAAAAAAAAAARQnAQ)
+![✏️ 常见业务场景.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*e_umQ7Z2tZMAAAAAAAAAAAAAARQnAQ)<br />
 
-## 交互样式
+## 1.2 图的种类
 
-点交互基础样式有以下 6 种：基础状态：**Default-默认**、**Active-激活**、**Selected-选中**、**Disable-失效** 被动状态：**Highlight-强化**、**Inactive-弱化**（在交互场景中与 **Default-默认 **做出区分）
+关系图种类划分，无论业界还是学界目前都没有一个统一的定论。基于 AntV 自身的业务，我们总结归纳出几种常见图的类型：关系图、流程图、DAG 图、血缘图、ER 图、树状图。每种图都有其自身的使用场景以及设计时需要考量的点。我们从图的基本介绍、特点、适用业务场景、设计指引几个方面提供了详细的介绍。<br />
+![模板类型.png](https://cdn.nlark.com/yuque/0/2020/png/100257/1606098121163-d7b947ce-3e86-4b3b-b93a-64d5f52519b9.png#align=left&display=inline&height=3320&margin=%5Bobject%20Object%5D&name=%E6%A8%A1%E6%9D%BF%E7%B1%BB%E5%9E%8B.png&originHeight=3320&originWidth=6680&size=1987157&status=done&style=none&width=6680)<br />
+[点击查看图的种类详细介绍和设计指引  >](https://www.yuque.com/mo-college/fel945/peopdx)<br />
+<br />
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*3IEvTLdQMWcAAAAAAAAAAAAAARQnAQ)
+# 2. 设计对象
 
-> 以力导向图布局和辐射布局为例
+设计师在面对一个关系图设计需求时，不仅需要设计一张图「看上去」如何，更需要考虑体验设计五要素的每一层。从了解业务和产品目标出发，洞察用户需求，同产品经理一起定义图分析产品的功能边界，再基于用户场景去构建产品的任务流程，信息框架和界面布局，最终再去打磨产品界面以及最重要的图本身的视觉和微交互设计。
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*PA3mSrATKBYAAAAAAAAAAAAAARQnAQ)
+| **表现层** | 视觉感知层：产品基础界面和图本身节点和边的视觉设计|
+| **框架层** | 界面布局：如画布、各类组件的布局关系和使用逻辑 |
+| **结构层** | 流程、信息架构：确定产品中多个图分析模式如何整合为一体，各种功能的模块组合，信息框架的构建 |
+| **范围层** | 功能/内容需求：定义产品图分析功能和呈现内容的边界 |
+| **战略层** | 用户需求，业务目标，产品目标 |
+<br />
 
-# 边（Edge）
+## 2.1 通用流程
 
-## 定义
+从图分析的角度来看一个图分析产品通常会历经如下几个阶段，以将数据源转化为对用户有价值的信息。<br />
+![✏️通用流程.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*77_QSZgteVcAAAAAAAAAAAAAARQnAQ)
+> 引用自《图分析与可视化》<br />
 
-边（Edge）表示的是两个节点之间的关系。如社交网络数据中，我和你的关系，是朋友。
 
-## 常见形态
+## 2.2 常见图分析模式
 
-因图的类型众多，边的形态也相应有：
+> 对应「五要素」中的范围层<br />
 
-- 有向的（含箭头）、无向的（无箭头）；
-- 加权的（含值）、无加权的（不含值）；
-- 加标签、不加标签；
-- 不同粗细代表节点流量的……
+按图产品探索分析场景的特性，我们将图分析产品的分析模式为**有明确目的、无明确目的和特殊场景**三种。不同的分析模式界面会有所不同，用户的使用流程也会有所差异。诚然，一个功能完备的图分析产品，3 种分析模式可能会同时具备，从而导致界面复杂度成倍的提升。需要设计师能够抽丝剥茧，知其所以然，理清楚每一种模式各自特点之后，再结合实际的用户场景，全盘考虑产品设计方案。<br />
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*et0bSbpk9VMAAAAAAAAAAAAAARQnAQ) ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*iFyqQb8RUMIAAAAAAAAAAAAAARQnAQ)
+### 2.2.1 有明确目的
 
-## 交互样式
+这类分析模式是有明确的分析或查询条件，这个条件的呈现形式可能是一个规则表达式，一段 Gremlin 或 GQL 的查询语句，或明确的起点和终点，甚至是直接查看某个节点或某条边的具体信息。常见的模式有：规则查询、Gremlin 查询、关联分析、筛选/搜索画布、查看详情等。这类模式下，通常需要通过搜索或在各种类型的输入面板中，输入查询语句、规则等明确的条件信息，来进行探查和分析。<br />![有目的.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*LMdVTLYjINQAAAAAAAAAAAAAARQnAQ)<br />
 
-边的交互基础样式跟节点同样有以下 6 种：**Default、Active、Selected、Disable、Highlight、Inactive** ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*MV1hQ6D9KPwAAAAAAAAAAAAAARQnAQ)
+### 2.2.2 无明确目的
 
-> 在节点的交互样式引用图例中同样可看到边的运用效果
+无明确目的地探索是指基于已有数据内容，进行关系的 N 度扩展、下钻分析、子图探索、撤销回退等操作，来挖掘数据中的特性，发现价值或机会点的分析过程。<br />![无目的.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*lZ48ToG99w0AAAAAAAAAAAAAARQnAQ)<br />
 
-# 组（Combo）
+### 2.2.3 特殊场景
 
-## 定义
+#### 2.2.3.a 内置了 AI 算法能力的分析场景
 
-组合，又称为节点分组，用于管理一组相似的节点，如一组具有相同类型的节点，或位置上比较靠近的一组节点，可以将它们划分到同一个 Combo 中，可以有效降低视觉上的干扰。
+这类分析场景通常需要借助内置的算法或规则推理能力来实现，从海量数据中快捷的挖掘出符合特定规则的目标节点和关系，常见的有：担保圈、实控人、最短路径等。<br />![担保圈.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*OtCISJXR4Y0AAAAAAAAAAAAAARQnAQ)<br />
 
-## 常见形态
+#### 2.2.3.b 结合时间或地理信息的场景
 
-G6 默认提供两种类型，使用带有不重叠约束的力导向图布局方法，可根据业务场景和布局需要选取合适的形状。
+在源数据中含有时间和地理维度的内容时，会出现结合时间或地理信息的分析场景。<br />![地理+时间信息.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*zeSxT5BccAwAAAAAAAAAAAAAARQnAQ)<br />
 
-- Circle 圆形
-- Rect 矩形
+## 2.3 常见组件
 
-![image.png](https://gw.alipayobjects.com/zos/antfincdn/YujSCuKPPa/1605809150503-f49b0d6b-72d6-4b0b-a676-f16005732da4.png)
+> 对应「五要素」中的框架层 <br />
 
-> 在 Combo 的具体运用中，会出现 Combo 未展开/已展开、一级 Combo 和二级 Combo 及更多级相结合的形式，上图仅为未展开、展开（共一级）、展开（共二级）形式
+点和边的基础样式是所有图可视化的基石，要组成一个完整的图分析产品，还需要有各类组件来承担不同的功能。从体验设计的角度来看，常见的组件可分为如下几种类型：<br />
 
-## 交互样式
+- **基础组件**：图例、工具栏、右键菜单、视图控制栏、系统日志等；
+- **条件输入**：查询、筛选、搜索、画布设置等；
+- **信息输出**：详情面板、气泡、Tooltip、画板信息等；
+- **高级功能**：时间轴、快照画廊、分析报表等。
 
-节点组合形式千变万化，按常见形态延伸相应的交互样式如下： ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*7oZNQ6SDm7oAAAAAAAAAAAAAARQnAQ)
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*J9YNRLoJIVAAAAAAAAAAAAAAARQnAQ)<br />
+[查看 AntV 内置的各类组件 >](https://www.yuque.com/mo-college/fel945/fkm1n0)<br />
 
-# 关系图色板
+在某些特殊场景下，也需要结合业务实际情况基于基础组件去升级优化，乃至基于产品独有的能力去设计全新的组件。在优化一个基础组件或设计全新的组件时，需要结合实际的功能需求，从使用场景、构成元素、常见类型、交互说明等几个角度完整的思考清楚。以 AntV 最新设计的两个组件为例：<br />
+- [时间轴 TimeBar ](https://yuque.antfin.com/docs/share/a7449e36-97f5-4967-9960-0a59780c2de0?#)<br />
+- [视图控制栏 View ToolBar](https://yuque.antfin.com/docs/share/e27024e6-2cdd-4d80-ad12-855a58e0937c)<br />
 
-G6 在 AntV 的基础色彩体系的基础上，结合关系图表达的特点，精细化调整了颜色在数据维度上的衡量和线性感知。内置了一系列优美、和谐且满足无障碍设计原则的色板。包括：分类色板、邻近色板、发散色板、语义色板。默认情况下以蓝色为基础样式的案例色，也是 G6 的默认主色。
+## 2.4 交互设计
 
-让颜色在图中能够达成在数据变化和人体感知上尽可能线性匹配，不同数值对应的颜色区分度要足够高，且在拥有分类色状态下依然感知均匀，一个连续数据集的所有数据点都具有同等的视觉重要性。
+ 一个完整的交互设计行为通常由触发器、规则和反馈组成。在图分析产品常见交互行为中，触发器通常是常见的鼠标、键盘、触控板；规则通常有节点双击时展开，单击时高亮等常见通用规则；而反馈则是各个交互的操作对象根据不同的「规则」所呈现出来的行为或样式表达，通常以各类视觉属性变化的形式出现。<br />
+点击查看[图交互设计指引  >](https://www.yuque.com/mo-college/fel945/cw42rb)<br />
 
-####
+### 2.4.1 通用交互 & 扩展交互
 
-## 默认主题色
+按照交互事件是否全局或跨产品通用，将 G6 以及 Graphin 中的交互分为「通用」和「扩展」两类：<br />
+- **通用交互**：剥离业务属性，是一套适应大部分关系图交互探索的基础工具箱，并将范围圈定在了基础键鼠操作内，令普通电脑用户也能迅速地利用其对数据进行探索。
+- **扩展交互**：不一定适应所有的应用场景与业务属性，但承载了 G6 强大的扩展性与能力，其范围不受限制，既可以是普通的交互行为触发，也能被其他事件触发，亦或由实时的业务数据触发等，用户能通过这些交互对数据进行更深度更定制化的探索。
 
-选择蓝色为基础样式的案例色，也是基础样式的默认色 /G6 的主色；灰色作为辅助色。 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*kV7pSL_tMKkAAAAAAAAAAAAAARQnAQ)
 
-## 邻近色色板
+### 2.4.2 操作对象
 
-**定义** 邻近色顺序色板，一般使用两个或以上个临近色调，通过明度和饱和度的逐步渐变，常用来区分有序数据优先级的高低、连续数据的大小或梯度变化。
+「交互」能使用户从被动的「看客」成为主动的「探索分析者」，更好地参与对数据的理解和分析的过程。可视分析产品的目的也不仅是向用户传递定制好的知识，而是提供一个工具来帮助用户在海量数据中进行探索分析，并最终得到想要的结论。 一个完整地图分析产品必定是由诸多的基础交互事件按照不同的目的和使用场景组合在一起的，为了将各类复杂的交互事件抽丝剥茧，交互事件的操作对象通常有：画布、节点、Combo、边和其他。<br />
+![交互对象_5种类型.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*D9zgRLbwzVEAAAAAAAAAAAAAARQnAQ)<br />
 
-**取色指南** 根据数据语义特定管理约束，选择合理色调搭配，使连续变化的色调和明度，可产生更多色彩分级，表达更多的连续数值。
+## 2.5 视觉设计
 
-**取色方法**
+> 对应「五要素」中的表现层
+<br />
+抛开图分析产品本身产品界面，**关系图的视觉设计本质上是把视觉属性和数据特性建立映射关系，形成特定的语义关联的过程**。好的视觉设计，能极大的提高关系图的信息传达效率，降低用户的认知成本。图最核心的元素就是点、边、以及点边上的文字标签，在考虑图的视觉设计时，需要将这些元素的组成元素拆解来看，单独设计，并全局考虑不同交互事件，数据属性和业务场景下的视觉展示需要和视觉属性的映射关系，以及不同元素的视觉属性整合到一起时的视觉表达。在可视化设计中常见的视觉属性有：形状、颜色、大小、方向、材质、明度，位置等。以最基础的形状和颜色的设计为引入进行详细介绍。<br />
+<br />
+[查看视觉设计指引](https://www.yuque.com/mo-college/fel945/ah6g7o)<br />
 
-1. 亮色色板选取单色顺序色板中的 1 号色作为起始色，相应临近色调 4 号色为中间色，以此类推，继中间色相应近色调 7 号色为结束色，借助色彩工具，在 CIELab 色彩空间下生成渐变色；
-1. 暗色色板同理，起始色为 2 号色，中间色为相应邻近色调 5 号色，结束色为中间色邻近色调的 8 号色；
-1. 保留未分段的色带，便于用户自由分段取数。
+### 2.5.1 形状
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*VLGeTo8a2e0AAAAAAAAAAAAAARQnAQ) 邻近色色板（部分）\*\*
+关系图的节点可根据业务实际场景需要，为表达特定的某类信息，可将节点定制为特殊样式，或将节点与常见的二维图表（如：环形图，玫瑰图等）结合，以展示更多信息，甚至在需要突出强调表达某种业务独有的属性和特点时，可尝试用 3D 图形来表达。<br />
 
-## 发散色色板
+![基础样式.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*7PnPRZjmVhoAAAAAAAAAAAAAARQnAQ)<br />
+<br />
+无论节点还是边，在设计时，都需要考虑在不同鼠标事件的情况下的视觉表现：<br />
+![节状态.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*vCCSRptzEfoAAAAAAAAAAAAAARQnAQ)<br />
+![节点状态.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*NjA5SqohyDEAAAAAAAAAAAAAARQnAQ)<br />
 
-**定义** 也称对比色渐变色板，一般是两种互补色（也可以是对比色）去展现数据从一个负向值到 0 点再到正向值的连续变化区间，显示相对立的两个值的大小关系。数据范围的两端同等强调中间值和极值，以表示断点(如零变化或平均值)周围与数据中特定有意义的中间值之间的差异。
+### 2.5.2 颜色
 
-**取色指南** 关键断点应该采用中性颜色及与背景色对比度低，如浅灰色，端点应该采用和背景色对比度高的饱和颜色。一般来说是对称的，临界断点可以是平均值、中间值或零变化值。
+G6 在 AntV 的基础色彩体系的基础上，结合关系图表达的特点，精细化调整了颜色在数据维度上的衡量和线性感知。内置了一系列优美、和谐且满足无障碍设计原则的色板。包括：分类色板、邻近色板、发散色板、语义色板。默认情况下以蓝色为基础样式的案例色，也是 G6 的默认主色。<br />
 
-**取色方法**
+![颜色.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*bP81Q4EnsfQAAAAAAAAAAAAAARQnAQ)<br />
+![色板.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Mn-GTJAk6vAAAAAAAAAAAAAAARQnAQ)<br />
+<br />
+同时，我们还提供深、浅色两套主题样式，以满足不同的应用场景：<br />
 
-1. 选取分类色板中的对比色或互补色，其中 7 号色起始色和结束色，4 号色为过渡色，灰阶色的 1 号色作为中间色，在 CIELab 色彩空间下生成渐变色；
-1. 暗色色板同理，其中 8 号色起始色和结束色，5 号色为过渡色，灰阶色的 2 号色作为中间色；
-1. 保留未分段的色带，便于用户自由分段取数。
+![深色浅色.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*NGxnS42PBzcAAAAAAAAAAAAAARQnAQ)<br />
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Yx7-Rpm3ORwAAAAAAAAAAAAAARQnAQ) 发散色板（部分）
+### 2.5.3 其他
 
-## 语义色板
+完整的关系图可视化视觉设计，不是单纯的将不同的视觉属性机械地叠加在一起。通常情况下，一个图分析产品中的视觉设计需要考虑的信息维度有：鼠标事件、数据特性、业务语义。最复杂的情况下，3 个维度的信息都需要综合考虑，<br />
+比如：下图案例中的「类型 B」在「满足条件 A」的情况下，也需要考虑各种鼠标事件情况下的视觉展示情况。诚然不是所有业务都会遇到如此复杂的情况，在具体的业务场景中可结合用户场景以及交互事件的三要素「触发器+规则+反馈」，来综合判断和决策最适当的视觉表达形式。<br />
 
-**定义** 色彩在可视化中的使用，不仅是数据信息传递的可视化通道，同时也是更深一层的文化故事的载体，用于表达意义或情感。
+| **信息维度** | **释义** | **样式示例** |
+| --- | --- | --- |
+| 鼠标事件 | 常见的鼠标事件： Default、Active、Selected、Disable 等 | ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*hLtMQpafXuYAAAAAAAAAAAAAARQnAQ) |
+| 数据特性 | 图数据本身固有的特性，如节点或边的数据类型 | ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Oo2hS6MD-oIAAAAAAAAAAAAAARQnAQ) |
+| 业务语义 | 符合某些规则的节点需要特殊样式强调高亮 | ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*f2uRSqXloGsAAAAAAAAAAAAAARQnAQ) |
+<br />
 
-**取色指南** 重视用色习惯，遵循相关标准，色彩也不是都能寓意的，相当一部分图表色彩选择和感情因素无关，而是按照某种习惯来设定色彩，即所谓约定俗成，有的甚至形成来规范。 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*O7j0QIOATF0AAAAAAAAAAAAAARQnAQ) 语义色板（部分）
+# 3. 设计指引<br />
 
-更多色板介绍，详见 [AntV 色板](../language/palette)。
+### 3.1 始于发问
 
-# 设计 Tips
+每一个图产品项目都应该从要解决的问题出发，逐步导向深入的探索，设计一个完整的图分析产品其实就是不断解答探索图过程中遇到的问题的过程。换句话说，一个好的图分析场景的第一步就是「问对问题」。<br />
 
-## 节点（Node）
+### 3.2 切换视角
 
-以圆形节点为例，根据点不同的信息展示形式，基础形状的大小有所不同，在图展示中需将图相关信息做最优展示。
+在不同的视角和布局下，关系图会表现出不一样的模式和行为，呈现出的内容重点也不尽相同。<br />
+![不同视角 & 布局.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ZfKASZGVGZ0AAAAAAAAAAAAAARQnAQ)<br />
+![不同布局.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ZOApQ5CckFsAAAAAAAAAAAAAARQnAQ)<br />
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*6OBAT6xS8ooAAAAAAAAAAAAAARQnAQ)
+### 3.3 管理细节
 
-> 图 1，圆形节点——文本置内型，节点直径大小建议为 60px，文本大小为 12px
+人一次性能接受到的信息量有限，考虑人对信息认知极限，克制地表达关系图中的细节信息，在合适的场景下表达适度的内容。建议遵循「渐进呈现」的原则，先概览，再放大过滤，最后看细节。常见的管理细节的方法有：
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*9rInQ62PkOIAAAAAAAAAAAAAARQnAQ)
+- **缩放**：参考地图软件的缩放的效果，在不同的比例下呈现不同核心内容。
+- **全局+细节**：常见的形式有缩略图，在画布中查看细节内容时，同时能在缩略图中获取全局的信息。
+- **焦点+背景**：常见的形式有鱼眼、焦点聚焦等突出中心内容弱化周边节点的形式。
 
-> 图 2，圆形节点——文本非置内型，节点直径大小建议为 16px，文本大小为 12px
+### 3.4 考虑时间
 
-## 边（Edge）
+数据很少是静态的，某件事在某个时间点爆发或者持续间发生，关联的因子有多个，时间轴工具可以有效展示动态时序数据、分析图数据关联因子。G6 图可视化中已经提供了完整的「时间轴」组件。<br />
 
-**边的粗细：**边在点默认大小场景下默认为 1px，通常根据视图大小变化等比例放大缩小。为保持信息有效可视，边最小为 1px，最大值为 12px。
+![考虑时间.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*g2JfTou_C7kAAAAAAAAAAAAAARQnAQ)
 
-## 组（Combo）
+### 3.5 操作可逆
 
-Combo 的大小跟随内容，Node 与 Combo 之间的间隙最小为 Small = 8px。
+图分析产品往往是非常重交互的场景，通常用户会在画布执行连续分析的动作或通过一连串的分析行为才拿到有效的结果信息，为了确保用户不错过有效的信息以及防止错误的操作，如误删了某些节点或边或扩展了太多节点，产品中需要提供操作可逆的机制，能够允许用户回退或重复上一步操作。<br />
 
-## 色板使用
+![操作可逆.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*0ImmTohMsR0AAAAAAAAAAAAAARQnAQ)<br />
 
-> **数据集：**又称为资料集、数据集合或资料集合，是一种由数据所组成的集合。 **连续数值：**统计学概念,又称连续变量。指在一定区间内可以任意取值、数值是连续不断的、相邻两个数值可作无限分割(即可取无限个数值)的数据。 **断点：**文中主要指数据集的中心值或参考值，例如零变化或平均值。 **端点：**文中主要指数据集极端值，例如最大最小值。 **语义：**文中主要指色彩心理学中色彩在客观上对人们对一种刺激和象征，它在主观上又是一种反应和行为。包含从知觉、感情而到记忆、思想、意志、象征等与色彩的因果关系。
+### 3.6 终于行动
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*JxX5RIoxGO8AAAAAAAAAAAAAARQnAQ)
+图分析产品的最终目的是让用户得到想要的「答案」，获取到有价值的信息，并以这些信息为基础去执行下一步动作，常见的有：下载/分享分析结果、将分析规则发布为在线服务或沉淀为探索分析模板、或直接将分析结果作为完整生产链路中的一环输入给下游环节。一言以蔽之，一个体验良好的图分析产品，必定能从「发问」到「行动」形成完整的产品体验闭环。<br />
 
-当需要用颜色作为视觉通道时，数据性质可作为参考因素，选用色板的步骤大致如下图： ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*McaSTIbSrigAAAAAAAAAAAAAARQnAQ)
+# 4. 参考
+
+- [The Aesthetics of Graph Visualization - Chris Bennett, Jody Ryall, Leo Spalteholz and Amy Gooch1](https://www.researchgate.net/publication/220795329_The_Aesthetics_of_Graph_Visualization)
+- [图分析与可视化_在关联数据中发现商业机会 - Richard Brath/David Jonker](https://book.douban.com/subject/26756024/)
+- [Visual Complexity_Mapping Patterns of Information - Manuel Lima ](https://book.douban.com/subject/25665238/)
+- [AntV 图可视分析解决方案](https://gw.alipayobjects.com/os/bmw-prod/6badedb4-5bed-4cb8-b39a-132e7e19603b.pdf)
+- [数据可视化 - 陈为 / 沈则潜 ](https://book.douban.com/subject/25760272/)
+
+更多内容，详见 [AntV 图可视化设计指引](https://g6.antv.vision/zh/docs/design/overview)
