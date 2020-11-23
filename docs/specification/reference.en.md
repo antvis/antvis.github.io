@@ -1,5 +1,5 @@
 ---
-title: Classical Literature
+title: Classical Literatures
 order: 11
 ---
 

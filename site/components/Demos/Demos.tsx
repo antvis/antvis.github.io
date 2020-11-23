@@ -77,7 +77,9 @@ export default (props: DemosProps) => {
 
   /* 布局规则： 排序靠前的列宽大 */
   const layout = () => {
-    if (!list || list.length <= 0 || !active) return;
+    if (!list || list.length <= 0 || !active) {
+      return;
+    }
     let res: number[][] = [];
     const maxWidth = document.body.clientWidth - 360;
     const height = document.body.clientHeight - 396;
@@ -104,17 +106,12 @@ export default (props: DemosProps) => {
   };
 
   useEffect(() => {
-    const debounceLayout = debounce(() => {
-      layout();
-    }, 100);
-    (window as any).addEventListener('resize', debounceLayout);
+    const debounceLayout = debounce(layout, 200);
+    window.addEventListener('resize', debounceLayout);
+    layout();
     return () => {
       window.removeEventListener('resize', debounceLayout);
     };
-  }, []);
-
-  useEffect(() => {
-    layout();
   }, [list, active]);
 
   return (

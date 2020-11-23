@@ -58,7 +58,7 @@ module.exports = {
         slug: 'specification/graph',
         title: {
           zh: '图表设计指引',
-          en: 'Visualizations Guides',
+          en: 'Visualization Guides',
         },
         order: 3,
       },
