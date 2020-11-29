@@ -123,7 +123,7 @@ export default (props: DemosProps) => {
               href={
                 list[item].location
                   ? list[item].location
-                  : `${list[item].host}/${i18n.language}/${list[item].path}`
+                  : `${list[item].host}${i18n.language}${list[item].path}`
               }
               key={`${list[item].path}${index}`}
               target="_blank"
