@@ -25,7 +25,7 @@
           "title_zh": "指标卡联动",
           "title_en": "Dynamtic bar",
           "host": "https://g2plot.antv.vision/",
-          "path": "/examples/case/statistical-charts#line-association",
+          "path": "/examples/case/statistical-scenario#trend",
           "ratio": 1.3
         },
         {
