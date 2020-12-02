@@ -119,7 +119,7 @@ const NEXT_BUTTONS: NextButtons = {
 };
 // TODO: qr code
 const QR_CODE =
-  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*6eUxS4axJCEAAAAAAAAAAAAAARQnAQ';
+  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*fIErSqLsyA0AAAAAAAAAAAAAARQnAQ';
 const SELECTED_COLOR = '#6E40FE';
 const UNSELECTED_COLOR = '#fff';
 
