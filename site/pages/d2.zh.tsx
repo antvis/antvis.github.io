@@ -124,7 +124,7 @@ const SELECTED_COLOR = '#6E40FE';
 const UNSELECTED_COLOR = '#fff';
 
 //_back
-const userAnswers_back: UserAnswer = {
+const userAnswers: UserAnswer = {
   keyboard: '',
   symbol: '',
   shirt: '',
@@ -134,7 +134,7 @@ const userAnswers_back: UserAnswer = {
   music: '',
 };
 
-const userAnswers: UserAnswer = {
+const userAnswers_back: UserAnswer = {
   keyboard: 'red',
   symbol: '=>',
   shirt: 'smile',
@@ -147,7 +147,7 @@ const userAnswers: UserAnswer = {
 const D2 = () => {
   const { t, i18n } = useTranslation();
 
-  const [pageIdx, setPageIdx] = useState(7); // -1
+  const [pageIdx, setPageIdx] = useState(-1); // -1
   const [selectedOption, setSelectedOption] = useState('');
   const [keyboardType, setKeybordType] = useState('default');
   const [pressedNext, setPressedNext] = useState(false);
