@@ -5,6 +5,70 @@ import { Toast } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
 import './d2.less';
 
+interface Answer {
+  id: string;
+  main: string;
+  sub?: string;
+}
+
+interface Question {
+  id: string;
+  question: string;
+  answers: Answer[];
+}
+
+interface UserAnswer {
+  keyboard: string;
+  symbol: string;
+  shirt: string;
+  framework: string;
+  ide: string;
+  worktime: string;
+  music: string;
+  [key: string]: string;
+}
+
+interface FinalPageConfigStyle {
+  colors: {
+    light: {
+      [key: string]: string;
+    };
+    dark: {
+      [key: string]: string;
+    };
+  };
+  stickers: {
+    [key: string]: {
+      light: string;
+      dark: string;
+    };
+  };
+}
+
+interface FinalPageConfigText {
+  title: string;
+  description1: string;
+  description2: string;
+}
+
+interface FinalPageConfig {
+  styles: {
+    [key: string]: FinalPageConfigStyle;
+  };
+  texts: {
+    [key: string]: FinalPageConfigText;
+  };
+}
+
+interface NextButton {
+  unpressed: string;
+  pressed: string;
+}
+
+interface NextButtons {
+  [key: string]: NextButton;
+}
+
 // const TITLE = '测一测你是那种工程🦁️';
 const COVER_IMG =
   'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*MaEESpgMr1QAAAAAAAAAAAAAARQnAQ';
@@ -14,7 +78,8 @@ const OPTION_BUTTON =
   'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*2EPcTbXdj50AAAAAAAAAAAAAARQnAQ';
 const OPTION_BUTTON_PRESSED =
   'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*6eUxS4axJCEAAAAAAAAAAAAAARQnAQ';
-const NEXT_BUTTONS = {
+
+const NEXT_BUTTONS: NextButtons = {
   default: {
     unpressed:
       'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*qyBkQ6zPpIwAAAAAAAAAAAAAARQnAQ',
@@ -59,7 +124,7 @@ const SELECTED_COLOR = '#6E40FE';
 const UNSELECTED_COLOR = '#fff';
 
 //_back
-const userAnswers = {
+const userAnswers_back: UserAnswer = {
   keyboard: '',
   symbol: '',
   shirt: '',
@@ -69,26 +134,26 @@ const userAnswers = {
   music: '',
 };
 
-// const userAnswers = {
-//   keyboard: 'red',
-//   symbol: '=>',
-//   shirt: 'cool',
-//   framework: 'vue',
-//   ide: 'vim',
-//   worktime: 'morning',
-//   music: 'pop',
-// }
+const userAnswers: UserAnswer = {
+  keyboard: 'red',
+  symbol: '=>',
+  shirt: 'smile',
+  framework: 'vue',
+  ide: 'vim',
+  worktime: 'forenoon',
+  music: 'pop',
+};
 
 const D2 = () => {
   const { t, i18n } = useTranslation();
 
-  const [pageIdx, setPageIdx] = useState(-1); // -1
+  const [pageIdx, setPageIdx] = useState(7); // -1
   const [selectedOption, setSelectedOption] = useState('');
   const [keyboardType, setKeybordType] = useState('default');
   const [pressedNext, setPressedNext] = useState(false);
   const [questionOpacity, setQuestionOpacity] = useState(1);
 
-  const questions = [
+  const questions: Question[] = [
     {
       id: 'keyboard',
       question: '你喜欢的机械键盘类型是？',
@@ -162,7 +227,7 @@ const D2 = () => {
     },
   ];
 
-  const finalPageConfigs = {
+  const finalPageConfigs: FinalPageConfig = {
     styles: {
       webstorm: {
         colors: {
@@ -393,10 +458,10 @@ const D2 = () => {
     }, 100);
   };
 
-  const handleClickOption = (answerId) => {
+  const handleClickOption = (answerId: string) => {
     const strs = answerId.split('-');
-    const prefix = strs[0];
-    const suffix = strs[1];
+    const prefix: string = strs[0];
+    const suffix: string = strs[1];
     if (prefix === 'keyboard') {
       setKeybordType(suffix);
     }
@@ -404,15 +469,15 @@ const D2 = () => {
     setSelectedOption(answerId);
   };
 
-  const getFinalPage = (ide, worktime, shirt) => {
+  const getFinalPage = (ide: string, worktime: string, shirt: string) => {
     const gide = ide ? ide : 'vim';
     const gworktime = worktime ? worktime : 'night';
     const gshirt = shirt ? shirt : 'fashion';
 
-    const styles = finalPageConfigs.styles[gide];
-    const texts = finalPageConfigs.texts[gworktime];
+    const styles: FinalPageConfigStyle = finalPageConfigs.styles[gide];
+    const texts: FinalPageConfigText = finalPageConfigs.texts[gworktime];
 
-    let theme = 'dark';
+    let theme: 'dark' | 'light' = 'dark';
     if (
       worktime === 'morning' ||
       worktime === 'forenoon' ||
@@ -445,7 +510,12 @@ const D2 = () => {
         <div className="d2-finalpage-text-container">
           <div>测算结果显示，你是…</div>
           <div className="d2-finalpage-result-title">{texts.title}</div>
-          <img className="d2-finalpage-sticker" src={stickerSrc} /> <br />
+          <img
+            className="d2-finalpage-sticker"
+            style={{ marginLeft: texts.title.length > 4 ? '190px' : '130px' }}
+            src={stickerSrc}
+          />{' '}
+          <br />
           <span className="d2-finalpage-result-des1">{texts.description1}</span>
           <span
             className="d2-finalpage-result-recommand"
