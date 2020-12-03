@@ -507,7 +507,7 @@ const D2 = () => {
           <div className="d2-finalpage-result-title">{texts.title}</div>
           <img
             className="d2-finalpage-sticker"
-            style={{ marginLeft: texts.title.length > 4 ? '190px' : '130px' }}
+            style={{ marginLeft: texts.title.length > 5 ? '190px' : '130px' }}
             src={stickerSrc}
           />{' '}
           <br />
