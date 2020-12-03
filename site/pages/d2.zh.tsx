@@ -71,57 +71,52 @@ interface NextButtons {
 
 // const TITLE = '测一测你是那种工程🦁️';
 const COVER_IMG =
-  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*MaEESpgMr1QAAAAAAAAAAAAAARQnAQ';
+  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*UHLWT6en3HIAAAAAAAAAAAAAARQnAQ';
 const COVER_IMG_PRESSED =
-  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*MaEESpgMr1QAAAAAAAAAAAAAARQnAQ';
+  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*gXCRQabp4KgAAAAAAAAAAAAAARQnAQ';
 const OPTION_BUTTON =
-  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*2EPcTbXdj50AAAAAAAAAAAAAARQnAQ';
+  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Qc05QInHidIAAAAAAAAAAAAAARQnAQ';
 const OPTION_BUTTON_PRESSED =
-  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*6eUxS4axJCEAAAAAAAAAAAAAARQnAQ';
+  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*fl59QruT1ngAAAAAAAAAAAAAARQnAQ';
 
 const NEXT_BUTTONS: NextButtons = {
   default: {
     unpressed:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*qyBkQ6zPpIwAAAAAAAAAAAAAARQnAQ',
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*AnAlTqDOWpcAAAAAAAAAAAAAARQnAQ',
     pressed:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*LPSMRIDxB_MAAAAAAAAAAAAAARQnAQ',
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ku58SpbyQPgAAAAAAAAAAAAAARQnAQ',
   },
   cyan: {
     unpressed:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*gKB6S7rJ1zEAAAAAAAAAAAAAARQnAQ',
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*-VtmTqrq0ekAAAAAAAAAAAAAARQnAQ',
     pressed:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*SqxCQ52IdYQAAAAAAAAAAAAAARQnAQ',
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*aL0HTJCguJQAAAAAAAAAAAAAARQnAQ',
   },
   red: {
     unpressed:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*z4gOSaLnU70AAAAAAAAAAAAAARQnAQ',
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*GJM3SZpzxToAAAAAAAAAAAAAARQnAQ',
     pressed:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*bLOhQKgfiL4AAAAAAAAAAAAAARQnAQ',
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*zhmzTLiTvQEAAAAAAAAAAAAAARQnAQ',
   },
   tawny: {
     unpressed:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*NpjlS4GKSJwAAAAAAAAAAAAAARQnAQ',
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Nup8T4jkHk0AAAAAAAAAAAAAARQnAQ',
     pressed:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*yJBYRLs1UqQAAAAAAAAAAAAAARQnAQ',
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*88fhQawjZsgAAAAAAAAAAAAAARQnAQ',
   },
   black: {
     unpressed:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Y99KSo-fpcYAAAAAAAAAAAAAARQnAQ',
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*27xmTbBk6JEAAAAAAAAAAAAAARQnAQ',
     pressed:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*4UJ4To0P2E0AAAAAAAAAAAAAARQnAQ',
-  },
-  cover: {
-    unpressed:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*s_ZgSq5HZykAAAAAAAAAAAAAARQnAQ',
-    pressed:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*YO1CR7nUuWkAAAAAAAAAAAAAARQnAQ',
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*17LJRoADQUYAAAAAAAAAAAAAARQnAQ',
   },
 };
 // TODO: qr code
 const QR_CODE =
-  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*fIErSqLsyA0AAAAAAAAAAAAAARQnAQ';
+  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*kmIaTqgpjtgAAAAAAAAAAAAAARQnAQ';
 const SELECTED_COLOR = '#6E40FE';
 const UNSELECTED_COLOR = '#fff';
+const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
 //_back
 const userAnswers: UserAnswer = {
@@ -582,7 +577,7 @@ const D2 = () => {
             className="d2-answers-container"
             style={{ opacity: questionOpacity }}
           >
-            {questions[pageIdx].answers.map((answer) => (
+            {questions[pageIdx].answers.map((answer, i) => (
               <div
                 className="d2-answer-block"
                 style={{
@@ -594,15 +589,18 @@ const D2 = () => {
                 onClick={() => handleClickOption(answer.id)}
                 key={answer.id}
               >
-                <img
+                <div
                   className="d2-answer-button"
-                  src={
-                    selectedOption === answer.id
-                      ? OPTION_BUTTON_PRESSED
-                      : OPTION_BUTTON
-                  }
-                  alt="option-button"
-                />
+                  style={{
+                    backgroundImage:
+                      selectedOption === answer.id
+                        ? `url(${OPTION_BUTTON_PRESSED})`
+                        : `url(${OPTION_BUTTON})`,
+                    color: UNSELECTED_COLOR,
+                  }}
+                >
+                  <span className="d2-answer-letter">{LETTERS[i]}</span>
+                </div>
                 <span className="d2-answer-main">{answer.main}</span>
                 {answer.sub && (
                   <span className="d2-answer-sub">{answer.sub}</span>
@@ -644,17 +642,6 @@ const D2 = () => {
             src={pressedNext ? COVER_IMG_PRESSED : COVER_IMG}
             onClick={handleClickNext}
           />
-          {/* <div className='d2-button-container' onClick={handleClickNext}>
-            <img
-              className='next-button'
-              src={pressedNext ? NEXT_BUTTONS['cover'].pressed : NEXT_BUTTONS['cover'].unpressed}
-              alt='button'
-              style={pressedNext ?
-                {width: '40.7vw', right: '10.5vw', bottom: '32.14vh'}
-                : {width: '40.7vw', right: '10.5vw', bottom: '32.14vh'}
-              }
-            />
-          </div> */}
         </div>
       )}
       {pageIdx >= questions.length &&

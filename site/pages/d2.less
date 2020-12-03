@@ -77,19 +77,29 @@
     padding: 32px 24px;
     color: #fff;
     font-size: 18px;
-    transition: all 0.3s;
+    transition: all 0.1s;
     .d2-answer-block {
       margin-top: 16px;
       .d2-answer-button {
         width: 13.6vw;
+        height: 13.6vw;
+        display: inline-flex;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        .d2-answer-letter {
+          margin: 2.6vw 4.5vw;
+        }
       }
       .d2-answer-main {
         margin-left: 16px;
+        transition: all 0.1s;
       }
       .d2-answer-sub {
         color: rgba(255, 255, 255, 0.45);
         margin-left: 16px;
         font-size: 14px;
+        transition: all 0.1s;
       }
     }
   }
