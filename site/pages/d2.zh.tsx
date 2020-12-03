@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Toast } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
 import './d2.less';
+// import 'https://g.alicdn.com/mtb/lib-windvane/3.0.6/windvane.js';
 
 interface Answer {
   id: string;
@@ -71,9 +72,9 @@ interface NextButtons {
 
 // const TITLE = '测一测你是那种工程🦁️';
 const COVER_IMG =
-  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*UHLWT6en3HIAAAAAAAAAAAAAARQnAQ';
+  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*i39RSoKkjXUAAAAAAAAAAAAAARQnAQ';
 const COVER_IMG_PRESSED =
-  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*gXCRQabp4KgAAAAAAAAAAAAAARQnAQ';
+  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*pXByTp61hUsAAAAAAAAAAAAAARQnAQ';
 const OPTION_BUTTON =
   'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Qc05QInHidIAAAAAAAAAAAAAARQnAQ';
 const OPTION_BUTTON_PRESSED =
@@ -90,7 +91,7 @@ const NEXT_BUTTONS: NextButtons = {
     unpressed:
       'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*-VtmTqrq0ekAAAAAAAAAAAAAARQnAQ',
     pressed:
-      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*aL0HTJCguJQAAAAAAAAAAAAAARQnAQ',
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*98TWTr9ji4YAAAAAAAAAAAAAARQnAQ',
   },
   red: {
     unpressed:
@@ -114,7 +115,7 @@ const NEXT_BUTTONS: NextButtons = {
 // TODO: qr code
 const QR_CODE =
   'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*kmIaTqgpjtgAAAAAAAAAAAAAARQnAQ';
-const SELECTED_COLOR = '#6E40FE';
+const SELECTED_COLOR = '#A58AFF';
 const UNSELECTED_COLOR = '#fff';
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
@@ -440,6 +441,10 @@ const D2 = () => {
     const newIdx = pageIdx + 1;
     if (selectedOption === '' && pageIdx > -1 && pageIdx < questions.length) {
       Toast.info('大哥，选一个再继续吧！', 1);
+      setPressedNext(true);
+      setTimeout(() => {
+        setPressedNext(false);
+      }, 100);
       return;
     }
     setQuestionOpacity(0);
@@ -511,16 +516,18 @@ const D2 = () => {
             src={stickerSrc}
           />{' '}
           <br />
-          <span className="d2-finalpage-result-des1">{texts.description1}</span>
+          <span className="d2-finalpage-result-des d2-finalpage-result-des1">
+            {texts.description1}
+          </span>
           <span
             className="d2-finalpage-result-recommand"
             style={{ color: colors.subText }}
           >
             {lib}
           </span>
-          <span className="d2-finalpage-result-des2">{texts.description2}</span>
+          <span className="d2-finalpage-result-des">{texts.description2}</span>
         </div>
-        <div className="d2-finalpage-footer-left">antv.vision↩</div>
+        <div className="d2-finalpage-footer-left">antv.vision/</div>
         <img className="d2-finalpage-fcode" src={QR_CODE} />
       </div>
     );
@@ -609,34 +616,30 @@ const D2 = () => {
             ))}
           </div>
           <div className="d2-button-container" onClick={handleClickNext}>
-            <img
-              className="next-button"
-              src={
-                pressedNext
-                  ? NEXT_BUTTONS[keyboardType].pressed
-                  : NEXT_BUTTONS[keyboardType].unpressed
-              }
-              alt="button"
-              style={
-                pressedNext
-                  ? {
-                      width: '26.8vw',
-                      right: 'calc(8.5vw + 2.95vw)',
-                      bottom: 'calc(6.14vh + 1.2vh)',
-                    }
-                  : { width: '32.7vw', right: '8.5vw', bottom: '6.14vh' }
-              }
-            />
+            {pressedNext ? (
+              <img
+                className="next-button"
+                src={NEXT_BUTTONS[keyboardType].pressed}
+                alt="button"
+                style={{
+                  width: '30vw',
+                  right: 'calc(8.5vw + 2.95vw)',
+                  bottom: 'calc(6.14vh + 1.3vh)',
+                }}
+              />
+            ) : (
+              <img
+                className="next-button"
+                src={NEXT_BUTTONS[keyboardType].unpressed}
+                alt="button"
+                style={{ width: '36vw', right: '8.5vw', bottom: '6.14vh' }}
+              />
+            )}
           </div>
         </>
       )}
       {pageIdx === -1 && (
         <div className="d2-title-container">
-          <img
-            className="d2-antv-logo"
-            src="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*3zCaQL5EgmIAAAAAAAAAAAAAARQnAQ"
-            alt="antv-logo"
-          />
           <img
             className="d2-cover-img"
             src={pressedNext ? COVER_IMG_PRESSED : COVER_IMG}
