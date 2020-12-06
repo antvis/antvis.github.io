@@ -487,13 +487,28 @@ const D2 = () => {
     setSelectedOption(answerId);
   };
 
+  const renderImgDom = (
+    url: string,
+    targetDom: HTMLDivElement,
+    crossOrigin?: string,
+  ) => {
+    const img = new Image();
+    crossOrigin && img.setAttribute('crossOrigin', crossOrigin);
+    img.style.display = 'block';
+    // 将 canvas 导出成 base64
+    img.src = url;
+    // 添加图片到预览
+    targetDom.innerHTML = '';
+    targetDom.style.padding = '0';
+    targetDom.appendChild(img);
+  };
+
   const getScreenShot = () => {
     // let self: any = this;
     // console.log('going to get screen shot', self)
     // if (!self) return;
     // 获取dom结构
     let targetDom = element.current as HTMLDivElement;
-    let result: string = '';
     domtoimage.toPng(targetDom).then((dataUrl: any) => {
       //andriod
       if (dataUrl != 'error') {
@@ -505,16 +520,8 @@ const D2 = () => {
 
         // console.log('output the screenshot as b641')
         // console.log(dataUrl);
-        result = dataUrl;
 
-        const img = new Image();
-        img.style.display = 'block';
-        // 将 canvas 导出成 base64
-        img.src = result;
-        // 添加图片到预览
-        targetDom.innerHTML = '';
-        targetDom.style.padding = '0';
-        targetDom.appendChild(img);
+        renderImgDom(dataUrl, targetDom, 'anonymous');
       }
       // ios
       else {
@@ -525,6 +532,8 @@ const D2 = () => {
           .then(function (canvas) {
             try {
               b64 = canvas.toDataURL('image/png');
+
+              renderImgDom(b64, targetDom, 'anonymous');
             } catch (err) {
               console.log(err);
               // alert(err)
@@ -535,16 +544,6 @@ const D2 = () => {
             // })
             // console.log('output the screenshot as b64')
             // console.log(b64);
-            result = b64;
-
-            const img = new Image();
-            img.style.display = 'block';
-            // 将 canvas 导出成 base64
-            img.src = result;
-            // 添加图片到预览
-            targetDom.innerHTML = '';
-            targetDom.style.padding = '0';
-            targetDom.appendChild(img);
           })
           .catch(function onRejected(error) {});
       }
