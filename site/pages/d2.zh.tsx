@@ -529,6 +529,8 @@ const D2 = () => {
     img.style.width = '100%';
     img.style.height = '100%';
     img.setAttribute('crossOrigin', '*');
+
+    // 将图表从 canvas 转换为 img
     img.onload = () => {
       const domtoimage = require('dom-to-image');
       const html2canvas = require('html2canvas');
@@ -563,6 +565,7 @@ const D2 = () => {
       finalCanvas.height = h * scaleBy;
       finalCanvas.style.width = w + 'px';
       finalCanvas.style.height = h + 'px';
+      // 将整个页面转换为 canvas
       html2canvas(targetDom, {
         useCORS: true,
         canvas: finalCanvas, // 把canvas传进去
@@ -584,6 +587,7 @@ const D2 = () => {
           try {
             b64 = canvas.toDataURL('image/png');
 
+            // 将 canvas 转换为 img
             renderImgDom(b64, targetDom, '*');
           } catch (err) {
             console.log(err);
@@ -615,6 +619,13 @@ const D2 = () => {
         autoFit: true,
         height: 500,
         padding: [50, 20, 50, 20],
+      });
+      // 图表渲染完成，并在动画即完成（600ms）后执行生成一层透明的 img 操作
+      chart.on('afterrender', () => {
+        console.log('afterrender');
+        setTimeout(() => {
+          getScreenShot();
+        }, 800);
       });
       chart.data(data);
       chart.scale('value', {
@@ -689,9 +700,8 @@ const D2 = () => {
         ref={element}
       >
         <div className="d2-finalpage-header">
-          <div className="d2-finalpage-title" onClick={() => getScreenShot()}>
-            AntV
-          </div>
+          {/* onClick={() => getScreenShot()} */}
+          <div className="d2-finalpage-title">AntV</div>
           <div className="d2-finalpage-symbol">{userAnswers.symbol}</div>
         </div>
         <div className="d2-chart-container">
