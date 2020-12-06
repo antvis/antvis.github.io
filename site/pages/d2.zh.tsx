@@ -509,6 +509,52 @@ const D2 = () => {
     console.log('canvas, ', chart.canvas);
     const data = canvas.toDataURL('image/png', 1);
     const img = new Image();
+    img.onload = () => {
+      const domtoimage = require('dom-to-image');
+      const html2canvas = require('html2canvas');
+      // let self: any = this;
+      // console.log('going to get screen shot', self)
+      // if (!self) return;
+      // 获取dom结构
+      let targetDom = element.current as HTMLDivElement;
+      domtoimage.toPng(targetDom).then((dataUrl: any) => {
+        //andriod
+        if (dataUrl != 'error') {
+          // alert("domtoimage");
+          // self.setState({
+          //   imgUrl: dataUrl,
+          //   isDownloadImg: true,
+          // })
+          // console.log('output the screenshot as b641')
+          // console.log(dataUrl);
+          renderImgDom(dataUrl, targetDom, 'anonymous');
+        }
+        // ios
+        else {
+          let b64: any;
+          html2canvas(targetDom, {
+            useCORS: true,
+          })
+            .then(function (canvas: any) {
+              try {
+                b64 = canvas.toDataURL('image/png');
+
+                renderImgDom(b64, targetDom, 'anonymous');
+              } catch (err) {
+                console.log(err);
+                // alert(err)
+              }
+              // self.setState({
+              //   imgUrl: b64,
+              //   isDownloadImg: true,
+              // })
+              // console.log('output the screenshot as b64')
+              // console.log(b64);
+            })
+            .catch(function onRejected(error: any) {});
+        }
+      });
+    };
     img.style.display = 'block';
     img.style.width = '100%';
     img.style.height = '100%';
@@ -518,51 +564,6 @@ const D2 = () => {
       g2element.current.innerHTML = '';
       g2element.current.appendChild(img);
     }
-
-    const domtoimage = require('dom-to-image');
-    const html2canvas = require('html2canvas');
-    // let self: any = this;
-    // console.log('going to get screen shot', self)
-    // if (!self) return;
-    // 获取dom结构
-    let targetDom = element.current as HTMLDivElement;
-    domtoimage.toPng(targetDom).then((dataUrl: any) => {
-      //andriod
-      if (dataUrl != 'error') {
-        // alert("domtoimage");
-        // self.setState({
-        //   imgUrl: dataUrl,
-        //   isDownloadImg: true,
-        // })
-        // console.log('output the screenshot as b641')
-        // console.log(dataUrl);
-        renderImgDom(dataUrl, targetDom, 'anonymous');
-      }
-      // ios
-      else {
-        let b64: any;
-        html2canvas(targetDom, {
-          useCORS: true,
-        })
-          .then(function (canvas: any) {
-            try {
-              b64 = canvas.toDataURL('image/png');
-
-              renderImgDom(b64, targetDom, 'anonymous');
-            } catch (err) {
-              console.log(err);
-              // alert(err)
-            }
-            // self.setState({
-            //   imgUrl: b64,
-            //   isDownloadImg: true,
-            // })
-            // console.log('output the screenshot as b64')
-            // console.log(b64);
-          })
-          .catch(function onRejected(error: any) {});
-      }
-    });
   };
 
   useEffect(() => {
