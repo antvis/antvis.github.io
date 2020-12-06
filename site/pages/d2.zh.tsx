@@ -7,8 +7,6 @@ import './d2.less';
 // import * as module from 'https://g.alicdn.com/mtb/lib-windvane/3.0.6/windvane.js';
 // import 'https://g.alicdn.com/mtb/lib-windvane/3.0.6/windvane.js';
 
-import { Chart } from '@antv/g2';
-
 const data = [
   { type: '未知', value: 654, percent: 0.02 },
   { type: '17 岁以下', value: 654, percent: 0.02 },
@@ -543,12 +541,13 @@ const D2 = () => {
             // console.log('output the screenshot as b64')
             // console.log(b64);
           })
-          .catch(function onRejected(error) {});
+          .catch(function onRejected(error: any) {});
       }
     });
   };
 
   useEffect(() => {
+    const { Chart } = require('@antv/g2');
     if (g2element && g2element.current) {
       const chart = new Chart({
         container: g2element.current,
