@@ -151,6 +151,8 @@ const userAnswers_back: UserAnswer = {
   music: 'pop',
 };
 
+let chart: any;
+
 const D2 = () => {
   const { t, i18n } = useTranslation();
 
@@ -502,6 +504,21 @@ const D2 = () => {
   };
 
   const getScreenShot = () => {
+    // convert g2plot canvas to a img
+    const canvas = chart.canvas.get('el');
+    console.log('canvas, ', chart.canvas);
+    const data = canvas.toDataURL('image/png', 1);
+    const img = new Image();
+    img.style.display = 'block';
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.setAttribute('crossOrigin', 'anonymous');
+    img.src = data;
+    if (g2element.current) {
+      g2element.current.innerHTML = '';
+      g2element.current.appendChild(img);
+    }
+
     const domtoimage = require('dom-to-image');
     const html2canvas = require('html2canvas');
     // let self: any = this;
@@ -551,7 +568,7 @@ const D2 = () => {
   useEffect(() => {
     const { Chart } = require('@antv/g2');
     if (g2element && g2element.current) {
-      const chart = new Chart({
+      chart = new Chart({
         container: g2element.current,
         autoFit: true,
         height: 500,
@@ -631,8 +648,6 @@ const D2 = () => {
       >
         <div className="d2-finalpage-header">
           <div className="d2-finalpage-title" onClick={() => getScreenShot()}>
-            {' '}
-            {/* onClick={getScreenShot} */}
             AntV
           </div>
           <div className="d2-finalpage-symbol">{userAnswers.symbol}</div>
