@@ -487,21 +487,21 @@ const D2 = () => {
     setSelectedOption(answerId);
   };
 
-  const renderImgDom = (
-    url: string,
-    targetDom: HTMLDivElement,
-    crossOrigin?: string,
-  ) => {
-    const img = new Image();
-    crossOrigin && img.setAttribute('crossOrigin', crossOrigin);
-    img.style.display = 'block';
-    // 将 canvas 导出成 base64
-    img.src = url;
-    // 添加图片到预览
-    targetDom.innerHTML = '';
-    targetDom.style.padding = '0';
-    targetDom.appendChild(img);
-  };
+  // const renderImgDom = (
+  //   url: string,
+  //   targetDom: HTMLDivElement,
+  //   crossOrigin?: string,
+  // ) => {
+  //   const img = new Image();
+  //   crossOrigin && img.setAttribute('crossOrigin', crossOrigin);
+  //   img.style.display = 'block';
+  //   // 将 canvas 导出成 base64
+  //   img.src = url;
+  //   // 添加图片到预览
+  //   targetDom.innerHTML = '';
+  //   targetDom.style.padding = '0';
+  //   targetDom.appendChild(img);
+  // };
 
   const getScreenShot = () => {
     // let self: any = this;
@@ -517,11 +517,9 @@ const D2 = () => {
         //   imgUrl: dataUrl,
         //   isDownloadImg: true,
         // })
-
         // console.log('output the screenshot as b641')
         // console.log(dataUrl);
-
-        renderImgDom(dataUrl, targetDom, 'anonymous');
+        // renderImgDom(dataUrl, targetDom, 'anonymous');
       }
       // ios
       else {
@@ -533,7 +531,7 @@ const D2 = () => {
             try {
               b64 = canvas.toDataURL('image/png');
 
-              renderImgDom(b64, targetDom, 'anonymous');
+              // renderImgDom(b64, targetDom, 'anonymous');
             } catch (err) {
               console.log(err);
               // alert(err)
