@@ -483,68 +483,70 @@ const D2 = () => {
     setSelectedOption(answerId);
   };
 
-  // const renderImgDom = (
-  //   url: string,
-  //   targetDom: HTMLDivElement,
-  //   crossOrigin?: string,
-  // ) => {
-  //   const img = new Image();
-  //   crossOrigin && img.setAttribute('crossOrigin', crossOrigin);
-  //   img.style.display = 'block';
-  //   // 将 canvas 导出成 base64
-  //   img.src = url;
-  //   // 添加图片到预览
-  //   targetDom.innerHTML = '';
-  //   targetDom.style.padding = '0';
-  //   targetDom.appendChild(img);
-  // };
+  const renderImgDom = (
+    url: string,
+    targetDom: HTMLDivElement,
+    crossOrigin?: string,
+  ) => {
+    const img = new Image();
+    img.style.display = 'block';
+    img.onload = () => {
+      // 添加图片到预览
+      targetDom.innerHTML = '';
+      targetDom.style.padding = '0';
+      targetDom.appendChild(img);
+    };
+    // 将 canvas 导出成 base64
+    crossOrigin && img.setAttribute('crossOrigin', crossOrigin);
+    img.src = url;
+  };
 
-  // const getScreenShot = () => {
-  //   const domtoimage = require('dom-to-image');
-  //   const html2canvas = require('html2canvas');
-  //   // let self: any = this;
-  //   // console.log('going to get screen shot', self)
-  //   // if (!self) return;
-  //   // 获取dom结构
-  //   let targetDom = element.current as HTMLDivElement;
-  //   domtoimage.toPng(targetDom).then((dataUrl: any) => {
-  //     //andriod
-  //     if (dataUrl != 'error') {
-  //       // alert("domtoimage");
-  //       // self.setState({
-  //       //   imgUrl: dataUrl,
-  //       //   isDownloadImg: true,
-  //       // })
-  //       // console.log('output the screenshot as b641')
-  //       // console.log(dataUrl);
-  //       renderImgDom(dataUrl, targetDom, 'anonymous');
-  //     }
-  //     // ios
-  //     else {
-  //       let b64: any;
-  //       html2canvas(targetDom, {
-  //         useCORS: true,
-  //       })
-  //         .then(function (canvas: any) {
-  //           try {
-  //             b64 = canvas.toDataURL('image/png');
+  const getScreenShot = () => {
+    const domtoimage = require('dom-to-image');
+    const html2canvas = require('html2canvas');
+    // let self: any = this;
+    // console.log('going to get screen shot', self)
+    // if (!self) return;
+    // 获取dom结构
+    let targetDom = element.current as HTMLDivElement;
+    domtoimage.toPng(targetDom).then((dataUrl: any) => {
+      //andriod
+      if (dataUrl != 'error') {
+        // alert("domtoimage");
+        // self.setState({
+        //   imgUrl: dataUrl,
+        //   isDownloadImg: true,
+        // })
+        // console.log('output the screenshot as b641')
+        // console.log(dataUrl);
+        renderImgDom(dataUrl, targetDom, 'anonymous');
+      }
+      // ios
+      else {
+        let b64: any;
+        html2canvas(targetDom, {
+          useCORS: true,
+        })
+          .then(function (canvas: any) {
+            try {
+              b64 = canvas.toDataURL('image/png');
 
-  //             renderImgDom(b64, targetDom, 'anonymous');
-  //           } catch (err) {
-  //             console.log(err);
-  //             // alert(err)
-  //           }
-  //           // self.setState({
-  //           //   imgUrl: b64,
-  //           //   isDownloadImg: true,
-  //           // })
-  //           // console.log('output the screenshot as b64')
-  //           // console.log(b64);
-  //         })
-  //         .catch(function onRejected(error: any) {});
-  //     }
-  //   });
-  // };
+              renderImgDom(b64, targetDom, 'anonymous');
+            } catch (err) {
+              console.log(err);
+              // alert(err)
+            }
+            // self.setState({
+            //   imgUrl: b64,
+            //   isDownloadImg: true,
+            // })
+            // console.log('output the screenshot as b64')
+            // console.log(b64);
+          })
+          .catch(function onRejected(error: any) {});
+      }
+    });
+  };
 
   useEffect(() => {
     const { Chart } = require('@antv/g2');
@@ -628,7 +630,7 @@ const D2 = () => {
         ref={element}
       >
         <div className="d2-finalpage-header">
-          <div className="d2-finalpage-title">
+          <div className="d2-finalpage-title" onClick={() => getScreenShot()}>
             {' '}
             {/* onClick={getScreenShot} */}
             AntV
