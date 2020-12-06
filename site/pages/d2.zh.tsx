@@ -131,7 +131,7 @@ const UNSELECTED_COLOR = '#fff';
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
 //_back
-const userAnswers_back: UserAnswer = {
+const userAnswers: UserAnswer = {
   keyboard: '',
   symbol: '',
   shirt: '',
@@ -141,7 +141,7 @@ const userAnswers_back: UserAnswer = {
   music: '',
 };
 
-const userAnswers: UserAnswer = {
+const userAnswers_back: UserAnswer = {
   keyboard: 'red',
   symbol: '=>',
   shirt: 'smile',
@@ -159,7 +159,7 @@ const D2 = () => {
   const element = React.useRef<HTMLDivElement>(null);
   const g2element = React.useRef<HTMLDListElement>(null);
 
-  const [pageIdx, setPageIdx] = useState(7); // -1
+  const [pageIdx, setPageIdx] = useState(-1); // -1
   const [selectedOption, setSelectedOption] = useState('');
   const [keyboardType, setKeybordType] = useState('default');
   const [pressedNext, setPressedNext] = useState(false);
@@ -494,11 +494,14 @@ const D2 = () => {
     img.style.display = 'block';
     img.style.width = '100%';
     img.style.height = '100%';
+    img.style.position = 'absolute';
+    img.style.left = '0';
+    img.style.top = '0';
+    img.style.opacity = '0';
     img.id = 'finalImage';
     img.onload = () => {
       // 添加图片到预览
-      targetDom.innerHTML = '';
-      targetDom.style.padding = '0';
+      // targetDom.style.padding = '0';
       targetDom.appendChild(img);
     };
     // 将 canvas 导出成 base64
@@ -549,7 +552,6 @@ const D2 = () => {
       //   }
       //   // ios
       //   else {
-      console.log('ios');
       let b64: any;
       const finalCanvas = document.createElement('canvas');
       const scaleBy = backingScale();
