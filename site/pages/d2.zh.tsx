@@ -2,9 +2,24 @@ import React, { useState, useEffect } from 'react';
 import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
 import { useTranslation } from 'react-i18next';
 import { Toast } from 'antd-mobile';
+import domtoimage from 'dom-to-image';
+import html2canvas from 'html2canvas';
 import 'antd-mobile/dist/antd-mobile.css';
 import './d2.less';
+// import * as module from 'https://g.alicdn.com/mtb/lib-windvane/3.0.6/windvane.js';
 // import 'https://g.alicdn.com/mtb/lib-windvane/3.0.6/windvane.js';
+
+import { Chart } from '@antv/g2';
+
+const data = [
+  { type: '未知', value: 654, percent: 0.02 },
+  { type: '17 岁以下', value: 654, percent: 0.02 },
+  { type: '18-24 岁', value: 4400, percent: 0.2 },
+  { type: '25-29 岁', value: 5300, percent: 0.24 },
+  { type: '30-39 岁', value: 6200, percent: 0.28 },
+  { type: '40-49 岁', value: 3300, percent: 0.14 },
+  { type: '50 岁以上', value: 1500, percent: 0.06 },
+];
 
 interface Answer {
   id: string;
@@ -142,6 +157,9 @@ const userAnswers_back: UserAnswer = {
 
 const D2 = () => {
   const { t, i18n } = useTranslation();
+
+  const element = React.useRef<HTMLDivElement>(null);
+  const g2element = React.useRef<HTMLDListElement>(null);
 
   const [pageIdx, setPageIdx] = useState(-1); // -1
   const [selectedOption, setSelectedOption] = useState('');
@@ -469,6 +487,121 @@ const D2 = () => {
     setSelectedOption(answerId);
   };
 
+  const getScreenShot = () => {
+    // let self: any = this;
+    // console.log('going to get screen shot', self)
+    // if (!self) return;
+    // 获取dom结构
+    let targetDom = element.current as HTMLDivElement;
+    let result: string = '';
+    domtoimage.toPng(targetDom).then((dataUrl: any) => {
+      //andriod
+      if (dataUrl != 'error') {
+        // alert("domtoimage");
+        // self.setState({
+        //   imgUrl: dataUrl,
+        //   isDownloadImg: true,
+        // })
+
+        // console.log('output the screenshot as b641')
+        // console.log(dataUrl);
+        result = dataUrl;
+
+        const img = new Image();
+        img.style.display = 'block';
+        // 将 canvas 导出成 base64
+        img.src = result;
+        // 添加图片到预览
+        targetDom.innerHTML = '';
+        targetDom.style.padding = '0';
+        targetDom.appendChild(img);
+      }
+      // ios
+      else {
+        let b64: any;
+        html2canvas(targetDom, {
+          useCORS: true,
+        })
+          .then(function (canvas) {
+            try {
+              b64 = canvas.toDataURL('image/png');
+            } catch (err) {
+              console.log(err);
+              // alert(err)
+            }
+            // self.setState({
+            //   imgUrl: b64,
+            //   isDownloadImg: true,
+            // })
+            // console.log('output the screenshot as b64')
+            // console.log(b64);
+            result = b64;
+
+            const img = new Image();
+            img.style.display = 'block';
+            // 将 canvas 导出成 base64
+            img.src = result;
+            // 添加图片到预览
+            targetDom.innerHTML = '';
+            targetDom.style.padding = '0';
+            targetDom.appendChild(img);
+          })
+          .catch(function onRejected(error) {});
+      }
+    });
+  };
+
+  useEffect(() => {
+    if (g2element && g2element.current) {
+      const chart = new Chart({
+        container: g2element.current,
+        autoFit: true,
+        height: 500,
+        padding: [50, 20, 50, 20],
+      });
+      chart.data(data);
+      chart.scale('value', {
+        alias: '销售额(万)',
+      });
+
+      chart.axis('type', {
+        tickLine: {
+          alignTick: false,
+        },
+      });
+      chart.axis('value', false);
+
+      chart.tooltip({
+        showMarkers: false,
+      });
+      chart.interval().position('type*value');
+      chart.interaction('element-active');
+
+      // 添加文本标注
+      data.forEach((item) => {
+        chart
+          .annotation()
+          .text({
+            position: [item.type, item.value],
+            content: item.value,
+            style: {
+              textAlign: 'center',
+            },
+            offsetY: -30,
+          })
+          .text({
+            position: [item.type, item.value],
+            content: (item.percent * 100).toFixed(0) + '%',
+            style: {
+              textAlign: 'center',
+            },
+            offsetY: -12,
+          });
+      });
+      chart.render();
+    }
+  }, [g2element.current]);
+
   const getFinalPage = (ide: string, worktime: string, shirt: string) => {
     const gide = ide ? ide : 'vim';
     const gworktime = worktime ? worktime : 'night';
@@ -496,15 +629,19 @@ const D2 = () => {
           backgroundColor: colors.mainBack,
           color: colors.mainText,
         }}
+        ref={element}
       >
         <div className="d2-finalpage-header">
-          <div className="d2-finalpage-title">AntV</div>
+          <div className="d2-finalpage-title" onClick={getScreenShot}>
+            AntV
+          </div>
           <div className="d2-finalpage-symbol">{userAnswers.symbol}</div>
         </div>
         <div className="d2-chart-container">
           <div
             className="d2-chart-container-playground"
             style={{ backgroundColor: colors.chartContainerBack }}
+            ref={g2element}
           ></div>
         </div>
         <div className="d2-finalpage-text-container">
