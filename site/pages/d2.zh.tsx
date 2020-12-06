@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
 import { useTranslation } from 'react-i18next';
 import { Toast } from 'antd-mobile';
-import domtoimage from 'dom-to-image';
-import html2canvas from 'html2canvas';
 import 'antd-mobile/dist/antd-mobile.css';
 import './d2.less';
 // import * as module from 'https://g.alicdn.com/mtb/lib-windvane/3.0.6/windvane.js';
@@ -487,23 +485,25 @@ const D2 = () => {
     setSelectedOption(answerId);
   };
 
-  // const renderImgDom = (
-  //   url: string,
-  //   targetDom: HTMLDivElement,
-  //   crossOrigin?: string,
-  // ) => {
-  //   const img = new Image();
-  //   crossOrigin && img.setAttribute('crossOrigin', crossOrigin);
-  //   img.style.display = 'block';
-  //   // 将 canvas 导出成 base64
-  //   img.src = url;
-  //   // 添加图片到预览
-  //   targetDom.innerHTML = '';
-  //   targetDom.style.padding = '0';
-  //   targetDom.appendChild(img);
-  // };
+  const renderImgDom = (
+    url: string,
+    targetDom: HTMLDivElement,
+    crossOrigin?: string,
+  ) => {
+    const img = new Image();
+    crossOrigin && img.setAttribute('crossOrigin', crossOrigin);
+    img.style.display = 'block';
+    // 将 canvas 导出成 base64
+    img.src = url;
+    // 添加图片到预览
+    targetDom.innerHTML = '';
+    targetDom.style.padding = '0';
+    targetDom.appendChild(img);
+  };
 
   const getScreenShot = () => {
+    const domtoimage = require('dom-to-image');
+    const html2canvas = require('html2canvas');
     // let self: any = this;
     // console.log('going to get screen shot', self)
     // if (!self) return;
@@ -519,7 +519,7 @@ const D2 = () => {
         // })
         // console.log('output the screenshot as b641')
         // console.log(dataUrl);
-        // renderImgDom(dataUrl, targetDom, 'anonymous');
+        renderImgDom(dataUrl, targetDom, 'anonymous');
       }
       // ios
       else {
@@ -527,11 +527,11 @@ const D2 = () => {
         html2canvas(targetDom, {
           useCORS: true,
         })
-          .then(function (canvas) {
+          .then(function (canvas: any) {
             try {
               b64 = canvas.toDataURL('image/png');
 
-              // renderImgDom(b64, targetDom, 'anonymous');
+              renderImgDom(b64, targetDom, 'anonymous');
             } catch (err) {
               console.log(err);
               // alert(err)
