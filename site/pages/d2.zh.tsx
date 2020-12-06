@@ -131,7 +131,7 @@ const UNSELECTED_COLOR = '#fff';
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
 //_back
-const userAnswers: UserAnswer = {
+const userAnswers_back: UserAnswer = {
   keyboard: '',
   symbol: '',
   shirt: '',
@@ -141,7 +141,7 @@ const userAnswers: UserAnswer = {
   music: '',
 };
 
-const userAnswers_back: UserAnswer = {
+const userAnswers: UserAnswer = {
   keyboard: 'red',
   symbol: '=>',
   shirt: 'smile',
@@ -159,7 +159,7 @@ const D2 = () => {
   const element = React.useRef<HTMLDivElement>(null);
   const g2element = React.useRef<HTMLDListElement>(null);
 
-  const [pageIdx, setPageIdx] = useState(-1); // -1
+  const [pageIdx, setPageIdx] = useState(7); // -1
   const [selectedOption, setSelectedOption] = useState('');
   const [keyboardType, setKeybordType] = useState('default');
   const [pressedNext, setPressedNext] = useState(false);
@@ -492,6 +492,9 @@ const D2 = () => {
   ) => {
     const img = new Image();
     img.style.display = 'block';
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.id = 'finalImage';
     img.onload = () => {
       // 添加图片到预览
       targetDom.innerHTML = '';
@@ -503,12 +506,26 @@ const D2 = () => {
     img.src = url;
   };
 
+  const backingScale = () => {
+    if (window.devicePixelRatio && window.devicePixelRatio > 1) {
+      return window.devicePixelRatio;
+    }
+    return 1;
+  };
+
+  const parsePixelValue = (value: string) => {
+    return parseInt(value, 10);
+  };
+
   const getScreenShot = () => {
     // convert g2plot canvas to a img
-    const canvas = chart.canvas.get('el');
-    console.log('canvas, ', chart.canvas);
-    const data = canvas.toDataURL('image/png', 1);
+    const g2canvas = chart.canvas.get('el');
+    const data = g2canvas.toDataURL('image/png', 1);
     const img = new Image();
+    img.style.display = 'block';
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.setAttribute('crossOrigin', '*');
     img.onload = () => {
       const domtoimage = require('dom-to-image');
       const html2canvas = require('html2canvas');
@@ -517,48 +534,70 @@ const D2 = () => {
       // if (!self) return;
       // 获取dom结构
       let targetDom = element.current as HTMLDivElement;
-      domtoimage.toPng(targetDom).then((dataUrl: any) => {
-        //andriod
-        if (dataUrl != 'error') {
-          // alert("domtoimage");
+      // domtoimage.toPng(targetDom).then((dataUrl: any) => {
+      //   //andriod
+      //   if (dataUrl != 'error') {
+      //     console.log('android')
+      //     // alert("domtoimage");
+      //     // self.setState({
+      //     //   imgUrl: dataUrl,
+      //     //   isDownloadImg: true,
+      //     // })
+      //     // console.log('output the screenshot as b641')
+      //     // console.log(dataUrl);
+      //     renderImgDom(dataUrl, targetDom, '*');
+      //   }
+      //   // ios
+      //   else {
+      console.log('ios');
+      let b64: any;
+      const finalCanvas = document.createElement('canvas');
+      const scaleBy = backingScale();
+      console.log('scaleBy', scaleBy);
+      const box = window.getComputedStyle(targetDom);
+      const w = parsePixelValue(box.width);
+      const h = parsePixelValue(box.height);
+      finalCanvas.width = w * scaleBy;
+      finalCanvas.height = h * scaleBy;
+      finalCanvas.style.width = w + 'px';
+      finalCanvas.style.height = h + 'px';
+      html2canvas(targetDom, {
+        useCORS: true,
+        canvas: finalCanvas, // 把canvas传进去
+        // onrendered: function(canvas: any) {
+        //   try {
+        //     b64 = canvas.toDataURL('image/png');
+        //     renderImgDom(b64, targetDom, '*');
+        //   } catch (err) {
+        //     console.log(err);
+        //   }
+        // },
+        // logging: true,
+        // onclone: function(doc: any) {
+        //   const image = doc.getElementById('finalImage');
+        //   image.style.display = 'block';
+        // }
+      })
+        .then(function (canvas: any) {
+          try {
+            b64 = canvas.toDataURL('image/png');
+
+            renderImgDom(b64, targetDom, '*');
+          } catch (err) {
+            console.log(err);
+            // alert(err)
+          }
           // self.setState({
-          //   imgUrl: dataUrl,
+          //   imgUrl: b64,
           //   isDownloadImg: true,
           // })
-          // console.log('output the screenshot as b641')
-          // console.log(dataUrl);
-          renderImgDom(dataUrl, targetDom, 'anonymous');
-        }
-        // ios
-        else {
-          let b64: any;
-          html2canvas(targetDom, {
-            useCORS: true,
-          })
-            .then(function (canvas: any) {
-              try {
-                b64 = canvas.toDataURL('image/png');
-
-                renderImgDom(b64, targetDom, 'anonymous');
-              } catch (err) {
-                console.log(err);
-                // alert(err)
-              }
-              // self.setState({
-              //   imgUrl: b64,
-              //   isDownloadImg: true,
-              // })
-              // console.log('output the screenshot as b64')
-              // console.log(b64);
-            })
-            .catch(function onRejected(error: any) {});
-        }
-      });
+          // console.log('output the screenshot as b64')
+          // console.log(b64);
+        })
+        .catch(function onRejected(error: any) {});
+      //   }
+      // });
     };
-    img.style.display = 'block';
-    img.style.width = '100%';
-    img.style.height = '100%';
-    img.setAttribute('crossOrigin', 'anonymous');
     img.src = data;
     if (g2element.current) {
       g2element.current.innerHTML = '';
