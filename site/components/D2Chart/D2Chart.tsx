@@ -5,7 +5,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import * as _ from 'lodash';
+import { get } from '@antv/util';
 import { DataView } from '@antv/data-set';
 import styles from './D2Chart.module.less';
 
@@ -212,7 +212,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
             adjust: { type: 'stack' },
             label: {
               fields: ['x'],
-              callback: (x) => {
+              callback: (x: any) => {
                 const cfg: any = {
                   labelLine: false,
                   style: {
@@ -220,7 +220,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
                     fill: theme.dailySchedule.customStyle.fontFill,
                   },
                 };
-                if (x === _.get(theme.dailySchedule, ['data', 0, 'x'])) {
+                if (x === get(theme.dailySchedule, ['data', 0, 'x'])) {
                   // todo 确定计算规则
                   cfg.offsetY = -72;
                   cfg.offsetX = -118;
