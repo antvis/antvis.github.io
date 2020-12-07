@@ -656,8 +656,6 @@ const D2 = () => {
     const lib = recommandLib[randomIdx];
     const stickerSrc = styles.stickers[gshirt][theme];
 
-    console.log('colors: %o, stlyes: %o', theme, colors, styles);
-
     return (
       <div
         className="d2-finalpage"
