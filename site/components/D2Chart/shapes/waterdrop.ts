@@ -24,23 +24,11 @@ G2.registerShape('interval', 'waterdrop', {
           ['L', points[2].x, points[2].y],
           ['Z'],
         ],
-        // todo 优化颜色
         fill: shapeInfo.color,
         stroke: shapeInfo.style?.stroke,
         lineWidth: shapeInfo.style?.lineWidth,
       },
     });
-    waterdrop.animate(
-      {
-        strokeOpacity: 0.8,
-        fillOpacity: 0.75,
-      },
-      {
-        duration: 1500,
-        easing: 'easeLinear',
-        repeat: true,
-      },
-    );
     return container;
   },
 });
