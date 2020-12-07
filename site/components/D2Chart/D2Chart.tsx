@@ -7,7 +7,6 @@ import React, {
 } from 'react';
 import * as _ from 'lodash';
 import { DataView } from '@antv/data-set';
-import './shapes/waterdrop';
 import styles from './D2Chart.module.less';
 
 // 资源
@@ -380,7 +379,9 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
       plotRef.current.destroy();
     }
 
-    const { Lab } = require('@antv/g2plot');
+    const { Lab } = require('@antv/g2plot/dist/g2plot.min.js');
+    require('./shapes/waterdrop');
+
     if (containerRef?.current) {
       const container = containerRef.current;
       const mvPlot = new Lab.MultiView(container, {
