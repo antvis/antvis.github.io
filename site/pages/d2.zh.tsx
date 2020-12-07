@@ -8,22 +8,12 @@ import './d2.less';
 // import * as module from 'https://g.alicdn.com/mtb/lib-windvane/3.0.6/windvane.js';
 // import 'https://g.alicdn.com/mtb/lib-windvane/3.0.6/windvane.js';
 
-const data = [
-  { type: '未知', value: 654, percent: 0.02 },
-  { type: '17 岁以下', value: 654, percent: 0.02 },
-  { type: '18-24 岁', value: 4400, percent: 0.2 },
-  { type: '25-29 岁', value: 5300, percent: 0.24 },
-  { type: '30-39 岁', value: 6200, percent: 0.28 },
-  { type: '40-49 岁', value: 3300, percent: 0.14 },
-  { type: '50 岁以上', value: 1500, percent: 0.06 },
-];
-
 const DAILY_SCHEDULE_COLOR = [
-  'l(0) 0:#6130B3 1:#82CEEB',
-  'l(0) 0:#C2E59A 1:#A7E8EB',
-  'l(0) 0:#FBD113 1:#B3E79B',
-  'l(0) 0:#F8C038 1:#E269C5',
-  'l(0) 0:#F463BE 1:#4B34AB',
+  'l(0) 0:#6232B4 1:#81CCEA',
+  'l(0) 0:#C0F08B 1:#A7E8EA',
+  'l(0) 0:#FBD215 1:#B3E79A',
+  'l(0) 0:#F8BF39 1:#E26AC4',
+  'l(0) 0:#F262BD 1:#4D35AB',
 ];
 
 interface Answer {
@@ -160,13 +150,11 @@ const userAnswers_back: UserAnswer = {
   music: 'pop',
 };
 
-let chart: any;
-
 const D2 = () => {
   const { t, i18n } = useTranslation();
 
   const element = React.useRef<HTMLDivElement>(null);
-  const g2element = React.useRef<HTMLDListElement>(null);
+  const plotRef = React.useRef<any>(null);
 
   const [pageIdx, setPageIdx] = useState(-1); // -1
   const [selectedOption, setSelectedOption] = useState('');
@@ -463,20 +451,7 @@ const D2 = () => {
     L7: 110,
   };
 
-  const recommandLib = [
-    'F2',
-    'G2',
-    'G2Plot',
-    'G6',
-    'X6',
-    'L7',
-    // '「防秃利器 — F2」',
-    // '「防秃利器 — G2」',
-    // '「防秃利器 — G2Plot」',
-    // '「防秃利器 — G6」',
-    // '「防秃利器 — X6」',
-    // '「防秃利器 — L7」',
-  ];
+  const recommandLib = ['F2', 'G2', 'G2Plot', 'G6', 'X6', 'L7'];
 
   const handleClickNext = () => {
     const newIdx = pageIdx + 1;
@@ -546,97 +521,110 @@ const D2 = () => {
   };
 
   const getScreenShot = () => {
-    // convert g2plot canvas to a img
-    const g2canvas = chart.canvas.get('el');
-    const data = g2canvas.toDataURL('image/png', 1);
-    const img = new Image();
-    img.style.display = 'block';
-    img.style.width = '100%';
-    img.style.height = '100%';
-    img.setAttribute('crossOrigin', '*');
+    const plot = plotRef.current;
+    if (plot && plot.chart) {
+      const chart = plot.chart;
+      // convert g2plot canvas to a img
+      const g2canvas = chart.canvas.get('el');
+      const data = g2canvas.toDataURL('image/png', 1);
+      const img = new Image();
+      img.style.display = 'block';
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.setAttribute('crossOrigin', '*');
 
-    // 将图表从 canvas 转换为 img
-    img.onload = () => {
-      const domtoimage = require('dom-to-image');
-      const html2canvas = require('html2canvas');
-      // let self: any = this;
-      // console.log('going to get screen shot', self)
-      // if (!self) return;
-      // 获取dom结构
-      let targetDom = element.current as HTMLDivElement;
-      // domtoimage.toPng(targetDom).then((dataUrl: any) => {
-      //   //andriod
-      //   if (dataUrl != 'error') {
-      //     console.log('android')
-      //     // alert("domtoimage");
-      //     // self.setState({
-      //     //   imgUrl: dataUrl,
-      //     //   isDownloadImg: true,
-      //     // })
-      //     // console.log('output the screenshot as b641')
-      //     // console.log(dataUrl);
-      //     renderImgDom(dataUrl, targetDom, '*');
-      //   }
-      //   // ios
-      //   else {
-      let b64: any;
-      const finalCanvas = document.createElement('canvas');
-      const scaleBy = backingScale();
-      console.log('scaleBy', scaleBy);
-      const box = window.getComputedStyle(targetDom);
-      const w = parsePixelValue(box.width);
-      const h = parsePixelValue(box.height);
-      finalCanvas.width = w * scaleBy;
-      finalCanvas.height = h * scaleBy;
-      finalCanvas.style.width = w + 'px';
-      finalCanvas.style.height = h + 'px';
-      // 将整个页面转换为 canvas
-      html2canvas(targetDom, {
-        useCORS: true,
-        canvas: finalCanvas, // 把canvas传进去
-        // onrendered: function(canvas: any) {
-        //   try {
-        //     b64 = canvas.toDataURL('image/png');
-        //     renderImgDom(b64, targetDom, '*');
-        //   } catch (err) {
-        //     console.log(err);
+      // 将图表从 canvas 转换为 img
+      img.onload = () => {
+        const domtoimage = require('dom-to-image');
+        const html2canvas = require('html2canvas');
+        // let self: any = this;
+        // console.log('going to get screen shot', self)
+        // if (!self) return;
+        // 获取dom结构
+        let targetDom = element.current as HTMLDivElement;
+        // domtoimage.toPng(targetDom).then((dataUrl: any) => {
+        //   //andriod
+        //   if (dataUrl != 'error') {
+        //     console.log('android')
+        //     // alert("domtoimage");
+        //     // self.setState({
+        //     //   imgUrl: dataUrl,
+        //     //   isDownloadImg: true,
+        //     // })
+        //     // console.log('output the screenshot as b641')
+        //     // console.log(dataUrl);
+        //     renderImgDom(dataUrl, targetDom, '*');
         //   }
-        // },
-        // logging: true,
-        // onclone: function(doc: any) {
-        //   const image = doc.getElementById('finalImage');
-        //   image.style.display = 'block';
-        // }
-      })
-        .then(function (canvas: any) {
-          try {
-            b64 = canvas.toDataURL('image/png');
+        //   // ios
+        //   else {
+        let b64: any;
+        const finalCanvas = document.createElement('canvas');
+        const scaleBy = backingScale();
+        const box = window.getComputedStyle(targetDom);
+        const w = parsePixelValue(box.width);
+        const h = parsePixelValue(box.height);
+        finalCanvas.width = w * scaleBy;
+        finalCanvas.height = h * scaleBy;
+        finalCanvas.style.width = w + 'px';
+        finalCanvas.style.height = h + 'px';
+        console.log('w: %o, h: %o', w, h);
 
-            // 将 canvas 转换为 img
-            renderImgDom(b64, targetDom, '*');
-          } catch (err) {
-            console.log(err);
-            // alert(err)
-          }
-          // self.setState({
-          //   imgUrl: b64,
-          //   isDownloadImg: true,
-          // })
-          // console.log('output the screenshot as b64')
-          // console.log(b64);
+        // 将整个页面转换为 canvas
+        html2canvas(targetDom, {
+          useCORS: true,
+          canvas: finalCanvas, // 把canvas传进去
+          // onrendered: function(canvas: any) {
+          //   try {
+          //     b64 = canvas.toDataURL('image/png');
+          //     renderImgDom(b64, targetDom, '*');
+          //   } catch (err) {
+          //     console.log(err);
+          //   }
+          // },
+          // logging: true,
+          // onclone: function(doc: any) {
+          //   const image = doc.getElementById('finalImage');
+          //   image.style.display = 'block';
+          // }
         })
-        .catch(function onRejected(error: any) {});
-      //   }
-      // });
-    };
-    img.src = data;
-    if (g2element.current) {
-      g2element.current.innerHTML = '';
-      g2element.current.appendChild(img);
+          .then(function (canvas: any) {
+            try {
+              b64 = canvas.toDataURL('image/png');
+
+              // 将 canvas 转换为 img
+              renderImgDom(b64, targetDom, '*');
+            } catch (err) {
+              console.log(err);
+              // alert(err)
+            }
+            // self.setState({
+            //   imgUrl: b64,
+            //   isDownloadImg: true,
+            // })
+            // console.log('output the screenshot as b64')
+            // console.log(b64);
+          })
+          .catch(function onRejected(error: any) {});
+        //   }
+        // });
+      };
+      img.src = data;
     }
   };
 
-  const getFinalPage = (ide: string, worktime: string, shirt: string) => {
+  function afterChartRender() {
+    // 图表渲染完成，并在动画即完成（600ms）后执行生成一层透明的 img 操作
+    setTimeout(() => {
+      getScreenShot();
+    }, 800);
+  }
+
+  const getFinalPage = (
+    ide: string,
+    worktime: string,
+    shirt: string,
+    favoriteFramework: string,
+  ) => {
     const gide = ide ? ide : 'vim';
     const gworktime = worktime ? worktime : 'night';
     const gshirt = shirt ? shirt : 'fashion';
@@ -672,15 +660,16 @@ const D2 = () => {
         </div>
         <div className="d2-chart-container">
           <VisCanvas
+            ref={plotRef}
             theme={{
               backgroundColor: colors.mainBack,
               dailySchedule: {
                 data: [
-                  { x: 'Midnight', y: 12 },
-                  { x: 'Morning', y: 6 },
+                  { x: 'Midnight', y: 8 },
+                  { x: 'Morning', y: 14 },
                   { x: 'Afternoon', y: 10 },
-                  { x: 'Dawn', y: 6 },
-                  { x: 'Night', y: 6 },
+                  { x: 'Dawn', y: 8 },
+                  { x: 'Night', y: 8 },
                 ],
                 color: DAILY_SCHEDULE_COLOR,
                 customStyle: {
@@ -700,6 +689,8 @@ const D2 = () => {
               // 工作效率：vis-bar（5个时间段🕛：清晨 / 上午 / 下午 / 夜晚 / 凌晨）
               // 写代码，喜欢听的音乐：vis-line（4种🎵，古典乐：4个声部，重金属：3个声部，摇滚音乐：4个声部+曲线，迷幻音乐：2个声部+曲线）
             }}
+            favoriteFramework={favoriteFramework}
+            afterChartRender={afterChartRender}
           />
         </div>
         <div className="d2-finalpage-text-container">
@@ -843,7 +834,12 @@ const D2 = () => {
         </div>
       )}
       {pageIdx >= questions.length &&
-        getFinalPage(userAnswers.ide, userAnswers.worktime, userAnswers.shirt)}
+        getFinalPage(
+          userAnswers.ide,
+          userAnswers.worktime,
+          userAnswers.shirt,
+          userAnswers.framework,
+        )}
     </div>
   );
 };
