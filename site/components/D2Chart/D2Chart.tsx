@@ -5,10 +5,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { Lab } from '@antv/g2plot';
 import * as _ from 'lodash';
-// todo 暴露 MultiViewOptions
-import { MultiViewOptions } from '@antv/g2plot/lib/plots/multi-view';
 import { DataView } from '@antv/data-set';
 import './shapes/waterdrop';
 import styles from './D2Chart.module.less';
@@ -85,7 +82,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
   const plotRef = useRef<any>();
   const containerRef = useRef<HTMLDivElement | null>(null);
   /** 每个 view 对应的数据 */
-  const [datas, setDatas] = useState({ column: [], line1: [] });
+  const [datas, setDatas] = useState<any>({ column: [], line1: [] });
 
   useLayoutEffect(() => {
     const fetchRoseData = fetch(
@@ -102,7 +99,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
     });
   }, []);
 
-  const views = useMemo((): MultiViewOptions['views'] => {
+  const views = useMemo((): any[] => {
     // todo 数据迁移至数据源外部处理
     const view0data: Array<{ x: string; y: number; type: string }> = [];
     datas.column.forEach((d: { x: string; y: number; type: string }) =>
@@ -382,6 +379,8 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
     if (plotRef.current) {
       plotRef.current.destroy();
     }
+
+    const { Lab } = require('@antv/g2plot');
     if (containerRef?.current) {
       const container = containerRef.current;
       const mvPlot = new Lab.MultiView(container, {
