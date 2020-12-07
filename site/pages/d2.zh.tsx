@@ -532,6 +532,10 @@ const D2 = () => {
         startTime = Infinity;
         window.clearTimeout(tipTimer);
       });
+      img.addEventListener('wheel', (e) => {
+        startTime = Infinity;
+        window.clearTimeout(tipTimer);
+      });
       img.addEventListener('touchstart', (e) => {
         startTime = +new Date();
         tipTimer = window.setTimeout(() => {
