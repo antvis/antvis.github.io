@@ -670,6 +670,7 @@ const D2 = () => {
     worktime: string,
     shirt: string,
     favoriteFramework: string,
+    music: string,
   ) => {
     const gide = ide ? ide : 'vim';
     const gworktime = worktime ? worktime : 'night';
@@ -712,19 +713,19 @@ const D2 = () => {
               backgroundColor: colors.mainBack,
               dailySchedule: {
                 data: [
-                  { x: 'Midnight', y: 8 },
-                  { x: 'Morning', y: 14 },
-                  { x: 'Afternoon', y: 10 },
-                  { x: 'Dawn', y: 8 },
-                  { x: 'Night', y: 8 },
+                  { x: 'midnight', y: 8 },
+                  { x: 'morning', y: 14 },
+                  { x: 'afternoon', y: 10 },
+                  { x: 'dawn', y: 8 },
+                  { x: 'night', y: 8 },
                 ],
                 color: DAILY_SCHEDULE_COLOR,
                 customStyle: {
                   fontFill: colors.mainText,
                 },
                 style: {
-                  stroke: theme === 'light' ? '#fff' : 'transparent',
-                  strokeWidth: theme === 'light' ? 1 : 0,
+                  stroke: '#fff',
+                  strokeWidth: 1,
                 },
                 annotations: [
                   {
@@ -739,6 +740,7 @@ const D2 = () => {
             favoriteFramework={favoriteFramework}
             afterChartRender={afterChartRender}
             efficientWorktime={worktime as any}
+            music={music as any}
           />
         </div>
         <div className="d2-finalpage-text-container">
@@ -892,6 +894,7 @@ const D2 = () => {
           userAnswers.worktime,
           userAnswers.shirt,
           userAnswers.framework,
+          userAnswers.music,
         )}
     </div>
   );
