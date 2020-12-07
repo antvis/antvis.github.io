@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
 import { useTranslation } from 'react-i18next';
 import { Toast } from 'antd-mobile';
+import { VisCanvas } from '../components/D2Chart/D2Chart';
 import 'antd-mobile/dist/antd-mobile.css';
 import './d2.less';
 // import * as module from 'https://g.alicdn.com/mtb/lib-windvane/3.0.6/windvane.js';
@@ -15,6 +16,14 @@ const data = [
   { type: '30-39 岁', value: 6200, percent: 0.28 },
   { type: '40-49 岁', value: 3300, percent: 0.14 },
   { type: '50 岁以上', value: 1500, percent: 0.06 },
+];
+
+const DAILY_SCHEDULE_COLOR = [
+  'l(0) 0:#6130B3 1:#82CEEB',
+  'l(0) 0:#C2E59A 1:#A7E8EB',
+  'l(0) 0:#FBD113 1:#B3E79B',
+  'l(0) 0:#F8C038 1:#E269C5',
+  'l(0) 0:#F463BE 1:#4B34AB',
 ];
 
 interface Answer {
@@ -445,12 +454,28 @@ const D2 = () => {
     },
   };
 
+  const recommandLibFontSize: any = {
+    F2: 110,
+    G2: 110,
+    G2Plot: 44,
+    G6: 110,
+    X6: 110,
+    L7: 110,
+  };
+
   const recommandLib = [
-    '「防秃利器 — F2」',
-    '「防秃利器 — G2Plot」',
-    '「防秃利器 — G6」',
-    '「防秃利器 — X6」',
-    '「防秃利器 — L7」',
+    'F2',
+    'G2',
+    'G2Plot',
+    'G6',
+    'X6',
+    'L7',
+    // '「防秃利器 — F2」',
+    // '「防秃利器 — G2」',
+    // '「防秃利器 — G2Plot」',
+    // '「防秃利器 — G6」',
+    // '「防秃利器 — X6」',
+    // '「防秃利器 — L7」',
   ];
 
   const handleClickNext = () => {
@@ -690,6 +715,8 @@ const D2 = () => {
     const lib = recommandLib[randomIdx];
     const stickerSrc = styles.stickers[gshirt][theme];
 
+    console.log('colors: %o, stlyes: %o', theme, colors, styles);
+
     return (
       <div
         className="d2-finalpage"
@@ -705,11 +732,36 @@ const D2 = () => {
           <div className="d2-finalpage-symbol">{userAnswers.symbol}</div>
         </div>
         <div className="d2-chart-container">
-          <div
-            className="d2-chart-container-playground"
-            style={{ backgroundColor: colors.chartContainerBack }}
-            ref={g2element}
-          ></div>
+          <VisCanvas
+            theme={{
+              backgroundColor: colors.mainBack,
+              dailySchedule: {
+                data: [
+                  { x: 'Midnight', y: 12 },
+                  { x: 'Morning', y: 6 },
+                  { x: 'Afternoon', y: 10 },
+                  { x: 'Dawn', y: 6 },
+                  { x: 'Night', y: 6 },
+                ],
+                color: DAILY_SCHEDULE_COLOR,
+                customStyle: {
+                  fontFill: colors.mainText,
+                },
+                style: {
+                  stroke: theme === 'light' ? '#fff' : 'transparent',
+                  strokeWidth: theme === 'light' ? 1 : 0,
+                },
+                annotations: [
+                  {
+                    content: lib /** 推荐”防秃利器 - 可视化库“ */,
+                    fontSize: recommandLibFontSize[lib],
+                  },
+                ],
+              },
+              // 工作效率：vis-bar（5个时间段🕛：清晨 / 上午 / 下午 / 夜晚 / 凌晨）
+              // 写代码，喜欢听的音乐：vis-line（4种🎵，古典乐：4个声部，重金属：3个声部，摇滚音乐：4个声部+曲线，迷幻音乐：2个声部+曲线）
+            }}
+          />
         </div>
         <div className="d2-finalpage-text-container">
           <div>测算结果显示，你是…</div>
@@ -727,7 +779,7 @@ const D2 = () => {
             className="d2-finalpage-result-recommand"
             style={{ color: colors.subText }}
           >
-            {lib}
+            「防秃利器 — {lib}」
           </span>
           <span className="d2-finalpage-result-des">{texts.description2}</span>
         </div>
