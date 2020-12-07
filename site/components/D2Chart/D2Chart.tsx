@@ -238,25 +238,25 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
           {
             type: 'text',
             position: ['0%', 0],
-            offsetY: -40,
+            offsetY: -30,
             offsetX: -20,
             content: 'daily\nschedule',
             style: {
               fill: theme.dailySchedule.customStyle.fontFill,
-              fontSize: 25,
+              fontSize: 18,
               textAlign: 'left',
               fontFamily: FONT_FAMILY,
             },
           },
           {
             type: 'text',
-            position: ['100%', 0],
+            position: ['85%', 0],
             offsetY: 20,
             offsetX: 0,
             content: 'music',
             style: {
               fill: theme.dailySchedule.customStyle.fontFill,
-              fontSize: 25,
+              fontSize: 18,
               textAlign: 'left',
               fontFamily: FONT_FAMILY,
             },
@@ -385,8 +385,9 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
 
     if (containerRef?.current) {
       const container = containerRef.current;
+      const box = container.getBoundingClientRect();
       const mvPlot = new Lab.MultiView(container, {
-        height: 441 /* 372 + 40 */,
+        height: box.height, // 441 /* 372 + 40 */,
         autoFit: true,
         padding: 0,
         appendPadding: [40, 20, 20, 20],
