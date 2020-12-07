@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import { get, lowerCase } from '@antv/util';
 import { DataView } from '@antv/data-set';
+import { DAWN_DAILY_SCHEDULE } from './datas/dailySchedule';
 import styles from './D2Chart.module.less';
 
 // 资源
@@ -73,36 +74,27 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
   const plotRef = useRef<any>();
   const containerRef = useRef<HTMLDivElement | null>(null);
   /** 每个 view 对应的数据 */
-  const [datas, setDatas] = useState<any>({ column: [], line1: [] });
+  const [datas, setDatas] = useState<any>({ line1: [] });
 
   useLayoutEffect(() => {
-    const fetchRoseData = fetch(
-      'https://gw.alipayobjects.com/os/bmw-prod/35b18d39-d015-4504-8c2f-09ed82cd7368.csv' /* 凌晨 */,
-    ).then((data) => data.text());
     const fetchLineData = fetch(
       'https://gw.alipayobjects.com/os/bmw-prod/800b7c41-b82e-4e26-910f-6822754b37cd.json' /* 古典 */,
     ).then((data) => data.json());
 
-    Promise.all([fetchRoseData, fetchLineData]).then(([data1, data2]) => {
-      const dv1 = new DataView().source(data1, { type: 'csv' });
+    Promise.all([fetchLineData]).then(([data2]) => {
       const dv2 = new DataView().source(data2);
-      setDatas({ column: dv1.rows, line1: dv2.rows });
+      setDatas({ line1: dv2.rows });
     });
   }, []);
 
   const views = useMemo((): any[] => {
-    // todo 数据迁移至数据源外部处理
-    const view0data: Array<{ x: string; y: number; type: string }> = [];
-    datas.column.forEach((d: { x: string; y: number; type: string }) =>
-      view0data.push({ ...d, y: Number(d.y) * 0.8 }),
-    );
-    const yMax = Math.max(...view0data.map((d) => d.y));
+    const yMax = Math.max(...DAWN_DAILY_SCHEDULE.map((d) => d.y));
 
     return [
       {
         // 条形图
         // 处理数据，让数据超过内环的 0.6
-        data: view0data.map((d) => ({
+        data: DAWN_DAILY_SCHEDULE.map((d) => ({
           ...d,
           y: d.y / yMax < 0.46 ? d.y + yMax * 0.46 * 0.6 : d.y,
         })),
@@ -121,6 +113,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
             type: 'interval',
             xField: 'x',
             yField: 'y',
+            meta: { x: { type: 'cat' } },
             colorField: 'type',
             mapping: {
               color: ['#5B8FF9', '#FE84B2'],
@@ -128,7 +121,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
             },
             adjust: {
               type: 'dodge',
-              marginRatio: 1,
+              marginRatio: 0.3,
             },
           },
         ],
@@ -407,7 +400,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
 
       mvPlot.render();
       // todo hack 下主题设置
-      mvPlot.chart.views[0].theme({ roseWidthRatio: 0.6 });
+      mvPlot.chart.views[0].theme({ roseWidthRatio: 1 });
       mvPlot.chart.render(true);
       plotRef.current = mvPlot;
       syncRef(plotRef, ref);
