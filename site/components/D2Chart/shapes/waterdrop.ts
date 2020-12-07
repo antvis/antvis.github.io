@@ -27,6 +27,7 @@ G2.registerShape('interval', 'waterdrop', {
         // todo 优化颜色
         fill: shapeInfo.color,
         stroke: shapeInfo.style?.stroke,
+        lineWidth: shapeInfo.style?.lineWidth,
       },
     });
     waterdrop.animate(
