@@ -60,6 +60,7 @@ interface FinalPageConfigText {
   title: string;
   description1: string;
   description2: string;
+  libDes: string;
 }
 
 interface FinalPageConfig {
@@ -122,15 +123,18 @@ const NEXT_BUTTONS: NextButtons = {
       'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*17LJRoADQUYAAAAAAAAAAAAAARQnAQ',
   },
 };
-// TODO: qr code
+
 const QR_CODE =
-  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*kmIaTqgpjtgAAAAAAAAAAAAAARQnAQ';
+  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*d2CvQJb9kY8AAAAAAAAAAAAAARQnAQ';
 const SELECTED_COLOR = '#A58AFF';
 const UNSELECTED_COLOR = '#fff';
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
+const LOTTERY_CODE = '抽奖码：AntV 西湖区第一的可视化引擎';
+const PLAYGAME_TIP = '和我一起扫码生成属于你的图表吧';
+const DEFAULT_TIP = '*游戏后长按保存图片并分享，即可得抽奖码';
 
 //_back
-const userAnswers: UserAnswer = {
+const userAnswers_back: UserAnswer = {
   keyboard: '',
   symbol: '',
   shirt: '',
@@ -140,15 +144,18 @@ const userAnswers: UserAnswer = {
   music: '',
 };
 
-const userAnswers_back: UserAnswer = {
+const userAnswers: UserAnswer = {
   keyboard: 'red',
   symbol: '=>',
   shirt: 'smile',
   framework: 'vue',
   ide: 'vim',
-  worktime: 'forenoon',
+  worktime: 'morning',
   music: 'pop',
 };
+
+let startTime = Infinity;
+let tipTimer = -1;
 
 const D2 = () => {
   const { t, i18n } = useTranslation();
@@ -156,11 +163,12 @@ const D2 = () => {
   const element = React.useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
 
-  const [pageIdx, setPageIdx] = useState(-1); // -1
+  const [pageIdx, setPageIdx] = useState(7); // -1
   const [selectedOption, setSelectedOption] = useState('');
   const [keyboardType, setKeybordType] = useState('default');
   const [pressedNext, setPressedNext] = useState(false);
   const [questionOpacity, setQuestionOpacity] = useState(1);
+  const [tip, setTip] = useState(DEFAULT_TIP);
 
   const questions: Question[] = [
     {
@@ -236,6 +244,8 @@ const D2 = () => {
     },
   ];
 
+  const darkTipColor = 'rgba(255, 255, 255, 0.45)';
+  const lightTipColor = 'rgba(0, 0, 0, 0.45)';
   const finalPageConfigs: FinalPageConfig = {
     styles: {
       webstorm: {
@@ -245,12 +255,14 @@ const D2 = () => {
             chartContainerBack: '#F1F2F3',
             mainText: '#2B2C2D',
             subText: '#72124F',
+            tipText: lightTipColor,
           },
           dark: {
             mainBack: '#292B2C',
             chartContainerBack: '#3B4041',
             mainText: '#fff',
             subText: '#FFD576',
+            tipText: darkTipColor,
           },
         },
         stickers: {
@@ -287,12 +299,14 @@ const D2 = () => {
             chartContainerBack: '#EBECED',
             mainText: '#2B2C2D',
             subText: '#142DE0',
+            tipText: lightTipColor,
           },
           dark: {
             mainBack: '#202122',
             chartContainerBack: '#242830',
             mainText: '#fff',
             subText: '#1F96F3',
+            tipText: darkTipColor,
           },
         },
         stickers: {
@@ -329,12 +343,14 @@ const D2 = () => {
             chartContainerBack: '#D2CAB7',
             mainText: '#403A33',
             subText: '#B2286D',
+            tipText: lightTipColor,
           },
           dark: {
             mainBack: '#002C37',
             chartContainerBack: '#00181E',
             mainText: '#4FD6E9',
             subText: '#FFBB22',
+            tipText: darkTipColor,
           },
         },
         stickers: {
@@ -371,12 +387,14 @@ const D2 = () => {
             chartContainerBack: '#E9EAEC',
             mainText: '#252426',
             subText: '#AA3FAA',
+            tipText: lightTipColor,
           },
           dark: {
             mainBack: '#262D36',
             chartContainerBack: '#323842',
             mainText: '#fff',
             subText: '#31CFD3',
+            tipText: darkTipColor,
           },
         },
         stickers: {
@@ -412,32 +430,37 @@ const D2 = () => {
       morning: {
         title: '早起奋斗者',
         description1:
-          '月亮不睡你不睡，你是夜晚小宝贝，熬夜搬砖不会累，咖啡眼圈才更配。特为您推荐',
-        description2: '，快速生成图表，释放你的夜生活。',
+          '今早起床了，看屏幕里的我，忽然发现天气有点适合来创造，一点点改变，有很大的差别，每一行代码都能改变世界。新一代的',
+        description2: '，马上推荐你，叫上朋友一起感受数据超能力。',
+        libDes: '数据神器',
       },
       afternoon: {
         title: '社会主义打工人',
         description1:
-          '月亮不睡你不睡，你是夜晚小宝贝，熬夜搬砖不会累，咖啡眼圈才更配。特为您推荐',
-        description2: '，快速生成图表，释放你的夜生活。',
+          '太阳当空照，我又上班辽，不迟到，不早退，立志要为人民立功劳。社会人社会魂，社会主义打工人，特为您推荐',
+        description2: '，一起迈向社会主义数字化新时代。',
+        libDes: '数字化利器',
       },
       dawn: {
         title: '车间划水人',
         description1:
-          '月亮不睡你不睡，你是夜晚小宝贝，熬夜搬砖不会累，咖啡眼圈才更配。特为您推荐',
-        description2: '，快速生成图表，释放你的夜生活。',
+          '再给我两分钟，让我把代码写成诗，不过才过饭点，要我怎么忍心就这么回家？下班不积极，思想有问题，为您推荐',
+        description2: '，快速生成数据图表，按时下班没烦恼！',
+        libDes: '效率神器',
       },
       night: {
         title: '凡尔赛社畜',
         description1:
-          '月亮不睡你不睡，你是夜晚小宝贝，熬夜搬砖不会累，咖啡眼圈才更配。特为您推荐',
-        description2: '，快速生成图表，释放你的夜生活。',
+          '啊～黑夜给了我黑色的眼睛，我却用它寻找光明，汗水凝结成时光胶囊，我独自在黑夜里拼杀。试试新一代',
+        description2: '，快速生成数据图表，释放你被压缩的睡眠时光。',
+        libDes: '时光压缩器',
       },
       midnight: {
         title: '通宵爆肝王',
         description1:
           '月亮不睡你不睡，你是夜晚小宝贝，熬夜搬砖不会累，咖啡眼圈才更配。特为您推荐',
         description2: '，快速生成图表，释放你的夜生活。',
+        libDes: '防秃利器',
       },
     },
   };
@@ -504,6 +527,24 @@ const D2 = () => {
       // 添加图片到预览
       // targetDom.style.padding = '0';
       targetDom.appendChild(img);
+
+      img.addEventListener('click', (e) => {
+        startTime = Infinity;
+        window.clearTimeout(tipTimer);
+      });
+      img.addEventListener('touchstart', (e) => {
+        startTime = +new Date();
+        tipTimer = window.setTimeout(() => {
+          setTip(LOTTERY_CODE);
+        }, 2000);
+      });
+      img.addEventListener('touchend', (e) => {
+        const endTime = +new Date();
+        if (endTime - startTime > 700) {
+          // 展示抽奖码
+          setTip(LOTTERY_CODE);
+        }
+      });
     };
     // 将 canvas 导出成 base64
     crossOrigin && img.setAttribute('crossOrigin', crossOrigin);
@@ -536,7 +577,7 @@ const D2 = () => {
 
       // 将图表从 canvas 转换为 img
       img.onload = () => {
-        const domtoimage = require('dom-to-image');
+        // const domtoimage = require('dom-to-image');
         const html2canvas = require('html2canvas');
         // let self: any = this;
         // console.log('going to get screen shot', self)
@@ -632,6 +673,7 @@ const D2 = () => {
 
     const styles: FinalPageConfigStyle = finalPageConfigs.styles[gide];
     const texts: FinalPageConfigText = finalPageConfigs.texts[gworktime];
+    console.log(texts, finalPageConfigs.texts, worktime);
 
     let theme: 'dark' | 'light' = 'dark';
     if (
@@ -711,11 +753,16 @@ const D2 = () => {
             className="d2-finalpage-result-recommand"
             style={{ color: colors.subText }}
           >
-            「防秃利器 — {lib}」
+            「{texts.libDes} — {lib}」
           </span>
           <span className="d2-finalpage-result-des">{texts.description2}</span>
         </div>
-        <div className="d2-finalpage-footer-left">antv.vision/</div>
+        <div className="d2-finalpage-footer-left">
+          <span className="d2-footer-tip" style={{ color: colors.tipText }}>
+            {tip}
+          </span>
+          <span className="d2-footer-address">antv.vision/</span>
+        </div>
         <img className="d2-finalpage-fcode" src={QR_CODE} />
       </div>
     );
