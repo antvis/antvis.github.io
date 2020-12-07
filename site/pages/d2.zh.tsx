@@ -134,7 +134,7 @@ const PLAYGAME_TIP = '和我一起扫码生成属于你的图表吧';
 const DEFAULT_TIP = '*游戏后长按保存图片并分享，即可得抽奖码';
 
 //_back
-const userAnswers_back: UserAnswer = {
+const userAnswers: UserAnswer = {
   keyboard: '',
   symbol: '',
   shirt: '',
@@ -144,7 +144,7 @@ const userAnswers_back: UserAnswer = {
   music: '',
 };
 
-const userAnswers: UserAnswer = {
+const userAnswers_back: UserAnswer = {
   keyboard: 'red',
   symbol: '=>',
   shirt: 'smile',
@@ -163,7 +163,7 @@ const D2 = () => {
   const element = React.useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
 
-  const [pageIdx, setPageIdx] = useState(7); // -1
+  const [pageIdx, setPageIdx] = useState(-1); // -1
   const [selectedOption, setSelectedOption] = useState('');
   const [keyboardType, setKeybordType] = useState('default');
   const [pressedNext, setPressedNext] = useState(false);
