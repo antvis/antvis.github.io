@@ -187,11 +187,11 @@ const D2 = () => {
       id: 'worktime',
       question: '你平时在哪段时间工作效率最高？',
       answers: [
-        { main: '清早', id: 'worktime-morining' },
-        { main: '上午', id: 'worktime-forenoon' },
+        { main: '上午', id: 'worktime-morning' },
         { main: '下午', id: 'worktime-afternoon' },
-        { main: '夜晚', id: 'worktime-dusk' },
-        { main: '凌晨', id: 'worktime-night' },
+        { main: '傍晚', id: 'worktime-dawn' },
+        { main: '深夜', id: 'worktime-night' },
+        { main: '凌晨', id: 'worktime-midnight' },
       ],
     },
     {
@@ -415,25 +415,25 @@ const D2 = () => {
           '月亮不睡你不睡，你是夜晚小宝贝，熬夜搬砖不会累，咖啡眼圈才更配。特为您推荐',
         description2: '，快速生成图表，释放你的夜生活。',
       },
-      forenoon: {
+      afternoon: {
         title: '社会主义打工人',
         description1:
           '月亮不睡你不睡，你是夜晚小宝贝，熬夜搬砖不会累，咖啡眼圈才更配。特为您推荐',
         description2: '，快速生成图表，释放你的夜生活。',
       },
-      afternoon: {
+      dawn: {
         title: '车间划水人',
         description1:
           '月亮不睡你不睡，你是夜晚小宝贝，熬夜搬砖不会累，咖啡眼圈才更配。特为您推荐',
         description2: '，快速生成图表，释放你的夜生活。',
       },
-      dusk: {
+      night: {
         title: '凡尔赛社畜',
         description1:
           '月亮不睡你不睡，你是夜晚小宝贝，熬夜搬砖不会累，咖啡眼圈才更配。特为您推荐',
         description2: '，快速生成图表，释放你的夜生活。',
       },
-      night: {
+      midnight: {
         title: '通宵爆肝王',
         description1:
           '月亮不睡你不睡，你是夜晚小宝贝，熬夜搬砖不会累，咖啡眼圈才更配。特为您推荐',
@@ -692,6 +692,7 @@ const D2 = () => {
             }}
             favoriteFramework={favoriteFramework}
             afterChartRender={afterChartRender}
+            efficientWorktime={worktime as any}
           />
         </div>
         <div className="d2-finalpage-text-container">
