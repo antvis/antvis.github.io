@@ -14,6 +14,7 @@ import {
   AFTERNOON_DAILY_SCHEDULE,
   NIGHT_DAILY_SCHEDULE,
 } from './datas/dailySchedule';
+import { CLASSIC } from './datas/music';
 import styles from './D2Chart.module.less';
 
 // 资源
@@ -62,12 +63,14 @@ type Props = {
   favoriteFramework: string | 'react' | 'vue' | 'angular' | '我自己写';
   /** 工作效率 高效时间段 */
   efficientWorktime: 'morning' | 'afternoon' | 'dawn' | 'night' | 'midnight';
+  /** 喜欢听的音乐 🎵 */
+  music: 'classic' | 'metal' | 'electronic' | 'pop';
   /**  */
   afterChartRender: () => void;
 };
 
 export const VisCanvas = forwardRef((props: Props, ref: any) => {
-  const { theme, favoriteFramework, efficientWorktime } = props;
+  const { theme, favoriteFramework, efficientWorktime, music } = props;
   /**
    * 同步 forward ref
    * @param source
@@ -83,19 +86,6 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
 
   const plotRef = useRef<any>();
   const containerRef = useRef<HTMLDivElement | null>(null);
-  /** 每个 view 对应的数据 */
-  const [datas, setDatas] = useState<any>({ line1: [] });
-
-  useLayoutEffect(() => {
-    const fetchLineData = fetch(
-      'https://gw.alipayobjects.com/os/bmw-prod/800b7c41-b82e-4e26-910f-6822754b37cd.json' /* 古典 */,
-    ).then((data) => data.json());
-
-    Promise.all([fetchLineData]).then(([data2]) => {
-      const dv2 = new DataView().source(data2);
-      setDatas({ line1: dv2.rows });
-    });
-  }, []);
 
   let worktimeData: any[] = [];
   switch (efficientWorktime) {
@@ -131,7 +121,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
         })),
         coordinate: {
           type: 'polar',
-          cfg: { radius: 1, innerRadius: 0.46 /** 内环半径 */ },
+          cfg: { radius: 1, innerRadius: 0.65 /** 内环半径 */ },
         },
         axes: {
           x: false,
@@ -178,25 +168,17 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
         ],
       },
       {
-        // 内光圈-0，半径 279px = 372px * 0.75（高斯模糊-内环）
+        // 同步环图, 环图外的光圈
         data: [{ value: 1 }],
-        coordinate: {
-          type: 'theta',
-          cfg: {
-            radius: 0.751,
-          },
-        },
+        coordinate: { type: 'theta', cfg: { radius: 0.75 } },
         geometries: [
           {
             type: 'interval',
             yField: 'value',
             mapping: {
-              // todo 添加高斯模糊
-              color:
-                'r(0.5,0.5,1) 0:rgba(255,255,255,0.45) 1:rgba(255,255,255,0.05)',
               style: {
-                shadowColor: 'rgba(255,255,255,0.45)',
-                shadowBlur: 1000,
+                shadowColor: 'rgba(255,255,255,0.81)',
+                shadowBlur: 60,
               },
             },
           },
@@ -215,7 +197,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
             startAngle: (-Math.PI * 5) / 12,
             endAngle: (Math.PI * 3) / 2 + (Math.PI * 1) / 12,
             radius: 1,
-            innerRadius: 0.95,
+            innerRadius: 0.92,
           },
         },
         axes: false,
@@ -271,7 +253,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
             position: ['0%', 0],
             offsetY: -30,
             offsetX: -20,
-            content: 'daily\nschedule',
+            content: 'Daily\nSchedule',
             style: {
               fill: theme.dailySchedule.customStyle.fontFill,
               fontSize: 18,
@@ -284,7 +266,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
             position: ['85%', 0],
             offsetY: 20,
             offsetX: 0,
-            content: 'music',
+            content: 'Music',
             style: {
               fill: theme.dailySchedule.customStyle.fontFill,
               fontSize: 18,
@@ -295,12 +277,55 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
         ],
       },
       {
+        // 内光圈-0，半径 279px = 372px * 0.75（高斯模糊-内环）
+        data: [{ value: 1 }],
+        coordinate: {
+          type: 'theta',
+          cfg: {
+            radius: 0.75,
+          },
+        },
+        geometries: [
+          {
+            type: 'interval',
+            yField: 'value',
+            mapping: {
+              color: 'transparent',
+              style: {
+                shadowColor: 'rgba(255,255,255,0.51)',
+                shadowBlur: 400,
+              },
+            },
+          },
+        ],
+      },
+      {
+        // 同步环图(环图内圈)
+        data: [{ value: 1 }],
+        coordinate: { type: 'theta', cfg: { radius: 0.75 * 0.92 } },
+        geometries: [
+          {
+            type: 'interval',
+            yField: 'value',
+            mapping: {
+              color: theme.backgroundColor,
+              style: {
+                fillOpacity: 1,
+                stroke: '#fff',
+                strokeOpacity: 0.15,
+                lineWidth: 0.8,
+              },
+            },
+          },
+        ],
+      },
+      {
         // 音乐：vis-line
         region: {
           start: { x: 0.125, y: 0.125 },
           end: { x: 0.875, y: 0.875 },
         },
-        data: datas.line1,
+        data: CLASSIC,
         coordinate: {
           type: 'polar',
           cfg: {
@@ -318,35 +343,15 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
             yField: 'y',
             colorField: 'type',
             mapping: {
-              color: ['#6D5EFF', '#F5BE15'],
+              color: ['#5B8FF9', '#5AD8A6', '#5D7092', '#F6BD16'],
               style: { lineWidth: 0.8 },
+              shape: music === 'metal' || music === 'pop' ? 'smooth' : '',
             },
           },
         ],
       },
       {
-        // 内光圈-1，半径 172px = 372px * 0.46
-        data: [{ value: 1 }],
-        coordinate: { type: 'theta', cfg: { radius: 0.46 } },
-        geometries: [
-          {
-            type: 'interval',
-            yField: 'value',
-            mapping: {
-              color: theme.backgroundColor,
-              style: {
-                fillOpacity: 1,
-                stroke: '#fff',
-                strokeOpacity: 0.15,
-                lineWidth: 0.8,
-              },
-            },
-          },
-        ],
-      },
-
-      {
-        // 内光圈-2，半径 108px = 372px * 0.29
+        // 内光圈-2，半径 108px = 372px * 0.29 (最里边的圆形⭕️光圈)
         data: [{ value: 1 }],
         coordinate: { type: 'theta', cfg: { radius: 0.29 } },
         geometries: [
@@ -355,7 +360,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
             yField: 'value',
             mapping: {
               // TODO 模拟高斯模糊
-              color: `r(0.5,0.5,1) 0:rgb(255,255,255) 0.5:rgba(255,255,255,0.55) 0.67:rgba(255,255,255,0.37) 1:rgba(255,255,255,0.18)`,
+              color: `r(0.5,0.5,1) 0:rgba(255,255,255,0.88) 0.5:rgba(255,255,255,0.55) 0.67:rgba(255,255,255,0.37) 1:rgba(255,255,255,0.18)`,
             },
           },
         ],
@@ -404,7 +409,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
         ],
       },
     ];
-  }, [theme, datas]);
+  }, [theme]);
 
   useLayoutEffect(() => {
     if (plotRef.current) {
