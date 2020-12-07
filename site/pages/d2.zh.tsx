@@ -500,6 +500,7 @@ const D2 = () => {
     img.style.opacity = '0';
     img.id = 'finalImage';
     img.onload = () => {
+      targetDom.querySelector(`#${img.id}`)?.remove();
       // 添加图片到预览
       // targetDom.style.padding = '0';
       targetDom.appendChild(img);
