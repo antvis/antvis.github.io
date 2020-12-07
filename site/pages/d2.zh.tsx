@@ -636,65 +636,6 @@ const D2 = () => {
     }
   };
 
-  useEffect(() => {
-    const { Chart } = require('@antv/g2');
-    if (g2element && g2element.current) {
-      chart = new Chart({
-        container: g2element.current,
-        autoFit: true,
-        height: 500,
-        padding: [50, 20, 50, 20],
-      });
-      // 图表渲染完成，并在动画即完成（600ms）后执行生成一层透明的 img 操作
-      chart.on('afterrender', () => {
-        console.log('afterrender');
-        setTimeout(() => {
-          getScreenShot();
-        }, 800);
-      });
-      chart.data(data);
-      chart.scale('value', {
-        alias: '销售额(万)',
-      });
-
-      chart.axis('type', {
-        tickLine: {
-          alignTick: false,
-        },
-      });
-      chart.axis('value', false);
-
-      chart.tooltip({
-        showMarkers: false,
-      });
-      chart.interval().position('type*value');
-      chart.interaction('element-active');
-
-      // 添加文本标注
-      data.forEach((item) => {
-        chart
-          .annotation()
-          .text({
-            position: [item.type, item.value],
-            content: item.value,
-            style: {
-              textAlign: 'center',
-            },
-            offsetY: -30,
-          })
-          .text({
-            position: [item.type, item.value],
-            content: (item.percent * 100).toFixed(0) + '%',
-            style: {
-              textAlign: 'center',
-            },
-            offsetY: -12,
-          });
-      });
-      chart.render();
-    }
-  }, [g2element.current]);
-
   const getFinalPage = (ide: string, worktime: string, shirt: string) => {
     const gide = ide ? ide : 'vim';
     const gworktime = worktime ? worktime : 'night';
