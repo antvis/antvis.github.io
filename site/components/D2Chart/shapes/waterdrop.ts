@@ -1,4 +1,4 @@
-import { G2 } from '@antv/g2plot';
+const { G2 } = require('@antv/g2plot/dist/g2plot.min.js');
 
 type Point = { x: number; y: number };
 
