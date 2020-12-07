@@ -7,7 +7,10 @@ import React, {
 } from 'react';
 import { get, lowerCase } from '@antv/util';
 import { DataView } from '@antv/data-set';
-import { DAWN_DAILY_SCHEDULE } from './datas/dailySchedule';
+import {
+  DAWN_DAILY_SCHEDULE,
+  MIDNIGHT_DAILY_SCHEDULE,
+} from './datas/dailySchedule';
 import styles from './D2Chart.module.less';
 
 // 资源
@@ -52,12 +55,16 @@ type Props = {
       annotations: Array<{ content: string; fontSize: number }>;
     };
   };
-  favoriteFramework: string; // framework-react, framework-vue, framework-angular, framework-bymyself
+  /** 最喜欢的前端框架 */
+  favoriteFramework: string | 'react' | 'vue' | 'angular' | '我自己写';
+  /** 工作效率 高效时间段 */
+  efficientWorktime: 'morning' | 'afternoon' | 'dawn' | 'night' | 'midnight';
+  /**  */
   afterChartRender: () => void;
 };
 
 export const VisCanvas = forwardRef((props: Props, ref: any) => {
-  const { theme, favoriteFramework } = props;
+  const { theme, favoriteFramework, efficientWorktime } = props;
   /**
    * 同步 forward ref
    * @param source
@@ -87,14 +94,33 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
     });
   }, []);
 
+  let worktimeData: any[] = [];
+  switch (efficientWorktime) {
+    case 'midnight':
+      worktimeData = MIDNIGHT_DAILY_SCHEDULE;
+      break;
+
+    case 'afternoon':
+      break;
+    case 'dawn':
+      worktimeData = DAWN_DAILY_SCHEDULE;
+      break;
+    case 'night':
+      break;
+    case 'midnight':
+      break;
+    default:
+      worktimeData = DAWN_DAILY_SCHEDULE;
+      break;
+  }
   const views = useMemo((): any[] => {
-    const yMax = Math.max(...DAWN_DAILY_SCHEDULE.map((d) => d.y));
+    const yMax = Math.max(...worktimeData.map((d) => d.y));
 
     return [
       {
         // 条形图
         // 处理数据，让数据超过内环的 0.6
-        data: DAWN_DAILY_SCHEDULE.map((d) => ({
+        data: worktimeData.map((d) => ({
           ...d,
           y: d.y / yMax < 0.46 ? d.y + yMax * 0.46 * 0.6 : d.y,
         })),
