@@ -10,6 +10,9 @@ import { DataView } from '@antv/data-set';
 import {
   DAWN_DAILY_SCHEDULE,
   MIDNIGHT_DAILY_SCHEDULE,
+  MORNING_DAILY_SCHEDULE,
+  AFTERNOON_DAILY_SCHEDULE,
+  NIGHT_DAILY_SCHEDULE,
 } from './datas/dailySchedule';
 import styles from './D2Chart.module.less';
 
@@ -96,21 +99,23 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
 
   let worktimeData: any[] = [];
   switch (efficientWorktime) {
-    case 'midnight':
-      worktimeData = MIDNIGHT_DAILY_SCHEDULE;
+    case 'morning':
+      worktimeData = MORNING_DAILY_SCHEDULE;
       break;
-
     case 'afternoon':
+      worktimeData = AFTERNOON_DAILY_SCHEDULE;
       break;
     case 'dawn':
       worktimeData = DAWN_DAILY_SCHEDULE;
       break;
     case 'night':
+      worktimeData = NIGHT_DAILY_SCHEDULE;
       break;
     case 'midnight':
+      worktimeData = MIDNIGHT_DAILY_SCHEDULE;
       break;
     default:
-      worktimeData = DAWN_DAILY_SCHEDULE;
+      worktimeData = NIGHT_DAILY_SCHEDULE;
       break;
   }
   const views = useMemo((): any[] => {
