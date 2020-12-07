@@ -443,12 +443,12 @@ const D2 = () => {
   };
 
   const recommandLibFontSize: any = {
-    F2: 110,
-    G2: 110,
-    G2Plot: 44,
-    G6: 110,
-    X6: 110,
-    L7: 110,
+    F2: 45,
+    G2: 45,
+    G2Plot: 45,
+    G6: 45,
+    X6: 45,
+    L7: 45,
   };
 
   const recommandLib = ['F2', 'G2', 'G2Plot', 'G6', 'X6', 'L7'];
