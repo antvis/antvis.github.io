@@ -345,7 +345,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
             mapping: {
               color: ['#5B8FF9', '#5AD8A6', '#5D7092', '#F6BD16'],
               style: { lineWidth: 0.8 },
-              shape: music === 'metal' || music === 'pop' ? 'smooth' : '',
+              shape: music === 'electronic' || music === 'pop' ? 'smooth' : '',
             },
           },
         ],
