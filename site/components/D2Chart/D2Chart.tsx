@@ -5,7 +5,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { get } from '@antv/util';
+import { get, lowerCase } from '@antv/util';
 import { DataView } from '@antv/data-set';
 import styles from './D2Chart.module.less';
 
@@ -18,30 +18,20 @@ const FONT_FAMILY = `"Avenir Next Condensed", "-apple-system", "Segoe UI", Robot
 const Framework = {
   data: [
     { x: 'React', y: 11 },
-    { x: 'Other', y: 10 },
+    { x: 'Bymyself', y: 10 },
     { x: 'Vue', y: 8 },
     { x: 'Angular', y: 7 },
   ],
   color: ({ x }: any) => {
     const colorMap: any = {
       React: 'rgba(94,211,243,0.25)',
-      Other: 'rgba(194,200,213,0.25)',
-      Vuew: 'rgba(63,179,127,0.19)',
+      Bymyself: 'rgba(194,200,213,0.25)',
+      Vue: 'rgba(63,179,127,0.19)',
       Angular: 'rgba(215,2,47,0.25)',
     };
     return colorMap[x];
   },
   size: 35,
-  style: ({ x }: any) => {
-    // 根据高亮设置
-    const strokeMap: any = {
-      React: 'rgba(15,114,139,0.31)',
-      Angular: 'rgba(215,2,47,0.51)',
-      Vue: 'rgba(52,71,90,0.42)',
-      Other: 'rgba(100,119,155,0.61)',
-    };
-    return { strokeWidth: 2, stroke: strokeMap[x] };
-  },
 };
 
 type Props = {
@@ -61,10 +51,12 @@ type Props = {
       annotations: Array<{ content: string; fontSize: number }>;
     };
   };
+  favoriteFramework: string; // framework-react, framework-vue, framework-angular, framework-bymyself
+  afterChartRender: () => void;
 };
 
 export const VisCanvas = forwardRef((props: Props, ref: any) => {
-  const { theme } = props;
+  const { theme, favoriteFramework } = props;
   /**
    * 同步 forward ref
    * @param source
@@ -196,8 +188,8 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
         coordinate: {
           type: 'theta',
           cfg: {
-            startAngle: (-Math.PI * 23) / 48,
-            endAngle: (Math.PI * 3) / 2 + (Math.PI * 1) / 48,
+            startAngle: (-Math.PI * 5) / 12,
+            endAngle: (Math.PI * 3) / 2 + (Math.PI * 1) / 12,
             radius: 1,
             innerRadius: 0.95,
           },
@@ -222,8 +214,8 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
                 };
                 if (x === get(theme.dailySchedule, ['data', 0, 'x'])) {
                   // todo 确定计算规则
-                  cfg.offsetY = -72;
-                  cfg.offsetX = -118;
+                  cfg.offsetY = -32;
+                  cfg.offsetX = -58;
                 }
                 return cfg;
               },
@@ -366,7 +358,23 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
               color: Framework.color,
               shape: 'waterdrop',
               size: Framework.size,
-              style: Framework.style,
+              style: ({ x }: any) => {
+                // 根据高亮设置
+                const strokeMap: any = {
+                  React: 'rgba(15,114,139,0.31)',
+                  Angular: 'rgba(215,2,47,0.51)',
+                  Vue: 'rgba(52,71,90,0.42)',
+                  Bymyself: 'rgba(100,119,155,0.61)',
+                };
+                return {
+                  lineWidth:
+                    favoriteFramework === lowerCase(x) ||
+                    (favoriteFramework === '我自己写的' && x === 'Bymyself')
+                      ? 1.5
+                      : 0,
+                  stroke: strokeMap[x],
+                };
+              },
             },
           },
         ],
@@ -403,6 +411,8 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
       mvPlot.chart.render(true);
       plotRef.current = mvPlot;
       syncRef(plotRef, ref);
+      // 触发 afterRender 操作
+      props.afterChartRender();
     }
   }, [containerRef, views, theme]);
 
