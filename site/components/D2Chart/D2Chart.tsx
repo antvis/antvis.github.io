@@ -422,8 +422,12 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
     if (containerRef?.current) {
       const container = containerRef.current;
       const box = container.getBoundingClientRect();
+      const canvasBox = document
+        .querySelector(`.${styles.canvas}`)
+        ?.getBoundingClientRect();
+
       const mvPlot = new Lab.MultiView(container, {
-        height: box.height, // 441 /* 372 + 40 */,
+        height: box.height || canvasBox?.height, // 441 /* 372 + 40 */,
         autoFit: true,
         padding: 0,
         appendPadding: [40, 20, 20, 20],
