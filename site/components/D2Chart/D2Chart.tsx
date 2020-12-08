@@ -34,6 +34,9 @@ const Framework = {
   },
 };
 
+const DAILY_SCHEDULE_TEXT = 'Daily Schedule';
+const MUSIC_TEXT = 'Music';
+
 const getViews = (props: Props, box: DOMRect | undefined) => {
   const {
     theme,
@@ -82,6 +85,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
       break;
     case 'pop':
       musicData = POP;
+      break;
     default:
       musicData = METAL;
       break;
@@ -141,7 +145,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 return {
                   // DONE 🎉
                   shadowColor: '#4AD8EA',
-                  shadowBlur: 80,
+                  shadowBlur: 30,
                 };
               }
               return {
@@ -183,9 +187,13 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
             callback: (x: any) => {
               const cfg: any = {
                 labelLine: false,
+                // todo 不生效
+                autoRotate: true,
+                labelEmit: true,
                 style: {
                   fontFamily: FONT_FAMILY,
                   fill: theme.dailySchedule.customStyle.fontFill,
+                  fillOpacity: 0.5,
                 },
               };
               if (x === get(theme.dailySchedule, ['data', 0, 'x'])) {
@@ -224,19 +232,6 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
             fontFamily: FONT_FAMILY,
           },
         },
-        // {
-        //   type: 'text',
-        //   position: ['0%', 0],
-        //   offsetY: width280 ? -15 : -30,
-        //   offsetX: width280 ? 18 : -20,
-        //   content: 'Daily\nSchedule',
-        //   style: {
-        //     fill: theme.dailySchedule.customStyle.fontFill,
-        //     fontSize: 18,
-        //     textAlign: 'left',
-        //     fontFamily: FONT_FAMILY,
-        //   },
-        // },
       ],
     },
     {
@@ -292,8 +287,8 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
       coordinate: {
         type: 'polar',
         cfg: {
-          radius: 0.9,
-          innerRadius: 0.5 / 0.75,
+          radius: 0.97,
+          innerRadius: 0.4,
         },
       },
       axes: false,
@@ -305,8 +300,49 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           colorField: 'type',
           shapeField: 'type',
           mapping: {
-            color: ['#5B8FF9', '#5AD8A6', '#5D7092', '#F6BD16'],
-            style: { lineWidth: 0.8 },
+            color: [
+              '#6D5EFF',
+              '#F5BE15',
+              '#5B8FF9',
+              '#EE8CB7',
+              '#60DCAB',
+              '#76D4F9',
+            ],
+            style: ({ type }: any) => {
+              const cfg: any = { lineWidth: 0.8, strokeOpacity: 0.3 };
+              // 倒数第一条 0.3 透明度，倒数第二条 0.5 透明度, 依次 0.8, 0.9
+              if (
+                [
+                  'Soprano',
+                  'Alto',
+                  'Drum',
+                  'Lead_guitar',
+                  'Amplifier_1',
+                ].indexOf(type) !== -1
+              ) {
+                cfg.strokeOpacity = 1;
+              }
+              if (
+                ['Drum', 'Electri_bass', 'Amplifier_2'].indexOf(type) !== -1
+              ) {
+                cfg.strokeOpacity = 0.9;
+              }
+              if (['Electri_bass', 'Keyboard'].indexOf(type) !== -1) {
+                cfg.strokeOpacity = 0.8;
+              }
+              if (['Tenor', 'Keyboard', 'Amplifier'].indexOf(type) !== -1) {
+                cfg.strokeOpacity = 0.5;
+              }
+              if (music === 'pop') {
+                if (type === 'Keyboard') {
+                  cfg.strokeOpacity = 0.5;
+                }
+                if (type === 'Drum') {
+                  cfg.strokeOpacity = 0.3;
+                }
+              }
+              return cfg;
+            },
             shape: ({ type }: any) => {
               if (
                 ['Lead_guitar', 'Electri_bass', 'Rhythm_guitar'].indexOf(
@@ -325,7 +361,14 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           yField: 'y',
           colorField: 'type',
           mapping: {
-            color: ['#5B8FF9', '#5AD8A6', '#5D7092', '#F6BD16'],
+            color: [
+              '#6D5EFF',
+              '#F5BE15',
+              '#5B8FF9',
+              '#EE8CB7',
+              '#60DCAB',
+              '#76D4F9',
+            ],
             style: (datum: any) => {
               const musicDataIdx = musicData.findIndex(
                 (d) =>
@@ -416,68 +459,6 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
       ],
     },
     {
-      // vis-annotation-of-"Music" (同步 vis-line)
-      data: [
-        { x: 'Music', y: 2 },
-        { x: ' ', y: 4 },
-        { x: ' ', y: 2 },
-        { x: ' ', y: 1 },
-      ],
-      region: {
-        start: { x: 0.125, y: 0.125 },
-        end: { x: 0.875, y: 0.875 },
-      },
-      coordinate: {
-        type: 'theta',
-        cfg: {
-          radius: 0.625 / 0.75,
-        },
-      },
-      geometries: [
-        {
-          type: 'interval',
-          xField: '1',
-          yField: 'y',
-          colorField: 'x',
-          label: {
-            autoRotate: false,
-            style: {
-              fill: theme.textColor,
-              fontSize: 18,
-              fontFamily: FONT_FAMILY,
-            },
-            layout: { type: 'pie-spider' },
-            fields: ['x', 'y'],
-            callback: (x: string) => {
-              const cfg: any = {};
-              if (x === 'Music') {
-                cfg.offset = 60;
-                cfg.offsetX = -24;
-                cfg.offsetY = -9 /** fontSize * 0.5 */;
-              }
-              return {
-                ...cfg,
-                style: {
-                  fill: x !== ' ' ? theme.textColor : 'transparent',
-                },
-                labelLine:
-                  x === 'Music'
-                    ? {
-                        style: {
-                          lineWidth: 0.8,
-                          stroke: 'rgba(0,0,0,0.15)',
-                        },
-                      }
-                    : false,
-              };
-            },
-          },
-          adjust: 'stack',
-          mapping: { color: 'transparent', style: { fill: 'transparent' } },
-        },
-      ],
-    },
-    {
       // 内光圈-2，半径 108px = 372px * 0.29 (最里边的圆形⭕️光圈)
       data: [{ value: 1 }],
       coordinate: { type: 'theta', cfg: { radius: 0.29 } },
@@ -551,23 +532,56 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
       ],
     },
     {
-      data: [],
+      region: {
+        start: { x: 0, y: 0 },
+        end: { x: 1, y: 1 },
+      },
+      data: [
+        { x: '1', y: 38 },
+        { x: '2', y: 33.7 },
+        { x: '3', y: 25.8 },
+        { x: MUSIC_TEXT, y: 30.7 },
+        { x: '4', y: 31.7 },
+        { x: '6', y: 33 },
+        { x: '7', y: 46 },
+        { x: '8', y: 38.3 },
+        { x: '9', y: 28 },
+        { x: '10', y: 42.5 },
+        { x: '11', population: 42.5 },
+        { x: '12', population: 42.5 },
+        { x: '13', population: 42.5 },
+        { x: '14', population: 42.5 },
+        { x: '15', population: 42.5 },
+        { x: DAILY_SCHEDULE_TEXT, y: 41.8 },
+        { x: '17', y: 30.3 },
+      ],
+      coordinate: {
+        type: 'polar',
+        cfg: { radius: 1, innerRadius: 0.65 },
+      },
       geometries: [
         {
-          type: '',
-          // {
-          //   type: 'text',
-          //   position: ['0%', 0],
-          //   offsetY: width280 ? -15 : -30,
-          //   offsetX: width280 ? 18 : -20,
-          //   content: 'Daily\nSchedule',
-          //   style: {
-          //     fill: theme.dailySchedule.customStyle.fontFill,
-          //     fontSize: 18,
-          //     textAlign: 'left',
-          //     fontFamily: FONT_FAMILY,
-          //   },
-          // },
+          type: 'interval',
+          xField: 'x',
+          yField: '1',
+          label: {
+            fields: ['x'],
+            callback: (x: string) => {
+              return {
+                content:
+                  [DAILY_SCHEDULE_TEXT, MUSIC_TEXT].indexOf(x) !== -1 ? x : ' ',
+                offset: 25,
+                style: {
+                  fill: theme.dailySchedule.customStyle.fontFill,
+                  fontSize: width280 ? 14 : 18,
+                  fontFamily: FONT_FAMILY,
+                },
+              };
+            },
+          },
+          mapping: {
+            color: 'transparent',
+          },
         },
       ],
     },

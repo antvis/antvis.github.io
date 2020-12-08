@@ -170,7 +170,7 @@ const D2 = () => {
   const element = React.useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
 
-  const [pageIdx, setPageIdx] = useState(7); // -1
+  const [pageIdx, setPageIdx] = useState(-1); // -1
   const [selectedOption, setSelectedOption] = useState('');
   const [keyboardType, setKeybordType] = useState('default');
   const [pressedNext, setPressedNext] = useState(false);
@@ -734,7 +734,7 @@ const D2 = () => {
                   fontFill: colors.mainText,
                 },
                 style: {
-                  stroke: '#fff',
+                  stroke: colors.mainBack,
                   strokeWidth: 1,
                 },
                 annotations: [
@@ -749,8 +749,12 @@ const D2 = () => {
             }}
             favoriteFramework={favoriteFramework}
             afterChartRender={afterChartRender}
+            // TODO 调试 morning, afternnon, dawn, night
             efficientWorktime={worktime as any}
+            // efficientWorktime="midnight"
             favoriteIDE={gide as any}
+            themeMode={theme as any}
+            // favoriteIDE="vim"
             music={music as any}
           />
         </div>
