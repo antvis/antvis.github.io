@@ -399,10 +399,13 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                   d.type === datum.type && d.x === datum.x && d.y === datum.y,
               );
               if (music === 'metal') {
-                return { r: musicDataIdx % 6 === 0 ? 0 : 2, lineWidth: 0 };
+                return { r: musicDataIdx % 3 === 0 ? 0 : 1.5, lineWidth: 0 };
               }
               if (music === 'classic') {
                 return { r: 2, lineWidth: 0 };
+              }
+              if (music === 'pop') {
+                return { r: 1, lineWidth: 0 };
               }
               return { r: 0, lineWidth: 0 };
             },
@@ -412,6 +415,8 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 ? 'triangle'
                 : music === 'classic'
                 ? 'diamond'
+                : music === 'pop'
+                ? 'circle'
                 : '',
           },
         },
@@ -426,8 +431,8 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
         { x: '18:00', y: 1 },
       ],
       region: {
-        start: { x: 0.145, y: 0.145 },
-        end: { x: 0.855, y: 0.855 },
+        start: { x: 0.18, y: 0.18 },
+        end: { x: 0.82, y: 0.82 },
       },
       coordinate: {
         type: 'polar',
