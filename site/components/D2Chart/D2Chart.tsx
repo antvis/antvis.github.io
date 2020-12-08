@@ -21,16 +21,6 @@ const Framework = {
     { x: 'Vue', y: 8 },
     { x: 'Angular', y: 7 },
   ],
-  color: ({ x }: any) => {
-    const colorMap: any = {
-      React: 'r(0.5,0.5,1): 0:rgba(94,211,243,0.85) 1:rgba(94,211,243,0.45)',
-      Bymyself:
-        'r(0.5,0.5,1): 0:rgba(194,200,213,0.85) 1:rgba(194,200,213,0.45) 1',
-      Vue: 'r(0.5,0.5,1): 0:rgba(63,179,127,0.89) 1:rgba(63,179,127,0.49)',
-      Angular: 'r(0.5,0.5,1): 0:rgba(215,2,47,0.85) 1:rgba(215,2,47,0.45)',
-    };
-    return colorMap[x];
-  },
 };
 
 const DAILY_SCHEDULE_TEXT = 'Daily\nSchedule';
@@ -149,7 +139,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 return {
                   // DONE 🎉
                   shadowColor: '#4AD8EA',
-                  shadowBlur: 30,
+                  shadowBlur: 100,
                 };
               }
               return {
@@ -507,7 +497,31 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           yField: 'y',
           colorField: 'x',
           mapping: {
-            color: Framework.color,
+            color: ({ x }: any) => {
+              let colorMap: any = {
+                React:
+                  'r(0.5,0.5,1): 0:rgba(94,211,243,0.85) 1:rgba(94,211,243,0.45)',
+                Bymyself:
+                  'r(0.5,0.5,1): 0:rgba(194,200,213,0.85) 1:rgba(194,200,213,0.45) 1',
+                Vue:
+                  'r(0.5,0.5,1): 0:rgba(63,179,127,0.89) 1:rgba(63,179,127,0.49)',
+                Angular:
+                  'r(0.5,0.5,1): 0:rgba(215,2,47,0.85) 1:rgba(215,2,47,0.45)',
+              };
+              if (themeMode === 'light') {
+                colorMap = {
+                  React:
+                    'r(0.5,0.5,1): 0:rgba(94,211,243,0.65) 1:rgba(94,211,243,0.45)',
+                  Bymyself:
+                    'r(0.5,0.5,1): 0:rgba(194,200,213,0.65) 1:rgba(194,200,213,0.45) 1',
+                  Vue:
+                    'r(0.5,0.5,1): 0:rgba(63,179,127,0.69) 1:rgba(63,179,127,0.49)',
+                  Angular:
+                    'r(0.5,0.5,1): 0:rgba(215,2,47,0.65) 1:rgba(215,2,47,0.45)',
+                };
+              }
+              return colorMap[x];
+            },
             shape: 'waterdrop',
             size: () => {
               if (width280) {
@@ -518,20 +532,18 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
             style: ({ x }: any) => {
               // 根据高亮设置
               const strokeMap: any = {
-                react: 'rgba(15,114,139,1)',
-                angular: 'rgba(215,2,47,1)',
-                vue: 'rgba(52,71,90,1)',
-                bymyself: 'rgba(100,119,155,1)',
+                react: 'rgba(94,211,243,0.5)',
+                angular: 'rgba(215,2,47,0.5)',
+                vue: 'rgba(63,179,127,0.5)',
+                bymyself: 'rgba(194,200,213,0.5)',
               };
               const framework = favoriteFramework || 'react';
+              const selected =
+                framework === lowerCase(x) ||
+                (framework === '我自己写的' && x === 'Bymyself');
               return {
-                lineWidth:
-                  framework === lowerCase(x) ||
-                  (framework === '我自己写的' && x === 'Bymyself')
-                    ? width280
-                      ? 1.2
-                      : 1.5
-                    : 0,
+                fillOpacity: selected ? 1 : 0.85,
+                lineWidth: selected ? (width280 ? 1.2 : 1.5) : 0,
                 stroke: strokeMap[lowerCase(x)],
               };
             },
