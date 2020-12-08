@@ -1,10 +1,4 @@
-import React, {
-  forwardRef,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { forwardRef, useLayoutEffect, useRef } from 'react';
 import { get, lowerCase } from '@antv/util';
 import {
   DAWN_DAILY_SCHEDULE,
@@ -104,7 +98,8 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
       // 处理数据，让数据超过内环的 0.6
       data: worktimeData.map((d) => ({
         ...d,
-        y: d.y / yMax < 0.46 ? d.y + yMax * 0.46 * 0.6 : d.y,
+        // TODO 调试
+        y: d.y / yMax < 0.46 ? d.y + yMax * 0.46 * 0.75 : d.y,
       })),
       coordinate: {
         type: 'polar',
@@ -229,19 +224,19 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
             fontFamily: FONT_FAMILY,
           },
         },
-        {
-          type: 'text',
-          position: ['0%', 0],
-          offsetY: width280 ? -15 : -30,
-          offsetX: width280 ? 18 : -20,
-          content: 'Daily\nSchedule',
-          style: {
-            fill: theme.dailySchedule.customStyle.fontFill,
-            fontSize: 18,
-            textAlign: 'left',
-            fontFamily: FONT_FAMILY,
-          },
-        },
+        // {
+        //   type: 'text',
+        //   position: ['0%', 0],
+        //   offsetY: width280 ? -15 : -30,
+        //   offsetX: width280 ? 18 : -20,
+        //   content: 'Daily\nSchedule',
+        //   style: {
+        //     fill: theme.dailySchedule.customStyle.fontFill,
+        //     fontSize: 18,
+        //     textAlign: 'left',
+        //     fontFamily: FONT_FAMILY,
+        //   },
+        // },
       ],
     },
     {
@@ -388,7 +383,13 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 },
                 content: x,
                 offset: 4,
-                labelLine: { style: { stroke: theme.textColor, lineWidth: 1 } },
+                labelLine: {
+                  style: {
+                    stroke: theme.textColor,
+                    strokeOpacity: 0.65,
+                    lineWidth: 0.8,
+                  },
+                },
               };
 
               if (x === '0:00') {
@@ -546,6 +547,27 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
               };
             },
           },
+        },
+      ],
+    },
+    {
+      data: [],
+      geometries: [
+        {
+          type: '',
+          // {
+          //   type: 'text',
+          //   position: ['0%', 0],
+          //   offsetY: width280 ? -15 : -30,
+          //   offsetX: width280 ? 18 : -20,
+          //   content: 'Daily\nSchedule',
+          //   style: {
+          //     fill: theme.dailySchedule.customStyle.fontFill,
+          //     fontSize: 18,
+          //     textAlign: 'left',
+          //     fontFamily: FONT_FAMILY,
+          //   },
+          // },
         },
       ],
     },
