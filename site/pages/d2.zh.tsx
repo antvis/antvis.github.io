@@ -140,7 +140,7 @@ const LOGOS = {
 };
 
 //_back
-const userAnswers_back: UserAnswer = {
+const userAnswers: UserAnswer = {
   keyboard: '',
   symbol: '',
   shirt: '',
@@ -150,13 +150,13 @@ const userAnswers_back: UserAnswer = {
   music: '',
 };
 
-const userAnswers: UserAnswer = {
+const userAnswers_back: UserAnswer = {
   keyboard: 'red',
   symbol: '=>',
-  shirt: 'smile',
+  shirt: 'fashion',
   framework: 'vue',
   ide: 'vscode',
-  worktime: 'night',
+  worktime: 'afternoon',
   music: 'pop',
 };
 
@@ -170,7 +170,7 @@ const D2 = () => {
   const element = React.useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
 
-  const [pageIdx, setPageIdx] = useState(7); // -1
+  const [pageIdx, setPageIdx] = useState(-1); // -1
   const [selectedOption, setSelectedOption] = useState('');
   const [keyboardType, setKeybordType] = useState('default');
   const [pressedNext, setPressedNext] = useState(false);
@@ -275,27 +275,27 @@ const D2 = () => {
         stickers: {
           fashion: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Uxb1SqpYbl0AAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*_bPiRqtXBmEAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*O6i0T7pLjZMAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*NFIaRbKyWQIAAAAAAAAAAAAAARQnAQ',
           },
           cool: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*98Z-TKPAlHQAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*JPwaQpkqn2EAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*U4r8S6hUdD4AAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*lpRLR7UgIoUAAAAAAAAAAAAAARQnAQ',
           },
           smile: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*LBHZRb2rOKwAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*8cCuQJvS2MwAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*P4n5ToLOckMAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*rNGORaLCLwQAAAAAAAAAAAAAARQnAQ',
           },
           style: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*OhZwQJVUtNMAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*BxjUTZMBlvMAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*JXSHSIkWeEQAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*_OT4Qpo0eYQAAAAAAAAAAAAAARQnAQ',
           },
         },
       },
@@ -319,27 +319,27 @@ const D2 = () => {
         stickers: {
           fashion: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*i4tSSZsy5iAAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*-sLSTasWY6MAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*M4cGQolc9IMAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*XcvJTodCPKUAAAAAAAAAAAAAARQnAQ',
           },
           cool: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*35I0RLsABD0AAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*c1CKR7j9HuoAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Ej3aRbGFCV8AAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*G-jRRKYttusAAAAAAAAAAAAAARQnAQ',
           },
           smile: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*VwwFT4u12mIAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*vUVwR5DAqmYAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*rEGIQr1T_08AAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*VYUyQb46jJYAAAAAAAAAAAAAARQnAQ',
           },
           style: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*7uvgQolo6K8AAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*M8DySI1EqMQAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5mXDSqHXN48AAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*rOs5S6bbhsYAAAAAAAAAAAAAARQnAQ',
           },
         },
       },
@@ -363,27 +363,27 @@ const D2 = () => {
         stickers: {
           fashion: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*VNXbS7MPXBIAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*L70oSoc5sfkAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*rh8WQ4zv5L8AAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*m2_ATqkrD_YAAAAAAAAAAAAAARQnAQ',
           },
           cool: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*jqb3RpWl5IgAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*9P6mRZVTSmwAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*PPtUR49DfRMAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Frx2RZn4oe4AAAAAAAAAAAAAARQnAQ',
           },
           smile: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*-L3CRZGsz6QAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*lQx9QZjsgEYAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Xn60TLXLvKUAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*__-6RacawKgAAAAAAAAAAAAAARQnAQ',
           },
           style: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*_SXgSIQS-QUAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*dbzsR6F5TYgAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*AUKdTJVPr6MAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Sx-8Q5G8K4cAAAAAAAAAAAAAARQnAQ',
           },
         },
       },
@@ -407,27 +407,27 @@ const D2 = () => {
         stickers: {
           fashion: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*XQE-R6ZB3QkAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*jdhQQpYSsGIAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*IjoTRKXKFyYAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*7L6yTaH6NP8AAAAAAAAAAAAAARQnAQ',
           },
           cool: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*eaD5QLsNC-0AAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*N1XZQJ0xow4AAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*A8sJTqNWJLsAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*eul8Tb7MaTMAAAAAAAAAAAAAARQnAQ',
           },
           smile: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ksEqRJx8acUAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5STzR6JSf2AAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*fIiNR5aq_H8AAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*0-nES4J0R9IAAAAAAAAAAAAAARQnAQ',
           },
           style: {
             light:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*U5DPSqN06coAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*RN52Trgrl0MAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*bQMdR4s91zIAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ai8fR7aaOrkAAAAAAAAAAAAAARQnAQ',
           },
         },
       },
