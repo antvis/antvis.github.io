@@ -55,6 +55,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
 
   const yMax = Math.max(...worktimeData.map((d) => d.y));
   const width280 = box && Math.min(box?.height, box?.width) < 280;
+  const width320 = box && Math.min(box?.height, box?.width) < 320;
 
   let musicData: any[] = [];
   switch (music) {
@@ -71,7 +72,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
       musicData = POP;
       break;
     default:
-      musicData = METAL;
+      musicData = CLASSIC;
       break;
   }
 
@@ -377,31 +378,31 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
               '#76D4F9',
             ],
             style: (datum: any) => {
+              const cfg: any = { r: 0, lineWidth: 0 };
               const musicDataIdx = musicData.findIndex(
                 (d) =>
                   d.type === datum.type && d.x === datum.x && d.y === datum.y,
               );
               if (music === 'metal') {
-                return {
-                  r:
-                    musicDataIdx % 3 === 0
-                      ? 0
-                      : themeMode === 'light'
-                      ? 2
-                      : 1.5,
-                  lineWidth: 0,
-                };
+                cfg.r =
+                  musicDataIdx % 3 === 0 ? 0 : themeMode === 'light' ? 2 : 1.5;
               }
               if (music === 'classic') {
-                return { r: 2, lineWidth: 0 };
+                cfg.r = 2;
               }
               if (music === 'electronic') {
-                return { r: 1, lineWidth: 0 };
+                cfg.r = 1;
               }
               if (music === 'pop' && datum.type === 'Amplifier') {
-                return { r: 1, lineWidth: 0 };
+                cfg.r = 1;
               }
-              return { r: 0, lineWidth: 0 };
+              // 小设备
+              if (width320) {
+                if (music === 'metal') {
+                  cfg.r *= 0.65;
+                }
+              }
+              return cfg;
             },
             // note: 重金属(metal) 使用三角形, 古典音乐（classic）使用菱形
             shape:
