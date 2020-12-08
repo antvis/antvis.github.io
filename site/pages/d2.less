@@ -2,7 +2,7 @@
   background-color: #202122;
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  // overflow: hidden;
   .d2-antv-logo-container {
     width: 100%;
     .d2-antv-logo {
@@ -111,10 +111,14 @@
       font-weight: 800;
       height: 60px;
       .d2-finalpage-title {
+        margin-top: 16px;
+        width: 33vw;
         float: left;
       }
       .d2-finalpage-symbol {
         float: right;
+        margin-top: 8px;
+        font-size: 36px;
       }
     }
     .d2-chart-container {
@@ -126,22 +130,24 @@
     .d2-finalpage-text-container {
       margin-top: 32px;
       .d2-finalpage-result-title {
-        font-size: 30px;
-        font-weight: 500;
+        font-size: 32px;
+        font-weight: 900;
       }
       .d2-finalpage-sticker {
         position: absolute;
         margin-top: -80px;
         margin-left: 130px;
-        width: 110px;
+        width: 100px;
       }
       .d2-finalpage-result-des {
         font-size: 12px;
       }
       .d2-finalpage-result-des1 {
         margin-top: 16px;
+        line-height: 1;
       }
       .d2-finalpage-result-recommand {
+        font-size: 12px;
         font-weight: 500;
       }
     }
@@ -160,9 +166,33 @@
     .d2-finalpage-fcode {
       width: 18vw;
       height: 18vw;
-      right: 16px;
+      right: 32px;
       bottom: 16px;
       position: absolute;
+    }
+  }
+}
+@media (min-width: 500px) {
+  .d2-container {
+    .d2-finalpage {
+      .d2-chart-container {
+        width: calc(80vw - 32px);
+        height: calc(80vw - 32px);
+        margin: 0px 0 -24px calc(10vw - 16px);
+        text-align: center;
+        // .d2-chart-container-playground {
+        //   width: 69vw;
+        //   height: 69vw;
+        //   border-radius: 50%;
+        //   position: absolute;
+        //   left: 50%;
+        //   transform: translate(-50%, 0);
+        // }
+      }
+      .d2-finalpage-fcode {
+        width: 14vw;
+        height: 14vw;
+      }
     }
   }
 }
