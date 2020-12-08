@@ -13,16 +13,6 @@ import styles from './D2Chart.module.less';
 // 资源
 const FONT_FAMILY = `Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif`;
 
-/** 前端框架的一些渲染配置：vis-waterdrop（4种💧，角度随机） */
-const Framework = {
-  data: [
-    { x: 'React', y: 11 },
-    { x: 'Bymyself', y: 10 },
-    { x: 'Vue', y: 8 },
-    { x: 'Angular', y: 7 },
-  ],
-};
-
 const DAILY_SCHEDULE_TEXT = 'Daily\nSchedule';
 const MUSIC_TEXT = 'Music';
 
@@ -89,6 +79,23 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
   const waterdropStartAngle =
     (Math.PI / 2) * Math.random() * (Math.random() > 0.5 ? -0.5 : 1);
   const waterdropEndAngle = Math.PI * 2 + (Math.PI / 6) * Math.random();
+
+  /** 前端框架的一些渲染配置：vis-waterdrop（4种💧，角度随机） */
+  const FrameworkData = [
+    { x: 'React', y: 11 },
+    { x: 'Bymyself', y: 8 },
+    { x: 'Vue', y: 8 },
+    { x: 'Angular', y: 7 },
+  ];
+
+  const favoriteFrameworkIndex = FrameworkData.findIndex(
+    (d) => lowerCase(d.x) === lowerCase(favoriteFramework),
+  );
+  if (favoriteFrameworkIndex !== -1) {
+    // 交换 y 轴
+    FrameworkData[0].y = FrameworkData[favoriteFrameworkIndex].y;
+    FrameworkData[favoriteFrameworkIndex].y = 11;
+  }
 
   return [
     {
@@ -470,34 +477,8 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
         },
       ],
     },
-    // {
-    //   // 内光圈-2，半径 108px = 372px * 0.29 (最里边的圆形⭕️光圈)
-    //   data: [{ value: 1 }],
-    //   coordinate: { type: 'theta', cfg: { radius: 0.29 } },
-    //   geometries: [
-    //     {
-    //       type: 'interval',
-    //       yField: 'value',
-    //       mapping: {
-    //         // TODO 模拟高斯模糊
-    //         // radial-gradient(48% 94%, #FFFFFF 48%, rgba(255,255,255,0.18) 94%);
-    //         color: () => {
-    //           if (favoriteIDE === 'vim' && themeMode === 'dark') {
-    //             // DONE 🎉
-    //             return `r(0.5,0.5,0.94) 0:rgba(255,255,255, 1) 0.85:rgba(255,255,255,0.04) 1:#002C37`;
-    //           }
-    //           // todo 其他编辑器
-    //           return `r(0.5,0.5,0.94) 0:rgba(255,255,255, 1) 0.85:rgba(255,255,255,0.04) 1:#002C37`;
-    //         },
-    //         style: {
-    //           fillOpacity: 0.48,
-    //         },
-    //       },
-    //     },
-    //   ],
-    // },
     {
-      data: Framework.data,
+      data: FrameworkData,
       coordinate: {
         type: 'polar',
         cfg: {
@@ -547,7 +528,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 framework === lowerCase(x) ||
                 (framework === 'bymyself' && x === 'Bymyself');
               return {
-                fillOpacity: selected ? 1 : 0.85,
+                fillOpacity: selected ? 1 : 0.65,
                 lineWidth: selected ? (width280 ? 1.2 : 1.5) : 0,
                 stroke: strokeMap[lowerCase(x)],
               };
