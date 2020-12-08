@@ -125,7 +125,7 @@ const NEXT_BUTTONS: NextButtons = {
 };
 
 const QR_CODE =
-  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*d2CvQJb9kY8AAAAAAAAAAAAAARQnAQ';
+  'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ms2LSZO1AT0AAAAAAAAAAAAAARQnAQ';
 const SELECTED_COLOR = '#A58AFF';
 const UNSELECTED_COLOR = '#fff';
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
