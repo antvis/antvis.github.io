@@ -750,12 +750,9 @@ const D2 = () => {
             }}
             favoriteFramework={favoriteFramework}
             afterChartRender={afterChartRender}
-            // TODO 调试 morning, afternnon, dawn, night
             efficientWorktime={worktime as any}
-            // efficientWorktime="midnight"
             favoriteIDE={gide as any}
             themeMode={theme as any}
-            // favoriteIDE="vim"
             music={music as any}
           />
         </div>

@@ -38,7 +38,7 @@ const MUSIC_TEXT = 'Music';
 const getViews = (props: Props, box: DOMRect | undefined) => {
   const {
     theme,
-    favoriteFramework,
+    favoriteFramework /** 默认取 react */,
     efficientWorktime,
     music,
     favoriteIDE,
@@ -48,31 +48,16 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
   let worktimeData: any[] = [];
   switch (efficientWorktime) {
     case 'morning':
-      MORNING_DAILY_SCHEDULE.forEach((d) => {
-        worktimeData.push(
-          { ...d, type: 'male' },
-          { ...d, type: 'female', y: d.y * 0.8 },
-        );
-      });
+      worktimeData = MORNING_DAILY_SCHEDULE;
       break;
     case 'afternoon':
       worktimeData = AFTERNOON_DAILY_SCHEDULE;
       break;
     case 'dawn':
-      DAWN_DAILY_SCHEDULE.forEach((d) => {
-        worktimeData.push(
-          { ...d, type: 'male' },
-          { ...d, type: 'female', y: d.y * 0.8 },
-        );
-      });
+      worktimeData = DAWN_DAILY_SCHEDULE;
       break;
     case 'night':
-      NIGHT_DAILY_SCHEDULE.forEach((d) => {
-        worktimeData.push(
-          { ...d, type: 'male' },
-          { ...d, type: 'female', y: d.y * 0.8 },
-        );
-      });
+      worktimeData = NIGHT_DAILY_SCHEDULE;
       break;
     case 'midnight':
       MIDNIGHT_DAILY_SCHEDULE.forEach((d) => {
@@ -83,12 +68,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
       });
       break;
     default:
-      NIGHT_DAILY_SCHEDULE.forEach((d) => {
-        worktimeData.push(
-          { ...d, type: 'male' },
-          { ...d, type: 'female', y: d.y * 0.8 },
-        );
-      });
+      worktimeData = NIGHT_DAILY_SCHEDULE;
       break;
   }
 
@@ -537,18 +517,19 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
             style: ({ x }: any) => {
               // 根据高亮设置
               const strokeMap: any = {
-                React: 'rgba(15,114,139,0.31)',
-                Angular: 'rgba(215,2,47,0.51)',
-                Vue: 'rgba(52,71,90,0.42)',
-                Bymyself: 'rgba(100,119,155,0.61)',
+                react: 'rgba(15,114,139,0.31)',
+                angular: 'rgba(215,2,47,0.51)',
+                vue: 'rgba(52,71,90,0.42)',
+                bymyself: 'rgba(100,119,155,0.61)',
               };
+              const framework = favoriteFramework || 'react';
               return {
                 lineWidth:
-                  favoriteFramework === lowerCase(x) ||
-                  (favoriteFramework === '我自己写的' && x === 'Bymyself')
+                  framework === lowerCase(x) ||
+                  (framework === '我自己写的' && x === 'Bymyself')
                     ? 1.2
                     : 0,
-                stroke: strokeMap[x],
+                stroke: strokeMap[lowerCase(x)],
               };
             },
           },
