@@ -743,13 +743,20 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
         .querySelector(`.${styles.canvas}`)
         ?.getBoundingClientRect();
 
+      const appendPadding = [0, 0, 0, 0];
+      const actualBox = box.height !== 0 ? box : canvasBox;
+      const width280 = box && Math.min(box?.height, box?.width) < 280;
+
+      if (props.efficientWorktime === 'afternoon') {
+        appendPadding[0] = width280 ? -36 : -56;
+      }
       const mvPlot = new Lab.MultiView(container, {
-        height: box.height || canvasBox?.height, // 441 /* 372 + 40 */,
+        height: actualBox?.height || 400, // 441 /* 372 + 40 */,
         autoFit: true,
         padding: 0,
-        appendPadding: [0, 0, 0, 0],
+        appendPadding,
         tooltip: false,
-        views: getViews(props, box.height !== 0 ? box : canvasBox),
+        views: getViews(props, actualBox),
         syncViewPadding: true,
         theme: {
           background: theme.backgroundColor,
@@ -769,7 +776,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
 
   return (
     <div className={styles.canvas}>
-      <div ref={containerRef} />
+      <div ref={containerRef} style={{ width: '100%', height: '100%' }} />
     </div>
   );
 });
