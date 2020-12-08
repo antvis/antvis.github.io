@@ -18,7 +18,6 @@
     "url": "https://github.com/antvis/antvis.github.io/issues"
   },
   "dependencies": {
-    "@antv/data-set": "^0.11.7",
     "@antv/g2plot": "^2.3.1",
     "@antv/g6": "3.3.7",
     "@antv/gatsby-theme-antv": "^1.0.2",
