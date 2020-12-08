@@ -347,7 +347,7 @@ const D2 = () => {
             tipText: lightTipColor,
           },
           dark: {
-            mainBack: '#002C37',
+            mainBack: '#002D37',
             chartContainerBack: '#00181E',
             mainText: '#4FD6E9',
             subText: '#FFBB22',
@@ -681,7 +681,6 @@ const D2 = () => {
 
     const styles: FinalPageConfigStyle = finalPageConfigs.styles[gide];
     const texts: FinalPageConfigText = finalPageConfigs.texts[gworktime];
-    console.log(texts, finalPageConfigs.texts, worktime);
 
     let theme: 'dark' | 'light' = 'dark';
     if (
@@ -744,6 +743,7 @@ const D2 = () => {
             favoriteFramework={favoriteFramework}
             afterChartRender={afterChartRender}
             efficientWorktime={worktime as any}
+            favoriteIDE={gide as any}
             music={music as any}
           />
         </div>

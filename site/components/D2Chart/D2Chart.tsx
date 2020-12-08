@@ -5,7 +5,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { get, lowerCase, last } from '@antv/util';
+import { get, lowerCase } from '@antv/util';
 import {
   DAWN_DAILY_SCHEDULE,
   MIDNIGHT_DAILY_SCHEDULE,
@@ -41,7 +41,13 @@ const Framework = {
 };
 
 const getViews = (props: Props, box: DOMRect | undefined) => {
-  const { theme, favoriteFramework, efficientWorktime, music } = props;
+  const {
+    theme,
+    favoriteFramework,
+    efficientWorktime,
+    music,
+    favoriteIDE,
+  } = props;
 
   let worktimeData: any[] = [];
   switch (efficientWorktime) {
@@ -66,7 +72,6 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
   }
 
   const yMax = Math.max(...worktimeData.map((d) => d.y));
-
   const width280 = box && Math.min(box?.height, box?.width) < 280;
 
   let musicData: any[] = [];
@@ -83,9 +88,14 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
     case 'pop':
       musicData = POP;
     default:
-      musicData = CLASSIC;
+      musicData = METAL;
       break;
   }
+
+  // 控制水滴的角度, 用来控制随机角度
+  const waterdropStartAngle =
+    (Math.PI / 2) * Math.random() * (Math.random() > 0.5 ? -0.5 : 1);
+  const waterdropEndAngle = Math.PI * 2 + (Math.PI / 6) * Math.random();
 
   return [
     {
@@ -122,7 +132,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
       ],
     },
     {
-      // 外光圈  不能放在柱状图前，否则无法使用大小
+      // 最大外光圈  不能放在柱状图前，否则无法使用大小
       region: {
         start: { x: 0, y: 0 },
         end: { x: 1, y: 1 },
@@ -134,9 +144,13 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           type: 'interval',
           yField: 'value',
           mapping: {
-            // color: 'r(0.5,0.5,1): 0:#fff 0.5:rgba(255,255,255,0.7) 1:rgba(255,255,255,0.4)',
-            color: '#fff',
-            style: { fillOpacity: 0.06 },
+            // color: 'r(0.5,0.5,1): 0:rgba 0.5:rgba(255,255,255,0.4) 1:rgba(255,255,255,0.2)',
+            // color: '#fff',
+            style: {
+              fillOpacity: 0.06,
+              shadowColor: '#4AD8EA',
+              shadowBlur: 30,
+            },
           },
         },
       ],
@@ -151,8 +165,8 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           yField: 'value',
           mapping: {
             style: {
-              shadowColor: 'rgba(255,255,255,0.81)',
-              shadowBlur: 60,
+              shadowColor: 'rgba(255,255,255,0.98)',
+              shadowBlur: 140,
             },
           },
         },
@@ -297,7 +311,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
         type: 'polar',
         cfg: {
           radius: 0.9,
-          innerRadius: 0.625 / 0.75,
+          innerRadius: 0.5 / 0.75,
         },
       },
       axes: false,
@@ -330,9 +344,13 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           colorField: 'type',
           mapping: {
             color: ['#5B8FF9', '#5AD8A6', '#5D7092', '#F6BD16'],
-            style: () => {
+            style: (datum: any) => {
+              const musicDataIdx = musicData.findIndex(
+                (d) =>
+                  d.type === datum.type && d.x === datum.x && d.y === datum.y,
+              );
               if (music === 'metal') {
-                return { r: 2, lineWidth: 0 };
+                return { r: musicDataIdx % 6 === 0 ? 0 : 2, lineWidth: 0 };
               }
               if (music === 'classic') {
                 return { r: 2, lineWidth: 0 };
@@ -496,9 +514,8 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
         type: 'polar',
         cfg: {
           radius: 0.48 /** 比 0.46 大一点 */,
-          // TODO 用来控制随机角度
-          startAngle: -Math.PI * 0.25,
-          endAngle: Math.PI * 2,
+          startAngle: waterdropStartAngle,
+          endAngle: waterdropEndAngle,
         },
       },
       axes: false,
@@ -529,7 +546,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 lineWidth:
                   favoriteFramework === lowerCase(x) ||
                   (favoriteFramework === '我自己写的' && x === 'Bymyself')
-                    ? 1.5
+                    ? 1.2
                     : 0,
                 stroke: strokeMap[x],
               };
@@ -559,6 +576,8 @@ type Props = {
       annotations: Array<{ content: string; fontSize: number }>;
     };
   };
+  /** 最喜欢的 ide */
+  favoriteIDE: 'vim' | 'webstorm' | 'vscode' | 'atom';
   /** 最喜欢的前端框架 */
   favoriteFramework: string | 'react' | 'vue' | 'angular' | '我自己写';
   /** 工作效率 高效时间段 */
@@ -571,6 +590,7 @@ type Props = {
 
 export const VisCanvas = forwardRef((props: Props, ref: any) => {
   const { theme } = props;
+
   /**
    * 同步 forward ref
    * @param source
