@@ -14,7 +14,7 @@ G2.registerShape('interval', 'waterdrop', {
     );
     const distance = getDistance(points[1], points[2]);
     const strokeWidth = shapeInfo.style?.lineWidth;
-    container.addShape({
+    const waterdrop = container.addShape({
       type: 'path',
       attrs: {
         path: [
@@ -30,6 +30,17 @@ G2.registerShape('interval', 'waterdrop', {
         lineWidth: strokeWidth,
       },
     });
+    waterdrop.animate(
+      {
+        strokeOpacity: 0.8,
+        fillOpacity: 0.75,
+      },
+      {
+        duration: 1500,
+        easing: 'easeLinear',
+        repeat: true,
+      },
+    );
     return container;
   },
 });
