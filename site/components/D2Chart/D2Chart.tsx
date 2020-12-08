@@ -432,7 +432,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 ? 'triangle'
                 : music === 'classic'
                 ? 'diamond'
-                : 'circle',
+                : 'breath-point',
           },
         },
       ],
@@ -757,6 +757,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
 
     const { Lab } = require('@antv/g2plot/dist/g2plot.min.js');
     require('./shapes/waterdrop');
+    require('./shapes/breath-point');
 
     if (containerRef?.current) {
       const container = containerRef.current;
