@@ -594,7 +594,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 autoRotate: false,
                 content: [DAILY_SCHEDULE_TEXT].indexOf(x) !== -1 ? x : ' ',
                 offset: 25,
-                offsetX: -8,
+                offsetX: 4,
                 style: {
                   fill: theme.subTextColor,
                   fontSize: 12,
@@ -650,6 +650,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 autoRotate: false,
                 content: [MUSIC_TEXT].indexOf(x) !== -1 ? x : ' ',
                 offset: 20,
+                offsetX: -8,
                 style: {
                   fill: theme.subTextColor,
                   fontSize: 12,
