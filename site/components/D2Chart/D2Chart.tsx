@@ -56,12 +56,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
       });
       break;
     case 'afternoon':
-      AFTERNOON_DAILY_SCHEDULE.forEach((d) => {
-        worktimeData.push(
-          { ...d, type: 'male' },
-          { ...d, type: 'female', y: d.y * 0.8 },
-        );
-      });
+      worktimeData = AFTERNOON_DAILY_SCHEDULE;
       break;
     case 'dawn':
       DAWN_DAILY_SCHEDULE.forEach((d) => {
