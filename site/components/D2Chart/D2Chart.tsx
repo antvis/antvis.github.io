@@ -425,7 +425,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
               const cfg: any = {
                 style: {
                   fill: theme.textColor,
-                  fontSize: 12,
+                  fontSize: 10,
                   fontFamily: FONT_FAMILY,
                 },
                 content: x,
@@ -517,17 +517,17 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
             style: ({ x }: any) => {
               // 根据高亮设置
               const strokeMap: any = {
-                react: 'rgba(15,114,139,0.31)',
-                angular: 'rgba(215,2,47,0.51)',
-                vue: 'rgba(52,71,90,0.42)',
-                bymyself: 'rgba(100,119,155,0.61)',
+                react: 'rgba(15,114,139,0.81)',
+                angular: 'rgba(215,2,47,0.81)',
+                vue: 'rgba(52,71,90,0.82)',
+                bymyself: 'rgba(100,119,155,0.81)',
               };
               const framework = favoriteFramework || 'react';
               return {
                 lineWidth:
                   framework === lowerCase(x) ||
                   (framework === '我自己写的' && x === 'Bymyself')
-                    ? 1.2
+                    ? 1.5
                     : 0,
                 stroke: strokeMap[lowerCase(x)],
               };
@@ -578,7 +578,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 offsetX: 4,
                 style: {
                   fill: theme.subTextColor,
-                  fontSize: 12,
+                  fontSize: 10,
                   fontFamily: FONT_FAMILY,
                   fontWeight: 700,
                   textAlign: 'left',
@@ -634,7 +634,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 offsetX: -8,
                 style: {
                   fill: theme.subTextColor,
-                  fontSize: 12,
+                  fontSize: 10,
                   fontFamily: FONT_FAMILY,
                   fontWeight: 700,
                 },
