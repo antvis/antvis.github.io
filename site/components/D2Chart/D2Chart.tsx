@@ -88,8 +88,9 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
     { x: 'Angular', y: 7 },
   ];
 
+  const framework = favoriteFramework || 'bymyself';
   const favoriteFrameworkIndex = FrameworkData.findIndex(
-    (d) => lowerCase(d.x) === lowerCase(favoriteFramework),
+    (d) => lowerCase(d.x) === lowerCase(framework),
   );
   if (favoriteFrameworkIndex !== -1) {
     // 交换 y 轴
@@ -404,7 +405,15 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                   d.type === datum.type && d.x === datum.x && d.y === datum.y,
               );
               if (music === 'metal') {
-                return { r: musicDataIdx % 3 === 0 ? 0 : 1.5, lineWidth: 0 };
+                return {
+                  r:
+                    musicDataIdx % 3 === 0
+                      ? 0
+                      : themeMode === 'light'
+                      ? 2
+                      : 1.5,
+                  lineWidth: 0,
+                };
               }
               if (music === 'classic') {
                 return { r: 2, lineWidth: 0 };
@@ -488,7 +497,6 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
               return cfg;
             },
           },
-          // adjust: 'stack',
           mapping: { color: 'transparent', style: { fill: 'transparent' } },
         },
       ],
@@ -510,6 +518,33 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           xField: 'x',
           yField: 'y',
           colorField: 'x',
+          label: {
+            fields: ['x'],
+            callback: (x: string) => {
+              const framework = favoriteFramework || 'bymyself';
+              const selected =
+                framework === lowerCase(x) ||
+                (framework === 'bymyself' && x === 'Bymyself');
+              return {
+                autoRotate: true,
+                labelEmit: true,
+                content: selected
+                  ? lowerCase(x) === 'bymyself'
+                    ? 'My lib'
+                    : x
+                  : ' ',
+                offset: '-45%',
+                style: {
+                  fill:
+                    themeMode === 'light'
+                      ? theme.textColor
+                      : theme.backgroundColor,
+                  fontSize: 10,
+                  fontFamily: FONT_FAMILY,
+                },
+              };
+            },
+          },
           mapping: {
             color: ({ x }: any) => {
               const colorMap: any = {
@@ -589,7 +624,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 autoRotate: false,
                 content: [DAILY_SCHEDULE_TEXT].indexOf(x) !== -1 ? x : ' ',
                 offset: 25,
-                offsetX: 4,
+                offsetX: 10,
                 style: {
                   fill: theme.subTextColor,
                   fontSize: 10,

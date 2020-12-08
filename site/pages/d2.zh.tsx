@@ -332,7 +332,7 @@ const D2 = () => {
             mainBack: '#FEFFFF',
             chartContainerBack: '#EBECED',
             mainText: '#2B2C2D',
-            subText: '#142DE0',
+            subText: '#6D2453',
             tipText: lightTipColor,
           },
           dark: {
