@@ -23,10 +23,11 @@ const Framework = {
   ],
   color: ({ x }: any) => {
     const colorMap: any = {
-      React: 'rgba(94,211,243,0.45)',
-      Bymyself: 'rgba(194,200,213,0.45)',
-      Vue: 'rgba(63,179,127,0.49)',
-      Angular: 'rgba(215,2,47,0.45)',
+      React: 'r(0.5,0.5,1): 0:rgba(94,211,243,0.85) 1:rgba(94,211,243,0.45)',
+      Bymyself:
+        'r(0.5,0.5,1): 0:rgba(194,200,213,0.85) 1:rgba(194,200,213,0.45) 1',
+      Vue: 'r(0.5,0.5,1): 0:rgba(63,179,127,0.89) 1:rgba(63,179,127,0.49)',
+      Angular: 'r(0.5,0.5,1): 0:rgba(215,2,47,0.85) 1:rgba(215,2,47,0.45)',
     };
     return colorMap[x];
   },
@@ -517,17 +518,19 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
             style: ({ x }: any) => {
               // 根据高亮设置
               const strokeMap: any = {
-                react: 'rgba(15,114,139,0.81)',
-                angular: 'rgba(215,2,47,0.81)',
-                vue: 'rgba(52,71,90,0.82)',
-                bymyself: 'rgba(100,119,155,0.81)',
+                react: 'rgba(15,114,139,1)',
+                angular: 'rgba(215,2,47,1)',
+                vue: 'rgba(52,71,90,1)',
+                bymyself: 'rgba(100,119,155,1)',
               };
               const framework = favoriteFramework || 'react';
               return {
                 lineWidth:
                   framework === lowerCase(x) ||
                   (framework === '我自己写的' && x === 'Bymyself')
-                    ? 1.5
+                    ? width280
+                      ? 1.2
+                      : 1.5
                     : 0,
                 stroke: strokeMap[lowerCase(x)],
               };
