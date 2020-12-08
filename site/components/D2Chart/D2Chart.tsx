@@ -512,16 +512,13 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           colorField: 'x',
           mapping: {
             color: ({ x }: any) => {
-              let colorMap: any = {
-                React:
-                  'r(0.5,0.5,1): 0:rgba(94,211,243,0.85) 1:rgba(94,211,243,0.45)',
-                Bymyself:
-                  'r(0.5,0.5,1): 0:rgba(194,200,213,0.85) 1:rgba(194,200,213,0.45) 1',
-                Vue:
-                  'r(0.5,0.5,1): 0:rgba(63,179,127,0.89) 1:rgba(63,179,127,0.49)',
-                Angular: 'r(0.5,0.5,1): 0:#BC052B 1:rgba(215,2,47,0.45)',
+              const colorMap: any = {
+                react: '#5ED3F3',
+                bymyself: '#C2C8D5',
+                vue: '#3FB37F',
+                angular: '#BC052B',
               };
-              return colorMap[x];
+              return colorMap[lowerCase(x)];
             },
             shape: 'waterdrop',
             size: () => {
@@ -538,6 +535,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 vue: 'rgba(63,179,127,0.5)',
                 bymyself: 'rgba(194,200,213,0.5)',
               };
+
               const framework = favoriteFramework || 'bymyself';
               const selected =
                 framework === lowerCase(x) ||
