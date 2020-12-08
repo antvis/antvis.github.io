@@ -54,6 +54,16 @@ interface FinalPageConfigStyle {
       dark: string;
     };
   };
+  footers: {
+    share: {
+      light: string;
+      dark: string;
+    };
+    gift: {
+      light: string;
+      dark: string;
+    };
+  };
 }
 
 interface FinalPageConfigText {
@@ -156,9 +166,6 @@ const QR_CODE =
 const SELECTED_COLOR = '#A58AFF';
 const UNSELECTED_COLOR = '#fff';
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
-const LOTTERY_CODE = '抽奖码：AntV 西湖区第一的可视化引擎';
-const PLAYGAME_TIP = '和我一起扫码生成属于你的图表吧';
-const DEFAULT_TIP = '*游戏后长按保存图片并分享，得抽奖码';
 const LOGOS = {
   dark:
     'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*1qtSTJCaIC8AAAAAAAAAAAAAARQnAQ',
@@ -183,7 +190,7 @@ const userAnswers_back: UserAnswer = {
   shirt: 'fashion',
   framework: 'vue',
   ide: 'vscode',
-  worktime: 'afternoon',
+  worktime: 'morning',
   music: 'pop',
 };
 
@@ -202,7 +209,8 @@ const D2 = () => {
   const [keyboardType, setKeybordType] = useState('default');
   const [pressedNext, setPressedNext] = useState(false);
   const [questionOpacity, setQuestionOpacity] = useState(1);
-  const [tip, setTip] = useState(DEFAULT_TIP);
+  const [shared, setShared] = useState(false);
+  const [horizontal, setHorizontal] = useState(false);
 
   const questions: Question[] = [
     {
@@ -283,6 +291,20 @@ const D2 = () => {
   const finalPageConfigs: FinalPageConfig = {
     styles: {
       webstorm: {
+        footers: {
+          share: {
+            light:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Wg52SJjnK48AAAAAAAAAAAAAARQnAQ',
+            dark:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*vsdXTrIIgjAAAAAAAAAAAAAAARQnAQ',
+          },
+          gift: {
+            light:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*J0gsRoZ4n4MAAAAAAAAAAAAAARQnAQ',
+            dark:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*qoiAQofwSX0AAAAAAAAAAAAAARQnAQ',
+          },
+        },
         colors: {
           light: {
             mainBack: '#F9FAFB',
@@ -327,6 +349,20 @@ const D2 = () => {
         },
       },
       vscode: {
+        footers: {
+          share: {
+            light:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*UjZLTIeRkoEAAAAAAAAAAAAAARQnAQ',
+            dark:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*r7o_Qadt6yEAAAAAAAAAAAAAARQnAQ',
+          },
+          gift: {
+            light:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*hZKBRKmts8AAAAAAAAAAAAAAARQnAQ',
+            dark:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*I8HCTqfsYAcAAAAAAAAAAAAAARQnAQ',
+          },
+        },
         colors: {
           light: {
             mainBack: '#FEFFFF',
@@ -371,6 +407,20 @@ const D2 = () => {
         },
       },
       vim: {
+        footers: {
+          share: {
+            light:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*iR50QL0uvVwAAAAAAAAAAAAAARQnAQ',
+            dark:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*HTYASIFURxsAAAAAAAAAAAAAARQnAQ',
+          },
+          gift: {
+            light:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*euZHRbdWYqAAAAAAAAAAAAAAARQnAQ',
+            dark:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ggFWRJ1h5IMAAAAAAAAAAAAAARQnAQ',
+          },
+        },
         colors: {
           light: {
             mainBack: '#F0EBD8',
@@ -415,6 +465,20 @@ const D2 = () => {
         },
       },
       atom: {
+        footers: {
+          share: {
+            light:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*XDT-QoHNGj8AAAAAAAAAAAAAARQnAQ',
+            dark:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*FrYvQY2cQ_4AAAAAAAAAAAAAARQnAQ',
+          },
+          gift: {
+            light:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*nQFUQK3iErgAAAAAAAAAAAAAARQnAQ',
+            dark:
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*uja3R4TODawAAAAAAAAAAAAAARQnAQ',
+          },
+        },
         colors: {
           light: {
             mainBack: '#F9FAFB',
@@ -573,14 +637,14 @@ const D2 = () => {
       img.addEventListener('touchstart', (e) => {
         startTime = +new Date();
         tipTimer = window.setTimeout(() => {
-          setTip(LOTTERY_CODE);
+          setShared(true);
         }, 2000);
       });
       img.addEventListener('touchend', (e) => {
         const endTime = +new Date();
         if (endTime - startTime > 700) {
           // 展示抽奖码
-          setTip(LOTTERY_CODE);
+          setShared(true);
         }
       });
     };
@@ -622,7 +686,7 @@ const D2 = () => {
         // console.log('going to get screen shot', self)
         // if (!self) return;
         // 获取dom结构
-        let targetDom = element.current as HTMLDivElement;
+        let targetDom: any = element.current as HTMLDivElement;
         // domtoimage.toPng(targetDom).then((dataUrl: any) => {
         //   //andriod
         //   if (dataUrl != 'error') {
@@ -668,7 +732,6 @@ const D2 = () => {
           // }
         })
           .then(function (canvas: any) {
-            // setTip(DEFAULT_TIP);
             try {
               b64 = canvas.toDataURL('image/png');
               finalPageScreenShotBase64 = b64;
@@ -726,6 +789,8 @@ const D2 = () => {
     const randomIdx = Math.floor(Math.random() * recommandLib.length);
     const lib = recommandLib[randomIdx];
     const stickerSrc = styles.stickers[gshirt][theme];
+    const footerShare = styles.footers.share[theme];
+    const footerGift = styles.footers.gift[theme];
 
     return (
       <div
@@ -738,8 +803,8 @@ const D2 = () => {
       >
         <div className="d2-finalpage-header">
           {/* onClick={() => getScreenShot()} */}
-          {/* <div className="d2-finalpage-title">AntV</div> */}
-          <img className="d2-finalpage-title" src={LOGOS[theme]} />
+          <div className="d2-finalpage-title">AntV</div>
+          {/* <img className="d2-finalpage-title" src={LOGOS[theme]} /> */}
           <div className="d2-finalpage-symbol">{userAnswers.symbol}</div>
         </div>
         <div className="d2-chart-container">
@@ -802,17 +867,101 @@ const D2 = () => {
           </span>
           <span className="d2-finalpage-result-des">{texts.description2}</span>
         </div>
-        <div className="d2-finalpage-footer-left">
+        {/* <div className="d2-finalpage-footer-left">
           <span className="d2-footer-tip" style={{ color: colors.subText }}>
             {tip}
           </span>
           <br />
           <span className="d2-footer-address">antv.vision/</span>
         </div>
-        <img className="d2-finalpage-fcode" src={QR_CODE} />
+        <img className="d2-finalpage-fcode" src={QR_CODE} /> */}
+        <div className="d2-finalpage-footer">
+          <img
+            className="d2-finalpage-footer-img"
+            src={shared ? footerGift : footerShare}
+          />
+        </div>
       </div>
     );
   };
+
+  const orientationChangeListener = () => {
+    // 竖屏
+    if (window.orientation === 180 || window.orientation === 0) {
+      setHorizontal(false);
+    }
+    // 横屏
+    if (window.orientation === 90 || window.orientation === -90) {
+      setHorizontal(true);
+    }
+  };
+
+  useEffect(() => {
+    // 判断端
+    const os = (function () {
+      const ua = navigator.userAgent,
+        isWindowsPhone = /(?:Windows Phone)/.test(ua),
+        isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
+        isAndroid = /(?:Android)/.test(ua),
+        isFireFox = /(?:Firefox)/.test(ua),
+        isChrome = /(?:Chrome|CriOS)/.test(ua),
+        isTablet =
+          /(?:iPad|PlayBook)/.test(ua) ||
+          (isAndroid && !/(?:Mobile)/.test(ua)) ||
+          (isFireFox && /(?:Tablet)/.test(ua)),
+        isPhone = /(?:iPhone)/.test(ua) && !isTablet,
+        isPc = !isPhone && !isAndroid && !isSymbian;
+      return {
+        isTablet: isTablet,
+        isPhone: isPhone,
+        isAndroid: isAndroid,
+        isPc: isPc,
+      };
+    })();
+    if (os.isAndroid || os.isPhone) {
+      // 手机
+    } else if (os.isTablet) {
+      // 平板
+      setHorizontal(true);
+      return;
+    } else if (os.isPc) {
+      // pc
+      setHorizontal(true);
+      return;
+    }
+
+    // 竖屏
+    if (window.orientation === 180 || window.orientation === 0) {
+    } else if (window.orientation === 90 || window.orientation === -90) {
+      // 横屏
+      setHorizontal(true);
+    }
+    window.addEventListener(
+      'onorientationchange' in window ? 'orientationchange' : 'resize',
+      orientationChangeListener,
+      false,
+    );
+
+    return window.removeEventListener(
+      'onorientationchange',
+      orientationChangeListener,
+      false,
+    );
+  });
+
+  if (horizontal) {
+    return (
+      <div className="d2-horizontal-container">
+        <img className="d2-horizontal-qrcode" src={QR_CODE} />
+        <div className="d2-horizontal-des">
+          手机扫码开启 AntV 小游戏，获得抽奖机会
+        </div>
+        <div className="d2-horizontal-des2">
+          若您已经在游戏中，请将手机返回竖屏继续游戏哦
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="d2-container">
