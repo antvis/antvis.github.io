@@ -131,10 +131,16 @@ const UNSELECTED_COLOR = '#fff';
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 const LOTTERY_CODE = '抽奖码：AntV 西湖区第一的可视化引擎';
 const PLAYGAME_TIP = '和我一起扫码生成属于你的图表吧';
-const DEFAULT_TIP = '*游戏后长按保存图片并分享，即得抽奖码';
+const DEFAULT_TIP = '*游戏后长按保存图片并分享，得抽奖码';
+const LOGOS = {
+  dark:
+    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*1qtSTJCaIC8AAAAAAAAAAAAAARQnAQ',
+  light:
+    'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*24XUTo1_wssAAAAAAAAAAAAAARQnAQ',
+};
 
 //_back
-const userAnswers: UserAnswer = {
+const userAnswers_back: UserAnswer = {
   keyboard: '',
   symbol: '',
   shirt: '',
@@ -144,13 +150,13 @@ const userAnswers: UserAnswer = {
   music: '',
 };
 
-const userAnswers_back: UserAnswer = {
+const userAnswers: UserAnswer = {
   keyboard: 'red',
   symbol: '=>',
   shirt: 'smile',
   framework: 'vue',
-  ide: 'vim',
-  worktime: 'morning',
+  ide: 'vscode',
+  worktime: 'night',
   music: 'pop',
 };
 
@@ -164,7 +170,7 @@ const D2 = () => {
   const element = React.useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
 
-  const [pageIdx, setPageIdx] = useState(-1); // -1
+  const [pageIdx, setPageIdx] = useState(7); // -1
   const [selectedOption, setSelectedOption] = useState('');
   const [keyboardType, setKeybordType] = useState('default');
   const [pressedNext, setPressedNext] = useState(false);
@@ -315,25 +321,25 @@ const D2 = () => {
             light:
               'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*i4tSSZsy5iAAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*8tM1QJMcK2IAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*M4cGQolc9IMAAAAAAAAAAAAAARQnAQ',
           },
           cool: {
             light:
               'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*35I0RLsABD0AAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*fs_XRrznHggAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Ej3aRbGFCV8AAAAAAAAAAAAAARQnAQ',
           },
           smile: {
             light:
               'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*VwwFT4u12mIAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*tDweQ6nkrM8AAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*rEGIQr1T_08AAAAAAAAAAAAAARQnAQ',
           },
           style: {
             light:
               'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*7uvgQolo6K8AAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ThqWRJcb3oIAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5mXDSqHXN48AAAAAAAAAAAAAARQnAQ',
           },
         },
       },
@@ -705,7 +711,8 @@ const D2 = () => {
       >
         <div className="d2-finalpage-header">
           {/* onClick={() => getScreenShot()} */}
-          <div className="d2-finalpage-title">AntV</div>
+          {/* <div className="d2-finalpage-title">AntV</div> */}
+          <img className="d2-finalpage-title" src={LOGOS[theme]} />
           <div className="d2-finalpage-symbol">{userAnswers.symbol}</div>
         </div>
         <div className="d2-chart-container">
@@ -767,7 +774,7 @@ const D2 = () => {
           <span className="d2-finalpage-result-des">{texts.description2}</span>
         </div>
         <div className="d2-finalpage-footer-left">
-          <span className="d2-footer-tip" style={{ color: colors.tipText }}>
+          <span className="d2-footer-tip" style={{ color: colors.subText }}>
             {tip}
           </span>
           <br />
