@@ -324,32 +324,48 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
               if (
                 [
                   'Soprano',
-                  'Alto',
-                  'Drum',
-                  'Lead_guitar',
+                  'Electric_guitar',
                   'Amplifier_1',
+                  'Lead_guitar',
                 ].indexOf(type) !== -1
               ) {
+                // done 🎉
                 cfg.strokeOpacity = 1;
               }
-              if (
-                ['Drum', 'Electri_bass', 'Amplifier_2'].indexOf(type) !== -1
-              ) {
+              if (type === 'Drum') {
+                // done 🎉
                 cfg.strokeOpacity = 0.9;
               }
-              if (['Electri_bass', 'Keyboard'].indexOf(type) !== -1) {
+              if (['Alto', 'Electri_bass'].indexOf(type) !== -1) {
+                // done 🎉
                 cfg.strokeOpacity = 0.8;
               }
-              if (['Tenor', 'Keyboard', 'Amplifier'].indexOf(type) !== -1) {
+              if (type === 'Amplifier_2') {
+                // done 🎉
                 cfg.strokeOpacity = 0.5;
               }
-              if (music === 'electronic') {
+              if (type === 'Amplifier') {
+                // done 🎉
+                cfg.strokeOpacity = 0.5;
+              }
+              // done 🎉
+              if (music === 'classic' && type === 'Tenor') {
+                cfg.strokeOpacity = 0.5;
+              }
+              if (music === 'metal' && type === 'Keyboard') {
+                cfg.strokeOpacity = 0.5;
+              }
+              // done 🎉
+              if (music === 'pop') {
                 if (type === 'Keyboard') {
-                  cfg.strokeOpacity = 0.5;
+                  cfg.strokeOpacity = 0.8;
                 }
-                if (type === 'Drum') {
-                  cfg.strokeOpacity = 0.3;
-                }
+              }
+              if (music === 'electronic' && type === 'Keyboard') {
+                cfg.strokeOpacity = 0.5;
+              }
+              if (music === 'electronic' && type === 'Drum') {
+                cfg.strokeOpacity = 0.3;
               }
               if (themeMode === 'light') {
                 cfg.strokeOpacity *= 1.2;
