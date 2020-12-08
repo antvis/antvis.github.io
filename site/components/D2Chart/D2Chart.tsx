@@ -13,7 +13,7 @@ import {
   AFTERNOON_DAILY_SCHEDULE,
   NIGHT_DAILY_SCHEDULE,
 } from './datas/dailySchedule';
-import { CLASSIC } from './datas/music';
+import { CLASSIC, METAL, ELECTRONIC, POP } from './datas/music';
 import styles from './D2Chart.module.less';
 
 // 资源
@@ -68,6 +68,24 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
   const yMax = Math.max(...worktimeData.map((d) => d.y));
 
   const width280 = box && Math.min(box?.height, box?.width) < 280;
+
+  let musicData: any[] = [];
+  switch (music) {
+    case 'classic':
+      musicData = CLASSIC;
+      break;
+    case 'metal':
+      musicData = METAL;
+      break;
+    case 'electronic':
+      musicData = ELECTRONIC;
+      break;
+    case 'pop':
+      musicData = POP;
+    default:
+      musicData = CLASSIC;
+      break;
+  }
 
   return [
     {
@@ -274,7 +292,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
         start: { x: 0.125, y: 0.125 },
         end: { x: 0.875, y: 0.875 },
       },
-      data: CLASSIC,
+      data: musicData,
       coordinate: {
         type: 'polar',
         cfg: {
@@ -289,10 +307,45 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           xField: 'x',
           yField: 'y',
           colorField: 'type',
+          shapeField: 'type',
           mapping: {
             color: ['#5B8FF9', '#5AD8A6', '#5D7092', '#F6BD16'],
             style: { lineWidth: 0.8 },
-            shape: music === 'electronic' || music === 'pop' ? 'smooth' : '',
+            shape: ({ type }: any) => {
+              if (
+                ['Lead_guitar', 'Electri_bass', 'Rhythm_guitar'].indexOf(
+                  type,
+                ) !== -1
+              ) {
+                return 'smooth';
+              }
+              return music === 'classic' || music === 'pop' ? 'smooth' : '';
+            },
+          },
+        },
+        {
+          type: 'point',
+          xField: 'x',
+          yField: 'y',
+          colorField: 'type',
+          mapping: {
+            color: ['#5B8FF9', '#5AD8A6', '#5D7092', '#F6BD16'],
+            style: () => {
+              if (music === 'metal') {
+                return { r: 2, lineWidth: 0 };
+              }
+              if (music === 'classic') {
+                return { r: 2, lineWidth: 0 };
+              }
+              return { r: 0, lineWidth: 0 };
+            },
+            // note: 重金属(metal) 使用三角形, 古典音乐（classic）使用菱形
+            shape:
+              music === 'metal'
+                ? 'triangle'
+                : music === 'classic'
+                ? 'diamond'
+                : '',
           },
         },
       ],
