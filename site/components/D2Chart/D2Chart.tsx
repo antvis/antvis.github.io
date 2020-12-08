@@ -50,22 +50,52 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
   let worktimeData: any[] = [];
   switch (efficientWorktime) {
     case 'morning':
-      worktimeData = MORNING_DAILY_SCHEDULE;
+      MORNING_DAILY_SCHEDULE.forEach((d) => {
+        worktimeData.push(
+          { ...d, type: 'male' },
+          { ...d, type: 'female', y: d.y * 0.8 },
+        );
+      });
       break;
     case 'afternoon':
-      worktimeData = AFTERNOON_DAILY_SCHEDULE;
+      AFTERNOON_DAILY_SCHEDULE.forEach((d) => {
+        worktimeData.push(
+          { ...d, type: 'male' },
+          { ...d, type: 'female', y: d.y * 0.8 },
+        );
+      });
       break;
     case 'dawn':
-      worktimeData = DAWN_DAILY_SCHEDULE;
+      DAWN_DAILY_SCHEDULE.forEach((d) => {
+        worktimeData.push(
+          { ...d, type: 'male' },
+          { ...d, type: 'female', y: d.y * 0.8 },
+        );
+      });
       break;
     case 'night':
-      worktimeData = NIGHT_DAILY_SCHEDULE;
+      NIGHT_DAILY_SCHEDULE.forEach((d) => {
+        worktimeData.push(
+          { ...d, type: 'male' },
+          { ...d, type: 'female', y: d.y * 0.8 },
+        );
+      });
       break;
     case 'midnight':
-      worktimeData = MIDNIGHT_DAILY_SCHEDULE;
+      MIDNIGHT_DAILY_SCHEDULE.forEach((d) => {
+        worktimeData.push(
+          { ...d, type: 'male' },
+          { ...d, type: 'female', y: d.y * 0.8 },
+        );
+      });
       break;
     default:
-      worktimeData = NIGHT_DAILY_SCHEDULE;
+      NIGHT_DAILY_SCHEDULE.forEach((d) => {
+        worktimeData.push(
+          { ...d, type: 'male' },
+          { ...d, type: 'female', y: d.y * 0.8 },
+        );
+      });
       break;
   }
 
@@ -103,7 +133,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
       data: worktimeData.map((d) => ({
         ...d,
         // TODO 调试
-        y: d.y / yMax < 0.46 ? d.y + yMax * 0.46 * 0.75 : d.y,
+        y: d.y / yMax < 0.46 ? d.y + yMax * 0.46 * 0.6 : d.y,
       })),
       coordinate: {
         type: 'polar',
@@ -118,7 +148,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           type: 'interval',
           xField: 'x',
           yField: 'y',
-          meta: { x: { type: 'cat' } },
+          meta: { x: { type: 'cat' }, y: { min: 0 } },
           colorField: 'type',
           mapping: {
             color: ['#5B8FF9', '#FE84B2'],
@@ -126,7 +156,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           },
           adjust: {
             type: 'dodge',
-            marginRatio: 0.3,
+            marginRatio: 1,
           },
         },
       ],
@@ -718,7 +748,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
 
       mvPlot.render();
       // fix hack 下主题设置
-      mvPlot.chart.views[0].theme({ roseWidthRatio: 1 });
+      mvPlot.chart.views[0].theme({ roseWidthRatio: 0.6 });
       mvPlot.chart.render(true);
       plotRef.current = mvPlot;
       syncRef(plotRef, ref);
