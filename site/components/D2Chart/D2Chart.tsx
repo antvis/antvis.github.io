@@ -246,29 +246,6 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
       ],
     },
     {
-      // 内光圈-0，半径 279px = 372px * 0.75（高斯模糊-内环）
-      data: [{ value: 1 }],
-      coordinate: {
-        type: 'theta',
-        cfg: {
-          radius: 0.75,
-        },
-      },
-      geometries: [
-        {
-          type: 'interval',
-          yField: 'value',
-          mapping: {
-            color: 'transparent',
-            style: {
-              shadowColor: 'rgba(255,255,255,0.51)',
-              shadowBlur: 400,
-            },
-          },
-        },
-      ],
-    },
-    {
       // 同步环图(环图内圈 vis-donut)
       data: [{ value: 1 }],
       coordinate: { type: 'theta', cfg: { radius: 0.65 * 0.95 } },
