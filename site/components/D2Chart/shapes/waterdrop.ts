@@ -32,7 +32,7 @@ G2.registerShape('interval', 'waterdrop', {
         path: [
           ['M', points[2].x + offsetX, points[2].y + offsetY],
           ['L', center.x, center.y],
-          ['L', points[1].x, points[1].y],
+          ['L', points[1].x + offsetX, points[1].y + offsetY],
           [
             'A',
             distance / 2,
