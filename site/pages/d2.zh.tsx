@@ -613,7 +613,6 @@ const D2 = () => {
         finalCanvas.height = h * scaleBy;
         finalCanvas.style.width = w + 'px';
         finalCanvas.style.height = h + 'px';
-        console.log('w: %o, h: %o', w, h);
 
         // 将整个页面转换为 canvas
         html2canvas(targetDom, {
@@ -711,6 +710,7 @@ const D2 = () => {
             ref={plotRef}
             theme={{
               backgroundColor: colors.mainBack,
+              textColor: colors.mainText,
               dailySchedule: {
                 data: [
                   { x: 'midnight', y: 8 },

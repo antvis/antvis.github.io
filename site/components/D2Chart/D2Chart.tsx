@@ -6,7 +6,6 @@ import React, {
   useState,
 } from 'react';
 import { get, lowerCase } from '@antv/util';
-import { DataView } from '@antv/data-set';
 import {
   DAWN_DAILY_SCHEDULE,
   MIDNIGHT_DAILY_SCHEDULE,
@@ -45,6 +44,7 @@ const Framework = {
 type Props = {
   theme: {
     backgroundColor: string;
+    textColor: string;
     /** 环图 */
     dailySchedule: {
       data: Array<{ x: string; y: number | string }>;
@@ -261,19 +261,6 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
               fontFamily: FONT_FAMILY,
             },
           },
-          {
-            type: 'text',
-            position: ['85%', 0],
-            offsetY: 20,
-            offsetX: 0,
-            content: 'Music',
-            style: {
-              fill: theme.dailySchedule.customStyle.fontFill,
-              fontSize: 18,
-              textAlign: 'left',
-              fontFamily: FONT_FAMILY,
-            },
-          },
         ],
       },
       {
@@ -331,8 +318,6 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
           cfg: {
             radius: 0.9,
             innerRadius: 0.625 / 0.75,
-            startAngle: -Math.PI * 0.5 - Math.PI / 96,
-            endAngle: Math.PI * 1.5 - Math.PI / 96,
           },
         },
         axes: false,
@@ -347,6 +332,126 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
               style: { lineWidth: 0.8 },
               shape: music === 'electronic' || music === 'pop' ? 'smooth' : '',
             },
+          },
+        ],
+      },
+      {
+        // vis-time: 0、6、12、18 的时间刻度 (同步 vis-donut)
+        data: [
+          { x: '0:00', y: 1 },
+          { x: '6:00', y: 1 },
+          { x: '12:00', y: 1 },
+          { x: '18:00', y: 1 },
+        ],
+        region: {
+          start: { x: 0.125, y: 0.125 },
+          end: { x: 0.875, y: 0.875 },
+        },
+        coordinate: {
+          type: 'polar',
+          cfg: { radius: 1 },
+        },
+        geometries: [
+          {
+            type: 'interval',
+            xField: 'x',
+            yField: 'y',
+            label: {
+              autoRotate: false,
+              offset: 28,
+              fields: ['x'],
+              callback: (x: string) => {
+                const cfg: any = {
+                  style: {
+                    fill: theme.textColor,
+                    fontSize: 14,
+                    fontFamily: FONT_FAMILY,
+                  },
+                  content: x,
+                  labelLine: { style: { stroke: '#979797', lineWidth: 1 } },
+                };
+                if (x === '0:00') {
+                  cfg.style.textBaseline = 'bottom';
+                }
+                if (x === '6:00') {
+                  cfg.style.textAlign = 'left';
+                  cfg.offsetX = 4;
+                }
+                if (x === '12:00') {
+                  cfg.style.textBaseline = 'top';
+                  cfg.offsetY = 4;
+                }
+                if (x === '18:00') {
+                  cfg.style.textAlign = 'right';
+                  cfg.offsetX = -4;
+                }
+                return cfg;
+              },
+            },
+            // adjust: 'stack',
+            mapping: { color: 'transparent', style: { fill: 'transparent' } },
+          },
+        ],
+      },
+      {
+        // vis-annotation-of-"Music" (同步 vis-line)
+        data: [
+          { x: 'Music', y: 2 },
+          { x: ' ', y: 4 },
+          { x: ' ', y: 2 },
+          { x: ' ', y: 1 },
+        ],
+        region: {
+          start: { x: 0.125, y: 0.125 },
+          end: { x: 0.875, y: 0.875 },
+        },
+        coordinate: {
+          type: 'theta',
+          cfg: {
+            radius: 0.625 / 0.75,
+          },
+        },
+        geometries: [
+          {
+            type: 'interval',
+            xField: '1',
+            yField: 'y',
+            colorField: 'x',
+            label: {
+              autoRotate: false,
+              style: {
+                fill: theme.textColor,
+                fontSize: 18,
+                fontFamily: FONT_FAMILY,
+              },
+              layout: { type: 'pie-spider' },
+              fields: ['x', 'y'],
+              callback: (x: string) => {
+                const cfg: any = {};
+                if (x === 'Music') {
+                  cfg.offset = 60;
+                  cfg.offsetX = -30;
+                  cfg.offsetY = -9 /** fontSize * 0.5 */;
+                }
+                return {
+                  ...cfg,
+                  style: {
+                    fill: x !== ' ' ? theme.textColor : 'transparent',
+                  },
+                  labelLine:
+                    x === 'Music'
+                      ? {
+                          style: {
+                            lineWidth: 0.8,
+                            stroke: 'rgba(0,0,0,0.15)',
+                          },
+                        }
+                      : false,
+                };
+              },
+            },
+            adjust: 'stack',
+            mapping: { color: 'transparent', style: { fill: 'transparent' } },
           },
         ],
       },
