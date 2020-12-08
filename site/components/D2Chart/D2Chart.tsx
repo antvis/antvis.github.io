@@ -519,8 +519,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                   'r(0.5,0.5,1): 0:rgba(194,200,213,0.85) 1:rgba(194,200,213,0.45) 1',
                 Vue:
                   'r(0.5,0.5,1): 0:rgba(63,179,127,0.89) 1:rgba(63,179,127,0.49)',
-                Angular:
-                  'r(0.5,0.5,1): 0:rgba(215,2,47,0.85) 1:rgba(215,2,47,0.45)',
+                Angular: 'r(0.5,0.5,1): 0:#BC052B 1:rgba(215,2,47,0.45)',
               };
               return colorMap[x];
             },
