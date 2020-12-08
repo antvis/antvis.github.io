@@ -124,6 +124,33 @@ const NEXT_BUTTONS: NextButtons = {
   },
 };
 
+const CALCULATE_BUTTONS: NextButtons = {
+  cyan: {
+    unpressed:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*aXXmQZ0nLowAAAAAAAAAAAAAARQnAQ',
+    pressed:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*zS-JTamSFIYAAAAAAAAAAAAAARQnAQ',
+  },
+  red: {
+    unpressed:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*S2qBS5hEaxMAAAAAAAAAAAAAARQnAQ',
+    pressed:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*PXh6Rqi1tkcAAAAAAAAAAAAAARQnAQ',
+  },
+  tawny: {
+    unpressed:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*1JPPSq1PYLoAAAAAAAAAAAAAARQnAQ',
+    pressed:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*t0PPTLvLmlAAAAAAAAAAAAAAARQnAQ',
+  },
+  black: {
+    unpressed:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*GUUSTKLoBlcAAAAAAAAAAAAAARQnAQ',
+    pressed:
+      'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*3jquQZom1q4AAAAAAAAAAAAAARQnAQ',
+  },
+};
+
 const QR_CODE =
   'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ms2LSZO1AT0AAAAAAAAAAAAAARQnAQ';
 const SELECTED_COLOR = '#A58AFF';
@@ -869,27 +896,51 @@ const D2 = () => {
               </div>
             ))}
           </div>
-          <div className="d2-button-container" onClick={handleClickNext}>
-            {pressedNext ? (
-              <img
-                className="next-button"
-                src={NEXT_BUTTONS[keyboardType].pressed}
-                alt="button"
-                style={{
-                  width: '30vw',
-                  right: 'calc(8.5vw + 2.95vw)',
-                  bottom: 'calc(6.14vh + 1.3vh)',
-                }}
-              />
-            ) : (
-              <img
-                className="next-button"
-                src={NEXT_BUTTONS[keyboardType].unpressed}
-                alt="button"
-                style={{ width: '36vw', right: '8.5vw', bottom: '6.14vh' }}
-              />
-            )}
-          </div>
+          {pageIdx === questions.length - 1 ? (
+            <div className="d2-button-container" onClick={handleClickNext}>
+              {pressedNext ? (
+                <img
+                  className="next-button"
+                  src={CALCULATE_BUTTONS[keyboardType].pressed}
+                  alt="button"
+                  style={{
+                    width: '32vw',
+                    right: 'calc(8.5vw + 2vw)',
+                    bottom: 'calc(6.14vh + 1.4vh)',
+                  }}
+                />
+              ) : (
+                <img
+                  className="next-button"
+                  src={CALCULATE_BUTTONS[keyboardType].unpressed}
+                  alt="button"
+                  style={{ width: '36vw', right: '8.5vw', bottom: '6.14vh' }}
+                />
+              )}
+            </div>
+          ) : (
+            <div className="d2-button-container" onClick={handleClickNext}>
+              {pressedNext ? (
+                <img
+                  className="next-button"
+                  src={NEXT_BUTTONS[keyboardType].pressed}
+                  alt="button"
+                  style={{
+                    width: '30vw',
+                    right: 'calc(8.5vw + 2.95vw)',
+                    bottom: 'calc(6.14vh + 1.3vh)',
+                  }}
+                />
+              ) : (
+                <img
+                  className="next-button"
+                  src={NEXT_BUTTONS[keyboardType].unpressed}
+                  alt="button"
+                  style={{ width: '36vw', right: '8.5vw', bottom: '6.14vh' }}
+                />
+              )}
+            </div>
+          )}
         </>
       )}
       {pageIdx === -1 && (
