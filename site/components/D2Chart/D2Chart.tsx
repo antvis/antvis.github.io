@@ -136,16 +136,29 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           mapping: {
             style: () => {
               if (favoriteIDE === 'vim') {
+                if (themeMode === 'light') {
+                  return {
+                    // DONE 🎉
+                    shadowColor: 'rgba(63,58,53,0.45)',
+                    shadowBlur: 60,
+                  };
+                }
                 return {
                   // DONE 🎉
                   shadowColor: '#4AD8EA',
                   shadowBlur: 100,
                 };
               }
+              if (favoriteIDE === 'webstorm') {
+                return {
+                  // DONE 🎉
+                  shadowColor: 'rgba(255,255,255,0.38)',
+                  shadowBlur: 100,
+                };
+              }
               return {
-                shadowColor: 'rgba(255,255,255,0.98)',
+                shadowColor: 'rgba(255,255,255,0.38)',
                 shadowBlur: 140,
-                fillOpacity: 0.06,
               };
             },
           },
@@ -323,13 +336,16 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
               if (['Tenor', 'Keyboard', 'Amplifier'].indexOf(type) !== -1) {
                 cfg.strokeOpacity = 0.5;
               }
-              if (music === 'pop') {
+              if (music === 'electronic') {
                 if (type === 'Keyboard') {
                   cfg.strokeOpacity = 0.5;
                 }
                 if (type === 'Drum') {
                   cfg.strokeOpacity = 0.3;
                 }
+              }
+              if (themeMode === 'light') {
+                cfg.strokeOpacity *= 1.2;
               }
               return cfg;
             },
@@ -370,7 +386,10 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
               if (music === 'classic') {
                 return { r: 2, lineWidth: 0 };
               }
-              if (music === 'pop') {
+              if (music === 'electronic') {
+                return { r: 1, lineWidth: 0 };
+              }
+              if (music === 'pop' && datum.type === 'Amplifier') {
                 return { r: 1, lineWidth: 0 };
               }
               return { r: 0, lineWidth: 0 };
@@ -381,9 +400,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 ? 'triangle'
                 : music === 'classic'
                 ? 'diamond'
-                : music === 'pop'
-                ? 'circle'
-                : '',
+                : 'circle',
           },
         },
       ],
@@ -508,18 +525,6 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 Angular:
                   'r(0.5,0.5,1): 0:rgba(215,2,47,0.85) 1:rgba(215,2,47,0.45)',
               };
-              if (themeMode === 'light') {
-                colorMap = {
-                  React:
-                    'r(0.5,0.5,1): 0:rgba(94,211,243,0.65) 1:rgba(94,211,243,0.45)',
-                  Bymyself:
-                    'r(0.5,0.5,1): 0:rgba(194,200,213,0.65) 1:rgba(194,200,213,0.45) 1',
-                  Vue:
-                    'r(0.5,0.5,1): 0:rgba(63,179,127,0.69) 1:rgba(63,179,127,0.49)',
-                  Angular:
-                    'r(0.5,0.5,1): 0:rgba(215,2,47,0.65) 1:rgba(215,2,47,0.45)',
-                };
-              }
               return colorMap[x];
             },
             shape: 'waterdrop',
@@ -537,10 +542,10 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 vue: 'rgba(63,179,127,0.5)',
                 bymyself: 'rgba(194,200,213,0.5)',
               };
-              const framework = favoriteFramework || 'react';
+              const framework = favoriteFramework || 'bymyself';
               const selected =
                 framework === lowerCase(x) ||
-                (framework === '我自己写的' && x === 'Bymyself');
+                (framework === 'bymyself' && x === 'Bymyself');
               return {
                 fillOpacity: selected ? 1 : 0.85,
                 lineWidth: selected ? (width280 ? 1.2 : 1.5) : 0,
@@ -687,7 +692,7 @@ type Props = {
   /** 最喜欢的 ide */
   favoriteIDE: 'vim' | 'webstorm' | 'vscode' | 'atom';
   /** 最喜欢的前端框架 */
-  favoriteFramework: string | 'react' | 'vue' | 'angular' | '我自己写';
+  favoriteFramework: string | 'react' | 'vue' | 'angular' | 'bymyself';
   /** 工作效率 高效时间段 */
   efficientWorktime: 'morning' | 'afternoon' | 'dawn' | 'night' | 'midnight';
   /** 喜欢听的音乐 🎵 */
