@@ -47,6 +47,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
     efficientWorktime,
     music,
     favoriteIDE,
+    themeMode,
   } = props;
 
   let worktimeData: any[] = [];
@@ -132,30 +133,6 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
       ],
     },
     {
-      // 最大外光圈  不能放在柱状图前，否则无法使用大小
-      region: {
-        start: { x: 0, y: 0 },
-        end: { x: 1, y: 1 },
-      },
-      coordinate: { type: 'theta', cfg: { radius: 1, innerRadius: 0 } },
-      data: [{ value: 1 }],
-      geometries: [
-        {
-          type: 'interval',
-          yField: 'value',
-          mapping: {
-            // color: 'r(0.5,0.5,1): 0:rgba 0.5:rgba(255,255,255,0.4) 1:rgba(255,255,255,0.2)',
-            // color: '#fff',
-            style: {
-              fillOpacity: 0.06,
-              shadowColor: '#4AD8EA',
-              shadowBlur: 30,
-            },
-          },
-        },
-      ],
-    },
-    {
       // 同步环图, 环图外的光圈
       data: [{ value: 1 }],
       coordinate: { type: 'theta', cfg: { radius: 0.75 } },
@@ -164,9 +141,19 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           type: 'interval',
           yField: 'value',
           mapping: {
-            style: {
-              shadowColor: 'rgba(255,255,255,0.98)',
-              shadowBlur: 140,
+            style: () => {
+              if (favoriteIDE === 'vim') {
+                return {
+                  // DONE 🎉
+                  shadowColor: '#4AD8EA',
+                  shadowBlur: 80,
+                };
+              }
+              return {
+                shadowColor: 'rgba(255,255,255,0.98)',
+                shadowBlur: 140,
+                fillOpacity: 0.06,
+              };
             },
           },
         },
@@ -396,17 +383,13 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
               const cfg: any = {
                 style: {
                   fill: theme.textColor,
-                  fontSize: 14,
+                  fontSize: 10,
                   fontFamily: FONT_FAMILY,
                 },
                 content: x,
-                labelLine: { style: { stroke: '#979797', lineWidth: 0.8 } },
+                offset: 4,
+                labelLine: { style: { stroke: theme.textColor, lineWidth: 1 } },
               };
-              if (width280) {
-                cfg.offset = 24;
-              } else {
-                cfg.offset = 28;
-              }
 
               if (x === '0:00') {
                 cfg.style.textBaseline = 'bottom';
@@ -503,7 +486,18 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           yField: 'value',
           mapping: {
             // TODO 模拟高斯模糊
-            color: `r(0.5,0.5,1) 0:rgba(255,255,255,0.88) 0.5:rgba(255,255,255,0.55) 0.67:rgba(255,255,255,0.37) 1:rgba(255,255,255,0.18)`,
+            // radial-gradient(48% 94%, #FFFFFF 48%, rgba(255,255,255,0.18) 94%);
+            color: () => {
+              if (favoriteIDE === 'vim' && themeMode === 'dark') {
+                // DONE 🎉
+                return `r(0.5,0.5,0.94) 0:rgba(255,255,255, 1) 0.85:rgba(255,255,255,0.04) 1:#002C37`;
+              }
+              // todo 其他编辑器
+              return `r(0.5,0.5,0.94) 0:rgba(255,255,255, 1) 0.85:rgba(255,255,255,0.04) 1:#002C37`;
+            },
+            style: {
+              fillOpacity: 0.48,
+            },
           },
         },
       ],
@@ -584,6 +578,7 @@ type Props = {
   efficientWorktime: 'morning' | 'afternoon' | 'dawn' | 'night' | 'midnight';
   /** 喜欢听的音乐 🎵 */
   music: 'classic' | 'metal' | 'electronic' | 'pop';
+  themeMode: 'dark' | 'light';
   /**  */
   afterChartRender: () => void;
 };
