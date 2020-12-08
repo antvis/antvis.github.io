@@ -721,6 +721,7 @@ const D2 = () => {
             theme={{
               backgroundColor: colors.mainBack,
               textColor: colors.mainText,
+              subTextColor: colors.subText,
               dailySchedule: {
                 data: [
                   { x: 'midnight', y: 8 },

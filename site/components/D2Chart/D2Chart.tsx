@@ -11,9 +11,7 @@ import { CLASSIC, METAL, ELECTRONIC, POP } from './datas/music';
 import styles from './D2Chart.module.less';
 
 // 资源
-const FONT_FAMILY = `"Avenir Next Condensed", "-apple-system", "Segoe UI", Roboto, "Helvetica Neue", Arial,
-  "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-  "Noto Color Emoji"`;
+const FONT_FAMILY = `Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif`;
 
 /** 前端框架的一些渲染配置：vis-waterdrop（4种💧，角度随机） */
 const Framework = {
@@ -34,7 +32,7 @@ const Framework = {
   },
 };
 
-const DAILY_SCHEDULE_TEXT = 'Daily Schedule';
+const DAILY_SCHEDULE_TEXT = 'Daily\nSchedule';
 const MUSIC_TEXT = 'Music';
 
 const getViews = (props: Props, box: DOMRect | undefined) => {
@@ -226,11 +224,6 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                   fillOpacity: 0.5,
                 },
               };
-              if (x === get(theme.dailySchedule, ['data', 0, 'x'])) {
-                // todo 确定计算规则
-                cfg.offsetY = width280 ? -16 : -32;
-                cfg.offsetX = width280 ? -29 : -58;
-              }
               return cfg;
             },
           },
@@ -578,10 +571,10 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
         { x: '10', y: 42.5 },
         { x: '11', population: 42.5 },
         { x: '12', population: 42.5 },
+        { x: DAILY_SCHEDULE_TEXT, y: 41.8 },
         { x: '13', population: 42.5 },
         { x: '14', population: 42.5 },
         { x: '15', population: 42.5 },
-        { x: DAILY_SCHEDULE_TEXT, y: 41.8 },
         { x: '17', y: 30.3 },
       ],
       coordinate: {
@@ -597,12 +590,16 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
             fields: ['x'],
             callback: (x: string) => {
               return {
+                autoRotate: false,
                 content: [DAILY_SCHEDULE_TEXT].indexOf(x) !== -1 ? x : ' ',
                 offset: 25,
+                offsetX: -8,
                 style: {
-                  fill: theme.dailySchedule.customStyle.fontFill,
-                  fontSize: width280 ? 14 : 18,
+                  fill: theme.subTextColor,
+                  fontSize: 10,
                   fontFamily: FONT_FAMILY,
+                  fontWeight: 700,
+                  textAlign: 'left',
                 },
               };
             },
@@ -649,12 +646,14 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
             fields: ['x'],
             callback: (x: string) => {
               return {
+                autoRotate: false,
                 content: [MUSIC_TEXT].indexOf(x) !== -1 ? x : ' ',
                 offset: 25,
                 style: {
-                  fill: theme.dailySchedule.customStyle.fontFill,
-                  fontSize: width280 ? 14 : 18,
+                  fill: theme.subTextColor,
+                  fontSize: 10,
                   fontFamily: FONT_FAMILY,
+                  fontWeight: 700,
                 },
               };
             },
@@ -672,6 +671,7 @@ type Props = {
   theme: {
     backgroundColor: string;
     textColor: string;
+    subTextColor: string;
     /** 环图 */
     dailySchedule: {
       data: Array<{ x: string; y: number | string }>;
