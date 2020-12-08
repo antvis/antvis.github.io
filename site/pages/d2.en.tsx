@@ -1,3 +1,3 @@
-import AboutUsIndex from './about.zh';
+import D2 from './d2.zh';
 
-export default AboutUsIndex;
+export default D2;
