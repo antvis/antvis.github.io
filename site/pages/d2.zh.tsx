@@ -131,7 +131,7 @@ const UNSELECTED_COLOR = '#fff';
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 const LOTTERY_CODE = '抽奖码：AntV 西湖区第一的可视化引擎';
 const PLAYGAME_TIP = '和我一起扫码生成属于你的图表吧';
-const DEFAULT_TIP = '*游戏后长按保存图片并分享，即可得抽奖码';
+const DEFAULT_TIP = '*游戏后长按保存图片并分享，即得抽奖码';
 
 //_back
 const userAnswers: UserAnswer = {
@@ -156,6 +156,7 @@ const userAnswers_back: UserAnswer = {
 
 let startTime = Infinity;
 let tipTimer = -1;
+let finalPageScreenShotBase64: any;
 
 const D2 = () => {
   const { t, i18n } = useTranslation();
@@ -567,6 +568,7 @@ const D2 = () => {
   };
 
   const getScreenShot = () => {
+    if (finalPageScreenShotBase64) return;
     const plot = plotRef.current;
     if (plot && plot.chart) {
       const chart = plot.chart;
@@ -633,8 +635,10 @@ const D2 = () => {
           // }
         })
           .then(function (canvas: any) {
+            // setTip(DEFAULT_TIP);
             try {
               b64 = canvas.toDataURL('image/png');
+              finalPageScreenShotBase64 = b64;
 
               // 将 canvas 转换为 img
               renderImgDom(b64, targetDom, '*');
@@ -751,7 +755,6 @@ const D2 = () => {
             style={{ marginLeft: texts.title.length > 5 ? '190px' : '130px' }}
             src={stickerSrc}
           />{' '}
-          <br />
           <span className="d2-finalpage-result-des d2-finalpage-result-des1">
             {texts.description1}
           </span>
@@ -767,6 +770,7 @@ const D2 = () => {
           <span className="d2-footer-tip" style={{ color: colors.tipText }}>
             {tip}
           </span>
+          <br />
           <span className="d2-footer-address">antv.vision/</span>
         </div>
         <img className="d2-finalpage-fcode" src={QR_CODE} />
