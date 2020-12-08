@@ -172,7 +172,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           startAngle: (-Math.PI * 5) / 12,
           endAngle: (Math.PI * 3) / 2 + (Math.PI * 1) / 12,
           radius: 1,
-          innerRadius: 0.92,
+          innerRadius: 0.95,
         },
       },
       axes: false,
@@ -268,9 +268,9 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
       ],
     },
     {
-      // 同步环图(环图内圈)
+      // 同步环图(环图内圈 vis-donut)
       data: [{ value: 1 }],
-      coordinate: { type: 'theta', cfg: { radius: 0.75 * 0.92 } },
+      coordinate: { type: 'theta', cfg: { radius: 0.75 * 0.95 } },
       geometries: [
         {
           type: 'interval',
