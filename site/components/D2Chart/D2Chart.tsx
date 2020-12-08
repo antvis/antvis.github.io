@@ -25,10 +25,10 @@ const Framework = {
   ],
   color: ({ x }: any) => {
     const colorMap: any = {
-      React: 'rgba(94,211,243,0.25)',
-      Bymyself: 'rgba(194,200,213,0.25)',
-      Vue: 'rgba(63,179,127,0.19)',
-      Angular: 'rgba(215,2,47,0.25)',
+      React: 'rgba(94,211,243,0.45)',
+      Bymyself: 'rgba(194,200,213,0.45)',
+      Vue: 'rgba(63,179,127,0.49)',
+      Angular: 'rgba(215,2,47,0.45)',
     };
     return colorMap[x];
   },
@@ -540,7 +540,6 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
         { x: '1', y: 38 },
         { x: '2', y: 33.7 },
         { x: '3', y: 25.8 },
-        { x: MUSIC_TEXT, y: 30.7 },
         { x: '4', y: 31.7 },
         { x: '6', y: 33 },
         { x: '7', y: 46 },
@@ -568,8 +567,59 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
             fields: ['x'],
             callback: (x: string) => {
               return {
-                content:
-                  [DAILY_SCHEDULE_TEXT, MUSIC_TEXT].indexOf(x) !== -1 ? x : ' ',
+                content: [DAILY_SCHEDULE_TEXT].indexOf(x) !== -1 ? x : ' ',
+                offset: 25,
+                style: {
+                  fill: theme.dailySchedule.customStyle.fontFill,
+                  fontSize: width280 ? 14 : 18,
+                  fontFamily: FONT_FAMILY,
+                },
+              };
+            },
+          },
+          mapping: {
+            color: 'transparent',
+          },
+        },
+      ],
+    },
+    {
+      region: {
+        start: { x: 0.125, y: 0.125 },
+        end: { x: 0.875, y: 0.875 },
+      },
+      data: [
+        { x: '1', y: 38 },
+        { x: '2', y: 33.7 },
+        { x: '3', y: 25.8 },
+        { x: MUSIC_TEXT, y: 30.7 },
+        { x: '4', y: 31.7 },
+        { x: '6', y: 33 },
+        { x: '7', y: 46 },
+        { x: '8', y: 38.3 },
+        { x: '9', y: 28 },
+        { x: '10', y: 42.5 },
+        { x: '11', population: 42.5 },
+        { x: '12', population: 42.5 },
+        { x: '13', population: 42.5 },
+        { x: '14', population: 42.5 },
+        { x: '15', population: 42.5 },
+        { x: '17', y: 30.3 },
+      ],
+      coordinate: {
+        type: 'polar',
+        cfg: { radius: 0.7, innerRadius: 0.65 },
+      },
+      geometries: [
+        {
+          type: 'interval',
+          xField: 'x',
+          yField: '1',
+          label: {
+            fields: ['x'],
+            callback: (x: string) => {
+              return {
+                content: [MUSIC_TEXT].indexOf(x) !== -1 ? x : ' ',
                 offset: 25,
                 style: {
                   fill: theme.dailySchedule.customStyle.fontFill,
