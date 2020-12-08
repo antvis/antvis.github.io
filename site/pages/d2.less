@@ -1,3 +1,19 @@
+.d2-horizontal-container {
+  width: 100%;
+  text-align: center;
+  .d2-horizontal-qrcode {
+    margin-top: 10vh;
+    width: 70vh;
+    max-width: 250px;
+  }
+  .d2-horizontal-des {
+    margin-top: 8px;
+  }
+  .d2-horizontal-des2 {
+    color: #aaa;
+  }
+}
+
 .d2-container {
   background-color: #202122;
   height: 100vh;
@@ -107,17 +123,17 @@
     padding: 16px 32px;
     height: 100%;
     .d2-finalpage-header {
-      font-size: 45px;
+      font-size: 40px;
       font-weight: 800;
       height: 60px;
       .d2-finalpage-title {
-        margin-top: 16px;
-        width: 33vw;
+        margin-top: 0px;
+        // width: 33vw;
         float: left;
       }
       .d2-finalpage-symbol {
         float: right;
-        margin-top: 8px;
+        margin-top: 0px;
         font-size: 36px;
       }
     }
@@ -128,7 +144,7 @@
       text-align: center;
     }
     .d2-finalpage-text-container {
-      margin-top: 32px;
+      margin-top: 40px;
       .d2-finalpage-result-title {
         font-size: 32px;
         font-weight: 900;
@@ -151,39 +167,60 @@
         font-weight: 500;
       }
     }
-    .d2-finalpage-footer-left {
+    .d2-finalpage-footer {
+      left: 16px;
+      width: calc(100% - 32px);
+      bottom: 8px;
       position: absolute;
-      float: left;
-      bottom: 16px;
-      font-size: 12px;
-      .d2-footer-address {
-        letter-spacing: 10px;
-      }
-      .d2-footer-tip {
-        font-size: 10px;
+      .d2-finalpage-footer-img {
+        width: 100%;
       }
     }
-    .d2-finalpage-fcode {
-      width: 18vw;
-      height: 18vw;
-      right: 32px;
-      bottom: 16px;
-      position: absolute;
-    }
+    // .d2-finalpage-footer-left {
+    //   position: absolute;
+    //   float: left;
+    //   bottom: 16px;
+    //   font-size: 12px;
+    //   .d2-footer-address {
+    //     letter-spacing: 10px;
+    //   }
+    //   .d2-footer-tip {
+    //     font-size: 10px;
+    //   }
+    // }
+    // .d2-finalpage-fcode {
+    //   width: 18vw;
+    //   height: 18vw;
+    //   right: 32px;
+    //   bottom: 16px;
+    //   position: absolute;
+    // }
   }
 }
 @media (min-width: 500px) {
   .d2-container {
     .d2-finalpage {
+      .d2-finalpage-header {
+        .d2-finalpage-title {
+          margin-top: 0;
+        }
+        .d2-finalpage-symbol {
+          margin-top: 0;
+        }
+      }
       .d2-chart-container {
-        width: calc(80vw - 32px);
-        height: calc(80vw - 32px);
-        margin: 0px 0 -24px calc(10vw - 16px);
+        width: calc(60vw - 32px);
+        height: 60vw;
+        margin: 0px calc(20vw - 16px) -16px calc(20vw - 16px);
         text-align: center;
       }
       .d2-finalpage-fcode {
         width: 14vw;
         height: 14vw;
+      }
+      .d2-finalpage-footer {
+        left: 32px;
+        width: calc(100% - 64px);
       }
     }
   }
@@ -249,8 +286,15 @@
       height: 100%;
       font-size: 14px;
       .d2-finalpage-header {
-        font-size: 40px;
+        font-size: 30px;
         height: 40px;
+        .d2-finalpage-title {
+          margin-top: 0;
+        }
+        .d2-finalpage-symbol {
+          font-size: 26px;
+          margin-top: 0px;
+        }
       }
       // .d2-chart-container {
       //   width: calc(100vw - 32px);
@@ -259,7 +303,7 @@
       //   text-align: center;
       // }
       .d2-finalpage-text-container {
-        margin-top: 32px;
+        margin-top: 8px;
         .d2-finalpage-result-title {
           font-size: 25px;
         }
@@ -272,20 +316,20 @@
           font-size: 12px;
         }
       }
-      .d2-finalpage-footer-left {
-        bottom: 12px;
-        font-size: 12px;
-        .d2-footer-address {
-          letter-spacing: 8px;
-        }
-        .d2-footer-tip {
-          font-size: 10px;
-        }
-      }
-      .d2-finalpage-fcode {
-        width: 18vw;
-        height: 18vw;
-      }
+      // .d2-finalpage-footer-left {
+      //   bottom: 12px;
+      //   font-size: 12px;
+      //   .d2-footer-address {
+      //     letter-spacing: 8px;
+      //   }
+      //   .d2-footer-tip {
+      //     font-size: 10px;
+      //   }
+      // }
+      // .d2-finalpage-fcode {
+      //   width: 18vw;
+      //   height: 18vw;
+      // }
     }
   }
 }
