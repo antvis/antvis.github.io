@@ -131,11 +131,11 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
       data: worktimeData.map((d) => ({
         ...d,
         // TODO 调试
-        y: d.y / yMax < 0.46 ? d.y + yMax * 0.46 * 0.6 : d.y,
+        y: d.y / yMax < 0.46 ? d.y + yMax * 0.46 * 0.2 : d.y,
       })),
       coordinate: {
         type: 'polar',
-        cfg: { radius: 1, innerRadius: 0.65 /** 内环半径 */ },
+        cfg: { radius: 1, innerRadius: 0.6 /** 内环半径 */ },
       },
       axes: {
         x: false,
@@ -162,7 +162,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
     {
       // 同步环图, 环图外的光圈
       data: [{ value: 1 }],
-      coordinate: { type: 'theta', cfg: { radius: 0.75 } },
+      coordinate: { type: 'theta', cfg: { radius: 0.6 } },
       geometries: [
         {
           type: 'interval',
@@ -189,8 +189,8 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
     {
       // 时间周期，vis-donut
       region: {
-        start: { x: 0.125, y: 0.125 },
-        end: { x: 0.875, y: 0.875 },
+        start: { x: 0.18, y: 0.18 },
+        end: { x: 0.82, y: 0.82 },
       },
       data: theme.dailySchedule.data,
       coordinate: {
@@ -245,6 +245,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           style: {
             textAlign: 'center',
             textBaseline: 'middle',
+            fontWeight: 700,
             fontSize:
               theme.dailySchedule.annotations[0].fontSize *
               (width280 ? 0.6 : 1),
@@ -283,7 +284,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
     {
       // 同步环图(环图内圈 vis-donut)
       data: [{ value: 1 }],
-      coordinate: { type: 'theta', cfg: { radius: 0.75 * 0.95 } },
+      coordinate: { type: 'theta', cfg: { radius: 0.65 * 0.95 } },
       geometries: [
         {
           type: 'interval',
@@ -310,7 +311,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
       coordinate: {
         type: 'polar',
         cfg: {
-          radius: 0.97,
+          radius: 0.8,
           innerRadius: 0.4,
         },
       },
@@ -425,8 +426,8 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
         { x: '18:00', y: 1 },
       ],
       region: {
-        start: { x: 0.125, y: 0.125 },
-        end: { x: 0.875, y: 0.875 },
+        start: { x: 0.145, y: 0.145 },
+        end: { x: 0.855, y: 0.855 },
       },
       coordinate: {
         type: 'polar',
@@ -444,7 +445,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
               const cfg: any = {
                 style: {
                   fill: theme.textColor,
-                  fontSize: 10,
+                  fontSize: 12,
                   fontFamily: FONT_FAMILY,
                 },
                 content: x,
@@ -481,32 +482,32 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
         },
       ],
     },
-    {
-      // 内光圈-2，半径 108px = 372px * 0.29 (最里边的圆形⭕️光圈)
-      data: [{ value: 1 }],
-      coordinate: { type: 'theta', cfg: { radius: 0.29 } },
-      geometries: [
-        {
-          type: 'interval',
-          yField: 'value',
-          mapping: {
-            // TODO 模拟高斯模糊
-            // radial-gradient(48% 94%, #FFFFFF 48%, rgba(255,255,255,0.18) 94%);
-            color: () => {
-              if (favoriteIDE === 'vim' && themeMode === 'dark') {
-                // DONE 🎉
-                return `r(0.5,0.5,0.94) 0:rgba(255,255,255, 1) 0.85:rgba(255,255,255,0.04) 1:#002C37`;
-              }
-              // todo 其他编辑器
-              return `r(0.5,0.5,0.94) 0:rgba(255,255,255, 1) 0.85:rgba(255,255,255,0.04) 1:#002C37`;
-            },
-            style: {
-              fillOpacity: 0.48,
-            },
-          },
-        },
-      ],
-    },
+    // {
+    //   // 内光圈-2，半径 108px = 372px * 0.29 (最里边的圆形⭕️光圈)
+    //   data: [{ value: 1 }],
+    //   coordinate: { type: 'theta', cfg: { radius: 0.29 } },
+    //   geometries: [
+    //     {
+    //       type: 'interval',
+    //       yField: 'value',
+    //       mapping: {
+    //         // TODO 模拟高斯模糊
+    //         // radial-gradient(48% 94%, #FFFFFF 48%, rgba(255,255,255,0.18) 94%);
+    //         color: () => {
+    //           if (favoriteIDE === 'vim' && themeMode === 'dark') {
+    //             // DONE 🎉
+    //             return `r(0.5,0.5,0.94) 0:rgba(255,255,255, 1) 0.85:rgba(255,255,255,0.04) 1:#002C37`;
+    //           }
+    //           // todo 其他编辑器
+    //           return `r(0.5,0.5,0.94) 0:rgba(255,255,255, 1) 0.85:rgba(255,255,255,0.04) 1:#002C37`;
+    //         },
+    //         style: {
+    //           fillOpacity: 0.48,
+    //         },
+    //       },
+    //     },
+    //   ],
+    // },
     {
       data: Framework.data,
       coordinate: {
@@ -596,7 +597,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 offsetX: -8,
                 style: {
                   fill: theme.subTextColor,
-                  fontSize: 10,
+                  fontSize: 12,
                   fontFamily: FONT_FAMILY,
                   fontWeight: 700,
                   textAlign: 'left',
@@ -648,10 +649,10 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
               return {
                 autoRotate: false,
                 content: [MUSIC_TEXT].indexOf(x) !== -1 ? x : ' ',
-                offset: 25,
+                offset: 20,
                 style: {
                   fill: theme.subTextColor,
-                  fontSize: 10,
+                  fontSize: 12,
                   fontFamily: FONT_FAMILY,
                   fontWeight: 700,
                 },
@@ -737,7 +738,7 @@ export const VisCanvas = forwardRef((props: Props, ref: any) => {
         height: box.height || canvasBox?.height, // 441 /* 372 + 40 */,
         autoFit: true,
         padding: 0,
-        appendPadding: [40, 20, 20, 20],
+        appendPadding: [0, 0, 0, 0],
         tooltip: false,
         views: getViews(props, box.height !== 0 ? box : canvasBox),
         syncViewPadding: true,
