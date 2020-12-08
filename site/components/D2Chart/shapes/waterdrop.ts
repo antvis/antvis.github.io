@@ -16,6 +16,7 @@ G2.registerShape('interval', 'waterdrop', {
     const strokeWidth = shapeInfo.style?.lineWidth;
     const fillOpacity = shapeInfo.style?.fillOpacity || 0.75;
     const inleft = points[0].x < points[1].x;
+    const inbottom = points[0].y < points[1].y;
     let startColor = shapeInfo.color;
     let endColor = '#fff';
     if (inleft) {
@@ -23,15 +24,26 @@ G2.registerShape('interval', 'waterdrop', {
       endColor = shapeInfo.color;
     }
 
+    const offsetX = (strokeWidth / 2) * (inleft ? -1 : 1);
+    const offsetY = (strokeWidth / 2) * (inbottom ? 1 : -1);
     const waterdrop = container.addShape({
       type: 'path',
       attrs: {
         path: [
-          ['M', points[2].x, points[2].y],
+          ['M', points[2].x + offsetX, points[2].y + offsetY],
           ['L', center.x, center.y],
           ['L', points[1].x, points[1].y],
-          ['A', distance / 2, distance / 2, 0, 1, 1, points[2].x, points[2].y],
-          ['L', points[2].x, points[2].y],
+          [
+            'A',
+            distance / 2,
+            distance / 2,
+            0,
+            1,
+            1,
+            points[2].x + offsetX,
+            points[2].y + offsetY,
+          ],
+          ['L', points[2].x + offsetX, points[2].y + offsetY],
           ['Z'],
         ],
         fill: `l(0): 0:${startColor} 1:${endColor}`,
