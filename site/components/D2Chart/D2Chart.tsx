@@ -1,5 +1,5 @@
 import React, { forwardRef, useLayoutEffect, useRef } from 'react';
-import { get, lowerCase } from '@antv/util';
+import { lowerCase } from '@antv/util';
 import {
   DAWN_DAILY_SCHEDULE,
   MIDNIGHT_DAILY_SCHEDULE,
@@ -124,8 +124,29 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           meta: { x: { type: 'cat' }, y: { min: 0 } },
           colorField: 'type',
           mapping: {
-            color: ['#5B8FF9', '#FE84B2'],
-            style: { fillOpacity: 0.45 },
+            style: ({ x }: { x: string }) => {
+              const hour = Number(x.split(':')[0]);
+              const cfg: any = { fillOpacity: 0.45 };
+              const DAILY_SCHEDULE_COLOR = [
+                'l(0) 0:#6232B4 1:#81CCEA',
+                'l(0) 0:#C0F08B 1:#A7E8EA',
+                'l(0) 0:#FBD215 1:#B3E79A',
+                'l(0) 0:#F8BF39 1:#E26AC4',
+                'l(0) 0:#F262BD 1:#4D35AB',
+              ];
+              if (hour >= 1 && hour < 5) {
+                cfg.fill = DAILY_SCHEDULE_COLOR[0];
+              } else if (hour >= 5 && hour < 12) {
+                cfg.fill = DAILY_SCHEDULE_COLOR[1];
+              } else if (hour >= 12 && hour < 17) {
+                cfg.fill = DAILY_SCHEDULE_COLOR[2];
+              } else if (hour >= 17 && hour < 21) {
+                cfg.fill = DAILY_SCHEDULE_COLOR[3];
+              } else {
+                cfg.fill = DAILY_SCHEDULE_COLOR[4];
+              }
+              return cfg;
+            },
           },
           adjust: {
             type: 'dodge',
@@ -210,6 +231,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                   fontFamily: FONT_FAMILY,
                   fill: theme.dailySchedule.customStyle.fontFill,
                   fillOpacity: 0.5,
+                  fontSize: 10,
                 },
               };
               return cfg;
@@ -395,11 +417,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
               }
               // 流行音乐 🎵：第一和第三条和第六条线是曲线，其余直线，第 5 条带圆形○标记
               if (music === 'pop') {
-                cfg.r =
-                  datum.type !==
-                  (Math.random() > 0.5 ? 'Amplifier' : 'Rhythm_guitar')
-                    ? 0
-                    : 2;
+                cfg.r = datum.type === 'Rhythm_guitar' ? 2 : 0;
               }
               // 小设备
               if (width320) {
