@@ -5,7 +5,7 @@ G2.registerShape('point', 'breath-point', {
   draw(shapeInfo: any, container: any) {
     const point = { x: shapeInfo.x, y: shapeInfo.y };
     const group = container.addGroup();
-    const r = shapeInfo.style?.r || 2;
+    const r = shapeInfo.style?.r || 0;
     const r1 = r * 0.8;
     const r2 = r1 * 0.9;
     const opacity = shapeInfo.style?.fillOpacity || 0.5;
