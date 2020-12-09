@@ -174,7 +174,7 @@ const LOGOS = {
 };
 
 //_back
-const userAnswers: UserAnswer = {
+const userAnswers_back: UserAnswer = {
   keyboard: '',
   symbol: '',
   shirt: '',
@@ -184,14 +184,14 @@ const userAnswers: UserAnswer = {
   music: '',
 };
 
-const userAnswers_back: UserAnswer = {
-  keyboard: 'red',
-  symbol: '=>',
-  shirt: 'fashion',
-  framework: 'vue',
-  ide: 'vscode',
-  worktime: 'morning',
-  music: 'pop',
+const userAnswers: UserAnswer = {
+  keyboard: 'black', // red cyon tawn black none
+  framework: 'bymyself', // vue react angular bymyself
+  worktime: 'morning', // morning afternoon dawn night midnight
+  symbol: '...', // :? => ; ...
+  shirt: 'fashion', // smile fashion cool style
+  ide: 'vscode', // vscode vim atom webstorm
+  music: 'electronic', // classic metal electronic pop
 };
 
 let startTime = Infinity;
@@ -204,7 +204,7 @@ const D2 = () => {
   const element = React.useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
 
-  const [pageIdx, setPageIdx] = useState(-1); // -1
+  const [pageIdx, setPageIdx] = useState(7); // -1
   const [selectedOption, setSelectedOption] = useState('');
   const [keyboardType, setKeybordType] = useState('default');
   const [pressedNext, setPressedNext] = useState(false);
@@ -215,12 +215,13 @@ const D2 = () => {
   const questions: Question[] = [
     {
       id: 'keyboard',
-      question: '你喜欢的机械键盘类型是？',
+      question: '你喜欢用哪种机械键盘？',
       answers: [
         { main: '青轴', id: 'keyboard-cyan' },
         { main: '黑轴', id: 'keyboard-black' },
         { main: '红轴', id: 'keyboard-red' },
         { main: '茶轴', id: 'keyboard-tawny' },
+        { main: '都不用', id: 'keyboard-none' },
       ],
     },
     {
@@ -412,13 +413,13 @@ const D2 = () => {
             light:
               'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*iR50QL0uvVwAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*HTYASIFURxsAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5YA3RYZL7gcAAAAAAAAAAAAAARQnAQ',
           },
           gift: {
             light:
               'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*euZHRbdWYqAAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*ggFWRJ1h5IMAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*SJELTpw2Jm0AAAAAAAAAAAAAARQnAQ',
           },
         },
         colors: {
@@ -529,20 +530,20 @@ const D2 = () => {
         title: '早起奋斗者',
         description1:
           '今早起床了，看屏幕里的我，忽然发现天气有点适合来创造，一点点改变，有很大的差别，每一行代码都能改变世界。新一代的',
-        description2: '，马上推荐你，叫上朋友一起感受数据超能力。',
+        description2: '，叫上朋友一起感受数据超能力。',
         libDes: '数据神器',
       },
       afternoon: {
         title: '社会主义打工人',
         description1:
-          '太阳当空照，我又上班辽，不迟到，不早退，立志要为人民立功劳。社会人社会魂，社会主义打工人，特为您推荐',
+          '太阳当空照，我又上班辽，不迟到，不早退，立志要为人民立功劳。社会人社会魂，社会主义打工人，为您推荐',
         description2: '，一起迈向社会主义数字化新时代。',
         libDes: '数字化利器',
       },
       dawn: {
         title: '车间划水人',
         description1:
-          '再给我两分钟，让我把代码写成诗，不过才过饭点，要我怎么忍心就这么回家？下班不积极，思想有问题，为您推荐',
+          '再给我两分钟，让我把代码写成诗，不过才过饭点，要我怎么忍心就这么回家？下班不积极，思想有问题，为您特别推荐',
         description2: '，快速生成数据图表，按时下班没烦恼！',
         libDes: '效率神器',
       },
@@ -577,7 +578,7 @@ const D2 = () => {
   const handleClickNext = () => {
     const newIdx = pageIdx + 1;
     if (selectedOption === '' && pageIdx > -1 && pageIdx < questions.length) {
-      Toast.info('大哥，选一个再继续吧！', 1);
+      Toast.info('大佬，选一个再继续吧！', 1);
       setPressedNext(true);
       setTimeout(() => {
         setPressedNext(false);
@@ -779,12 +780,12 @@ const D2 = () => {
     const texts: FinalPageConfigText = finalPageConfigs.texts[gworktime];
 
     let theme: 'dark' | 'light' = 'dark';
-    if (
-      worktime === 'morning' ||
-      worktime === 'forenoon' ||
-      worktime === 'afternoon'
-    )
-      theme = 'light';
+    // if (
+    //   worktime === 'morning' ||
+    //   worktime === 'forenoon' ||
+    //   worktime === 'afternoon'
+    // )
+    //   theme = 'light';
     const colors = styles.colors[theme];
     const randomIdx = Math.floor(Math.random() * recommandLib.length);
     const lib = recommandLib[randomIdx];
@@ -849,7 +850,7 @@ const D2 = () => {
           />
         </div>
         <div className="d2-finalpage-text-container">
-          <div>测算结果显示，你是…</div>
+          <div className="d2-finalpage-result-pre">测算结果显示，你是…</div>
           <div className="d2-finalpage-result-title">{texts.title}</div>
           <img
             className="d2-finalpage-sticker"
