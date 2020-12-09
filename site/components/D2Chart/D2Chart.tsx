@@ -391,10 +391,15 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
                 cfg.r = 2;
               }
               if (music === 'electronic') {
-                cfg.r = 1;
+                cfg.r = 1.5;
               }
-              if (music === 'pop' && datum.type === 'Amplifier') {
-                cfg.r = 1;
+              // 流行音乐 🎵：第一和第三条和第六条线是曲线，其余直线，第 5 条带圆形○标记
+              if (music === 'pop') {
+                cfg.r =
+                  datum.type !==
+                  (Math.random() > 0.5 ? 'Amplifier' : 'Rhythm_guitar')
+                    ? 0
+                    : 2;
               }
               // 小设备
               if (width320) {
@@ -405,12 +410,13 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
               return cfg;
             },
             // note: 重金属(metal) 使用三角形, 古典音乐（classic）使用菱形
-            shape:
-              music === 'metal'
+            shape: (type: string) => {
+              return music === 'metal'
                 ? 'triangle'
                 : music === 'classic'
                 ? 'diamond'
-                : 'breath-point',
+                : 'breath-point';
+            },
           },
         },
       ],
