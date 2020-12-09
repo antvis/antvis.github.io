@@ -1,7 +1,8 @@
+// @ts-ignore
 const { G2 } = require('@antv/g2plot/dist/g2plot.min.js');
 
 G2.registerShape('point', 'breath-point', {
-  draw(shapeInfo, container) {
+  draw(shapeInfo: any, container: any) {
     const point = { x: shapeInfo.x, y: shapeInfo.y };
     const group = container.addGroup();
     const r = shapeInfo.style?.r || 2;
