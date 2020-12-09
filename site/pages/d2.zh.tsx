@@ -197,6 +197,7 @@ const userAnswers: UserAnswer = {
 let startTime = Infinity;
 let tipTimer = -1;
 let finalPageScreenShotBase64: any;
+let randomRecommandLib: string;
 
 const D2 = () => {
   const { t, i18n } = useTranslation();
@@ -787,8 +788,10 @@ const D2 = () => {
     // )
     //   theme = 'light';
     const colors = styles.colors[theme];
-    const randomIdx = Math.floor(Math.random() * recommandLib.length);
-    const lib = recommandLib[randomIdx];
+    if (!randomRecommandLib) {
+      const randomIdx = Math.floor(Math.random() * recommandLib.length);
+      randomRecommandLib = recommandLib[randomIdx];
+    }
     const stickerSrc = styles.stickers[gshirt][theme];
     const footerShare = styles.footers.share[theme];
     const footerGift = styles.footers.gift[theme];
@@ -833,8 +836,8 @@ const D2 = () => {
                 },
                 annotations: [
                   {
-                    content: lib /** 推荐”防秃利器 - 可视化库“ */,
-                    fontSize: recommandLibFontSize[lib],
+                    content: randomRecommandLib /** 推荐”防秃利器 - 可视化库“ */,
+                    fontSize: recommandLibFontSize[randomRecommandLib],
                   },
                 ],
               },
@@ -864,7 +867,7 @@ const D2 = () => {
             className="d2-finalpage-result-recommand"
             style={{ color: colors.subText }}
           >
-            「{texts.libDes} — {lib}」
+            「{texts.libDes} — {randomRecommandLib}」
           </span>
           <span className="d2-finalpage-result-des">{texts.description2}</span>
         </div>
