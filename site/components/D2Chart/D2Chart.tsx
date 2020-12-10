@@ -126,7 +126,7 @@ const getViews = (props: Props, box: DOMRect | undefined) => {
           mapping: {
             style: ({ x }: { x: string }) => {
               const hour = Number(x.split(':')[0]);
-              const cfg: any = { fillOpacity: 0.45 };
+              const cfg: any = { fillOpacity: 0.45, lineCap: 'round' };
               const DAILY_SCHEDULE_COLOR = [
                 'l(0) 0:#6232B4 1:#81CCEA',
                 'l(0) 0:#C0F08B 1:#A7E8EA',
