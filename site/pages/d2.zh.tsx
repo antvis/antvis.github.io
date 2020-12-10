@@ -1054,7 +1054,11 @@ const D2 = () => {
               {pressedNext ? (
                 <img
                   className="next-button"
-                  src={CALCULATE_BUTTONS[keyboardType].pressed}
+                  src={
+                    CALCULATE_BUTTONS[keyboardType]
+                      ? CALCULATE_BUTTONS[keyboardType].pressed
+                      : CALCULATE_BUTTONS['red'].pressed
+                  }
                   alt="button"
                   style={{
                     width: '32vw',
@@ -1065,7 +1069,11 @@ const D2 = () => {
               ) : (
                 <img
                   className="next-button"
-                  src={CALCULATE_BUTTONS[keyboardType].unpressed}
+                  src={
+                    CALCULATE_BUTTONS[keyboardType]
+                      ? CALCULATE_BUTTONS[keyboardType].unpressed
+                      : CALCULATE_BUTTONS['red'].unpressed
+                  }
                   alt="button"
                   style={{ width: '36vw', right: '8.5vw', bottom: '6.14vh' }}
                 />
@@ -1076,7 +1084,11 @@ const D2 = () => {
               {pressedNext ? (
                 <img
                   className="next-button"
-                  src={NEXT_BUTTONS[keyboardType].pressed}
+                  src={
+                    NEXT_BUTTONS[keyboardType]
+                      ? NEXT_BUTTONS[keyboardType].pressed
+                      : NEXT_BUTTONS['default'].pressed
+                  }
                   alt="button"
                   style={{
                     width: '30vw',
@@ -1087,7 +1099,11 @@ const D2 = () => {
               ) : (
                 <img
                   className="next-button"
-                  src={NEXT_BUTTONS[keyboardType].unpressed}
+                  src={
+                    NEXT_BUTTONS[keyboardType]
+                      ? NEXT_BUTTONS[keyboardType].unpressed
+                      : NEXT_BUTTONS['default'].unpressed
+                  }
                   alt="button"
                   style={{ width: '36vw', right: '8.5vw', bottom: '6.14vh' }}
                 />
