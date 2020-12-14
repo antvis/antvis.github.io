@@ -43,11 +43,7 @@ export default (props: BannerProps) => {
           style={{ gridRow: `${row}`, gridColumn: `${col}` }}
         >
           {url ? (
-            <a
-              className={styles[className]}
-              href={`${url}/${lang}`}
-              target="_blank"
-            >
+            <a className={styles[className]} href={`${url}`} target="_blank">
               {lang === 'zh' ? title_zh : title_en}
             </a>
           ) : (

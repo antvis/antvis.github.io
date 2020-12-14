@@ -5,4 +5,4 @@ redirect_from:
   - /en/docs/specification
 ---
 
-`markdown:docs/specification/principles.zh.md`
+`markdown:docs/specification/principles/basic.zh.md`
