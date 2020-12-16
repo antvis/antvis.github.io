@@ -298,7 +298,7 @@ const D2 = () => {
             light:
               'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Wg52SJjnK48AAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*vsdXTrIIgjAAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Jn5-TY29mpUAAAAAAAAAAAAAARQnAQ',
           },
           gift: {
             light:
@@ -356,7 +356,7 @@ const D2 = () => {
             light:
               'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*UjZLTIeRkoEAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*r7o_Qadt6yEAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*7OJQSLpc5K0AAAAAAAAAAAAAARQnAQ',
           },
           gift: {
             light:
@@ -414,7 +414,7 @@ const D2 = () => {
             light:
               'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*iR50QL0uvVwAAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*5YA3RYZL7gcAAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*Tf3aRaUXpEcAAAAAAAAAAAAAARQnAQ',
           },
           gift: {
             light:
@@ -472,7 +472,7 @@ const D2 = () => {
             light:
               'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*XDT-QoHNGj8AAAAAAAAAAAAAARQnAQ',
             dark:
-              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*FrYvQY2cQ_4AAAAAAAAAAAAAARQnAQ',
+              'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*gGCeRrkUum8AAAAAAAAAAAAAARQnAQ',
           },
           gift: {
             light:
@@ -628,27 +628,27 @@ const D2 = () => {
       // targetDom.style.padding = '0';
       targetDom.appendChild(img);
 
-      img.addEventListener('click', (e) => {
-        startTime = Infinity;
-        window.clearTimeout(tipTimer);
-      });
-      img.addEventListener('wheel', (e) => {
-        startTime = Infinity;
-        window.clearTimeout(tipTimer);
-      });
-      img.addEventListener('touchstart', (e) => {
-        startTime = +new Date();
-        tipTimer = window.setTimeout(() => {
-          setShared(true);
-        }, 2000);
-      });
-      img.addEventListener('touchend', (e) => {
-        const endTime = +new Date();
-        if (endTime - startTime > 700) {
-          // 展示抽奖码
-          setShared(true);
-        }
-      });
+      // img.addEventListener('click', (e) => {
+      //   startTime = Infinity;
+      //   window.clearTimeout(tipTimer);
+      // });
+      // img.addEventListener('wheel', (e) => {
+      //   startTime = Infinity;
+      //   window.clearTimeout(tipTimer);
+      // });
+      // img.addEventListener('touchstart', (e) => {
+      //   startTime = +new Date();
+      //   tipTimer = window.setTimeout(() => {
+      //     setShared(true);
+      //   }, 2000);
+      // });
+      // img.addEventListener('touchend', (e) => {
+      //   const endTime = +new Date();
+      //   if (endTime - startTime > 700) {
+      //     // 展示抽奖码
+      //     setShared(true);
+      //   }
+      // });
     };
     // 将 canvas 导出成 base64
     crossOrigin && img.setAttribute('crossOrigin', crossOrigin);
@@ -969,7 +969,7 @@ const D2 = () => {
 
   return (
     <div className="d2-container">
-      <SEO title={t('AntV D2')} lang={i18n.language} />
+      <SEO title={t('D2')} lang={i18n.language} />
       <div
         className="d2-antv-logo-container"
         style={{ display: pageIdx > -1 ? 'none' : 'block' }}
