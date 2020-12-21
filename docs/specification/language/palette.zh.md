@@ -33,9 +33,9 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 ![03-分类色板@3x.png](https://gw.alipayobjects.com/zos/antfincdn/dcADI7GBH%24/1.png)
 
-<swatch title="基础 10 色" colors="#5B8FF9,#61DDAA,#65789B,#F6BD16,#6F5EF9,#78D3F8,#9661BC,#F6903D,#008685,#F08BB4" colorNames="Geek Blue,Cyan,Grey,Sunrise Yellow,Deep Purple,Daybreak Blue,Golden Purple,Sunset Orange,Dark Green,Magenta"></swatch>
+<swatch title="基础 10 色" colors="#5B8FF9,#61DDAA,#65789B,#F6BD16,#7262fd,#78D3F8,#9661BC,#F6903D,#008685,#F08BB4" colorNames="Geek Blue,Cyan,Grey,Sunrise Yellow,Deep Purple,Daybreak Blue,Golden Purple,Sunset Orange,Dark Green,Magenta"></swatch>
 
-<swatch title="扩展 20 色" colors="#5B8FF9,#CDDDFD,#61DDAA,#CDF3E4,#65789B,#CED4DE,#F6BD16,#FCEBB9,#6F5EF9,#D3CEFD,#78D3F8,#D3EEF9,#9661BC,#DECFEA,#F6903D,#FFE0C7,#008685,#BBDEDE,#F08BB4,#FFE0ED"></swatch>
+<swatch title="扩展 20 色" colors="#5B8FF9,#CDDDFD,#61DDAA,#CDF3E4,#65789B,#CED4DE,#F6BD16,#FCEBB9,#7262fd,#D3CEFD,#78D3F8,#D3EEF9,#9661BC,#DECFEA,#F6903D,#FFE0C7,#008685,#BBDEDE,#F08BB4,#FFE0ED"></swatch>
 
 <swatch title="更多主题分类色板 20 色" colors="#FF6B3B,#626681,#FFC100,#9FB40F,#76523B,#DAD5B5,#0E8E89,#E19348,#F383A2,#247FEA,#2BCB95,#B1ABF4,#1D42C2,#1D9ED1,#D64BC0,#255634,#8C8C47,#8CDAE5,#8E283B,#791DC9|#025DF4,#DB6BCF,#2498D1,#BBBDE6,#4045B2,#21A97A,#FF745A,#007E99,#FFA8A8,#2391FF,#FFC328,#A0DC2C,#946DFF,#626681,#EB4185,#CD8150,#36BCCB,#327039,#803488,#83BC99|#FF4500,#1AAF8B,#406C85,#F6BD16,#B40F0F,#2FB8FC,#4435FF,#FF5CA2,#BBE800,#FE8A26,#946DFF,#6C3E00,#6193FF,#FF988E,#36BCCB,#004988,#FFCF9D,#CCDC8A,#8D00A1,#1CC25E" colorNames="Autumn,Macaron,Contrasting Orange" descriptions="秋日橙色板，适用于橙色调的产品，可按需替换默认色板。|马卡龙色板，颜色明快，适用于较为活泼轻松的产品或蓝紫色调的产品，可按需替换默认色板。|强对比色板，建议用于投屏及讲演等场景。"></swatch>
 
