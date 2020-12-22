@@ -19,7 +19,6 @@
           "path": "/examples/case/dynamic#dynamic-bar",
           "ratio": 1.3
         },
-
         {
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*kHHZQa-fpAQAAAAAAAAAAAAAARQnAQ",
           "title_zh": "指标卡联动",
@@ -36,13 +35,12 @@
           "path": "/examples/case/customize#customize-tooltip",
           "ratio": 1.3
         },
-
         {
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*DIzzR6M4T94AAAAAAAAAAAAAARQnAQ",
           "title_zh": "水波图",
           "title_en": "Liquid charts",
           "host": "https://g2plot.antv.vision/",
-          "path": "/examples/liquid/basic#style",
+          "path": "/examples/progress-plots/liquid#basic#style",
           "ratio": 1.3
         },
         {
@@ -58,7 +56,7 @@
           "title_zh": "瀑布图 - 数值标签展示绝对值",
           "title_en": "Waterfall plot with absolute-label-dataMode",
           "host": "https://g2plot.antv.vision/",
-          "path": "/examples/waterfall/basic#absolute-label",
+          "path": "/examples/more-plots/waterfall/#absolute-label",
           "ratio": 1.3
         },
         {
@@ -66,7 +64,7 @@
           "title_zh": "四象限散点图",
           "title_en": "Scatter with quadrants",
           "host": "https://g2plot.antv.vision/",
-          "path": "/examples/scatter/basic#quadrant",
+          "path": "/examples/scatter/bubble/#quadrant",
           "ratio": 1.3
         },
         {
@@ -90,7 +88,7 @@
           "title_zh": "词云图-图片遮罩",
           "title_en": "Word cloud plot - image mask",
           "host": "https://g2plot.antv.vision/",
-          "path": "/examples/word-cloud/basic#image-mask",
+          "path": "/examples/more-plots/word-cloud/#image-mask",
           "ratio": 1.3
         },
         {
@@ -98,7 +96,7 @@
           "title_zh": "雷达图",
           "title_en": "Area radar plot",
           "host": "https://g2plot.antv.vision/",
-          "path": "/examples/radar/basic#basic",
+          "path": "/examples/more-plots/radar#basic",
           "ratio": 1.3
         },
 
@@ -123,7 +121,7 @@
           "title_zh": "基础漏斗图-转置",
           "title_en": "Funnel plot-transpose",
           "host": "https://g2plot.antv.vision/",
-          "path": "/examples/funnel/basic#basic-transpose",
+          "path": "/examples/more-plots/funnel#basic-transpose",
           "ratio": 1.3
         }
       ]
