@@ -42,7 +42,7 @@ const contributors: {
     avatar:
       'https://gw.alipayobjects.com/mdn/rms_23b644/afts/img/A*zIFOTbhtCoMAAAAAAAAAAABkARQnAQ',
     weibo: 'https://weibo.com/neopard/profile',
-    github: 'https://github.com/jiazhewang',
+    github: 'https://github.com/neoddish',
   },
   {
     name: '沧东',
