@@ -51,7 +51,7 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run develop",
-    "build": "npm run clean && gatsby build",
+    "build": "npm run clean && NODE_OPTIONS=--max-old-space-size=4096 gatsby build",
     "clean": "gatsby clean",
     "develop": "gatsby develop --open",
     "deploy": " npm run build && npm run copy-mirror-action && gh-pages -d public -b master",
