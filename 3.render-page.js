@@ -1,9 +1,9 @@
 exports.ids = [3];
 exports.modules = {
 
-/***/ "./node_modules/_monaco-editor@0.21.2@monaco-editor/esm/vs/basic-languages/javascript/javascript.js":
+/***/ "./node_modules/_monaco-editor@0.21.3@monaco-editor/esm/vs/basic-languages/javascript/javascript.js":
 /*!**********************************************************************************************************!*\
-  !*** ./node_modules/_monaco-editor@0.21.2@monaco-editor/esm/vs/basic-languages/javascript/javascript.js ***!
+  !*** ./node_modules/_monaco-editor@0.21.3@monaco-editor/esm/vs/basic-languages/javascript/javascript.js ***!
   \**********************************************************************************************************/
 /*! exports provided: conf, language */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -12,7 +12,7 @@ exports.modules = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "conf", function() { return conf; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "language", function() { return language; });
-/* harmony import */ var _typescript_typescript_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../typescript/typescript.js */ "./node_modules/_monaco-editor@0.21.2@monaco-editor/esm/vs/basic-languages/typescript/typescript.js");
+/* harmony import */ var _typescript_typescript_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../typescript/typescript.js */ "./node_modules/_monaco-editor@0.21.3@monaco-editor/esm/vs/basic-languages/typescript/typescript.js");
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
@@ -87,9 +87,9 @@ var language = {
 
 /***/ }),
 
-/***/ "./node_modules/_monaco-editor@0.21.2@monaco-editor/esm/vs/basic-languages/typescript/typescript.js":
+/***/ "./node_modules/_monaco-editor@0.21.3@monaco-editor/esm/vs/basic-languages/typescript/typescript.js":
 /*!**********************************************************************************************************!*\
-  !*** ./node_modules/_monaco-editor@0.21.2@monaco-editor/esm/vs/basic-languages/typescript/typescript.js ***!
+  !*** ./node_modules/_monaco-editor@0.21.3@monaco-editor/esm/vs/basic-languages/typescript/typescript.js ***!
   \**********************************************************************************************************/
 /*! exports provided: conf, language */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -98,7 +98,7 @@ var language = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "conf", function() { return conf; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "language", function() { return language; });
-/* harmony import */ var _fillers_monaco_editor_core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fillers/monaco-editor-core.js */ "./node_modules/_monaco-editor@0.21.2@monaco-editor/esm/vs/basic-languages/fillers/monaco-editor-core.js");
+/* harmony import */ var _fillers_monaco_editor_core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fillers/monaco-editor-core.js */ "./node_modules/_monaco-editor@0.21.3@monaco-editor/esm/vs/basic-languages/fillers/monaco-editor-core.js");
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
