@@ -17,7 +17,6 @@ const JoinUs = () => {
             {t(
               '我们是蚂蚁集团数据可视化团队，一群有爱有梦的人，怀揣「让人们在数据世界里获得视觉化思考能力」的梦想前行，成就智能时代全球领先的数据可视化解决方案，满足与日俱增的数据洞察需求。',
             )}
-            s
           </div>
           <div key="description2" className={styles.description}>
             {t(
