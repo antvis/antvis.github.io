@@ -245,7 +245,7 @@
           "title_zh": "决策树",
           "title_en": "Decision Tree",
           "host": "https://g6.antv.vision/",
-          "path": "/examples/case/decisionTree#index",
+          "path": "/examples/case/customTree#decisionTree",
           "ratio": 1.46
         },
         {
@@ -269,7 +269,7 @@
           "title_zh": "圣诞推文可视化",
           "title_en": "Christmas Bubbles",
           "host": "https://g6.antv.vision/",
-          "path": "/examples/case/christmasBubbles",
+          "path": "/examples/case/newsDemo#christmasBubbles",
           "ratio": 1.46
         },
         {
