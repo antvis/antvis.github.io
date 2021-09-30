@@ -83,6 +83,16 @@ export default (props: BannerProps) => {
         </div>
       </div>
 
+      {/* 用于百度搜索引擎爬虫获取作为快照图片，在页面上会被覆盖不影响其它内容 */}
+      <h1 style={{ position: 'absolute' }}>
+        <img
+          width="121"
+          height="75"
+          src="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*j-DwT4geW5kAAAAAAAAAAAAAARQnAQ"
+          alt="antv"
+        />
+      </h1>
+
       <div className={styles.content}>
         <div className={styles.productList}>
           <div
