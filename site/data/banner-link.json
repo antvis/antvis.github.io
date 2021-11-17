@@ -1,119 +1,150 @@
 [
   {
+    "title_zh": "AVA",
+    "title_en": "AVA",
+    "url": "https://ava.antv.vision",
+    "className": "ava",
+    "gridArea": "ava"
+  },
+  {
     "title_zh": "Ant Design Charts",
     "title_en": "Ant Design Charts",
     "url": "https://charts.ant.design",
-    "row": "1 / 2",
-    "col": "1 / 12",
-    "className": "antdChart"
+    "className": "charts",
+    "gridArea": "charts"
   },
   {
     "title_zh": "G2Plot",
     "title_en": "G2Plot",
     "url": "https://g2plot.antv.vision",
-    "row": "2 / 3",
-    "col": "1 / 3",
-    "className": "G2"
-  },
-  {
-    "title_zh": "F2Native",
-    "title_en": "F2Native",
-    "url": "https://f2native.antv.vision",
-    "row": "2 / 3",
-    "col": "3 / 5",
-    "className": "F2"
+    "className": "G2",
+    "gridArea": "G2Plot"
   },
   {
     "title_zh": "G2",
     "title_en": "G2",
     "url": "https://g2.antv.vision",
-    "row": "3 / 4",
-    "col": "1 / 3",
-    "className": "G2"
+    "className": "G2",
+    "gridArea": "G2"
   },
   {
-    "title_zh": "F2",
-    "title_en": "F2",
-    "url": "https://f2.antv.vision",
-    "row": "3 / 4",
-    "col": "3 / 5",
-    "className": "F2"
+    "title_zh": "S2",
+    "title_en": "S2",
+    "url": "https://s2.antv.vision",
+    "className": "G2",
+    "gridArea": "S2"
   },
   {
     "title_zh": "常规统计数据",
     "title_en": "General Statistics",
-    "row": "4 / 5",
-    "col": "1 / 5",
-    "className": "conventional"
+    "className": "conventional",
+    "gridArea": "statistic"
   },
   {
     "title_zh": "Graphin",
     "title_en": "Graphin",
     "url": "https://graphin.antv.vision",
-    "row": "2 / 3",
-    "col": "5 / 7",
-    "className": "G6"
+    "className": "G6",
+    "gridArea": "Graphin"
   },
   {
     "title_zh": "XFlow",
     "title_en": "XFlow",
-    "url": "https://x6.antv.vision",
-    "row": "2 / 3",
-    "col": "7 / 9",
-    "className": "G6"
+    "url": "https://xflow.antv.vision",
+    "className": "G6",
+    "gridArea": "XFlow"
   },
   {
     "title_zh": "G6",
     "title_en": "G6",
     "url": "https://g6.antv.vision",
-    "row": "3 / 4",
-    "col": "5 / 7",
-    "className": "G6"
+    "className": "G6",
+    "gridArea": "G6"
   },
   {
     "title_zh": "X6",
     "title_en": "X6",
     "url": "https://x6.antv.vision",
-    "row": "3 / 4",
-    "col": "7 / 9",
-    "className": "G6"
+    "className": "G6",
+    "gridArea": "X6"
   },
   {
     "title_zh": "关系数据",
     "title_en": "Relation Data",
-    "row": "4 / 5",
-    "col": "5 / 9",
-    "className": "relationship"
+    "className": "relationship",
+    "gridArea": "graph"
   },
   {
-    "title_zh": "L7Boundary",
-    "title_en": "L7Boundary",
-    "url": "https://l7.antv.vision",
-    "row": "2 / 3",
-    "col": "9 / 11",
-    "className": "L7"
+    "title_zh": "L7Plot",
+    "title_en": "L7Plot",
+    "url": "https://l7plot.antv.vision",
+    "className": "L7",
+    "gridArea": "L7Plot"
   },
   {
     "title_zh": "L7",
     "title_en": "L7",
     "url": "https://l7.antv.vision",
-    "row": "3 / 4",
-    "col": "9 / 11",
-    "className": "L7"
+
+    "className": "L7",
+    "gridArea": "L7"
   },
   {
     "title_zh": "地理空间数据",
     "title_en": "Geospatial Data",
-    "row": "4 / 5",
-    "col": "9 / 11",
-    "className": "geography"
+    "className": "geography",
+    "gridArea": "geo"
   },
   {
-    "title_zh": "AVA",
-    "title_en": "AVA",
-    "url": "https://ava.antv.vision",
-    "row": "2 / 5",
-    "col": "11 / 12",
-    "className": "AVA"
+    "title_zh": "G",
+    "title_en": "G",
+    "url": "https://g-next.antv.vision",
+    "className": "G",
+    "gridArea": "G"
+  },
+  {
+    "title_zh": "",
+    "title_en": "",
+    "className": "gutter",
+    "gridArea": "gutter"
+  },
+  {
+    "title_zh": "267 全系 F 版",
+    "title_en": "267 全系 F 版",
+    "className": "FSeries",
+    "gridArea": "F"
+  },
+  {
+    "title_zh": "极致移动定制",
+    "title_en": "Geospatial Data",
+    "className": "FSeries",
+    "gridArea": "f-intro"
+  },
+  {
+    "title_zh": "F2Native",
+    "title_en": "F2Native",
+    "url": "https://f2native.antv.vision",
+    "className": "F2",
+    "gridArea": "F2Native"
+  },
+  {
+    "title_zh": "F2",
+    "title_en": "F2",
+    "url": "https://f2.antv.vision",
+    "className": "F2",
+    "gridArea": "F2"
+  },
+  {
+    "title_zh": "F6",
+    "title_en": "F6",
+    "url": "https://f2.antv.vision",
+    "className": "F2",
+    "gridArea": "F6"
+  },
+  {
+    "title_zh": "F7",
+    "title_en": "F7",
+    "className": "F7",
+    "gridArea": "F7"
   }
 ]

@@ -35,12 +35,12 @@ export default (props: BannerProps) => {
 
   const renderBannerNodes = (bannerList: any[]) => {
     return bannerList.map((item, index) => {
-      const { url, title_zh, title_en, className, row, col } = item;
+      const { url, title_zh, title_en, className, gridArea } = item;
       return (
         <div
-          className={styles.node}
+          className={classNames(styles.node, styles[`${className}Node`])}
           key={`${item.title_zh}${index}`}
-          style={{ gridRow: `${row}`, gridColumn: `${col}` }}
+          style={{ gridArea }}
         >
           {url ? (
             <a className={styles[className]} href={`${url}`} target="_blank">
