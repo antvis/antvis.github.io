@@ -2,7 +2,10 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { getProducts } from '@antv/gatsby-theme-antv/site/components/getProducts';
+import {
+  CATEGORIES,
+  getProducts,
+} from '@antv/gatsby-theme-antv/site/components/getProducts';
 import styles from './Products.module.less';
 
 const Products = () => {
@@ -308,35 +311,27 @@ const Products = () => {
             )}
           />
           {getDots()}
-          <div
-            className={classNames(
-              styles.subTitleContainer,
-              styles.basicSubTitle,
-            )}
-          >
-            <div className={styles.subTitleBar} />
-            <div className={styles.subTitleText}>{t(subTitleStr1)}</div>
-          </div>
-          <div
-            className={classNames(
-              styles.subTitleContainer,
-              styles.extensionSubTitle,
-            )}
-          >
-            <div className={styles.subTitleBar} />
-            <div className={styles.subTitleText}>{t(subTitleStr2)}</div>
-          </div>
+          {CATEGORIES.map(({ name }) => {
+            return (
+              <div
+                className={classNames(
+                  styles.subTitleContainer,
+                  styles.basicSubTitle,
+                )}
+              >
+                <div className={styles.subTitleBar} />
+                <div className={styles.subTitleText}>{t(name)}</div>
+              </div>
+            );
+          })}
           <div className={styles.products}>
-            <div className={styles.basicsWrapper}>
-              <Row key="products-basic" className={styles.basics}>
-                {getProductCols('basic')}
-              </Row>
-            </div>
-            <div className={styles.extensionsWrapper}>
-              <Row key="products-extension" className={styles.extensions}>
-                {getProductCols('extension')}
-              </Row>
-            </div>
+            {CATEGORIES.map(({ type }) => {
+              return (
+                <Row key="products-basic" className={styles.basics}>
+                  {getProductCols(type)}
+                </Row>
+              );
+            })}
           </div>
         </div>
       </div>
