@@ -124,27 +124,27 @@
     "title_zh": "F2Native",
     "title_en": "F2Native",
     "url": "https://f2native.antv.vision",
-    "className": "F2",
+    "className": "G2",
     "gridArea": "F2Native"
   },
   {
     "title_zh": "F2",
     "title_en": "F2",
     "url": "https://f2.antv.vision",
-    "className": "F2",
+    "className": "G2",
     "gridArea": "F2"
   },
   {
     "title_zh": "F6",
     "title_en": "F6",
     "url": "https://f2.antv.vision",
-    "className": "F2",
+    "className": "G6",
     "gridArea": "F6"
   },
   {
     "title_zh": "F7",
     "title_en": "F7",
-    "className": "F7",
+    "className": "L7",
     "gridArea": "F7"
   }
 ]
