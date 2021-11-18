@@ -48,35 +48,40 @@ export function getProducts({
   language: 'zh' | 'en';
   isChinaMirrorHost: boolean;
 }): Promise<ProductType[]> {
+  // 如需要修改产品信息，请到 https://yuyan.antfin-inc.com/datavprod/antv-site-datas/schemas/products-info-h5data/deploys/stages 修改区块内容
   return fetch(
-    'https://gw.alipayobjects.com/os/antfincdn/k7Lnz2LKZw/products.json',
+    'https://render.alipay.com/p/h5data/antv-site-datas_products-info-h5data.json',
   )
     .then((res) => res.json())
-    .then((products: ProductType[]) => {
-      return products
-        .filter((d) => d.lang === language)
-        .map((d) => {
-          const links: ProductType['links'] = d.links ? { ...d.links } : {};
-          Object.keys(links).forEach((k: string) => {
-            // @ts-ignore
-            let actualUrl = links[k].url || '';
+    .then(({ link }) => {
+      return fetch(link)
+        .then((data) => data.json())
+        .then((products: ProductType[]) => {
+          return products
+            .filter((d) => d.lang === language)
+            .map((d) => {
+              const links: ProductType['links'] = d.links ? { ...d.links } : {};
+              Object.keys(links).forEach((k: string) => {
+                // @ts-ignore
+                let actualUrl = links[k].url || '';
 
-            if (isChinaMirrorHost) {
-              // g2plot.antv.vision => antv-g2plot.gitee.io
-              const match = actualUrl.match(
-                /([http|https]):\/\/(.*)\.antv\.vision/,
-              );
-              if (match && match[2]) {
-                actualUrl = actualUrl.replace(
-                  `${match[2]}.antv.vision`,
-                  `antv-${match[2]}.gitee.io`,
-                );
-              }
-            }
-            // @ts-ignore
-            links[k].url = actualUrl;
-          });
-          return { ...d, links };
+                if (isChinaMirrorHost) {
+                  // g2plot.antv.vision => antv-g2plot.gitee.io
+                  const match = actualUrl.match(
+                    /([http|https]):\/\/(.*)\.antv\.vision/,
+                  );
+                  if (match && match[2]) {
+                    actualUrl = actualUrl.replace(
+                      `${match[2]}.antv.vision`,
+                      `antv-${match[2]}.gitee.io`,
+                    );
+                  }
+                }
+                // @ts-ignore
+                links[k].url = actualUrl;
+              });
+              return { ...d, links };
+            });
         });
     });
 }
