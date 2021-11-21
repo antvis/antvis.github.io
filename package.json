@@ -49,6 +49,11 @@
     "url-parse": "^1.4.7",
     "unist-util-visit": "^2.0.2"
   },
+  "devDependencies": {
+    "@types/react-github-button": "^0.1.0",
+    "@types/react-helmet": "^6.0.0",
+    "@types/parse-github-url": "^1.0.0"
+  },
   "license": "MIT",
   "scripts": {
     "start": "npm run develop",
