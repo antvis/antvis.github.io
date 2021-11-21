@@ -296,8 +296,8 @@
       ]
     },
     {
-      "name": "L7",
-      "products": ["L7"],
+      "name": "L7 | L7Plot",
+      "products": ["L7", "L7Plot"],
       "demos": [
         {
           "imgurl": "https://gw.alipayobjects.com/mdn/antv_site/afts/img/A*v5j_QZEL-1YAAAAAAAAAAABkARQnAQ",
