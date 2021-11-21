@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import chroma from 'chroma-js';
 import { assign, debounce } from 'lodash';
@@ -141,28 +142,15 @@ export default (props: DemosProps) => {
                   }}
                 />
               )}
-
-              {type === 'X6' || type === 'L7' ? (
-                <div
-                  className={styles.img}
-                  style={{
-                    backgroundImage: `url(${list[item].imgurl})`,
-                    backgroundSize: 'cover',
-                    width: `${list[item].width}px`,
-                    height: `${list[item].height}px`,
-                  }}
-                />
-              ) : (
-                <div
-                  className={styles.img}
-                  style={{
-                    backgroundImage: `url(${list[item].imgurl})`,
-                    backgroundSize: 'contain',
-                    width: `${list[item].width}px`,
-                    height: `${list[item].height}px`,
-                  }}
-                />
-              )}
+              <div
+                className={classNames(styles.img, type)}
+                style={{
+                  backgroundImage: `url(${list[item].imgurl})`,
+                  backgroundSize: 'cover',
+                  width: `${list[item].width}px`,
+                  height: `${list[item].height}px`,
+                }}
+              />
 
               <div className={styles.title}>
                 {i18n.language === 'zh'
