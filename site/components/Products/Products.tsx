@@ -2,23 +2,26 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { getProducts } from '@antv/gatsby-theme-antv/site/components/getProducts';
+import { useChinaMirrorHost } from '@antv/gatsby-theme-antv/site/hooks';
+import { CATEGORIES, ProductType, getProducts } from './getProducts';
 import styles from './Products.module.less';
 
 const Products = () => {
   const { t, i18n } = useTranslation();
-  const data = getProducts({
-    t,
-    language: i18n.language,
-    rootDomain: '',
-  }).slice(0, 10);
+  const [isChinaMirrorHost] = useChinaMirrorHost();
+  const [products, setProducts] = React.useState<ProductType[]>([]);
 
-  const basicProducts = data.filter((item: any) => item.category === 'basic');
-  const extensionProducts = data.filter(
-    (item: any) => item.category === 'extension',
-  );
+  const lang: 'zh' | 'en' = i18n.language.includes('zh') ? 'zh' : 'en';
+  React.useEffect(() => {
+    getProducts({ language: lang, isChinaMirrorHost }).then((data) => {
+      setProducts(data.slice(0, 10));
+    });
+  }, [lang, isChinaMirrorHost]);
+
+  const filterProducts = (type: string) =>
+    products.filter((item) => item.category === type);
   const getProductCols = (type: string) => {
-    const renderData = type === 'basic' ? basicProducts : extensionProducts;
+    const renderData = filterProducts(type);
     const cols = [];
     renderData.forEach((product: any) => {
       cols.push(
@@ -29,37 +32,30 @@ const Products = () => {
                 {`${product.title} ${product.slogan || ''}`}
               </p>
               <p key="product-description" className={styles.pdescription}>
-                {t(product.description)}
+                {product.description}
               </p>
               <div key="product-bottom" className={styles.pbottom}>
                 <div className={styles.plinks}>
                   <object>
-                    <a
-                      className={styles.plink}
-                      href={
-                        product.links[2]
-                          ? product.links[1].url
-                          : product.links[0].url
-                      }
-                    >
-                      {product.links[2]
-                        ? product.links[1].title
-                        : product.links[0].title}
-                    </a>
+                    {product.links.home && (
+                      <a className={styles.plink} href={product.links.home.url}>
+                        {product.links.home.title
+                          ? product.links.home.title
+                          : t('产品首页')}
+                      </a>
+                    )}
                   </object>
                   <object>
-                    <a
-                      className={classNames(styles.plink, styles.apilink)}
-                      href={
-                        product.links[2]
-                          ? product.links[2].url
-                          : product.links[1].url
-                      }
-                    >
-                      {product.links[2]
-                        ? product.links[2].title
-                        : product.links[1].title}
-                    </a>
+                    {product.links.example && (
+                      <a
+                        className={classNames(styles.plink, styles.apilink)}
+                        href={product.links.example.url}
+                      >
+                        {product.links.example.title
+                          ? product.links.example.title
+                          : t('图表示例')}
+                      </a>
+                    )}
                   </object>
                 </div>
                 <img
@@ -76,7 +72,7 @@ const Products = () => {
     });
     if (
       type === 'extension' &&
-      extensionProducts.length < basicProducts.length
+      filterProducts('extension').length < filterProducts('basic').length
     ) {
       cols.push(
         <Col
@@ -102,7 +98,7 @@ const Products = () => {
 
   const getDots = () => {
     let dots: Array<Object> = [];
-    const length = data.length;
+    const length = products.length;
     const cols = 3;
     const rows = Math.ceil(length / 2) + 1;
     const lefts = [0.0398, 0.4983, 0.9591];
@@ -308,35 +304,27 @@ const Products = () => {
             )}
           />
           {getDots()}
-          <div
-            className={classNames(
-              styles.subTitleContainer,
-              styles.basicSubTitle,
-            )}
-          >
-            <div className={styles.subTitleBar} />
-            <div className={styles.subTitleText}>{t(subTitleStr1)}</div>
-          </div>
-          <div
-            className={classNames(
-              styles.subTitleContainer,
-              styles.extensionSubTitle,
-            )}
-          >
-            <div className={styles.subTitleBar} />
-            <div className={styles.subTitleText}>{t(subTitleStr2)}</div>
-          </div>
+          {CATEGORIES.map(({ name }) => {
+            return (
+              <div
+                className={classNames(
+                  styles.subTitleContainer,
+                  styles.basicSubTitle,
+                )}
+              >
+                <div className={styles.subTitleBar} />
+                <div className={styles.subTitleText}>{t(name)}</div>
+              </div>
+            );
+          })}
           <div className={styles.products}>
-            <div className={styles.basicsWrapper}>
-              <Row key="products-basic" className={styles.basics}>
-                {getProductCols('basic')}
-              </Row>
-            </div>
-            <div className={styles.extensionsWrapper}>
-              <Row key="products-extension" className={styles.extensions}>
-                {getProductCols('extension')}
-              </Row>
-            </div>
+            {CATEGORIES.map(({ type }) => {
+              return (
+                <Row key="products-basic" className={styles.basics}>
+                  {getProductCols(type)}
+                </Row>
+              );
+            })}
           </div>
         </div>
       </div>

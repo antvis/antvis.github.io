@@ -46,7 +46,13 @@
     "react-i18next": "^11.0.1",
     "react-use": "^15.3.4",
     "typescript": "^3.6.4",
-    "url-parse": "^1.4.7"
+    "url-parse": "^1.4.7",
+    "unist-util-visit": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/react-github-button": "^0.1.0",
+    "@types/react-helmet": "^6.0.0",
+    "@types/parse-github-url": "^1.0.0"
   },
   "license": "MIT",
   "scripts": {

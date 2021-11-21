@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import { isEmpty } from 'lodash';
 import styles from './Banner.module.less';
 import { useTranslation } from 'react-i18next';
-import { getProducts } from '@antv/gatsby-theme-antv/site/components/getProducts';
+import { useChinaMirrorHost } from '@antv/gatsby-theme-antv/site/hooks';
+import { getProducts, ProductType } from '../Products/getProducts';
 import Demos from '../Demos/Demos';
 import bannerInfo from '../../data/banner-info.json';
 import bannerLink from '../../data/banner-link.json';
@@ -20,27 +22,41 @@ interface BannerProps {
 
 export default (props: BannerProps) => {
   const { t, i18n } = useTranslation();
-  const products = getProducts({
-    t,
-    language: i18n.language,
-    rootDomain: '',
-  });
+  const [isChinaMirrorHost] = useChinaMirrorHost();
+  const [products, setProducts] = React.useState<ProductType[]>([]);
 
   const { remoteNews } = props;
 
-  const lang = i18n.language.includes('zh') ? 'zh' : 'en';
+  const lang: 'zh' | 'en' = i18n.language.includes('zh') ? 'zh' : 'en';
+  React.useEffect(() => {
+    getProducts({ language: lang, isChinaMirrorHost }).then((data) => {
+      setProducts(data);
+    });
+  }, [lang, isChinaMirrorHost]);
 
   const { about, products_tabs, extra_tabs } = bannerInfo;
   const [active, setActive] = useState(0);
 
   const renderBannerNodes = (bannerList: any[]) => {
     return bannerList.map((item, index) => {
-      const { url, title_zh, title_en, className, row, col } = item;
+      const { title_zh, title_en, className, gridArea } = item;
+
+      let url = item.url;
+      if (isChinaMirrorHost && url) {
+        // g2plot.antv.vision => antv-g2plot.gitee.io
+        const match = url.match(/([http|https]):\/\/(.*)\.antv\.vision/);
+        if (match && match[2]) {
+          url = url.replace(
+            `${match[2]}.antv.vision`,
+            `antv-${match[2]}.gitee.io`,
+          );
+        }
+      }
       return (
         <div
-          className={styles.node}
+          className={classNames(styles.node, styles[`${className}Node`])}
           key={`${item.title_zh}${index}`}
-          style={{ gridRow: `${row}`, gridColumn: `${col}` }}
+          style={{ gridArea }}
         >
           {url ? (
             <a className={styles[className]} href={`${url}`} target="_blank">
@@ -178,28 +194,44 @@ export default (props: BannerProps) => {
                         <div className={styles.guideItem} key={record}>
                           <div className={styles.name}>{product.title}</div>
                           <div className={styles.info}>
-                            {product.description}
+                            {product.description || ''}
                           </div>
-                          {product?.links && product?.links.length > 0 && (
+                          {!isEmpty(product.links) && (
                             <div className={styles.urlList}>
-                              <a href={product.links[0].url} target="_blank">
-                                <div className={styles.home} />
-                                <div className={styles.text}>
-                                  {product.links[0].title}
-                                </div>
-                              </a>
-                              <a href={product.links[1].url} target="_blank">
-                                <div className={styles.example} />
-                                <div className={styles.text}>
-                                  {product.links[1].title}
-                                </div>
-                              </a>
-                              <a href={product.links[3].url} target="_blank">
-                                <div className={styles.api} />
-                                <div className={styles.text}>
-                                  {product.links[3].title}
-                                </div>
-                              </a>
+                              {product.links?.home && (
+                                <a
+                                  href={product.links.home?.url}
+                                  target="_blank"
+                                >
+                                  <div className={styles.home} />
+                                  <div className={styles.text}>
+                                    {product.links.home.title ?? t('产品首页')}
+                                  </div>
+                                </a>
+                              )}
+                              {product.links?.example && (
+                                <a
+                                  href={product.links?.example.url}
+                                  target="_blank"
+                                >
+                                  <div className={styles.example} />
+                                  <div className={styles.text}>
+                                    {product.links.example.title ??
+                                      t('图表示例')}
+                                  </div>
+                                </a>
+                              )}
+                              {product.links?.api && (
+                                <a
+                                  href={product.links?.api.url}
+                                  target="_blank"
+                                >
+                                  <div className={styles.api} />
+                                  <div className={styles.text}>
+                                    {product.links.api.title ?? t('使用文档')}
+                                  </div>
+                                </a>
+                              )}
                             </div>
                           )}
                         </div>

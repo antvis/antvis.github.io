@@ -127,116 +127,6 @@
       ]
     },
     {
-      "name": "F2 | F2Native",
-      "products": ["F2", "F2Native"],
-      "demos": [
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*BDubSYaFpboAAAAAAAAAAABkARQnAQ",
-          "title_zh": "对比折线图",
-          "title_en": "Compare Line Chart",
-          "host": "https://f2.antv.vision/",
-          "path": "/examples/line/multiple",
-          "ratio": 1.9
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*_SQ6TItK-U8AAAAAAAAAAABkARQnAQ",
-          "title_zh": "层叠面积图",
-          "title_en": "Stacked Area Chart",
-          "host": "https://f2.antv.vision/",
-          "path": "/examples/area/stacked",
-          "ratio": 1.9
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*sDB-S6qxxsYAAAAAAAAAAABkARQnAQ",
-          "title_zh": "预测线",
-          "title_en": "Forecast Line",
-          "host": "https://f2.antv.vision/",
-          "path": "/examples/gallery/forecast",
-          "ratio": 1.9
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/zos/finxbff/compress-tinypng/92dbeff4-526e-48df-b122-72ed50395b79.jpg",
-          "title_zh": "基础演示",
-          "title_en": "Basic Demo",
-          "host": "https://f2.antv.vision/",
-          "path": "/examples/basic",
-          "ratio": 1.9
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*WDqYSYm6HPAAAAAAAAAAAABkARQnAQ",
-          "title_zh": "分组柱状图",
-          "title_en": "Dodge Column Chart",
-          "host": "https://f2.antv.vision/",
-          "path": "/examples/column/dodge#negetive",
-          "ratio": 1.9
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*6v1fRatDBM4AAAAAAAAAAABkARQnAQ",
-          "title_zh": "Guide",
-          "title_en": "Guide",
-          "host": "https://f2.antv.vision/",
-          "path": "/examples/component/guide#region-filter",
-          "ratio": 1.9
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*fZ11RIsy8zQAAAAAAAAAAABkARQnAQ",
-          "title_zh": "基础饼图",
-          "title_en": "Basic Pie Chart",
-          "host": "https://f2.antv.vision/",
-          "path": "/examples/pie/basic#pie-with-label",
-          "ratio": 1.9
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*agBZRoedYKQAAAAAAAAAAABkARQnAQ",
-          "title_zh": "南丁格尔玫瑰图",
-          "title_en": "Nightingale Rose Chart",
-          "host": "https://f2.antv.vision/",
-          "path": "/examples/pie/rose",
-          "ratio": 1.9
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*tq5ERqXPyOUAAAAAAAAAAABkARQnAQ",
-          "title_zh": "Basic Radar Chart",
-          "title_en": "Basic Radar Chart",
-          "host": "https://f2.antv.vision/",
-          "path": "/examples/radar/radar#area",
-          "ratio": 1.9
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*Xpt7QLmlgz0AAAAAAAAAAABkARQnAQ",
-          "title_zh": "点图",
-          "title_en": "Point Chart",
-          "host": "https://f2.antv.vision/",
-          "path": "/examples/point/scatter",
-          "ratio": 1.9
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*eKP_RJ2aMfgAAAAAAAAAAABkARQnAQ",
-          "title_zh": "点图",
-          "title_en": "Point Chart",
-          "host": "https://f2.antv.vision/",
-          "path": "/examples/point/scatter#bubble",
-          "ratio": 1.9
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/zos/finxbff/compress-tinypng/ca7a35dd-b1e9-46b4-a802-54ee4c5e3501.jpg",
-          "title_zh": "金字塔图",
-          "title_en": "Pyramid Chart",
-          "host": "https://f2.antv.vision/",
-          "path": "/examples/funnel/pyramid#stroke",
-          "ratio": 1.9
-        },
-        {
-          "imgurl": "https://gw.alipayobjects.com/zos/finxbff/compress-tinypng/4f420a5d-6a81-4ef8-9cba-62106bbdb593.jpg",
-          "title_zh": "基础漏斗图",
-          "title_en": "Basic Funnel Chart",
-          "host": "https://f2.antv.vision/",
-          "path": "/examples/funnel/basic#stroke",
-          "ratio": 1.9
-        }
-      ]
-    },
-    {
       "name": "G6 | Graphin",
       "products": ["G6", "Graphin"],
       "demos": [
@@ -379,8 +269,8 @@
       ]
     },
     {
-      "name": "X6",
-      "products": ["X6"],
+      "name": "X6 | XFlow",
+      "products": ["X6", "XFlow"],
       "demos": [
         {
           "imgurl": "https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*W9g1S7W-TOoAAAAAAAAAAAAAARQnAQ",
@@ -528,6 +418,116 @@
           "host": "https://l7.antv.vision/",
           "path": "/examples/gallery/animate#build",
           "ratio": 1.5
+        }
+      ]
+    },
+    {
+      "name": "F2 | F6",
+      "products": ["F2", "F6", "F2Native"],
+      "demos": [
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*BDubSYaFpboAAAAAAAAAAABkARQnAQ",
+          "title_zh": "对比折线图",
+          "title_en": "Compare Line Chart",
+          "host": "https://f2.antv.vision/",
+          "path": "/examples/line/multiple",
+          "ratio": 1.9
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*_SQ6TItK-U8AAAAAAAAAAABkARQnAQ",
+          "title_zh": "层叠面积图",
+          "title_en": "Stacked Area Chart",
+          "host": "https://f2.antv.vision/",
+          "path": "/examples/area/stacked",
+          "ratio": 1.9
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*sDB-S6qxxsYAAAAAAAAAAABkARQnAQ",
+          "title_zh": "预测线",
+          "title_en": "Forecast Line",
+          "host": "https://f2.antv.vision/",
+          "path": "/examples/gallery/forecast",
+          "ratio": 1.9
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/zos/finxbff/compress-tinypng/92dbeff4-526e-48df-b122-72ed50395b79.jpg",
+          "title_zh": "基础演示",
+          "title_en": "Basic Demo",
+          "host": "https://f2.antv.vision/",
+          "path": "/examples/basic",
+          "ratio": 1.9
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*WDqYSYm6HPAAAAAAAAAAAABkARQnAQ",
+          "title_zh": "分组柱状图",
+          "title_en": "Dodge Column Chart",
+          "host": "https://f2.antv.vision/",
+          "path": "/examples/column/dodge#negetive",
+          "ratio": 1.9
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*6v1fRatDBM4AAAAAAAAAAABkARQnAQ",
+          "title_zh": "Guide",
+          "title_en": "Guide",
+          "host": "https://f2.antv.vision/",
+          "path": "/examples/component/guide#region-filter",
+          "ratio": 1.9
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*fZ11RIsy8zQAAAAAAAAAAABkARQnAQ",
+          "title_zh": "基础饼图",
+          "title_en": "Basic Pie Chart",
+          "host": "https://f2.antv.vision/",
+          "path": "/examples/pie/basic#pie-with-label",
+          "ratio": 1.9
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*agBZRoedYKQAAAAAAAAAAABkARQnAQ",
+          "title_zh": "南丁格尔玫瑰图",
+          "title_en": "Nightingale Rose Chart",
+          "host": "https://f2.antv.vision/",
+          "path": "/examples/pie/rose",
+          "ratio": 1.9
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*tq5ERqXPyOUAAAAAAAAAAABkARQnAQ",
+          "title_zh": "Basic Radar Chart",
+          "title_en": "Basic Radar Chart",
+          "host": "https://f2.antv.vision/",
+          "path": "/examples/radar/radar#area",
+          "ratio": 1.9
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*Xpt7QLmlgz0AAAAAAAAAAABkARQnAQ",
+          "title_zh": "点图",
+          "title_en": "Point Chart",
+          "host": "https://f2.antv.vision/",
+          "path": "/examples/point/scatter",
+          "ratio": 1.9
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_4f0ff1/afts/img/A*eKP_RJ2aMfgAAAAAAAAAAABkARQnAQ",
+          "title_zh": "点图",
+          "title_en": "Point Chart",
+          "host": "https://f2.antv.vision/",
+          "path": "/examples/point/scatter#bubble",
+          "ratio": 1.9
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/zos/finxbff/compress-tinypng/ca7a35dd-b1e9-46b4-a802-54ee4c5e3501.jpg",
+          "title_zh": "金字塔图",
+          "title_en": "Pyramid Chart",
+          "host": "https://f2.antv.vision/",
+          "path": "/examples/funnel/pyramid#stroke",
+          "ratio": 1.9
+        },
+        {
+          "imgurl": "https://gw.alipayobjects.com/zos/finxbff/compress-tinypng/4f420a5d-6a81-4ef8-9cba-62106bbdb593.jpg",
+          "title_zh": "基础漏斗图",
+          "title_en": "Basic Funnel Chart",
+          "host": "https://f2.antv.vision/",
+          "path": "/examples/funnel/basic#stroke",
+          "ratio": 1.9
         }
       ]
     },
