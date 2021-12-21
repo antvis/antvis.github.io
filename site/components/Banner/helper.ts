@@ -1,3 +1,4 @@
+import bannerLinks from '../../data/banner-link.json';
 import bannerInfo from '../../data/banner-info.json';
 
 /**
@@ -40,4 +41,19 @@ export function getBannerInfo(isChinaMirrorHost: boolean) {
   });
 
   return { ...bannerInfo, products_tabs };
+}
+
+/**
+ * 获取 banner 的产品链接。根据是否国内镜像进行调整 url
+ */
+export function getBannerLink(isChinaMirrorHost: boolean) {
+  return bannerLinks.map((bannerLink) => {
+    if (bannerLink.url) {
+      return {
+        ...bannerLink,
+        url: getActualUrl(bannerLink.url, isChinaMirrorHost),
+      };
+    }
+    return bannerLink;
+  });
 }

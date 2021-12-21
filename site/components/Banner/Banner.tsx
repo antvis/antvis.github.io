@@ -6,8 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useChinaMirrorHost } from '@antv/gatsby-theme-antv/site/hooks';
 import { getProducts, ProductType } from '../Products/getProducts';
 import Demos from '../Demos/Demos';
-import bannerLink from '../../data/banner-link.json';
-import { getActualUrl, getBannerInfo } from './helper';
+import { getActualUrl, getBannerInfo, getBannerLink } from './helper';
 
 interface NotificationProps {
   index?: number;
@@ -36,6 +35,7 @@ export default (props: BannerProps) => {
 
   const { about, products_tabs, extra_tabs } = getBannerInfo(isChinaMirrorHost);
   const [active, setActive] = useState(0);
+  const bannerLinks = getBannerLink(isChinaMirrorHost);
 
   const renderBannerNodes = (bannerList: any[]) => {
     return bannerList.map((item, index) => {
@@ -162,7 +162,7 @@ export default (props: BannerProps) => {
             <div className={styles.productShow} id="productShow">
               <div className={styles.bgCover} />
               <div className={styles.aboutLink}>
-                {renderBannerNodes(bannerLink)}
+                {renderBannerNodes(bannerLinks)}
               </div>
             </div>
           </div>
