@@ -68,11 +68,11 @@
           "ratio": 1.3
         },
         {
-          "imgurl": "https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*S4CuR5J89jsAAAAAAAAAAAAAARQnAQ",
-          "title_zh": "Drinks",
-          "title_en": "Drinks",
+          "imgurl": "https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*gS12TpN1MN8AAAAAAAAAAAAAARQnAQ",
+          "title_zh": "对比漏斗图",
+          "title_en": "Compare funnel",
           "host": "https://g2plot.antv.vision/",
-          "path": "/examples/case/multi-view#drinks",
+          "path": "/examples/case/statistical-scenario#compare-funnel",
           "ratio": 1.3
         },
         {

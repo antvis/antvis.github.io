@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { useChinaMirrorHost } from '@antv/gatsby-theme-antv/site/hooks';
 import { getProducts, ProductType } from '../Products/getProducts';
 import Demos from '../Demos/Demos';
-import bannerInfo from '../../data/banner-info.json';
 import bannerLink from '../../data/banner-link.json';
+import { getActualUrl, getBannerInfo } from './helper';
 
 interface NotificationProps {
   index?: number;
@@ -34,24 +34,15 @@ export default (props: BannerProps) => {
     });
   }, [lang, isChinaMirrorHost]);
 
-  const { about, products_tabs, extra_tabs } = bannerInfo;
+  const { about, products_tabs, extra_tabs } = getBannerInfo(isChinaMirrorHost);
   const [active, setActive] = useState(0);
 
   const renderBannerNodes = (bannerList: any[]) => {
     return bannerList.map((item, index) => {
       const { title_zh, title_en, className, gridArea } = item;
 
-      let url = item.url;
-      if (isChinaMirrorHost && url) {
-        // g2plot.antv.vision => antv-g2plot.gitee.io
-        const match = url.match(/([http|https]):\/\/(.*)\.antv\.vision/);
-        if (match && match[2]) {
-          url = url.replace(
-            `${match[2]}.antv.vision`,
-            `antv-${match[2]}.gitee.io`,
-          );
-        }
-      }
+      const url = getActualUrl(item.url, isChinaMirrorHost);
+
       return (
         <div
           className={classNames(styles.node, styles[`${className}Node`])}
