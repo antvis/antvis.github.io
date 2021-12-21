@@ -1,3 +1,4 @@
+import { map } from 'lodash';
 import bannerLinks from '../../data/banner-link.json';
 import bannerInfo from '../../data/banner-info.json';
 
@@ -30,7 +31,7 @@ export function getBannerInfo(isChinaMirrorHost: boolean) {
     if (!products_tab.demos) {
       return products_tab;
     }
-    const demos = products_tab.demos.map((demo) => {
+    const demos = map(products_tab.demos, (demo: any) => {
       return {
         ...demo,
         // @ts-ignore
