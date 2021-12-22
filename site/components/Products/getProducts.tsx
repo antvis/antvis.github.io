@@ -1,5 +1,6 @@
 import React from 'react';
 import { each } from 'lodash';
+import { getActualUrl } from '../Banner/helper';
 
 const tuple = <T extends string[]>(...args: T) => args;
 const CATEGORY_TYPE = tuple('basic', 'extension', 'mobile', 'ecology');
@@ -63,22 +64,12 @@ export function getProducts({
           const newLinks: any = {};
 
           each(links, (value, k: string) => {
-            let actualUrl = value?.url || '';
-            if (isChinaMirrorHost) {
-              // g2plot.antv.vision => antv-g2plot.gitee.io
-              const match = actualUrl.match(
-                /([http|https]):\/\/(.*)\.antv\.vision/,
-              );
-              if (match && match[2]) {
-                actualUrl = actualUrl.replace(
-                  `${match[2]}.antv.vision`,
-                  `antv-${match[2]}.gitee.io`,
-                );
-              }
-            }
-            newLinks[k] = { ...value, url: actualUrl };
+            newLinks[k] = {
+              ...value,
+              url: value?.url && getActualUrl(value.url, isChinaMirrorHost),
+            };
           });
-          return { ...d, links };
+          return { ...d, links: newLinks };
         });
     });
 }
