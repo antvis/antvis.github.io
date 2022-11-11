@@ -4,8 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { FullscreenOutlined, FullscreenExitOutlined } from '@ant-design/icons';
 import styles from './DecisionTree.module.less';
 import { CKBJson } from '@antv/knowledge';
-import uniqueId from '@antv/util/lib/unique-id';
-import clone from '@antv/util/lib/clone';
+import { uniqueId, clone } from '@antv/util';
 import { transform } from '@antv/matrix-util';
 import chartUrls from '../../data/chart-urls.json';
 

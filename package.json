@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "author": "AntV Team <antv@antfin.com>",
   "keywords": [
-    "gatsby",
+    "dumi",
     "antvis",
     "antv"
   ],
@@ -18,11 +18,13 @@
     "url": "https://github.com/antvis/antvis.github.io/issues"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@antv/dumi-theme-antv": "^0.3.0-beta.5",
     "@antv/g2plot": "^2.3.1",
     "@antv/g6": "3.3.7",
-    "@antv/gatsby-theme-antv": "^1.1.15",
     "@antv/knowledge": "^0.1.3-alpha.17",
     "@antv/matrix-util": "2.0.7",
+    "@antv/util": "^3.3.1",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.5",
     "@types/react-dom": "^16.9.1",
@@ -32,7 +34,7 @@
     "classnames": "^2.2.6",
     "dom-closest": "^0.2.0",
     "dom-to-image": "^2.6.0",
-    "gatsby": "^2.15.36",
+    "dumi": "^2.0.0-beta.15",
     "gh-pages": "^3.1.0",
     "html2canvas": "^1.0.0-rc.7",
     "husky": "^4.2.3",
@@ -44,27 +46,27 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-i18next": "^11.0.1",
-    "react-use": "^15.3.4",
+    "react-use": "^15.3.8",
     "typescript": "^3.6.4",
-    "url-parse": "^1.4.7",
-    "unist-util-visit": "^2.0.2"
+    "unist-util-visit": "^2.0.2",
+    "url-parse": "^1.4.7"
   },
   "devDependencies": {
+    "@types/parse-github-url": "^1.0.0",
     "@types/react-github-button": "^0.1.0",
-    "@types/react-helmet": "^6.0.0",
-    "@types/parse-github-url": "^1.0.0"
+    "@types/react-helmet": "^6.0.0"
   },
   "license": "MIT",
   "scripts": {
     "start": "npm run develop",
-    "build": "npm run clean && NODE_OPTIONS=--max-old-space-size=4096 gatsby build",
-    "clean": "gatsby clean",
-    "develop": "gatsby develop --open",
+    "build": "npm run clean && NODE_OPTIONS=--max-old-space-size=4096 dumi build",
+    "clean": "dumi clean",
+    "develop": "dumi dev",
     "deploy": " npm run build && npm run copy-mirror-action && gh-pages -d public -b master",
     "copy-mirror-action": "mkdir -p public/.github/workflows && cp .github/workflows/mirror.yml public/.github/workflows",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,less}\"",
     "tsc": "tsc",
-    "serve": "gatsby serve"
+    "serve": "dumi preview"
   },
   "husky": {
     "hooks": {

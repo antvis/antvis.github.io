@@ -1,10 +1,10 @@
 import React from 'react';
 import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
-import AboutUsBanner from '../components/AboutUsBanner/AboutUsBanner';
-import BannerSVG from '../components/bannerSVG/bannerSVG';
-import JoinUs from '../components/JoinUs/JoinUs';
-import Feedback from '../components/Feedback/Feedback';
-import Contributors from '../components/Contributors/Contributors';
+import AboutUsBanner from '../../.dumi/theme/slots/components/AboutUsBanner/AboutUsBanner';
+import BannerSVG from '../../.dumi/theme/slots/components/bannerSVG/bannerSVG';
+import JoinUs from '../../.dumi/theme/slots/components/JoinUs/JoinUs';
+import Feedback from '../../.dumi/theme/slots/components/Feedback/Feedback';
+import Contributors from '../../.dumi/theme/slots/components/Contributors/Contributors';
 import contributors from '../data/contributors';
 import historyContributors from '../data/historyContributors';
 import { useTranslation } from 'react-i18next';

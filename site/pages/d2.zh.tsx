@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
 import { useTranslation } from 'react-i18next';
 import { Toast } from 'antd-mobile';
-import { VisCanvas } from '../components/D2Chart/D2Chart';
+import { VisCanvas } from '../../.dumi/theme/slots/components/D2Chart/D2Chart';
 import 'antd-mobile/dist/antd-mobile.css';
 import './d2.less';
 // import * as module from 'https://g.alicdn.com/mtb/lib-windvane/3.0.6/windvane.js';

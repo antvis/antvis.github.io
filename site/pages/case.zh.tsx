@@ -1,6 +1,6 @@
 import React from 'react';
 import SEO from '@antv/gatsby-theme-antv/site/components/Seo';
-import ShowCase from '../components/ShowCase/ShowCase';
+import ShowCase from '../../.dumi/theme/slots/components/ShowCase/ShowCase';
 
 import { useTranslation } from 'react-i18next';
 
