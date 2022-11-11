@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import ProductsPage from 'site/components/Products/Products';
 import Banner from 'site/components/Banner/Banner'
 import DecisionTreePage from 'site/components/DecisionTree/DecisionTree';
 import ResourcesPage from 'site/components/Resources/Resources';
 import DescribePage from 'site/components/Describe/Describe';
 import QuotesPage from 'site/components/Quotes/Quotes';
-import {Features} from '@antv/dumi-theme-antv/dist/slots/Features';
+import BannerSVG from 'site/components/bannerSVG/bannerSVG';
+import MobileBanner from '@antv/dumi-theme-antv/dist/slots/Banner'
+import { Features } from '@antv/dumi-theme-antv/dist/slots/Features';
 
 
 import { useMedia } from 'react-use'
@@ -62,29 +65,49 @@ export const Detail: React.FC = () => {
       ),
     },
   ];
+
+  const bannerButtons = [
+    {
+      text: useT('继续了解'),
+      link: '#products',
+      type: 'primary',
+    },
+  ];
+  const [animationStates, setAnimationState] = useState({
+    play: true,
+  });
+  const onPlayVideo = () => {
+    setAnimationState({
+      play: false,
+    });
+  };
+  const onCloseVideo = () => {
+    setAnimationState({
+      play: true,
+    });
+  };
   return (
       <div className="home-container">
         {isWide ? (
           <Banner remoteNews={remoteNews} />
       ) : (
-          <div>123</div>
-          // <>
-          //   <MobileBanner
-          //     className="banner"
-          //     coverImage={<BannerSVG play={animationStates.play} />}
-          //     description={t(
-          //       'AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、无限可能的数据可视化最佳实践。',
-          //     )}
-          //     title={t('蚂蚁数据可视化')}
-          //     showGithubStars={false}
-          //     buttons={bannerButtons}
-          //     video="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/file/A*PDpiR4U2oFEAAAAAAAAAAABkARQnAQ"
-          //     onPlayVideo={onPlayVideo}
-          //     onCloseVideo={onCloseVideo}
-          //     notifications={remoteNews}
-          //   />
-          //   <ProductsPage />
-          // </>
+          <>
+             <MobileBanner
+              className="banner"
+              coverImage={<BannerSVG play={animationStates.play} />}
+              description={useT(
+                'AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、无限可能的数据可视化最佳实践。',
+              )}
+              title={useT('蚂蚁数据可视化')}
+              showGithubStars={false}
+              buttons={bannerButtons}
+              video="https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/file/A*PDpiR4U2oFEAAAAAAAAAAABkARQnAQ"
+              onPlayVideo={onPlayVideo}
+              onCloseVideo={onCloseVideo}
+              notifications={remoteNews}
+            />
+            <ProductsPage />
+          </>
         )}
 
         <DecisionTreePage />

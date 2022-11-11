@@ -129,14 +129,6 @@ export default defineConfig({
         order: 6,
       },
       {
-        slug: 'specification/resources',
-        title: {
-          zh: '资源下载',
-          en: 'Resource',
-        },
-        order: 5,
-      },
-      {
         slug: 'specification/tool',
         title: {
           zh: '工具',
