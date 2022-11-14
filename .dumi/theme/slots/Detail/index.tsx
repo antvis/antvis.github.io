@@ -7,13 +7,10 @@ import DescribePage from 'site/components/Describe/Describe';
 import QuotesPage from 'site/components/Quotes/Quotes';
 import BannerSVG from 'site/components/bannerSVG/bannerSVG';
 import MobileBanner from '@antv/dumi-theme-antv/dist/slots/Banner'
+import { SEO } from '@antv/dumi-theme-antv/dist/slots/SEO'
 import { Features } from '@antv/dumi-theme-antv/dist/slots/Features';
-
-
 import { useMedia } from 'react-use'
-import { useLocale } from 'dumi';
-import { useT } from '@antv/dumi-theme-antv/dist/slots/hooks'
-
+import { useIntl, useLocale } from 'dumi';
 interface NotificationProps {
   index?: number;
   type: string;
@@ -25,6 +22,13 @@ interface NotificationProps {
 export const Detail: React.FC = () => {
   const isWide = useMedia('(min-width: 767.99px)', true);
   const locale = useLocale()
+  const intl = useIntl()
+
+  const useT = (transformedMessage: string) => {
+    return intl.formatMessage({
+      id: transformedMessage
+    })
+  }
   const notificationsUrl = `https://my-json-server.typicode.com/antvis/antvis-sites-data/notifications?lang=${locale.id}`;
   const [remoteNews, setRemoteNews] = useState<NotificationProps[]>([]);
   useEffect(() => {
@@ -87,7 +91,15 @@ export const Detail: React.FC = () => {
     });
   };
   return (
-      <div className="home-container">
+    <div className="home-container">
+      <SEO
+        title={useT('AntV')}
+        titleSuffix={useT('蚂蚁数据可视化')}
+        description={useT(
+          `AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、无限可能的数据可视化最佳实践。`,
+        )}
+        lang={locale.id}
+      />
         {isWide ? (
           <Banner remoteNews={remoteNews} />
       ) : (

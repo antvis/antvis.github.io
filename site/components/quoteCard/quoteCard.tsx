@@ -1,8 +1,8 @@
 import React from 'react';
 import { Avatar } from 'antd';
 import styles from './quoteCard.module.less';
-import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
+import { useIntl } from 'dumi';
 
 const leftpad =
   'https://gw.alipayobjects.com/zos/basement_prod/50fbdc16-bac3-4ecd-8210-f4ed2c116fdb.svg';
@@ -24,8 +24,13 @@ interface Props {
 }
 
 const QuoteCard = (props: Props) => {
-  const { t } = useTranslation();
+  const intl = useIntl()
 
+  const useT = (transformedMessage: string) => {
+    return intl.formatMessage({
+      id: transformedMessage
+    })
+  }
   const borderSlicer: Array<object> = [];
   if (props.hasBorder) {
     borderSlicer.push(
@@ -40,8 +45,8 @@ const QuoteCard = (props: Props) => {
       {borderSlicer}
       <div className={styles.content}>
         <Avatar src={props.cardContent.avatar} className={styles.avatar} />
-        <p className={styles.name}>{t(props.cardContent.name)}</p>
-        <p className={styles.from}>{t(props.cardContent.from)}</p>
+        <p className={styles.name}>{useT(props.cardContent.name)}</p>
+        <p className={styles.from}>{useT(props.cardContent.from)}</p>
         <div className={styles.qslicer} />
         <div className={styles.quoteWrapper}>
           <img
@@ -49,7 +54,7 @@ const QuoteCard = (props: Props) => {
             src={leftpad}
             alt="leftpad"
           />
-          <p className={styles.quote}>{t(props.cardContent.quote)}</p>
+          <p className={styles.quote}>{useT(props.cardContent.quote)}</p>
           <img
             className={classNames(styles.pad, styles.rightpad)}
             src={rightpad}

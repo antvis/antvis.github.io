@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import { isEmpty } from 'lodash';
 import styles from './Banner.module.less';
-import { useTranslation } from 'react-i18next';
-import { useChinaMirrorHost, useT } from '@antv/dumi-theme-antv/dist/slots/hooks';
+import { useChinaMirrorHost } from '@antv/dumi-theme-antv/dist/slots/hooks';
 import { getProducts, ProductType } from '../Products/getProducts';
 import Demos from '../Demos/Demos';
 import { getActualUrl, getBannerInfo, getBannerLink } from './helper';
-import { useLocale } from 'dumi';
+import {useIntl, useLocale } from 'dumi';
 
 interface NotificationProps {
   index?: number;
@@ -22,6 +21,13 @@ interface BannerProps {
 
 export default (props: BannerProps) => {
   const locale = useLocale()
+  const intl = useIntl()
+
+  const useT = (transformedMessage: string) => {
+    return intl.formatMessage({
+      id: transformedMessage
+    })
+  }
   const [isChinaMirrorHost] = useChinaMirrorHost();
   const [products, setProducts] = React.useState<ProductType[]>([]);
 
@@ -137,7 +143,7 @@ export default (props: BannerProps) => {
           >
             <div className={styles.guide}>
               <div className={styles.name}>{useT(about.title)}</div>
-              <div className={styles.info}>{useT(about.info)}</div>
+              <div className={styles.info}>{useT(about.info)}{ }</div>
               <div className={styles.urlList}>
                 <a href={`${locale.id}/about`}>
                   <div className={styles.home} />

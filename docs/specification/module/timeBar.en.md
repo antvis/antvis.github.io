@@ -3,4 +3,4 @@ title: TimeBar
 order: 5
 ---
 
-`markdown:docs/specification/module/timeBar.zh.md`
+<embed src="@/docs/specification/module/timeBar.zh.md"></embed>

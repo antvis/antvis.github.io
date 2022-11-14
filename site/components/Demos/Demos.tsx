@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
 import chroma from 'chroma-js';
 import { assign, debounce } from 'lodash';
 
 import styles from './Demos.module.less';
+import { getLang } from '../../utils';
 
 interface DemoProps {
   imgurl: string;
@@ -29,10 +29,9 @@ export default (props: DemosProps) => {
   const MIN_COLS = 2;
   let list = props.list || [];
   const { active, type } = props;
-  const { i18n } = useTranslation();
   const [imgs, updateImgs] = useState<number[][]>([]);
   const [totalImgs, updateTotalImgs] = useState<number>(0);
-
+  const lang = getLang()
   const getRandomNum = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
@@ -124,7 +123,7 @@ export default (props: DemosProps) => {
               href={
                 list[item].location
                   ? list[item].location
-                  : `${list[item].host}${i18n.language}${list[item].path}`
+                  : `${list[item].host}${lang}${list[item].path}`
               }
               key={`${list[item].path}${index}`}
               target="_blank"
@@ -153,7 +152,7 @@ export default (props: DemosProps) => {
               />
 
               <div className={styles.title}>
-                {i18n.language === 'zh'
+                {lang === 'zh'
                   ? list[item].title_zh
                   : list[item].title_en}
               </div>

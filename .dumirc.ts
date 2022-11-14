@@ -1,46 +1,17 @@
-import fs from 'fs'
-import path from 'path'
 import { defineConfig } from 'dumi';
 import { repository, version, homepage } from './package.json';
-// import { Extractor, ExtractorConfig } from '@microsoft/api-extractor';
-
-// const getExtraLib = () => {
-//   try {
-//     const extractorConfig = ExtractorConfig.loadFileAndPrepare(
-//       path.resolve('./api-extractor.json'),
-//     );
-//     const extractorResult = Extractor.invoke(extractorConfig, {
-//       localBuild: true,
-//       showVerboseMessages: true,
-//     });
-//     if (extractorResult.succeeded) {
-//       const typeFilePath = extractorResult.extractorConfig.untrimmedFilePath;
-//       if (typeFilePath) {
-//         return `declare module '${name}'{
-//           ${fs.readFileSync(typeFilePath, `utf8`)}
-//         }`;
-//       }
-//     }
-//   } catch (e) {
-//     // eslint-disable-next-line no-console
-//     console.warn(`api-extractor warn: ${e.message}`);
-//   }
-//   return '';
-// };
-
 export default defineConfig({
   locales: [{ id: 'zh', name: '中文' }, { id: 'en', name: 'English' }],
-  title: 'G6',                                                          // 网站header标题
   favicons: ['https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*7svFR6wkPMoAAAAAAAAAAAAADmJ7AQ/original'], // 网站 favicon
   metas: [                                                              // 自定义 meta 标签  
-    { name: 'keywords', content: 'G6' },
-    { name: 'description', content: 'A collection of charts made with the Grammar of Graphics' },
+    { name: 'keywords', content: 'AntV' },
+    { name: 'description', content: 'Ant Visualization solution' },
   ],
   themeConfig: {
-    title: 'G6',
-    description: 'A collection of charts made with the Grammar of Graphics',
+    title: 'AntV',
+    description: 'Ant Visualization solution',
     defaultLanguage: 'zh',                                              // 默认语言
-    isAntVSite: true,                                                  // 是否是 AntV 的大官网
+    isAntVSite: true,                                                   // 是否是 AntV 的大官网
     siteUrl: homepage,                                     // 官网地址
     githubUrl: repository.url,                                          // GitHub 地址
     showSearch: true,                                                   // 是否显示搜索框
@@ -225,71 +196,10 @@ export default defineConfig({
       // 第一个分块的大小
       splitPaneMainSize: '62%',
     },
-    // playground: {
-    //   extraLib: getExtraLib(),
-    // },
     announcement: {
       zh: '',
       en: '',
     },
-    /** 首页技术栈介绍 */
-    detail: {
-      title: {
-        zh: 'G6 图可视化引擎',
-        en: 'G6 Graph Visualization Engine',
-      },
-      description: {
-        zh: 'G6 是一个简单、易用、完备的图可视化引擎，它在高定制能力的基础上，提供了一系列设计优雅、便于使用的图可视化解决方案。能帮助开发者搭建属于自己的图可视化、图分析、或图编辑器应用。',
-        en: 'G6 is graph visualization engine with simplicity and convenience. Based on the ability of customize, it provides a set of elegant graph visualization solutions, and helps developers to build up applications for graph visualization, graph analysis, and graph editor.'
-      },
-      image: 'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*j5AqSpmNPdYAAAAAAAAAAABkARQnAQ',
-      buttons: [
-        {
-          text: {
-            zh: '图表示例',
-            en: 'Examples',
-          },
-          link: `/examples`,
-        },
-        {
-          text: {
-            zh: '开始使用',
-            en: 'Getting Started',
-          },
-          link: `/manual/introduction`,
-          type: 'primary',
-        },
-      ],
-    },
-    /** 新闻公告，优先选择配置的，如果没有配置则使用远程的！ */
-    news: [
-      {
-        type: {
-          zh: '推荐',
-          en: 'Recommand',
-        },
-        title: {
-          zh: 'G6 家族新成员：GraphInsight',
-          en: 'New to the G6 family: GraphInsight',
-        },
-        date: '2022.06.06',
-        link: 'https://github.com/antvis/GraphInsight',
-      },
-      {
-        type: {
-          zh: '推荐',
-          en: 'Recommand',
-        },
-        title: {
-          zh: '不仅成长了一点',
-          en: 'Not only grew a little',
-        },
-        date: '2022.11.22',
-        link: 'https://www.yuque.com/antv/g6-blog/nnmqbk',
-      },
-    ],
-    /** 首页特性介绍 */
-    /** 首页案例 */
     /** 首页合作公司 */
     companies: [
       { name: '阿里云', img: 'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*V_xMRIvw2iwAAAAAAAAAAABkARQnAQ' },

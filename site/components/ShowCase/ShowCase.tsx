@@ -1,11 +1,11 @@
 // 场景案例模版
 import React, { useState, useEffect } from 'react';
 import { Layout as AntLayout, BackTop } from 'antd';
+import { useLocale } from 'dumi';
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
-import Article from '@antv/gatsby-theme-antv/site/components/Article';
-import { useTranslation } from 'react-i18next';
-import customStyles from './ShowCase.module.less';
-import styles from '@antv/gatsby-theme-antv/site/templates/markdown.module.less';
+import Article from '@antv/dumi-theme-antv/dist/slots/Article';
+
+import styles from '@antv/dumi-theme-antv/dist/slots/ManualContent/index.module.less';
 
 interface ShowCaseProps {
   type: string;
@@ -16,9 +16,8 @@ interface ShowCaseProps {
 }
 
 export default () => {
-  const { t, i18n } = useTranslation();
-
-  const lang = i18n.language.includes('zh') ? 'zh' : 'en';
+  const locale = useLocale()
+  const lang = locale.id.includes('zh') ? 'zh' : 'en';
   const showCaseUrl = `https://my-json-server.typicode.com/antvis/antvis-sites-data/showCases?lang=${lang}`;
 
   const [demos, setDemos] = useState<ShowCaseProps[]>([]);
@@ -41,7 +40,7 @@ export default () => {
             return (
               <li
                 className={styles.galleryCard}
-                key={demo.href}
+                key={demo.href+demo.title}
                 title={demo.title}
               >
                 <a
