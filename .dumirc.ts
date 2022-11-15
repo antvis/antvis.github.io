@@ -200,7 +200,18 @@ export default defineConfig({
       zh: '',
       en: '',
     },
-    /** 首页合作公司 */
+    /** 首页技术栈介绍 */
+    detail: {
+      title: {
+        zh: 'Antv',
+        en: 'Antv',
+      },
+      description: {
+        zh: 'Ant Visualization solution',
+        en: 'Ant Visualization solution',
+      },
+    },
+      /** 首页合作公司 */
     companies: [
       { name: '阿里云', img: 'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*V_xMRIvw2iwAAAAAAAAAAABkARQnAQ' },
       { name: '支付宝', img: 'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*lYDrRZvcvD4AAAAAAAAAAABkARQnAQ', },
