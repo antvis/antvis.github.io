@@ -3,4 +3,4 @@ title: Color Palette
 order: 1
 ---
 
-`markdown:docs/specification/language/palette.zh.md`
+<embed src="@/docs/specification/language/palette.zh.md"></embed>

@@ -3,4 +3,4 @@ title: Mobile
 order: 5
 ---
 
-`markdown:docs/specification/graph/mobile.zh.md`
+<embed src="@/docs/specification/graph/mobile.zh.md"></embed>

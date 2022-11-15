@@ -1,13 +1,13 @@
 import React, { useEffect, useState, Children } from 'react';
 import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
 import { FullscreenOutlined, FullscreenExitOutlined } from '@ant-design/icons';
 import styles from './DecisionTree.module.less';
 import { CKBJson } from '@antv/knowledge';
-import uniqueId from '@antv/util/lib/unique-id';
-import clone from '@antv/util/lib/clone';
+import { uniqueId, clone } from '@antv/util';
 import { transform } from '@antv/matrix-util';
+import { useIntl, useLocale } from 'dumi';
 import chartUrls from '../../data/chart-urls.json';
+
 
 let graph: any;
 let decoGraph: any;
@@ -33,9 +33,16 @@ declare global {
 }
 
 const DecisionTree = () => {
-  const { t, i18n } = useTranslation();
+  const intl = useIntl()
+
+  const useT = (transformedMessage: string) => {
+    return intl.formatMessage({
+      id: transformedMessage
+    })
+  }
+  const locale = useLocale()
   let ckbData = CKBJson('zh-CN');
-  if (i18n.language === 'en') {
+  if (locale.id === 'en') {
     ckbData = CKBJson();
   }
 
@@ -873,7 +880,7 @@ const DecisionTree = () => {
             key={i}
           >
             <a
-              href={i18n.language === 'zh' ? links[i] : links_en[i]}
+              href={locale.id === 'zh' ? links[i] : links_en[i]}
               target="frame1"
             >
               {name}
@@ -890,7 +897,7 @@ const DecisionTree = () => {
         model.y + shapeBBox.minY,
       );
       setTooltipStates({
-        title: t(model.name),
+        title: useT(model.name),
         imgSrc: urls.imgSrc,
         links: urls.links,
         names: urls.linkNames,
@@ -1001,9 +1008,9 @@ const DecisionTree = () => {
         parentExist = false,
         parentIdx = -1;
       chart.purpose.forEach((pur: string, i: number) => {
-        if (pur === t('层级') || pur === t('流向')) {
+        if (pur === useT('层级') || pur === useT('流向')) {
           childExist = true;
-        } else if (pur === t('关系')) {
+        } else if (pur === useT('关系')) {
           parentExist = true;
           parentIdx = i;
         }
@@ -1012,13 +1019,13 @@ const DecisionTree = () => {
         delete chart.purpose[parentIdx];
       }
       chart.purpose.forEach((pur: string) => {
-        if (pur === t('聚类') || !pur) return; // temperal
-        if (pur === t('层级') || pur === t('流向')) {
-          if (!purposeMap[t('关系')]) {
+        if (pur === useT('聚类') || !pur) return; // temperal
+        if (pur === useT('层级') || pur === useT('流向')) {
+          if (!purposeMap[useT('关系')]) {
             purposeCount++;
             const purpose = {
-              id: t('关系'),
-              label: t('关系'),
+              id: useT('关系'),
+              label: useT('关系'),
               children: [],
               color: gColors[purposeCount % gColors.length],
               gradientColor: gColors[purposeCount % gColors.length],
@@ -1026,10 +1033,10 @@ const DecisionTree = () => {
               labelCfg: bubbleCfg.labelCfg,
             };
             root.children.push(purpose);
-            purposeMap[t('关系')] = purpose;
+            purposeMap[useT('关系')] = purpose;
           }
           if (!purposeMap[pur]) {
-            const color = purposeMap[t('关系')].color.split(' ')[2].substr(2);
+            const color = purposeMap[useT('关系')].color.split(' ')[2].substr(2);
             const midPoint = {
               id: pur,
               type: 'midpoint',
@@ -1037,7 +1044,7 @@ const DecisionTree = () => {
               size: 6,
               label: pur,
               color,
-              gradientColor: purposeMap[t('关系')].color,
+              gradientColor: purposeMap[useT('关系')].color,
               children: [],
               style: {
                 fill: '#fff',
@@ -1081,7 +1088,7 @@ const DecisionTree = () => {
       });
     });
     relationMidPoints.forEach((midpoint: any) => {
-      purposeMap[t('关系')].children.push(midpoint);
+      purposeMap[useT('关系')].children.push(midpoint);
     });
     Object.keys(purposeMap).forEach((purposeName: any) => {
       const purpose = purposeMap[purposeName];
@@ -1227,7 +1234,7 @@ const DecisionTree = () => {
     >
       <div className={styles.topContaner}>
         <div className={styles.title} onClick={scrollToCanvas}>
-          {t('图表分类')}
+          {useT('图表分类')}
         </div>
       </div>
       <div

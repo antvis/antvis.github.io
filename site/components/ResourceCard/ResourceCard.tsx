@@ -1,7 +1,7 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import styles from './ResourceCard.module.less';
+import { useIntl } from 'dumi';
 
 interface Props {
   cardContent: {
@@ -14,7 +14,13 @@ interface Props {
 }
 
 const ResourceCard = (props: Props) => {
-  const { t } = useTranslation();
+  const intl = useIntl()
+
+  const useT = (transformedMessage: string) => {
+    return intl.formatMessage({
+      id: transformedMessage
+    })
+  }
   let detailLinkStr = '查看详情';
   return (
     <div className={styles.card}>
@@ -31,7 +37,7 @@ const ResourceCard = (props: Props) => {
           href={props.cardContent.link}
           target="newtab"
         >
-          {t(detailLinkStr)}
+          {useT(detailLinkStr)}
         </a>
       </div>
     </div>

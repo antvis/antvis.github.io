@@ -1,17 +1,24 @@
 import React from 'react';
 import { Row, Col } from 'antd';
+import { useIntl, useLocale } from 'dumi'
 import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
-import { useChinaMirrorHost } from '@antv/gatsby-theme-antv/site/hooks';
+import { useChinaMirrorHost } from '@antv/dumi-theme-antv/dist/slots/hooks';
 import { CATEGORIES, ProductType, getProducts } from './getProducts';
 import styles from './Products.module.less';
 
 const Products = () => {
-  const { t, i18n } = useTranslation();
+  const locale = useLocale()
+  const intl = useIntl()
+
+  const useT = (transformedMessage: string) => {
+    return intl.formatMessage({
+      id: transformedMessage
+    })
+  }
   const [isChinaMirrorHost] = useChinaMirrorHost();
   const [products, setProducts] = React.useState<ProductType[]>([]);
 
-  const lang: 'zh' | 'en' = i18n.language.includes('zh') ? 'zh' : 'en';
+  const lang: 'zh' | 'en' = locale.id.includes('zh') ? 'zh' : 'en';
   React.useEffect(() => {
     getProducts({ language: lang, isChinaMirrorHost }).then((data) => {
       setProducts(data.slice(0, 10));
@@ -26,7 +33,7 @@ const Products = () => {
     renderData.forEach((product: any) => {
       cols.push(
         <Col key={product.title} className={styles.col} span={24}>
-          <a href={product.links[0].url}>
+          <a href={product.links[Object.keys(product.links)[0]].url}>
             <div className={styles.product} key="product">
               <p key="product-title" className={styles.ptitle}>
                 {`${product.title} ${product.slogan || ''}`}
@@ -41,7 +48,7 @@ const Products = () => {
                       <a className={styles.plink} href={product.links.home.url}>
                         {product.links.home.title
                           ? product.links.home.title
-                          : t('产品首页')}
+                          : useT('产品首页')}
                       </a>
                     )}
                   </object>
@@ -53,7 +60,7 @@ const Products = () => {
                       >
                         {product.links.example.title
                           ? product.links.example.title
-                          : t('图表示例')}
+                          : useT('图表示例')}
                       </a>
                     )}
                   </object>
@@ -280,7 +287,7 @@ const Products = () => {
         )}
       />
       <div className={styles.content}>
-        <p className={styles.title}>{t(titleStr)}</p>
+        <p className={styles.title}>{useT(titleStr)}</p>
         <div className={styles.productsContainer}>
           <div
             className={classNames(
@@ -313,7 +320,7 @@ const Products = () => {
                 )}
               >
                 <div className={styles.subTitleBar} />
-                <div className={styles.subTitleText}>{t(name)}</div>
+                <div className={styles.subTitleText}>{useT(name)}</div>
               </div>
             );
           })}

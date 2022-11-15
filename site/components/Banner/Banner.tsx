@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import { isEmpty } from 'lodash';
 import styles from './Banner.module.less';
-import { useTranslation } from 'react-i18next';
-import { useChinaMirrorHost } from '@antv/gatsby-theme-antv/site/hooks';
+import { useChinaMirrorHost } from '@antv/dumi-theme-antv/dist/slots/hooks';
 import { getProducts, ProductType } from '../Products/getProducts';
 import Demos from '../Demos/Demos';
 import { getActualUrl, getBannerInfo, getBannerLink } from './helper';
+import {useIntl, useLocale } from 'dumi';
 
 interface NotificationProps {
   index?: number;
@@ -20,13 +20,20 @@ interface BannerProps {
 }
 
 export default (props: BannerProps) => {
-  const { t, i18n } = useTranslation();
+  const locale = useLocale()
+  const intl = useIntl()
+
+  const useT = (transformedMessage: string) => {
+    return intl.formatMessage({
+      id: transformedMessage
+    })
+  }
   const [isChinaMirrorHost] = useChinaMirrorHost();
   const [products, setProducts] = React.useState<ProductType[]>([]);
 
   const { remoteNews } = props;
 
-  const lang: 'zh' | 'en' = i18n.language.includes('zh') ? 'zh' : 'en';
+  const lang: 'zh' | 'en' = locale.id.includes('zh') ? 'zh' : 'en';
   React.useEffect(() => {
     getProducts({ language: lang, isChinaMirrorHost }).then((data) => {
       setProducts(data);
@@ -74,9 +81,9 @@ export default (props: BannerProps) => {
       />
       <div className={styles.header}>
         <div className={styles.top}>
-          <div className={styles.mainTitle}>{t('让数据栩栩如生')}</div>
+          <div className={styles.mainTitle}>{useT('让数据栩栩如生')}</div>
           <div className={styles.subTitle}>
-            {t('蚂蚁集团全新一代数据可视化解决方案')}
+            {useT('蚂蚁集团全新一代数据可视化解决方案')}
           </div>
         </div>
 
@@ -135,17 +142,17 @@ export default (props: BannerProps) => {
             style={{ display: active === 0 ? '' : 'none' }}
           >
             <div className={styles.guide}>
-              <div className={styles.name}>{t(about.title)}</div>
-              <div className={styles.info}>{t(about.info)}</div>
+              <div className={styles.name}>{useT(about.title)}</div>
+              <div className={styles.info}>{useT(about.info)}{ }</div>
               <div className={styles.urlList}>
-                <a href={`${i18n.language}/about`}>
+                <a href={`${locale.id}/about`}>
                   <div className={styles.home} />
-                  <div className={styles.text}>{t('关于我们')}</div>
+                  <div className={styles.text}>{useT('关于我们')}</div>
                 </a>
               </div>
 
               <div className={styles.news}>
-                <div className={styles.newsTitle}>{t('最新资讯')}</div>
+                <div className={styles.newsTitle}>{useT('最新资讯')}</div>
                 {remoteNews.map((item: any, index: number) => (
                   <div key={`${item.title}${index}`}>
                     <div className={styles.time}>{item.date}</div>
@@ -196,7 +203,7 @@ export default (props: BannerProps) => {
                                 >
                                   <div className={styles.home} />
                                   <div className={styles.text}>
-                                    {product.links.home.title ?? t('产品首页')}
+                                    {product.links.home.title ?? useT('产品首页')}
                                   </div>
                                 </a>
                               )}
@@ -208,7 +215,7 @@ export default (props: BannerProps) => {
                                   <div className={styles.example} />
                                   <div className={styles.text}>
                                     {product.links.example.title ??
-                                      t('图表示例')}
+                                      useT('图表示例')}
                                   </div>
                                 </a>
                               )}
@@ -219,7 +226,7 @@ export default (props: BannerProps) => {
                                 >
                                   <div className={styles.api} />
                                   <div className={styles.text}>
-                                    {product.links.api.title ?? t('使用文档')}
+                                    {product.links.api.title ?? useT('使用文档')}
                                   </div>
                                 </a>
                               )}
@@ -233,7 +240,7 @@ export default (props: BannerProps) => {
                   <div className={styles.bgCover} />
                   {item.banner_url ? (
                     <a
-                      href={`${item.banner_url}/${i18n.language}`}
+                      href={`${item.banner_url}/${locale.id}`}
                       target="_blank"
                     >
                       <img

@@ -1,8 +1,9 @@
 import React from 'react';
 import ResourceCard from '../ResourceCard/ResourceCard';
 import { Col, Row } from 'antd';
-import { useTranslation } from 'react-i18next';
 import styles from './Resources.module.less';
+import { getLang } from '../../utils';
+import { useIntl } from 'dumi';
 
 const circleBackImg =
   'https://gw.alipayobjects.com/zos/basement_prod/e63aad85-573e-484b-94dd-dc8ea2334c09.svg';
@@ -10,14 +11,21 @@ const diamandBackImg =
   'https://gw.alipayobjects.com/zos/basement_prod/bd846fce-bf9b-47f0-abba-87bb9bbd2982.svg';
 
 const ResourcesPage = () => {
-  const { t, i18n } = useTranslation();
+  const lang = getLang()
+  const intl = useIntl()
+
+  const useT = (transformedMessage: string) => {
+    return intl.formatMessage({
+      id: transformedMessage
+    })
+  }
   const cards = [
     {
       index: 0,
       icon:
         'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*icqYSbEiNxIAAAAAAAAAAABkARQnAQ',
-      title: t('图表用法'),
-      description: t(
+      title: useT('图表用法'),
+      description: useT(
         '从数据出发，从功能角度对常见图表进行分类，提供规范使用指引。',
       ),
       link: 'https://antv-2018.alipay.com/zh-cn/vis/chart/index.html',
@@ -26,21 +34,21 @@ const ResourcesPage = () => {
       index: 1,
       icon:
         'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*mt47RKxGy8kAAAAAAAAAAABkARQnAQ',
-      title: t('设计原则'),
-      description: t(
+      title: useT('设计原则'),
+      description: useT(
         '对数据图形进行拆解、提炼，抽象出一套数据图形可视化交互视觉规范。',
       ),
-      link: `/${i18n.language}/docs/specification/principles/basic`,
+      link: `/${lang}/docs/specification/principles/basic`,
     },
     {
       index: 2,
       icon:
         'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*zBDKTaSg-7AAAAAAAAAAAABkARQnAQ',
-      title: t('工具资源'),
-      description: t(
+      title: useT('工具资源'),
+      description: useT(
         '在进行模式、组件和语言的整理过程中发现的优秀书籍和资源。',
       ),
-      link: `/${i18n.language}/docs/specification/resources`,
+      link: `/${lang}/docs/specification/resources`,
     },
   ];
 
@@ -55,7 +63,7 @@ const ResourcesPage = () => {
     <div className={styles.wrapper}>
       <div className={styles.content}>
         <p key="title" className={styles.title}>
-          {t(titleStr)}
+          {useT(titleStr)}
         </p>
         <div key="slicer" className={styles.slicer} />
         <div key="cards" className={styles.rowsWrapper}>

@@ -71,3 +71,12 @@ yarn-error.log
 package-lock.json
 yarn.lock
 _site
+
+
+
+# dumi production
+/dist
+
+# dumi tmp_production
+.dumi/tmp
+.dumi/tmp-production

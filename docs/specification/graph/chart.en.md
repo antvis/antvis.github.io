@@ -3,4 +3,4 @@ title: Chart
 order: 1
 ---
 
-`markdown:docs/specification/graph/chart.zh.md`
+<embed src="@/docs/specification/graph/chart.zh.md"></embed>

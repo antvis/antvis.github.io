@@ -1,5 +1,5 @@
 {
-  "include": ["site"],
+  "include": ["site", ".dumi/theme/slots/components"],
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
