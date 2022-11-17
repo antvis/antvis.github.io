@@ -9,7 +9,7 @@
     "antvis",
     "antv"
   ],
-  "homepage": "https://antv.vision",
+  "homepage": "https://antv.antgroup.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/antvis/antvis.github.io"
@@ -53,7 +53,8 @@
     "start": "npm run develop",
     "build": "NODE_OPTIONS=--max-old-space-size=4096 dumi build",
     "develop": "dumi dev",
-    "deploy": " npm run build && npm run copy-mirror-action && gh-pages -d public -b master",
+    "deploy": " npm run build  && npm run gh-pages",
+    "gh-pages": "gh-pages -d dist -b master",
     "copy-mirror-action": "mkdir -p public/.github/workflows && cp .github/workflows/mirror.yml public/.github/workflows",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,less}\"",
     "pretty-quick": "pretty-quick",

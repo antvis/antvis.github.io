@@ -16,17 +16,9 @@ export default defineConfig({
     githubUrl: repository.url,                                          // GitHub 地址
     showSearch: true,                                                   // 是否显示搜索框
     showGithubCorner: true,                                             // 是否显示头部的 GitHub icon
-    showGithubStars: true,                                              // 是否显示 GitHub star 数量
     showAntVProductsCard: true,                                         // 是否显示 AntV 产品汇总的卡片
     showLanguageSwitcher: true,                                         // 是否显示官网语言切换
     showWxQrcode: true,                                                 // 是否显示头部菜单的微信公众号
-    showChartResize: true,                                              // 是否在 demo 页展示图表视图切换
-    showAPIDoc: true,                                                   // 是否在 demo 页展示API文档
-    themeSwitcher: 'g2',
-    versions: {                                                         // 历史版本以及切换下拉菜单
-      [version]: 'https://g6.antv.vision',
-      '3.2.x': 'https://g6-v3-2.antv.vision',
-    },
     docsearchOptions: {                                                 // 头部搜索框配置
       apiKey: '9d1cd586972bb492b7b41b13a949ef30',
       indexName: 'antv_g6',
@@ -119,78 +111,6 @@ export default defineConfig({
       },
     ],
     examples: [
-      {
-        slug: 'case',
-        icon: 'gallery',
-        title: {
-          zh: '场景案例',
-          en: 'Case',
-        },
-      },
-      {
-        slug: 'net',
-        icon: 'net',
-        title: {
-          zh: '布局：一般图',
-          en: 'Layout：General Graph',
-        },
-      },
-      {
-        slug: 'tree',
-        icon: 'tree', // 图标名可以去 https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html 打开控制台查看图标类名
-        title: {
-          zh: '布局：树图',
-          en: 'Layout：Tree Graph',
-        },
-      },
-      {
-        slug: 'item',
-        icon: 'shape',
-        title: {
-          zh: '元素',
-          en: 'Item',
-        },
-      },
-      {
-        slug: 'interaction',
-        icon: 'interaction',
-        title: {
-          zh: '交互',
-          en: 'Interaction',
-        },
-      },
-      {
-        slug: 'scatter',
-        icon: 'scatter',
-        title: {
-          zh: '动画',
-          en: 'Animation',
-        },
-      },
-      {
-        slug: 'tool',
-        icon: 'tool',
-        title: {
-          zh: '组件',
-          en: 'Component',
-        },
-      },
-      {
-        slug: 'algorithm',
-        icon: 'gallery',
-        title: {
-          zh: '算法',
-          en: 'Algorithm',
-        },
-      },
-      {
-        slug: 'performance',
-        icon: 'net',
-        title: {
-          zh: '性能测试',
-          en: 'Performance',
-        },
-      },
     ],
     mdPlayground: {
       // 第一个分块的大小
