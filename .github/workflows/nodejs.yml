@@ -23,7 +23,7 @@ jobs:
         run: |
           echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-     - name: Install dependencies
+      - name: Install dependencies
         run: pnpm i
         env:
           CI: true
