@@ -7,15 +7,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v2-beta
+      - uses: actions/checkout@v3
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
         with:
-          node-version: 12
-      - name: npm install, and build
+          version: 7.14.0
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
         run: |
-          npm install
-          npm run tsc
-          npm run build
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Install dependencies
+        run: pnpm i
+        env:
+          CI: true
+
+      - name: Build dist
+        run: pnpm build
         env:
           CI: true
