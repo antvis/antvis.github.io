@@ -18,7 +18,7 @@ interface ShowCaseProps {
 export default () => {
   const locale = useLocale()
   const lang = locale.id.includes('zh') ? 'zh' : 'en';
-  const showCaseUrl = `https://my-json-server.typicode.com/antvis/antvis-sites-data/showCases?lang=${lang}`;
+  const showCaseUrl = `https://assets.antv.antgroup.com/antv/show-cases-${lang}.json`;
 
   const [demos, setDemos] = useState<ShowCaseProps[]>([]);
 
@@ -40,7 +40,7 @@ export default () => {
             return (
               <li
                 className={styles.galleryCard}
-                key={demo.href+demo.title}
+                key={demo.href + demo.title}
                 title={demo.title}
               >
                 <a
