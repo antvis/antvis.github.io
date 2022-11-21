@@ -2,7 +2,7 @@
   {
     "title_zh": "AVA",
     "title_en": "AVA",
-    "url": "https://ava.antv.vision",
+    "url": "https://ava.antv.antgroup.com",
     "className": "ava",
     "gridArea": "ava"
   },
@@ -16,21 +16,21 @@
   {
     "title_zh": "G2Plot",
     "title_en": "G2Plot",
-    "url": "https://g2plot.antv.vision",
+    "url": "https://g2plot.antv.antgroup.com",
     "className": "G2",
     "gridArea": "G2Plot"
   },
   {
     "title_zh": "G2",
     "title_en": "G2",
-    "url": "https://g2.antv.vision",
+    "url": "https://g2.antv.antgroup.com",
     "className": "G2",
     "gridArea": "G2"
   },
   {
     "title_zh": "S2",
     "title_en": "S2",
-    "url": "https://s2.antv.vision",
+    "url": "https://s2.antv.antgroup.com",
     "className": "G2",
     "gridArea": "S2"
   },
@@ -64,7 +64,7 @@
   {
     "title_zh": "X6",
     "title_en": "X6",
-    "url": "https://x6.antv.vision",
+    "url": "https://x6.antv.antgroup.com",
     "className": "G6",
     "gridArea": "X6"
   },
@@ -84,7 +84,7 @@
   {
     "title_zh": "L7",
     "title_en": "L7",
-    "url": "https://l7.antv.vision",
+    "url": "https://l7.antv.antgroup.com",
     "className": "L7",
     "gridArea": "L7"
   },
@@ -129,7 +129,7 @@
   {
     "title_zh": "F2",
     "title_en": "F2",
-    "url": "https://f2.antv.vision",
+    "url": "https://f2.antv.antgroup.com",
     "className": "G2",
     "gridArea": "F2"
   },

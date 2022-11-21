@@ -32,9 +32,9 @@ order: 0
 接下来，我们要开始画图了，但我们还得反问我们自己：我们应该阐述什么样的观点？用什么图表类型阐述比较合适呢？视觉设计上面需要注意什么？用户需要与可视化进行交互吗？交互上需要注意什么？
 
 - **图表类型：**数据类型（地理可视化数据、图数据、常规统计数据）、用户分析目地（看关系、看分布、看趋势、看比较、分析整体与部分关系）决定图表类型。AntV 提供图表分类导航决策树，借助它，我们可以快速定位我们可以使用的图表；
-- **视觉设计：**AntV 有一套完成的视觉设计体系，包括”布局“、”色板“、”字体“。详见[视觉设计指引](https://ava.antv.vision/zh/docs/specification/language/basic)；
-- **交互设计：**屏幕空间很小？数据放不下怎么办，用户能否与数据进行交互？是否要为多端设计。详见[交互设计指引](https://ava.antv.vision/zh/docs/specification/language/interact)；
-- **观点阐述：**数据反映出来的趋势或者关系分布能否总结出来？异常数据是否需要标记出来？你可能需要用到[标注组件](https://ava.antv.vision/zh/docs/specification/module/annotation)。
+- **视觉设计：**AntV 有一套完成的视觉设计体系，包括”布局“、”色板“、”字体“。详见[视觉设计指引](https://ava.antv.antgroup.com/zh/docs/specification/language/basic)；
+- **交互设计：**屏幕空间很小？数据放不下怎么办，用户能否与数据进行交互？是否要为多端设计。详见[交互设计指引](https://ava.antv.antgroup.com/zh/docs/specification/language/interact)；
+- **观点阐述：**数据反映出来的趋势或者关系分布能否总结出来？异常数据是否需要标记出来？你可能需要用到[标注组件](https://ava.antv.antgroup.com/zh/docs/specification/module/annotation)。
 
 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Ql9TT6WcvuQAAAAAAAAAAAAAARQnAQ)
 

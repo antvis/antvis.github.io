@@ -11,7 +11,7 @@ import bannerInfo from 'site/data/banner-info.json';
 export function getActualUrl(url: string, isChinaMirrorHost: boolean): string {
   let link = url;
   if (isChinaMirrorHost && link) {
-    // g2plot.antv.vision => antv-g2plot.gitee.io
+    // g2plot.antv.antgroup.com => antv-g2plot.gitee.io
     const match = link.match(/([http|https]):\/\/(.*)\.antv\.vision/);
     if (match && match[2]) {
       link = link.replace(

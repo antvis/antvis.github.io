@@ -109,7 +109,7 @@ order: 7
 更好的做法：**缩短用户对照图例看图形的本能路径，提升信息获取效率。**
 <br />
 
-虽然图例的位置从技术上支持了 12 个位置，我们总结了图例在不同的图表类型中不同的位置后，经过克制收敛为两类，并应用在统计图表类库 <a href='https://g2plot.antv.vision/zh/examples/gallery' target='_blank'>G2Plot</a> 以及智能生成图表 <a href='https://ava.antv.vision/' target='_blank'>AVA</a> 中。
+虽然图例的位置从技术上支持了 12 个位置，我们总结了图例在不同的图表类型中不同的位置后，经过克制收敛为两类，并应用在统计图表类库 <a href='https://g2plot.antv.antgroup.com/zh/examples/gallery' target='_blank'>G2Plot</a> 以及智能生成图表 <a href='https://ava.antv.antgroup.com/' target='_blank'>AVA</a> 中。
 
 设计者和观看者甚至并不会感知到位置的变化，但获取信息的效率就在不经意间提升了。
 <br />
