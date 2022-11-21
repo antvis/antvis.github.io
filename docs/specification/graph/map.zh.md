@@ -127,7 +127,7 @@ order: 2
 
 ![Group@2x.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*2gQNR7UZSZUAAAAAAAAAAAAAARQnAQ)
 
-更多地图类型详见 <a href='https://l7.antv.vision/zh/examples/gallery' target='_blank'>AntV-L7</a>。
+更多地图类型详见 <a href='https://l7.antv.antgroup.com/zh/examples/gallery' target='_blank'>AntV-L7</a>。
 
 # 设计规范
 

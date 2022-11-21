@@ -59,7 +59,7 @@ order: 4
 
 ### 串联分析思路
 
-- 分析思路遵循[通用 dashboard 设计](https://ava.antv.vision/en/docs/specification/graph/pubDashboard)。
+- 分析思路遵循[通用 dashboard 设计](https://ava.antv.antgroup.com/en/docs/specification/graph/pubDashboard)。
 - 明确此类页面的使用者身份，以及分析目的，从而选择对应的页面类型。不同业务线间，关注的核心指标不同，常见的指标类型有：宏观的大盘数据，具体的业务指标。
   - 针对决策者（如监控业务管理者），可以选择描述型的指标结果页面；
   - 针对执行者（如异常情况处理者），可以选择有更多维分析功能的分析、详情页面。
