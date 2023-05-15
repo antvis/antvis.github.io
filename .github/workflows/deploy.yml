@@ -2,14 +2,28 @@ name: Deploy
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+     - master
 
 jobs:
   deploy-site:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm run build
+      - run: echo 'antv.vision' > dist/CNAME
+      - run: |
+          cd dist
+          git init
+          git config --local user.name antv
+          git config --local user.email antv@antfin.com
+          git add .
+          git commit -m "update by release action"
+      - uses: ad-m/github-push-action@master
         with:
-          node-version: 12
-      - run: yarn install
-      - run: npm run deploy
+          github_token: ${{secrets.PERSONAL_ACCESS_TOKEN}}
+          directory: dist
+          branch: gh-pages
+          force: true
