@@ -91,11 +91,7 @@ export default () => {
 
   return (
     <>
-      <AntLayout
-        // style={{ background: '#fff' }}
-        hasSider
-      // className={styles.layout}
-      >
+      <AntLayout hasSider>
         <Article className={style.markdown}>
           <div style={{ height: '100%', width: '100%', display: 'flex', justifyContent: 'center' }}>
             <div className={style.content}>
@@ -143,8 +139,13 @@ export default () => {
                   >
                     <Select style={{ width: 250 }} options={ISSUE_TYPE} />
                   </Form.Item>
-                  <Form.Item labelCol={{ span: 3 }}
-                    wrapperCol={{ span: 9 }} label={lang === 'zh' ? '标题' : 'title'} name={'title'} rules={[{ required: true }]}>
+                  <Form.Item
+                    labelCol={{ span: 3 }}
+                    wrapperCol={{ span: 9 }}
+                    label={lang === 'zh' ? '标题' : 'title'}
+                    name={'title'}
+                    rules={[{ required: true }]}
+                  >
                     <Input style={{ width: 400 }} />
                   </Form.Item>
                 </div>
