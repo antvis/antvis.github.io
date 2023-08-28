@@ -31,8 +31,6 @@ export default () => {
   const locale = useLocale()
   const lang = locale.id.includes('zh') ? 'zh' : 'en';
 
-
-  console.log(lang)
   const options = useMemo(() => {
     return GITHUB_URL.map((item) => {
       return {
@@ -51,7 +49,6 @@ export default () => {
 
 
   const onFinish = (values: any) => {
-    console.log(values)
     const toUrl = newGithubIssueUrl({
       user: 'antvis',
       repo: url ? url.label : '',
