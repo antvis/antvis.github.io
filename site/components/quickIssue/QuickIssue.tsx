@@ -8,12 +8,14 @@ import newGithubIssueUrl from 'new-github-issue-url';
 import GitHubButton from 'react-github-btn'
 import styles from '@antv/dumi-theme-antv/dist/slots/ManualContent/index.module.less';
 import { useLocale } from 'dumi';
+import { assign } from 'lodash';
 
 type url = {
   label: string;
   gitUrl: string;
   api: string;
   chartDemo: string;
+  assignee: string;
 } | undefined
 
 const formItemLayout = {
@@ -53,7 +55,8 @@ export default () => {
       user: 'antvis',
       repo: url ? url.label : '',
       title: values.title,
-      labels: [values.type]
+      labels: [values.type,'QuickIssue'],
+      assignee: url?.assignee,
     });
     window.open(toUrl)
   }
@@ -69,7 +72,6 @@ export default () => {
           <li>Make sure you have search your question in FAQ and changelog</li>
           <li>Look for / ask questions on StackOverflow</li>
         </ul>
-        <p>Also try to search for your issue - it may have already been answered or even fixed in the development branch. However, if you find that an old, closed issue still persists in the latest version, you should open a new issue using the form below instead of commenting on the old issue.</p>
       </div>
     }
     return <div>
@@ -81,7 +83,6 @@ export default () => {
         <li>提问前确保你在 常见问题 和 更新日志 中搜索过</li>
         <li>在 StackOverflow (英文) 或是 SegmentFault（中文）搜索和提问</li>
       </ul>
-      <p>最后，在开 issue 前，可以先搜索一下以往的旧 issue - 你遇到的问题可能已经有人提了，也可能已经在最新版本中被修正。注意：如果你发现一个已经关闭的旧 issue 在最新版本中仍然存在，请不要在旧 issue 下面留言，而应该用下面的表单开一个新的 issue。</p>
     </div>
   }, [lang])
 
@@ -96,7 +97,7 @@ export default () => {
               <Form onFinish={onFinish} {...formItemLayout} >
                 <div className={style.flex}>
                   <Form.Item
-                    label={lang === 'zh' ? '仓库' : 'gitHub Name'}
+                    label={lang === 'zh' ? '仓库' : 'Repositorie'}
                     name={'gitHub'}
                     rules={[{ required: true }]}
                   >
@@ -104,14 +105,14 @@ export default () => {
                   </Form.Item>
                   <Form.Item>
                     <div style={{ width: 450 }}>
-                      <Space>
+                     { url && <Space>
                         <Button onClick={() => {
                           window.open(url?.api)
-                        }}>{lang === 'zh' ? '开始使用' : 'Start'}</Button>
+                        }}>{'API'}</Button>
                         <Button onClick={() => {
                           window.open(url?.chartDemo)
-                        }}>{lang === 'zh' ? '图表示例' : 'chart'}</Button>
-                        {url &&
+                        }}>{lang === 'zh' ? '图表示例' : 'Demo'}</Button>
+            
                           <div style={{ paddingTop: 6 }}>
                             <GitHubButton
                               href={`https://github.com/antvis/${url.label}`}
@@ -123,8 +124,8 @@ export default () => {
                               Star
                             </GitHubButton>
                           </div>
-                        }
                       </Space>
+                     }
                     </div>
                   </Form.Item>
                 </div>
@@ -143,11 +144,11 @@ export default () => {
                     name={'title'}
                     rules={[{ required: true }]}
                   >
-                    <Input style={{ width: 400 }} />
+                    <Input  placeholder={lang === 'zh' ? '请填写标题' : 'Please fill in the title'} style={{ width: 400 }} />
                   </Form.Item>
                 </div>
                 <div style={{ textAlign: 'center' }} >
-                  <p style={{ color: '#a1a1a1' }}>{lang === 'zh' ? 'issue正文内容，请点击下方按钮去创建页填写' : 'Please click the button below to create a page to fill in the main content of the issue'}</p>
+                  <p style={{ color: '#a1a1a1' }}>{lang === 'zh' ? 'issue正文内容,请点击下方按钮跳转到 Github 页面填写' : 'Please click the button below to be redirected to the GitHub page where you can fill in the content for the main issue'}</p>
                   <Button htmlType='submit' type='primary'>{lang === 'zh' ? '前往GitHub创建issue' : 'create issue'}</Button>
                 </div>
               </Form>
