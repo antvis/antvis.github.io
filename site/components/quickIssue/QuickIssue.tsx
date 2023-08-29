@@ -54,8 +54,8 @@ export default () => {
   }, []);
 
   function getWindowSize() {
-    const {innerWidth, innerHeight} = window;
-    return {innerWidth, innerHeight};
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
   }
 
   const onChange = (e: string) => {
@@ -118,16 +118,15 @@ export default () => {
                   >
                     <Select style={{ width: 250 }} options={options} onChange={onChange} />
                   </Form.Item>
-                  <Form.Item>
+                  {url ? <Form.Item>
                     <div className={style.button}>
-                      {url && <Space>
+                      <Space>
                         <Button onClick={() => {
                           window.open(url?.api)
                         }}>{'API'}</Button>
                         <Button onClick={() => {
                           window.open(url?.chartDemo)
                         }}>{lang === 'zh' ? '图表示例' : 'Demo'}</Button>
-
                         <div style={{ paddingTop: 6 }}>
                           <GitHubButton
                             href={`https://github.com/antvis/${url.label}`}
@@ -135,12 +134,14 @@ export default () => {
                             data-size="large"
                             data-show-count="true"
                             aria-label={`Star antvis/${url.label} on GitHub`}
-                          />
+                          >
+                            Star
+                          </GitHubButton>
                         </div>
                       </Space>
-                      }
                     </div>
-                  </Form.Item>
+                  </Form.Item> : <div className={style.button}></div>
+                  }
                 </div>
                 <div className={style.flex} >
                   <Form.Item
