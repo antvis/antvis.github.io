@@ -1,14 +1,12 @@
 // 场景案例模版
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Layout as AntLayout, Button, Form, Input, Select, Space } from 'antd';
 import Article from '@antv/dumi-theme-antv/dist/slots/Article';
 import style from './QuickIssue.module.less'
 import { GITHUB_URL, ISSUE_TYPE } from './data';
 import newGithubIssueUrl from 'new-github-issue-url';
 import GitHubButton from 'react-github-btn'
-import styles from '@antv/dumi-theme-antv/dist/slots/ManualContent/index.module.less';
 import { useLocale } from 'dumi';
-import { assign } from 'lodash';
 
 type url = {
   label: string;
@@ -30,6 +28,7 @@ const formItemLayout = {
 };
 export default () => {
   const [url, setUrl] = useState<url>(undefined)
+  const [windowSize, setWindowSize] = useState(getWindowSize());
   const locale = useLocale()
   const lang = locale.id.includes('zh') ? 'zh' : 'en';
 
@@ -41,6 +40,23 @@ export default () => {
       }
     })
   }, [])
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
+  function getWindowSize() {
+    const {innerWidth, innerHeight} = window;
+    return {innerWidth, innerHeight};
+  }
 
   const onChange = (e: string) => {
     const findData = GITHUB_URL.find((item) => {
@@ -55,7 +71,7 @@ export default () => {
       user: 'antvis',
       repo: url ? url.label : '',
       title: values.title,
-      labels: [values.type,'QuickIssue'],
+      labels: [values.type, 'QuickIssue'],
       assignee: url?.assignee,
     });
     window.open(toUrl)
@@ -86,7 +102,6 @@ export default () => {
     </div>
   }, [lang])
 
-
   return (
     <>
       <AntLayout hasSider>
@@ -94,7 +109,7 @@ export default () => {
           <div style={{ height: '100%', width: '100%', display: 'flex', justifyContent: 'center' }}>
             <div className={style.content}>
               {text}
-              <Form onFinish={onFinish} {...formItemLayout} >
+              <Form onFinish={onFinish}  {...windowSize.innerWidth < 960 ? {} : formItemLayout}  >
                 <div className={style.flex}>
                   <Form.Item
                     label={lang === 'zh' ? '仓库' : 'Repositorie'}
@@ -104,28 +119,26 @@ export default () => {
                     <Select style={{ width: 250 }} options={options} onChange={onChange} />
                   </Form.Item>
                   <Form.Item>
-                    <div style={{ width: 450 }}>
-                     { url && <Space>
+                    <div className={style.button}>
+                      {url && <Space>
                         <Button onClick={() => {
                           window.open(url?.api)
                         }}>{'API'}</Button>
                         <Button onClick={() => {
                           window.open(url?.chartDemo)
                         }}>{lang === 'zh' ? '图表示例' : 'Demo'}</Button>
-            
-                          <div style={{ paddingTop: 6 }}>
-                            <GitHubButton
-                              href={`https://github.com/antvis/${url.label}`}
-                              data-icon="octicon-star"
-                              data-size="large"
-                              data-show-count="true"
-                              aria-label={`Star antvis/${url.label} on GitHub`}
-                            >
-                              Star
-                            </GitHubButton>
-                          </div>
+
+                        <div style={{ paddingTop: 6 }}>
+                          <GitHubButton
+                            href={`https://github.com/antvis/${url.label}`}
+                            data-icon="octicon-star"
+                            data-size="large"
+                            data-show-count="true"
+                            aria-label={`Star antvis/${url.label} on GitHub`}
+                          />
+                        </div>
                       </Space>
-                     }
+                      }
                     </div>
                   </Form.Item>
                 </div>
@@ -138,13 +151,13 @@ export default () => {
                     <Select style={{ width: 250 }} options={ISSUE_TYPE} />
                   </Form.Item>
                   <Form.Item
-                    labelCol={{ span: 3 }}
-                    wrapperCol={{ span: 9 }}
+                    labelCol={windowSize.innerWidth < 960 ? {} : { span: 3 }}
+                    wrapperCol={windowSize.innerWidth < 960 ? {} : { span: 9 }}
                     label={lang === 'zh' ? '标题' : 'title'}
                     name={'title'}
                     rules={[{ required: true }]}
                   >
-                    <Input  placeholder={lang === 'zh' ? '请填写标题' : 'Please fill in the title'} style={{ width: 400 }} />
+                    <Input placeholder={lang === 'zh' ? '请填写标题' : 'Please fill in the title'} className={style.titleInput} />
                   </Form.Item>
                 </div>
                 <div style={{ textAlign: 'center' }} >
