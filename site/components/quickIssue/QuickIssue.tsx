@@ -54,8 +54,8 @@ export default () => {
   }, []);
 
   function getWindowSize() {
-    const {innerWidth, innerHeight} = window;
-    return {innerWidth, innerHeight};
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
   }
 
   const onChange = (e: string) => {
@@ -127,7 +127,6 @@ export default () => {
                         <Button onClick={() => {
                           window.open(url?.chartDemo)
                         }}>{lang === 'zh' ? '图表示例' : 'Demo'}</Button>
-
                         <div style={{ paddingTop: 6 }}>
                           <GitHubButton
                             href={`https://github.com/antvis/${url.label}`}
@@ -135,7 +134,9 @@ export default () => {
                             data-size="large"
                             data-show-count="true"
                             aria-label={`Star antvis/${url.label} on GitHub`}
-                          />
+                          >
+                            Star
+                          </GitHubButton>
                         </div>
                       </Space>
                       }
