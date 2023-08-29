@@ -15,10 +15,53 @@
     display: flex;
     align-items: baseline;
     justify-content: space-evenly;
+
+    .button{
+      width: 450px;
+    }
   }
 
   form {
     margin-top: 80px;
+  }
+
+  .titleInput {
+    width: 400px;
+  }
+
+}
+
+@media (max-width: 1800px) {
+  .content {
+    background: #ffffff;
+    padding: 24px;
+    width: 80%;
+    min-height: 910px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .content {
+    background: #ffffff;
+    padding: 24px;
+    width: 100%;
+    min-height: 910px;
+  }
+}
+
+@media (max-width: 960px) {
+  .flex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .button{
+      width: 250px;
+    }
+  }
+
+  .titleInput {
+    width: 250px !important;
   }
 
 }
