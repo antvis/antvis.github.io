@@ -118,7 +118,7 @@ export default () => {
                   >
                     <Select style={{ width: 250 }} options={options} onChange={onChange} />
                   </Form.Item>
-                  {url ?  <Form.Item>
+                  {url ? <Form.Item>
                     <div className={style.button}>
                       <Space>
                         <Button onClick={() => {
@@ -139,9 +139,9 @@ export default () => {
                           </GitHubButton>
                         </div>
                       </Space>
-                 
                     </div>
-                  </Form.Item>  : <div  className={style.button}></div>   }
+                  </Form.Item> : <div className={style.button}></div>
+                  }
                 </div>
                 <div className={style.flex} >
                   <Form.Item
