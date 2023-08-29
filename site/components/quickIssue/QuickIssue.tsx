@@ -118,9 +118,9 @@ export default () => {
                   >
                     <Select style={{ width: 250 }} options={options} onChange={onChange} />
                   </Form.Item>
-                  <Form.Item>
+                  {url ?  <Form.Item>
                     <div className={style.button}>
-                      {url && <Space>
+                      <Space>
                         <Button onClick={() => {
                           window.open(url?.api)
                         }}>{'API'}</Button>
@@ -139,9 +139,9 @@ export default () => {
                           </GitHubButton>
                         </div>
                       </Space>
-                      }
+                 
                     </div>
-                  </Form.Item>
+                  </Form.Item>  : <div  className={style.button}></div>   }
                 </div>
                 <div className={style.flex} >
                   <Form.Item
