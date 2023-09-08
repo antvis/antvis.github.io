@@ -29,6 +29,7 @@ const formItemLayout = {
 export default () => {
   const [url, setUrl] = useState<url>(undefined)
   const [windowSize, setWindowSize] = useState(getWindowSize());
+  const [form] = Form.useForm();
   const locale = useLocale()
   const lang = locale.id.includes('zh') ? 'zh' : 'en';
 
@@ -102,6 +103,14 @@ export default () => {
     </div>
   }, [lang])
 
+  const inputChange = (e) => {
+    const data = GITHUB_URL.find((item) => item.gitUrl === e.target.value)
+    if (data) {
+      form.setFieldsValue({ gitHub: data.gitUrl })
+      setUrl(data)
+    }
+
+  }
   return (
     <>
       <AntLayout hasSider>
@@ -109,7 +118,13 @@ export default () => {
           <div style={{ height: '100%', width: '100%', display: 'flex', justifyContent: 'center' }}>
             <div className={style.content}>
               {text}
-              <Form onFinish={onFinish}  {...windowSize.innerWidth < 960 ? {} : formItemLayout}  >
+              <Form form={form} onFinish={onFinish}  {...windowSize.innerWidth < 960 ? {} : formItemLayout}  >
+                <div className={style.flex}>
+                  <Form.Item name='url' label=' URL'>
+                    <Input style={{ width: 250 }} onChange={inputChange} />
+                  </Form.Item>
+                  <div className={style.button}></div>
+                </div>
                 <div className={style.flex}>
                   <Form.Item
                     label={lang === 'zh' ? '仓库' : 'Repositorie'}
