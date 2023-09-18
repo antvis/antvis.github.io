@@ -41,7 +41,7 @@ export default defineConfig({
       {
         slug: 'quick',
         title: {
-          zh: '提交issue',
+          zh: '提交 Issue',
           en: 'Quick Issue'
         }
       }
