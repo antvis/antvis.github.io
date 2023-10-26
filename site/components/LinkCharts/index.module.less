@@ -1,0 +1,118 @@
+.commonFlexConfig {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.linkCharts {
+  &:extend(.commonFlexConfig);
+  padding: 100px 0 80px 0;
+  flex-direction: column;
+
+  .charts {
+    width: 100%;
+    margin-bottom: 28px;
+    padding: 8px 0;
+    overflow: hidden;
+
+    .box {
+      transition: all 1s;
+      display: flex;
+      justify-content: center;
+      transform: translateX(-1227px);
+
+      &.center {
+        transition: all 0s;
+      }
+
+      &.left {
+        transform: translateX(0);
+      }
+
+      &.right {
+        transform: translateX(-2454px);
+      }
+
+      .chart {
+        &:extend(.commonFlexConfig);
+        flex-direction: column;
+        height: 361px;
+        padding: 0 20px;
+        background-color: #F7F8FD;
+        border-radius: 16px;
+        letter-spacing: 0;
+        position: relative;
+        margin: 0 14px;
+        transition: all 1s;
+        cursor: pointer;
+
+        &:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .title {
+          height: 32px;
+          font-size: 24px;
+          color: #1D2129;
+          line-height: 32px;
+          margin: 18px 0 8px 0;
+        }
+
+        .subTitle {
+          height: 44px;
+          font-size: 14px;
+          color: #424E66;
+          line-height: 22px;
+          margin-bottom: 10px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 2;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+        }
+
+        .antv {
+          height: 20px;
+          padding: 0 6px;
+          line-height: 20px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          border-radius: 0 16px 0 16px;
+          color: #fff;
+        }
+
+        .image {
+          height: 231px;
+          width: 341px;
+          background-color: #FFFFFF;
+          border-radius: 12px;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+  }
+
+  .buttons {
+    &:extend(.commonFlexConfig);
+
+    .left,
+    .right {
+      &:extend(.commonFlexConfig);
+      height: 44px;
+      width: 44px;
+      border-radius: 50%;
+      background-color: #F2F3F5;
+      margin: 0 8px;
+      color: #424E66;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #E5E8EF;
+      }
+    }
+  }
+}

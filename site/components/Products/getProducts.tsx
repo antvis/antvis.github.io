@@ -9,11 +9,11 @@ export const CATEGORIES: Array<{
   type: typeof CATEGORY_TYPE[number];
   name: string;
 }> = [
-  { type: 'basic', name: '标准版基础产品' },
-  { type: 'extension', name: '标准版扩展产品' },
-  { type: 'mobile', name: '移动定制（F版）产品' },
-  { type: 'ecology', name: '周边生态' },
-];
+    { type: 'basic', name: '标准版基础产品' },
+    { type: 'extension', name: '标准版扩展产品' },
+    { type: 'mobile', name: '移动定制（F版）产品' },
+    { type: 'ecology', name: '周边生态' },
+  ];
 
 export interface ProductItem {
   title: string;
@@ -72,4 +72,17 @@ export function getProducts({
           return { ...d, links: newLinks };
         });
     });
+}
+
+export function transformUrl({
+  url,
+  language,
+  isChinaMirrorHost,
+}: {
+  url: string;
+  language: 'zh' | 'en';
+  isChinaMirrorHost: boolean;
+}) {
+  const languageUrl = url.replace(/([http|https]\:\/\/).+?\//, (v) => `${v}${language}/`);
+  return getActualUrl(languageUrl, isChinaMirrorHost);
 }

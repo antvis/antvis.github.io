@@ -1,0 +1,87 @@
+.commonFlexConfig {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.famousPersons {
+  &:extend(.commonFlexConfig);
+  padding: 80px 0 120px;
+  flex-direction: column;
+  overflow: hidden;
+
+  .famousAuctions {
+    &:extend(.commonFlexConfig);
+    margin-bottom: 28px;
+    padding: 8px 0;
+
+    .famousAuction {
+      &:extend(.commonFlexConfig);
+      flex-direction: column;
+      justify-content: space-between;
+      height: 373px;
+      width: 279px;
+      padding: 29px 12px 12px;
+      position: relative;
+      margin: 0 14px;
+      letter-spacing: 0;
+      transition: all .2s;
+      background-color: #F6F8FD;
+      border: 1px solid #E5E8EF;
+      box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.05);
+      border-radius: 16px;
+
+      &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.10);
+      }
+
+      .image {
+        position: relative;
+        overflow: hidden;
+
+        > img {
+          height: 60px;
+          width: 60px;
+        }
+
+        .icon {
+          width: 14px;
+          height: 14px;
+          position: absolute;
+          top: -2px;
+          left: -80px;
+        }
+      }
+
+      .name {
+        font-size: 24px;
+        color: #1D2129;
+      }
+
+      .text {
+        padding: 0 11px;
+        font-size: 14px;
+        color: #424E66;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+      }
+
+      .msg {
+        line-height: 25px;
+        padding: 8px 12px;
+        height: 164px;
+        background-color: #FFFFFF;
+        border-radius: 12px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 6;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+}

@@ -1,0 +1,143 @@
+.commonFlexConfig {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.themeCharts {
+  &:extend(.commonFlexConfig);
+  padding: 80px 0 40px;
+  flex-direction: column;
+
+  .title {
+    height: 48px;
+    font-size: 40px;
+    color: #1D2129;
+    margin-bottom: 48px;
+  }
+
+  .themeButtons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+
+    .button {
+      &:extend(.commonFlexConfig);
+      height: 52px;
+      width: 160px;
+      cursor: pointer;
+      font-family:  PingFangSC;
+      font-size: 20px;
+      background-color: #FFFFFF;
+      border: 2px solid #E5E8EF;
+      border-radius: 8px;
+      margin-right: 20px;
+      line-height: 52px;
+
+      > img {
+        margin-right: 8px;
+      }
+
+      &:hover {
+        font-weight: 500;
+        border: 2px solid #691EFF;
+      }
+    }
+
+    .isTheme {
+      font-weight: 500;
+      border: 2px solid #691EFF;
+      color: #691EFF;
+    }
+  }
+
+  .themeChart {
+    height: 515px;
+    width: 1200px;
+    fill-opacity: 0.6;
+    background-color: #FAFBFC;
+    border: 1px solid #E5E8EF;
+    box-shadow: 0 8px 28px 0 rgba(0,0,0,0.05);
+    border-radius: 16px;
+    box-sizing: border-box;
+    padding: 18px 20px 5px 18px;
+    margin-bottom: 36px;
+
+    .msg {
+      display: flex;
+      align-items: center;
+      letter-spacing: 0;
+      line-height: 28px;
+      height: 28px;
+      margin-bottom: 18px;
+
+      .msgTitle {
+        width: 83px;
+        font-size: 20px;
+        color: #1D2129;
+      }
+
+      .msgText {
+        font-size: 16px;
+        color: #000000;
+        line-height: 28px;
+      }
+    }
+
+    .charts {
+      .chart {
+        height: 208px;
+        width: 375px;
+        background: #fff;
+        box-sizing: border-box;
+        padding: 14px 20px;
+        float: left;
+        margin-bottom: 15px;
+        margin-right: 14px;
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.05);
+        border-radius: 12px;
+
+        .chartMsg {
+          height: 24px;
+          font-weight: 500;
+          font-size: 16px;
+          color: #1D2129;
+          letter-spacing: 0;
+          line-height: 24px;
+        }
+
+        .content {
+          height: 149px;
+        }
+      }
+
+      .rightChart {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .acquire {
+    &:extend(.commonFlexConfig);
+
+    .download,
+    .copy {
+      font-size: 16px;
+      color: #424E66;
+      letter-spacing: 0;
+      line-height: 24px;
+      cursor: pointer;
+
+      &:hover {
+        color: #691EFF;
+      }
+    }
+  }
+
+  .segmentation {
+    width: 0;
+    height: 12px;
+    border-left: 1px solid #979797;
+    margin: 0 12px;
+  }
+}

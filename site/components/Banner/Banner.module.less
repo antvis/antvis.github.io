@@ -1,23 +1,14 @@
+.commonFlexConfig {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .banner {
+  overflow: hidden;
   .header {
-    height: 296px;
+    height: 558px;
     position: relative;
-    .extraTabs {
-      position: absolute;
-      bottom: -16px;
-      right: 40px;
-      z-index: 999;
-      a {
-        font-size: 18px;
-        margin-right: 40px;
-        color: rgba(255, 255, 255, 0.7);
-        cursor: pointer;
-        &:hover {
-          color: rgba(255, 255, 255, 1);
-          transition: 0.2s;
-        }
-      }
-    }
   }
 
   .top {
@@ -29,380 +20,23 @@
     bottom: 0;
   }
 
-  .backgound {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 296px;
-    background-size: cover;
-    background-image: url('https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*EVoPQrwtL7AAAAAAAAAAAAAAARQnAQ');
-    background-repeat: no-repeat;
-    opacity: 0.8;
-    left: 0;
-    top: 0;
-  }
-
   .mainTitle {
     font-size: 48px;
     font-weight: 800;
-    color: #fff;
+    color: #000;
     text-align: center;
     margin-top: 112px;
+
+    >span {
+      color: #691EFF;
+    }
   }
 
   .subTitle {
-    color: #fff;
+    color: #424E66;
     text-align: center;
-    font-size: 16px;
-    margin-top: 8px;
-  }
-
-  .content {
-    height: calc(100vh - 396px);
-    min-height: 480px;
-    position: relative;
-  }
-
-  .productList {
-    position: absolute;
-    top: -40px;
-    height: 40px;
-    z-index: 12;
-    left: 40px;
-    display: flex;
-    overflow: hidden;
-    // 似乎没必要写死宽度，便于扩展
-    // width: 880px;
-  }
-
-  .productItem {
     font-size: 18px;
-    margin-right: 64px;
-    color: fade(#fff, 65%);
-    cursor: pointer;
-    position: relative;
-
-    &:hover {
-      color: #fff;
-      transition: 0.2s;
-    }
-  }
-
-  .productItemActive {
-    color: #fff;
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      height: 2px;
-      background-color: #fff;
-      bottom: 0px;
-      left: 0px;
-      animation: slideIn 0.5s;
-      -webkit-animation: slideIn 0.5s;
-      animation-fill-mode: forwards;
-    }
-  }
-
-  .introduce {
-    height: 100%;
-  }
-
-  .introduceDetail {
-    display: flex;
-    height: 100%;
-  }
-
-  .guide {
-    width: 360px;
-    background: #6d5bf9;
-    padding: 40px 40px 0 40px;
-    color: #fff;
-    text-align: justify;
-    overflow-y: auto;
-
-    .name {
-      font-size: 28px;
-    }
-    .info {
-      font-size: 14px;
-      margin-top: 8px;
-      line-height: 1.6;
-      font-weight: 300;
-      opacity: 0.85;
-    }
-    .guideItem {
-      margin-bottom: 32px;
-      .name {
-        font-size: 28px;
-      }
-      .info {
-        font-size: 14px;
-        margin-top: 8px;
-        line-height: 1.6;
-        font-weight: 300;
-        opacity: 0.85;
-      }
-    }
-
-    .urlList {
-      align-items: center;
-      margin-top: 10px;
-      a {
-        display: flex;
-        align-items: center;
-        margin-top: 8px;
-        color: #fff;
-        .home {
-          background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/c193977b-776f-4e3a-9b93-7dd8ebadec5f.svg);
-        }
-        .example {
-          background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/e6caad33-6d2a-4f86-ace4-9c6cc8452894.svg);
-        }
-        .api {
-          background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/036568c0-3f42-4172-8220-f54ffe92fb37.svg);
-        }
-        .home,
-        .example,
-        .api {
-          width: 16px;
-          height: 15px;
-          background-size: 16px 15px;
-          background-repeat: no-repeat;
-          cursor: pointer;
-        }
-
-        .text {
-          line-height: 1.5;
-          height: 20px;
-          margin-left: 8px;
-        }
-        &:hover {
-          color: #fed361;
-          transition: 0.2s;
-          .home {
-            background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/cbae6ccf-9930-45a8-91de-5b885ff0cc7b.svg);
-          }
-          .example {
-            background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/46ed9ca6-5cbf-4693-a02c-10c698d23ec5.svg);
-          }
-          .api {
-            background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/c590a4f8-3846-4c10-a523-d9be14eae14d.svg);
-          }
-        }
-      }
-    }
-  }
-
-  .productShow {
-    flex: 1;
-    min-height: 480px;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    overflow: hidden;
-    .bgCover {
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      background-image: url(https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*gjLkSJCATtAAAAAAAAAAAAAAARQnAQ);
-      background-repeat: no-repeat;
-      background-size: cover;
-      z-index: -1;
-      display: block;
-      width: calc(100vw - 360px);
-      height: 100%;
-      &::after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 100%;
-        background-color: #0000006b;
-        z-index: -3;
-      }
-    }
-    @gutter-width: 29px;
-    .aboutLink {
-      width: 100%;
-      height: 100%;
-      padding: 3em;
-      display: grid;
-      grid-row-gap: 0.75em;
-      grid-column-gap: 0.5em;
-      grid-template-columns: repeat(9, 1fr) @gutter-width repeat(4, 1fr);
-      // grid-auto-rows: minmax(100px, auto);
-      grid-template-areas:
-        'ava ava ava ava ava ava ava ava ava ava ava ava ava ava'
-        'charts charts charts charts charts charts charts charts charts gutter F F F F'
-        'G2Plot G2Plot S2 Graphin Graphin XFlow XFlow L7Plot L7Plot gutter F2Native F2Native F6 F7'
-        'G2 G2 S2 G6 G6 X6 X6 L7 L7 gutter F2 F2 F6 F7'
-        'statistic statistic statistic graph graph graph graph geo geo gutter f-intro f-intro f-intro f-intro'
-        'G G G G G G G G G G G G G G';
-
-      .node {
-        display: flex;
-      }
-
-      a {
-        cursor: pointer;
-      }
-      a,
-      span {
-        flex: 1;
-        display: flex;
-        color: #fff;
-        font-size: 16px;
-        justify-content: center;
-        align-items: center;
-        border-radius: 4px;
-        padding: 0 2px;
-        overflow: hidden;
-      }
-      .charts {
-        background: rgba(91, 143, 249, 0.4);
-        border: rgb(91, 143, 249) 1px solid;
-        &:hover {
-          background: rgba(91, 143, 249, 0.8);
-        }
-      }
-      // 常规统计数据
-      .conventional {
-        color: rgba(255, 255, 255, 0.6);
-        border: 1px solid rgba(177, 148, 255, 0.12);
-        background: linear-gradient(
-          to right,
-          rgba(112, 109, 255, 0.15),
-          rgba(181, 158, 255, 0.15)
-        );
-      }
-      .G2 {
-        border: rgb(90, 216, 166) 1px solid;
-        background-color: rgba(115, 75, 255, 0.3);
-        border-color: #b194ff;
-        &:hover {
-          background-color: rgba(115, 75, 255, 0.8);
-        }
-      }
-      // 关系数据
-      .relationship {
-        color: rgba(255, 255, 255, 0.6);
-        border: 1px solid rgba(246, 189, 22, 0.12);
-        background: linear-gradient(
-          to right,
-          rgba(240, 118, 42, 0.15),
-          rgba(231, 198, 119, 0.15)
-        );
-      }
-      .G6 {
-        border: rgb(246, 189, 22) 1px solid;
-        border-color: #ff712f;
-        background-color: rgba(165, 45, 22, 0.3);
-        &:hover {
-          background-color: rgba(165, 45, 22, 0.8);
-        }
-      }
-      .G {
-        background: rgba(38, 154, 153, 0.3);
-        border: rgb(38, 154, 153) 1px solid;
-        &:hover {
-          background: rgba(38, 154, 153, 0.8);
-        }
-      }
-      // 地理空间数据
-      .geography {
-        color: rgba(255, 255, 255, 0.6);
-        border: rgba(57, 206, 41, 0.12) 1px solid;
-        background: linear-gradient(
-          to right,
-          rgba(78, 212, 127, 0.15),
-          rgba(173, 218, 115, 0.15)
-        );
-      }
-      .L7 {
-        border: 1px solid #39ce29;
-        background: rgba(78, 212, 127, 0.3);
-        &:hover {
-          background: rgba(78, 212, 127, 0.8);
-        }
-      }
-      .ava {
-        background: rgba(38, 154, 153, 0.4);
-        border: rgb(38, 154, 153) 1px solid;
-        border-color: #15c7f9;
-        &:hover {
-          background: rgba(38, 154, 153, 0.8);
-        }
-      }
-      // 267 全系 F 版
-      .FSeries {
-        color: rgba(255, 255, 255, 0.6);
-        border: 1px solid rgba(88, 183, 255, 0.12);
-        background: linear-gradient(
-          to right,
-          rgba(109, 161, 255, 0.15),
-          rgba(180, 162, 255, 0.15)
-        );
-      }
-      .F2 {
-        background: rgba(38, 154, 153, 0.4);
-        border: rgb(38, 154, 153) 1px solid;
-        background: rgba(80, 97, 255, 0.3);
-        border-color: #4f99ff;
-        &:hover {
-          background: rgba(80, 97, 255, 0.8);
-        }
-      }
-      .F7 {
-        border: rgb(38, 154, 153) 1px dashed;
-        border-color: #4f99ff;
-        &:hover {
-          background: rgba(0, 0, 0, 0.1);
-        }
-      }
-      // 间隔
-      .gutterNode {
-        @width: 1.5px;
-        padding: 0px (@gutter-width - @width) / 2px;
-        .gutter {
-          display: inline-block;
-          flex: none;
-          width: @width;
-          padding: 0;
-          border-radius: 0.5px;
-          background-color: rgba(255, 255, 255, 0.25);
-          height: calc(100% - 8px);
-          transform: translateY(4px);
-        }
-      }
-    }
-    .banner {
-      z-index: 9;
-      width: calc(100vw - 498px);
-      height: auto;
-    }
-  }
-
-  .news {
-    margin-top: 40px;
-  }
-  .newsTitle {
-    font-size: 20px;
-  }
-  .time {
-    font-size: 10px;
-    margin-top: 20px;
-    margin-bottom: -6px;
-    opacity: 0.65;
-  }
-  .promo {
-    font-size: 14px;
-    overflow: hidden;
-    white-space: nowrap;
-    display: block;
-    width: 260px;
-    text-overflow: ellipsis;
+    margin-top: 8px;
   }
 
   .bgVideo {
@@ -412,22 +46,88 @@
     min-width: 100%;
     z-index: -999;
   }
-}
 
-@keyframes slideIn {
-  0% {
-    width: 0%;
-  }
-  100% {
+  .buttons {
+    &:extend(.commonFlexConfig);
+    z-index: 11;
+    position: absolute;
+    top: 283px;
     width: 100%;
-  }
-}
 
-@media only screen and (max-width: 1069px) {
-  .extraTabs {
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    position: fixed;
+    >div,
+    >a {
+      &:extend(.commonFlexConfig);
+      height: 54px;
+      width: 166px;
+      border-radius: 6px;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.20);
+
+      >img {
+        margin-right: 6px;
+      }
+    }
+
+    .start {
+      font-size: 18px;
+      background-color: #691EFF;
+      margin-right: 16px;
+      color: #FFFFFF;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    .design {
+      font-size: 18px;
+      background-color: #FFFFFF;
+
+      &:hover {
+        color: #691EFF;
+      }
+    }
+  }
+
+  .bottom {
+    &:extend(.commonFlexConfig);
+    z-index: 10;
+    width: 100%;
+    position: absolute;
+    top: 424px;
+
+    .message {
+      &:extend(.commonFlexConfig);
+      min-height: 114px;
+      min-width: 381px;
+      background-color: #FFFFFF;
+      border: 1px solid #E5E8EF;
+      box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.05);
+      border-radius: 16px;
+      margin:0 13px;
+      flex-direction: column;
+      cursor: pointer;
+
+      .messageTitle {
+        font-weight: 500;
+        font-size: 20px;
+        color: #1D2129;
+        margin-bottom: 8px;
+      }
+
+      .messageSunTitle {
+        font-size: 14px;
+        color: #86909C;
+      }
+
+      &:hover {
+        box-shadow: 0 12px 32px 0 rgba(0,0,0,0.10);
+
+        .messageTitle {
+          color: rgba(105, 30, 255, 1);
+        }
+      }
+    }
   }
 }
