@@ -29,7 +29,7 @@
     "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*AmB_T75XevMAAAAAAAAAAAAADmJ7AQ/original",
     "link": "https://g2.antv.antgroup.com/examples/threed/scatter/#orthographic-projection",
     "antv": "G2",
-    "color": "#F58C58"
+    "color": "#2486FF"
   },
   {
     "title": "地图",
@@ -37,7 +37,7 @@
     "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*JebxTo_rsngAAAAAAAAAAAAADmJ7AQ/original",
     "link": "https://l7.antv.antgroup.com/examples/tile/vector/#chinamap",
     "antv": "L7",
-    "color": "#00C7C7"
+    "color": "#1074FF"
   },
   {
     "title": "统计图表 (移动端)",
@@ -45,7 +45,7 @@
     "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*M6ubT4Mv7pcAAAAAAAAAAAAADmJ7AQ/original",
     "link": "https://f2.antv.antgroup.com/examples/creative/plugin/#rough",
     "antv": "F2",
-    "color": "#2486FF"
+    "color": "#D580FF"
   },
   {
     "title": "树形图表 (移动端)",
@@ -61,7 +61,7 @@
     "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*uxbGRqkOxwYAAAAAAAAAAAAADmJ7AQ/original",
     "link": "https://x6.antv.vision/examples/showcase/practices#mindmap",
     "antv": "X6",
-    "color": "#2486FF"
+    "color": "#A658F5"
   },
   {
     "title": "树形图表",
@@ -69,7 +69,7 @@
     "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*cEgmQov_Kf0AAAAAAAAAAAAADmJ7AQ/original",
     "link": "https://g6.antv.antgroup.com/examples/case/treeDemos/#decisionTree",
     "antv": "G6",
-    "color": "#2486FF"
+    "color": "#F58C58"
   },
   {
     "title": "热力图",
@@ -77,7 +77,7 @@
     "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*kC58R7TEdd0AAAAAAAAAAAAADmJ7AQ/original",
     "link": "https://g2.antv.antgroup.com/examples/general/heatmap/#mouse-heatmap",
     "antv": "G2",
-    "color": "#00C7C7"
+    "color": "#2486FF"
   },
   {
     "title": "地图 (3D图表)",
@@ -85,7 +85,7 @@
     "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*ZPy6QYS-idMAAAAAAAAAAAAADmJ7AQ/original",
     "link": "https://l7.antv.antgroup.com/examples/line/path/#bus_light",
     "antv": "L7",
-    "color": "#F58C58"
+    "color": "#1074FF"
   },
   {
     "title": "矩形式树图 (移动端)",
@@ -93,6 +93,6 @@
     "image": "https://gw.alipayobjects.com/zos/antfincdn/veD1IGEyne/20211116113745.jpg",
     "link": "https://f2.antv.antgroup.com/examples/relation/treemap/#treemap",
     "antv": "F2",
-    "color": "#F58C58"
+    "color": "#D580FF"
   }
 ]

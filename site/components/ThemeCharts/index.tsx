@@ -1,9 +1,9 @@
 import { message } from 'antd';
 import { useIntl } from 'dumi';
 import classNames from 'classnames';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { DownloadOutlined, CopyOutlined } from '@ant-design/icons';
-import { GaugeChart, ColumnChart, LineChart , GraphChart, StackedColumnChart, PieChart } from './Charts';
+import { GaugeChart, ColumnChart, LineChart, GraphChart, StackedColumnChart, PieChart } from './Charts';
 
 import styles from './index.module.less';
 
@@ -12,49 +12,59 @@ const THEME_DATAS = [
     text: '日常分析',
     img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*_QoYRowGM50AAAAAAAAAAAAADmJ7AQ/original',
     activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*q5g5Qp2D7GYAAAAAAAAAAAAADmJ7AQ/original',
-
+    darkImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*g4qrR4bQMOYAAAAAAAAAAAAADmJ7AQ/original'
   },
   {
     text: '数据监控',
     img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Sc7hSIITxFQAAAAAAAAAAAAADmJ7AQ/original',
     activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*6e2CT6K6XYgAAAAAAAAAAAAADmJ7AQ/original',
+    background: 'rgba(0,0,0,0.9)',
+    darkImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*OSwyT5CsqVQAAAAAAAAAAAAADmJ7AQ/original',
+    theme: {
+      value: 'dark',
+    },
   },
   {
     text: '活动战报',
     img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*NcJ0Q6nslIMAAAAAAAAAAAAADmJ7AQ/original',
     activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*ZnG8QZrNVxkAAAAAAAAAAAAADmJ7AQ/original',
+    darkImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*6FVKSq7g520AAAAAAAAAAAAADmJ7AQ/original',
+    theme: {
+      value: 'dark',
+    },
   },
   {
     text: '自定主题',
     img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*5y_oTYSFUjUAAAAAAAAAAAAADmJ7AQ/original',
     activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*qebjT6nhHBIAAAAAAAAAAAAADmJ7AQ/original',
+    darkImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*fuZwTJHtSWYAAAAAAAAAAAAADmJ7AQ/original',
   },
 ];
 
 const CHARTS = [
   {
     msg: "仪表盘",
-    chart: <GaugeChart />,
+    chart: (theme: any) => <GaugeChart theme={theme} />,
   },
   {
     msg: "分组柱形图",
-    chart: <ColumnChart />
+    chart: (theme: any) => <ColumnChart theme={theme} />,
   },
   {
     msg: "力导向图布局",
-    chart: <GraphChart />
+    chart: (theme: any) => <GraphChart theme={theme} />,
   },
   {
     msg: "折线图",
-    chart: <LineChart />
+    chart: (theme: any) => <LineChart theme={theme} />,
   },
   {
     msg: "堆叠柱形图",
-    chart: <StackedColumnChart />
+    chart: (theme: any) => <StackedColumnChart theme={theme} />,
   },
   {
     msg: "环形图",
-    chart: <PieChart />
+    chart: (theme: any) => <PieChart theme={theme} />,
   },
 ]
 
@@ -67,14 +77,14 @@ export function ThemeCharts() {
   };
 
   const [select, setSelect] = useState(THEME_DATAS[0]);
-  
+
   const onCopy = useCallback(() => {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(useT('copy 主题'));
       message.success(useT('已复制'));
     }
   }, []);
-  
+
   const onDownload = useCallback(() => {
     const json = {
       name: '张三',
@@ -89,8 +99,12 @@ export function ThemeCharts() {
     a.click();
   }, []);
 
+  const isDark = useMemo(() => select?.theme?.value === 'dark', [select]);
+
   return (
-    <div className={styles.themeCharts}>
+    <div className={classNames(styles.themeCharts, {
+      [styles.dark]: isDark,
+    })}>
       <div className={styles.title}>{useT("定制主题，一键生成")}</div>
       <div className={styles.themeButtons}>
         {
@@ -102,7 +116,7 @@ export function ThemeCharts() {
               })}
               onClick={() => setSelect(data)}
             >
-              <img src={isTheme ? data.activeImg : data.img} /> {useT(data.text)}
+              <img src={isDark ? data.darkImg : (isTheme ? data.activeImg : data.img)} /> {useT(data.text)}
             </div>
           })
         }
@@ -123,7 +137,7 @@ export function ThemeCharts() {
                 })}
               >
                 <div className={styles.chartMsg}>{useT(chart.msg)}</div>
-                <div className={styles.content}>{chart.chart}</div>
+                <div className={styles.content}>{chart.chart(select.theme)}</div>
               </div>
             })
           }

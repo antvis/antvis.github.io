@@ -5,7 +5,7 @@ import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { useChinaMirrorHost } from '@antv/dumi-theme-antv/dist/slots/hooks';
 import { ModuleTitle as Title } from '../common';
 import { transformUrl } from '../Products/getProducts';
-import CHARTS_DATAS from '../../data/line-charts.json';
+import CHARTS_DATAS from '../../data/link-charts.json';
 
 import styles from './index.module.less';
 

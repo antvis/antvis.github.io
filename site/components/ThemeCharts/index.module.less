@@ -8,11 +8,13 @@
   &:extend(.commonFlexConfig);
   padding: 80px 0 40px;
   flex-direction: column;
+  font-family: PingFangSC;
 
   .title {
     height: 48px;
     font-size: 40px;
     color: #1D2129;
+    font-family: AlibabaPuHuiTiB;
     margin-bottom: 48px;
   }
 
@@ -26,7 +28,6 @@
       height: 52px;
       width: 160px;
       cursor: pointer;
-      font-family:  PingFangSC;
       font-size: 20px;
       background-color: #FFFFFF;
       border: 2px solid #E5E8EF;
@@ -34,7 +35,7 @@
       margin-right: 20px;
       line-height: 52px;
 
-      > img {
+      >img {
         margin-right: 8px;
       }
 
@@ -55,9 +56,9 @@
     height: 515px;
     width: 1200px;
     fill-opacity: 0.6;
-    background-color: #FAFBFC;
+    background-color: #fff;
     border: 1px solid #E5E8EF;
-    box-shadow: 0 8px 28px 0 rgba(0,0,0,0.05);
+    box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.05);
     border-radius: 16px;
     box-sizing: border-box;
     padding: 18px 20px 5px 18px;
@@ -72,9 +73,10 @@
       margin-bottom: 18px;
 
       .msgTitle {
-        width: 83px;
+        width: 85px;
         font-size: 20px;
         color: #1D2129;
+        font-family: AlibabaPuHuiTiB;
       }
 
       .msgText {
@@ -94,7 +96,7 @@
         float: left;
         margin-bottom: 15px;
         margin-right: 14px;
-        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.05);
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05);
         border-radius: 12px;
 
         .chartMsg {
@@ -139,5 +141,75 @@
     height: 12px;
     border-left: 1px solid #979797;
     margin: 0 12px;
+  }
+
+  &.dark {
+    background: rgba(0, 0, 0, 0.9);
+
+    .title {
+      color: #fff;
+    }
+
+    .themeButtons {
+      .button {
+        background: rgba(0, 0, 0, 0);
+        color: #fff;
+        opacity: .2;
+        border-color: #fff;
+
+        &:hover {
+          font-weight: 500;
+          opacity: .9;
+        }
+      }
+
+      .isTheme {
+        font-weight: 500;
+        opacity: 1;
+      }
+    }
+
+    .themeChart {
+      background-color: rgba(69, 85, 128, 0.8);
+      border-color: rgba(0, 0, 0, 0);
+
+      .msg {
+        .msgTitle {
+          color: #fff;
+        }
+
+        .msgText {
+          color: #fff;
+        }
+
+  
+      }
+
+      .charts {
+        .chart {
+          background: rgba(255, 255, 255, 0.08);
+
+          .chartMsg {
+            color: #fff; 
+          }
+        }
+      }
+    }
+
+    .acquire {
+      .download,
+      .copy {
+        color: #fff;
+        opacity: 0.8;
+  
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+    
+    .segmentation {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
   }
 }
