@@ -11,6 +11,7 @@ type ActiveIconProps = {
   target?: string;
 };
 
+// 公共跳转按钮
 export default function ActiveIcon(props: ActiveIconProps) {
   const { img, activeImg, className, text, href, target } = props;
 

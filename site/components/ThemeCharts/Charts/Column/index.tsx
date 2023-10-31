@@ -1,7 +1,89 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import { Column } from '@antv/g2plot';
 
 import styles from '../index.module.less';
+
+export const DARK_THEME_CONFIG = {
+  legend: {
+    itemName: {
+      style: {
+        fill: '#fff',
+      },
+    },
+  },
+  yAxis: {
+    tickCount: 4,
+    grid: {
+      line: {
+        style: {
+          lineDash: [3, 4],
+          stroke: '#fff',
+          strokeOpacity: 0.2,
+        },
+      },
+    },
+    label: {
+      style: {
+        fill: '#fff',
+        fillOpacity: 0.45,
+      },
+    },
+  },
+  xAxis: {
+    line:{
+      style: {
+        stroke: '#A8B7C1',
+      },
+    },
+    label: {
+      style: {
+        fill: '#fff',
+        fillOpacity: 0.45,
+      },
+    },
+  },
+};
+
+export const LIGHT_THEME_CONFIG = {
+  legend: {
+    itemName: {
+      style: {
+        fill: '#424E66',
+      },
+    },
+  },
+  yAxis: {
+    tickCount: 4,
+    grid: {
+      line: {
+        style: {
+          lineDash: [3, 4],
+          stroke: '#86909C',
+          strokeOpacity: 0.2,
+        },
+      },
+    },
+    label: {
+      style: {
+        fill: '#86909C',
+        fillOpacity: 0.45,
+      },
+    },
+  },
+  xAxis: {
+    line:{
+      style: {
+        stroke: '#A4AEBA',
+      },
+    },
+    label: {
+      style: {
+        fill: '#86909C',
+        fillOpacity: 0.45,
+      },
+    },
+  },
+}
 
 type ColumnProps = {
   theme?: any;
@@ -71,11 +153,22 @@ const DATA = [
 ];
 
 export function ColumnChart(props: ColumnProps) {
+  const { theme = {} } = props;
+  const { value, colors10 } = theme;
+  const isDark = useMemo(() => value === 'dark', [value]);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
 
   useEffect(() => {
     if (containerRef.current) {
+      const themeConfig = {
+        theme: {
+          colors10,
+        },
+        ...(isDark ? DARK_THEME_CONFIG : LIGHT_THEME_CONFIG),
+      };
+
       if (!plotRef.current) {
         plotRef.current = new Column(containerRef.current, {
           data: DATA,
@@ -85,23 +178,18 @@ export function ColumnChart(props: ColumnProps) {
           seriesField: 'type',
           // 分组柱状图 组内柱子间的间距 (像素级别)
           dodgePadding: 2,
-          yAxis: {
-            grid: {
-              line: {
-                style: {
-                  lineDash: [3, 4],
-                },
-              },
-            },
+          columnStyle: {
+            radius: [2, 2, 0, 0],
           },
+          ...themeConfig
         });
 
         plotRef.current?.render();
       } else {
-        plotRef.current.update();
+        plotRef.current.update(themeConfig);
       }
     }
-  }, [containerRef]);
+  }, [containerRef, isDark, colors10]);
 
   return (
     <div className={styles.container}>

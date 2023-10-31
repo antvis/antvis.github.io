@@ -9,19 +9,30 @@ import { ProductType, getProducts, transformUrl } from '../Products/getProducts'
 
 import styles from './index.module.less';
 
+// 锚点
 export const ANCHORNAME = 'linkChartsAnchorName';
 
 type PrejectData = {
+  // 标题
   title: string;
+  // 二级表图
   subTitle?: string;
+  // 占宽
   span: number;
+  // 类名
   classNames: any;
+  // 是否为分类
   isSort?: boolean;
+  // 弹出框 展开图
   img?: string;
+  // 大图标
   icon?: string;
+  // 跳转链接
   url?: string;
   hash?: {
+    // 弹出框 图表示例跳转链接
     examples: string;
+    // 弹出框 使用文档 跳转到 api
     manual: string;
   };
 }[][];
@@ -121,6 +132,7 @@ const PROJECT_DATAS: PrejectData = [
   }],
 ];
 
+// 丰富图表，选用自如
 export function ProjectCard() {
   const locale = useLocale()
   const [isChinaMirrorHost] = useChinaMirrorHost();
@@ -135,12 +147,14 @@ export function ProjectCard() {
     });
   };
 
+  // 旧的跳转 json 获取
   React.useEffect(() => {
     getProducts({ language, isChinaMirrorHost }).then((data) => {
       setProducts(data.slice(0, 14));
     });
   }, [language, isChinaMirrorHost]);
 
+  // 弹出框内容
   const getContent = useCallback((title, subTitle, img, links) => {
     return <div className={styles.content}>
       <div className={styles.msg}>

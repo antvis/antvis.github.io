@@ -7,6 +7,7 @@ type ModuleTitleProps = {
   subTitle?: string;
 }
 
+// 公共标题
 export default function ModuleTitle(props: ModuleTitleProps) {
   const { title, subTitle } = props;
   return (

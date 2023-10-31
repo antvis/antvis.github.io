@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react';
 import { Column } from '@antv/g2plot';
+import React, { useEffect, useRef, useMemo } from 'react';
+import { DARK_THEME_CONFIG, LIGHT_THEME_CONFIG } from '../Column';
 
 import styles from '../index.module.less';
 
@@ -91,11 +92,22 @@ const DATA = [
 ];
 
 export function StackedColumnChart(props: StackedColumnProps) {
+  const { theme } = props;
+  const { value, colors10 } = theme;
+  const isDark = useMemo(() => value === 'dark', [value]);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
 
   useEffect(() => {
     if (containerRef.current) {
+      const themeConfig = {
+        theme: {
+          colors10,
+        },
+        ...(isDark ? DARK_THEME_CONFIG : LIGHT_THEME_CONFIG),
+      };
+
       if (!plotRef.current) {
         plotRef.current = new Column(containerRef.current, {
           data: DATA,
@@ -103,23 +115,15 @@ export function StackedColumnChart(props: StackedColumnProps) {
           xField: 'x',
           yField: 'y',
           seriesField: 'type',
-          yAxis: {
-            grid: {
-              line: {
-                style: {
-                  lineDash: [3, 4],
-                },
-              },
-            },
-          },
+          ...themeConfig,
         });
 
         plotRef.current?.render();
       } else {
-        plotRef.current.update();
+        plotRef.current.update(themeConfig);
       }
     }
-  }, [containerRef]);
+  }, [containerRef, isDark, colors10]);
 
   return (
     <div className={styles.container}>

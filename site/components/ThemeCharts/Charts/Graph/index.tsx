@@ -7,7 +7,7 @@ type GraphProps = {
   theme?: any;
 };
 
-const data = {
+const DATA = {
   nodes: [
     { id: 'node0', size: 25, style: { fill: '#2486FF' } },
     { id: 'node1', size: 25, style: { fill: '#00C7C7' } },
@@ -28,11 +28,23 @@ const data = {
 };
 
 export function GraphChart(props: GraphProps) {
+  const { theme } = props;
+  const { colors10 } = theme;
   const containerRef = useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
 
   useEffect(() => {
     if (containerRef.current) {
+      const data = {
+        ...DATA,
+        nodes: DATA.nodes.map((item, index) => ({
+          ...item,
+          style: {
+            fill: colors10[Math.floor((index + 2) / 3)],
+          },
+        })),
+      }
+
       if (!plotRef.current) {
         const container = containerRef.current;
         plotRef.current = new Graph({
@@ -79,10 +91,10 @@ export function GraphChart(props: GraphProps) {
         });
 
       } else {
-        plotRef.current.update();
+        plotRef.current.changeData(data);
       }
     }
-  }, [containerRef]);
+  }, [containerRef, colors10]);
 
   return (
     <div className={styles.container}>

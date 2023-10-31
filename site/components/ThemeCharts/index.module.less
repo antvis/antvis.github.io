@@ -6,9 +6,10 @@
 
 .themeCharts {
   &:extend(.commonFlexConfig);
-  padding: 80px 0 40px;
+  padding: 20px 0 40px;
   flex-direction: column;
   font-family: PingFangSC;
+  background-size: cover;
 
   .title {
     height: 48px;
@@ -55,8 +56,7 @@
   .themeChart {
     height: 515px;
     width: 1200px;
-    fill-opacity: 0.6;
-    background-color: #fff;
+    background-color: #FAFBFC;
     border: 1px solid #E5E8EF;
     box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.05);
     border-radius: 16px;
@@ -170,8 +170,9 @@
     }
 
     .themeChart {
-      background-color: rgba(69, 85, 128, 0.8);
       border-color: rgba(0, 0, 0, 0);
+      background-position: -100px;
+      background-color: rgba(0, 0, 0, 0);
 
       .msg {
         .msgTitle {
@@ -181,8 +182,6 @@
         .msgText {
           color: #fff;
         }
-
-  
       }
 
       .charts {
@@ -190,26 +189,38 @@
           background: rgba(255, 255, 255, 0.08);
 
           .chartMsg {
-            color: #fff; 
+            color: #fff;
           }
         }
       }
     }
 
     .acquire {
+
       .download,
       .copy {
         color: #fff;
         opacity: 0.8;
-  
+
         &:hover {
           opacity: 1;
         }
       }
     }
-    
+
     .segmentation {
       border-color: rgba(255, 255, 255, 0.5);
     }
+  }
+}
+
+.colors {
+  display: flex;
+  margin-bottom: 16px;
+  height: 25px;
+
+  .color {
+    width: 25px;
+    height: 25px;
   }
 }

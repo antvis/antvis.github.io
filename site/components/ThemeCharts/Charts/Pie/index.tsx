@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react';
 import { Pie } from '@antv/g2plot';
+import React, { useEffect, useRef, useMemo } from 'react';
+import { DARK_THEME_CONFIG, LIGHT_THEME_CONFIG } from '../Column';
 
 import styles from '../index.module.less';
 
@@ -14,11 +15,43 @@ const DATA = [
 ];
 
 export function PieChart(props: PieProps) {
+  const { theme = {} } = props;
+  const { value, colors10 } = theme;
+  const isDark = useMemo(() => value === 'dark', [value]);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
 
   useEffect(() => {
     if (containerRef.current) {
+      const themeConfig = {
+        theme:{
+          colors10,
+        },
+        legend: {
+          ...(isDark ? DARK_THEME_CONFIG : LIGHT_THEME_CONFIG)['legend'],
+          position: 'bottom',
+        },
+        statistic: {
+          title: {
+            offsetY: -10,
+            content: '用户总量',
+            style: {
+              fontSize: '10px',
+              color: isDark ? 'rgba(255,255,255,0.45)' : '#424E66',
+            },
+          },
+          content: {
+            offsetY: -2,
+            content: '3,200',
+            style: {
+              fontFamily: 'PingFangSC',
+              fontSize: '20px',
+              color: isDark ? '#fff' : '#1D2129'
+            },
+          },
+        },
+      } as any;
       if (!plotRef.current) {
         plotRef.current = new Pie(containerRef.current, {
           data: DATA,
@@ -27,25 +60,6 @@ export function PieChart(props: PieProps) {
           innerRadius: 0.8,
           label: false,
           appendPadding: 10,
-          statistic: {
-            title: {
-              offsetY: -10,
-              content: '用户总量',
-              style: {
-                fontSize: '10px',
-              },
-            },
-            content: {
-              offsetY: -2,
-              content: '3,200',
-              style: {
-                fontSize: '20px',
-              },
-            },
-          },
-          legend: {
-            position: 'bottom',
-          },
           // 添加 中心统计文本 交互
           interactions: [
             { type: 'element-selected' },
@@ -64,14 +78,15 @@ export function PieChart(props: PieProps) {
               },
             },
           ],
+          ...themeConfig,
         });
 
         plotRef.current?.render();
       } else {
-        plotRef.current.update();
+        plotRef.current.update(themeConfig);
       }
     }
-  }, [containerRef]);
+  }, [containerRef, isDark, colors10]);
 
   return (
     <div className={styles.container}>

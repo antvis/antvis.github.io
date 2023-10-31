@@ -9,6 +9,7 @@ import CHARTS_DATAS from '../../data/link-charts.json';
 
 import styles from './index.module.less';
 
+// 丰富图表，选用自如
 export function LinkCharts() {
   const [position, setPosition] = useState('center');
   const [loading, setLoading] = useState(false);
@@ -26,6 +27,7 @@ export function LinkCharts() {
 
   const language: 'zh' | 'en' = locale.id.includes('zh') ? 'zh' : 'en';
 
+  // 滑动
   const onClick = useCallback((position) => {
     if (loading) return;
     setPosition(position);

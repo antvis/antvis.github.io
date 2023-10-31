@@ -1,30 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocale, useIntl } from 'dumi';
-import { useChinaMirrorHost } from '@antv/dumi-theme-antv/dist/slots/hooks';
 import { ActiveIcon } from '../common';
 import { ANCHORNAME } from '../ProjectCard';
-import {  transformUrl } from '../Products/getProducts';
 
 import styles from './Banner.module.less';
 
-const MESSAGES = [
-  {
-    title: '外滩大会·开源盛世',
-    sunTitle: '9月30日黄浦江畔开源大会资讯先睹为快',
-  },
-  {
-    title: '编程老师冷笑话分享',
-    sunTitle: '资深海龟程序员教你如何开会不冷场',
-  },
-  {
-    title: 'AntV 芒种日 图新物',
-    sunTitle: '资源直达：「隐私计算线上幕课」专辑',
-  },
-];
-
 export default () => {
-  const locale = useLocale()
-  const [isChinaMirrorHost] = useChinaMirrorHost();
+  const [message, setMessage] = useState([]);
+  const locale = useLocale();
 
   const language: 'zh' | 'en' = locale.id.includes('zh') ? 'zh' : 'en';
 
@@ -35,7 +18,15 @@ export default () => {
     });
   };
 
-  // 跳转
+  useEffect(() => {
+    fetch('https://assets.antv.antgroup.com/antv/banner-messages.json')
+      .then((res) => res.json())
+      .then((data) => {
+        setMessage(data);
+      });
+  }, []);
+
+  // 跳转到 丰富图表，选用自如
   const scrollToAnchor = () => {
     const anchorElement = document.getElementById(ANCHORNAME);
     if (anchorElement) { anchorElement.scrollIntoView({ block: 'start', behavior: 'auto' }); }
@@ -63,11 +54,11 @@ export default () => {
         </div>
         <div className={styles.bottom}>
           {
-            MESSAGES.map(({ title, sunTitle }) => {
+            message.map(({ title, subTitle, img }) => {
               return (
                 <div className={styles.message} key={title}>
-                  <div className={styles.messageTitle}>{title}</div>
-                  <div className={styles.messageSunTitle}>{sunTitle}</div>
+                  <div className={styles.messageTitle}><img src={img} /> {title[language]}</div>
+                  <div className={styles.messageSubTitle}>{subTitle[language]}</div>
                 </div>
               );
             })

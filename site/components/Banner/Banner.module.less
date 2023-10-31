@@ -8,7 +8,7 @@
   overflow: hidden;
 
   .header {
-    height: 558px;
+    height: 618px;
     position: relative;
     font-family:  PingFangSC;
   }
@@ -104,8 +104,10 @@
       &:extend(.commonFlexConfig);
       min-height: 114px;
       min-width: 381px;
+      max-width: 381px;
       background-color: #FFFFFF;
       border: 1px solid #E5E8EF;
+      padding: 16px;
       box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.05);
       border-radius: 16px;
       margin:0 13px;
@@ -113,15 +115,26 @@
       cursor: pointer;
 
       .messageTitle {
+        &:extend(.commonFlexConfig);
         font-weight: 500;
         font-size: 20px;
         color: #1D2129;
         margin-bottom: 8px;
+        text-align: center;
+        text-indent: 1.6em;
+        position: relative;
+
+        > img {
+          position: absolute;
+          top: 4px;
+          left: 4px;
+        }
       }
 
-      .messageSunTitle {
+      .messageSubTitle {
         font-size: 14px;
         color: #86909C;
+        text-align: center;
       }
 
       &:hover {

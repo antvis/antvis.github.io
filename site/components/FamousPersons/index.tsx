@@ -5,6 +5,7 @@ import FAMOUS_PERSONS_DATAS from '../../data/famous-persons.json';
 
 import styles from './index.module.less';
 
+// 专家之声
 export function FamousPersons() {
   const intl = useIntl()
   const useT = (transformedMessage: string) => {

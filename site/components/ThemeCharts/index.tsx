@@ -1,9 +1,10 @@
-import { message } from 'antd';
 import { useIntl } from 'dumi';
 import classNames from 'classnames';
+import { message, ColorPicker } from 'antd';
 import React, { useCallback, useMemo, useState } from 'react';
 import { DownloadOutlined, CopyOutlined } from '@ant-design/icons';
 import { GaugeChart, ColumnChart, LineChart, GraphChart, StackedColumnChart, PieChart } from './Charts';
+import { pick } from '../../utils';
 
 import styles from './index.module.less';
 
@@ -12,16 +13,22 @@ const THEME_DATAS = [
     text: '日常分析',
     img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*_QoYRowGM50AAAAAAAAAAAAADmJ7AQ/original',
     activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*q5g5Qp2D7GYAAAAAAAAAAAAADmJ7AQ/original',
-    darkImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*g4qrR4bQMOYAAAAAAAAAAAAADmJ7AQ/original'
+    darkImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*g4qrR4bQMOYAAAAAAAAAAAAADmJ7AQ/original',
+    theme: {
+      value: 'light',
+      colors10: ['red', 'green', 'blue', 'yellow', 'pink'],
+    },
   },
   {
     text: '数据监控',
     img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Sc7hSIITxFQAAAAAAAAAAAAADmJ7AQ/original',
     activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*6e2CT6K6XYgAAAAAAAAAAAAADmJ7AQ/original',
-    background: 'rgba(0,0,0,0.9)',
+    background: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*StbsSZEU_HoAAAAAAAAAAAAADmJ7AQ/original',
+    backgroundChart: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*WeCjR59uRiwAAAAAAAAAAAAADmJ7AQ/original',
     darkImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*OSwyT5CsqVQAAAAAAAAAAAAADmJ7AQ/original',
     theme: {
       value: 'dark',
+      colors10: ['green', 'blue', 'red', 'yellow', 'pink'],
     },
   },
   {
@@ -29,8 +36,11 @@ const THEME_DATAS = [
     img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*NcJ0Q6nslIMAAAAAAAAAAAAADmJ7AQ/original',
     activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*ZnG8QZrNVxkAAAAAAAAAAAAADmJ7AQ/original',
     darkImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*6FVKSq7g520AAAAAAAAAAAAADmJ7AQ/original',
+    background: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*gjWcSYzg5kMAAAAAAAAAAAAADmJ7AQ/original',
+    backgroundChart: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*SPGHSrSfT1UAAAAAAAAAAAAADmJ7AQ/original',
     theme: {
       value: 'dark',
+      colors10: ['blue', 'yellow', 'pink', 'red', 'green'],
     },
   },
   {
@@ -38,6 +48,9 @@ const THEME_DATAS = [
     img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*5y_oTYSFUjUAAAAAAAAAAAAADmJ7AQ/original',
     activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*qebjT6nhHBIAAAAAAAAAAAAADmJ7AQ/original',
     darkImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*fuZwTJHtSWYAAAAAAAAAAAAADmJ7AQ/original',
+    theme: {
+      value: 'light',
+    },
   },
 ];
 
@@ -68,6 +81,7 @@ const CHARTS = [
   },
 ]
 
+// 定制主题，一键生成
 export function ThemeCharts() {
   const intl = useIntl()
   const useT = (transformedMessage: string) => {
@@ -78,17 +92,29 @@ export function ThemeCharts() {
 
   const [select, setSelect] = useState(THEME_DATAS[0]);
 
+  // theme.colors10
+  const [colors10, setColors10] = useState<string[]>(pick('#6400FF'));
+
+  // copy theme
   const onCopy = useCallback(() => {
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(useT('copy 主题'));
+      navigator.clipboard.writeText(JSON.stringify({
+        theme:
+        {
+          colors10,
+        },
+      },
+      ));
       message.success(useT('已复制'));
     }
   }, []);
 
+  // download theme
   const onDownload = useCallback(() => {
     const json = {
-      name: '张三',
-      addr: '广州'
+      theme: {
+        colors10,
+      },
     };
     const str = JSON.stringify(json, null, 2);
     const url = `data:,${str}`;
@@ -102,26 +128,51 @@ export function ThemeCharts() {
   const isDark = useMemo(() => select?.theme?.value === 'dark', [select]);
 
   return (
-    <div className={classNames(styles.themeCharts, {
-      [styles.dark]: isDark,
-    })}>
+    <div
+      className={classNames(styles.themeCharts, {
+        [styles.dark]: isDark,
+      })}
+      style={{ backgroundImage: `url(${select.background})` }}
+    >
       <div className={styles.title}>{useT("定制主题，一键生成")}</div>
       <div className={styles.themeButtons}>
         {
-          THEME_DATAS.map((data) => {
+          THEME_DATAS.map((data, index) => {
             const isTheme = select.text === data.text;
-            return <div
+
+            const button = (<div
               className={classNames(styles.button, {
                 [styles.isTheme]: isTheme,
               })}
               onClick={() => setSelect(data)}
             >
               <img src={isDark ? data.darkImg : (isTheme ? data.activeImg : data.img)} /> {useT(data.text)}
-            </div>
+            </div>);
+
+            return index === 3 && isTheme ?
+              <ColorPicker
+                disabledAlpha
+                trigger='hover'
+                onChange={(v, color) => setColors10(pick(color))}
+                panelRender={(panel) => <div className="custom-panel">
+                  <div className={styles.colors}>
+                    {
+                      colors10.map((color) => <div className={styles.color} style={{ background: color }} />)
+                    }
+                  </div>
+                  {panel}
+                </div>}
+              >
+                {button}
+              </ColorPicker> :
+              button
           })
         }
       </div>
-      <div className={styles.themeChart}>
+      <div
+        className={styles.themeChart}
+        style={{ backgroundImage: `url(${select.backgroundChart})` }}
+      >
         <div className={styles.msg}>
           <img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*U3AfQq_cQMYAAAAAAAAAAAAADmJ7AQ/original' />
           <div className={styles.msgTitle}>AntV 5.0</div>
@@ -137,7 +188,7 @@ export function ThemeCharts() {
                 })}
               >
                 <div className={styles.chartMsg}>{useT(chart.msg)}</div>
-                <div className={styles.content}>{chart.chart(select.theme)}</div>
+                <div className={styles.content}>{chart.chart({ colors10, ...select.theme })}</div>
               </div>
             })
           }
