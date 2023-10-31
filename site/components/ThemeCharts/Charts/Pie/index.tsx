@@ -35,7 +35,7 @@ export function PieChart(props: PieProps) {
         statistic: {
           title: {
             offsetY: -10,
-            content: '用户总量',
+            content: 'Total',
             style: {
               fontSize: '10px',
               color: isDark ? 'rgba(255,255,255,0.45)' : '#424E66',

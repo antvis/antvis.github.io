@@ -28,7 +28,7 @@ export function GaugeChart(props: GaugeProps) {
             customHtml: () => {
               return `
                 <div>
-                  <div style="font-size: 12px;color: ${isDark ? 'rgba(255,255,255,0.65)' : '#424E66'};" >用户总量</div>
+                  <div style="font-size: 12px;color: ${isDark ? 'rgba(255,255,255,0.65)' : '#424E66'};" >Total</div>
                   <div style="font-size: 32px;color: ${isDark ? '#fff' : '#1D2129'}; line-height: 45px;" >1,320</div>
                 </div>
               `;
