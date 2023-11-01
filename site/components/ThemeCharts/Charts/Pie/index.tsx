@@ -1,3 +1,4 @@
+import { useIntl } from 'dumi';
 import { Pie } from '@antv/g2plot';
 import React, { useEffect, useRef, useMemo } from 'react';
 import { DARK_THEME_CONFIG, LIGHT_THEME_CONFIG } from '../Column';
@@ -19,6 +20,13 @@ export function PieChart(props: PieProps) {
   const { value, colors10 } = theme;
   const isDark = useMemo(() => value === 'dark', [value]);
 
+  const intl = useIntl();
+  const useT = (transformedMessage: string) => {
+    return intl.formatMessage({
+      id: transformedMessage
+    });
+  };
+
   const containerRef = useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
 
@@ -35,7 +43,7 @@ export function PieChart(props: PieProps) {
         statistic: {
           title: {
             offsetY: -10,
-            content: 'Total',
+            content: useT('用户总量'),
             style: {
               fontSize: '10px',
               color: isDark ? 'rgba(255,255,255,0.45)' : '#424E66',

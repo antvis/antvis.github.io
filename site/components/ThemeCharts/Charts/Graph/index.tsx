@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
 import { Graph } from '@antv/g6';
+import React, { useEffect, useRef, useMemo } from 'react';
 
 import styles from '../index.module.less';
 
@@ -9,13 +9,13 @@ type GraphProps = {
 
 const DATA = {
   nodes: [
-    { id: 'node0', size: 25, style: { fill: '#2486FF' } },
-    { id: 'node1', size: 25, style: { fill: '#00C7C7' } },
-    { id: 'node2', size: 25, style: { fill: '#00C7C7' } },
-    { id: 'node3', size: 25, style: { fill: '#00C7C7' } },
-    { id: 'node4', size: 25, style: { fill: '#F58C58' } },
-    { id: 'node5', size: 25, style: { fill: '#F58C58' } },
-    { id: 'node6', size: 25, style: { fill: '#F58C58' } },
+    { id: 'node0', size: 32, style: { fill: '#2486FF' }, label: 'host', type: 0 },
+    { id: 'node5', size: 32, style: { fill: '#F58C58' }, label: 'item', type: 2  },
+    { id: 'node2', size: 32, style: { fill: '#00C7C7' }, label: 'file', type: 1  },
+    { id: 'node6', size: 32, style: { fill: '#F58C58' }, label: 'item', type: 2  },
+    { id: 'node4', size: 32, style: { fill: '#F58C58' }, label: 'item', type: 2  },
+    { id: 'node1', size: 32, style: { fill: '#00C7C7' }, label: 'file', type: 1 },
+    { id: 'node3', size: 32, style: { fill: '#00C7C7' }, label: 'file', type: 1  },
   ],
   edges: [
     { source: 'node0', target: 'node1' },
@@ -29,7 +29,9 @@ const DATA = {
 
 export function GraphChart(props: GraphProps) {
   const { theme } = props;
-  const { colors10 } = theme;
+  const { value, colors10 } = theme;
+  const isDark = useMemo(() => value === 'dark', [value]);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
 
@@ -37,13 +39,27 @@ export function GraphChart(props: GraphProps) {
     if (containerRef.current) {
       const data = {
         ...DATA,
-        nodes: DATA.nodes.map((item, index) => ({
+        nodes: DATA.nodes.map((item) => ({
           ...item,
           style: {
-            fill: colors10[Math.floor((index + 2) / 3)],
+            fill: colors10[item.type],
           },
         })),
-      }
+      };
+
+      const defaultNode = {
+        color: '#fff',
+        labelCfg: {
+          position: 'bottom',
+          style: {
+            fill: isDark ? 'rgba(255,255,255,0.45)' : '#86909C',
+          },
+        },
+        icon: {
+          show: true,
+          img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*qebjT6nhHBIAAAAAAAAAAAAADmJ7AQ/original'
+        },
+      };
 
       if (!plotRef.current) {
         const container = containerRef.current;
@@ -51,24 +67,14 @@ export function GraphChart(props: GraphProps) {
           container,
           width: container.scrollWidth,
           height: container.scrollHeight,
-          defaultNode: {
-            color: '#fff',
-          },
+          defaultNode,
           layout: {
             type: 'force',
             edgeStrength: .1,
           },
         });
 
-        const nodes = data.nodes;
-        plotRef.current.data({
-          nodes,
-          edges: data.edges.map((edge: any, i) => {
-            edge.id = 'edge' + i;
-            return Object.assign({}, edge);
-          }),
-        });
-
+        plotRef.current.data(data);
 
         plotRef.current.render();
 
@@ -91,6 +97,7 @@ export function GraphChart(props: GraphProps) {
         });
 
       } else {
+        plotRef.current.set('defaultNode', defaultNode);
         plotRef.current.changeData(data);
       }
     }

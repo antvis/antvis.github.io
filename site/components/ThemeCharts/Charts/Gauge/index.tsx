@@ -1,5 +1,6 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import { useIntl } from 'dumi';
 import { Gauge } from '@antv/g2plot';
+import React, { useEffect, useMemo, useRef } from 'react';
 
 import styles from '../index.module.less';
 
@@ -11,6 +12,13 @@ export function GaugeChart(props: GaugeProps) {
   const { theme } = props;
   const { value, colors10 } = theme;
   const isDark = useMemo(() => value === 'dark', [value]);
+
+  const intl = useIntl();
+  const useT = (transformedMessage: string) => {
+    return intl.formatMessage({
+      id: transformedMessage
+    });
+  };
 
   const containerRef = useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
@@ -28,7 +36,7 @@ export function GaugeChart(props: GaugeProps) {
             customHtml: () => {
               return `
                 <div>
-                  <div style="font-size: 12px;color: ${isDark ? 'rgba(255,255,255,0.65)' : '#424E66'};" >Total</div>
+                  <div style="font-size: 12px;color: ${isDark ? 'rgba(255,255,255,0.65)' : '#424E66'};" >${useT('用户总量')}</div>
                   <div style="font-size: 32px;color: ${isDark ? '#fff' : '#1D2129'}; line-height: 45px;" >1,320</div>
                 </div>
               `;

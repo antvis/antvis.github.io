@@ -16,7 +16,7 @@ const THEME_DATAS = [
     darkImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*g4qrR4bQMOYAAAAAAAAAAAAADmJ7AQ/original',
     theme: {
       value: 'light',
-      colors10: ['red', 'green', 'blue', 'yellow', 'pink'],
+      colors10: ['#1783FF', '#00C9C9', '#F0884D', '#D580FF', '#7863FF', '#60C42D', '#BD8F24', '#FF80CA', '#2491B3', '#17C76F'],
     },
   },
   {
@@ -28,7 +28,7 @@ const THEME_DATAS = [
     darkImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*OSwyT5CsqVQAAAAAAAAAAAAADmJ7AQ/original',
     theme: {
       value: 'dark',
-      colors10: ['green', 'blue', 'red', 'yellow', 'pink'],
+      colors10: ['#00CFE2', '#4E98FF', '#E49629', '#CE6CFF', '#8D7BFF', '#53B81F', '#CE9C29', '#EC5FB2', '#0F8EB6', '#00A56E'],
     },
   },
   {
@@ -40,7 +40,7 @@ const THEME_DATAS = [
     backgroundChart: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*SPGHSrSfT1UAAAAAAAAAAAAADmJ7AQ/original',
     theme: {
       value: 'dark',
-      colors10: ['blue', 'yellow', 'pink', 'red', 'green'],
+      colors10: ['#FFD081', '#BE6FFF', '#FF5ABA', '#2AB9E9', '#8196FF', '#FF8F57', '#32CC25', '#7F78FF', '#A3C31D', '#48D097'],
     },
   },
   {
@@ -83,7 +83,7 @@ const CHARTS = [
 
 // 定制主题，一键生成
 export function ThemeCharts() {
-  const intl = useIntl()
+  const intl = useIntl();
   const useT = (transformedMessage: string) => {
     return intl.formatMessage({
       id: transformedMessage
@@ -123,6 +123,7 @@ export function ThemeCharts() {
     a.href = url;
     a.download = 'antv_theme.json';
     a.click();
+    a.remove();
   }, []);
 
   const isDark = useMemo(() => select?.theme?.value === 'dark', [select]);
