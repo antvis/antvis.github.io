@@ -10,12 +10,12 @@ type GraphProps = {
 const DATA = {
   nodes: [
     { id: 'node0', size: 32, style: { fill: '#2486FF' }, label: 'host', type: 0 },
-    { id: 'node5', size: 32, style: { fill: '#F58C58' }, label: 'item', type: 2  },
-    { id: 'node2', size: 32, style: { fill: '#00C7C7' }, label: 'file', type: 1  },
-    { id: 'node6', size: 32, style: { fill: '#F58C58' }, label: 'item', type: 2  },
-    { id: 'node4', size: 32, style: { fill: '#F58C58' }, label: 'item', type: 2  },
+    { id: 'node5', size: 32, style: { fill: '#F58C58' }, label: 'item', type: 2 },
+    { id: 'node2', size: 32, style: { fill: '#00C7C7' }, label: 'file', type: 1 },
+    { id: 'node6', size: 32, style: { fill: '#F58C58' }, label: 'item', type: 2 },
+    { id: 'node4', size: 32, style: { fill: '#F58C58' }, label: 'item', type: 2 },
     { id: 'node1', size: 32, style: { fill: '#00C7C7' }, label: 'file', type: 1 },
-    { id: 'node3', size: 32, style: { fill: '#00C7C7' }, label: 'file', type: 1  },
+    { id: 'node3', size: 32, style: { fill: '#00C7C7' }, label: 'file', type: 1 },
   ],
   edges: [
     { source: 'node0', target: 'node1' },
@@ -44,6 +44,14 @@ export function GraphChart(props: GraphProps) {
           style: {
             fill: colors10[item.type],
           },
+          icon: {
+            show: true,
+            img: [
+              'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Q2piT7W5HCMAAAAAAAAAAAAADmJ7AQ/original',
+              'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*mNDaSa5JIuQAAAAAAAAAAAAADmJ7AQ/original',
+              'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*I-Q8Ta_r9T4AAAAAAAAAAAAADmJ7AQ/original',
+            ][item.type],
+          },
         })),
       };
 
@@ -54,10 +62,6 @@ export function GraphChart(props: GraphProps) {
           style: {
             fill: isDark ? 'rgba(255,255,255,0.45)' : '#86909C',
           },
-        },
-        icon: {
-          show: true,
-          img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*qebjT6nhHBIAAAAAAAAAAAAADmJ7AQ/original'
         },
       };
 
