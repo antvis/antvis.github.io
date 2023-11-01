@@ -17,9 +17,9 @@ const COMPLEX_DATAS = [
   },
   {
     text: '超强性能',
-    video: '',
-    message: '数据摘要2',
-    link: '',
+    message: '渲染器运行时切换',
+    video: 'https://mass-office.alipay.com/huamei_koqzbu/afts/file/7EDaQJcdqCEAAAAAAAAAABAADnV5AQBr',
+    link: 'https://g6-next.antv.antgroup.com/zh/examples/feature/features/#rendererSwitch',
     img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*EZ7OTLICg8MAAAAAAAAAAAAADmJ7AQ/original',
     activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*2_soSbk9R-gAAAAAAAAAAAAADmJ7AQ/original',
   },
