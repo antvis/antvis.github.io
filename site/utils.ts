@@ -8,7 +8,19 @@ export const getLang = () => {
   return useLocale().id
 }
 
-export function pick(seed: string) {
+
+function rgbToHex(rgb: string) {
+  const arr = rgb.slice(4, rgb.length - 1).split(',');
+  return arr.reduce((color, item) => {
+    const v = Number(item).toString(16);
+    if(v.length === 1) {
+      return `${color}0${v}`;
+    }
+    return `${color}${v}`;
+  }, '#');
+};
+
+export function pick(seed: string, isHex: boolean = false) {
   const count = 12;
   const step = 360 / count;
   const hsl = d3.hsl(seed);
@@ -25,5 +37,5 @@ export function pick(seed: string) {
     const next = j === 1 ? oppsite : neighbour;
     I[i + 1] = next(prev, cur);
   }
-  return I.map((i) => colors[i]).slice(0, 10);
+  return I.map((i) => isHex ? rgbToHex(colors[i]) : colors[i]).slice(0, 10);
 }

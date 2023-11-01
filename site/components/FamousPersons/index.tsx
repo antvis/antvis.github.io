@@ -23,11 +23,12 @@ export function FamousPersons() {
             const filter = `drop-shadow(${data.color} 80px 0)`;
             return <div className={styles.famousAuction}>
               <div className={styles.image}>
-                <img src={data.image} />
+                <img src={data.image} alt='image' />
                 <img
                   src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*XGF5T7Atc7kAAAAAAAAAAAAADmJ7AQ/original'
                   className={styles.icon}
                   style={{ filter }}
+                  alt='icon'
                 />
               </div>
               <div className={styles.name}>{useT(data.name)}</div>

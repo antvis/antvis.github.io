@@ -206,7 +206,7 @@ export function ProjectCard() {
                     style={{ cursor: url ? 'pointer' : 'default' }}
                     target='_black'
                   >
-                    {icon && <img src={icon} />}
+                    {icon && <img src={icon} alt={newTitle} />}
                     {isSort ?
                       <Divider dashed={true} className={styles.divider}>
                         <div className={styles.cardTitle}>{newTitle}</div>

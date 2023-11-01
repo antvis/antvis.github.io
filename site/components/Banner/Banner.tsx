@@ -41,7 +41,7 @@ export default () => {
         </div>
         <div className={styles.buttons}>
           <div className={styles.start} onClick={scrollToAnchor} >
-            <img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*lo_5RYdqKLsAAAAAAAAAAAAADmJ7AQ/original' />
+            <img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*lo_5RYdqKLsAAAAAAAAAAAAADmJ7AQ/original' alt='start' />
             {useT("开始使用")}
           </div>
           <ActiveIcon
@@ -57,7 +57,7 @@ export default () => {
             message.map(({ title, subTitle, img }) => {
               return (
                 <div className={styles.message} key={title}>
-                  <div className={styles.messageTitle}><img src={img} /> {title[language]}</div>
+                  <div className={styles.messageTitle}><img src={img} alt='message_title' /> {title[language]}</div>
                   <div className={styles.messageSubTitle}>{subTitle[language]}</div>
                 </div>
               );

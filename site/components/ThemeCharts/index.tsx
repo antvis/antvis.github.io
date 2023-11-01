@@ -1,8 +1,8 @@
 import { useIntl } from 'dumi';
 import classNames from 'classnames';
-import { message, ColorPicker } from 'antd';
+import { ColorPicker } from 'antd';
+import { DownloadOutlined } from '@ant-design/icons';
 import React, { useCallback, useMemo, useState } from 'react';
-import { DownloadOutlined, CopyOutlined } from '@ant-design/icons';
 import { GaugeChart, ColumnChart, LineChart, GraphChart, StackedColumnChart, PieChart } from './Charts';
 import { pick } from '../../utils';
 
@@ -93,21 +93,7 @@ export function ThemeCharts() {
   const [select, setSelect] = useState(THEME_DATAS[0]);
 
   // theme.colors10
-  const [colors10, setColors10] = useState<string[]>(pick('#6400FF'));
-
-  // copy theme
-  const onCopy = useCallback(() => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(JSON.stringify({
-        theme:
-        {
-          colors10,
-        },
-      },
-      ));
-      message.success(useT('已复制'));
-    }
-  }, []);
+  const [colors10, setColors10] = useState<string[]>(pick('#6400FF', true));
 
   // download theme
   const onDownload = useCallback(() => {
@@ -117,10 +103,11 @@ export function ThemeCharts() {
       },
     };
     const str = JSON.stringify(json, null, 2);
-    const url = `data:,${str}`;
+    
+    const blobURL = new Blob([str],{ type: 'text/json' });
 
     const a = document.createElement('a');
-    a.href = url;
+    a.href = window.URL.createObjectURL(blobURL);
     a.download = 'antv_theme.json';
     a.click();
     a.remove();
@@ -147,14 +134,14 @@ export function ThemeCharts() {
               })}
               onClick={() => setSelect(data)}
             >
-              <img src={isDark ? data.darkImg : (isTheme ? data.activeImg : data.img)} /> {useT(data.text)}
+              <img src={isDark ? data.darkImg : (isTheme ? data.activeImg : data.img)} alt='theme_icon' /> {useT(data.text)}
             </div>);
 
             return index === 3 && isTheme ?
               <ColorPicker
                 disabledAlpha
                 trigger='hover'
-                onChange={(v, color) => setColors10(pick(color))}
+                onChange={(v, color) => setColors10(pick(color, true))}
                 panelRender={(panel) => <div className="custom-panel">
                   <div className={styles.colors}>
                     {
@@ -175,7 +162,7 @@ export function ThemeCharts() {
         style={{ backgroundImage: `url(${select.backgroundChart})` }}
       >
         <div className={styles.msg}>
-          <img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*U3AfQq_cQMYAAAAAAAAAAAAADmJ7AQ/original' />
+          <img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*U3AfQq_cQMYAAAAAAAAAAAAADmJ7AQ/original' alt='antv' />
           <div className={styles.msgTitle}>AntV 5.0</div>
           <div className={styles.segmentation} />
           <div className={styles.msgText}>{useT(select.text)}</div>
@@ -197,8 +184,6 @@ export function ThemeCharts() {
       </div>
       <div className={styles.acquire}>
         <div className={styles.download} onClick={onDownload}><DownloadOutlined /> {useT("规范下载")}</div>
-        <div className={styles.segmentation} />
-        <div className={styles.copy} onClick={onCopy}><CopyOutlined /> {useT("拷贝代码")}</div>
       </div>
     </div>
   )

@@ -17,8 +17,8 @@ export default function ActiveIcon(props: ActiveIconProps) {
 
   return (
     <a className={classNames(className, styles.activeIcon)} href={href} target={target} >
-      <img className={styles.inactive} src={img} />
-      <img className={styles.active} src={activeImg} />
+      <img className={styles.inactive} src={img} alt='inactive_icon' />
+      <img className={styles.active} src={activeImg} alt='active_icon' />
       {text}
     </a>
   )

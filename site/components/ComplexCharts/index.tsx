@@ -62,7 +62,7 @@ export function ComplexCharts() {
               })}
               onClick={() => setSelect(data)}
             >
-              <img src={isSelect ? data.activeImg : data.img} /> {useT(data.text)}
+              <img src={isSelect ? data.activeImg : data.img} alt={data.text} /> {useT(data.text)}
             </div>
           })
         }
