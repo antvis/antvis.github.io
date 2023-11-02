@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useLocale, useIntl } from 'dumi';
 import React, { useCallback, useState } from 'react';
-import { Row, Col, Divider, Popover } from 'antd';
+import { Row, Col, Divider, Popover, ConfigProvider } from 'antd';
 import { useChinaMirrorHost } from '@antv/dumi-theme-antv/dist/slots/hooks';
 import { ModuleTitle as Title, ActiveIcon } from '../common';
 import ANTV_LINKS from '../../data/project-card-popover.json';
@@ -220,9 +220,12 @@ export function ProjectCard() {
                     key={title}
                     span={span}
                   >
-                    {links ? <Popover arrow={false} content={getContent(newTitle, newSubTitle, img, links)} >
-                      {children}
-                    </Popover> :
+                    {links ?
+                      <ConfigProvider prefixCls="antd5">
+                        <Popover content={getContent(newTitle, newSubTitle, img, links)} >
+                          {children}
+                        </Popover>
+                      </ConfigProvider> :
                       children}
                   </Col>
                 })

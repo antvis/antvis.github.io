@@ -1,14 +1,6 @@
 [
   {
     "title": "统计图表",
-    "subTitle": "数据驱动，高度易用，可扩展的可视化图形语法",
-    "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*DupxTZqLShkAAAAAAAAAAAAADmJ7AQ/original",
-    "link": "https://g2.antv.antgroup.com/examples/general/pie/#spider-label",
-    "antv": "G2",
-    "color": "#2486FF"
-  },
-  {
-    "title": "统计图表",
     "subTitle": "开箱即用的多维可视分析表格",
     "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*UfzOTa482lwAAAAAAAAAAAAADmJ7AQ/original",
     "link": "https://s2.antv.vision/examples/react-component/sheet/#strategy-mini-chart",
@@ -32,12 +24,20 @@
     "color": "#2486FF"
   },
   {
-    "title": "地图",
-    "subTitle": "高性能/高渲染质量的地理空间数据可视化框架",
-    "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*JebxTo_rsngAAAAAAAAAAAAADmJ7AQ/original",
-    "link": "https://l7.antv.antgroup.com/examples/tile/vector/#chinamap",
-    "antv": "L7",
-    "color": "#1074FF"
+    "title": "关系图",
+    "subTitle": "便捷的关系数据可视化引擎与图分析工具",
+    "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*eXzfTbFrYjMAAAAAAAAAAAAADmJ7AQ/original",
+    "link": "https://g6-next.antv.antgroup.com/examples/tool/hull/#hull",
+    "antv": "G6",
+    "color": "#F58C58"
+  },
+  {
+    "title": "统计图表",
+    "subTitle": "数据驱动，高度易用，可扩展的可视化图形语法",
+    "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*DupxTZqLShkAAAAAAAAAAAAADmJ7AQ/original",
+    "link": "https://g2.antv.antgroup.com/examples/general/pie/#spider-label",
+    "antv": "G2",
+    "color": "#2486FF"
   },
   {
     "title": "统计图表 (移动端)",
@@ -46,6 +46,14 @@
     "link": "https://f2.antv.antgroup.com/examples/creative/plugin/#rough",
     "antv": "F2",
     "color": "#D580FF"
+  },
+  {
+    "title": "地图",
+    "subTitle": "高性能/高渲染质量的地理空间数据可视化框架",
+    "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*JebxTo_rsngAAAAAAAAAAAAADmJ7AQ/original",
+    "link": "https://l7.antv.antgroup.com/examples/tile/vector/#chinamap",
+    "antv": "L7",
+    "color": "#1074FF"
   },
   {
     "title": "树形图表 (移动端)",
