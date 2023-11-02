@@ -220,7 +220,7 @@ export function ProjectCard() {
                     key={title}
                     span={span}
                   >
-                    {links ? <Popover content={getContent(newTitle, newSubTitle, img, links)} >
+                    {links ? <Popover arrow={false} content={getContent(newTitle, newSubTitle, img, links)} >
                       {children}
                     </Popover> :
                       children}
