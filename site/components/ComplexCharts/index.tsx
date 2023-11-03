@@ -68,7 +68,7 @@ export function ComplexCharts() {
         }
       </div>
       <div className={styles.content}>
-        <div className={styles.message}>{select.message}</div>
+        <div className={styles.message}>{useT(select.message)}</div>
         <a
           className={styles.chart}
           href={transformUrl({ url: select.link, language, isChinaMirrorHost })}
