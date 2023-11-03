@@ -25,9 +25,9 @@ const COMPLEX_DATAS = [
   },
   {
     text: '叙事动画',
-    message: '数据摘要3',
-    video: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*_dJSQ63PzJEAAAAAAAAAAAAADmJ7AQ/original',
-    link: '',
+    message: '分面帧动画',
+    video: 'https://mass-office.alipay.com/huamei_koqzbu/afts/file/nwPBQLMHlscAAAAAAAAAABAADnV5AQBr',
+    link: 'https://g2.antv.antgroup.com/examples/storytelling/storytelling/#facet-keyframe',
     img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*yrlSTZeONjUAAAAAAAAAAAAADmJ7AQ/original',
     activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*HG6pSovStWgAAAAAAAAAAAAADmJ7AQ/original',
   },
