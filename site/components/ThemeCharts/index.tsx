@@ -182,7 +182,7 @@ export function ThemeCharts() {
         </div>
       </div>
       <div className={styles.acquire}>
-        <div className={styles.download} onClick={onDownload}><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*coOuTKR_NDMAAAAAAAAAAAAADmJ7AQ/original' /> {useT("规范下载")}</div>
+        <div className={styles.download} onClick={onDownload}><img alt='download' src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*coOuTKR_NDMAAAAAAAAAAAAADmJ7AQ/original' /> {useT("规范下载")}</div>
       </div>
     </div>
   )

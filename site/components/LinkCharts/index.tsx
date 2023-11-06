@@ -70,8 +70,8 @@ export function LinkCharts() {
         </div>
       </div>
       <div className={styles.buttons}>
-        <div className={styles.left} onClick={() => onClick('left')} ><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Q4WbQ5DCXEAAAAAAAAAAAAAADmJ7AQ/original' /></div>
-        <div className={styles.right} onClick={() => onClick('right')}><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Q4WbQ5DCXEAAAAAAAAAAAAAADmJ7AQ/original' /></div>
+        <div className={styles.left} onClick={() => onClick('left')} ><img alt='left_icon' src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Q4WbQ5DCXEAAAAAAAAAAAAAADmJ7AQ/original' /></div>
+        <div className={styles.right} onClick={() => onClick('right')}><img alt='right_icon' src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Q4WbQ5DCXEAAAAAAAAAAAAAADmJ7AQ/original' /></div>
       </div>
     </div>
   );
