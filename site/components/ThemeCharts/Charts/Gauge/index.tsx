@@ -32,12 +32,13 @@ export function GaugeChart(props: GaugeProps) {
         },
         statistic: {
           content: {
-            offsetY: -30,
+            offsetY: -80,
             customHtml: () => {
               return `
                 <div>
+                  <img style="width: 36px; height: 36px;margin-bottom: 12px;" src="${isDark ? 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*hINPQYnKaIAAAAAAAAAAAAAADmJ7AQ/original' : 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*BjKVTp2kKSQAAAAAAAAAAAAADmJ7AQ/original'}" />
                   <div style="font-size: 12px;color: ${isDark ? 'rgba(255,255,255,0.65)' : '#424E66'};" >${useT('用户总量')}</div>
-                  <div style="font-size: 32px;color: ${isDark ? '#fff' : '#1D2129'}; line-height: 45px;" >1,320</div>
+                  <div style="font-size: 32px;color: ${isDark ? '#fff' : '#1D2129'}; line-height: 45px;font-family: AlibabaPuHuiTiB;" >1,320</div>
                 </div>
               `;
             },

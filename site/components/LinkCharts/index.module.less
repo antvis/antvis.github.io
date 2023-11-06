@@ -44,7 +44,7 @@
         letter-spacing: 0;
         position: relative;
         margin: 0 14px;
-        transition: all 1s;
+        transition: all .2s;
         cursor: pointer;
 
         &:hover {
@@ -62,7 +62,6 @@
         }
 
         .subTitle {
-          height: 44px;
           font-size: 14px;
           color: #424E66;
           line-height: 22px;
@@ -82,8 +81,9 @@
           font-size: 14px;
           top: 0;
           right: 0;
-          border-radius: 0 16px 0 16px;
+          border-radius: 0 8px 0 8px;
           color: #fff;
+
         }
 
         .image {
@@ -94,6 +94,7 @@
           background-position: center;
           background-repeat: no-repeat;
           background-size: contain;
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.05);
         }
       }
     }
@@ -116,6 +117,10 @@
       &:hover {
         background-color: #E5E8EF;
       }
+    }
+
+    > .left {
+      transform: rotate(180deg);
     }
   }
 }

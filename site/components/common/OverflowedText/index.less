@@ -1,0 +1,12 @@
+@import './mixins.less';
+
+.component-overflowed-text {
+  max-width: 100px;
+  .text-overflow();
+
+  &.max-height-text {
+    white-space: normal;
+    max-width: none;
+    word-break: break-all;
+  }
+}

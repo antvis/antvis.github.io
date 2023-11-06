@@ -1,7 +1,6 @@
 import { useIntl } from 'dumi';
 import classNames from 'classnames';
 import { ColorPicker } from 'antd';
-import { DownloadOutlined } from '@ant-design/icons';
 import React, { useCallback, useMemo, useState } from 'react';
 import { GaugeChart, ColumnChart, LineChart, GraphChart, StackedColumnChart, PieChart } from './Charts';
 import { pick } from '../../utils';
@@ -183,7 +182,7 @@ export function ThemeCharts() {
         </div>
       </div>
       <div className={styles.acquire}>
-        <div className={styles.download} onClick={onDownload}><DownloadOutlined /> {useT("规范下载")}</div>
+        <div className={styles.download} onClick={onDownload}><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*coOuTKR_NDMAAAAAAAAAAAAADmJ7AQ/original' /> {useT("规范下载")}</div>
       </div>
     </div>
   )

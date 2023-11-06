@@ -10,6 +10,7 @@ export const DARK_THEME_CONFIG = {
         fill: '#fff',
       },
     },
+    radio: false,
   },
   yAxis: {
     tickCount: 4,
@@ -42,7 +43,7 @@ export const DARK_THEME_CONFIG = {
       },
     },
   },
-};
+} as any;
 
 export const LIGHT_THEME_CONFIG = {
   legend: {
@@ -51,6 +52,7 @@ export const LIGHT_THEME_CONFIG = {
         fill: '#424E66',
       },
     },
+    radio: false,
   },
   yAxis: {
     tickCount: 4,
@@ -83,7 +85,7 @@ export const LIGHT_THEME_CONFIG = {
       },
     },
   },
-}
+} as any;
 
 type ColumnProps = {
   theme?: any;

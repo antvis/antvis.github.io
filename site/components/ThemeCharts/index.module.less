@@ -29,7 +29,7 @@
       height: 52px;
       width: 160px;
       cursor: pointer;
-      font-size: 20px;
+      font-size: 18px;
       background-color: #FFFFFF;
       border: 2px solid #E5E8EF;
       border-radius: 8px;
@@ -56,14 +56,14 @@
   }
 
   .themeChart {
-    height: 515px;
+    height: 600px;
     width: 1200px;
     background-color: #FAFBFC;
     border: 1px solid #E5E8EF;
     box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.05);
     border-radius: 16px;
     box-sizing: border-box;
-    padding: 18px 20px 5px 18px;
+    padding: 24px;
     margin-bottom: 36px;
 
     .msg {
@@ -90,11 +90,11 @@
 
     .charts {
       .chart {
-        height: 208px;
-        width: 375px;
+        height: 243px;
+        width: 374px;
         background: #fff;
         box-sizing: border-box;
-        padding: 14px 20px;
+        padding: 18px;
         float: left;
         margin-bottom: 15px;
         margin-right: 14px;
@@ -111,7 +111,7 @@
         }
 
         .content {
-          height: 149px;
+          height: 183px;
         }
       }
 
@@ -124,16 +124,23 @@
   .acquire {
     &:extend(.commonFlexConfig);
 
-    .download,
-    .copy {
+    .download {
       font-size: 16px;
       color: #424E66;
       letter-spacing: 0;
       line-height: 24px;
       cursor: pointer;
+      overflow: hidden;
+      position: relative;
 
       &:hover {
         color: #691EFF;
+
+        >img {
+          position: relative;
+          left: -80px;
+          filter: drop-shadow(#691EFF 80px 0);
+        }
       }
     }
   }
@@ -146,7 +153,6 @@
   }
 
   &.dark {
-    background: rgba(0, 0, 0, 0.9);
 
     .title {
       color: #fff;
@@ -199,8 +205,13 @@
 
     .acquire {
 
-      .download,
-      .copy {
+      .download {
+        img {
+          position: relative;
+          left: -80px;
+          filter: drop-shadow(#fff 80px 0);
+        }
+
         color: #fff;
         opacity: 0.8;
 
@@ -222,7 +233,13 @@
   height: 25px;
 
   .color {
-    width: 25px;
-    height: 25px;
+    border-radius: 2px;
+    margin-right: 2px;
+    width: 23px;
+    height: 23px;
+  }
+
+  :last-child {
+    margin-right: 0px;
   }
 }

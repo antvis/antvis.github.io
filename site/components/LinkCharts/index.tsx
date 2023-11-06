@@ -1,9 +1,8 @@
 import classNames from 'classnames';
 import { useLocale, useIntl } from 'dumi';
-import React, { useCallback, useEffect, useState } from 'react';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import React, { useCallback, useState } from 'react';
 import { useChinaMirrorHost } from '@antv/dumi-theme-antv/dist/slots/hooks';
-import { ModuleTitle as Title } from '../common';
+import { ModuleTitle as Title, OverflowedText } from '../common';
 import { transformUrl } from '../Products/getProducts';
 import CHARTS_DATAS from '../../data/link-charts.json';
 
@@ -60,7 +59,9 @@ export function LinkCharts() {
             data.map((data) => {
               return <a className={styles.chart} href={transformUrl({ url: data.link, language, isChinaMirrorHost })} target='_black' >
                 <div className={styles.title}>{useT(data.title)}</div>
-                <div className={styles.subTitle}>{useT(data.subTitle)}</div>
+                <div className={styles.subTitle}>
+                  <OverflowedText text={useT(data.subTitle)} maxWidth={341} />
+                </div>
                 <div className={styles.antv} style={{ background: data.color }} >{data.antv}</div>
                 <div className={styles.image} style={{ backgroundImage: `url(${data.image})` }} />
               </a>
@@ -69,8 +70,8 @@ export function LinkCharts() {
         </div>
       </div>
       <div className={styles.buttons}>
-        <div className={styles.left} onClick={() => onClick('left')} ><LeftOutlined /></div>
-        <div className={styles.right} onClick={() => onClick('right')}><RightOutlined /></div>
+        <div className={styles.left} onClick={() => onClick('left')} ><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Q4WbQ5DCXEAAAAAAAAAAAAAADmJ7AQ/original' /></div>
+        <div className={styles.right} onClick={() => onClick('right')}><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Q4WbQ5DCXEAAAAAAAAAAAAAADmJ7AQ/original' /></div>
       </div>
     </div>
   );

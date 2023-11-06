@@ -1,6 +1,6 @@
 import React from 'react';
 import { useIntl } from 'dumi';
-import { ModuleTitle as Title } from '../common';
+import { ModuleTitle as Title, OverflowedText } from '../common';
 import FAMOUS_PERSONS_DATAS from '../../data/famous-persons.json';
 
 import styles from './index.module.less';
@@ -32,8 +32,13 @@ export function FamousPersons() {
                 />
               </div>
               <div className={styles.name}>{useT(data.name)}</div>
-              <div className={styles.text}>{useT(data.text)}</div>
-              <div className={styles.msg}>{useT(data.msg)}</div>
+              <div className={styles.text}>
+                <OverflowedText text={useT(data.text)} maxHeight={56} maxWidth={237} style={{ fontSize: 14, lineHeight: 1.9 }}  />
+                </div>
+              <div className={styles.hr} />
+              <div className={styles.msg}>
+                <OverflowedText text={useT(data.msg)} maxHeight={143} maxWidth={237} style={{ fontSize: 14, lineHeight: 1.9 }}  />
+              </div>
             </div>
           })
         }

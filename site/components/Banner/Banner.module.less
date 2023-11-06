@@ -13,7 +13,7 @@
   .header {
     height: 618px;
     position: relative;
-    font-family:  PingFangSC;
+    font-family: PingFangSC;
   }
 
   .top {
@@ -23,12 +23,12 @@
     right: 0;
     top: 0;
     bottom: 0;
-    font-family:  AlibabaPuHuiTiR;
+    font-family: AlibabaPuHuiTiR;
   }
 
   .mainTitle {
-    font-size: 48px;
-    font-weight: 800;
+    font-size: 64px;
+    font-weight: 900;
     color: #000;
     text-align: center;
     margin-top: 112px;
@@ -65,10 +65,11 @@
       &:extend(.commonFlexConfig);
       height: 54px;
       width: 166px;
-      border-radius: 6px;
+      border-radius: 12px;
       font-size: 18px;
+      font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.20);
+      box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.10);
       margin: 0 11.5px;
 
       >img {
@@ -110,6 +111,7 @@
       max-width: 381px;
       background-color: #FFFFFF;
       border: 1px solid #E5E8EF;
+      transition: all .2s;
       padding: 16px;
       box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.05);
       border-radius: 16px;
@@ -119,16 +121,16 @@
       .messageTitle {
         &:extend(.commonFlexConfig);
         font-weight: 500;
-        font-size: 20px;
+        font-size: 18px;
         color: #1D2129;
         margin-bottom: 8px;
         text-align: center;
-        text-indent: 1.6em;
+        text-indent: 2em;
         position: relative;
 
         > img {
           position: absolute;
-          top: 4px;
+          top: 2px;
           left: 4px;
         }
       }
@@ -140,7 +142,8 @@
       }
 
       &:hover {
-        box-shadow: 0 12px 32px 0 rgba(0,0,0,0.10);
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.10);
 
         .messageTitle {
           color: rgba(105, 30, 255, 1);
