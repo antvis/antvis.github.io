@@ -17,7 +17,8 @@ const DATA = [
 
 export function PieChart(props: PieProps) {
   const { theme = {} } = props;
-  const { value, colors10 } = theme;
+  const { value, categorical } = theme;
+  const colors10 = categorical.colors;
   const isDark = useMemo(() => value === 'dark', [value]);
 
   const intl = useIntl();

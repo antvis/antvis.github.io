@@ -29,8 +29,9 @@ const DATA = {
 };
 
 export function GraphChart(props: GraphProps) {
-  const { theme } = props;
-  const { value, colors10 } = theme;
+  const { theme = {} } = props;
+  const { value, categorical } = theme;
+  const colors10 = categorical.colors;
   const isDark = useMemo(() => value === 'dark', [value]);
 
   const containerRef = useRef<HTMLDivElement>(null);

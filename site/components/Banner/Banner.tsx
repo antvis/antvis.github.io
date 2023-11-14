@@ -43,7 +43,7 @@ export default () => {
         </div>
         <div className={styles.buttons}>
           <div className={styles.start} onClick={scrollToAnchor} >
-            <img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*lo_5RYdqKLsAAAAAAAAAAAAADmJ7AQ/original' alt='start' />
+            <div className={styles.startIcon} />
             {useT("开始使用")}
           </div>
           <ActiveIcon
@@ -67,6 +67,7 @@ export default () => {
           }
         </div>
       </div>
+      <div className={styles.test} />
     </div>
   );
 };

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useMemo } from 'react';
 import { Column } from '@antv/g2plot';
+import React, { useEffect, useRef, useMemo } from 'react';
 
 import styles from '../index.module.less';
 
@@ -156,7 +156,8 @@ const DATA = [
 
 export function ColumnChart(props: ColumnProps) {
   const { theme = {} } = props;
-  const { value, colors10 } = theme;
+  const { value, categorical } = theme;
+  const colors10 = categorical.colors;
   const isDark = useMemo(() => value === 'dark', [value]);
 
   const containerRef = useRef<HTMLDivElement>(null);

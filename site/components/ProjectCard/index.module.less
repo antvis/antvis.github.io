@@ -126,6 +126,7 @@
 
 .content {
   font-family: PingFangSC;
+  padding: 0 8px;
 
   .msg {
     display: flex;
@@ -166,6 +167,13 @@
       &:extend(.commonFlexConfig);
       font-size: 14px;
       color: #1D2129;
+
+      .link {
+        > img {
+          width: 16px;
+          height: 16px;
+        }
+      }
 
       &:hover {
         color: #691EFF;

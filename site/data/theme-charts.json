@@ -3,10 +3,7 @@
     "img": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*_QoYRowGM50AAAAAAAAAAAAADmJ7AQ/original",
     "activeImg": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*q5g5Qp2D7GYAAAAAAAAAAAAADmJ7AQ/original",
     "darkImg": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*g4qrR4bQMOYAAAAAAAAAAAAADmJ7AQ/original",
-    "theme": {
-      "value": "light",
-      "colors10": ["#1783FF", "#00C9C9", "#F0884D", "#D580FF", "#7863FF", "#60C42D", "#BD8F24", "#FF80CA", "#2491B3", "#17C76F"]
-    }
+    "theme": "light"
   },
   {
     "text": "数据监控",
@@ -15,10 +12,7 @@
     "background": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*StbsSZEU_HoAAAAAAAAAAAAADmJ7AQ/original",
     "backgroundChart": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*WeCjR59uRiwAAAAAAAAAAAAADmJ7AQ/original",
     "darkImg": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*OSwyT5CsqVQAAAAAAAAAAAAADmJ7AQ/original",
-    "theme": {
-      "value": "dark",
-      "colors10": ["#00CFE2", "#4E98FF", "#E49629", "#CE6CFF", "#8D7BFF", "#53B81F", "#CE9C29", "#EC5FB2", "#0F8EB6", "#00A56E"]
-    }
+    "theme": "dark"
   },
   {
     "text": "活动战报",
@@ -27,18 +21,6 @@
     "darkImg": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*6FVKSq7g520AAAAAAAAAAAAADmJ7AQ/original",
     "background": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*gjWcSYzg5kMAAAAAAAAAAAAADmJ7AQ/original",
     "backgroundChart": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*SPGHSrSfT1UAAAAAAAAAAAAADmJ7AQ/original",
-    "theme": {
-      "value": "dark",
-      "colors10": ["#FFD081", "#BE6FFF", "#FF5ABA", "#2AB9E9", "#8196FF", "#FF8F57", "#32CC25", "#7F78FF", "#A3C31D", "#48D097"]
-    }
-  },
-  {
-    "text": "自定主题",
-    "img": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*5y_oTYSFUjUAAAAAAAAAAAAADmJ7AQ/original",
-    "activeImg": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*qebjT6nhHBIAAAAAAAAAAAAADmJ7AQ/original",
-    "darkImg": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*fuZwTJHtSWYAAAAAAAAAAAAADmJ7AQ/original",
-    "theme": {
-      "value": "light"
-    }
+    "theme": "dark"
   }
 ]

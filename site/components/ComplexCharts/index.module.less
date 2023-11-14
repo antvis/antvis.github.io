@@ -54,19 +54,20 @@
 
   .content {
     width: calc(100vw - 360px);
+    height: calc((100vw - 360px) * (571 /1680));
     max-width: 1680px;
     min-width: 1040px;
-    height: 530px;
+    max-height: 571px;
+    min-height: 353px;
     border-radius: 16px;
     box-sizing: border-box;
-    background-image: linear-gradient(111deg, #332F4F 0%, #28243F 100%);
     box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.20);
     overflow: hidden;
 
-      >video {
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-      }
+    >video {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+    }
   }
 }

@@ -15,7 +15,8 @@
   background-repeat: no-repeat;
   background-size: cover;
 
-  .leftBackground,.rightBackground {
+  .leftBackground,
+  .rightBackground {
     width: 765px;
     height: 100%;
     position: absolute;
@@ -25,7 +26,7 @@
 
   .leftBackground {
     left: 0;
-    top: 40px;
+    top: 35px;
     background-image: url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*gNDhS5nDO4sAAAAAAAAAAAAADmJ7AQ/original);
   }
 
@@ -107,8 +108,28 @@
       background-color: #691EFF;
       color: #FFFFFF;
 
+      .startIcon {
+        width: 20px;
+        height: 20px;
+        margin-right: 6px;
+        background-image:
+          url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*lo_5RYdqKLsAAAAAAAAAAAAADmJ7AQ/original),
+          url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*UcuoSovQjxAAAAAAAAAAAAAADmJ7AQ/original),
+          url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*3VvbT7spBhIAAAAAAAAAAAAADmJ7AQ/original),
+          url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*PI67SoRSfgsAAAAAAAAAAAAADmJ7AQ/original),
+          url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*sP-zRZweTJcAAAAAAAAAAAAADmJ7AQ/original),
+          url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*SFfnTachgWgAAAAAAAAAAAAADmJ7AQ/original),
+        ;
+        background-repeat: no-repeat;
+        background-position-y: 0, 20px, 40px, 60px, 80px, 100px;
+      }
+
       &:hover {
         opacity: 0.8;
+
+        .startIcon {
+          animation: hoverIcon 5s;
+        }
       }
     }
 
@@ -133,7 +154,7 @@
       &:extend(.commonFlexConfig);
       min-height: 114px;
       width: calc((100vw - 360px - 26px) / 3);
-      min-width: 338px; 
+      min-width: 338px;
       max-width: 551px;
       background-color: #FFFFFF;
       border: 1px solid #E5E8EF;
@@ -176,5 +197,35 @@
         }
       }
     }
+  }
+}
+
+@keyframes hoverIcon {
+  0% {
+    background-position-y: 0px, 20px, 40px, 60px, 80px, 100px;
+  }
+  
+  16.6% {
+    background-position-y: -20px, 0px, 20px, 40px, 60px, 80px;
+  }
+
+  33.3% {
+    background-position-y: -40px, -20px, 0px, 20px, 40px, 60px;
+  }
+
+  50% {
+    background-position-y: -60px, -40px, -20px, 0px, 20px, 40px;
+  }
+
+  66.6% {
+    background-position-y: -80px, -60px, -40px, -20px, 0px, 20px;
+  }
+
+  83.3% {
+    background-position-y: -100px, -80px, -60px, -40px, -20px, 0px;
+  }
+
+  100% {
+    background-position-y: -100px, -80px, -60px, -40px, -20px, 0px;
   }
 }

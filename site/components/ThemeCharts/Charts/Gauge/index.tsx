@@ -1,4 +1,5 @@
 import { useIntl } from 'dumi';
+import { get } from 'lodash';
 import { Gauge } from '@antv/g2plot';
 import React, { useEffect, useMemo, useRef } from 'react';
 
@@ -9,8 +10,9 @@ type GaugeProps = {
 }
 
 export function GaugeChart(props: GaugeProps) {
-  const { theme } = props;
-  const { value, colors10 } = theme;
+  const { theme = {} } = props;
+  const { value, sequential } = theme;
+  const colors10 = get(sequential, ['colors', '0'], []);
   const isDark = useMemo(() => value === 'dark', [value]);
 
   const intl = useIntl();
