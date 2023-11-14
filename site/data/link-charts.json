@@ -13,7 +13,7 @@
     "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*eo6jSqTIB-QAAAAAAAAAAAAADmJ7AQ/original",
     "link": "https://g6.antv.antgroup.com/examples/net/gpuLayout/#fruchtermanClustering",
     "antv": "G6",
-    "color": "#F58C58"
+    "color": "rgba(249,106,65)"
   },
   {
     "title": "散点图 (3D图表)",
@@ -29,7 +29,7 @@
     "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*eXzfTbFrYjMAAAAAAAAAAAAADmJ7AQ/original",
     "link": "https://g6-next.antv.antgroup.com/examples/tool/hull/#hull",
     "antv": "G6",
-    "color": "#F58C58"
+    "color": "rgba(249,106,65)"
   },
   {
     "title": "统计图表",
@@ -45,7 +45,7 @@
     "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*M6ubT4Mv7pcAAAAAAAAAAAAADmJ7AQ/original",
     "link": "https://f2.antv.antgroup.com/examples/creative/plugin/#rough",
     "antv": "F2",
-    "color": "#D580FF"
+    "color": "rgba(198,86,253)"
   },
   {
     "title": "地图",
@@ -77,7 +77,7 @@
     "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*cEgmQov_Kf0AAAAAAAAAAAAADmJ7AQ/original",
     "link": "https://g6.antv.antgroup.com/examples/case/treeDemos/#decisionTree",
     "antv": "G6",
-    "color": "#F58C58"
+    "color": "rgba(249,106,65)"
   },
   {
     "title": "热力图",
@@ -101,6 +101,6 @@
     "image": "https://gw.alipayobjects.com/zos/antfincdn/veD1IGEyne/20211116113745.jpg",
     "link": "https://f2.antv.antgroup.com/examples/relation/treemap/#treemap",
     "antv": "F2",
-    "color": "#D580FF"
+    "color": "rgba(198,86,253)"
   }
 ]

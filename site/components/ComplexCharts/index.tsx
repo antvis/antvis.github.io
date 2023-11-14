@@ -8,7 +8,7 @@ import COMPLEX_DATAS from '../../data/complex-charts.json';
 import styles from './index.module.less';
 
 export function ComplexCharts() {
-  
+
   const locale = useLocale();
   const [isChinaMirrorHost] = useChinaMirrorHost();
 
@@ -41,22 +41,19 @@ export function ComplexCharts() {
           })
         }
       </div>
-      <div className={styles.content}>
-        <div className={styles.message}>{useT(select.message)}</div>
-        <a
-          className={styles.chart}
-          href={transformUrl({ url: select.link, language, isChinaMirrorHost })}
-          target='_black'
-        >
-          <video
-            muted={true}
-            src={select.video}
-            autoPlay
-            loop
-            style={{ objectFit: 'fill' }}
-          />
-        </a>
-      </div>
+      <a
+        className={styles.content}
+        href={transformUrl({ url: select.link, language, isChinaMirrorHost })}
+        target='_black'
+      >
+        <video
+          muted={true}
+          src={select.video}
+          autoPlay
+          loop
+          style={{ objectFit: 'fill' }}
+        />
+      </a>
     </div>
   );
 }

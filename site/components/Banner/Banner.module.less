@@ -1,3 +1,8 @@
+@font-face {
+  font-family: AlibabaPuHuiTiRHeavy;
+  src: url(../../public/Alibaba-PuHuiTi-Heavy.otf);
+}
+
 .commonFlexConfig {
   display: flex;
   align-items: center;
@@ -11,7 +16,7 @@
   background-size: cover;
 
   .leftBackground,.rightBackground {
-    width: 900px;
+    width: 765px;
     height: 100%;
     position: absolute;
     top: 80px;
@@ -31,7 +36,7 @@
 
 
   .header {
-    height: 690px;
+    height: 670px;
     position: relative;
     font-family: PingFangSC;
   }
@@ -48,10 +53,10 @@
 
   .mainTitle {
     font-size: 64px;
-    font-weight: 900;
     color: #000;
     text-align: center;
     margin-top: 138px;
+    font-family: AlibabaPuHuiTiRHeavy;
 
     >span {
       color: #691EFF;
@@ -127,7 +132,7 @@
     .message {
       &:extend(.commonFlexConfig);
       min-height: 114px;
-      width: calc((100vw - 280px - 26px) / 3);
+      width: calc((100vw - 360px - 26px) / 3);
       min-width: 338px; 
       max-width: 551px;
       background-color: #FFFFFF;
