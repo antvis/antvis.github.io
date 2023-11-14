@@ -1,5 +1,6 @@
 import React from 'react';
-import { useIntl } from 'dumi';
+import classNames from 'classnames';
+import { useIntl, useLocale } from 'dumi';
 import { ModuleTitle as Title, OverflowedText } from '../common';
 import FAMOUS_PERSONS_DATAS from '../../data/famous-persons.json';
 
@@ -7,15 +8,21 @@ import styles from './index.module.less';
 
 // 专家之声
 export function FamousPersons() {
-  const intl = useIntl()
+  const locale = useLocale();
+
+  const language: 'zh' | 'en' = locale.id.includes('zh') ? 'zh' : 'en';
+
+  const intl = useIntl();
   const useT = (transformedMessage: string) => {
     return intl.formatMessage({
-      id: transformedMessage
+      id: transformedMessage,
     });
   };
 
   return (
-    <div className={styles.famousPersons}>
+    <div className={classNames(styles.famousPersons,{
+      [styles.en]: language === 'en',
+    }) }>
       <Title title={useT("专家之声")} subTitle={useT("经历了海量数据场景下的严苛考验，蚂蚁集团自研了数据库、云原生、隐私计算、图计算为代表的数字化“根技术”")} />
       <div className={styles.famousAuctions} >
         {
