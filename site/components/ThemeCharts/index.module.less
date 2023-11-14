@@ -10,6 +10,7 @@
   flex-direction: column;
   font-family: PingFangSC;
   background-size: cover;
+  background-color: rgba(0, 0, 0, 0);
 
   .title {
     height: 48px;
@@ -57,7 +58,9 @@
 
   .themeChart {
     height: 600px;
-    width: 1200px;
+    width: calc(100vw - 240px);
+    max-width: 1680px;
+    min-width: 1040px;
     background-color: #FAFBFC;
     border: 1px solid #E5E8EF;
     box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.05);
@@ -91,7 +94,7 @@
     .charts {
       .chart {
         height: 243px;
-        width: 374px;
+        width: calc(100% / 3 - 10px);
         background: #fff;
         box-sizing: border-box;
         padding: 18px;

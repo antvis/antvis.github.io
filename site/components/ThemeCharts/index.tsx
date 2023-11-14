@@ -4,54 +4,9 @@ import { ColorPicker } from 'antd';
 import React, { useCallback, useMemo, useState } from 'react';
 import { GaugeChart, ColumnChart, LineChart, GraphChart, StackedColumnChart, PieChart } from './Charts';
 import { pick } from '../../utils';
+import THEME_DATAS from '../../data/theme-charts.json';
 
 import styles from './index.module.less';
-
-const THEME_DATAS = [
-  {
-    text: '日常分析',
-    img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*_QoYRowGM50AAAAAAAAAAAAADmJ7AQ/original',
-    activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*q5g5Qp2D7GYAAAAAAAAAAAAADmJ7AQ/original',
-    darkImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*g4qrR4bQMOYAAAAAAAAAAAAADmJ7AQ/original',
-    theme: {
-      value: 'light',
-      colors10: ['#1783FF', '#00C9C9', '#F0884D', '#D580FF', '#7863FF', '#60C42D', '#BD8F24', '#FF80CA', '#2491B3', '#17C76F'],
-    },
-  },
-  {
-    text: '数据监控',
-    img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Sc7hSIITxFQAAAAAAAAAAAAADmJ7AQ/original',
-    activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*6e2CT6K6XYgAAAAAAAAAAAAADmJ7AQ/original',
-    background: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*StbsSZEU_HoAAAAAAAAAAAAADmJ7AQ/original',
-    backgroundChart: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*WeCjR59uRiwAAAAAAAAAAAAADmJ7AQ/original',
-    darkImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*OSwyT5CsqVQAAAAAAAAAAAAADmJ7AQ/original',
-    theme: {
-      value: 'dark',
-      colors10: ['#00CFE2', '#4E98FF', '#E49629', '#CE6CFF', '#8D7BFF', '#53B81F', '#CE9C29', '#EC5FB2', '#0F8EB6', '#00A56E'],
-    },
-  },
-  {
-    text: '活动战报',
-    img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*NcJ0Q6nslIMAAAAAAAAAAAAADmJ7AQ/original',
-    activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*ZnG8QZrNVxkAAAAAAAAAAAAADmJ7AQ/original',
-    darkImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*6FVKSq7g520AAAAAAAAAAAAADmJ7AQ/original',
-    background: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*gjWcSYzg5kMAAAAAAAAAAAAADmJ7AQ/original',
-    backgroundChart: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*SPGHSrSfT1UAAAAAAAAAAAAADmJ7AQ/original',
-    theme: {
-      value: 'dark',
-      colors10: ['#FFD081', '#BE6FFF', '#FF5ABA', '#2AB9E9', '#8196FF', '#FF8F57', '#32CC25', '#7F78FF', '#A3C31D', '#48D097'],
-    },
-  },
-  {
-    text: '自定主题',
-    img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*5y_oTYSFUjUAAAAAAAAAAAAADmJ7AQ/original',
-    activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*qebjT6nhHBIAAAAAAAAAAAAADmJ7AQ/original',
-    darkImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*fuZwTJHtSWYAAAAAAAAAAAAADmJ7AQ/original',
-    theme: {
-      value: 'light',
-    },
-  },
-];
 
 const CHARTS = [
   {
@@ -97,13 +52,20 @@ export function ThemeCharts() {
   // download theme
   const onDownload = useCallback(() => {
     const json = {
+      _comment: {
+        [useT('分类色板')]: useT('主要用于描述分类数据，如苹果、香蕉、梨，常用一个颜色代表一个值以区分不同类型，取色时色相分布均衡，相邻颜色之间明暗需考虑差异性，常用于饼图的不同分类、填充地图中的不同国家、关系图中的不同角色等。'),
+        [useT('单一顺序色板')]: useT('单色顺序色板，均基于分类色板生长而来，一般使用同一色相，通过明度或饱和度的渐变，常用来表示同一事物中的数值大小或梯度变化，如排行榜等级变化、一个国家或地区的新增人口数对比、风险等级变化等。'),
+        [useT('邻近顺序色板')]: useT('邻近顺序色板，均基于分类色板生长而来，为加大辨识度也可使用邻近色相，通过明度或饱和度的渐变，常用来表示同一事物中的数值大小或梯度变化，如排行榜等级变化、一个国家或地区的新增人口数对比、风险等级变化等。'),
+        [useT('发散色板')]: useT('对比色渐变色板，均基于分类色板生长而来，一般是两种互补色（也可以是对比色）去展现数据从一个负向值到 0 点再到正向值的连续变化区间，显示相对立的两个值的大小关系，常用于气温的冷热、海拔高低、股票涨跌等。'),
+      },
       theme: {
         colors10,
       },
     };
+
     const str = JSON.stringify(json, null, 2);
-    
-    const blobURL = new Blob([str],{ type: 'text/json' });
+
+    const blobURL = new Blob([str], { type: 'text/json' });
 
     const a = document.createElement('a');
     a.href = window.URL.createObjectURL(blobURL);

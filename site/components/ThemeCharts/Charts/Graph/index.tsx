@@ -1,5 +1,6 @@
 import { Graph } from '@antv/g6';
-import React, { useEffect, useRef, useMemo } from 'react';
+import { debounce } from 'lodash';
+import React, { useEffect, useRef, useMemo, useCallback } from 'react';
 
 import styles from '../index.module.less';
 
@@ -35,77 +36,97 @@ export function GraphChart(props: GraphProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
 
+  const data = useMemo(() => ({
+    ...DATA,
+    nodes: DATA.nodes.map((item) => ({
+      ...item,
+      style: {
+        fill: colors10[item.type],
+      },
+      icon: {
+        show: true,
+        img: [
+          'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Q2piT7W5HCMAAAAAAAAAAAAADmJ7AQ/original',
+          'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*mNDaSa5JIuQAAAAAAAAAAAAADmJ7AQ/original',
+          'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*I-Q8Ta_r9T4AAAAAAAAAAAAADmJ7AQ/original',
+        ][item.type],
+      },
+    })),
+  }), [colors10]);
+
+  const defaultNode = useMemo(() => ({
+    color: '#fff',
+    labelCfg: {
+      position: 'bottom',
+      style: {
+        fill: isDark ? 'rgba(255,255,255,0.45)' : '#86909C',
+      },
+    },
+  }), [isDark]);
+
+  const create = useCallback((container: HTMLDivElement | null) => {
+    if (!container) return;
+
+    plotRef.current = new Graph({
+      container,
+      width: container.clientWidth,
+      height: container.clientHeight,
+      defaultNode,
+      layout: {
+        type: 'force',
+      },
+    });
+
+    plotRef.current.data(data);
+
+    plotRef.current.render();
+
+    function refreshDragedNodePosition(e: any) {
+      const model = e.item.get('model');
+      model.fx = e.x;
+      model.fy = e.y;
+    }
+
+    plotRef.current.on('node:dragstart', (e: any) => {
+      plotRef.current.layout();
+      refreshDragedNodePosition(e);
+    });
+    plotRef.current.on('node:drag', (e: any) => {
+      refreshDragedNodePosition(e);
+    });
+    plotRef.current.on('node:dragend', (e: any) => {
+      e.item.get('model').fx = null;
+      e.item.get('model').fy = null;
+    });
+  }, [data, defaultNode]);
+
   useEffect(() => {
     if (containerRef.current) {
-      const data = {
-        ...DATA,
-        nodes: DATA.nodes.map((item) => ({
-          ...item,
-          style: {
-            fill: colors10[item.type],
-          },
-          icon: {
-            show: true,
-            img: [
-              'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Q2piT7W5HCMAAAAAAAAAAAAADmJ7AQ/original',
-              'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*mNDaSa5JIuQAAAAAAAAAAAAADmJ7AQ/original',
-              'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*I-Q8Ta_r9T4AAAAAAAAAAAAADmJ7AQ/original',
-            ][item.type],
-          },
-        })),
-      };
-
-      const defaultNode = {
-        color: '#fff',
-        labelCfg: {
-          position: 'bottom',
-          style: {
-            fill: isDark ? 'rgba(255,255,255,0.45)' : '#86909C',
-          },
-        },
-      };
-
+      const container = containerRef.current;
       if (!plotRef.current) {
-        const container = containerRef.current;
-        plotRef.current = new Graph({
-          container,
-          width: container.scrollWidth,
-          height: container.scrollHeight,
-          defaultNode,
-          layout: {
-            type: 'force',
-            edgeStrength: .1,
-          },
-        });
-
-        plotRef.current.data(data);
-
-        plotRef.current.render();
-
-        function refreshDragedNodePosition(e: any) {
-          const model = e.item.get('model');
-          model.fx = e.x;
-          model.fy = e.y;
-        }
-
-        plotRef.current.on('node:dragstart', (e: any) => {
-          plotRef.current.layout();
-          refreshDragedNodePosition(e);
-        });
-        plotRef.current.on('node:drag', (e: any) => {
-          refreshDragedNodePosition(e);
-        });
-        plotRef.current.on('node:dragend', (e: any) => {
-          e.item.get('model').fx = null;
-          e.item.get('model').fy = null;
-        });
-
+        create(container);
       } else {
         plotRef.current.set('defaultNode', defaultNode);
         plotRef.current.changeData(data);
       }
     }
-  }, [containerRef, colors10]);
+  }, [containerRef, data, defaultNode]);
+
+  // g6 不能自动更新以及手动更新而更新图的位置在最中心。 重新进行创建
+  useEffect(() => {
+    const container = containerRef?.current;
+    const onResize = debounce(() => {
+      plotRef.current.destroy();
+      create(container);
+    }, 100);
+
+    if (container) {
+      window.addEventListener('resize', onResize);
+    }
+    return () => {
+      window.removeEventListener('resize', onResize);
+    }
+  }, [containerRef]);
 
   return (
     <div className={styles.container}>

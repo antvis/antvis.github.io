@@ -317,5 +317,14 @@
   "用户总量": "Total",
   "3D 可视化图": "3D Visual Chart",
   "渲染器运行时切换": "Renderer Runtime Switch",
-  "分面帧动画": "Faceted Frame Animation"
+  "分面帧动画": "Faceted Frame Animation",
+
+  "分类色板": "Classification Color Palette",
+  "单一顺序色板": "Single Sequential Color Palette",
+  "邻近顺序色板": "Adjacent Sequential Color Palette",
+  "发散色板": "Diverge Color Palette",
+  "主要用于描述分类数据，如苹果、香蕉、梨，常用一个颜色代表一个值以区分不同类型，取色时色相分布均衡，相邻颜色之间明暗需考虑差异性，常用于饼图的不同分类、填充地图中的不同国家、关系图中的不同角色等。": "It is mainly used to describe classified data, such as apples, bananas, pears, usually a color represents a value to distinguish different types, the color distribution is balanced, the difference between adjacent colors should be considered between the light and dark, often used for different pie chart classification, filling different countries in the map, different roles in the relationship chart, etc.",
+  "单色顺序色板，均基于分类色板生长而来，一般使用同一色相，通过明度或饱和度的渐变，常用来表示同一事物中的数值大小或梯度变化，如排行榜等级变化、一个国家或地区的新增人口数对比、风险等级变化等。": "Monochromatic sequential color palette, all based on the growth of classification swatches, generally use the same hue, through the gradual change of brightness or saturation, commonly used to represent the numerical size or gradient change in the same thing, such as ranking changes, comparison of the number of new people in a country or region, risk level changes, etc.",
+  "邻近顺序色板，均基于分类色板生长而来，为加大辨识度也可使用邻近色相，通过明度或饱和度的渐变，常用来表示同一事物中的数值大小或梯度变化，如排行榜等级变化、一个国家或地区的新增人口数对比、风险等级变化等。": "Adjacent sequential color palette, all based on the growth of the classification color palette, in order to increase the recognition can also use adjacent colors, through the gradual change of brightness or saturation, commonly used to represent the value size or gradient change in the same thing, such as ranking change, comparison of the number of new population in a country or region, risk level change.",
+  "点再到正向值的连续变化区间，显示相对立的两个值的大小关系，常用于气温的冷热、海拔高低、股票涨跌等。": "The continuous change interval from the point to the positive value shows the size relationship between the two opposite values, which is often used for the cold and hot temperature, altitude, stock rise and fall, etc."
 }

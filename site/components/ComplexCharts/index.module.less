@@ -53,8 +53,9 @@
   }
 
   .content {
-    height: 484px;
-    width: 1200px;
+    width: calc(100vw - 240px);
+    max-width: 1680px;
+    min-width: 1040px;
     border-radius: 16px;
     box-sizing: border-box;
     padding: 24px;
@@ -81,6 +82,7 @@
       >video {
         width: 100%;
         height: 100%;
+        background-size: cover ;
       }
     }
   }

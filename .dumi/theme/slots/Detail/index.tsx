@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import { debounce } from 'lodash';
+import React, { useEffect, useState, useRef } from 'react';
 import Banner from 'site/components/Banner/Banner';
 import { ThemeCharts } from 'site/components/ThemeCharts';
 import { ComplexCharts } from 'site/components/ComplexCharts';
@@ -16,8 +17,9 @@ interface NotificationProps {
 }
 
 export const Detail: React.FC = () => {
-  const locale = useLocale()
-  const intl = useIntl()
+  const locale = useLocale();
+  const intl = useIntl();
+  const ref = useRef(null);
 
   const useT = (transformedMessage: string) => {
     return intl.formatMessage({
@@ -35,6 +37,21 @@ export const Detail: React.FC = () => {
       });
   }, [notificationsUrl]);
 
+  useEffect(() => {
+    const onResize = debounce(() => {
+      if (ref?.current) {
+        const scrollDom = ref?.current as HTMLDivElement;
+        const { clientWidth, scrollWidth } = scrollDom;
+        scrollDom.scrollLeft = (scrollWidth - clientWidth) / 2;
+      }
+    }, 100);
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      window.removeEventListener('resize', onResize);
+    }
+  }, []);
+
   return (
     <div className="home-container" style={{ backgroundImage: 'linear-gradient(180deg, #F0E5FF 0%, #FFFFFF 13%, #FFFFFF 92%, #F7F8FD 100%)' }} >
       <SEO
@@ -45,8 +62,11 @@ export const Detail: React.FC = () => {
         )}
         lang={locale.id}
       />
-      <div style={{ overflowX: 'auto' }}>
-        <div style={{ minWidth: '1200px' }}>
+      <div
+        style={{ overflowX: 'auto' }}
+        ref={ref}
+      >
+        <div style={{ minWidth: '1280px', scrollSnapAlign: 'center' }}>
           <Banner remoteNews={remoteNews} />
           <ThemeCharts />
           <ComplexCharts />

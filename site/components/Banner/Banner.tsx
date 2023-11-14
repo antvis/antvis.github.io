@@ -34,6 +34,8 @@ export default () => {
 
   return (
     <div className={styles.banner}>
+      <div className={styles.leftBackground} />
+      <div className={styles.rightBackground} />
       <div className={styles.header}>
         <div className={styles.top}>
           <div className={styles.mainTitle}><span>AntV</span>{useT("·让数据栩栩如生")}</div>

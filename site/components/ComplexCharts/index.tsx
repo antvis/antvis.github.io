@@ -3,35 +3,9 @@ import React, { useState } from 'react';
 import { useLocale, useIntl } from 'dumi';
 import { useChinaMirrorHost } from '@antv/dumi-theme-antv/dist/slots/hooks';
 import { transformUrl } from '../Products/getProducts';
+import COMPLEX_DATAS from '../../data/complex-charts.json';
 
 import styles from './index.module.less';
-
-const COMPLEX_DATAS = [
-  {
-    text: '3D大图',
-    video: 'https://gw.alipayobjects.com/v/huamei_qa8qxu/afts/video/wg8jTrLg-3EAAAAAAAAAAAAAK4eUAQBr',
-    link: 'https://g6-next.antv.antgroup.com/examples/feature/features#webgl3d',
-    message: '3D 可视化图',
-    img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*RFK7R4TWuWQAAAAAAAAAAAAADmJ7AQ/original',
-    activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*NYQ-SLUYDpMAAAAAAAAAAAAADmJ7AQ/original',
-  },
-  {
-    text: '超强性能',
-    message: '渲染器运行时切换',
-    video: 'https://gw.alipayobjects.com/v/huamei_qa8qxu/afts/video/w-ePQbtxxZQAAAAAAAAAAAAAK4eUAQBr',
-    link: 'https://g6-next.antv.antgroup.com/zh/examples/feature/features/#rendererSwitch',
-    img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*EZ7OTLICg8MAAAAAAAAAAAAADmJ7AQ/original',
-    activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*2_soSbk9R-gAAAAAAAAAAAAADmJ7AQ/original',
-  },
-  {
-    text: '叙事动画',
-    message: '分面帧动画',
-    video: 'https://gw.alipayobjects.com/v/huamei_qa8qxu/afts/video/6aeMQqQag_4AAAAAAAAAAAAAK4eUAQBr',
-    link: 'https://g2.antv.antgroup.com/examples/storytelling/storytelling/#facet-keyframe',
-    img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*yrlSTZeONjUAAAAAAAAAAAAADmJ7AQ/original',
-    activeImg: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*HG6pSovStWgAAAAAAAAAAAAADmJ7AQ/original',
-  },
-];
 
 export function ComplexCharts() {
   

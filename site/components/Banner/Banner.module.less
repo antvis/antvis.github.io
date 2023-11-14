@@ -5,10 +5,32 @@
 }
 
 .banner {
+  position: relative;
   overflow: hidden;
-  background-image: url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*T_hsTocdvtQAAAAAAAAAAAAADmJ7AQ/original);
-  background-size: cover;
+  background-image: url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*KL9wS54k2U8AAAAAAAAAAAAADmJ7AQ/original);
+  
   background-repeat: no-repeat;
+  background-size: cover;
+
+  .leftBackground,.rightBackground {
+    width: 900px;
+    height: 100%;
+    position: absolute;
+    top: 20;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .leftBackground {
+    left: 0;
+    background-image: url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*gNDhS5nDO4sAAAAAAAAAAAAADmJ7AQ/original);
+  }
+
+  .rightBackground {
+    right: 0;
+    background-image: url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*OXF7QbWURnMAAAAAAAAAAAAADmJ7AQ/original);
+  }
+
 
   .header {
     height: 618px;
@@ -107,15 +129,16 @@
     .message {
       &:extend(.commonFlexConfig);
       min-height: 114px;
-      min-width: 381px;
-      max-width: 381px;
+      width: calc((100vw - 280px - 26px) / 3);
+      min-width: 338px; 
+      max-width: 551px;
       background-color: #FFFFFF;
       border: 1px solid #E5E8EF;
       transition: all .2s;
       padding: 16px;
       box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.05);
       border-radius: 16px;
-      margin:0 13px;
+      margin: 0 13px;
       flex-direction: column;
 
       .messageTitle {
@@ -128,7 +151,7 @@
         text-indent: 2em;
         position: relative;
 
-        > img {
+        >img {
           position: absolute;
           top: 2px;
           left: 4px;
