@@ -181,9 +181,6 @@ export function ColumnChart(props: ColumnProps) {
           seriesField: 'type',
           // 分组柱状图 组内柱子间的间距 (像素级别)
           dodgePadding: 2,
-          columnStyle: {
-            radius: [2, 2, 0, 0],
-          },
           ...themeConfig
         });
 

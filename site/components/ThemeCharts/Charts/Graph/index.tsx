@@ -10,13 +10,13 @@ type GraphProps = {
 
 const DATA = {
   nodes: [
-    { id: 'node0', size: 32, style: { fill: '#2486FF' }, label: 'host', type: 0 },
-    { id: 'node5', size: 32, style: { fill: '#F58C58' }, label: 'item', type: 2 },
-    { id: 'node2', size: 32, style: { fill: '#00C7C7' }, label: 'file', type: 1 },
-    { id: 'node6', size: 32, style: { fill: '#F58C58' }, label: 'item', type: 2 },
-    { id: 'node4', size: 32, style: { fill: '#F58C58' }, label: 'item', type: 2 },
-    { id: 'node1', size: 32, style: { fill: '#00C7C7' }, label: 'file', type: 1 },
-    { id: 'node3', size: 32, style: { fill: '#00C7C7' }, label: 'file', type: 1 },
+    { id: 'node0', size: 32, style: { fill: '#2486FF' }, label: 'host', type: 0, x: 150, y: 150 },
+    { id: 'node1', size: 32, style: { fill: '#00C7C7' }, label: 'item', type: 1, x: 400, y: 0 },
+    { id: 'node2', size: 32, style: { fill: '#00C7C7' }, label: 'item ', type: 1, x: 400, y: 150 },
+    { id: 'node3', size: 32, style: { fill: '#00C7C7' }, label: 'item', type: 1, x: 400, y: 300 },
+    { id: 'node4', size: 32, style: { fill: '#F58C58' }, label: 'file', type: 2, x: 0, y: 0 },
+    { id: 'node5', size: 32, style: { fill: '#F58C58' }, label: 'file', type: 2, x: 0, y: 150 },
+    { id: 'node6', size: 32, style: { fill: '#F58C58' }, label: 'file', type: 2, x: 0, y: 300 },
   ],
   edges: [
     { source: 'node0', target: 'node1' },
@@ -48,8 +48,8 @@ export function GraphChart(props: GraphProps) {
         show: true,
         img: [
           'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Q2piT7W5HCMAAAAAAAAAAAAADmJ7AQ/original',
-          'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*mNDaSa5JIuQAAAAAAAAAAAAADmJ7AQ/original',
           'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*I-Q8Ta_r9T4AAAAAAAAAAAAADmJ7AQ/original',
+          'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*mNDaSa5JIuQAAAAAAAAAAAAADmJ7AQ/original',
         ][item.type],
       },
     })),
@@ -73,9 +73,7 @@ export function GraphChart(props: GraphProps) {
     // 限制范围
     const onTick = () => {
       data.nodes.forEach((node) => {
-        // @ts-ignore
-        node.x = Math.min(Math.max(30, node.x), width - 60);
-        // @ts-ignore
+        node.x = Math.min(Math.max(5, node.x), width - 10);
         node.y = Math.min(Math.max(20, node.y), height - 40);
       });
     };
@@ -87,9 +85,10 @@ export function GraphChart(props: GraphProps) {
       defaultNode,
       layout: {
         type: 'force',
-        linkDistance: 120,
-        edgeStrength: 1,
-        nodeStrength: -10,
+        linkDistance: (d: any) => {
+          if (['node2', 'node5'].includes(d.target.id)) return 130;
+          return 100;
+        },
         onTick,
       },
     });

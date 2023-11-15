@@ -116,9 +116,6 @@ export function StackedColumnChart(props: StackedColumnProps) {
           xField: 'x',
           yField: 'y',
           seriesField: 'type',
-          columnStyle: {
-            radius: [2, 2, 0, 0],
-          },
           ...themeConfig,
         });
 

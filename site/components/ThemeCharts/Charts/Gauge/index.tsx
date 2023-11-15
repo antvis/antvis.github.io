@@ -56,9 +56,6 @@ export function GaugeChart(props: GaugeProps) {
           endAngle: 0,
           indicator: false,
           animation: {},
-          gaugeStyle: {
-            lineCap: 'round',
-          },
           ...themeConfig,
         });
 
