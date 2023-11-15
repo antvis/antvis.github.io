@@ -67,14 +67,30 @@ export function GraphChart(props: GraphProps) {
 
   const create = useCallback((container: HTMLDivElement | null) => {
     if (!container) return;
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    // 限制范围
+    const onTick = () => {
+      data.nodes.forEach((node) => {
+        // @ts-ignore
+        node.x = Math.min(Math.max(30, node.x), width - 60);
+        // @ts-ignore
+        node.y = Math.min(Math.max(20, node.y), height - 40);
+      });
+    };
 
     plotRef.current = new Graph({
       container,
-      width: container.clientWidth,
-      height: container.clientHeight,
+      width,
+      height,
       defaultNode,
       layout: {
         type: 'force',
+        linkDistance: 120,
+        edgeStrength: 1,
+        nodeStrength: -10,
+        onTick,
       },
     });
 

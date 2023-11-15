@@ -45,7 +45,7 @@ export function LinkCharts() {
 
   return (
     <div className={styles.linkCharts}>
-      <Title title={useT('丰富图表，选用自如')} subTitle={useT('经历了海量数据场景下的严苛考验，蚂蚁集团自研了数据库、云原生、隐私计算、图计算为代表的数字化“根技术”')} />
+      <Title title={useT('丰富图表，选用自如')} subTitle={useT('柱形图、饼图、关系图、地图、多维表格等260+丰富图表随心选用')} />
       <div className={styles.charts}>
         <div
           className={classNames(styles.box, {

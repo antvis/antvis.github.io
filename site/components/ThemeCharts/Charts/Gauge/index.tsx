@@ -51,10 +51,14 @@ export function GaugeChart(props: GaugeProps) {
       if (!plotRef.current) {
         plotRef.current = new Gauge(containerRef.current, {
           percent: 0,
+          appendPadding: [0, 0, 10, 0],
           startAngle: -Math.PI,
           endAngle: 0,
           indicator: false,
           animation: {},
+          gaugeStyle: {
+            lineCap: 'round',
+          },
           ...themeConfig,
         });
 

@@ -41,6 +41,9 @@ export function PieChart(props: PieProps) {
           ...(isDark ? DARK_THEME_CONFIG : LIGHT_THEME_CONFIG)['legend'],
           position: 'bottom',
         },
+        pieStyle:{
+          lineWidth: 0,
+        },
         statistic: {
           title: {
             offsetY: -10,
