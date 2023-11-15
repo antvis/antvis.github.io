@@ -29,7 +29,7 @@ export default () => {
   // 跳转到 丰富图表，选用自如
   const scrollToAnchor = () => {
     const anchorElement = document.getElementById(ANCHORNAME);
-    if (anchorElement) { anchorElement.scrollIntoView({ block: 'start', behavior: 'auto' }); }
+    if (anchorElement) { anchorElement.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
   }
 
   return (
@@ -39,7 +39,7 @@ export default () => {
       <div className={styles.header}>
         <div className={styles.top}>
           <div className={styles.mainTitle}><span>AntV</span>{useT("·让数据栩栩如生")}</div>
-          <div className={styles.subTitle}>{useT("让普通应用低成本享受 Serverless 体验，帮助企业降本增效！")}</div>
+          <div className={styles.subTitle}>{useT("蚂蚁企业级数据可视化解决方案，让用户轻松看数收获工作意义")}</div>
         </div>
         <div className={styles.buttons}>
           <div className={styles.start} onClick={scrollToAnchor} >
