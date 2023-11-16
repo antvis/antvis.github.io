@@ -83,6 +83,6 @@ export function transformUrl({
   language: 'zh' | 'en';
   isChinaMirrorHost: boolean;
 }) {
-  const languageUrl = url.replace(/([http|https]\:\/\/).+?\//, (v) => `${v}${language}/`);
+  const languageUrl = url.replace(/\/(zh|en)/, '').replace(/([http|https]\:\/\/).+?\//, (v) => `${v}${language}/`);
   return getActualUrl(languageUrl, isChinaMirrorHost);
 }

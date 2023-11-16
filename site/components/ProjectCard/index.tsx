@@ -71,7 +71,7 @@ const PROJECT_DATAS: PrejectData = [
       span: 3,
       classNames: styles.chartEngine,
       url: 'https://g2.antv.antgroup.com',
-      img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*FrshQpaS4f0AAAAAAAAAAAAADmJ7AQ/original',
+      img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*oj5gRqZMxZQAAAAAAAAAAAAADmJ7AQ/original',
     },
     {
       title: 'S2',
@@ -87,7 +87,7 @@ const PROJECT_DATAS: PrejectData = [
       span: 3,
       classNames: styles.chartEngine,
       url: 'https://g6.antv.vision',
-      img: 'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*yRU1QZbcQN4AAAAAAAAAAABkARQnAQ',
+      img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*_JGLQZl-PcQAAAAAAAAAAAAADmJ7AQ/original',
     },
     {
       title: 'X6',
@@ -120,16 +120,27 @@ const PROJECT_DATAS: PrejectData = [
     { title: '关系数据', span: 6, classNames: styles.sort, isSort: true },
     { title: '极致移动定制', span: 9, classNames: styles.sort, isSort: true },
   ],
-  [{ title: 'AntV Design', subTitle: '设计语言', span: 21, classNames: styles.antv, icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*U3AfQq_cQMYAAAAAAAAAAAAADmJ7AQ/original' }],
-  [{
-    title: 'G',
-    subTitle: '图表引擎',
-    span: 21,
-    classNames: styles.g,
-    img: 'https://gw.alipayobjects.com/mdn/rms_6ae20b/afts/img/A*nk1YSrbkQPMAAAAAAAAAAAAAARQnAQ',
-    icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*YIbER7wNuLMAAAAAAAAAAAAADmJ7AQ/original',
-    url: 'https://g.antv.antgroup.com/',
-  }],
+  [
+    {
+      title: 'AntV Design',
+      subTitle: '设计语言',
+      url: 'specification',
+      span: 21,
+      classNames: styles.antv,
+      icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*U3AfQq_cQMYAAAAAAAAAAAAADmJ7AQ/original',
+    },
+  ],
+  [
+    {
+      title: 'G',
+      subTitle: '图表引擎',
+      span: 21,
+      classNames: styles.g,
+      img: 'https://gw.alipayobjects.com/mdn/rms_6ae20b/afts/img/A*nk1YSrbkQPMAAAAAAAAAAAAAARQnAQ',
+      icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*YIbER7wNuLMAAAAAAAAAAAAADmJ7AQ/original',
+      url: 'https://g.antv.antgroup.com/',
+    },
+  ],
 ];
 
 // 丰富图表，选用自如
@@ -185,8 +196,8 @@ export function ProjectCard() {
   return (
     <div className={styles.projectCard} id={ANCHORNAME}>
       <Title
-        title={useT('丰富图表，选用自如')}
-        subTitle={useT('经历了海量数据场景下的严苛考验，蚂蚁集团自研了数据库、云原生、隐私计算、图计算为代表的数字化“根技术”')}
+        title={useT('设计语言与研发框架')}
+        subTitle={useT('资产一览，让你快速搭建网站应用')}
       />
       <div className={styles.cards}>
         <div className={styles.box}>

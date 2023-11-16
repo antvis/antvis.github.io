@@ -56,12 +56,12 @@ export default () => {
         </div>
         <div className={styles.bottom}>
           {
-            message.map(({ title, subTitle, img }) => {
+            message.map(({ title, subTitle, img, link }) => {
               return (
-                <div className={styles.message} key={title}>
+                <a className={styles.message} key={title} target='_blank' href={link} >
                   <div className={styles.messageTitle}><img src={img} alt='message_title' /> {title[language]}</div>
                   <div className={styles.messageSubTitle}>{subTitle[language]}</div>
-                </div>
+                </a>
               );
             })
           }
