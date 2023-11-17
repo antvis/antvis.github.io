@@ -74,7 +74,7 @@ export function GraphChart(props: GraphProps) {
     const onTick = () => {
       data.nodes.forEach((node) => {
         node.x = Math.min(Math.max(5, node.x), width - 10);
-        node.y = Math.min(Math.max(15, node.y), height - 30);
+        node.y = Math.min(Math.max(18, node.y), height - 36);
       });
     };
 
