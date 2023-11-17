@@ -179,9 +179,9 @@ export function ProjectCard() {
           ANTV_LINKS.map((link) => {
             let href = links[link.href]?.url;
 
-            // Ant Design Charts 本身跳转 https://charts.ant.design/api 为 404, 修改为 https://ant-design-charts.antgroup.com
+            // Ant Design Charts 本身跳转 https://charts.ant.design/example 为 404, 修改为 https://ant-design-charts.antgroup.com/examples
             if (title === 'Ant Design Charts' && !href) {
-              href = `https://ant-design-charts.antgroup.com/${language}/${link.href}`;
+              href = `https://ant-design-charts.antgroup.com/${language}/${link.href === 'example' ? 'examples' : link.href}`;
             }
 
             return <a
