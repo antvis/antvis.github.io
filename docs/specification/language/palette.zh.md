@@ -17,9 +17,9 @@ AntV 色板是基于 <a href='https://ant.design/docs/spec/colors-cn' target='_b
 
 | 颜色属性 |  | 关系 | 数据类型 |  |
 | :-: | :-: | :-: | --- | --- |
-| 色调（H） | <img src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*0vQmTqfW0KwAAAAAAAAAAAAADmJ7AQ/original" width=152 /> | = | 分类型 | 如  🍎、🍌、🍐 |
-| 饱和度（S） | <img src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*9ZoIRaaVRxAAAAAAAAAAAAAADmJ7AQ/original" width=152 /> | = | 有序型 | 如多少、高低、大小 |
-| 明度（B） | <img src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*tBO1SpMwfwIAAAAAAAAAAAAADmJ7AQ/original" width=152 /> |  | 数值型 | 如  9.5cm 、18 个 |
+| 色调（H） | <img src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*0vQmTqfW0KwAAAAAAAAAAAAADmJ7AQ/original" width=152 alt="" /> | = | 分类型 | 如  🍎、🍌、🍐 |
+| 饱和度（S） | <img src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*9ZoIRaaVRxAAAAAAAAAAAAAADmJ7AQ/original" width=152 alt="" /> | = | 有序型 | 如多少、高低、大小 |
+| 明度（B） | <img src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*tBO1SpMwfwIAAAAAAAAAAAAADmJ7AQ/original" width=152 alt="" /> |  | 数值型 | 如  9.5cm 、18 个 |
 
 ## 6 大色板类型
 
@@ -220,7 +220,7 @@ AntV 色板在做无障碍验证时，得出以下几点取色建议 ：
 
   虽然正常人眼中右侧分类色板通过色相可以区分差异，但在视障人士、甚至全色盲，则主要靠颜色的明暗差异来识别不同的数据类型，因此分类色板需要注意适度的明暗交替
 
-<img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*eKFoRaOyrv4AAAAAAAAAAABkARQnAQ" width="100%" alt="suggestion" />
+<img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*eKFoRaOyrv4AAAAAAAAAAABkARQnAQ" width="100%" alt="suggestion" alt="" />
 
 - 离散色板尽量选取蓝黄对比
 

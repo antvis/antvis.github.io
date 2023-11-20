@@ -13,7 +13,7 @@ order: 1
 | 数据与图形的映射 | 两个连续字段分别映射到横轴和纵轴 |
 | 适合的数据条数 | 大于两条 |
 
-**元素构成：** 折线图主要包括坐标轴、图例、标签、图形等内容 <img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*zxbiRqpcMycAAAAAAAAAAAAAARQnAQ" width="100%">
+**元素构成：** 折线图主要包括坐标轴、图例、标签、图形等内容 <img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*zxbiRqpcMycAAAAAAAAAAAAAARQnAQ" width="100%" alt="" >
 
 - X 轴：通常对应连续数据，值为时间，调用连续数据 X 轴；
 - Y 轴：通常对应连续数据，值为数字，调用连续数据 Y 轴；
