@@ -19,7 +19,7 @@ export default () => {
   };
 
   useEffect(() => {
-    fetch('https://assets.antv.antgroup.com/antv/banner-messages.json')
+    fetch('https://site-data-pre.alipay.com/antv/banner-messages.json')
       .then((res) => res.json())
       .then((data) => {
         setMessage(data);

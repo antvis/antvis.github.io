@@ -26,12 +26,12 @@
 
   .leftBackground {
     left: 0;
-    top: 35px;
+    top: 75px;
     background-image: url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*gNDhS5nDO4sAAAAAAAAAAAAADmJ7AQ/original);
   }
 
   .rightBackground {
-    top: 80px;
+    top: 120px;
     right: 0;
     background-image: url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*OXF7QbWURnMAAAAAAAAAAAAADmJ7AQ/original);
   }
@@ -168,21 +168,18 @@
       flex-direction: column;
 
       .messageTitle {
-        &:extend(.commonFlexConfig);
         font-weight: 500;
         font-size: 18px;
         color: #1D2129;
         margin-bottom: 8px;
         text-align: center;
-        text-indent: 2em;
         position: relative;
 
         >img {
           width: 24px;
           height: 24px;
-          position: absolute;
-          top: 2px;
-          left: 4px;
+          position: relative;
+          top: -2px;
         }
       }
 

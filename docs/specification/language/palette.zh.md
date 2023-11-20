@@ -5,33 +5,33 @@ order: 1
 
 G2 是一套基于可视化编码的图形语法，以数据驱动，具有高度的易用性和扩展性，用户无需关注各种繁琐的实现细节，一条语句即可构建出各种各样的可交互的统计图表。
 
-AntV 色板是基于 <a href='https://ant.design/docs/spec/colors-cn' target='_blank'>Ant Design 色彩体系</a>，并结合数据可视化特性而设计。在可视化设计中，色板的运用原则上优先保障准确性，考虑在操作指引、交互反馈上起到强化或凸显的作用。其次需兼顾色障碍群体，帮助有色盲色弱的人群也能在数据可视化中获取洞见。
+AntV 色板是基于 <a href='https://ant.design/docs/spec/colors-cn' target='_blank'>Ant Design 色彩体系</a>，并结合数据可视化设计价值观而设计。在可视化设计中，色板的运用原则上优先保障给予用户的信任感，同时考虑在呈现阅读、交互反馈强化给到用户轻松感，最重要的是颜色在不同场景中使用的意义感，帮助用户能在数据可视化中启发理解和获取洞见，收获工作的意义。<a href='/specification/resources' target='_blank'>下载资源色板</a>
 
 ## 颜色映射原理
 
 在数据可视化领域中，数据与颜色的映射是非常重要的一个环节。颜色有三个视觉通道，分别是色调（H）、饱和度（S）、明度（B），不同的视觉通道可以与不同的数据类型建议关联。
 
-**色调（H）：**通常使用颜色中的不同色调来描述不同的分类数据，如水果品类中苹果映射为红色、香蕉映射为黄色、梨映射为绿色，将品类与色调（H）建立了关联。
+**色调（H）:** 通常使用颜色中的不同色调来描述不同的分类数据，如水果品类中苹果映射为红色、香蕉映射为黄色、梨映射为绿色，将品类与色调（H）建立了关联。
 
-**饱和度（S）/明度（B）：**颜色通过明暗、饱和度的共同变化来描述有序或数值型的连续数据，比如身高由低到高或由 160cm 到 180 cm 的颜色映射为由浅到深，将连续变化与颜色的明暗饱和变化建立关联。
+**饱和度（S）/明度（B）:** 颜色通过明暗、饱和度的共同变化来描述有序或数值型的连续数据，比如身高由低到高或由 160cm 到 180 cm 的颜色映射为由浅到深，将连续变化与颜色的明暗饱和变化建立关联。
 
 | 颜色属性 |  | 关系 | 数据类型 |  |
 | :-: | :-: | :-: | --- | --- |
-| 色调（H） | <img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*znc2SZGby9MAAAAAAAAAAABkARQnAQ" width=152 /> | = | 分类型 | 如  🍎、🍌、🍐 |
-| 饱和度（S） | <img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*8yVNQ6kKU9gAAAAAAAAAAABkARQnAQ" width=152 /> | = | 有序型 | 如多少、高低、大小 |
-| 明度（B） | <img src="https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*KpGITpALYaQAAAAAAAAAAABkARQnAQ" width=152 /> |  | 数值型 | 如  9.5cm 、18 个 |
+| 色调（H） | <img src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*0vQmTqfW0KwAAAAAAAAAAAAADmJ7AQ/original" width=152 /> | = | 分类型 | 如  🍎、🍌、🍐 |
+| 饱和度（S） | <img src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*9ZoIRaaVRxAAAAAAAAAAAAAADmJ7AQ/original" width=152 /> | = | 有序型 | 如多少、高低、大小 |
+| 明度（B） | <img src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*tBO1SpMwfwIAAAAAAAAAAAAADmJ7AQ/original" width=152 /> |  | 数值型 | 如  9.5cm 、18 个 |
 
 ## 6 大色板类型
 
 AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用场景扩展出 6 种可视化色板类型，可完美兼容 Ant Design UI 资产。以下所有色板均通过无障碍测试校验，可放心使用。
 
-![02-AntV 品牌色@3x.png](https://gw.alipayobjects.com/mdn/rms_624b2a/afts/img/A*pdBRSLgX79kAAAAAAAAAAABkARQnAQ)
+![02-AntV 品牌色@3x.png](https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*8Uj3TJt8nHYAAAAAAAAAAAAADmJ7AQ/original)
 
 ### 分类色板
 
 分类色板用于描述分类数据，如苹果、香蕉、梨，常用一个颜色代表一个值以区分不同类型，取色时色相分布均衡，相邻颜色之间明暗需考虑差异性，常用于饼图的不同分类、填充地图中的不同国家、关系图中的不同角色等。
 
-![03-分类色板@3x.png](https://gw.alipayobjects.com/zos/antfincdn/dcADI7GBH%24/1.png)
+![03-分类色板@3x.png](https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*4bxvS6I4osQAAAAAAAAAAAAADmJ7AQ/original)
 
 <swatch title="基础 10 色" colors="#5B8FF9,#61DDAA,#65789B,#F6BD16,#7262fd,#78D3F8,#9661BC,#F6903D,#008685,#F08BB4" colorNames="Geek Blue,Cyan,Grey,Sunrise Yellow,Deep Purple,Daybreak Blue,Golden Purple,Sunset Orange,Dark Green,Magenta"></swatch>
 
@@ -141,6 +141,7 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 <swatch title="Autumn" colors="#FF6B3B,#626681,#FFC100,#9FB40F,#76523B,#DAD5B5,#0E8E89,#E19348,#F383A2,#247FEA,#2BCB95,#B1ABF4,#1D42C2,#1D9ED1,#D64BC0,#255634,#8C8C47,#8CDAE5,#8E283B,#791DC9" colorNames="Autumn" descriptions="秋日橙色板，适用于橙色调的产品，可按需替换默认色板。|马卡龙色板，颜色明快，适用于较为活泼轻松的产品或蓝紫色调的产品，可按需替换默认色板。|强对比色板，建议用于投屏及讲演等场景。"></swatch>
 
+![秋日橙主题.png](https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*8g3IQLdwuyQAAAAAAAAAAAAADmJ7AQ/original)
 ![秋日橙.gif](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*4eQ-Q7NX-wIAAAAAAAAAAAAAARQnAQ)
 
 ### 马卡龙主题
@@ -149,6 +150,8 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 <swatch title="Macaron" colors="#025DF4,#DB6BCF,#2498D1,#BBBDE6,#4045B2,#21A97A,#FF745A,#007E99,#FFA8A8,#2391FF,#FFC328,#A0DC2C,#946DFF,#626681,#EB4185,#CD8150,#36BCCB,#327039,#803488,#83BC99" colorNames="Macaron" descriptions="马卡龙色板，颜色明快，适用于较为活泼轻松的产品或蓝紫色调的产品，可按需替换默认色板。"></swatch>
 
+
+![马卡龙主题.png](https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Gt1AToxkmZoAAAAAAAAAAAAADmJ7AQ/original)
 ![马卡龙.gif](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*PhfqRLQmq4QAAAAAAAAAAAAAARQnAQ)
 
 ### 强对比主题
@@ -229,3 +232,4 @@ AntV 色板在做无障碍验证时，得出以下几点取色建议 ：
 
 - [AntV 色彩体系的搭建](https://zhuanlan.zhihu.com/p/70121039)
 - 想自定义色板？查看 [色板生成教程](https://antv.vision/zh/docs/specification/tool/createrColor)
+- [下载色板资源](/specification/resources)
