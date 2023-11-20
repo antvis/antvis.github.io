@@ -54,8 +54,8 @@ export default defineConfig({
       {
         slug: 'specification/principles',
         title: {
-          zh: '设计原则',
-          en: 'Principles',
+          zh: '设计价值观',
+          en: 'Design Values',
         },
         order: 0,
       },
