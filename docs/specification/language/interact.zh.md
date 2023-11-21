@@ -39,7 +39,7 @@ AntV 5.0 的设计价目标是让用户更有信任感、轻松感和意义感�
 
 对操作多些确定，让用户自助使用。
 
-<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*91N6SoAZyCYAAAAAAAAAAAAADmJ7AQ/original' alt='' />
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*DKh3Qoh32iEAAAAAAAAAAAAADmJ7AQ/original' alt='' />
 
 用户在浏览图表查看数据时，我们建议每一次鼠标触发都有实时有效的反馈，如上图：用户在使用鼠标悬浮在图例上时，可实时的联动高亮图例对应的图形内容，让用户对自己当前阅读的对象有更明确的感知。
 
@@ -47,7 +47,7 @@ AntV 5.0 的设计价目标是让用户更有信任感、轻松感和意义感�
 
 交互的操作简单，让用户轻松分析。
 
-<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*W9AyTIsZvMkAAAAAAAAAAAAADmJ7AQ/original' alt='' />
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*u8ssSJmC5kMAAAAAAAAAAAAADmJ7AQ/original' alt='' />
 
 用户在交互过程中，始终都要跨过认知鸿沟和执行鸿沟 [6]，为了降低用户的认知成本和操作成本，我们建议在可视化交互中提供更多的直接操纵的能力。如上图：当用户有对数据自定义排序的场景下，若用户可以直接拖拽图形进行排序，便可以获得更自然的交互体验。
 
@@ -57,7 +57,7 @@ AntV 5.0 的设计价目标是让用户更有信任感、轻松感和意义感�
 
 增强分析的能力，让用户更易洞察。
 
-<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*KdnqRIZwMCsAAAAAAAAAAAAADmJ7AQ/original' alt='' />
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*BaTcRKwYhTYAAAAAAAAAAAAADmJ7AQ/original' alt='' />
 
 用户在分析探索时，适时的画龙点睛之笔可以让洞察更直观的展现在分析者面前，一条辅助线和一块参考区间便可以快速的将机会点或者风险点清晰的暴露出来。但是如果这个时候如果用户需要填写复杂的表单才能记录自己的洞察，那么在复杂的操作间，灵感可能会稍纵即逝。
 我们建议为用户匹配更直观的交互语言，让用户抓住时机，快速沉淀洞察记录观点。如上图：用户在标注辅助线时原需要填写复杂的表单才能完成诉求，如果我们支持用直接长按坐标轴X即可添加辅助线，那么用户将获得更自由的交互体验，洞察也可被更快获取。
@@ -75,7 +75,7 @@ AntV 5.0 的设计价目标是让用户更有信任感、轻松感和意义感�
 
 #### 👀 有前馈
 
-<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*ZEPRSb71URgAAAAAAAAAAAAADmJ7AQ/original' alt='' />
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*ygYdQaFfppEAAAAAAAAAAAAADmJ7AQ/original' alt='' />
 &nbsp;
 
 #### 👂 有反馈
