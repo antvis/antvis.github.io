@@ -125,7 +125,7 @@ const PROJECT_DATAS: PrejectData = [
     {
       title: 'AntV Design',
       subTitle: '设计语言',
-      url: 'specification',
+      url: '/specification/principles/basic',
       span: 21,
       classNames: styles.antv,
       icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*U3AfQq_cQMYAAAAAAAAAAAAADmJ7AQ/original',
