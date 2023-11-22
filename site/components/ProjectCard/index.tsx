@@ -42,7 +42,7 @@ const PROJECT_DATAS: PrejectData = [
   [{
     title: 'AVA',
     subTitle: '智能洞察',
-    span: 21,
+    span: 24,
     classNames: styles.AVA,
     icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*L58VTIXV8MwAAAAAAAAAAAAADmJ7AQ/original',
     img: 'https://gw.alipayobjects.com/mdn/rms_fabca5/afts/img/A*TOjFQ6PQwyEAAAAAAAAAAAAAARQnAQ',
@@ -52,7 +52,7 @@ const PROJECT_DATAS: PrejectData = [
     {
       title: 'Ant Design Charts',
       subTitle: '图表库',
-      span: 12,
+      span: 15,
       classNames: styles.antd,
       icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*OWM6RLft2VIAAAAAAAAAAAAADmJ7AQ/original',
       url: 'https://charts.ant.design',
