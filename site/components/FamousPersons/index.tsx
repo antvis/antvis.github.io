@@ -1,4 +1,5 @@
-import React from 'react';
+import { debounce } from 'lodash';
+import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { useIntl, useLocale } from 'dumi';
 import { ModuleTitle as Title, OverflowedText } from '../common';
@@ -19,10 +20,39 @@ export function FamousPersons() {
     });
   };
 
+  const textRef = useRef<any>(null);
+  const msgRef = useRef<any>(null);
+
+  const [textSize, setTextSize] = useState({ maxWidth: 237, maxHeight: 53 });
+  const [msgSize, setMsgSize] = useState({ maxWidth: 237, maxHeight: 143 });
+
+  useEffect(() => {
+    const changeSize = debounce(() => {
+      if (textRef?.current) {
+        setTextSize({
+          maxWidth: textRef?.current.clientWidth,
+          maxHeight: textRef?.current.clientHeight,
+        });
+      }
+      if (msgRef?.current) {
+        setMsgSize({
+          maxWidth: msgRef?.current.clientWidth,
+          maxHeight: msgRef?.current.clientHeight,
+        });
+      }
+    }, 200);
+
+    window.addEventListener('resize', changeSize);
+
+    return () => {
+      window.removeEventListener('resize', changeSize);
+    }
+  }, []);
+
   return (
-    <div className={classNames(styles.famousPersons,{
+    <div className={classNames(styles.famousPersons, {
       [styles.en]: language === 'en',
-    }) }>
+    })}>
       <Title title={useT("专家之声")} subTitle={useT("经历了海量数据场景下的严苛考验，蚂蚁集团自研了数据库、云原生、隐私计算、图计算为代表的数字化“根技术”")} />
       <div className={styles.famousAuctions} >
         {
@@ -39,12 +69,12 @@ export function FamousPersons() {
                 />
               </div>
               <div className={styles.name}>{useT(data.name)}</div>
-              <div className={styles.text}>
-                <OverflowedText text={useT(data.text)} maxHeight={56} maxWidth={237} style={{ fontSize: 14, lineHeight: 1.9 }}  />
-                </div>
+              <div className={styles.text} ref={textRef}>
+                <OverflowedText text={useT(data.text)} {...textSize} style={{ fontSize: 14, lineHeight: 2 }} />
+              </div>
               <div className={styles.hr} />
-              <div className={styles.msg}>
-                <OverflowedText text={useT(data.msg)} maxHeight={143} maxWidth={237} style={{ fontSize: 14, lineHeight: 1.9 }}  />
+              <div className={styles.msg} ref={msgRef}>
+                <OverflowedText text={useT(data.msg)} {...msgSize} style={{ fontSize: 14, lineHeight: 2 }} />
               </div>
             </div>
           })

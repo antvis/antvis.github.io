@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
 import cx from 'classnames';
-import { Tooltip, ConfigProvider } from 'antd';
 import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
+import { Tooltip, ConfigProvider } from 'antd';
 import { isNumber, isString, toNumber, omit } from 'lodash';
 
 import './index.less';
