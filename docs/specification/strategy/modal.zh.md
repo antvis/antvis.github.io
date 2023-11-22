@@ -42,7 +42,7 @@ order: 0
 
 设计好的可视化作品，用户看得懂吗？AntV 的四条核心原则：准确、清晰、有效、美，这四条原则也是评估可视化作品的四点准则；
 
-![设计原则.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*8x7ORJcLj9YAAAAAAAAAAAAAARQnAQ)
+![设计价值观.jpg](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*8x7ORJcLj9YAAAAAAAAAAAAAARQnAQ)
 
 - **测试：**找用户或者身边同事，让他们扫视你的作品，描述他们第一眼感觉，看能否匹配你的设计预期。再让他们点一点、操作一下，能否找到自己想要的数据；
 - **迭代**：如果不能，建议反问用户、反问自己问题出在哪里，并开始新一轮的迭代优化。

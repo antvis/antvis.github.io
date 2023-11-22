@@ -1,0 +1,24 @@
+.activeIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+
+  > img {
+    margin-right: 6px;
+  }
+
+  .active {
+    display: none;
+  }
+
+  &:hover {
+    .inactive {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+  }
+}

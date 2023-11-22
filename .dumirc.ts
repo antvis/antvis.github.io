@@ -12,6 +12,7 @@ export default defineConfig({
     description: 'Ant Visualization solution',
     defaultLanguage: 'zh',                                              // 默认语言
     isAntVSite: true,                                                   // 是否是 AntV 的大官网
+    footerTheme: 'light',
     siteUrl: homepage,                                     // 官网地址
     githubUrl: repository.url,                                          // GitHub 地址
     showSearch: true,                                                   // 是否显示搜索框
@@ -27,7 +28,7 @@ export default defineConfig({
       {
         slug: 'docs/specification',
         title: {
-          zh: '设计',
+          zh: '设计语言',
           en: 'Design',
         },
       },
@@ -53,8 +54,8 @@ export default defineConfig({
       {
         slug: 'specification/principles',
         title: {
-          zh: '设计原则',
-          en: 'Principles',
+          zh: '设计价值观',
+          en: 'Design Values',
         },
         order: 0,
       },
@@ -138,17 +139,6 @@ export default defineConfig({
         en: 'Ant Visualization solution',
       },
     },
-    /** 首页合作公司 */
-    companies: [
-      { name: '阿里云', img: 'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*V_xMRIvw2iwAAAAAAAAAAABkARQnAQ' },
-      { name: '支付宝', img: 'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*lYDrRZvcvD4AAAAAAAAAAABkARQnAQ', },
-      { name: '天猫', img: 'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*BQrxRK6oemMAAAAAAAAAAABkARQnAQ', },
-      { name: '淘宝网', img: 'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*1l8-TqUr7UcAAAAAAAAAAABkARQnAQ', },
-      { name: '网上银行', img: 'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*ZAKFQJ5Bz4MAAAAAAAAAAABkARQnAQ', },
-      { name: '京东', img: 'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*yh-HRr3hCpgAAAAAAAAAAABkARQnAQ', },
-      { name: 'yunos', img: 'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*_js7SaNosUwAAAAAAAAAAABkARQnAQ', },
-      { name: '菜鸟', img: 'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*TgV-RZDODJIAAAAAAAAAAABkARQnAQ', },
-    ],
   },
   alias: {
     site: '/site',

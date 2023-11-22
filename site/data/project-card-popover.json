@@ -1,0 +1,20 @@
+[
+  {
+    "text": "产品首页",
+    "href": "home",
+    "img": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*3xXDTZYurmUAAAAAAAAAAAAADmJ7AQ/original",
+    "activeImg": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*hk1CQLLIQG0AAAAAAAAAAAAADmJ7AQ/original"
+  },
+  {
+    "text": "图表示例",
+    "href": "example",
+    "img": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*hRxETKoSog4AAAAAAAAAAAAADmJ7AQ/original",
+    "activeImg": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*1U6cR7srIOIAAAAAAAAAAAAADmJ7AQ/original)"
+  },
+  {
+    "text": "使用文档",
+    "href": "api",
+    "img": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*_xFsQbWE_AYAAAAAAAAAAAAADmJ7AQ/original",
+    "activeImg": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*A9VnTpferioAAAAAAAAAAAAADmJ7AQ/original"
+  }
+]

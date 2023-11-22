@@ -1,0 +1,251 @@
+.commonFlexConfig {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.themeCharts {
+  &:extend(.commonFlexConfig);
+  position: relative;
+  z-index: 2;
+  padding: 50px 0 40px;
+  flex-direction: column;
+  font-family: PingFangSC;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0);
+
+  .title {
+    height: 48px;
+    line-height: 1em;
+    font-size: 40px;
+    color: #1D2129;
+    font-family: AlibabaPuHuiTiB;
+    margin-bottom: 48px;
+  }
+
+  .themeButtons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+
+    .button {
+      &:extend(.commonFlexConfig);
+      height: 52px;
+      width: 160px;
+      cursor: pointer;
+      font-size: 18px;
+      background-color: #FFFFFF;
+      border: 2px solid #E5E8EF;
+      border-radius: 8px;
+      margin-right: 20px;
+      line-height: 52px;
+
+      >img {
+        height: 24px;
+        width: 24px;
+        margin-right: 8px;
+      }
+
+      &:hover {
+        font-weight: 500;
+        border: 2px solid #691EFF;
+      }
+    }
+
+    .isTheme {
+      font-weight: 500;
+      border: 2px solid #691EFF;
+      color: #691EFF;
+    }
+  }
+
+  .themeChart {
+    height: 600px;
+    width: calc(100vw - 360px);
+    max-width: 1680px;
+    min-width: 1040px;
+    background-color: #FAFBFC;
+    border: 1px solid #E5E8EF;
+    box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    box-sizing: border-box;
+    padding: 24px;
+    margin-bottom: 36px;
+
+    .msg {
+      display: flex;
+      align-items: center;
+      letter-spacing: 0;
+      line-height: 28px;
+      height: 28px;
+      margin-bottom: 18px;
+
+      .msgTitle {
+        width: 85px;
+        font-size: 20px;
+        color: #1D2129;
+        font-family: AlibabaPuHuiTiB;
+      }
+
+      .msgText {
+        font-size: 16px;
+        color: #000000;
+        line-height: 28px;
+      }
+    }
+
+    .charts {
+      .chart {
+        height: 243px;
+        width: calc(100% / 3 - 10px);
+        background: #fff;
+        box-sizing: border-box;
+        padding: 18px;
+        float: left;
+        margin-bottom: 15px;
+        margin-right: 14px;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+
+        .chartMsg {
+          height: 24px;
+          font-weight: 500;
+          font-size: 16px;
+          color: #1D2129;
+          letter-spacing: 0;
+          line-height: 24px;
+        }
+
+        .content {
+          height: 183px;
+        }
+      }
+
+      .rightChart {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .acquire {
+    &:extend(.commonFlexConfig);
+
+    .download {
+      font-size: 16px;
+      color: #424E66;
+      letter-spacing: 0;
+      line-height: 24px;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+
+      &:hover {
+        color: #691EFF;
+
+        >img {
+          position: relative;
+          left: -80px;
+          filter: drop-shadow(#691EFF 80px 0);
+        }
+      }
+    }
+  }
+
+  .segmentation {
+    width: 0;
+    height: 12px;
+    border-left: 1px solid #979797;
+    margin: 0 12px;
+  }
+
+  &.dark {
+
+    .title {
+      color: #fff;
+    }
+
+    .themeButtons {
+      .button {
+        background: rgba(0, 0, 0, 0);
+        color: #fff;
+        opacity: .2;
+        border-color: #fff;
+
+        &:hover {
+          font-weight: 500;
+          opacity: .9;
+        }
+      }
+
+      .isTheme {
+        font-weight: 500;
+        opacity: 1;
+      }
+    }
+
+    .themeChart {
+      border-color: rgba(0, 0, 0, 0);
+      background-position: -100px;
+      background-color: rgba(0, 0, 0, 0);
+
+      .msg {
+        .msgTitle {
+          color: #fff;
+        }
+
+        .msgText {
+          color: #fff;
+        }
+      }
+
+      .charts {
+        .chart {
+          background: rgba(255, 255, 255, 0.08);
+
+          .chartMsg {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .acquire {
+
+      .download {
+        img {
+          position: relative;
+          left: -80px;
+          filter: drop-shadow(#fff 80px 0);
+        }
+
+        color: #fff;
+        opacity: 0.8;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .segmentation {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.colors {
+  display: flex;
+  margin-bottom: 16px;
+  height: 25px;
+
+  .color {
+    border-radius: 2px;
+    margin-right: 2px;
+    width: 23px;
+    height: 23px;
+  }
+
+  :last-child {
+    margin-right: 0px;
+  }
+}
