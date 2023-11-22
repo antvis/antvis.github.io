@@ -47,7 +47,7 @@ export default () => {
             {useT("开始使用")}
           </div>
           <ActiveIcon
-            href='specification/principles/basic'
+            href='/specification/principles/basic'
             className={styles.design}
             img='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*_xFsQbWE_AYAAAAAAAAAAAAADmJ7AQ/original'
             activeImg='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*A9VnTpferioAAAAAAAAAAAAADmJ7AQ/original'
