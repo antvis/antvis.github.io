@@ -1,0 +1,44 @@
+.text-overflow() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.transition-fast() {
+  transition: all 0.1s;
+}
+
+.transition() {
+  transition: all 0.2s;
+}
+
+.scroll-y() {
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.childMiddle() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.di-tooltip-inner() {
+  .ant-tooltip-inner {
+    max-height: 200px;
+    padding: 8px;
+    overflow-y: auto;
+    color: rgba(0, 0, 0, 0.65);
+    background: #fff;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.2);
+  }
+  .ant-tooltip-arrow {
+    border-top-color: #fff;
+  }
+}
+
+.icon-extra () {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+}

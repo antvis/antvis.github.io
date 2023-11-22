@@ -34,7 +34,7 @@ const ResourcesPage = () => {
       index: 1,
       icon:
         'https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*mt47RKxGy8kAAAAAAAAAAABkARQnAQ',
-      title: useT('设计原则'),
+      title: useT('设计价值观'),
       description: useT(
         '对数据图形进行拆解、提炼，抽象出一套数据图形可视化交互视觉规范。',
       ),

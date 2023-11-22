@@ -1,0 +1,183 @@
+.commonFlexConfig {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projectCard {
+  &:extend(.commonFlexConfig);
+  padding: 80px 0 40px;
+  flex-direction: column;
+  height: 782px;
+  overflow: hidden;
+  font-family:  PingFangSC;
+
+  .cards {
+    height: 540px;
+    width: calc(100vw - 360px);
+    max-width: 1680px;
+    min-width: 1040px;
+    background-image: linear-gradient(114deg, #332F4F 0%, #28243F 100%);
+    box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.20);
+    border-radius: 16px;
+    padding: 24px;
+    letter-spacing: 0;
+
+    .box {
+      width: 114%;
+
+      .card {
+        &:extend(.commonFlexConfig);
+        height: 70px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        color: #FFFFFF;
+        position: relative;
+
+        .cardTitle {
+          height: 28px;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 28px;
+          margin: 0 8px;
+        }
+
+        .cardSubTitle {
+          font-family: AlibabaPuHuiTiR;
+          height: 24px;
+          opacity: 0.65;
+          font-size: 16px;
+          line-height: 24px;
+          white-space: nowrap;
+        }
+
+        &.AVA {
+          background-color: rgba(36, 134, 255, 0.15);
+
+          &:hover {
+            background-color: rgba(36, 134, 255, 0.25);
+          }
+        }
+
+        &.antd,
+        &.holophylyF {
+          background-color: rgba(0, 167, 167, 0.15);
+
+          &:hover {
+            background-color: rgba(0, 167, 167, 0.25);
+          }
+        }
+
+        &.chartEngine {
+          height: 92px;
+          flex: 1;
+          background-color: rgba(245, 140, 88, 0.15);
+          flex-direction: column;
+          margin-bottom: 12px;
+
+          &:hover {
+            background-color: rgba(245, 140, 88, 0.25);
+          }
+        }
+
+        &.sort {
+          height: 24px;
+          padding: 0;
+          cursor: default;
+
+          .divider {
+            border-color: rgba(255, 255, 255, 0.20);
+
+            :global(.ant-divider-inner-text) {
+              padding: 0;
+            }
+          }
+
+          .cardTitle {
+            font-family: AlibabaPuHuiTiR;
+            margin: 0 6px;
+            font-size: 16px;
+            color: #FFFFFF;
+            opacity: 0.45;
+            font-size: 16px;
+          }
+        }
+
+        &.antv {
+          background-color: rgba(213, 128, 255, 0.15);
+
+          &:hover {
+            background-color: rgba(213, 128, 255, 0.25);
+          }
+        }
+
+        &.g {
+          background-color: rgba(148, 112, 255, 0.15);
+          margin-bottom: 0;
+
+          &:hover {
+            background-color: rgba(148, 112, 255, 0.25);
+          }
+        }
+      }
+    }
+  }
+}
+
+.content {
+  font-family: PingFangSC;
+  padding: 0 8px;
+
+  .msg {
+    display: flex;
+    align-items: center;
+    letter-spacing: 0;
+
+    .msgTitle {
+      font-weight: 600;
+      font-size: 20px;
+      color: #1D2129;
+      margin-right: 6px;
+    }
+
+    .msgSubTitle {
+      font-size: 14px;
+      color: #86909C;
+    }
+  }
+
+  .msgChart {
+    height: 125px;
+    width: 274px;
+    border: 1px solid #D8D8D8;
+    background-color: #fff;
+    border-radius: 4px;
+    margin: 12px 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .links {
+    &:extend(.commonFlexConfig);
+    justify-content: space-between;
+    width: 274px;
+
+    >a {
+      &:extend(.commonFlexConfig);
+      font-size: 14px;
+      color: #1D2129;
+
+      .link {
+        > img {
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+      &:hover {
+        color: #691EFF;
+      }
+    }
+  }
+}

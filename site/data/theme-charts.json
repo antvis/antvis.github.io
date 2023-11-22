@@ -1,0 +1,26 @@
+[{
+    "text": "日常分析",
+    "img": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*_QoYRowGM50AAAAAAAAAAAAADmJ7AQ/original",
+    "activeImg": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*q5g5Qp2D7GYAAAAAAAAAAAAADmJ7AQ/original",
+    "darkImg": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*g4qrR4bQMOYAAAAAAAAAAAAADmJ7AQ/original",
+    "theme": "light"
+  },
+  {
+    "text": "数据监控",
+    "img": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Sc7hSIITxFQAAAAAAAAAAAAADmJ7AQ/original",
+    "activeImg": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*6e2CT6K6XYgAAAAAAAAAAAAADmJ7AQ/original",
+    "background": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*StbsSZEU_HoAAAAAAAAAAAAADmJ7AQ/original",
+    "backgroundChart": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*WeCjR59uRiwAAAAAAAAAAAAADmJ7AQ/original",
+    "darkImg": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*OSwyT5CsqVQAAAAAAAAAAAAADmJ7AQ/original",
+    "theme": "dark"
+  },
+  {
+    "text": "活动战报",
+    "img": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*NcJ0Q6nslIMAAAAAAAAAAAAADmJ7AQ/original",
+    "activeImg": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*ZnG8QZrNVxkAAAAAAAAAAAAADmJ7AQ/original",
+    "darkImg": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*6FVKSq7g520AAAAAAAAAAAAADmJ7AQ/original",
+    "background": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*gjWcSYzg5kMAAAAAAAAAAAAADmJ7AQ/original",
+    "backgroundChart": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*SPGHSrSfT1UAAAAAAAAAAAAADmJ7AQ/original",
+    "theme": "dark"
+  }
+]

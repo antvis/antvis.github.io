@@ -1,0 +1,101 @@
+.commonFlexConfig {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.famousPersons {
+  &:extend(.commonFlexConfig);
+  padding: 80px 0 120px;
+  flex-direction: column;
+  overflow: hidden;
+
+  .famousAuctions {
+    &:extend(.commonFlexConfig);
+    margin-bottom: 28px;
+    padding: 8px 0;
+    font-family: PingFangSC;
+
+    .famousAuction {
+      &:extend(.commonFlexConfig);
+      flex-direction: column;
+      justify-content: space-between;
+      height: calc((1680px - 100vw) / 10 + 370px);
+      max-height: 377px;
+      min-height: 350px;
+      width: calc((100vw - 380px - 84px)/ 4);
+      min-width: 239px;
+      max-width: 399px;
+      padding: 29px 20px 20px;
+      position: relative;
+      margin: 0 14px;
+      letter-spacing: 0;
+      transition: all .2s;
+      background-color: #fff;
+      border: 1px solid #E5E8EF;
+      box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.05);
+      border-radius: 16px;
+
+      &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.10);
+      }
+
+      .image {
+        position: relative;
+        overflow: hidden;
+
+        >img {
+          height: 60px;
+          width: 60px;
+        }
+
+        .icon {
+          width: 14px;
+          height: 14px;
+          position: absolute;
+          top: -2px;
+          left: -80px;
+        }
+      }
+
+      .name {
+        margin: 4px 0;
+        font-size: 20px;
+        color: #1D2129;
+        font-weight: 500;
+        font-family: PingFangSC;
+      }
+
+      .text {
+        line-height: 28px;
+        height: 56px;
+        font-size: 14px;
+        color: #424E66;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+      }
+
+      .hr {
+        width: 100%;
+        border-top: 1px solid #f5f5f5;
+        margin: 14px 0;
+      }
+
+      .msg {
+        color: #86909C;
+        flex: 1;
+        overflow: hidden;
+      }
+    }
+  }
+  
+  &.en {
+    .famousAuction {
+      height: 377px;
+    }
+  }
+}

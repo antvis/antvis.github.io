@@ -7,7 +7,7 @@ order: 0
 
 图表卡片是页面级可视化应用的细粒度单位。一个应用于数据分析的页面，都会由页面框架（顶部、侧边导航）、页面级组件、内容卡片排列构成。使用 AntV 组件搭建的图表，都需了解到统计图表卡片设计规范。
 
-<img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Zf2bQI6Dn8gAAAAAAAAAAAAAARQnAQ" width="100%">
+<img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Zf2bQI6Dn8gAAAAAAAAAAAAAARQnAQ" width="100%" alt="" >
 
 # 构成
 
