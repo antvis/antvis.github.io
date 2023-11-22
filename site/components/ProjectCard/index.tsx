@@ -119,7 +119,7 @@ const PROJECT_DATAS: PrejectData = [
       subTitle: '移动关系图',
       span: 3,
       classNames: styles.chartEngine,
-      url: 'https://f6.antv.visio',
+      url: 'https://f6.antv.vision',
       img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*q3muQq70-dUAAAAAAAAAAAAADmJ7AQ/original',
     },
     { title: 'F7', subTitle: '移动地图', span: 3, classNames: styles.chartEngine },
