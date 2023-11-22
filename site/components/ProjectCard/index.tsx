@@ -99,6 +99,14 @@ const PROJECT_DATAS: PrejectData = [
       img: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*JSr-RbwCgmcAAAAAAAAAAAAAARQnAQ',
     },
     {
+      title: 'L7',
+      subTitle: '空间地理图',
+      span: 3,
+      classNames: styles.chartEngine,
+      url: 'https://L7.antv.antgroup.com',
+      img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*H0KDRaIpfIUAAAAAAAAAAAAADmJ7AQ/original',
+    },
+    {
       title: 'F2',
       subTitle: '移动统计图',
       span: 3,
@@ -118,7 +126,7 @@ const PROJECT_DATAS: PrejectData = [
   ],
   [
     { title: '常用统计数据', span: 6, classNames: styles.sort, isSort: true },
-    { title: '关系数据', span: 6, classNames: styles.sort, isSort: true },
+    { title: '关系数据', span: 9, classNames: styles.sort, isSort: true },
     { title: '极致移动定制', span: 9, classNames: styles.sort, isSort: true },
   ],
   [
@@ -126,7 +134,7 @@ const PROJECT_DATAS: PrejectData = [
       title: 'AntV Design',
       subTitle: '设计语言',
       url: '/specification/principles/basic',
-      span: 21,
+      span: 24,
       classNames: styles.antv,
       icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*U3AfQq_cQMYAAAAAAAAAAAAADmJ7AQ/original',
     },
@@ -135,7 +143,7 @@ const PROJECT_DATAS: PrejectData = [
     {
       title: 'G',
       subTitle: '图表引擎',
-      span: 21,
+      span: 24,
       classNames: styles.g,
       img: 'https://gw.alipayobjects.com/mdn/rms_6ae20b/afts/img/A*nk1YSrbkQPMAAAAAAAAAAAAAARQnAQ',
       icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*YIbER7wNuLMAAAAAAAAAAAAADmJ7AQ/original',
