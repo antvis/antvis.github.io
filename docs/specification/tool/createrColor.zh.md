@@ -1,50 +1,124 @@
 ---
-title: 生成自己的色板
+title: 如何生成你的分类色板
 order: 0
 ---
 
-## 色彩模型
+可视化色板是数据驱动的，色彩背后还承载着数据信息，不能单纯依靠美丑评判好坏，一套优秀的可视化色板应该让用户信任数据，轻松阅读数据，并能启发用户发掘数据背后的意义。基于新的设计价值观和考虑帮助设计师上手一套色板设计，我们将色板设计流程化的同时，提炼设计规则量化为色彩算法，实现用户输入品牌色即可轻松得到一整套可视化色板，实现人人都可以是专业的可视化设计师。
 
-CIE L*a*b （CIELAB）是描述人眼可见的所有颜色的最完备的色彩模型，三个基本坐标表示颜色的亮度、色相及饱和度。CIELab 是用 L*、a*、b* 三个互相垂直的坐标轴来表示一个色相，使用 CIELab 空间的美妙之处在于通过调整数据选择颜色，可以很好的控制三者之间的关系。a*、b* 值越接近色相越相似，a*、b* 值离得越远色彩差异就越大，同理 L* 值差异度越大，明度差异度就越大。
+## AntV可视化色彩体系
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*_SQKRImbikoAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=266&name=image.png&originHeight=854&originWidth=986&size=700305&status=done&style=none&width=307)           ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*qEwvQYuwPQYAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=252&name=image.png&originHeight=642&originWidth=748&size=728884&status=done&style=none&width=294)
+了解了可视化色板的业务特点后，接下来让我们深入了解antv的可视化色彩体系，根据不同的业务场景，antv总共有6套不同的色板，其中最关键的是分类色板，其他色板都是分类色板根据一定的映射关系衍生而来，因此本次升级会以分类色板作为抓手进行升级。
 
-## 色板建议
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*qfJ6RLkMPjoAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;" />
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*b3LhTJYjgHQAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=512&name=image.png&originHeight=1024&originWidth=2264&size=222207&status=done&style=none&width=1132)
+&nbsp;
 
-## 色板教程
+## 升级的原因是什么？
 
-以 PhotoShop 拾色器为例，固定 a、b 值不变，仅调节 L  值，截面图如下：
+本次色板升级主要有两个原因：首先是antv5.0从人的视角重新提出了三个价值观，新的价值观对可视化色板提出了更多要求。其次是5.0开放了系统灵活度，支持用户自定义主题色来生成专属的可视化色板，需要一套可被算法实现的取色逻辑。
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*sjhVR4StFRQAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=161&name=image.png&originHeight=572&originWidth=1014&size=257029&status=done&style=none&width=285)![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*BBHWRqYdK8MAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=160&name=image.png&originHeight=548&originWidth=606&size=261086&status=done&style=none&width=177)![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*OQ_GT6OdUhUAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=162&name=image.png&originHeight=544&originWidth=602&size=250344&status=done&style=none&width=179)
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*QGEhQqlxHNQAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;" />
 
-#### 分类色板
+&nbsp;
 
-选择取色环，等间距拖动 L 得到
+## 现状分析
 
-#### 单一顺序色板
+明确了升级的原因后，让我们带着新的价值观来看看当前色板有哪些问题。
+信任感要求色彩应该避免让用户产生歧义，4.0色板中的灰色会红色分别会让用户误以为是对比数据和警告数据，从而造成用户疑惑。
 
-a、b 固定，等间距拖动 L 得到
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*U-jbSLwWB9cAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;" />
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*rv01TaJ-j-4AAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=162&name=image.png&originHeight=546&originWidth=1002&size=321137&status=done&style=none&width=297)      ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Ht21QYiuPUUAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=62&name=image.png&originHeight=140&originWidth=586&size=11224&status=done&style=none&width=259)
+轻松感要求色板应该清晰容易识别，3.0色板整体与白色的对比较小，色彩运用到图形上不够清晰，图形上的文字不易阅读。
 
-#### 邻近色顺序色板
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*PDalSpCgE-wAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;" />
 
-b 固定，a、L 等间距变化 得到
+意义感要求色彩帮助用户更好的理解数据，对于这一点，antv5.0会在官网消费侧通过色板使用指南帮助设计师正确的使用可视化色板。
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Ar1wSpFyBhYAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=51&name=image.png&originHeight=116&originWidth=576&size=11256&status=done&style=none&width=254)
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*LsmxQKq5IYoAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;" />
 
-再多尝试一些，会发现更多不怎么常见的配色方案，沉稳又特别，简直是打开了色彩世界的新大门。L、a、b 三个变量，9 种色彩分割方式，再加上不同取色取色路径就可以变换除很多意想不到的色彩方案
+&nbsp;
 
-## 色板工具
+## 设计流程
 
-敬请期待...
+明确了升级原因和当前的问题后，我们主要会从下面三个步骤进行优化：
+第一步是确定取色逻辑：通过参考经典的配色理论来确定取色规律并得到色板初稿；
+第二步是基线检测：通过量化和测试的方式去检验色板是否满足价值观的要求；
+第三步是感性调整：在理性的推导之上加上感性的调整让色彩和谐舒；
 
-##
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*fWAvS4OLAtQAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;" />
 
-##
+&nbsp;
 
-####
+## Step1:确定取色逻辑
 
-####
+首先进入到第一步，我们先来看一下4.0色板的取色逻辑是什么，如图所示，4.0色板在色彩的选取上有一定的逻辑，包括相邻色彩之间的明暗间隔，色彩之间的距离等，5.0会在4.0的基础上继续优化，同时对取色逻辑进行量化用于后期的拓展和算法实现。
+
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*-o1ZRrNDaocAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;" />
+
+为了得到一套可被量化同时又具有色彩搭配美感的取色方式，我们参考了经典的配色理论，包括「邻近取色」「对比取色」「分裂互补取色」从支付宝的品牌色出发依次使用三种配色方式得到三组色板。其中邻近取色沿着一个方向，按照相同的夹角取色，其优点是色彩具有很强的规律感和和谐度，缺点是整体区分度比较低。对比取色是相邻两个色彩是一组成180度的对比色，其优点是色板具有很强的区分度，缺点是相邻两色会误以为是一组对比数据，分裂互补取色是三个一组取色，前两个颜色是一组邻近色，第三个颜色是前两个颜色共同的对比色，这种取色方式兼顾了邻近色的和谐同时又有较高的区分度，没有明显的劣势。**因此5.0确定以分裂互补取色方式作为取色逻辑。**
+
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*gLIGRp2xlOkAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;" />
+
+&nbsp;
+
+## Step2:基线矫正
+
+根据取色方式得到色板初稿后，还需要通过4个基线矫正来让色彩满足价值观的要求。
+
+### 色彩不存在歧义
+
+色彩应该避免与容易引起歧义的色彩(警告红)混淆，从而让用户产生歧义。
+
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*OO2kSL6OE3UAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;" />
+
+### 色彩足够清晰
+
+无论作为元素还是容器，色彩与其相交的内容的对比度都应满足W3C可访问标准。
+
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*m_HnSoaTOCMAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;" />
+
+### 色彩间有区分
+
+色彩之间具有足够的区分度，通过在Lab模型下计算色彩之间的欧几里得距离来量化区分度，并确保该值大于可区分阈值。
+
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*I9NcTYcWXBgAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;" />
+
+### 兼顾视障体验
+
+保证在视障场景下相邻色彩之间有足够区分，视障人群对色相识别有障碍，对明暗更敏感，因此需要保证相邻两色有一定明度差异。
+
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*c_jbSqwHN_4AAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;" />
+
+通过色环取色和基线矫正，我们就得到一组具有色彩搭配美感，算法可实现并满足价值观要求的色板。
+
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Ixj-QLOiZpUAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;" />
+
+&nbsp;
+
+## Step3:感性调整
+
+色彩是感性的视觉语言，理性的取色内核上，还需要将色板放入真实场景中去验证，对过于突出的色彩进行调节，让色彩更加和谐。
+
+<img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*SpkLSLFkdeMAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;" />
+
+&nbsp;
+
+## 改版前后对比
+
+得出色板之后，我们将色板放到真实业务中进行测试，并收获了用户的正面反馈。
+
+<div>
+  <img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*hkiERrzevIkAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;width: 49%;" />
+  <img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*zYhDRKcOCwIAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;width: 49%;" />
+</div>
+
+&nbsp;
+
+## 可视化色板生长体系
+
+得到分类色板之后就可以根据已有的映射关系衍生出其他色板。并且根据确定的取色逻辑和定量的基线标准，满足用户只需要输入品牌色就能获得一套可视化色板的诉求。
+
+<div>
+  <img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*kjQLT4u2e_sAAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;width: 49%;" />
+  <img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*8T0pTKs6c98AAAAAAAAAAAAADmJ7AQ/original' alt='' style="border-radius: 8px;width: 49%;" />
+</div>

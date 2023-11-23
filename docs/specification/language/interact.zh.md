@@ -3,7 +3,7 @@ title: 交互
 order: 2
 ---
 
-# 01 交互层次
+## 01 交互层次
 
 区别于传统数据报表相对静态的表现形式，用户通过与图不断产生交互，从数据中获取更深层次的分析和信息。
 
@@ -29,7 +29,7 @@ Shneiderman [1] 提出了经典的可视化信息交互策略：概览、缩放�
 
 &nbsp;
 
-# 02 设计建议
+## 02 设计建议
 
 AntV 5.0 的设计价目标是让用户更有信任感、轻松感和意义感。下面从交互的角度切入，提供设计建议。
 
@@ -63,7 +63,7 @@ AntV 5.0 的设计价目标是让用户更有信任感、轻松感和意义感�
 我们建议为用户匹配更直观的交互语言，让用户抓住时机，快速沉淀洞察记录观点。如上图：用户在标注辅助线时原需要填写复杂的表单才能完成诉求，如果我们支持用直接长按坐标轴X即可添加辅助线，那么用户将获得更自由的交互体验，洞察也可被更快获取。
 
 &nbsp;
-# 03 设计策略
+## 03 设计策略
 
 带着上面三个目标，我们对24种常见交互进行了设计迭代，沉淀了9+设计策略和20+设计案例，且会持续更新。
 本篇将对每个策略挑选一个案例进行简单说明。
@@ -126,22 +126,22 @@ AntV 5.0 的设计价目标是让用户更有信任感、轻松感和意义感�
 
 &nbsp;
 
-# 04 交互索引
+## 04 交互索引
 
 ### 看数
 
 <table style="border: none;">
   <tr>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*fVkORZuhLFcAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*t-M9RoNdC6sAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*toSKTJDmztkAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*xypCRZZzGUYAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*fVkORZuhLFcAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*t-M9RoNdC6sAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*toSKTJDmztkAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*xypCRZZzGUYAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
   </tr>
   <tr>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*IqfzRa1hMP4AAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*kEL4SabGOvYAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Hc7ARp6LdvoAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*wbGpSJWPLgMAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*IqfzRa1hMP4AAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*kEL4SabGOvYAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Hc7ARp6LdvoAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*wbGpSJWPLgMAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
   </tr>
 </table>
 
@@ -150,26 +150,26 @@ AntV 5.0 的设计价目标是让用户更有信任感、轻松感和意义感�
 
 <table style="border: none;">
   <tr>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*r-ttQJREzocAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*XmetSYWu8bUAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*9qszSLhIfQ0AAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*KhjUSq6vvuYAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*r-ttQJREzocAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*XmetSYWu8bUAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*9qszSLhIfQ0AAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*KhjUSq6vvuYAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
   </tr>
   <tr>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*QoPPQZluvFEAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*13c-TL4AyHoAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*O1mSQI1fBQQAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*OwhPQ4N5J4cAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*QoPPQZluvFEAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*13c-TL4AyHoAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*O1mSQI1fBQQAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*OwhPQ4N5J4cAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
   </tr>
   <tr>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*V8ZkT4KaWYcAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*0iFAQo-pXpIAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*faVBQ7yaDbwAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*tRmTQ5VwfaIAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*V8ZkT4KaWYcAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*0iFAQo-pXpIAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*faVBQ7yaDbwAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*tRmTQ5VwfaIAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
   </tr>
   <tr>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*0sQyQbUb4yYAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*qayNQbrz2dcAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*0sQyQbUb4yYAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*qayNQbrz2dcAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
     <td style="text-align: center; width: 100px;border: none;"></td>
     <td style="text-align: center; width: 100px;border: none;"></td>
   </tr>
@@ -180,14 +180,14 @@ AntV 5.0 的设计价目标是让用户更有信任感、轻松感和意义感�
 
 <table style="border: none;">
   <tr>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*2BPsSa_RhmEAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
-    <td style="text-align: center; width: 100px;border: none;"><a><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*nGWzS6OTZwMAAAAAAAAAAAAADmJ7AQ/original' alt=''/></a></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*2BPsSa_RhmEAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
+    <td style="text-align: center; width: 100px;border: none;"><img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*nGWzS6OTZwMAAAAAAAAAAAAADmJ7AQ/original' alt=''/></td>
     <td style="text-align: center; width: 100px;border: none;"></td>
     <td style="text-align: center; width: 100px;border: none;"></td>
   </tr>
 </table>
 
-# 参考文献
+## 参考文献
 
 [1] Schneiderman B. The eyes have it: a task by data type taxonomy forinformation\visualizations[J]. Craft of Information Visualization, 1996:364-371.
 [2] Dix, Alan, Ellis, Geoffrey. Starting simple: adding value to static visualisation throughsimple interaction[J]. 1998.
