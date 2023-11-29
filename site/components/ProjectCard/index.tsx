@@ -59,7 +59,7 @@ const PROJECT_DATAS: PrejectData = [
       img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*IJE_TYeUtEUAAAAAAAAAAAAADmJ7AQ/original',
     },
     {
-      title: '267全系F版',
+      title: '267 全系 F 版',
       span: 9,
       classNames: styles.holophylyF,
       icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*S8gOQJHfS8QAAAAAAAAAAAAADmJ7AQ/original',
@@ -100,7 +100,7 @@ const PROJECT_DATAS: PrejectData = [
     },
     {
       title: 'L7',
-      subTitle: '空间地理图',
+      subTitle: '地图',
       span: 3,
       classNames: styles.chartEngine,
       url: 'https://L7.antv.antgroup.com',
@@ -122,11 +122,12 @@ const PROJECT_DATAS: PrejectData = [
       url: 'https://f6.antv.vision',
       img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*q3muQq70-dUAAAAAAAAAAAAADmJ7AQ/original',
     },
-    { title: 'F7', subTitle: '移动地图', span: 3, classNames: styles.chartEngine },
+    { title: 'F7', subTitle: '移动地图', span: 3, classNames: classNames(styles.chartEngine, styles.f7) },
   ],
   [
     { title: '常用统计数据', span: 6, classNames: styles.sort, isSort: true },
-    { title: '关系数据', span: 9, classNames: styles.sort, isSort: true },
+    { title: '关系数据', span: 6, classNames: styles.sort, isSort: true },
+    { title: '地理空间数据', span: 3, classNames: styles.sort, isSort: true },
     { title: '极致移动定制', span: 9, classNames: styles.sort, isSort: true },
   ],
   [
