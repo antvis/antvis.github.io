@@ -53,7 +53,7 @@ export function FamousPersons() {
     <div className={classNames(styles.famousPersons, {
       [styles.en]: language === 'en',
     })}>
-      <Title title={useT("专家之声")} subTitle={useT("经历了海量数据场景下的严苛考验，蚂蚁集团自研了数据库、云原生、隐私计算、图计算为代表的数字化“根技术”")} />
+      <Title title={useT("专家之声")} subTitle={useT("来自数据可视化专家的专业认可与推荐")} />
       <div className={styles.famousAuctions} >
         {
           FAMOUS_PERSONS_DATAS.map((data) => {
