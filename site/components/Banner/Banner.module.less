@@ -22,18 +22,89 @@
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
+
+    >img {
+      position: absolute;
+    }
   }
 
   .leftBackground {
     left: 0;
     top: 75px;
-    background-image: url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*gNDhS5nDO4sAAAAAAAAAAAAADmJ7AQ/original);
+    background-image: url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*B4UvSKE2hfEAAAAAAAAAAAAADmJ7AQ/original);
+    background-position-x: -48px;
+
+    &::before,
+    &::after {
+      content: '';
+      background-image: url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*pD8oT49V-bcAAAAAAAAAAAAADmJ7AQ/original);
+      background-size: contain;
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      left: 35px;
+      top: 300px;
+    }
+
+    &::before {
+      height: 32px;
+      width: 32px;
+      left: 220px;
+      top: 345px;
+    }
+
+    .waffle {
+      height: 254.3px;
+      transform: rotate(3deg);
+      left: -20px;
+    }
+
+    .bug {
+      height: 160px;
+      transform: rotate(-7deg);
+      left: 279px;
+      top: 214px;
+    }
   }
 
   .rightBackground {
-    top: 120px;
+    top: 90px;
     right: 0;
-    background-image: url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*OXF7QbWURnMAAAAAAAAAAAAADmJ7AQ/original);
+    background-position-x: 66px;
+    background-image: url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*DR_FR7Q721sAAAAAAAAAAAAADmJ7AQ/original);
+
+    .chips {
+      height: 263.3px;
+      transform: rotate(8deg);
+      right: 140px;
+      top: 140px;
+    }
+
+    .cookie {
+      height: 117.1px;
+      right: 10px;
+      top: 40px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      background-image: url(https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*pD8oT49V-bcAAAAAAAAAAAAADmJ7AQ/original);
+      background-size: contain;
+      position: absolute;
+      height: 21px;
+      width: 21px;
+      right: 310px;
+      opacity: 0.67;
+      top: 310px;
+    }
+
+    &::before {
+      height: 31px;
+      width: 31px;
+      right: 55px;
+      top: 335px;
+    }
   }
 
   .header {
@@ -205,7 +276,7 @@
   0% {
     background-position-y: 0px, 20px, 40px, 60px, 80px, 100px;
   }
-  
+
   16.6% {
     background-position-y: -20px, 0px, 20px, 40px, 60px, 80px;
   }

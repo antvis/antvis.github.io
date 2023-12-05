@@ -34,8 +34,14 @@ export default () => {
 
   return (
     <div className={styles.banner}>
-      <div className={styles.leftBackground} />
-      <div className={styles.rightBackground} />
+      <div className={styles.leftBackground} >
+        <img className={styles.waffle} src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*9jnzSaebJHsAAAAAAAAAAAAADmJ7AQ/original' alt='waffle' />
+        <img className={styles.bug} src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*JwKAR5SZ7V4AAAAAAAAAAAAADmJ7AQ/original' alt='bug' />
+      </div>
+      <div className={styles.rightBackground} >
+        <img className={styles.chips} src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*ZJscTJdtQqgAAAAAAAAAAAAADmJ7AQ/original' alt='chips' />
+        <img className={styles.cookie} src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Qua4RZ6djCcAAAAAAAAAAAAADmJ7AQ/original' alt='cookie' />
+      </div>
       <div className={styles.header}>
         <div className={styles.top}>
           <div className={styles.mainTitle}><span>AntV</span>{useT("·让数据栩栩如生")}</div>
