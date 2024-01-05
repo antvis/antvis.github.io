@@ -87,7 +87,7 @@ const PROJECT_DATAS: PrejectData = [
       subTitle: '关系图',
       span: 3,
       classNames: styles.chartEngine,
-      url: 'https://g6.antv.antgroup.com',
+      url: 'https://g6.antv.vision',
       img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*_JGLQZl-PcQAAAAAAAAAAAAADmJ7AQ/original',
     },
     {
