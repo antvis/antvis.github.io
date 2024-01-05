@@ -55,7 +55,7 @@ const PROJECT_DATAS: PrejectData = [
       span: 15,
       classNames: styles.antd,
       icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*OWM6RLft2VIAAAAAAAAAAAAADmJ7AQ/original',
-      url: 'https://charts.ant.design',
+      url: 'https://ant-design-charts-next.antgroup.com',
       img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*IJE_TYeUtEUAAAAAAAAAAAAADmJ7AQ/original',
     },
     {
@@ -148,7 +148,7 @@ const PROJECT_DATAS: PrejectData = [
       classNames: styles.g,
       img: 'https://gw.alipayobjects.com/mdn/rms_6ae20b/afts/img/A*nk1YSrbkQPMAAAAAAAAAAAAAARQnAQ',
       icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*YIbER7wNuLMAAAAAAAAAAAAADmJ7AQ/original',
-      url: 'https://g.antv.antgroup.com/',
+      url: 'https://g.antv.antgroup.com',
     },
   ],
 ];
@@ -187,11 +187,17 @@ export function ProjectCard() {
       <div className={styles.links}>
         {
           ANTV_LINKS.map((link) => {
-            let href = links[link.href]?.url;
+            let href = links[link.href]?.url.replace(/https:\/\/.+?\//, `${url}/`);
 
             // Ant Design Charts 本身跳转 https://charts.ant.design/example 为 404, 修改为 https://ant-design-charts.antgroup.com/examples
-            if (title === 'Ant Design Charts' && !href) {
-              href = `https://ant-design-charts.antgroup.com/${language}/${link.href === 'example' ? 'examples' : link.href}`;
+            if (title === 'Ant Design Charts') {
+              href = link.href === 'home' ? url : `${url}/${language}/${{
+                example: 'examples',
+                api: 'options/plots/overview',
+              }[link.href]}`;
+            }
+            if (title === 'F6' && link.href === 'api') {
+              href = href + '/Graph';
             }
 
             return <a
@@ -255,6 +261,7 @@ export function ProjectCard() {
                       <ConfigProvider prefixCls="antd5">
                         <Popover
                           content={getContent({
+                            url,
                             img,
                             links,
                             title: newTitle,
