@@ -202,7 +202,7 @@ export function ProjectCard() {
 
             return <a
               href={href}
-              target='_black'
+              target='_blank'
             >
               <ActiveIcon
                 className={styles.link}
