@@ -51,7 +51,8 @@ export function ComplexCharts() {
           src={select.video}
           autoPlay
           loop
-          style={{ objectFit: 'fill' }}
+          // @ts-ignore
+          style={{ objectFit: select.objectFit || 'fill' }}
         />
       </a>
     </div>
