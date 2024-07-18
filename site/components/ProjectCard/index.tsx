@@ -241,7 +241,7 @@ export function ProjectCard() {
                     className={classNames(col.classNames, styles.card)}
                     href={url && transformUrl({ url, language, isChinaMirrorHost })}
                     style={{ cursor: url ? 'pointer' : 'default' }}
-                    target='_black'
+                    target='_blank'
                   >
                     {icon && <img src={icon} alt={newTitle} />}
                     {isSort ?

@@ -44,7 +44,7 @@ export function ComplexCharts() {
       <a
         className={styles.content}
         href={transformUrl({ url: select.link, language, isChinaMirrorHost })}
-        target='_black'
+        target='_blank'
       >
         <video
           muted={true}

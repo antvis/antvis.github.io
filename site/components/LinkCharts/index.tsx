@@ -57,7 +57,7 @@ export function LinkCharts() {
         >
           {
             data.map((data) => {
-              return <a className={styles.chart} href={transformUrl({ url: data.link, language, isChinaMirrorHost })} target='_black' >
+              return <a className={styles.chart} href={transformUrl({ url: data.link, language, isChinaMirrorHost })} target='_blank' >
                 <div className={styles.title}>{useT(data.title)}</div>
                 <div className={styles.subTitle}>
                   <OverflowedText text={useT(data.subTitle)} maxWidth={341} />
