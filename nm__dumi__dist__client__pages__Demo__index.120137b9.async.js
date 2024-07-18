@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkantv_vision=self.webpackChunkantv_vision||[]).push([[1009],{12535:function(n,e,t){t.r(e),t.d(e,{default:function(){return r}});var u=t(58330),i=t(67294),r=function(){var n=(0,u.UO)().id,e=((0,u.WF)().demos[n]||{}).component;return e&&(0,i.createElement)(e)}}}]);
