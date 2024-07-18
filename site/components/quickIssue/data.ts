@@ -9,7 +9,7 @@ export const GITHUB_URL = [
   {
     label: 'G6',
     gitUrl: 'https://github.com/antvis/G6',
-    api: 'https://g6.antv.antgroup.com/api/overview',
+    api: 'https://g6.antv.antgroup.com/api/Graph',
     chartDemo: 'https://g6.antv.antgroup.com/examples',
     assignee:'Yanyan-Wang',
   },
