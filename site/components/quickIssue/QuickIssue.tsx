@@ -1,4 +1,3 @@
-// 场景案例模版
 import React, { useState, useMemo, useEffect } from 'react';
 import { Layout as AntLayout, Button, Form, Input, Select, Space } from 'antd';
 import Article from '@antv/dumi-theme-antv/dist/slots/Article';
@@ -29,6 +28,7 @@ const formItemLayout = {
 export default () => {
   const [url, setUrl] = useState<url>(undefined)
   const [windowSize, setWindowSize] = useState(getWindowSize());
+  const [form] = Form.useForm();
   const locale = useLocale()
   const lang = locale.id.includes('zh') ? 'zh' : 'en';
 
@@ -102,6 +102,24 @@ export default () => {
     </div>
   }, [lang])
 
+  const getQueryVariable = (variable: string) => {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split("=");
+      if (pair[0] == variable) { return pair[1]; }
+    }
+    return (false);
+  }
+
+  useEffect(() => {
+    if (getQueryVariable('repo')) {
+      const data = GITHUB_URL.find((item) => item.label === getQueryVariable('repo'))
+      form.setFieldsValue({ gitHub: data?.gitUrl })
+      setUrl(data)
+    }
+  }, [])
+
   return (
     <>
       <AntLayout hasSider>
@@ -109,7 +127,7 @@ export default () => {
           <div style={{ height: '100%', width: '100%', display: 'flex', justifyContent: 'center' }}>
             <div className={style.content}>
               {text}
-              <Form onFinish={onFinish}  {...windowSize.innerWidth < 960 ? {} : formItemLayout}  >
+              <Form form={form} onFinish={onFinish}  {...windowSize.innerWidth < 960 ? {} : formItemLayout}  >
                 <div className={style.flex}>
                   <Form.Item
                     label={lang === 'zh' ? '仓库' : 'Repositorie'}
