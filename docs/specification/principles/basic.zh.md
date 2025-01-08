@@ -1,8 +1,6 @@
 ---
 title: 设计价值观
 order: 0
-redirect_from:
-  - /zh/docs/specification
 ---
 
 数据可视化 AntV 的设计价值观是基于 <a href='https://ant.design/docs/spec/introduce-cn' target='_blank'>Ant Design</a> 设计体系衍生的，具有数据可视化特性的指导原则。它在遵循 Ant Design 设计价值观的同时，对数据可视化领域的进一步解读。

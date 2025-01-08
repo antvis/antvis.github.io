@@ -231,5 +231,5 @@ AntV 色板在做无障碍验证时，得出以下几点取色建议 ：
 ## 扩展阅读
 
 - [AntV 色彩体系的搭建](https://zhuanlan.zhihu.com/p/70121039)
-- 想自定义色板？查看 [色板生成教程](https://antv.vision/zh/docs/specification/tool/createrColor)
+- 想自定义色板？查看 [色板生成教程](https://antv.vision/zh/docs/specification/tool/creator-color)
 - [下载色板资源](/specification/resources)
