@@ -26,7 +26,7 @@ export default defineConfig({
     },
     navs: [
       {
-        slug: 'docs/specification',
+        slug: 'docs/specification/principles/basic',
         title: {
           zh: '设计语言',
           en: 'Design',
