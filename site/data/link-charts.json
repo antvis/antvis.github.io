@@ -10,8 +10,8 @@
   {
     "title": "关系图",
     "subTitle": "便捷的关系数据可视化引擎与图分析工具",
-    "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Ku9aQ4WJtsQAAAAAAAAAAAAADmJ7AQ/original",
-    "link": "https://g6-next.antv.antgroup.com/examples/net/forceDirected#basicForce",
+    "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*7Ca9SZkhRJsAAAAAAAAAAAAADmJ7AQ/original",
+    "link": "https://g6.antv.antgroup.com/examples/layout/force-directed/#d3-force",
     "antv": "G6",
     "color": "rgba(249,106,65)"
   },
@@ -26,8 +26,8 @@
   {
     "title": "关系图",
     "subTitle": "便捷的关系数据可视化引擎与图分析工具",
-    "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*_JGLQZl-PcQAAAAAAAAAAAAADmJ7AQ/original",
-    "link": "https://g6.antv.antgroup.com/examples/case/graphDemos#decisionBubbles",
+    "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*ug4vTJA7QbMAAAAAAAAAAAAADmJ7AQ/original",
+    "link": "https://g6.antv.antgroup.com/examples/scene-case/default/#why-do-cats",
     "antv": "G6",
     "color": "rgba(249,106,65)"
   },
@@ -75,7 +75,7 @@
     "title": "树形图表",
     "subTitle": "便捷的关系数据可视化引擎与图分析工具",
     "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*cEgmQov_Kf0AAAAAAAAAAAAADmJ7AQ/original",
-    "link": "https://g6.antv.antgroup.com/examples/case/treeDemos/#decisionTree",
+    "link": "https://g6.antv.antgroup.com/examples/scene-case/default/#fund-flow",
     "antv": "G6",
     "color": "rgba(249,106,65)"
   },

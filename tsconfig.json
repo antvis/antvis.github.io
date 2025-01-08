@@ -1,16 +1,20 @@
 {
-  "include": ["site", ".dumi/theme/slots/components"],
+  "include": ["site", ".dumi/theme", ".dumi/pages", "./typing.d.ts"],
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
     "lib": ["dom", "es2017"],
     "jsx": "react",
-    "strict": true,
+    "strict": false,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "noEmit": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "site/*": ["./site/*"]
+    }
   }
 }

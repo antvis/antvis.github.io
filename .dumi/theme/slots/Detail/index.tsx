@@ -1,20 +1,13 @@
-import { debounce } from 'lodash';
+import SEO from '@antv/dumi-theme-antv/dist/common/SEO';
 import { useIntl, useLocale } from 'dumi';
+import { debounce } from 'lodash';
+import React, { useEffect, useRef } from 'react';
 import Banner from 'site/components/Banner/Banner';
-import { LinkCharts } from 'site/components/LinkCharts';
-import { ThemeCharts } from 'site/components/ThemeCharts';
-import { ProjectCard } from 'site/components/ProjectCard';
-import { SEO } from '@antv/dumi-theme-antv/dist/slots/SEO';
-import React, { useEffect, useState, useRef } from 'react';
-import { FamousPersons } from 'site/components/FamousPersons';
 import { ComplexCharts } from 'site/components/ComplexCharts';
-interface NotificationProps {
-  index?: number;
-  type: string;
-  title: string;
-  date: string;
-  link: string;
-}
+import { FamousPersons } from 'site/components/FamousPersons';
+import { LinkCharts } from 'site/components/LinkCharts';
+import { ProjectCard } from 'site/components/ProjectCard';
+import { ThemeCharts } from 'site/components/ThemeCharts';
 
 export const Detail: React.FC = () => {
   const locale = useLocale();
@@ -23,19 +16,9 @@ export const Detail: React.FC = () => {
 
   const useT = (transformedMessage: string) => {
     return intl.formatMessage({
-      id: transformedMessage
-    })
-  }
-  const notificationsUrl = `https://my-json-server.typicode.com/antvis/antvis-sites-data/notifications?lang=${locale.id}`;
-  const [remoteNews, setRemoteNews] = useState<NotificationProps[]>([]);
-  useEffect(() => {
-    fetch(notificationsUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        // 根据设计，目前只取最新的两条
-        setRemoteNews(data.slice(0, 2));
-      });
-  }, [notificationsUrl]);
+      id: transformedMessage,
+    });
+  };
 
   useEffect(() => {
     const onResize = debounce(() => {
@@ -49,11 +32,17 @@ export const Detail: React.FC = () => {
 
     return () => {
       window.removeEventListener('resize', onResize);
-    }
+    };
   }, []);
 
   return (
-    <div className="home-container" style={{ backgroundImage: 'linear-gradient(180deg, #F0E5FF 0%, #FFFFFF 13%, #FFFFFF 92%, #F7F8FD 100%)' }} >
+    <div
+      className="home-container"
+      style={{
+        backgroundImage:
+          'linear-gradient(180deg, #F0E5FF 0%, #FFFFFF 13%, #FFFFFF 92%, #F7F8FD 100%)',
+      }}
+    >
       <SEO
         title={useT('AntV')}
         titleSuffix={useT('蚂蚁数据可视化')}
@@ -62,12 +51,9 @@ export const Detail: React.FC = () => {
         )}
         lang={locale.id}
       />
-      <div
-        style={{ overflowX: 'auto' }}
-        ref={ref}
-      >
+      <div style={{ overflowX: 'auto' }} ref={ref}>
         <div style={{ minWidth: '1280px', scrollSnapAlign: 'center' }}>
-          <Banner remoteNews={remoteNews} />
+          <Banner />
           <ThemeCharts />
           <ComplexCharts />
           <LinkCharts />
@@ -76,6 +62,5 @@ export const Detail: React.FC = () => {
         </div>
       </div>
     </div>
-  )
-}
-
+  );
+};

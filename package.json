@@ -18,12 +18,10 @@
     "url": "https://github.com/antvis/antvis.github.io/issues"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.7.0",
+    "@ant-design/icons": "^4.8.3",
     "@antv/dumi-theme-antv": "^0.5.2",
     "@antv/g2plot": "^2.3.1",
     "@antv/g6": "3.3.7",
-    "@antv/knowledge": "^0.1.3-alpha.17",
-    "@antv/matrix-util": "2.0.7",
     "@antv/util": "^3.3.1",
     "antd": "5.10.2",
     "chroma-js": "^2.1.0",
@@ -36,9 +34,9 @@
     "new-github-issue-url": "^1.0.0",
     "prettier": "^2.0.0",
     "pretty-quick": "^3.1.3",
-    "react": "^18.2.0",
-    "react-github-btn": "^1.4.0",
-    "react-use": "^17.4.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-github-btn": "^1.4.0"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.9",
@@ -46,11 +44,8 @@
     "@types/lodash": "^4.14.189",
     "@types/parse-github-url": "^1.0.0",
     "@types/react": "^16.9.5",
-    "@types/react-dom": "^16.9.1",
     "@types/react-github-button": "^0.1.0",
-    "@types/react-helmet": "^6.0.0",
-    "i": "^0.3.7",
-    "npm": "^9.1.2"
+    "@types/react-helmet": "^6.0.0"
   },
   "license": "MIT",
   "scripts": {
@@ -63,7 +58,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,less}\"",
     "pretty-quick": "pretty-quick",
     "tsc": "tsc",
-    "serve": "dumi preview"
+    "serve": "dumi preview",
+    "type-check": "tsc --noEmit"
   },
   "husky": {
     "hooks": {
