@@ -1,9 +1,9 @@
 // 场景案例模版
-import React, { useState, useEffect } from 'react';
-import { Layout as AntLayout, BackTop } from 'antd';
-import { useLocale } from 'dumi';
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import Article from '@antv/dumi-theme-antv/dist/slots/Article';
+import { Layout as AntLayout, BackTop } from 'antd';
+import { useLocale } from 'dumi';
+import React, { useEffect, useState } from 'react';
 
 import styles from '@antv/dumi-theme-antv/dist/slots/ManualContent/index.module.less';
 
@@ -16,7 +16,7 @@ interface ShowCaseProps {
 }
 
 export default () => {
-  const locale = useLocale()
+  const locale = useLocale();
   const lang = locale.id.includes('zh') ? 'zh' : 'en';
   const showCaseUrl = `https://assets.antv.antgroup.com/antv/show-cases-${lang}.json`;
 

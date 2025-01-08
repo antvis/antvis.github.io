@@ -1,6 +1,6 @@
 import { map } from 'lodash';
-import bannerLinks from 'site/data/banner-link.json';
 import bannerInfo from 'site/data/banner-info.json';
+import bannerLinks from 'site/data/banner-link.json';
 
 /**
  * 获取真实的 url。根据是否国内镜像进行调整

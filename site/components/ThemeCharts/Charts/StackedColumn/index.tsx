@@ -1,5 +1,5 @@
 import { Column } from '@antv/g2plot';
-import React, { useEffect, useRef, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { DARK_THEME_CONFIG, LIGHT_THEME_CONFIG } from '../Column';
 
 import styles from '../index.module.less';
@@ -12,82 +12,82 @@ const DATA = [
   {
     x: '10-13',
     y: 300,
-    type: 'PD'
+    type: 'PD',
   },
   {
     x: '10-13',
     y: 100,
-    type: 'FE'
+    type: 'FE',
   },
   {
     x: '10-13',
     y: 100,
-    type: 'UX'
+    type: 'UX',
   },
   {
     x: '10-13',
     y: 100,
-    type: 'UE'
+    type: 'UE',
   },
   {
     x: '10-14',
     y: 220,
-    type: 'PD'
+    type: 'PD',
   },
   {
     x: '10-14',
     y: 80,
-    type: 'FE'
+    type: 'FE',
   },
   {
     x: '10-14',
     y: 50,
-    type: 'UX'
+    type: 'UX',
   },
   {
     x: '10-14',
     y: 250,
-    type: 'UE'
+    type: 'UE',
   },
   {
     x: '10-15',
     y: 120,
-    type: 'PD'
+    type: 'PD',
   },
   {
     x: '10-15',
     y: 180,
-    type: 'FE'
+    type: 'FE',
   },
   {
     x: '10-15',
     y: 200,
-    type: 'UX'
+    type: 'UX',
   },
   {
     x: '10-15',
     y: 100,
-    type: 'UE'
+    type: 'UE',
   },
   {
     x: '10-16',
     y: 250,
-    type: 'PD'
+    type: 'PD',
   },
   {
     x: '10-16',
     y: 50,
-    type: 'FE'
+    type: 'FE',
   },
   {
     x: '10-16',
     y: 120,
-    type: 'UX'
+    type: 'UX',
   },
   {
     x: '10-16',
     y: 180,
-    type: 'UE'
+    type: 'UE',
   },
 ];
 
@@ -131,5 +131,5 @@ export function StackedColumnChart(props: StackedColumnProps) {
     <div className={styles.container}>
       <div ref={containerRef} />
     </div>
-  )
+  );
 }

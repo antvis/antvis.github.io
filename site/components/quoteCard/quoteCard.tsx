@@ -1,8 +1,8 @@
-import React from 'react';
 import { Avatar } from 'antd';
-import styles from './quoteCard.module.less';
 import classNames from 'classnames';
 import { useIntl } from 'dumi';
+import React from 'react';
+import styles from './quoteCard.module.less';
 
 const leftpad =
   'https://gw.alipayobjects.com/zos/basement_prod/50fbdc16-bac3-4ecd-8210-f4ed2c116fdb.svg';
@@ -24,13 +24,13 @@ interface Props {
 }
 
 const QuoteCard = (props: Props) => {
-  const intl = useIntl()
+  const intl = useIntl();
 
   const useT = (transformedMessage: string) => {
     return intl.formatMessage({
-      id: transformedMessage
-    })
-  }
+      id: transformedMessage,
+    });
+  };
   const borderSlicer: Array<object> = [];
   if (props.hasBorder) {
     borderSlicer.push(

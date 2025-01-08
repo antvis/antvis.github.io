@@ -1,5 +1,5 @@
+import { Col, Row } from 'antd';
 import React from 'react';
-import { Row, Col } from 'antd';
 import QuoteCard from '../quoteCard/quoteCard';
 import styles from './Quotes.module.less';
 

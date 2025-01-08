@@ -1,14 +1,14 @@
-import React, { forwardRef, useLayoutEffect, useRef } from 'react';
 import { lowerCase } from '@antv/util';
+import React, { forwardRef, useLayoutEffect, useRef } from 'react';
+import styles from './D2Chart.module.less';
 import {
+  AFTERNOON_DAILY_SCHEDULE,
   DAWN_DAILY_SCHEDULE,
   MIDNIGHT_DAILY_SCHEDULE,
   MORNING_DAILY_SCHEDULE,
-  AFTERNOON_DAILY_SCHEDULE,
   NIGHT_DAILY_SCHEDULE,
 } from './datas/dailySchedule';
-import { CLASSIC, METAL, ELECTRONIC, POP } from './datas/music';
-import styles from './D2Chart.module.less';
+import { CLASSIC, ELECTRONIC, METAL, POP } from './datas/music';
 
 // 资源
 const FONT_FAMILY = `Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif`;

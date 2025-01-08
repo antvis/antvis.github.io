@@ -1,7 +1,7 @@
-import React from 'react';
 import classNames from 'classnames';
-import styles from './ResourceCard.module.less';
 import { useIntl } from 'dumi';
+import React from 'react';
+import styles from './ResourceCard.module.less';
 
 interface Props {
   cardContent: {
@@ -14,13 +14,13 @@ interface Props {
 }
 
 const ResourceCard = (props: Props) => {
-  const intl = useIntl()
+  const intl = useIntl();
 
   const useT = (transformedMessage: string) => {
     return intl.formatMessage({
-      id: transformedMessage
-    })
-  }
+      id: transformedMessage,
+    });
+  };
   let detailLinkStr = '查看详情';
   return (
     <div className={styles.card}>

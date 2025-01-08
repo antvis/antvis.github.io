@@ -1,21 +1,24 @@
-import { useIntl } from 'dumi';
-import classNames from 'classnames';
 import { ColorPicker } from 'antd';
+import classNames from 'classnames';
+import { useIntl } from 'dumi';
 import React, { useCallback, useMemo, useState } from 'react';
-import { GaugeChart, ColumnChart, LineChart, GraphChart, StackedColumnChart, PieChart } from './Charts';
 import THEME_DATAS from '../../data/theme-charts.json';
 import THEME_COLORS1 from '../../data/theme-colors1.json';
 import THEME_COLORS2 from '../../data/theme-colors2.json';
 import THEME_COLORS3 from '../../data/theme-colors3.json';
+import {
+  ColumnChart,
+  GaugeChart,
+  GraphChart,
+  LineChart,
+  PieChart,
+  StackedColumnChart,
+} from './Charts';
 
 import styles from './index.module.less';
 
 // 已经生成的主题 json 文件
-const themeColors = [
-  THEME_COLORS1,
-  THEME_COLORS2,
-  THEME_COLORS3,
-];
+const themeColors = [THEME_COLORS1, THEME_COLORS2, THEME_COLORS3];
 
 // 自定义主题，暂时不显示，需要时添加到 theme-charts.json 中
 // {
@@ -28,37 +31,37 @@ const themeColors = [
 
 const CHARTS = [
   {
-    msg: "仪表盘",
+    msg: '仪表盘',
     chart: (theme: any) => <GaugeChart theme={theme} />,
   },
   {
-    msg: "分组柱形图",
+    msg: '分组柱形图',
     chart: (theme: any) => <ColumnChart theme={theme} />,
   },
   {
-    msg: "力导向图布局",
+    msg: '力导向图布局',
     chart: (theme: any) => <GraphChart theme={theme} />,
   },
   {
-    msg: "折线图",
+    msg: '折线图',
     chart: (theme: any) => <LineChart theme={theme} />,
   },
   {
-    msg: "堆叠柱形图",
+    msg: '堆叠柱形图',
     chart: (theme: any) => <StackedColumnChart theme={theme} />,
   },
   {
-    msg: "环形图",
+    msg: '环形图',
     chart: (theme: any) => <PieChart theme={theme} />,
   },
-]
+];
 
 // 定制主题，一键生成
 export function ThemeCharts() {
   const intl = useIntl();
   const useT = (transformedMessage: string) => {
     return intl.formatMessage({
-      id: transformedMessage
+      id: transformedMessage,
     });
   };
 
@@ -113,13 +116,13 @@ export function ThemeCharts() {
       })}
       style={{ backgroundImage: `url(${select.background})` }}
     >
-      <div className={styles.title}>{useT("定制主题，一键生成")}</div>
+      <div className={styles.title}>{useT('定制主题，一键生成')}</div>
       <div className={styles.themeButtons}>
-        {
-          THEME_DATAS.map((data, index) => {
-            const isTheme = select.text === data.text;
+        {THEME_DATAS.map((data, index) => {
+          const isTheme = select.text === data.text;
 
-            const button = (<div
+          const button = (
+            <div
               className={classNames(styles.button, {
                 [styles.isTheme]: isTheme,
               })}
@@ -128,57 +131,78 @@ export function ThemeCharts() {
                 setColorsJson(themeColors[index]);
               }}
             >
-              <img src={isDark ? data.darkImg : (isTheme ? data.activeImg : data.img)} alt='theme_icon' /> {useT(data.text)}
-            </div>);
+              <img
+                src={
+                  isDark ? data.darkImg : isTheme ? data.activeImg : data.img
+                }
+                alt="theme_icon"
+              />{' '}
+              {useT(data.text)}
+            </div>
+          );
 
-            return index === 3 && isTheme ?
-              <ColorPicker
-                disabledAlpha
-                trigger='hover'
-                // onChange={(v: any, color: string) => setColors10(pick(color, true))}
-                panelRender={(panel: React.ReactNode) => <div className="custom-panel">
+          return index === 3 && isTheme ? (
+            <ColorPicker
+              disabledAlpha
+              trigger="hover"
+              // onChange={(v: any, color: string) => setColors10(pick(color, true))}
+              panelRender={(panel: React.ReactNode) => (
+                <div className="custom-panel">
                   <div className={styles.colors}>
                     {
                       // colors10.map((color) => <div className={styles.color} style={{ background: color }} />)
                     }
                   </div>
                   {panel}
-                </div>}
-              >
-                {button}
-              </ColorPicker> :
-              button
-          })
-        }
+                </div>
+              )}
+            >
+              {button}
+            </ColorPicker>
+          ) : (
+            button
+          );
+        })}
       </div>
       <div
         className={styles.themeChart}
         style={{ backgroundImage: `url(${select.backgroundChart})` }}
       >
         <div className={styles.msg}>
-          <img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*U3AfQq_cQMYAAAAAAAAAAAAADmJ7AQ/original' alt='antv' />
+          <img
+            src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*U3AfQq_cQMYAAAAAAAAAAAAADmJ7AQ/original"
+            alt="antv"
+          />
           <div className={styles.msgTitle}>AntV 5.0</div>
           <div className={styles.segmentation} />
           <div className={styles.msgText}>{useT(select.text)}</div>
         </div>
         <div className={styles.charts}>
-          {
-            CHARTS.map((chart, index) => {
-              return <div
+          {CHARTS.map((chart, index) => {
+            return (
+              <div
                 className={classNames(styles.chart, {
                   [styles.rightChart]: (index + 1) % 3 === 0,
                 })}
               >
                 <div className={styles.chartMsg}>{useT(chart.msg)}</div>
-                <div className={styles.content}>{chart.chart({ ...colorsJson, value: select.theme })}</div>
+                <div className={styles.content}>
+                  {chart.chart({ ...colorsJson, value: select.theme })}
+                </div>
               </div>
-            })
-          }
+            );
+          })}
         </div>
       </div>
       <div className={styles.acquire}>
-        <div className={styles.download} onClick={onDownload}><img alt='download' src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*coOuTKR_NDMAAAAAAAAAAAAADmJ7AQ/original' /> {useT("规范下载")}</div>
+        <div className={styles.download} onClick={onDownload}>
+          <img
+            alt="download"
+            src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*coOuTKR_NDMAAAAAAAAAAAAADmJ7AQ/original"
+          />{' '}
+          {useT('规范下载')}
+        </div>
       </div>
     </div>
-  )
+  );
 }

@@ -1,11 +1,15 @@
-import classNames from 'classnames';
-import { useLocale, useIntl } from 'dumi';
-import React, { useCallback, useState } from 'react';
-import { Row, Col, Divider, Popover, ConfigProvider } from 'antd';
 import { useChinaMirrorHost } from '@antv/dumi-theme-antv/dist/slots/hooks';
-import { ModuleTitle as Title, ActiveIcon } from '../common';
+import { Col, ConfigProvider, Divider, Popover, Row } from 'antd';
+import classNames from 'classnames';
+import { useIntl, useLocale } from 'dumi';
+import React, { useCallback, useState } from 'react';
 import ANTV_LINKS from '../../data/project-card-popover.json';
-import { ProductType, getProducts, transformUrl } from '../Products/getProducts';
+import { ActiveIcon, ModuleTitle as Title } from '../common';
+import {
+  ProductType,
+  getProducts,
+  transformUrl,
+} from '../Products/getProducts';
 
 import styles from './index.module.less';
 
@@ -39,15 +43,17 @@ type PrejectData = {
 
 // 不放入 data 变为 json 是因为 占比需要 styles 进行修改。
 const PROJECT_DATAS: PrejectData = [
-  [{
-    title: 'AVA',
-    subTitle: '智能洞察',
-    span: 24,
-    classNames: styles.AVA,
-    icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*L58VTIXV8MwAAAAAAAAAAAAADmJ7AQ/original',
-    img: 'https://gw.alipayobjects.com/mdn/rms_fabca5/afts/img/A*TOjFQ6PQwyEAAAAAAAAAAAAAARQnAQ',
-    url: 'https://ava.antv.antgroup.com',
-  }],
+  [
+    {
+      title: 'AVA',
+      subTitle: '智能洞察',
+      span: 24,
+      classNames: styles.AVA,
+      icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*L58VTIXV8MwAAAAAAAAAAAAADmJ7AQ/original',
+      img: 'https://gw.alipayobjects.com/mdn/rms_fabca5/afts/img/A*TOjFQ6PQwyEAAAAAAAAAAAAAARQnAQ',
+      url: 'https://ava.antv.antgroup.com',
+    },
+  ],
   [
     {
       title: 'Ant Design Charts',
@@ -122,7 +128,12 @@ const PROJECT_DATAS: PrejectData = [
       url: 'https://f6.antv.vision',
       img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*q3muQq70-dUAAAAAAAAAAAAADmJ7AQ/original',
     },
-    { title: 'F7', subTitle: '移动地图', span: 3, classNames: classNames(styles.chartEngine, styles.f7) },
+    {
+      title: 'F7',
+      subTitle: '移动地图',
+      span: 3,
+      classNames: classNames(styles.chartEngine, styles.f7),
+    },
   ],
   [
     { title: '常用统计数据', span: 6, classNames: styles.sort, isSort: true },
@@ -161,10 +172,10 @@ export function ProjectCard() {
 
   const language: 'zh' | 'en' = locale.id.includes('zh') ? 'zh' : 'en';
 
-  const intl = useIntl()
+  const intl = useIntl();
   const useT = (transformedMessage: string) => {
     return intl.formatMessage({
-      id: transformedMessage
+      id: transformedMessage,
     });
   };
 
@@ -177,45 +188,53 @@ export function ProjectCard() {
 
   // 弹出框内容
   const getContent = useCallback(({ title, subTitle, img, links, url }) => {
-
-    return <div className={styles.content}>
-      <div className={styles.msg}>
-        <div className={styles.msgTitle}>{title}</div>
-        <div className={styles.msgSubTitle}>{subTitle}</div>
-      </div>
-      <div className={styles.msgChart} style={{ backgroundImage: `url(${img})` }} />
-      <div className={styles.links}>
-        {
-          ANTV_LINKS.map((link) => {
-            let href = links[link.href]?.url.replace(/https:\/\/.+?\//, `${url}/`);
+    return (
+      <div className={styles.content}>
+        <div className={styles.msg}>
+          <div className={styles.msgTitle}>{title}</div>
+          <div className={styles.msgSubTitle}>{subTitle}</div>
+        </div>
+        <div
+          className={styles.msgChart}
+          style={{ backgroundImage: `url(${img})` }}
+        />
+        <div className={styles.links}>
+          {ANTV_LINKS.map((link) => {
+            let href = links[link.href]?.url.replace(
+              /https:\/\/.+?\//,
+              `${url}/`,
+            );
 
             // Ant Design Charts 本身跳转 https://charts.ant.design/example 为 404, 修改为 https://ant-design-charts.antgroup.com/examples
             if (title === 'Ant Design Charts') {
-              href = link.href === 'home' ? url : `${url}/${language}/${{
-                example: 'examples',
-                api: 'options/plots/overview',
-              }[link.href]}`;
+              href =
+                link.href === 'home'
+                  ? url
+                  : `${url}/${language}/${
+                      {
+                        example: 'examples',
+                        api: 'options/plots/overview',
+                      }[link.href]
+                    }`;
             }
             if (title === 'F6' && link.href === 'api') {
               href = href + '/Graph';
             }
 
-            return <a
-              href={href}
-              target='_blank'
-            >
-              <ActiveIcon
-                className={styles.link}
-                img={link.img}
-                text={useT(link.text)}
-                activeImg={link.activeImg}
-              />
-            </a>
-          }
-          )
-        }
+            return (
+              <a href={href} target="_blank">
+                <ActiveIcon
+                  className={styles.link}
+                  img={link.img}
+                  text={useT(link.text)}
+                  activeImg={link.activeImg}
+                />
+              </a>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    );
   }, []);
 
   return (
@@ -226,38 +245,44 @@ export function ProjectCard() {
       />
       <div className={styles.cards}>
         <div className={styles.box}>
-          {
-            PROJECT_DATAS.map((cols) => (<Row gutter={16}>
-              {
-                cols.map((col) => {
-                  const { span, img, title, subTitle, isSort, icon, url } = col;
+          {PROJECT_DATAS.map((cols) => (
+            <Row gutter={16}>
+              {cols.map((col) => {
+                const { span, img, title, subTitle, isSort, icon, url } = col;
 
-                  const product = products.find((product) => product.title === title);
+                const product = products.find(
+                  (product) => product.title === title,
+                );
 
-                  const links = product?.links;
-                  const newTitle = useT(title);
-                  const newSubTitle = subTitle && useT(subTitle);
-                  const children = <a
+                const links = product?.links;
+                const newTitle = useT(title);
+                const newSubTitle = subTitle && useT(subTitle);
+                const children = (
+                  <a
                     className={classNames(col.classNames, styles.card)}
-                    href={url && transformUrl({ url, language, isChinaMirrorHost })}
+                    href={
+                      url && transformUrl({ url, language, isChinaMirrorHost })
+                    }
                     style={{ cursor: url ? 'pointer' : 'default' }}
-                    target='_blank'
+                    target="_blank"
                   >
                     {icon && <img src={icon} alt={newTitle} />}
-                    {isSort ?
+                    {isSort ? (
                       <Divider dashed={true} className={styles.divider}>
                         <div className={styles.cardTitle}>{newTitle}</div>
-                      </Divider> :
+                      </Divider>
+                    ) : (
                       <div className={styles.cardTitle}>{newTitle}</div>
-                    }
-                    {subTitle && <div className={styles.cardSubTitle}>{newSubTitle}</div>}
-                  </a>;
+                    )}
+                    {subTitle && (
+                      <div className={styles.cardSubTitle}>{newSubTitle}</div>
+                    )}
+                  </a>
+                );
 
-                  return <Col
-                    key={title}
-                    span={span}
-                  >
-                    {links ?
+                return (
+                  <Col key={title} span={span}>
+                    {links ? (
                       <ConfigProvider prefixCls="antd5">
                         <Popover
                           content={getContent({
@@ -270,13 +295,15 @@ export function ProjectCard() {
                         >
                           {children}
                         </Popover>
-                      </ConfigProvider> :
-                      children}
+                      </ConfigProvider>
+                    ) : (
+                      children
+                    )}
                   </Col>
-                })
-              }
-            </Row>))
-          }
+                );
+              })}
+            </Row>
+          ))}
         </div>
       </div>
     </div>
