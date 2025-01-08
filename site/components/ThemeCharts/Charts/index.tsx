@@ -1,6 +1,6 @@
-export { PieChart } from './Pie';
-export { LineChart } from './Line';
+export { ColumnChart } from './Column';
 export { GaugeChart } from './Gauge';
 export { GraphChart } from './Graph';
-export { ColumnChart } from './Column';
+export { LineChart } from './Line';
+export { PieChart } from './Pie';
 export { StackedColumnChart } from './StackedColumn';

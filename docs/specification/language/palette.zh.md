@@ -141,8 +141,7 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 <swatch title="Autumn" colors="#FF6B3B,#626681,#FFC100,#9FB40F,#76523B,#DAD5B5,#0E8E89,#E19348,#F383A2,#247FEA,#2BCB95,#B1ABF4,#1D42C2,#1D9ED1,#D64BC0,#255634,#8C8C47,#8CDAE5,#8E283B,#791DC9" colorNames="Autumn" descriptions="秋日橙色板，适用于橙色调的产品，可按需替换默认色板。|马卡龙色板，颜色明快，适用于较为活泼轻松的产品或蓝紫色调的产品，可按需替换默认色板。|强对比色板，建议用于投屏及讲演等场景。"></swatch>
 
-![秋日橙主题.png](https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*8g3IQLdwuyQAAAAAAAAAAAAADmJ7AQ/original)
-![秋日橙.gif](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*4eQ-Q7NX-wIAAAAAAAAAAAAAARQnAQ)
+![秋日橙主题.png](https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*8g3IQLdwuyQAAAAAAAAAAAAADmJ7AQ/original) ![秋日橙.gif](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*4eQ-Q7NX-wIAAAAAAAAAAAAAARQnAQ)
 
 ### 马卡龙主题
 
@@ -150,9 +149,7 @@ AntV 色板以蚂蚁极客蓝为起始主色，根据不同数据类型、使用
 
 <swatch title="Macaron" colors="#025DF4,#DB6BCF,#2498D1,#BBBDE6,#4045B2,#21A97A,#FF745A,#007E99,#FFA8A8,#2391FF,#FFC328,#A0DC2C,#946DFF,#626681,#EB4185,#CD8150,#36BCCB,#327039,#803488,#83BC99" colorNames="Macaron" descriptions="马卡龙色板，颜色明快，适用于较为活泼轻松的产品或蓝紫色调的产品，可按需替换默认色板。"></swatch>
 
-
-![马卡龙主题.png](https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Gt1AToxkmZoAAAAAAAAAAAAADmJ7AQ/original)
-![马卡龙.gif](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*PhfqRLQmq4QAAAAAAAAAAAAAARQnAQ)
+![马卡龙主题.png](https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Gt1AToxkmZoAAAAAAAAAAAAADmJ7AQ/original) ![马卡龙.gif](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*PhfqRLQmq4QAAAAAAAAAAAAAARQnAQ)
 
 ### 强对比主题
 
@@ -231,5 +228,5 @@ AntV 色板在做无障碍验证时，得出以下几点取色建议 ：
 ## 扩展阅读
 
 - [AntV 色彩体系的搭建](https://zhuanlan.zhihu.com/p/70121039)
-- 想自定义色板？查看 [色板生成教程](https://antv.vision/zh/docs/specification/tool/createrColor)
+- 想自定义色板？查看 [色板生成教程](https://antv.vision/zh/docs/specification/tool/creator-color)
 - [下载色板资源](/specification/resources)

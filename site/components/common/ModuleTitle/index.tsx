@@ -5,7 +5,7 @@ import styles from './index.module.less';
 type ModuleTitleProps = {
   title: string;
   subTitle?: string;
-}
+};
 
 // 公共标题
 export default function ModuleTitle(props: ModuleTitleProps) {
@@ -15,5 +15,5 @@ export default function ModuleTitle(props: ModuleTitleProps) {
       <div className={styles.title}>{title}</div>
       {subTitle && <div className={styles.subTitle}>{subTitle}</div>}
     </div>
-  )
+  );
 }

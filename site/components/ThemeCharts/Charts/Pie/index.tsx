@@ -1,6 +1,6 @@
-import { useIntl } from 'dumi';
 import { Pie } from '@antv/g2plot';
-import React, { useEffect, useRef, useMemo } from 'react';
+import { useIntl } from 'dumi';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { DARK_THEME_CONFIG, LIGHT_THEME_CONFIG } from '../Column';
 
 import styles from '../index.module.less';
@@ -25,7 +25,7 @@ export function PieChart(props: PieProps) {
   const intl = useIntl();
   const useT = (transformedMessage: string) => {
     return intl.formatMessage({
-      id: transformedMessage
+      id: transformedMessage,
     });
   };
 
@@ -35,14 +35,14 @@ export function PieChart(props: PieProps) {
   useEffect(() => {
     if (containerRef.current) {
       const themeConfig = {
-        theme:{
+        theme: {
           colors10,
         },
         legend: {
           ...(isDark ? DARK_THEME_CONFIG : LIGHT_THEME_CONFIG)['legend'],
           position: 'bottom',
         },
-        pieStyle:{
+        pieStyle: {
           lineWidth: 0,
         },
         statistic: {
@@ -60,7 +60,7 @@ export function PieChart(props: PieProps) {
             style: {
               fontFamily: 'AlibabaPuHuiTiB',
               fontSize: '20px',
-              color: isDark ? '#fff' : '#1D2129'
+              color: isDark ? '#fff' : '#1D2129',
             },
           },
         },
@@ -81,12 +81,24 @@ export function PieChart(props: PieProps) {
               type: 'pie-statistic-active',
               cfg: {
                 start: [
-                  { trigger: 'element:mouseenter', action: 'pie-statistic:change' },
-                  { trigger: 'legend-item:mouseenter', action: 'pie-statistic:change' },
+                  {
+                    trigger: 'element:mouseenter',
+                    action: 'pie-statistic:change',
+                  },
+                  {
+                    trigger: 'legend-item:mouseenter',
+                    action: 'pie-statistic:change',
+                  },
                 ],
                 end: [
-                  { trigger: 'element:mouseleave', action: 'pie-statistic:reset' },
-                  { trigger: 'legend-item:mouseleave', action: 'pie-statistic:reset' },
+                  {
+                    trigger: 'element:mouseleave',
+                    action: 'pie-statistic:reset',
+                  },
+                  {
+                    trigger: 'legend-item:mouseleave',
+                    action: 'pie-statistic:reset',
+                  },
                 ],
               },
             },
@@ -105,5 +117,5 @@ export function PieChart(props: PieProps) {
     <div className={styles.container}>
       <div ref={containerRef} />
     </div>
-  )
+  );
 }

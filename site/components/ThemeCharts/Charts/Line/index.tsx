@@ -1,5 +1,5 @@
 import { Line } from '@antv/g2plot';
-import React, { useEffect, useRef, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { DARK_THEME_CONFIG, LIGHT_THEME_CONFIG } from '../Column';
 
 import styles from '../index.module.less';
@@ -12,42 +12,42 @@ const DATA = [
   {
     x: '10-13',
     y: 590,
-    type: 'PD'
+    type: 'PD',
   },
   {
     x: '10-13',
     y: 500,
-    type: 'FE'
+    type: 'FE',
   },
   {
     x: '10-14',
     y: 220,
-    type: 'PD'
+    type: 'PD',
   },
   {
     x: '10-14',
     y: 400,
-    type: 'FE'
+    type: 'FE',
   },
   {
     x: '10-15',
     y: 344,
-    type: 'PD'
+    type: 'PD',
   },
   {
     x: '10-15',
     y: 133,
-    type: 'FE'
+    type: 'FE',
   },
   {
     x: '10-16',
     y: 455,
-    type: 'PD'
+    type: 'PD',
   },
   {
     x: '10-16',
     y: 600,
-    type: 'FE'
+    type: 'FE',
   },
 ];
 
@@ -92,5 +92,5 @@ export function LineChart(props: LineProps) {
     <div className={styles.container}>
       <div ref={containerRef} />
     </div>
-  )
+  );
 }

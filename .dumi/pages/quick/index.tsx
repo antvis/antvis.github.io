@@ -1,8 +1,8 @@
-import React from 'react';
 import SEO from '@antv/dumi-theme-antv/dist/common/SEO';
-import { useIntl, useLocale } from 'dumi';
-import { Header } from '@antv/dumi-theme-antv/dist/slots/Header';
 import { Footer } from '@antv/dumi-theme-antv/dist/slots/Footer';
+import { Header } from '@antv/dumi-theme-antv/dist/slots/Header';
+import { useIntl, useLocale } from 'dumi';
+import React from 'react';
 import QuickIssue from 'site/components/quickIssue/QuickIssue';
 
 const QuickIssueIndex: React.FC = () => {

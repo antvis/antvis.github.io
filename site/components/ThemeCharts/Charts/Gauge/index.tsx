@@ -1,13 +1,13 @@
+import { Gauge } from '@antv/g2plot';
 import { useIntl } from 'dumi';
 import { get } from 'lodash';
-import { Gauge } from '@antv/g2plot';
 import React, { useEffect, useMemo, useRef } from 'react';
 
 import styles from '../index.module.less';
 
 type GaugeProps = {
   theme?: any;
-}
+};
 
 // 仪表盘
 export function GaugeChart(props: GaugeProps) {
@@ -19,7 +19,7 @@ export function GaugeChart(props: GaugeProps) {
   const intl = useIntl();
   const useT = (transformedMessage: string) => {
     return intl.formatMessage({
-      id: transformedMessage
+      id: transformedMessage,
     });
   };
 
@@ -39,15 +39,23 @@ export function GaugeChart(props: GaugeProps) {
             customHtml: () => {
               return `
                 <div>
-                  <img alt="icon" style="width: 36px; height: 36px;margin-bottom: 12px;" src="${isDark ? 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*hINPQYnKaIAAAAAAAAAAAAAADmJ7AQ/original' : 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*BjKVTp2kKSQAAAAAAAAAAAAADmJ7AQ/original'}" />
-                  <div style="font-size: 12px;color: ${isDark ? 'rgba(255,255,255,0.65)' : '#424E66'};" >${useT('用户总量')}</div>
-                  <div style="font-size: 32px;color: ${isDark ? '#fff' : '#1D2129'}; line-height: 45px;font-family: AlibabaPuHuiTiB;" >1,320</div>
+                  <img alt="icon" style="width: 36px; height: 36px;margin-bottom: 12px;" src="${
+                    isDark
+                      ? 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*hINPQYnKaIAAAAAAAAAAAAAADmJ7AQ/original'
+                      : 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*BjKVTp2kKSQAAAAAAAAAAAAADmJ7AQ/original'
+                  }" />
+                  <div style="font-size: 12px;color: ${
+                    isDark ? 'rgba(255,255,255,0.65)' : '#424E66'
+                  };" >${useT('用户总量')}</div>
+                  <div style="font-size: 32px;color: ${
+                    isDark ? '#fff' : '#1D2129'
+                  }; line-height: 45px;font-family: AlibabaPuHuiTiB;" >1,320</div>
                 </div>
               `;
             },
           },
         },
-      }
+      };
 
       if (!plotRef.current) {
         plotRef.current = new Gauge(containerRef.current, {
@@ -71,5 +79,5 @@ export function GaugeChart(props: GaugeProps) {
     <div className={styles.container}>
       <div ref={containerRef} />
     </div>
-  )
+  );
 }

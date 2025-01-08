@@ -1,32 +1,39 @@
 import { defineConfig } from 'dumi';
-import { repository, version, homepage } from './package.json';
+import { homepage, repository } from './package.json';
 export default defineConfig({
-  locales: [{ id: 'zh', name: '中文' }, { id: 'en', name: 'English' }],
-  favicons: ['https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*7svFR6wkPMoAAAAAAAAAAAAADmJ7AQ/original'], // 网站 favicon
-  metas: [                                                              // 自定义 meta 标签  
+  locales: [
+    { id: 'zh', name: '中文' },
+    { id: 'en', name: 'English' },
+  ],
+  favicons: [
+    'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*7svFR6wkPMoAAAAAAAAAAAAADmJ7AQ/original',
+  ], // 网站 favicon
+  metas: [
+    // 自定义 meta 标签
     { name: 'keywords', content: 'AntV' },
     { name: 'description', content: 'Ant Visualization solution' },
   ],
   themeConfig: {
     title: 'AntV',
     description: 'Ant Visualization solution',
-    defaultLanguage: 'zh',                                              // 默认语言
-    isAntVSite: true,                                                   // 是否是 AntV 的大官网
+    defaultLanguage: 'zh', // 默认语言
+    isAntVSite: true, // 是否是 AntV 的大官网
     footerTheme: 'light',
-    siteUrl: homepage,                                     // 官网地址
-    githubUrl: repository.url,                                          // GitHub 地址
-    showSearch: true,                                                   // 是否显示搜索框
-    showGithubCorner: true,                                             // 是否显示头部的 GitHub icon
-    showAntVProductsCard: true,                                         // 是否显示 AntV 产品汇总的卡片
-    showLanguageSwitcher: true,                                         // 是否显示官网语言切换
-    showWxQrcode: true,                                                 // 是否显示头部菜单的微信公众号
-    docsearchOptions: {                                                 // 头部搜索框配置
+    siteUrl: homepage, // 官网地址
+    githubUrl: repository.url, // GitHub 地址
+    showSearch: true, // 是否显示搜索框
+    showGithubCorner: true, // 是否显示头部的 GitHub icon
+    showAntVProductsCard: true, // 是否显示 AntV 产品汇总的卡片
+    showLanguageSwitcher: true, // 是否显示官网语言切换
+    showWxQrcode: true, // 是否显示头部菜单的微信公众号
+    docsearchOptions: {
+      // 头部搜索框配置
       apiKey: '9d1cd586972bb492b7b41b13a949ef30',
       indexName: 'antv_g6',
     },
     navs: [
       {
-        slug: 'docs/specification',
+        slug: 'docs/specification/principles/basic',
         title: {
           zh: '设计语言',
           en: 'Design',
@@ -43,12 +50,12 @@ export default defineConfig({
         slug: 'quick',
         title: {
           zh: '提交 Issue',
-          en: 'Quick Issue'
-        }
-      }
+          en: 'Quick Issue',
+        },
+      },
     ],
-    ecosystems: [                                                       // 头部的菜单中的「周边生态」
-
+    ecosystems: [
+      // 头部的菜单中的「周边生态」
     ],
     docs: [
       {
@@ -118,8 +125,7 @@ export default defineConfig({
         order: 1,
       },
     ],
-    examples: [
-    ],
+    examples: [],
     mdPlayground: {
       // 第一个分块的大小
       splitPaneMainSize: '62%',
@@ -152,8 +158,6 @@ export default defineConfig({
     // 百度统计的 key
     // baidu: 'baidu_tongji_key',
   },
-  links: [
-  ],
-  scripts: [
-  ],
+  links: [],
+  scripts: [],
 });

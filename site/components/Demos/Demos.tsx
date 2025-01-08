@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import classNames from 'classnames';
 import chroma from 'chroma-js';
+import classNames from 'classnames';
 import { assign, debounce } from 'lodash';
+import React, { useEffect, useState } from 'react';
 
-import styles from './Demos.module.less';
 import { getLang } from '../../utils';
+import styles from './Demos.module.less';
 
 interface DemoProps {
   imgurl: string;
@@ -31,7 +31,7 @@ export default (props: DemosProps) => {
   const { active, type } = props;
   const [imgs, updateImgs] = useState<number[][]>([]);
   const [totalImgs, updateTotalImgs] = useState<number>(0);
-  const lang = getLang()
+  const lang = getLang();
   const getRandomNum = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
@@ -152,9 +152,7 @@ export default (props: DemosProps) => {
               />
 
               <div className={styles.title}>
-                {lang === 'zh'
-                  ? list[item].title_zh
-                  : list[item].title_en}
+                {lang === 'zh' ? list[item].title_zh : list[item].title_en}
               </div>
             </a>
           ))}

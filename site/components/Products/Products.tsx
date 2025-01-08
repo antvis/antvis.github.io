@@ -1,20 +1,20 @@
-import React from 'react';
-import { Row, Col } from 'antd';
-import { useIntl, useLocale } from 'dumi'
-import classNames from 'classnames';
 import { useChinaMirrorHost } from '@antv/dumi-theme-antv/dist/slots/hooks';
+import { Col, Row } from 'antd';
+import classNames from 'classnames';
+import { useIntl, useLocale } from 'dumi';
+import React from 'react';
 import { CATEGORIES, ProductType, getProducts } from './getProducts';
 import styles from './Products.module.less';
 
 const Products = () => {
-  const locale = useLocale()
-  const intl = useIntl()
+  const locale = useLocale();
+  const intl = useIntl();
 
   const useT = (transformedMessage: string) => {
     return intl.formatMessage({
-      id: transformedMessage
-    })
-  }
+      id: transformedMessage,
+    });
+  };
   const [isChinaMirrorHost] = useChinaMirrorHost();
   const [products, setProducts] = React.useState<ProductType[]>([]);
 

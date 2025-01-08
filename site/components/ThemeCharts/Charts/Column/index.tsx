@@ -1,5 +1,5 @@
 import { Column } from '@antv/g2plot';
-import React, { useEffect, useRef, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 
 import styles from '../index.module.less';
 
@@ -31,7 +31,7 @@ export const DARK_THEME_CONFIG = {
     },
   },
   xAxis: {
-    line:{
+    line: {
       style: {
         stroke: '#A8B7C1',
       },
@@ -73,7 +73,7 @@ export const LIGHT_THEME_CONFIG = {
     },
   },
   xAxis: {
-    line:{
+    line: {
       style: {
         stroke: '#A4AEBA',
       },
@@ -95,62 +95,62 @@ const DATA = [
   {
     x: '10-13',
     y: 590,
-    type: 'PD'
+    type: 'PD',
   },
   {
     x: '10-13',
     y: 500,
-    type: 'FE'
+    type: 'FE',
   },
   {
     x: '10-13',
     y: 300,
-    type: 'UX'
+    type: 'UX',
   },
   {
     x: '10-14',
     y: 220,
-    type: 'PD'
+    type: 'PD',
   },
   {
     x: '10-14',
     y: 400,
-    type: 'FE'
+    type: 'FE',
   },
   {
     x: '10-14',
     y: 580,
-    type: 'UX'
+    type: 'UX',
   },
   {
     x: '10-15',
     y: 344,
-    type: 'PD'
+    type: 'PD',
   },
   {
     x: '10-15',
     y: 133,
-    type: 'FE'
+    type: 'FE',
   },
   {
     x: '10-15',
     y: 222,
-    type: 'UX'
+    type: 'UX',
   },
   {
     x: '10-16',
     y: 455,
-    type: 'PD'
+    type: 'PD',
   },
   {
     x: '10-16',
     y: 600,
-    type: 'FE'
+    type: 'FE',
   },
   {
     x: '10-16',
     y: 120,
-    type: 'UX'
+    type: 'UX',
   },
 ];
 
@@ -182,7 +182,7 @@ export function ColumnChart(props: ColumnProps) {
           seriesField: 'type',
           // 分组柱状图 组内柱子间的间距 (像素级别)
           dodgePadding: 2,
-          ...themeConfig
+          ...themeConfig,
         });
 
         plotRef.current?.render();
@@ -196,5 +196,5 @@ export function ColumnChart(props: ColumnProps) {
     <div className={styles.container}>
       <div ref={containerRef} />
     </div>
-  )
+  );
 }

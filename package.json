@@ -50,8 +50,8 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run develop",
-    "build": "NODE_OPTIONS=--max-old-space-size=4096 dumi build",
-    "develop": "NODE_OPTIONS=--max-old-space-size=4096 dumi dev",
+    "build": "dumi build",
+    "dev": "dumi dev",
     "deploy": " npm run build  && npm run gh-pages",
     "gh-pages": "gh-pages -d dist",
     "copy-mirror-action": "mkdir -p public/.github/workflows && cp .github/workflows/mirror.yml public/.github/workflows",

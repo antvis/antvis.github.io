@@ -1,8 +1,8 @@
-import Case from './index'
 import React from 'react';
+import Case from './index';
 
 const QuickIssueIndex: React.FC = () => {
-  return <Case></Case>
+  return <Case></Case>;
 };
 
-export default QuickIssueIndex
+export default QuickIssueIndex;

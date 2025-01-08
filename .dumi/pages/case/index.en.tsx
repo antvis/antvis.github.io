@@ -1,8 +1,8 @@
-import Case from './index'
 import React from 'react';
+import Case from './index';
 
 const CaseIndex: React.FC = () => {
-  return <Case></Case>
+  return <Case></Case>;
 };
 
-export default CaseIndex
+export default CaseIndex;

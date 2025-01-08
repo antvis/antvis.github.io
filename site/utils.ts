@@ -1,8 +1,8 @@
 /**
  * Translate函数
  */
-import { useLocale } from "dumi"
+import { useLocale } from 'dumi';
 
 export const getLang = () => {
-  return useLocale().id
-}
+  return useLocale().id;
+};

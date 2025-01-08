@@ -11,11 +11,9 @@ Shneiderman [1] 提出了经典的可视化信息交互策略：概览、缩放�
 
 经过业务的实践和沉淀，AntV 从用户视角出发，按照用户的目标和行为对可视化交互进行梳理。我们发现用户在进行可视化数据分析时，通常会经历三个步骤，分别为「看数-分析-洞察」。
 
-**看数：** 主要指用户获取数据并初步可视化加工和阅读查看的行为。
-**分析：** 主要指用户对数据进行调整，从更多角度进行看数的行为。
-**洞察：** 主要指用户通过交互强化洞见，并对结果进行流转的行为。
+**看数：** 主要指用户获取数据并初步可视化加工和阅读查看的行为。 **分析：** 主要指用户对数据进行调整，从更多角度进行看数的行为。 **洞察：** 主要指用户通过交互强化洞见，并对结果进行流转的行为。
 
-基于更多的业务调研和桌面调研，我们总结出常见的24类可视化交互，这是我们从用户视角出发的最全归纳。
+基于更多的业务调研和桌面调研，我们总结出常见的 24 类可视化交互，这是我们从用户视角出发的最全归纳。
 
 <img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*7_pEQayJZzYAAAAAAAAAAAAADmJ7AQ/original' alt='' />
 
@@ -53,24 +51,24 @@ AntV 5.0 的设计价目标是让用户更有信任感、轻松感和意义感�
 
 除了少思考和少操作以外，我们建议可以提供类似右键菜单的能力，让用户产生分析意图时即可所见即所得的获取分析工具，并对对象快速进行分析探索。
 
-### 意义感 
+### 意义感
 
 增强分析的能力，让用户更易洞察。
 
 <img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*BaTcRKwYhTYAAAAAAAAAAAAADmJ7AQ/original' alt='' />
 
-用户在分析探索时，适时的画龙点睛之笔可以让洞察更直观的展现在分析者面前，一条辅助线和一块参考区间便可以快速的将机会点或者风险点清晰的暴露出来。但是如果这个时候如果用户需要填写复杂的表单才能记录自己的洞察，那么在复杂的操作间，灵感可能会稍纵即逝。
-我们建议为用户匹配更直观的交互语言，让用户抓住时机，快速沉淀洞察记录观点。如上图：用户在标注辅助线时原需要填写复杂的表单才能完成诉求，如果我们支持用直接长按坐标轴X即可添加辅助线，那么用户将获得更自由的交互体验，洞察也可被更快获取。
+用户在分析探索时，适时的画龙点睛之笔可以让洞察更直观的展现在分析者面前，一条辅助线和一块参考区间便可以快速的将机会点或者风险点清晰的暴露出来。但是如果这个时候如果用户需要填写复杂的表单才能记录自己的洞察，那么在复杂的操作间，灵感可能会稍纵即逝。我们建议为用户匹配更直观的交互语言，让用户抓住时机，快速沉淀洞察记录观点。如上图：用户在标注辅助线时原需要填写复杂的表单才能完成诉求，如果我们支持用直接长按坐标轴 X 即可添加辅助线，那么用户将获得更自由的交互体验，洞察也可被更快获取。
 
 &nbsp;
+
 ## 03 设计策略
 
-带着上面三个目标，我们对24种常见交互进行了设计迭代，沉淀了9+设计策略和20+设计案例，且会持续更新。
-本篇将对每个策略挑选一个案例进行简单说明。
+带着上面三个目标，我们对 24 种常见交互进行了设计迭代，沉淀了 9+设计策略和 20+设计案例，且会持续更新。本篇将对每个策略挑选一个案例进行简单说明。
 
 <img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*eyBiQKJ1gNUAAAAAAAAAAAAADmJ7AQ/original' alt='' />
 
 &nbsp;
+
 ### 信任感
 
 #### 👀 有前馈
@@ -122,7 +120,7 @@ AntV 5.0 的设计价目标是让用户更有信任感、轻松感和意义感�
 <img src='https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*ZEPRSb71URgAAAAAAAAAAAAADmJ7AQ/original' alt='' />
 &nbsp;
 
-更多设计案例和设计Tips可查看： <a href='https://www.yuque.com/antv/operation/lb0y0d6umtqay0ow'>AntV 交互设计工具箱</a>
+更多设计案例和设计 Tips 可查看： <a href='https://www.yuque.com/antv/operation/lb0y0d6umtqay0ow'>AntV 交互设计工具箱</a>
 
 &nbsp;
 
@@ -146,6 +144,7 @@ AntV 5.0 的设计价目标是让用户更有信任感、轻松感和意义感�
 </table>
 
 &nbsp;
+
 ### 分析
 
 <table style="border: none;">
@@ -176,6 +175,7 @@ AntV 5.0 的设计价目标是让用户更有信任感、轻松感和意义感�
 </table>
 
 &nbsp;
+
 ### 洞察
 
 <table style="border: none;">
@@ -189,9 +189,4 @@ AntV 5.0 的设计价目标是让用户更有信任感、轻松感和意义感�
 
 ## 参考文献
 
-[1] Schneiderman B. The eyes have it: a task by data type taxonomy forinformation\visualizations[J]. Craft of Information Visualization, 1996:364-371.
-[2] Dix, Alan, Ellis, Geoffrey. Starting simple: adding value to static visualisation throughsimple interaction[J]. 1998.
-[3]李洪海，齐兵．界面设计中交互行为的分类［J］．艺术与设计：理论，2013（11）：119-121．
-[4]Landesberger T V, Fiebig S, Bremm S, et al. Interaction Taxonomy for Tracking of UserActions in Visual Analytics Applications[J]. 2014:653-670.
-[5] Gotz D, Zhou M X. Characterizing users' visual analytic activity for insightprovenance[C]// IEEE Symposium on Visual Analytics Science & Technology. 2008.
-[6]:Donald A.Norman.《设计心理学1》[M]．
+[1] Schneiderman B. The eyes have it: a task by data type taxonomy forinformation\visualizations[J]. Craft of Information Visualization, 1996:364-371. [2] Dix, Alan, Ellis, Geoffrey. Starting simple: adding value to static visualisation throughsimple interaction[J]. 1998. [3]李洪海，齐兵．界面设计中交互行为的分类［J］．艺术与设计：理论，2013（11）：119-121． [4]Landesberger T V, Fiebig S, Bremm S, et al. Interaction Taxonomy for Tracking of UserActions in Visual Analytics Applications[J]. 2014:653-670. [5] Gotz D, Zhou M X. Characterizing users' visual analytic activity for insightprovenance[C]// IEEE Symposium on Visual Analytics Science & Technology. 2008. [6]:Donald A.Norman.《设计心理学 1》[M]．
