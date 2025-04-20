@@ -20,20 +20,20 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 基于以上移动端的特性，结合 AntV 可视化设计原则，建议在产品中进行数据可视化设计时，遵循以下几点建议：
 
-## **1、信息轻量聚焦**
+## 1、信息轻量聚焦
 
-**聚焦当前场景用户任务，避免不必要的视觉元素干扰。**移动端可视化信息传递需要更加聚焦用户在场景中的任务和具体的信息，最大程度刨除图表展示中的无用或相对次要的信息及图形元素，**减少信息维度交叉的复杂性和视觉干扰**，巧妙采用流程、排版、动效的方式将信息拆解。
+**聚焦当前场景用户任务，避免不必要的视觉元素干扰**。移动端可视化信息传递需要更加聚焦用户在场景中的任务和具体的信息，最大程度刨除图表展示中的无用或相对次要的信息及图形元素，**减少信息维度交叉的复杂性和视觉干扰**，巧妙采用流程、排版、动效的方式将信息拆解。
 
 | PC | 移动端 |
 | --- | --- |
 | <img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*GT9kSaph_38AAAAAAAAAAAAAARQnAQ" width="500pt" height="500pt"> | <img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*UMuASYgxoJAAAAAAAAAAAAAAARQnAQ" width="500pt"> |
 |  |
 
-## **2、手势操作自然**
+## 2、手势操作自然
 
 移动端的硬件特质以及发展趋势，要求可视化的操作更符合人的自然行为反应，使交互操作更自然。手势方式的选择上应该源于生活经验，易于理解，学习成本低，用户无操作压力。
 
-区别于游戏和其他沉浸式应用中的手势选择，在可视化场景中，**应该尽量避免高学习成本的手势，同时需要注意保持页面间交互的一致性。**以下为 AntV 的设计师推荐使用的最常用的标准手势：
+区别于游戏和其他沉浸式应用中的手势选择，在可视化场景中，**应该尽量避免高学习成本的手势，同时需要注意保持页面间交互的一致性**。以下为 AntV 的设计师推荐使用的最常用的标准手势：
 
 ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*SmlZQY1NH-8AAAAAAAAAAAAAARQnAQ)
 
@@ -47,7 +47,7 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 | 缩放 | 探索、识别数据 | Pinch ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*wE0sT7UUeesAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*KKKGRKluIg4AAAAAAAAAAAAAARQnAQ) |
 | 平移 | 探索更大的数据空间 | Swipe ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ELAJS7z5iLkAAAAAAAAAAAAAARQnAQ) | ![](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*yWrQQ5aLj6UAAAAAAAAAAAAAARQnAQ) |
 
-## 3**、功能组件完善易用**
+## 3、功能组件完善易用
 
 由于硬件显示屏的限制，传统 PC 上的图表在展示上并不能很好的在移动端上做适应，因此对于某些功能组件，需要针对移动端做更具针对性的设计（以下拿 tooltip 为例）。由于硬件显示屏的限制，传统 PC 上的图表在展示上并不能很好的在移动端上做适应，因此对于某些功能组件，需要针对移动端做更具针对性的设计（以下拿 tooltip 为例）。
 
@@ -82,7 +82,7 @@ AntV 拥有一套基于移动端的可视化图形语法图表库（F2），我�
 
 由于用户的某些细节阅读和深度分析的需要，需要对图表的展示形态做变化，使得用户更容易看到细节，或有利于用户的进一步的操作。主要包括：
 
-#### **场景切换和纵向的适配**
+#### 场景切换和纵向的适配
 
 在不同页面中相同图表可能承载的用户诉求类型不相同，需要通过不同场景的切换和变化，来更好的满足并达到较好的用户体验。
 
