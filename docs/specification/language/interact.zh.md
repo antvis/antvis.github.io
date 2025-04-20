@@ -11,7 +11,7 @@ Shneiderman [1] 提出了经典的可视化信息交互策略：概览、缩放�
 
 经过业务的实践和沉淀，AntV 从用户视角出发，按照用户的目标和行为对可视化交互进行梳理。我们发现用户在进行可视化数据分析时，通常会经历三个步骤，分别为「看数-分析-洞察」。
 
-**看数：** 主要指用户获取数据并初步可视化加工和阅读查看的行为。 **分析：** 主要指用户对数据进行调整，从更多角度进行看数的行为。 **洞察：** 主要指用户通过交互强化洞见，并对结果进行流转的行为。
+**看数：** 主要指用户获取数据并初步可v视化加工和阅读查看的行为。 **分析：** 主要指用户对数据进行调整，从更多角度进行看数的行为。 **洞察：** 主要指用户通过交互强化洞见，并对结果进行流转的行为。
 
 基于更多的业务调研和桌面调研，我们总结出常见的 24 类可视化交互，这是我们从用户视角出发的最全归纳。
 
@@ -189,4 +189,9 @@ AntV 5.0 的设计价目标是让用户更有信任感、轻松感和意义感�
 
 ## 参考文献
 
-[1] Schneiderman B. The eyes have it: a task by data type taxonomy forinformation\visualizations[J]. Craft of Information Visualization, 1996:364-371. [2] Dix, Alan, Ellis, Geoffrey. Starting simple: adding value to static visualisation throughsimple interaction[J]. 1998. [3]李洪海，齐兵．界面设计中交互行为的分类［J］．艺术与设计：理论，2013（11）：119-121． [4]Landesberger T V, Fiebig S, Bremm S, et al. Interaction Taxonomy for Tracking of UserActions in Visual Analytics Applications[J]. 2014:653-670. [5] Gotz D, Zhou M X. Characterizing users' visual analytic activity for insightprovenance[C]// IEEE Symposium on Visual Analytics Science & Technology. 2008. [6]:Donald A.Norman.《设计心理学 1》[M]．
+[1] Schneiderman B. The eyes have it: a task by data type taxonomy forinformation\visualizations[J]. Craft of Information Visualization, 1996:364-371.
+[2] Dix, Alan, Ellis, Geoffrey. Starting simple: adding value to static visualisation throughsimple interaction[J]. 1998.
+[3]李洪海，齐兵．界面设计中交互行为的分类［J］．艺术与设计：理论，2013（11）：119-121．
+[4] Landesberger T V, Fiebig S, Bremm S, et al. Interaction Taxonomy for Tracking of UserActions in Visual Analytics Applications[J]. 2014:653-670.
+[5] Gotz D, Zhou M X. Characterizing users' visual analytic activity for insightprovenance[C]// IEEE Symposium on Visual Analytics Science & Technology. 2008.
+[6] Donald A.Norman.《设计心理学 1》[M]．

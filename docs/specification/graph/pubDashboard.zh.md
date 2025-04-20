@@ -39,11 +39,11 @@ order: 3
 
 **有逻辑组织页面层次**，Shneiderman 于 1996 年提出可视化信息检索的箴言 Overview First， Zoom and Filter， Then Details-on-De-mand，译为“概览第一，聚焦过滤，再按需查看详情”。它符合人类寻求信息的基本逻辑：先大体，再局部，然后聚焦兴趣点进行探索，这是一个由表及里的过程。
 
-**合理排布内容，**人的阅读顺序为从左至右，从上而下，采用格式塔设计原理，有限组织不同方面的思路，便于分组和快速扫描。将最重要的视图、最关键的指标放在此类型页面的顶部或左上方。阅读者可以快速准确地找到他们需要查看的文字。当我们打开网页或者仪表盘的时候，第一眼会看哪里？最可能是左手边，可将关键信息放在此位置。
+**合理排布内容**，人的阅读顺序为从左至右，从上而下，采用格式塔设计原理，有限组织不同方面的思路，便于分组和快速扫描。将最重要的视图、最关键的指标放在此类型页面的顶部或左上方。阅读者可以快速准确地找到他们需要查看的文字。当我们打开网页或者仪表盘的时候，第一眼会看哪里？最可能是左手边，可将关键信息放在此位置。
 
-![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*skq8RayrxeYAAAAAAAAAAAAAARQnAQ)\*\*
+![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*skq8RayrxeYAAAAAAAAAAAAAARQnAQ)
 
-\*\*内容组织 Tips
+内容组织 Tips
 
 - 明确此类页面的使用者身份，以及分析目的，从而选择对应的页面类型.   划分用户。不同业务线间，关注的核心指标不同，常见的指标类型有：宏观的大盘数据，具体的业务指标。
   - 针对决策者，可以选择描述型的指标结果页面；
@@ -57,7 +57,7 @@ order: 3
 
 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*h-e0RbW-4nwAAAAAAAAAAAAAARQnAQ)
 
-**多用对比：**在数据分析领域，经常会说“无对比不分析”。没有对比就没有伤害，没有对比就看不出差距。所以，多用对比，方便阅读读看出数据之间的差异。比如当前数据与目标对比、同期对比往期。
+**多用对比：** 在数据分析领域，经常会说“无对比不分析”。没有对比就没有伤害，没有对比就看不出差距。所以，多用对比，方便阅读读看出数据之间的差异。比如当前数据与目标对比、同期对比往期。
 
 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*N5-ORpGpdUkAAAAAAAAAAAAAARQnAQ)
 
