@@ -14,8 +14,18 @@ export default defineConfig({
     { name: 'description', content: 'Ant Visualization solution' },
   ],
   themeConfig: {
-    title: 'AntV',
-    description: 'Ant Visualization solution',
+    title: 'AntV 数据可视化',
+    description: 'AntV Visualization Team, 让人们在数据世界里获得视觉化思考能力。',
+    metas: {
+      title: {
+        zh: "AntV 数据可视化",
+        en: "AntV Visualization Team, 让人们在数据世界里获得视觉化思考能力。"
+      },
+      description: {
+        zh: "AntV Visualization",
+        en: "AntV Visualization Team, Turning data into a visual language for better thinking."
+      }
+    },
     defaultLanguage: 'zh', // 默认语言
     isAntVSite: true, // 是否是 AntV 的大官网
     footerTheme: 'light',
@@ -26,6 +36,8 @@ export default defineConfig({
     showAntVProductsCard: true, // 是否显示 AntV 产品汇总的卡片
     showLanguageSwitcher: true, // 是否显示官网语言切换
     showWxQrcode: true, // 是否显示头部菜单的微信公众号
+    sitemap: {}, // 开启并采用默认配置
+    deadLinkChecker: {}, // 开启并采用默认配置
     docsearchOptions: {
       // 头部搜索框配置
       apiKey: '9d1cd586972bb492b7b41b13a949ef30',
@@ -39,20 +51,13 @@ export default defineConfig({
           en: 'Design',
         },
       },
-      {
-        slug: 'case',
-        title: {
-          zh: '场景案例',
-          en: 'Show Case',
-        },
-      },
-      {
-        slug: 'quick',
-        title: {
-          zh: '提交 Issue',
-          en: 'Quick Issue',
-        },
-      },
+      // {
+      //   slug: 'case',
+      //   title: {
+      //     zh: '场景案例',
+      //     en: 'Show Case',
+      //   },
+      // },
     ],
     ecosystems: [
       // 头部的菜单中的「周边生态」
@@ -137,8 +142,8 @@ export default defineConfig({
     /** 首页技术栈介绍 */
     detail: {
       title: {
-        zh: 'Antv',
-        en: 'Antv',
+        zh: 'AntV',
+        en: 'AntV',
       },
       description: {
         zh: 'Ant Visualization solution',
@@ -149,6 +154,9 @@ export default defineConfig({
   alias: {
     site: '/site',
   },
+  ...(process.env.NODE_ENV === 'production' 
+      ? { ssr: { builder: 'webpack' }, mako: false } 
+      : { ssr: false, mako: {} }),
   mfsu: false,
   analytics: {
     // google analytics 的 key (GA 4)
