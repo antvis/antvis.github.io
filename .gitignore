@@ -80,3 +80,4 @@ _site
 # dumi tmp_production
 .dumi/tmp
 .dumi/tmp-production
+.idea

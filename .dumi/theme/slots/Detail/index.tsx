@@ -1,4 +1,4 @@
-import SEO from '@antv/dumi-theme-antv/dist/common/SEO';
+import SEO from '@antv/dumi-theme-antv/dist/common/CommonHelmet';
 import { useIntl, useLocale } from 'dumi';
 import { debounce } from 'lodash';
 import React, { useEffect, useRef } from 'react';

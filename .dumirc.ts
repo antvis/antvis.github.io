@@ -31,29 +31,7 @@ export default defineConfig({
       apiKey: '9d1cd586972bb492b7b41b13a949ef30',
       indexName: 'antv_g6',
     },
-    navs: [
-      {
-        slug: 'docs/specification/principles/basic',
-        title: {
-          zh: '设计语言',
-          en: 'Design',
-        },
-      },
-      {
-        slug: 'case',
-        title: {
-          zh: '场景案例',
-          en: 'Show Case',
-        },
-      },
-      {
-        slug: 'quick',
-        title: {
-          zh: '提交 Issue',
-          en: 'Quick Issue',
-        },
-      },
-    ],
+    navs: [],
     ecosystems: [
       // 头部的菜单中的「周边生态」
     ],
@@ -144,6 +122,16 @@ export default defineConfig({
         zh: 'Ant Visualization solution',
         en: 'Ant Visualization solution',
       },
+    },
+    metas: {
+      title: {
+        zh: "AntV",
+        en: "AntV"
+      },
+      description: {
+        zh: "让AGI栩栩如生",
+        en: "Ant Visualization solution"
+      }
     },
   },
   alias: {

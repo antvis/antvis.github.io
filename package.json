@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.8.3",
-    "@antv/dumi-theme-antv": "^0.5.7",
+    "@antv/dumi-theme-antv": "0.7.9",
     "@antv/g2plot": "^2.3.1",
     "@antv/g6": "3.3.7",
     "@antv/util": "^3.3.1",
@@ -27,7 +27,7 @@
     "chroma-js": "^2.1.0",
     "classnames": "^2.2.6",
     "d3": "^7.8.5",
-    "dumi": "~2.2.1",
+    "dumi": "~2.4.21",
     "gh-pages": "^3.1.0",
     "husky": "^8.0.2",
     "lodash": "^4.17.20",
