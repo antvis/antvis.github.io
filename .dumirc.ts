@@ -31,7 +31,15 @@ export default defineConfig({
       apiKey: '9d1cd586972bb492b7b41b13a949ef30',
       indexName: 'antv_g6',
     },
-    navs: [],
+    navs: [
+      {
+        slug: 'docs/specification/principles/basic',
+        title: {
+          zh: '设计语言',
+          en: 'Design',
+        },
+      },
+    ],
     ecosystems: [
       // 头部的菜单中的「周边生态」
     ],

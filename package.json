@@ -18,6 +18,8 @@
     "url": "https://github.com/antvis/antvis.github.io/issues"
   },
   "dependencies": {
+    "ahooks": "^3.9.5",
+    "@tanstack/react-query": "^5.90.2",
     "@ant-design/icons": "^4.8.3",
     "@antv/dumi-theme-antv": "0.7.9",
     "@antv/g2plot": "^2.3.1",
