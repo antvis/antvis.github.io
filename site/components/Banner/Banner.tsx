@@ -75,6 +75,7 @@ export default () => {
         </div>
         <HomeDialog className={styles.top}
                     promptTextareaStyle={{margin: "0 auto", width: "760px"}}
+                    recommendCaseClassName={styles.listContainer}
                     style={{margin: "270px auto", width: "unset"}}/>
         {/*<div className={styles.buttons}>*/}
         {/*  <div className={styles.start} onClick={scrollToAnchor}>*/}
