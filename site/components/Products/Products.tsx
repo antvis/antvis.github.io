@@ -104,7 +104,7 @@ const Products = () => {
   };
 
   const getDots = () => {
-    let dots: Array<Object> = [];
+    let dots: Array<React.ReactNode> = [];
     const length = products.length;
     const cols = 3;
     const rows = Math.ceil(length / 2) + 1;
