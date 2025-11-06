@@ -95,7 +95,7 @@ export default () => {
             return (
               <a
                 className={styles.message}
-                key={`${link}_${title}_${subTitle}`}
+                key={`${link}_${title[language]}_${subTitle[language]}`}
                 target="_blank"
                 href={link}
               >
