@@ -95,7 +95,7 @@ export default () => {
             return (
               <a
                 className={styles.message}
-                key={JSON.stringify(title)}
+                key={`${link}_${title}_${subTitle}`}
                 target="_blank"
                 href={link}
               >
