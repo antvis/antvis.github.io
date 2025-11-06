@@ -21,7 +21,7 @@
     "ahooks": "^3.9.5",
     "@tanstack/react-query": "^5.90.2",
     "@ant-design/icons": "^4.8.3",
-    "@antv/dumi-theme-antv": "0.7.9",
+    "@antv/dumi-theme-antv": "beta",
     "@antv/g2plot": "^2.3.1",
     "@antv/g6": "3.3.7",
     "@antv/util": "^3.3.1",

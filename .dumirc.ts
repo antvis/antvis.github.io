@@ -20,7 +20,7 @@ export default defineConfig({
     isAntVSite: true, // 是否是 AntV 的大官网
     footerTheme: 'light',
     siteUrl: homepage, // 官网地址
-    githubUrl: 'https://github.com/antvis', // GitHub 地址
+    githubUrl: 'https://github.com/antvis/antvis.github.io', // GitHub 地址
     showSearch: true, // 是否显示搜索框
     showGithubCorner: true, // 是否显示头部的 GitHub icon
     showAntVProductsCard: true, // 是否显示 AntV 产品汇总的卡片
@@ -156,4 +156,7 @@ export default defineConfig({
   },
   links: [],
   scripts: [],
+  https: {
+    http2: false
+  }
 });

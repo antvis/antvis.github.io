@@ -145,6 +145,7 @@ export function ThemeCharts() {
             <ColorPicker
               disabledAlpha
               trigger="hover"
+              key={index}
               // onChange={(v: any, color: string) => setColors10(pick(color, true))}
               panelRender={(panel: React.ReactNode) => (
                 <div className="custom-panel">
@@ -184,6 +185,7 @@ export function ThemeCharts() {
                 className={classNames(styles.chart, {
                   [styles.rightChart]: (index + 1) % 3 === 0,
                 })}
+                key={index}
               >
                 <div className={styles.chartMsg}>{useT(chart.msg)}</div>
                 <div className={styles.content}>
