@@ -1,9 +1,10 @@
 import { useIntl, useLocale } from 'dumi';
 import React, { useEffect, useState } from 'react';
-import { ActiveIcon } from '../common';
 import { ANCHORNAME } from '../ProjectCard';
+import { getBaseSiteDataUrl } from '@antv/dumi-theme-antv/dist/utils/env';
 
 import styles from './Banner.module.less';
+import { HomeDialog } from '@antv/dumi-theme-antv/dist/components/AI/HomeDialog';
 
 export default () => {
   const [message, setMessage] = useState([]);
@@ -19,7 +20,7 @@ export default () => {
   };
 
   useEffect(() => {
-    fetch('https://site-data-pre.alipay.com/antv/banner-messages.json')
+    fetch(`${getBaseSiteDataUrl()}/antv/banner-messages.json`)
       .then((res) => res.json())
       .then((data) => {
         setMessage(data);
@@ -64,7 +65,7 @@ export default () => {
         <div className={styles.top}>
           <div className={styles.mainTitle}>
             <span>AntV</span>
-            {useT('·让数据栩栩如生')}
+            {useT('·让AGI栩栩如生')}
           </div>
           <div className={styles.subTitle}>
             {useT(
@@ -72,25 +73,16 @@ export default () => {
             )}
           </div>
         </div>
-        <div className={styles.buttons}>
-          <div className={styles.start} onClick={scrollToAnchor}>
-            <div className={styles.startIcon} />
-            {useT('开始使用')}
-          </div>
-          <ActiveIcon
-            href="/specification/principles/basic"
-            className={styles.design}
-            img="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*_xFsQbWE_AYAAAAAAAAAAAAADmJ7AQ/original"
-            activeImg="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*A9VnTpferioAAAAAAAAAAAAADmJ7AQ/original"
-            text={useT('设计语言')}
-          />
-        </div>
+        <HomeDialog className={styles.top}
+                    promptTextareaStyle={{margin: "0 auto", width: "40vw", minWidth: "300px"}}
+                    recommendCaseClassName={styles.listContainer}
+                    style={{margin: "270px auto", width: "unset"}}/>
         <div className={styles.bottom}>
           {message.map(({ title, subTitle, img, link }) => {
             return (
               <a
                 className={styles.message}
-                key={title}
+                key={`${link}_${title[language]}_${subTitle[language]}`}
                 target="_blank"
                 href={link}
               >

@@ -31,7 +31,7 @@ const QuoteCard = (props: Props) => {
       id: transformedMessage,
     });
   };
-  const borderSlicer: Array<object> = [];
+  const borderSlicer: Array<React.ReactNode> = [];
   if (props.hasBorder) {
     borderSlicer.push(
       <div key={1} className={classNames(styles.border, styles.lborder)} />,
