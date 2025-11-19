@@ -85,14 +85,6 @@ export default defineConfig({
         order: 4,
       },
       {
-        slug: 'specification/module/infoCom',
-        title: {
-          zh: '信息组件 Info Component',
-          en: 'Info Componen',
-        },
-        order: 6,
-      },
-      {
         slug: 'specification/tool',
         title: {
           zh: '工具',
