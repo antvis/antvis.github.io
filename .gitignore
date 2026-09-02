@@ -56,7 +56,6 @@ typings/
 
 # gatsby files
 .cache/
-public
 
 # Mac files
 .DS_Store
@@ -74,8 +73,12 @@ _site
 
 
 
-# dumi production
+# Site production
 /dist
+
+# @antv/site generated files
+/.antv-site
+/.astro
 
 # dumi tmp_production
 .dumi/tmp

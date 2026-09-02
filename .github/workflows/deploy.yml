@@ -4,18 +4,38 @@ on:
   workflow_dispatch:
   push:
     branches:
-     - master
+      - master
 
 jobs:
   deploy-site:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm install
-      - run: npm run build
-      - run: echo 'antv.vision' > dist/CNAME
+      - uses: actions/checkout@v4
+        with:
+          path: antvis-site
+      - name: Checkout site platform
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.ANTV_SITE_PLATFORM_REPOSITORY || 'antvis/site' }}
+          ref: ${{ vars.ANTV_SITE_PLATFORM_REF || '8da268521d695766fdf6e5b54d8142cfc19a0032' }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN || github.token }}
+          path: site-platform
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Install site platform
+        run: corepack pnpm@10.34.5 --dir site-platform install --frozen-lockfile --ignore-scripts
+      - name: Build site platform
+        run: corepack pnpm@10.34.5 --dir site-platform build
+      - name: Install site
+        run: corepack pnpm@10.34.5 --dir antvis-site install --frozen-lockfile --ignore-scripts
+      - name: Build site
+        run: corepack pnpm@10.34.5 --dir antvis-site build
       - run: |
-          cd dist
+          cd antvis-site/dist
           git init
           git config --local user.name antv
           git config --local user.email github@antv.vision
@@ -24,6 +44,6 @@ jobs:
       - uses: ad-m/github-push-action@master
         with:
           github_token: ${{secrets.PERSONAL_ACCESS_TOKEN}}
-          directory: dist
+          directory: antvis-site/dist
           branch: gh-pages
           force: true

@@ -1,26 +1,49 @@
-# AntV New Site 📈
+# AntV Site
 
-New AntV site built on [@antv/dumi-theme-antv](https://github.com/antvis/dumi-theme-antv).
+The AntV full-stack visualization website is built with the sibling
+[`@antv/site`](../site-platform) platform package.
 
-![prettier code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
+The shared platform provides routing, documentation, search, the AntV header and
+footer, and default design tokens. This repository owns the organization homepage,
+product content, visual assets, and design-language documentation.
+
+The site requires Node.js 22.12 or newer and pnpm 10.34.5.
 
 ## Install & Preview
 
 ```bash
-npm install
-npm start
+nvm use
+corepack pnpm@10.34.5 --dir ../site-platform install --frozen-lockfile --ignore-scripts
+corepack pnpm@10.34.5 --dir ../site-platform build
+corepack pnpm@10.34.5 install
+corepack pnpm@10.34.5 start
 ```
 
-Visit https://127.0.0.1:8000
+`@antv/site` is linked from `../site-platform` through pnpm's `link:` protocol.
+Install and build the platform first so its dependencies and compiled integration are
+available to this repository.
 
-## Prettier
+CI and deployment pin a known-compatible `antvis/site` revision by default. Set the
+`ANTV_SITE_PLATFORM_REPOSITORY` and `ANTV_SITE_PLATFORM_REF` repository variables to
+test a different platform fork or revision.
+
+The development server prints its local URL after startup.
+
+## Validation
 
 ```bash
-npm run format
+corepack pnpm@10.34.5 check
+corepack pnpm@10.34.5 build
 ```
 
-## Deploy to antv.vision
+## Deploy
 
 ```bash
-npm run deploy
+corepack pnpm@10.34.5 deploy
 ```
+
+The legacy `.dumirc.ts`, `.dumi/`, and React components under `site/components/` are
+retained as migration reference. The production homepage is mounted through the
+`slots.home.hero` entry in `astro.config.mjs`. Its QA entry is provided by
+`@antv/site/qa-entry`; the platform owns the shared service endpoints and standard
+preview adapters, while the consumer selects the default stack and enabled products.
