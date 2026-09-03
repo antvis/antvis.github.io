@@ -13,6 +13,7 @@ export interface HomeLink {
 export interface ShowcaseItem extends HomeLink {
   product: string;
   image?: string;
+  mediaTone?: 'dark';
   preview?: 'infographic';
   size: 'featured' | 'standard';
 }
@@ -135,9 +136,9 @@ export const showcases: ShowcaseItem[] = [
       zh: '基于图形语法的统计可视化引擎，以声明式、可组合的方式构建专业交互图表。',
       en: 'A declarative and composable grammar for professional interactive statistical charts.',
     },
-    href: 'https://g2.antv.antgroup.com/examples/general/interval/#bar-basic-grouped',
+    href: 'https://g2.antv.antgroup.com/examples/animation/group/#interval',
     image:
-      'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*oj5gRqZMxZQAAAAAAAAAAAAADmJ7AQ/original',
+      'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*3xCLRLNfv7EAAAAAAAAAAAAADmJ7AQ/original',
     size: 'featured',
   },
   {
@@ -195,10 +196,11 @@ export const showcases: ShowcaseItem[] = [
       zh: '支持大规模空间数据、多图层与 WebGL 渲染的地理可视化引擎。',
       en: 'Large-scale geospatial visualization with multilayer WebGL rendering.',
     },
-    href: 'https://l7.antv.antgroup.com/examples/gallery/animate/#3d_base_map',
+    href: 'https://l7.antv.antgroup.com/examples/gallery/animate/#build_sweep',
     image:
-      'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*ZPy6QYS-idMAAAAAAAAAAAAADmJ7AQ/original',
-    size: 'standard',
+      'https://gw.alipayobjects.com/mdn/rms_816329/afts/img/A*TVs2R4bBH6wAAAAAAAAAAAAAARQnAQ',
+    mediaTone: 'dark',
+    size: 'featured',
   },
   // {
   //   product: 'Infographic',
