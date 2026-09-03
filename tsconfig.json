@@ -1,20 +1,16 @@
 {
-  "include": ["site", ".dumi/theme", ".dumi/pages", "./typing.d.ts"],
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-    "lib": ["dom", "es2017"],
-    "jsx": "react",
-    "strict": false,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "noEmit": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "site/*": ["./site/*"]
-    }
-  }
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES2022"
+  },
+  "include": [
+    ".astro/types.d.ts",
+    "src/**/*.ts",
+    "site/Home.astro",
+    "site/data/**/*.ts"
+  ],
+  "exclude": [".dumi", "site/components"]
 }

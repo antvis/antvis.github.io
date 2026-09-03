@@ -56,18 +56,10 @@
     "color": "#1074FF"
   },
   {
-    "title": "树形图表 (移动端)",
-    "subTitle": "一款可以快速、流畅运行于移动设备中的图可视化引擎",
-    "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*xYWPSa_ev60AAAAAAAAAAAAADmJ7AQ/original",
-    "link": "https://f6.antv.vision/docs/examples/tree/radialtree",
-    "antv": "F6",
-    "color": "#00C7C7"
-  },
-  {
     "title": "思维导图",
     "subTitle": "极易定制、开箱即用、数据驱动的图编辑引擎",
     "image": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*0H-HQJrdpMsAAAAAAAAAAAAADmJ7AQ/original",
-    "link": "https://x6.antv.vision/examples/showcase/practices#dag",
+    "link": "https://x6.antv.antgroup.com/examples/showcase/practices/#dag",
     "antv": "X6",
     "color": "#A658F5"
   },

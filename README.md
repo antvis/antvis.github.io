@@ -1,26 +1,28 @@
-# AntV New Site 📈
+# AntV Site
 
-New AntV site built on [@antv/dumi-theme-antv](https://github.com/antvis/dumi-theme-antv).
+The AntV full-stack visualization website is built with
+[`@antv/site`](https://github.com/antvis/site).
 
 ![prettier code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
 
 ## Install & Preview
 
 ```bash
-npm install
-npm start
+pnpm install
+pnpm start
 ```
 
-Visit https://127.0.0.1:8000
+The development server prints its local URL after startup.
 
-## Prettier
+## Validation
 
 ```bash
-npm run format
+pnpm check
+pnpm build
 ```
 
 ## Deploy to antv.vision
 
 ```bash
-npm run deploy
+pnpm deploy
 ```

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 14</title>
+    <defs>
+        <linearGradient x1="50%" y1="6.45490605e-13%" x2="50%" y2="108.105617%" id="linearGradient-1">
+            <stop stop-color="#E1D2FF" offset="0%"></stop>
+            <stop stop-color="#FCF8FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="-1.11022302e-14%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" stop-opacity="0.199437281" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="6.45490605e-13%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#B5A9FF" stop-opacity="0.321760271" offset="0%"></stop>
+            <stop stop-color="#F6E8FF" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-4" x="0" y="0" width="58" height="58" rx="18"></rect>
+        <filter x="-19.0%" y="-12.1%" width="137.9%" height="137.9%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.742353423   0 0 0 0 0.643100785   0 0 0 0 0.765200408  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-14.7%" y="-7.8%" width="129.3%" height="129.3%" filterUnits="objectBoundingBox" id="filter-6">
+            <feMorphology radius="2" operator="erode" in="SourceAlpha" result="shadowSpreadInner1"></feMorphology>
+            <feGaussianBlur stdDeviation="0.5" in="shadowSpreadInner1" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="-2" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页" transform="translate(-400, -1690)">
+            <g id="AI可视化方案" transform="translate(0, 1054)">
+                <g id="编组" transform="translate(130, 302)">
+                    <g id="编组备份-7" transform="translate(0, 290)">
+                        <g id="编组-14" transform="translate(276, 46)">
+                            <g id="矩形-4">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                                <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-4"></use>
+                                <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-4"></use>
+                                <rect stroke="url(#linearGradient-2)" stroke-width="2" stroke-linejoin="square" x="1" y="1" width="56" height="56" rx="18"></rect>
+                                <rect stroke="url(#linearGradient-3)" stroke-width="1" stroke-linejoin="square" x="0.5" y="0.5" width="57" height="57" rx="18"></rect>
+                            </g>
+                            <image id="位图" x="13.1914894" y="13" width="29.6170213" height="29" xlink:href="data:image/png;base64,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"></image>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
