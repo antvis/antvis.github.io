@@ -87,8 +87,9 @@ export default defineConfig({
   },
   qa: {
     path: 'result',
+    enabled: true,
     defaultStack: 'g2',
-    previewProducts: ['g2', 'g6', 's2'],
+    previewProducts: [],
   },
   slots: {
     home: {
@@ -113,5 +114,4 @@ export default defineConfig({
   demo: {
     height: 480,
   },
-  output: './dist',
 });
