@@ -1,9 +1,7 @@
 ---
-import arrowUpRightIcon from '@tabler/icons/outline/arrow-up-right.svg?raw';
 import type { HomeSlotProps } from '@antv/site';
-import QaEntry from '@antv/site/qa-entry';
+import { Carousel, QaEntry, Updates } from '@antv/site/components';
 import antdVisual from './assets/home/antd.svg?url';
-import antvVisual from './assets/home/antv.svg?url';
 import avaVisual from './assets/home/ava.svg?url';
 import contextVisual from './assets/home/context.png?url';
 import gptVisVisual from './assets/home/gpt-vis.svg?url';
@@ -13,14 +11,12 @@ import infographicVisual from './assets/home/infographic.svg?url';
 import mcpVisual from './assets/home/mcp.svg?url';
 import siveVisual from './assets/home/sive.svg?url';
 import skillsVisual from './assets/home/skills.svg?url';
-import weavefoxVisual from './assets/home/weavefox.svg?url';
 import {
   aiSolutions,
   ecosystem,
   experts,
   foundation,
   showcases,
-  updates,
 } from './data/home';
 
 type Props = HomeSlotProps;
@@ -52,7 +48,6 @@ const metrics = [
   { value: isZh ? '72+' : '720K+', suffix: isZh ? '万' : '', label: 'GitHub Stars' },
   { value: isZh ? '15+' : '1.5B+', suffix: isZh ? '亿' : '', label: isZh ? '年度 NPM 下载' : 'annual NPM downloads' },
 ];
-const updateVisuals = [siveVisual, weavefoxVisual, antvVisual];
 const solutionVisuals: Record<string, string> = {
   Context: contextVisual,
   Skills: skillsVisual,
@@ -93,35 +88,8 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
           </div>
         ))}
       </div>
-      <div
-        class="antv-update-carousel"
-        data-antv-carousel
-        data-page-label={isZh ? '查看第 {page} 组最新动态' : 'View updates group {page}'}
-        role="group"
-        aria-roledescription={isZh ? '轮播图' : 'carousel'}
-        aria-label={text.updatesTitle}
-      >
-        <div class="antv-update-grid" data-antv-track tabindex="0">
-          {updates.map((item, index) => (
-            <a
-              class="antv-update-card"
-              href={item.href}
-              target="_blank"
-              rel="noreferrer"
-              data-antv-item
-              style={`--antv-index:${index}`}
-            >
-              <span class="antv-update-visual"><img src={updateVisuals[index]} alt="" aria-hidden="true" loading={index === 0 ? 'eager' : 'lazy'} /></span>
-              <span class="antv-update-copy">
-                <small>{item.label}</small>
-                <strong>{item.title[locale]}</strong>
-                <span>{item.description[locale]}</span>
-              </span>
-              <span class="antv-update-arrow antv-link-icon" aria-hidden="true" set:html={arrowUpRightIcon}></span>
-            </a>
-          ))}
-        </div>
-        <div class="antv-update-pagination" data-antv-pagination hidden></div>
+      <div class="antv-updates-placement">
+        <Updates locale={locale} />
       </div>
     </div>
   </section>
@@ -244,15 +212,13 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
       <header class="antv-section-heading antv-section-heading-compact antv-expert-heading" data-antv-item>
         <h2 id="antv-experts-title">{text.expertsTitle}</h2>
       </header>
-      <div
-        class="antv-expert-carousel"
-        data-antv-carousel
-        data-page-label={isZh ? '查看第 {page} 组专家之声' : 'View expert voices group {page}'}
-        role="group"
-        aria-roledescription={isZh ? '轮播图' : 'carousel'}
-        aria-label={text.expertsTitle}
-      >
-        <div class="antv-expert-list" data-antv-track role="list" tabindex="0">
+      <div class="antv-expert-carousel">
+        <Carousel
+          locale={locale}
+          label={text.expertsTitle}
+          pageLabel={isZh ? '查看第 {page} 组专家之声' : 'View expert voices group {page}'}
+          list
+        >
           {experts.map((expert, index) => (
             <article class="antv-expert-card" role="listitem" data-antv-item style={`--antv-index:${index}`}>
               <div class="antv-expert-person">
@@ -262,8 +228,7 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
               <blockquote>{expert.quote[locale]}</blockquote>
             </article>
           ))}
-        </div>
-        <div class="antv-expert-pagination" data-antv-pagination hidden></div>
+        </Carousel>
       </div>
     </div>
   </section>
@@ -271,124 +236,6 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
 
 <script is:inline>
   (() => {
-    document.querySelectorAll('[data-antv-carousel]').forEach((carousel) => {
-      const track = carousel.querySelector('[data-antv-track]');
-      const pagination = carousel.querySelector('[data-antv-pagination]');
-      if (!(track instanceof HTMLElement) || !(pagination instanceof HTMLElement)) return;
-      const cards = [...track.children];
-      if (!cards.length) return;
-
-      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      const pageLabel = carousel.getAttribute('data-page-label') || 'View group {page}';
-      let activePage = 0;
-      let autoTimer;
-      let scrollTimer;
-      let userPaused = false;
-      let isHovered = false;
-      let isFocused = false;
-      let isVisible = !('IntersectionObserver' in window);
-      let destinations = [0];
-
-      const canScroll = () => destinations.length > 1;
-      const clearAuto = () => {
-        if (autoTimer) window.clearInterval(autoTimer);
-        autoTimer = undefined;
-      };
-      const updatePagination = () => {
-        pagination.querySelectorAll('button').forEach((button, index) => {
-          const active = index === activePage;
-          button.disabled = !canScroll();
-          if (active) button.setAttribute('aria-current', 'true');
-          else button.removeAttribute('aria-current');
-        });
-      };
-      const goTo = (page, behavior = 'smooth') => {
-        if (!canScroll()) return;
-        activePage = Math.max(0, Math.min(page, destinations.length - 1));
-        track.scrollTo({
-          left: destinations[activePage],
-          behavior: reducedMotion.matches ? 'auto' : behavior,
-        });
-        updatePagination();
-      };
-      const startAuto = () => {
-        clearAuto();
-        if (reducedMotion.matches || userPaused || isHovered || isFocused || !isVisible || !canScroll() || document.hidden) return;
-        autoTimer = window.setInterval(() => goTo((activePage + 1) % destinations.length), 5200);
-      };
-      const renderPagination = () => {
-        // Keep the design's indicators visible but disabled when every card fits.
-        const count = canScroll() ? destinations.length : cards.length;
-        const fragment = document.createDocumentFragment();
-        for (let index = 0; index < count; index += 1) {
-          const button = document.createElement('button');
-          button.type = 'button';
-          button.className = 'antv-carousel-dot';
-          button.setAttribute('aria-label', pageLabel.replace('{page}', String(index + 1)));
-          button.addEventListener('click', () => {
-            if (!canScroll()) return;
-            userPaused = true;
-            clearAuto();
-            goTo(index);
-          });
-          fragment.append(button);
-        }
-        pagination.replaceChildren(fragment);
-        pagination.hidden = count <= 1;
-        updatePagination();
-      };
-      const syncPagination = () => {
-        activePage = destinations.reduce((nearest, position, index) =>
-          Math.abs(position - track.scrollLeft) < Math.abs(destinations[nearest] - track.scrollLeft) ? index : nearest, 0);
-        updatePagination();
-      };
-      const rebuild = () => {
-        const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
-        const origin = cards[0].offsetLeft;
-        destinations = [0];
-        if (maxScroll > 1) {
-          cards.forEach((card) => {
-            const position = Math.min(Math.max(0, card.offsetLeft - origin), maxScroll);
-            if (position - destinations[destinations.length - 1] > 1) destinations.push(position);
-          });
-        }
-        renderPagination();
-        syncPagination();
-        startAuto();
-      };
-
-      track.addEventListener('scroll', () => {
-        if (scrollTimer) window.clearTimeout(scrollTimer);
-        scrollTimer = window.setTimeout(syncPagination, 80);
-      }, { passive: true });
-      carousel.addEventListener('pointerenter', () => { isHovered = true; clearAuto(); });
-      carousel.addEventListener('pointerleave', () => { isHovered = false; startAuto(); });
-      carousel.addEventListener('focusin', () => { isFocused = true; clearAuto(); });
-      carousel.addEventListener('focusout', (event) => {
-        if (event.relatedTarget instanceof Node && carousel.contains(event.relatedTarget)) return;
-        isFocused = false;
-        startAuto();
-      });
-      carousel.addEventListener('touchstart', () => {
-        userPaused = true;
-        clearAuto();
-      }, { passive: true });
-      reducedMotion.addEventListener('change', startAuto);
-      if ('ResizeObserver' in window) new ResizeObserver(rebuild).observe(track);
-      else window.addEventListener('resize', rebuild);
-      document.addEventListener('visibilitychange', startAuto);
-
-      if ('IntersectionObserver' in window) {
-        const carouselObserver = new IntersectionObserver(([entry]) => {
-          isVisible = entry.isIntersecting;
-          if (isVisible) startAuto();
-          else clearAuto();
-        }, { threshold: 0.2 });
-        carouselObserver.observe(carousel);
-      }
-      rebuild();
-    });
-
     const sections = [...document.querySelectorAll('[data-antv-scene]')];
     const reveal = (section) => section.setAttribute('data-antv-visible', '');
     document.documentElement.classList.add('antv-home-motion');
@@ -439,6 +286,12 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
     overflow: hidden;
     color: var(--text);
     background: var(--antv-page);
+  }
+
+  .antv-updates-placement { margin-top: 100px; }
+
+  @media (max-width: 767px) {
+    .antv-updates-placement { margin-top: 34px; }
   }
 
   .antv-section-inner,
@@ -526,7 +379,6 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
     line-height: 26.4px;
   }
 
-  .antv-update-card:focus-visible,
   .antv-solution-card:focus-visible,
   .antv-showcase-card:focus-visible,
   .antv-matrix-board a:focus-visible {
@@ -626,31 +478,10 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
     line-height: 24px;
   }
 
-  .antv-update-carousel {
-    display: flow-root;
-    margin-top: 100px;
-  }
-
-  .antv-update-grid {
-    display: grid;
-    width: 100%;
-    grid-auto-columns: calc((100% - 40px) / 3);
-    grid-auto-flow: column;
-    gap: 20px;
-    margin-block: -40px;
-    padding-block: 40px;
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    scroll-snap-type: inline mandatory;
-    scrollbar-width: none;
-  }
-
-  .antv-update-grid::-webkit-scrollbar,
   .antv-solution-grid::-webkit-scrollbar {
     display: none;
   }
 
-  .antv-update-card,
   .antv-solution-card,
   .antv-showcase-card {
     color: inherit;
@@ -658,126 +489,16 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
     transition: border-color .25s, box-shadow .25s, transform .25s;
   }
 
-  .antv-update-card {
-    position: relative;
-    display: grid;
-    height: 150px;
-    grid-template-columns: 50px minmax(0, 1fr);
-    grid-template-rows: 52px 52px;
-    column-gap: 16px;
-    row-gap: 10px;
-    padding: 17px 18px;
-    border: 2px solid #fff;
-    border-radius: 20px;
-    background: linear-gradient(180deg, #fff 0%, #fafafa 100%);
-    box-shadow: 0 10px 30px #f0ebf6;
-    scroll-snap-align: start;
-  }
-
-  .antv-update-card:hover,
   .antv-solution-card:hover {
     background:
       linear-gradient(180deg, #b39aff 0%, rgb(255 255 255 / 0%) 100%),
       linear-gradient(180deg, #fff 0%, #fafafa 100%);
   }
 
-  .antv-update-card:active,
   .antv-solution-card:active,
   .antv-showcase-card:active,
   .antv-matrix-board a:active {
     transform: translateY(-1px) scale(.99);
-  }
-
-  .antv-update-visual {
-    display: grid;
-    width: 50px;
-    height: 50px;
-    margin-top: 1px;
-    place-items: center;
-    overflow: hidden;
-    border-radius: 14px;
-    background: rgb(255 255 255 / 88%);
-  }
-
-  .antv-update-visual img {
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-  }
-
-  .antv-update-copy {
-    display: contents;
-  }
-
-  .antv-update-copy small {
-    display: none;
-  }
-
-  .antv-update-copy strong {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: center;
-    padding-right: 33px;
-    color: #000;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 26px;
-  }
-
-  .antv-update-copy > span {
-    display: -webkit-box;
-    grid-column: 1 / -1;
-    grid-row: 2;
-    overflow: hidden;
-    color: #666;
-    font-family: var(--antv-copy-font);
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 26px;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
-
-  .antv-update-arrow {
-    position: absolute;
-    top: 20px;
-    right: 17px;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(-3px);
-    transition: opacity .2s ease, transform .2s ease;
-  }
-
-  .antv-update-card:hover .antv-update-arrow,
-  .antv-update-card:focus-visible .antv-update-arrow {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .antv-update-arrow :global(svg) {
-    width: 14px;
-    height: 14px;
-  }
-
-  .antv-update-pagination {
-    display: flex;
-    width: 76px;
-    height: 10px;
-    align-items: center;
-    justify-content: space-between;
-    margin: 50px auto 0;
-  }
-
-  .antv-link-icon {
-    display: inline-grid;
-    color: color-mix(in srgb, var(--brand) 72%, var(--muted));
-    place-items: center;
-  }
-
-  .antv-link-icon :global(svg) {
-    width: 18px;
-    height: 18px;
-    stroke-width: 1.7;
   }
 
   .antv-ai-solutions,
@@ -1398,23 +1119,10 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
 
   .antv-expert-carousel {
     position: relative;
-  }
-
-  .antv-expert-list {
-    display: grid;
-    grid-auto-columns: calc((100% - 84px) / 4);
-    grid-auto-flow: column;
-    gap: 28px;
-    margin-block: -20px;
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    padding-block: 20px;
-    scroll-snap-type: inline mandatory;
-    scrollbar-width: none;
-  }
-
-  .antv-expert-list::-webkit-scrollbar {
-    display: none;
+    --carousel-columns: 4;
+    --carousel-gap: 28px;
+    --carousel-track-padding: 20px;
+    --carousel-pagination-margin: 60px;
   }
 
   .antv-expert-card {
@@ -1475,50 +1183,6 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
     line-height: 21px;
   }
 
-  .antv-expert-pagination {
-    display: flex;
-    width: 76px;
-    align-items: center;
-    gap: 0;
-    justify-content: space-between;
-    margin: 60px auto 0;
-  }
-
-  [data-antv-pagination][hidden] {
-    display: none;
-  }
-
-  [data-antv-pagination] :global(.antv-carousel-dot) {
-    width: 10px;
-    height: 10px;
-    padding: 0;
-    border: 0;
-    border-radius: 50%;
-    background: var(--brand);
-    cursor: pointer;
-    opacity: .2;
-    transition: opacity .22s, transform .22s;
-  }
-
-  [data-antv-pagination] :global(.antv-carousel-dot:enabled:hover),
-  [data-antv-pagination] :global(.antv-carousel-dot:focus-visible) {
-    opacity: .55;
-  }
-
-  [data-antv-pagination] :global(.antv-carousel-dot:focus-visible) {
-    outline: 2px solid color-mix(in srgb, var(--brand) 65%, white);
-    outline-offset: 4px;
-  }
-
-  [data-antv-pagination] :global(.antv-carousel-dot[aria-current='true']) {
-    opacity: 1;
-    transform: scale(1.08);
-  }
-
-  [data-antv-pagination] :global(.antv-carousel-dot:disabled) {
-    cursor: not-allowed;
-  }
-
   :global(.antv-home-motion) [data-antv-scene] [data-antv-item] {
     opacity: 0;
     transform: translateY(20px);
@@ -1532,7 +1196,6 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
   }
 
   @media (prefers-reduced-transparency: reduce) {
-    .antv-update-card,
     .antv-solution-card,
     .antv-showcase-card,
     .antv-matrix-board,
@@ -1566,9 +1229,9 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
   }
 
   @media (min-width: 1001px) and (max-width: 1199px) {
-    .antv-expert-list {
-      grid-auto-columns: calc((100% - 48px) / 3);
-      gap: 24px;
+    .antv-expert-carousel {
+      --carousel-columns: 3;
+      --carousel-gap: 24px;
     }
   }
 
@@ -1605,10 +1268,6 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .antv-update-grid {
-      grid-auto-columns: calc((100% - 20px) / 2);
-    }
-
     .antv-solution-grid {
       width: 100%;
       grid-template-rows: none;
@@ -1617,9 +1276,9 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
       overflow: visible;
     }
 
-    .antv-expert-list {
-      grid-auto-columns: calc((100% - 24px) / 2);
-      gap: 24px;
+    .antv-expert-carousel {
+      --carousel-columns: 2;
+      --carousel-gap: 24px;
     }
 
     .antv-matrix-board {
@@ -1719,19 +1378,6 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
       font-size: 12px;
     }
 
-    .antv-update-carousel {
-      margin-top: 34px;
-    }
-
-    .antv-update-grid {
-      grid-auto-columns: 100%;
-      gap: 14px;
-    }
-
-    .antv-update-card {
-      height: 150px;
-    }
-
     .antv-ai-solutions,
     .antv-showcase,
     .antv-matrix,
@@ -1781,9 +1427,9 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
       line-height: 1.2;
     }
 
-    .antv-expert-list {
-      grid-auto-columns: 100%;
-      gap: 14px;
+    .antv-expert-carousel {
+      --carousel-columns: 1;
+      --carousel-gap: 14px;
     }
 
     .antv-solution-card {
@@ -1957,8 +1603,8 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
       font-size: 15px;
     }
 
-    .antv-expert-pagination {
-      margin-top: 36px;
+    .antv-expert-carousel {
+      --carousel-pagination-margin: 36px;
     }
   }
 </style>

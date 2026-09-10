@@ -17,46 +17,6 @@ export interface ShowcaseItem extends HomeLink {
   mediaTone?: 'dark';
 }
 
-export const updates: HomeLink[] = [
-  {
-    label: 'Sive',
-    title: {
-      zh: 'Sive AI 可视化研发平台正式发布',
-      en: 'Sive, the AI visualization workspace, is now available',
-    },
-    description: {
-      zh: '把数据和想法变成可视化报告，让每一份洞察即刻可见、轻松分享。',
-      en: 'Turn data and ideas into visual reports that are ready to see and share.',
-    },
-    href: 'https://sive.antv.antgroup.com/',
-    image:
-      'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*nRBgR5pM57cAAAAAQCAAAAgAemJ7AQ/original',
-  },
-  {
-    label: 'WeaveFox',
-    title: {
-      zh: 'WeaveFox 全新版本发布',
-      en: 'The new WeaveFox is now available',
-    },
-    description: {
-      zh: '焕新上线，让创意灵感轻松落地。你的创意，值得让全世界看到。',
-      en: 'Turn creative ideas into polished visual work and share them with the world.',
-    },
-    href: 'https://weavefox.cn/',
-  },
-  {
-    label: 'OSCP',
-    title: {
-      zh: 'AntV 开源共建持续进行',
-      en: 'Build the open AntV ecosystem together',
-    },
-    description: {
-      zh: '从代码、文档到案例，与全球开发者共同建设下一代可视化技术。',
-      en: 'Contribute code, documentation, and examples to the next generation of visualization tooling.',
-    },
-    href: 'https://github.com/antvis',
-  },
-];
 
 export const aiSolutions: HomeLink[] = [
   {
