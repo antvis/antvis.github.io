@@ -23,10 +23,7 @@
     "url": "https://github.com/antvis/antvis.github.io/issues"
   },
   "devDependencies": {
-    "@antv/g2": "^5.4.8",
-    "@antv/g6": "5.1.1",
-    "@antv/s2": "^2.7.2",
-    "@antv/site": "^0.1.0",
+    "@antv/site": "link:../site-platform",
     "@astrojs/check": "0.9.10",
     "@tabler/icons": "^3.46.0",
     "astro": "7.2.0",

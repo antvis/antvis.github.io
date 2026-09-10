@@ -1,24 +1,18 @@
 ---
 import arrowUpRightIcon from '@tabler/icons/outline/arrow-up-right.svg?raw';
-import appsIcon from '@tabler/icons/outline/apps.svg?raw';
-import hierarchyIcon from '@tabler/icons/outline/hierarchy-3.svg?raw';
-import stackIcon from '@tabler/icons/outline/stack-2.svg?raw';
 import type { HomeSlotProps } from '@antv/site';
 import QaEntry from '@antv/site/qa-entry';
-import aiBackground from './assets/home/ai-background.png?url';
+import antdVisual from './assets/home/antd.svg?url';
 import antvVisual from './assets/home/antv.svg?url';
 import avaVisual from './assets/home/ava.svg?url';
-import columnVisual from './assets/home/column.svg?url';
 import contextVisual from './assets/home/context.png?url';
 import gptVisVisual from './assets/home/gpt-vis.svg?url';
 import heroBackground from './assets/home/hero-background.png?url';
 import heroEffect from './assets/home/hero-effect.gif?url';
 import infographicVisual from './assets/home/infographic.svg?url';
 import mcpVisual from './assets/home/mcp.svg?url';
-import pieVisual from './assets/home/pie.svg?url';
 import siveVisual from './assets/home/sive.svg?url';
 import skillsVisual from './assets/home/skills.svg?url';
-import treemapVisual from './assets/home/treemap.svg?url';
 import weavefoxVisual from './assets/home/weavefox.svg?url';
 import {
   aiSolutions,
@@ -45,15 +39,10 @@ const text = {
     : 'A complete workflow spanning product knowledge, reusable skills, connected tools, and data understanding.',
   performanceTitle: isZh ? '卓越性能、自在表达' : 'High performance, expressive by design',
   performanceDescription: isZh
-    ? '从统计图表到信息图，选择适合场景的技术栈，直接打开真实示例。'
-    : 'Choose the right technology for each visual expression and open a working example.',
+    ? '定制主题、一键生成、性能飞跃、专业优雅、丰富图表、选用自如。'
+    : 'Custom themes, fast generation, high performance, and expressive charts for every use case.',
   matrixTitle: isZh ? '产品矩阵' : 'Product matrix',
-  matrixDescription: isZh
-    ? '从设计语言与底层引擎，到图表、图编辑和 AI Agent，共享同一套开放技术基础。'
-    : 'A shared open foundation spanning design, engines, charts, diagramming, and AI agents.',
   aiAgent: 'AntV AI Agent',
-  ecosystem: isZh ? '周边生态' : 'Ecosystem',
-  foundation: isZh ? '可视化技术栈' : 'Visualization stack',
   designLanguage: isZh ? 'AntV Design 设计语言' : 'AntV Design language',
   expertsTitle: isZh ? '专家之声' : 'Expert voices',
 };
@@ -72,8 +61,10 @@ const solutionVisuals: Record<string, string> = {
   'GPT Vis': gptVisVisual,
   Infographic: infographicVisual,
 };
-const showcaseDecorations = [columnVisual, pieVisual, treemapVisual];
-const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
+const matrixAgentDescriptions = isZh
+  ? ['知识召回', '专业技能', '生态链接', '智能洞察']
+  : ['Context retrieval', 'Specialist skills', 'Ecosystem links', 'Intelligent insights'];
+const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis chart library';
 ---
 
 <div class:list={['antv-home', !isZh && 'antv-home-en']}>
@@ -102,39 +93,42 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
           </div>
         ))}
       </div>
-      <div class="antv-update-grid">
-        {updates.map((item, index) => (
-          <a
-            class:list={['antv-update-card', index === 0 && 'antv-update-featured']}
-            href={item.href}
-            target="_blank"
-            rel="noreferrer"
-            data-antv-item
-            style={`--antv-index:${index}`}
-          >
-            <span class="antv-update-visual"><img src={updateVisuals[index]} alt="" aria-hidden="true" loading={index === 0 ? 'eager' : 'lazy'} /></span>
-            <span class="antv-update-copy">
-              <small>{item.label}</small>
-              <strong>{item.title[locale]}</strong>
-              <span>{item.description[locale]}</span>
-            </span>
-          </a>
-        ))}
+      <div
+        class="antv-update-carousel"
+        data-antv-carousel
+        data-page-label={isZh ? '查看第 {page} 组最新动态' : 'View updates group {page}'}
+        role="group"
+        aria-roledescription={isZh ? '轮播图' : 'carousel'}
+        aria-label={text.updatesTitle}
+      >
+        <div class="antv-update-grid" data-antv-track tabindex="0">
+          {updates.map((item, index) => (
+            <a
+              class="antv-update-card"
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              data-antv-item
+              style={`--antv-index:${index}`}
+            >
+              <span class="antv-update-visual"><img src={updateVisuals[index]} alt="" aria-hidden="true" loading={index === 0 ? 'eager' : 'lazy'} /></span>
+              <span class="antv-update-copy">
+                <small>{item.label}</small>
+                <strong>{item.title[locale]}</strong>
+                <span>{item.description[locale]}</span>
+              </span>
+              <span class="antv-update-arrow antv-link-icon" aria-hidden="true" set:html={arrowUpRightIcon}></span>
+            </a>
+          ))}
+        </div>
+        <div class="antv-update-pagination" data-antv-pagination hidden></div>
       </div>
     </div>
   </section>
 
   <section id="ai-solutions" class="antv-ai-solutions" aria-labelledby="antv-ai-title" data-antv-scene>
-    <img class="antv-ai-background" src={aiBackground} alt="" aria-hidden="true" loading="lazy" />
-    <div class="antv-ai-atmosphere" aria-hidden="true">
-      <span class="antv-ai-deco antv-ai-deco-column"><img src={columnVisual} alt="" loading="lazy" /></span>
-      <span class="antv-ai-deco antv-ai-deco-pie"><img src={pieVisual} alt="" loading="lazy" /></span>
-      <span class="antv-ai-deco antv-ai-deco-treemap"><img src={treemapVisual} alt="" loading="lazy" /></span>
-      <span class="antv-ai-deco antv-ai-deco-soft"></span>
-      <span class="antv-ai-deco antv-ai-deco-ghost"></span>
-    </div>
     <div class="antv-section-inner">
-      <header class="antv-section-heading" data-antv-item>
+      <header class="antv-section-heading antv-ai-heading" data-antv-item>
         <h2 id="antv-ai-title">{text.aiTitle}</h2>
         <p>{text.aiDescription}</p>
       </header>
@@ -161,99 +155,85 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
   </section>
 
   <section id="products" class="antv-showcase" aria-labelledby="antv-performance-title" data-antv-scene>
-    <div class="antv-section-atmosphere" aria-hidden="true">
-      {showcaseDecorations.map((decoration, index) => (
-        <span class={`antv-section-deco antv-showcase-decoration antv-showcase-decoration-${index + 1}`}>
-          <img src={decoration} alt="" loading="lazy" />
-        </span>
-      ))}
-    </div>
     <div class="antv-section-inner">
       <header class="antv-section-heading" data-antv-item>
         <h2 id="antv-performance-title">{text.performanceTitle}</h2>
         <p>{text.performanceDescription}</p>
       </header>
       <div class="antv-showcase-grid">
-        {showcases.map((item, index) => (
-          <a
-            class:list={['antv-showcase-card', item.size === 'featured' && 'antv-showcase-card-featured']}
-            href={item.href}
-            target="_blank"
-            rel="noreferrer"
-            data-antv-item
-            style={`--antv-index:${index}`}
-          >
-            <figure class:list={['antv-showcase-media', item.preview, item.mediaTone === 'dark' && 'antv-showcase-media-dark']}>
-              <div class="antv-showcase-media-inner">
-                {item.image ? (
+        {showcases.map((item, index) => {
+          const titleNote = item.titleNote?.[locale];
+          return (
+            <a
+              class="antv-showcase-card"
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              data-antv-item
+              style={`--antv-index:${index}`}
+            >
+              <figure class:list={['antv-showcase-media', item.mediaTone === 'dark' && 'antv-showcase-media-dark']}>
+                <div class="antv-showcase-media-inner">
                   <img
                     src={item.image}
-                    alt={isZh ? `${item.product} ${item.title.zh}示例` : `${item.product} ${item.title.en} example`}
+                    alt={`${item.product} ${item.title[locale]}${titleNote ?? ''}${isZh ? '示例' : ' example'}`}
                     loading="lazy"
                     decoding="async"
                   />
-                ) : (
-                  <img src={infographicVisual} alt={item.title[locale]} loading="lazy" decoding="async" />
-                )}
-              </div>
-            </figure>
-            <span class="antv-showcase-copy">
-              <span class="antv-showcase-title-row"><strong>{item.title[locale]}</strong><small>{item.product}</small></span>
-              <span>{item.description[locale]}</span>
-            </span>
-          </a>
-        ))}
+                </div>
+              </figure>
+              <span class="antv-showcase-copy">
+                <span class="antv-showcase-title-row">
+                  <strong>
+                    {item.title[locale]}
+                    {titleNote && <> <span class="antv-showcase-title-note">{titleNote}</span></>}
+                  </strong>
+                  <small>{item.product}</small>
+                </span>
+                <span>{item.description[locale]}</span>
+              </span>
+            </a>
+          );
+        })}
       </div>
     </div>
   </section>
 
   <section class="antv-matrix" aria-labelledby="antv-matrix-title" data-antv-scene>
-    <div class="antv-section-atmosphere" aria-hidden="true">
-      {matrixDecorations.map((decoration, index) => (
-        <span
-          class={`antv-section-deco antv-matrix-decoration antv-matrix-decoration-${index + 1}`}
-          set:html={decoration}
-        ></span>
-      ))}
-    </div>
     <div class="antv-section-inner">
-      <header class="antv-section-heading" data-antv-item>
+      <header class="antv-section-heading antv-matrix-heading" data-antv-item>
         <h2 id="antv-matrix-title">{text.matrixTitle}</h2>
-        <p>{text.matrixDescription}</p>
       </header>
       <div class="antv-matrix-board" data-antv-item>
         <a class="antv-matrix-sive" href={ecosystem[0].href} target="_blank" rel="noreferrer">
-          <img src={siveVisual} alt="" aria-hidden="true" loading="lazy" />
-          <strong>{ecosystem[0].name}</strong>
-          <span>{ecosystem[0].description[locale]}</span>
-          <span class="antv-link-icon" aria-hidden="true" set:html={arrowUpRightIcon}></span>
+          <span class="antv-matrix-product-mark"><img src={siveVisual} alt="" aria-hidden="true" loading="lazy" /></span>
+          <strong>{ecosystem[0].name} <span aria-hidden="true">·</span> {ecosystem[0].description[locale]}</strong>
         </a>
         <div class="antv-matrix-agent">
           <strong>{text.aiAgent}</strong>
           <div>
-            {aiSolutions.map((item) => (
-              <a href={item.href} target="_blank" rel="noreferrer"><b>{item.label}</b><span>{item.title[locale]}</span></a>
+            {aiSolutions.slice(0, 4).map((item, index) => (
+              <a href={item.href} target="_blank" rel="noreferrer"><b>{item.label}</b><span>{matrixAgentDescriptions[index]}</span></a>
             ))}
           </div>
         </div>
-        <div class="antv-matrix-group">
-          <span>{text.ecosystem}</span>
-          <div class="antv-matrix-ecosystem">
-            {ecosystem.slice(1).map((item) => (
-              <a href={item.href} target="_blank" rel="noreferrer"><strong>{item.name}</strong><span>{item.description[locale]}</span></a>
-            ))}
-          </div>
+        <div class="antv-matrix-ecosystem">
+          <a href={ecosystem[1].href} target="_blank" rel="noreferrer">
+            <span class="antv-matrix-product-mark"><img src={antdVisual} alt="" aria-hidden="true" loading="lazy" /></span>
+            <strong>{ecosystem[1].name} <span>{ecosystem[1].description[locale]}</span></strong>
+          </a>
+          <a href={aiSolutions[4].href} target="_blank" rel="noreferrer">
+            <span class="antv-matrix-product-mark"><img src={gptVisVisual} alt="" aria-hidden="true" loading="lazy" /></span>
+            <strong>{aiSolutions[4].label} <span>{matrixGptVisDescription}</span></strong>
+          </a>
         </div>
-        <div class="antv-matrix-group">
-          <span>{text.foundation}</span>
-          <div class="antv-matrix-foundation">
-            {foundation.map(([name, zhDescription, enDescription, href]) => (
-              <a href={href} target="_blank" rel="noreferrer"><strong>{name}</strong><span>{isZh ? zhDescription : enDescription}</span></a>
-            ))}
-          </div>
+        <div class="antv-matrix-foundation">
+          {foundation.map(([name, zhDescription, enDescription, href]) => (
+            <a href={href} target="_blank" rel="noreferrer"><strong>{name}</strong><span>{isZh ? zhDescription : enDescription}</span></a>
+          ))}
         </div>
         <a class="antv-matrix-design" href={`/${locale}/specification/principles/basic/`}>
-          <strong>{text.designLanguage}</strong><span class="antv-link-icon" aria-hidden="true" set:html={arrowUpRightIcon}></span>
+          <strong>{text.designLanguage}</strong>
         </a>
       </div>
     </div>
@@ -261,17 +241,18 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
 
   <section class="antv-experts" aria-labelledby="antv-experts-title" data-antv-scene>
     <div class="antv-section-inner">
-      <header class="antv-section-heading antv-section-heading-compact" data-antv-item>
+      <header class="antv-section-heading antv-section-heading-compact antv-expert-heading" data-antv-item>
         <h2 id="antv-experts-title">{text.expertsTitle}</h2>
       </header>
       <div
         class="antv-expert-carousel"
-        data-expert-carousel
+        data-antv-carousel
         data-page-label={isZh ? '查看第 {page} 组专家之声' : 'View expert voices group {page}'}
+        role="group"
         aria-roledescription={isZh ? '轮播图' : 'carousel'}
         aria-label={text.expertsTitle}
       >
-        <div class="antv-expert-list" data-expert-track role="list" tabindex="0">
+        <div class="antv-expert-list" data-antv-track role="list" tabindex="0">
           {experts.map((expert, index) => (
             <article class="antv-expert-card" role="listitem" data-antv-item style={`--antv-index:${index}`}>
               <div class="antv-expert-person">
@@ -282,7 +263,7 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
             </article>
           ))}
         </div>
-        <div class="antv-expert-pagination" data-expert-pagination hidden></div>
+        <div class="antv-expert-pagination" data-antv-pagination hidden></div>
       </div>
     </div>
   </section>
@@ -290,25 +271,25 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
 
 <script is:inline>
   (() => {
-    document.querySelectorAll('[data-expert-carousel]').forEach((carousel) => {
-      const track = carousel.querySelector('[data-expert-track]');
-      const pagination = carousel.querySelector('[data-expert-pagination]');
-      const cards = [...carousel.querySelectorAll('.antv-expert-card')];
-      if (!(track instanceof HTMLElement) || !(pagination instanceof HTMLElement) || !cards.length) return;
+    document.querySelectorAll('[data-antv-carousel]').forEach((carousel) => {
+      const track = carousel.querySelector('[data-antv-track]');
+      const pagination = carousel.querySelector('[data-antv-pagination]');
+      if (!(track instanceof HTMLElement) || !(pagination instanceof HTMLElement)) return;
+      const cards = [...track.children];
+      if (!cards.length) return;
 
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      const mobile = window.matchMedia('(max-width: 767px)');
-      const tablet = window.matchMedia('(min-width: 768px) and (max-width: 1000px)');
-      const compactDesktop = window.matchMedia('(min-width: 1001px) and (max-width: 1199px)');
       const pageLabel = carousel.getAttribute('data-page-label') || 'View group {page}';
       let activePage = 0;
       let autoTimer;
       let scrollTimer;
       let userPaused = false;
+      let isHovered = false;
+      let isFocused = false;
       let isVisible = !('IntersectionObserver' in window);
+      let destinations = [0];
 
-      const perPage = () => mobile.matches ? 1 : tablet.matches ? 2 : compactDesktop.matches ? 3 : 4;
-      const pageCount = () => Math.max(1, cards.length - perPage() + 1);
+      const canScroll = () => destinations.length > 1;
       const clearAuto = () => {
         if (autoTimer) window.clearInterval(autoTimer);
         autoTimer = undefined;
@@ -316,35 +297,36 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
       const updatePagination = () => {
         pagination.querySelectorAll('button').forEach((button, index) => {
           const active = index === activePage;
-          button.classList.toggle('antv-expert-pagination-active', active);
+          button.disabled = !canScroll();
           if (active) button.setAttribute('aria-current', 'true');
           else button.removeAttribute('aria-current');
         });
       };
       const goTo = (page, behavior = 'smooth') => {
-        activePage = Math.max(0, Math.min(page, pageCount() - 1));
-        const target = cards[activePage];
-        const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+        if (!canScroll()) return;
+        activePage = Math.max(0, Math.min(page, destinations.length - 1));
         track.scrollTo({
-          left: Math.min(target.offsetLeft, maxScroll),
+          left: destinations[activePage],
           behavior: reducedMotion.matches ? 'auto' : behavior,
         });
         updatePagination();
       };
       const startAuto = () => {
         clearAuto();
-        if (reducedMotion.matches || userPaused || !isVisible || pageCount() <= 1 || document.hidden) return;
-        autoTimer = window.setInterval(() => goTo((activePage + 1) % pageCount()), 5200);
+        if (reducedMotion.matches || userPaused || isHovered || isFocused || !isVisible || !canScroll() || document.hidden) return;
+        autoTimer = window.setInterval(() => goTo((activePage + 1) % destinations.length), 5200);
       };
       const renderPagination = () => {
-        const count = pageCount();
+        // Keep the design's indicators visible but disabled when every card fits.
+        const count = canScroll() ? destinations.length : cards.length;
         const fragment = document.createDocumentFragment();
         for (let index = 0; index < count; index += 1) {
           const button = document.createElement('button');
           button.type = 'button';
-          button.className = 'antv-expert-pagination-dot';
+          button.className = 'antv-carousel-dot';
           button.setAttribute('aria-label', pageLabel.replace('{page}', String(index + 1)));
           button.addEventListener('click', () => {
+            if (!canScroll()) return;
             userPaused = true;
             clearAuto();
             goTo(index);
@@ -353,43 +335,47 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
         }
         pagination.replaceChildren(fragment);
         pagination.hidden = count <= 1;
-        activePage = Math.min(activePage, count - 1);
+        updatePagination();
+      };
+      const syncPagination = () => {
+        activePage = destinations.reduce((nearest, position, index) =>
+          Math.abs(position - track.scrollLeft) < Math.abs(destinations[nearest] - track.scrollLeft) ? index : nearest, 0);
         updatePagination();
       };
       const rebuild = () => {
+        const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+        const origin = cards[0].offsetLeft;
+        destinations = [0];
+        if (maxScroll > 1) {
+          cards.forEach((card) => {
+            const position = Math.min(Math.max(0, card.offsetLeft - origin), maxScroll);
+            if (position - destinations[destinations.length - 1] > 1) destinations.push(position);
+          });
+        }
         renderPagination();
-        goTo(activePage, 'auto');
+        syncPagination();
         startAuto();
       };
 
       track.addEventListener('scroll', () => {
         if (scrollTimer) window.clearTimeout(scrollTimer);
-        scrollTimer = window.setTimeout(() => {
-          const maxPage = pageCount() - 1;
-          let nearestPage = 0;
-          let nearestDistance = Number.POSITIVE_INFINITY;
-          for (let index = 0; index <= maxPage; index += 1) {
-            const distance = Math.abs(cards[index].offsetLeft - track.scrollLeft);
-            if (distance >= nearestDistance) continue;
-            nearestDistance = distance;
-            nearestPage = index;
-          }
-          activePage = nearestPage;
-          updatePagination();
-        }, 80);
+        scrollTimer = window.setTimeout(syncPagination, 80);
       }, { passive: true });
-      carousel.addEventListener('pointerenter', clearAuto);
-      carousel.addEventListener('pointerleave', startAuto);
-      carousel.addEventListener('focusin', clearAuto);
+      carousel.addEventListener('pointerenter', () => { isHovered = true; clearAuto(); });
+      carousel.addEventListener('pointerleave', () => { isHovered = false; startAuto(); });
+      carousel.addEventListener('focusin', () => { isFocused = true; clearAuto(); });
       carousel.addEventListener('focusout', (event) => {
         if (event.relatedTarget instanceof Node && carousel.contains(event.relatedTarget)) return;
+        isFocused = false;
         startAuto();
       });
       carousel.addEventListener('touchstart', () => {
         userPaused = true;
         clearAuto();
       }, { passive: true });
-      [mobile, tablet, compactDesktop, reducedMotion].forEach((query) => query.addEventListener('change', rebuild));
+      reducedMotion.addEventListener('change', startAuto);
+      if ('ResizeObserver' in window) new ResizeObserver(rebuild).observe(track);
+      else window.addEventListener('resize', rebuild);
       document.addEventListener('visibilitychange', startAuto);
 
       if ('IntersectionObserver' in window) {
@@ -422,14 +408,28 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
 </script>
 
 <style>
+  @font-face {
+    font-family: 'AntV Home Light';
+    src: url('./assets/home/fonts/home-light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'AntV Metrics';
+    src: url('./assets/home/fonts/metrics-bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+  }
   .antv-home {
     --antv-home-width: min(1180px, calc(100% - 64px));
+    --antv-copy-font: 'AntV Home Light', var(--font-sans);
     --antv-card-radius: 18px;
     --antv-card-padding: 15px;
     --antv-inner-radius: 12px;
-    --antv-page: #fbfaff;
-    --antv-page-rgb: 251 250 255;
-    --antv-section: #f5f1ff;
+    /* Native Sketch page fill and shared AI/product-matrix surface. */
+    --antv-page: #fbfbfc;
+    --antv-section: #f6f4fd;
     --antv-card: rgb(255 254 255 / 92%);
     --antv-card-solid: #F8F7FD;
     --antv-line: #e7ddf6;
@@ -466,16 +466,6 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
     background: #eee7ff;
   }
 
-  .antv-hero::after {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background:
-      linear-gradient(180deg, rgb(255 255 255 / 5%) 0%, rgb(255 255 255 / 10%) 68%, rgb(251 250 255 / 22%) 100%);
-    content: '';
-    pointer-events: none;
-  }
-
   .antv-hero-media,
   .antv-hero-media img {
     position: absolute;
@@ -510,26 +500,30 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
 
   .antv-home h1,
   .antv-home h2 {
-    font-weight: var(--font-heading-weight, 900);
+    font-weight: 900;
   }
 
   .antv-hero h1 {
     max-width: 100%;
-    font-size: clamp(58px, 5vw, 68px);
-    line-height: 1.08;
+    font-size: clamp(58px, 4.31vw, 62px);
+    line-height: 73.44px;
+    letter-spacing: 0;
+    color: #000;
     white-space: nowrap;
   }
 
   .antv-wordmark {
-    color: var(--brand);
+    color: #6e27ff;
   }
 
   .antv-hero-description {
-    max-width: 660px;
+    max-width: 698px;
     margin: 16px 0 0;
-    color: #625c6c;
-    font-size: 16px;
-    line-height: 1.65;
+    color: #666;
+    font-family: var(--antv-copy-font);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 26.4px;
   }
 
   .antv-update-card:focus-visible,
@@ -543,8 +537,9 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
   .antv-signal {
     position: relative;
     z-index: 3;
-    margin-top: -116px;
-    padding-bottom: 82px;
+    overflow: hidden;
+    margin-top: -47px;
+    padding: 106px 0 55px;
     background: transparent;
   }
 
@@ -553,72 +548,106 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgb(var(--antv-page-rgb) / 0%) 0,
-      rgb(var(--antv-page-rgb) / 72%) 112px,
-      var(--antv-page) 190px
+      rgb(251 251 252 / 0%) 0,
+      var(--antv-page) 47px
     );
+    content: '';
+    pointer-events: none;
+  }
+
+  .antv-signal::after {
+    position: absolute;
+    inset: 0;
+    background: url('./assets/home/signal-background.svg') center / 100% 100% no-repeat;
     content: '';
     pointer-events: none;
   }
 
   .antv-signal-inner {
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   .antv-metrics {
     display: grid;
-    width: min(900px, 100%);
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(736px, 100%);
+    grid-template-columns: repeat(3, 128px);
+    justify-content: space-between;
     margin: 0 auto;
   }
 
   .antv-metric {
     position: relative;
-    min-height: 164px;
-    padding: 42px 28px 36px;
+    min-height: 113px;
+    padding: 0;
     text-align: center;
   }
 
   .antv-metric + .antv-metric::before {
     position: absolute;
-    top: 30px;
-    bottom: 30px;
-    left: 0;
-    border-left: 1px solid color-mix(in srgb, var(--brand) 14%, var(--antv-line));
+    top: 17px;
+    bottom: 0;
+    left: -88px;
+    border-left: 1px solid #ede6fa;
     content: '';
   }
 
   .antv-metric p {
+    display: flex;
+    height: 82px;
+    align-items: flex-start;
+    justify-content: center;
     margin: 0;
-    color: var(--brand);
-    line-height: 1;
+    color: #6e27ff;
   }
 
   .antv-metric strong {
-    font-size: clamp(52px, 4.35vw, 62px);
+    font-family: 'AntV Metrics', var(--font-sans);
+    font-size: 64px;
     font-weight: 700;
-    letter-spacing: -.04em;
+    letter-spacing: 0;
+    line-height: 82px;
   }
 
   .antv-metric p span {
-    margin-left: 7px;
-    font-size: 16px;
-    font-weight: 700;
+    margin: 46px 0 0 8px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
   }
 
   .antv-metric > span {
     display: block;
-    margin-top: 13px;
-    color: var(--muted);
-    font-size: 14px;
+    margin-top: 7px;
+    color: #666;
+    font-family: var(--antv-copy-font);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+  }
+
+  .antv-update-carousel {
+    display: flow-root;
+    margin-top: 100px;
   }
 
   .antv-update-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    grid-auto-columns: calc((100% - 40px) / 3);
+    grid-auto-flow: column;
     gap: 20px;
-    margin-top: 50px;
+    margin-block: -40px;
+    padding-block: 40px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    scrollbar-width: none;
+  }
+
+  .antv-update-grid::-webkit-scrollbar,
+  .antv-solution-grid::-webkit-scrollbar {
+    display: none;
   }
 
   .antv-update-card,
@@ -632,34 +661,24 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
   .antv-update-card {
     position: relative;
     display: grid;
-    min-height: 154px;
-    grid-template-columns: 56px minmax(0, 1fr) auto;
-    align-items: start;
-    gap: 18px;
-    padding: 24px;
-    border: 1px solid var(--antv-line);
-    border-radius: var(--antv-card-radius);
-    background: var(--antv-card);
-    box-shadow: var(--antv-shadow);
-  }
-
-  .antv-update-featured {
-    border-color: color-mix(in srgb, var(--brand) 32%, var(--antv-line));
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--brand) 17%, var(--antv-card-solid)) 0%,
-      color-mix(in srgb, var(--brand) 9%, var(--antv-card-solid)) 58%,
-      var(--antv-card-solid) 100%
-    );
+    height: 150px;
+    grid-template-columns: 50px minmax(0, 1fr);
+    grid-template-rows: 52px 52px;
+    column-gap: 16px;
+    row-gap: 10px;
+    padding: 17px 18px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #fff 0%, #fafafa 100%);
+    box-shadow: 0 10px 30px #f0ebf6;
+    scroll-snap-align: start;
   }
 
   .antv-update-card:hover,
-  .antv-solution-card:hover,
-  .antv-showcase-card:hover {
-    border-color: color-mix(in srgb, var(--brand) 40%, var(--antv-line));
-    box-shadow: var(--antv-shadow-hover);
-    color: inherit;
-    transform: translateY(-4px);
+  .antv-solution-card:hover {
+    background:
+      linear-gradient(180deg, #b39aff 0%, rgb(255 255 255 / 0%) 100%),
+      linear-gradient(180deg, #fff 0%, #fafafa 100%);
   }
 
   .antv-update-card:active,
@@ -671,23 +690,23 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
 
   .antv-update-visual {
     display: grid;
-    width: 56px;
-    height: 56px;
+    width: 50px;
+    height: 50px;
+    margin-top: 1px;
     place-items: center;
     overflow: hidden;
-    border-radius: var(--antv-inner-radius);
-    background: color-mix(in srgb, var(--brand-faint) 82%, var(--antv-card-solid));
+    border-radius: 14px;
+    background: rgb(255 255 255 / 88%);
   }
 
   .antv-update-visual img {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     object-fit: contain;
   }
 
   .antv-update-copy {
-    display: grid;
-    gap: 8px;
+    display: contents;
   }
 
   .antv-update-copy small {
@@ -695,19 +714,58 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
   }
 
   .antv-update-copy strong {
-    color: var(--text-strong);
-    font-size: 16px;
-    line-height: 1.45;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    padding-right: 33px;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
   }
 
   .antv-update-copy > span {
     display: -webkit-box;
+    grid-column: 1 / -1;
+    grid-row: 2;
     overflow: hidden;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.6;
+    color: #666;
+    font-family: var(--antv-copy-font);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 26px;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+  }
+
+  .antv-update-arrow {
+    position: absolute;
+    top: 20px;
+    right: 17px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-3px);
+    transition: opacity .2s ease, transform .2s ease;
+  }
+
+  .antv-update-card:hover .antv-update-arrow,
+  .antv-update-card:focus-visible .antv-update-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .antv-update-arrow :global(svg) {
+    width: 14px;
+    height: 14px;
+  }
+
+  .antv-update-pagination {
+    display: flex;
+    width: 76px;
+    height: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px auto 0;
   }
 
   .antv-link-icon {
@@ -732,96 +790,26 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
 
   .antv-ai-solutions {
     overflow: hidden;
+    padding: 155px 0 118px;
     background: var(--antv-section);
   }
 
-  .antv-ai-solutions::before {
+  /* Sketch-rendered decorations preserve alpha masks lost by its SVG exporter. */
+  .antv-ai-solutions::before,
+  .antv-showcase::before,
+  .antv-matrix::before {
     position: absolute;
     top: 0;
-    left: 50%;
-    width: min(780px, 72vw);
-    height: 370px;
-    background-image:
-      linear-gradient(to right, color-mix(in srgb, var(--brand) 8%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in srgb, var(--brand) 8%, transparent) 1px, transparent 1px);
-    background-position: center top;
-    background-size: 52px 52px;
+    left: calc(50% - 472px);
+    width: 910px;
+    height: 318px;
+    background: center / 100% 100% no-repeat;
     content: '';
-    opacity: .82;
-    pointer-events: none;
-    transform: translateX(-50%);
-    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 10%, #000 66%, transparent 100%);
-    mask-image: linear-gradient(180deg, transparent 0, #000 10%, #000 66%, transparent 100%);
-  }
-
-  .antv-ai-background {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    opacity: .42;
-    object-fit: cover;
     pointer-events: none;
   }
 
-  .antv-ai-atmosphere {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  .antv-ai-deco {
-    position: absolute;
-    display: grid;
-    width: 58px;
-    height: 58px;
-    border: 1px solid rgb(255 255 255 / 62%);
-    border-radius: 14px;
-    background: linear-gradient(145deg, rgb(225 210 255 / 52%), rgb(250 247 255 / 18%));
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 54%), 0 12px 30px rgb(91 53 157 / 5%);
-    opacity: .48;
-    place-items: center;
-  }
-
-  .antv-ai-deco img {
-    display: block;
-    width: auto;
-    max-width: 34px;
-    max-height: 34px;
-  }
-
-  .antv-ai-deco-column {
-    top: 64px;
-    left: calc(50% - 338px);
-  }
-
-  .antv-ai-deco-pie {
-    top: 138px;
-    left: calc(50% - 142px);
-    border-color: color-mix(in srgb, var(--brand) 9%, transparent);
-    background: rgb(250 247 255 / 22%);
-    opacity: .66;
-  }
-
-  .antv-ai-deco-treemap {
-    top: 34px;
-    left: calc(50% + 250px);
-  }
-
-  .antv-ai-deco-soft {
-    top: 142px;
-    left: calc(50% + 346px);
-    background: linear-gradient(145deg, rgb(225 210 255 / 30%), rgb(255 255 255 / 2%));
-    opacity: .24;
-  }
-
-  .antv-ai-deco-ghost {
-    top: 12px;
-    left: calc(50% - 258px);
-    width: 48px;
-    height: 48px;
-    border-color: transparent;
-    opacity: .14;
+  .antv-ai-solutions::before {
+    background-image: url('./assets/home/ai-heading.webp');
   }
 
   .antv-section-heading {
@@ -837,52 +825,72 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
   }
 
   .antv-section-heading h2 {
-    color: var(--text-strong);
-    font-size: clamp(32px, 3.1vw, 44px);
-    line-height: 1.12;
+    color: #000;
+    font-size: 42px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 59px;
   }
 
   .antv-section-heading p {
     max-width: 650px;
     margin: 14px auto 0;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.7;
+    color: #666;
+    font-family: var(--antv-copy-font);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 25px;
+  }
+
+  .antv-ai-heading {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto 88px;
+    text-align: center;
+  }
+
+  .antv-ai-heading h2,
+  .antv-matrix-heading h2 {
+    font-size: 42px;
+    letter-spacing: 0;
+    line-height: 59px;
+  }
+
+  .antv-ai-heading p {
+    display: none;
   }
 
   .antv-solution-grid {
     position: relative;
     z-index: 1;
     display: grid;
+    width: 100%;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
+    margin-left: 0;
+    overflow: visible;
   }
 
   .antv-solution-card {
     position: relative;
     display: flex;
+    min-height: 270px;
     flex-direction: column;
     overflow: hidden;
-    padding: 24px;
-    border: 1px solid var(--antv-line);
-    border-radius: var(--antv-card-radius);
-    background: var(--antv-card);
-    box-shadow: var(--antv-shadow);
+    padding: 46px 40px 30px;
+    border-radius: 20px;
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 90%), rgb(250 250 250 / 27%)),
+      #f4f1f9;
+    box-shadow: inset 0 0 0 1px rgb(151 151 151 / 12%), 0 10px 30px #f0ebf6;
   }
 
   .antv-solution-card::before {
     position: absolute;
     inset: 0;
-    background-image:
-      linear-gradient(to right, color-mix(in srgb, var(--brand) 7%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in srgb, var(--brand) 7%, transparent) 1px, transparent 1px);
-    background-position: right top;
-    background-size: 36px 36px;
+    background: url('./assets/home/solution-grid.webp') center / 100% 100% no-repeat;
     content: '';
-    opacity: .72;
     pointer-events: none;
-    -webkit-mask-image: radial-gradient(ellipse 92% 76% at 78% 8%, #000 4%, transparent 78%);
-    mask-image: radial-gradient(ellipse 92% 76% at 78% 8%, #000 4%, transparent 78%);
   }
 
   .antv-solution-card > * {
@@ -895,39 +903,64 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
     align-items: center;
     justify-content: space-between;
     gap: 18px;
+    padding-right: 6px;
   }
 
   .antv-solution-topline > strong {
-    color: var(--text-strong);
-    font-size: 16px;
+    color: #000;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 37px;
   }
 
   .antv-solution-icon {
     display: grid;
-    width: 54px;
-    height: 54px;
+    width: 58px;
+    height: 58px;
     flex: 0 0 auto;
     place-items: center;
   }
 
   .antv-solution-icon img {
-    object-fit: conver;
+    width: 70px;
+    height: 70px;
+    max-width: none;
+    object-fit: contain;
+    transform: translateY(4px);
   }
 
   .antv-solution-title {
-    margin-top: 24px;
-    color: var(--text-strong);
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.55;
+    position: relative;
+    margin-top: 32px;
+    color: #666;
+    font-family: var(--antv-copy-font);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 32px;
   }
 
   .antv-solution-description {
-    margin-top: 8px;
-    padding-right: 20px;
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.7;
+    position: relative;
+    margin-top: 7px;
+    padding-right: 0;
+    color: #666;
+    font-family: var(--antv-copy-font);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+  }
+
+  .antv-solution-title::before,
+  .antv-solution-description::before {
+    position: absolute;
+    top: 14px;
+    left: -11px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #6b22ff;
+    content: '';
   }
 
   .antv-solution-card > .antv-link-icon {
@@ -940,80 +973,33 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
   .antv-showcase {
     isolation: isolate;
     overflow: hidden;
-    background:
-      radial-gradient(circle at 50% 8%, color-mix(in srgb, var(--brand) 4%, transparent), transparent 31%),
-      var(--antv-page);
+    padding: 156px 0 50px;
+    background: linear-gradient(180deg, transparent 38px, var(--antv-page) 38px, var(--antv-section) 97.5%);
   }
 
-  .antv-showcase::before,
-  .antv-matrix::before {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    z-index: 0;
-    width: min(900px, 78vw);
-    height: 360px;
-    background-image:
-      linear-gradient(to right, color-mix(in srgb, var(--brand) 7%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in srgb, var(--brand) 7%, transparent) 1px, transparent 1px);
-    background-position: center top;
-    background-size: 52px 52px;
-    content: '';
-    opacity: .68;
-    pointer-events: none;
-    transform: translateX(-50%);
-    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 9%, #000 66%, transparent 100%);
-    mask-image: linear-gradient(180deg, transparent 0, #000 9%, #000 66%, transparent 100%);
+  .antv-showcase .antv-section-heading {
+    margin-bottom: 65px;
   }
 
-  .antv-section-atmosphere {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
+  .antv-showcase .antv-section-heading h2 {
+    font-size: 42px;
+    line-height: 59px;
+  }
+
+  .antv-showcase .antv-section-heading p {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .antv-showcase::before {
+    background-image: url('./assets/home/showcase-heading.webp');
   }
 
   .antv-showcase > .antv-section-inner,
   .antv-matrix > .antv-section-inner {
     position: relative;
-    z-index: 2;
-  }
-
-  .antv-section-deco {
-    position: absolute;
-    display: grid;
-    width: 54px;
-    height: 54px;
-    border: 1px solid color-mix(in srgb, var(--brand) 8%, transparent);
-    border-radius: 14px;
-    background: linear-gradient(145deg, rgb(230 218 255 / 42%), rgb(255 255 255 / 12%));
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 48%), 0 12px 30px rgb(91 53 157 / 4%);
-    opacity: .3;
-    place-items: center;
-  }
-
-  .antv-section-deco img {
-    display: block;
-    width: auto;
-    max-width: 31px;
-    max-height: 31px;
-  }
-
-  .antv-showcase-decoration-1 {
-    top: 72px;
-    left: calc(50% - 356px);
-  }
-
-  .antv-showcase-decoration-2 {
-    top: 24px;
-    left: calc(50% + 286px);
-    opacity: .2;
-  }
-
-  .antv-showcase-decoration-3 {
-    top: 154px;
-    left: calc(50% + 365px);
-    opacity: .16;
+    z-index: 1;
   }
 
   .antv-showcase-grid {
@@ -1026,42 +1012,27 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
     container-type: inline-size;
     display: flex;
     min-width: 0;
-    aspect-ratio: 70 / 99;
+    height: 396px;
     flex-direction: column;
     grid-column: span 3;
     overflow: hidden;
-    border: 1px solid transparent;
-    border-radius: clamp(18px, 6.17cqi, 20px);
-    box-shadow: var(--antv-shadow);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px #f0ebf6;
     background:
-      linear-gradient(to bottom, #c3b1ff, #fff 70%) padding-box,
-      linear-gradient(to bottom, #ba9eff, #e8e6fb) border-box;
+      linear-gradient(180deg, #c3afff 0%, rgb(204 197 255 / 57.5%) 41.7%, rgb(255 255 255 / 0%) 76.17%),
+      linear-gradient(180deg, #fff, #fafafa);
   }
 
-  .antv-showcase-card-featured {
-    aspect-ratio: 145 / 99;
-    flex-direction: row-reverse;
-    grid-column: span 6;
-  }
-
-  @media (min-width: 1200px) {
-    .antv-showcase-card-featured {
-      background:
-        linear-gradient(105deg, #fafafe 0%, #f2edff 28%, #ded3ff 58%, #c3b1ff 100%) padding-box,
-        linear-gradient(105deg, #e8e6fb 0%, #d7c8ff 48%, #ba9eff 100%) border-box;
-    }
-
-    .antv-showcase-card-featured .antv-showcase-copy {
-      background: transparent;
-    }
+  .antv-showcase-card:nth-child(n + 5) {
+    height: 397px;
   }
 
   .antv-showcase-media {
-    height: auto;
-    flex: 0 0 56.1%;
+    height: 222px;
+    flex: 0 0 222px;
     margin: 0;
     overflow: hidden;
-    padding: clamp(13px, 4.63cqi, 15px);
+    padding: 15px;
   }
 
   .antv-showcase-media-inner {
@@ -1069,10 +1040,9 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
     width: 100%;
     height: 100%;
     align-items: center;
-    padding: clamp(10px, 3.7cqi, 12px);
-    border-radius: clamp(10px, 3.7cqi, 12px);
-    background: #fff;
     justify-content: center;
+    border-radius: 12px;
+    background: #fff;
     transition: transform .45s cubic-bezier(.16, 1, .3, 1);
   }
 
@@ -1098,283 +1068,332 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
     min-height: 0;
     flex: 1;
     flex-direction: column;
-    padding: clamp(17px, 6.17cqi, 20px);
-    background: #fafafe;
+    padding: 21px 20px 20px;
+    background: linear-gradient(180deg, #fff, #fafafa);
   }
 
   .antv-showcase-title-row {
     display: flex;
-    align-items: baseline;
+    min-height: 35px;
+    align-items: center;
     justify-content: space-between;
-    gap: clamp(12px, 4.94cqi, 16px);
+    gap: 4px;
   }
 
   .antv-showcase-title-row strong {
-    color: var(--text-strong);
-    font-size: clamp(20px, 7.4cqi, 24px);
-    line-height: 1.45;
+    min-width: 0;
+    color: #000;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 33px;
   }
 
   .antv-showcase-title-row small {
     display: grid;
-    width: clamp(34px, 12.35cqi, 40px);
-    height: clamp(34px, 12.35cqi, 40px);
+    height: 34px;
     flex: 0 0 auto;
-    padding: 0;
-    border-radius: clamp(10px, 3.7cqi, 12px);
+    padding: 0 10px;
+    border-radius: 10px;
     color: #6b22ff;
-    font-size: clamp(15px, 5.56cqi, 18px);
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
     white-space: nowrap;
     text-align: center;
     background: rgb(107 34 255 / 10%);
     place-items: center;
   }
 
+  .antv-showcase-title-note {
+    font-family: var(--antv-copy-font);
+    font-size: 16px;
+    font-weight: 300;
+    color: #666;
+    white-space: nowrap;
+  }
+
   .antv-showcase-copy > span:last-child {
     display: -webkit-box;
     overflow: hidden;
-    margin-top: clamp(24px, 8.65cqi, 28px);
-    color: #858585;
-    font-size: clamp(13px, 4.94cqi, 16px);
-    line-height: 1.65;
+    margin-top: 20px;
+    color: #666;
+    font-family: var(--antv-copy-font);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 26px;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+  }
+
+  .antv-home-en .antv-showcase-title-row {
+    min-height: 52px;
+    align-items: flex-start;
+  }
+
+  .antv-home-en .antv-showcase-title-row strong {
+    font-size: 20px;
+    line-height: 26px;
+    overflow-wrap: anywhere;
+  }
+
+  .antv-home-en .antv-showcase-copy > span:last-child {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 22px;
   }
 
   .antv-matrix {
     isolation: isolate;
     overflow: hidden;
-    background:
-      radial-gradient(circle at 50% 7%, color-mix(in srgb, var(--brand) 7%, transparent), transparent 34%),
-      var(--antv-section);
+    padding: 155px 0 97px;
+    background: var(--antv-section);
   }
 
   .antv-matrix::before {
-    height: 242px;
-    opacity: .74;
-    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 58%, transparent 96%);
-    mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 58%, transparent 96%);
+    background-image: url('./assets/home/matrix-heading.webp');
   }
 
-  .antv-matrix-decoration :global(svg) {
-    width: 28px;
-    height: 28px;
-    color: color-mix(in srgb, var(--brand) 72%, transparent);
-    stroke-width: 1.6;
-  }
-
-  .antv-matrix-decoration-1 {
-    top: 58px;
-    left: calc(50% - 365px);
-  }
-
-  .antv-matrix-decoration-2 {
-    top: 74px;
-    left: calc(50% + 292px);
-    opacity: .24;
-  }
-
-  .antv-matrix-decoration-3 {
-    top: 150px;
-    left: calc(50% + 362px);
-    opacity: .16;
+  .antv-matrix-heading {
+    margin-bottom: 66px;
   }
 
   .antv-matrix-board {
     display: grid;
-    gap: 12px;
-    padding: 28px;
-    border: 1px solid var(--antv-line);
-    border-radius: calc(var(--antv-card-radius) + 4px);
-    background: var(--antv-card-solid);
-    box-shadow: 0 28px 70px rgb(83 49 143 / 10%);
+    height: 778px;
+    gap: 20px;
+    padding: 50px 50px 48px;
+    border: 0;
+    border-radius: 30px;
+    background: linear-gradient(180deg, rgb(255 255 255 / 90.2%), rgb(255 255 255 / 26.6%)), #f4f1f9;
   }
 
   .antv-matrix-board a {
     color: inherit;
     text-decoration: none;
-    transition: border-color .22s, background .22s, transform .22s;
+    transition: border-color .22s, background .22s, box-shadow .22s, transform .22s;
   }
 
   .antv-matrix-sive,
   .antv-matrix-design {
     display: flex;
-    min-height: 66px;
+    height: 100px;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 14px 20px;
-    border: 1px solid color-mix(in srgb, var(--brand) 17%, var(--antv-line));
-    border-radius: var(--antv-inner-radius);
+    gap: 14px;
+    padding: 20px 28px;
+    border-radius: 20px;
   }
 
   .antv-matrix-sive {
-    background: color-mix(in srgb, var(--brand-faint) 78%, var(--antv-card-solid));
+    height: 105px;
+    border: 1px dashed #cbb7ff;
+    background: #f7f3ff;
   }
 
-  .antv-matrix-sive img {
-    width: 28px;
-    height: 28px;
+  .antv-matrix-product-mark {
+    display: grid;
+    width: 52px;
+    height: 52px;
+    flex: 0 0 auto;
+    place-items: center;
+  }
+
+  .antv-matrix-product-mark img {
+    display: block;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
   }
 
-  .antv-matrix-sive > span:not(.antv-link-icon) {
-    color: var(--muted);
-    font-size: 12px;
+  .antv-matrix-sive > strong {
+    color: #121015;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0;
   }
 
   .antv-matrix-agent {
-    padding: 22px;
-    border-radius: var(--antv-card-radius);
-    background:
-      linear-gradient(to right, rgb(255 255 255 / 8%) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(255 255 255 / 8%) 1px, transparent 1px),
-      linear-gradient(115deg, #6047f6, #8c61ff 62%, #bd80f1);
-    background-size: 44px 44px, 44px 44px, auto;
+    height: 190px;
+    padding: 26px 50px 24px;
+    border-radius: 20px;
+    background: url('./assets/home/matrix-agent.webp') center / 100% 100% no-repeat;
     color: #f8f6ff;
   }
 
   .antv-matrix-agent > strong {
     display: block;
-    margin-bottom: 16px;
+    margin-bottom: 27px;
     text-align: center;
-    font-size: 16px;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -.015em;
+    line-height: 33px;
   }
 
   .antv-matrix-agent > div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
   }
 
   .antv-matrix-agent a {
     display: grid;
-    min-width: 0;
-    min-height: 66px;
-    flex: 1 1 140px;
+    height: 80px;
     align-content: center;
-    gap: 3px;
-    padding: 10px;
-    border: 1px solid rgb(255 255 255 / 24%);
-    border-radius: var(--antv-inner-radius);
-    background: rgb(250 248 255 / 93%);
-    color: #5934c9;
+    gap: 0;
+    padding: 14px 12px;
+    border: 0;
+    border-radius: 20px;
+    background: rgb(255 255 255 / 90.2%);
+    color: #6b22ff;
     text-align: center;
+  }
+
+  .antv-matrix-agent a b {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 30px;
   }
 
   .antv-matrix-agent a span {
-    color: #756593;
-    font-size: 10px;
-    line-height: 1.35;
-  }
-
-  .antv-matrix-group {
-    padding: 16px;
-    border: 1px solid var(--antv-line);
-    border-radius: var(--antv-card-radius);
-    background: color-mix(in srgb, var(--antv-card-solid) 86%, var(--antv-section));
-  }
-
-  .antv-matrix-group > span {
-    display: block;
-    margin-bottom: 10px;
-    color: var(--muted);
-    font-size: 11px;
-    font-weight: 700;
-    text-align: center;
+    color: #6b22ff;
+    font-size: 16px;
+    line-height: 22px;
   }
 
   .antv-matrix-ecosystem,
   .antv-matrix-foundation {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: grid;
+    gap: 14px;
+  }
+
+  .antv-matrix-ecosystem {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
   }
 
   .antv-matrix-ecosystem a {
-    flex: 1 1 240px;
+    display: flex;
+    height: 105px;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 18px 22px;
+    border: 1px dashed #cbb7ff;
+    border-radius: 20px;
+    background: #f8f5ff;
+    text-align: left;
   }
 
-  .antv-matrix-foundation a {
-    flex: 1 1 120px;
+  .antv-matrix-ecosystem a strong {
+    color: #151217;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0;
   }
 
-  .antv-matrix-ecosystem a,
+  .antv-matrix-ecosystem a strong span {
+    color: inherit;
+    white-space: nowrap;
+  }
+
+  .antv-matrix-foundation {
+    grid-template-columns: repeat(7, 140px);
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .antv-matrix-foundation::-webkit-scrollbar {
+    display: none;
+  }
+
   .antv-matrix-foundation a {
     display: grid;
-    min-width: 0;
-    min-height: 62px;
+    width: 140px;
+    height: 100px;
     align-content: center;
-    gap: 3px;
-    padding: 10px;
-    border: 1px solid var(--antv-line);
-    border-radius: var(--antv-inner-radius);
-    background: color-mix(in srgb, var(--antv-card-solid) 90%, var(--antv-section));
+    gap: 7px;
+    padding: 14px 8px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background:
+      linear-gradient(145deg, #7665fa 0%, #8171f7 50%, #9c84f2 100%) padding-box,
+      linear-gradient(145deg, #8979ff, #a895fb) border-box;
+    color: #fff;
     text-align: center;
   }
 
-  .antv-matrix-ecosystem a span,
-  .antv-matrix-foundation a span {
-    color: var(--muted);
-    font-size: 10px;
-    line-height: 1.35;
+  .antv-matrix-foundation a strong {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 30px;
   }
 
-  .antv-matrix-foundation strong {
-    color: var(--brand-strong);
+  .antv-matrix-foundation a span {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .antv-home-en .antv-matrix-foundation a {
+    gap: 4px;
+    padding: 12px 6px;
+  }
+
+  .antv-home-en .antv-matrix-foundation a span {
+    font-size: 14px;
+    line-height: 20px;
   }
 
   .antv-matrix-design {
     color: #f8f6ff;
-    background:
-      linear-gradient(to right, rgb(255 255 255 / 8%) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(255 255 255 / 8%) 1px, transparent 1px),
-      linear-gradient(115deg, #6047f6, #8160f8 56%, #9d72ed);
-    background-size: 44px 44px, 44px 44px, auto;
+    background: url('./assets/home/matrix-design.webp') center / 100% 100% no-repeat;
   }
 
   .antv-matrix-design strong {
     color: #fff;
-  }
-
-  .antv-matrix-design .antv-link-icon {
-    color: #f8f6ff;
+    font-size: 24px;
+    font-weight: 600;
   }
 
   .antv-matrix-sive:hover,
   .antv-matrix-agent a:hover,
   .antv-matrix-ecosystem a:hover,
   .antv-matrix-foundation a:hover {
-    border-color: color-mix(in srgb, var(--brand) 42%, var(--antv-line));
-    color: inherit;
+    border-color: color-mix(in srgb, var(--brand) 58%, #cbb7ff);
+    box-shadow: 0 12px 28px rgb(83 49 143 / 12%);
     transform: translateY(-2px);
   }
 
-  .antv-matrix-agent a:hover {
-    color: #5934c9;
-  }
 
   .antv-matrix-design:hover {
     color: #f8f6ff;
+    box-shadow: 0 14px 30px rgb(83 49 143 / 16%);
     transform: translateY(-2px);
   }
 
   .antv-experts {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     padding: 73px 0 100px;
-    background:
-      radial-gradient(ellipse at 50% 72%, color-mix(in srgb, var(--brand) 5%, transparent), transparent 48%),
-      var(--antv-page);
+    background: url('./assets/home/experts-background.svg') center / 100% 100% no-repeat, var(--antv-page);
+  }
+
+  .antv-experts > .antv-section-inner {
+    position: relative;
+    z-index: 1;
   }
 
   .antv-experts .antv-section-heading-compact {
-    margin-bottom: 59px;
+    max-width: none;
+    margin-bottom: 60px;
+    text-align: center;
   }
 
   .antv-experts .antv-section-heading h2 {
     font-size: 42px;
     letter-spacing: 0;
-    line-height: 1.4;
+    line-height: 59px;
   }
 
   .antv-expert-carousel {
@@ -1386,8 +1405,10 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
     grid-auto-columns: calc((100% - 84px) / 4);
     grid-auto-flow: column;
     gap: 28px;
+    margin-block: -20px;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
+    padding-block: 20px;
     scroll-snap-type: inline mandatory;
     scrollbar-width: none;
   }
@@ -1400,14 +1421,11 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
     min-width: 0;
     min-height: 380px;
     padding: 30px 22px 22px;
-    border-radius: calc(var(--antv-card-radius) + 2px);
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--antv-card-solid) 78%, transparent),
-      color-mix(in srgb, var(--antv-card-solid) 48%, transparent)
-    );
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgb(255 255 255 / 50%), rgb(250 250 250 / 0%));
     scroll-snap-align: start;
-    border: 2px solid #fff;
+    border: 0;
+    box-shadow: inset 0 0 0 2px #fff, 0 10px 30px #f0ebf6;
   }
 
   .antv-expert-person {
@@ -1415,21 +1433,21 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
     align-items: center;
     flex-direction: column;
     padding-bottom: 17px;
-    border-bottom: 1px solid color-mix(in srgb, var(--antv-purple-line) 72%, transparent);
+    border-bottom: 1px solid #D8D8D8;
     text-align: center;
   }
 
   .antv-expert-person img {
     width: 70px;
     height: 70px;
-    border: 1px solid color-mix(in srgb, var(--brand) 22%, transparent);
+    border: 0;
     border-radius: 50%;
     object-fit: cover;
   }
 
   .antv-expert-person h3 {
     margin: 20px 0 0;
-    color: var(--text-strong);
+    color: #000;
     font-size: 22px;
     font-weight: 600;
     line-height: 30px;
@@ -1441,34 +1459,36 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
     align-items: center;
     justify-content: center;
     margin: 8px 0 0;
-    color: var(--muted);
+    color: #666;
+    font-family: var(--antv-copy-font);
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 22px;
   }
 
   .antv-expert-card blockquote {
     margin: 16px 0 0;
-    color: var(--muted);
+    color: #666;
+    font-family: var(--antv-copy-font);
     font-size: 15px;
-    font-weight: 400;
-    line-height: 1.45;
+    font-weight: 300;
+    line-height: 21px;
   }
 
   .antv-expert-pagination {
     display: flex;
-    width: max-content;
+    width: 76px;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+    gap: 0;
+    justify-content: space-between;
     margin: 60px auto 0;
   }
 
-  .antv-expert-pagination[hidden] {
+  [data-antv-pagination][hidden] {
     display: none;
   }
 
-  .antv-expert-pagination :global(.antv-expert-pagination-dot) {
+  [data-antv-pagination] :global(.antv-carousel-dot) {
     width: 10px;
     height: 10px;
     padding: 0;
@@ -1480,19 +1500,23 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
     transition: opacity .22s, transform .22s;
   }
 
-  .antv-expert-pagination :global(.antv-expert-pagination-dot:hover),
-  .antv-expert-pagination :global(.antv-expert-pagination-dot:focus-visible) {
+  [data-antv-pagination] :global(.antv-carousel-dot:enabled:hover),
+  [data-antv-pagination] :global(.antv-carousel-dot:focus-visible) {
     opacity: .55;
   }
 
-  .antv-expert-pagination :global(.antv-expert-pagination-dot:focus-visible) {
+  [data-antv-pagination] :global(.antv-carousel-dot:focus-visible) {
     outline: 2px solid color-mix(in srgb, var(--brand) 65%, white);
     outline-offset: 4px;
   }
 
-  .antv-expert-pagination :global(.antv-expert-pagination-dot.antv-expert-pagination-active) {
+  [data-antv-pagination] :global(.antv-carousel-dot[aria-current='true']) {
     opacity: 1;
     transform: scale(1.08);
+  }
+
+  [data-antv-pagination] :global(.antv-carousel-dot:disabled) {
+    cursor: not-allowed;
   }
 
   :global(.antv-home-motion) [data-antv-scene] [data-antv-item] {
@@ -1534,6 +1558,13 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
     }
   }
 
+  @media (min-width: 1001px) {
+    /* Sketch section canvases overlap behind their header decorations. */
+    .antv-ai-solutions { margin-top: -60px; }
+    .antv-showcase { margin-top: -36px; }
+    .antv-matrix { margin-top: -40px; }
+  }
+
   @media (min-width: 1001px) and (max-width: 1199px) {
     .antv-expert-list {
       grid-auto-columns: calc((100% - 48px) / 3);
@@ -1543,11 +1574,25 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
 
   @media (min-width: 768px) and (max-width: 1199px) {
     .antv-showcase-card,
-    .antv-showcase-card-featured {
+    .antv-showcase-card:nth-child(n + 5) {
       height: clamp(440px, 42vw, 500px);
       aspect-ratio: auto;
       flex-direction: column;
       grid-column: span 6;
+    }
+
+    .antv-matrix-board {
+      height: auto;
+      padding: 32px;
+    }
+
+    .antv-matrix-foundation {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .antv-matrix-foundation a {
+      width: 100%;
     }
   }
 
@@ -1556,13 +1601,20 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
       --antv-home-width: min(100% - 48px, 760px);
     }
 
-    .antv-update-grid,
     .antv-solution-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .antv-update-card:last-child {
-      grid-column: 1 / -1;
+    .antv-update-grid {
+      grid-auto-columns: calc((100% - 20px) / 2);
+    }
+
+    .antv-solution-grid {
+      width: 100%;
+      grid-template-rows: none;
+      gap: 20px;
+      margin-left: 0;
+      overflow: visible;
     }
 
     .antv-expert-list {
@@ -1570,13 +1622,26 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
       gap: 24px;
     }
 
-    .antv-matrix-agent a,
-    .antv-matrix-foundation a {
-      flex-basis: calc(33.333% - 7px);
+    .antv-matrix-board {
+      height: auto;
+      padding: 32px;
     }
 
-    .antv-matrix-ecosystem a {
-      flex-basis: calc(50% - 5px);
+    .antv-matrix-agent {
+      height: auto;
+    }
+
+    .antv-matrix-foundation {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      justify-content: stretch;
+      gap: 14px;
+      grid-auto-columns: auto;
+      grid-auto-flow: row;
+      overflow: visible;
+    }
+
+    .antv-matrix-foundation a {
+      width: 100%;
     }
   }
 
@@ -1654,19 +1719,17 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
       font-size: 12px;
     }
 
-    .antv-update-grid {
-      grid-template-columns: 1fr;
-      gap: 14px;
+    .antv-update-carousel {
       margin-top: 34px;
     }
 
-    .antv-update-card:last-child {
-      grid-column: auto;
+    .antv-update-grid {
+      grid-auto-columns: 100%;
+      gap: 14px;
     }
 
     .antv-update-card {
-      min-height: auto;
-      padding: 18px;
+      height: 150px;
     }
 
     .antv-ai-solutions,
@@ -1706,46 +1769,53 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
       gap: 14px;
     }
 
+    .antv-ai-heading {
+      width: 100%;
+      margin: 28px 0 42px;
+      text-align: center;
+    }
+
+    .antv-ai-heading h2,
+    .antv-matrix-heading h2 {
+      font-size: clamp(34px, 10vw, 42px);
+      line-height: 1.2;
+    }
+
     .antv-expert-list {
       grid-auto-columns: 100%;
       gap: 14px;
     }
 
     .antv-solution-card {
-      min-height: 200px;
-      padding: 21px;
+      min-height: 260px;
+      padding: 34px 28px 30px;
     }
 
-    .antv-ai-solutions::before {
-      width: 100%;
-      height: 300px;
-      background-size: 42px 42px;
-      opacity: .52;
+    .antv-solution-topline > strong {
+      font-size: 30px;
     }
 
-    .antv-ai-deco {
-      display: none;
+    .antv-solution-icon {
+      width: 64px;
+      height: 64px;
     }
 
-    .antv-solution-card::before {
-      background-size: 32px 32px;
-      opacity: .58;
+    .antv-solution-title {
+      margin-top: 38px;
+      font-size: 17px;
     }
 
+    .antv-solution-description {
+      font-size: 15px;
+    }
+
+    .antv-ai-solutions::before,
     .antv-showcase::before,
     .antv-matrix::before {
-      width: 100%;
-      height: 300px;
-      background-size: 42px 42px;
-      opacity: .44;
-    }
-
-    .antv-matrix::before {
-      height: 205px;
-    }
-
-    .antv-section-deco {
-      display: none;
+      left: 50%;
+      width: 600px;
+      height: 210px;
+      transform: translateX(-50%);
     }
 
     .antv-showcase-grid {
@@ -1761,8 +1831,13 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
       grid-column: 1 / -1;
     }
 
+    .antv-showcase-card:nth-child(n + 5) {
+      height: auto;
+    }
+
     .antv-showcase-media {
       height: auto;
+      flex-basis: 56.1%;
     }
 
     .antv-showcase-copy {
@@ -1770,28 +1845,116 @@ const matrixDecorations = [hierarchyIcon, appsIcon, stackIcon];
     }
 
     .antv-matrix-board {
-      padding: 14px;
+      height: auto;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 24px;
     }
 
     .antv-matrix-sive,
     .antv-matrix-design {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-
-    .antv-matrix-agent {
+      min-height: 96px;
+      gap: 12px;
       padding: 18px;
     }
 
-    .antv-matrix-agent a,
-    .antv-matrix-ecosystem a,
+    .antv-matrix-agent {
+      height: auto;
+      min-height: 0;
+      padding: 28px 16px 16px;
+      border-radius: 20px;
+    }
+
+    .antv-matrix-agent > strong {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .antv-matrix-agent > div {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .antv-matrix-agent a {
+      min-height: 92px;
+      gap: 4px;
+      padding: 10px 6px;
+      border-radius: 14px;
+    }
+
+    .antv-matrix-agent a b {
+      font-size: 18px;
+    }
+
+    .antv-matrix-agent a span {
+      font-size: 12px;
+    }
+
+    .antv-matrix-ecosystem {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .antv-matrix-ecosystem a {
+      min-height: 96px;
+      justify-content: flex-start;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 18px;
+    }
+
+    .antv-matrix-product-mark {
+      width: 48px;
+      height: 48px;
+    }
+
+    .antv-matrix-ecosystem a strong,
+    .antv-matrix-sive > strong {
+      font-size: 18px;
+    }
+
+    .antv-matrix-foundation {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      grid-auto-columns: auto;
+      grid-auto-flow: row;
+      overflow: visible;
+    }
+
     .antv-matrix-foundation a {
-      flex-basis: 100%;
+      width: 100%;
+      min-height: 102px;
+      gap: 6px;
+      padding: 12px 6px;
+      border-radius: 16px;
+    }
+
+    .antv-matrix-foundation a strong {
+      font-size: 20px;
+    }
+
+    .antv-matrix-foundation a span {
+      font-size: 12px;
     }
 
     .antv-expert-card {
       min-height: 360px;
       padding: 28px 22px 24px;
+    }
+
+    .antv-expert-person img {
+      width: 88px;
+      height: 88px;
+    }
+
+    .antv-expert-person h3 {
+      margin-top: 18px;
+      font-size: 24px;
+    }
+
+    .antv-expert-person p,
+    .antv-expert-card blockquote {
+      font-size: 15px;
     }
 
     .antv-expert-pagination {

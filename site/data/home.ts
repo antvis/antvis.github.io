@@ -12,10 +12,9 @@ export interface HomeLink {
 
 export interface ShowcaseItem extends HomeLink {
   product: string;
-  image?: string;
+  titleNote?: Partial<LocalizedText>;
+  image: string;
   mediaTone?: 'dark';
-  preview?: 'infographic';
-  size: 'featured' | 'standard';
 }
 
 export const updates: HomeLink[] = [
@@ -139,7 +138,6 @@ export const showcases: ShowcaseItem[] = [
     href: 'https://g2.antv.antgroup.com/examples/animation/group/#interval',
     image:
       'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*3xCLRLNfv7EAAAAAAAAAAAAADmJ7AQ/original',
-    size: 'featured',
   },
   {
     product: 'S2',
@@ -151,11 +149,11 @@ export const showcases: ShowcaseItem[] = [
     href: 'https://s2.antv.vision/zh/examples/case/proportion/#single-population-proportion',
     image:
       'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*uxT9RowSdT4AAAAAAAAAAAAADmJ7AQ/original',
-    size: 'standard',
   },
   {
     product: 'F2',
-    title: { zh: '统计图表（移动端）', en: 'Mobile charts' },
+    title: { zh: '统计图表', en: 'Mobile charts' },
+    titleNote: { zh: '（移动端）' },
     description: {
       zh: '轻量、高性能的移动可视化引擎，适配 H5、小程序和多端交互。',
       en: 'A lightweight, high performance engine for mobile and multi-device experiences.',
@@ -163,7 +161,6 @@ export const showcases: ShowcaseItem[] = [
     href: 'https://f2.antv.antgroup.com/examples/creative/case/#timeline',
     image:
       'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*M6ubT4Mv7pcAAAAAAAAAAAAADmJ7AQ/original',
-    size: 'standard',
   },
   {
     product: 'G6',
@@ -175,7 +172,6 @@ export const showcases: ShowcaseItem[] = [
     href: 'https://g6.antv.antgroup.com/examples/scene-case/default/#why-do-cats',
     image:
       'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*ug4vTJA7QbMAAAAAAAAAAAAADmJ7AQ/original',
-    size: 'standard',
   },
   {
     product: 'X6',
@@ -187,7 +183,6 @@ export const showcases: ShowcaseItem[] = [
     href: 'https://x6.antv.antgroup.com/examples/showcase/practices/#agentFlow',
     image:
       'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*0H-HQJrdpMsAAAAAAAAAAAAADmJ7AQ/original',
-    size: 'standard',
   },
   {
     product: 'L7',
@@ -200,21 +195,30 @@ export const showcases: ShowcaseItem[] = [
     image:
       'https://gw.alipayobjects.com/mdn/rms_816329/afts/img/A*TVs2R4bBH6wAAAAAAAAAAAAAARQnAQ',
     mediaTone: 'dark',
-    size: 'featured',
   },
-  // {
-  //   product: 'Infographic',
-  //   title: { zh: '让文字，生动成图', en: 'Bring words to life' },
-  //   description: {
-  //     zh: '面向 AI 的声明式信息图引擎，以简洁语法创作专业、可编辑的信息图。',
-  //     en: 'An AI friendly declarative engine for professional, editable infographics.',
-  //   },
-  //   href: 'https://infographic.antv.vision/gallery/sequence-cylinders-3d-simple',
-  //   image:
-  //     'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*lfHDSZC3_lEAAAAAUgAAAAgAemJ7AQ/fmt.avif',
-  //   preview: 'infographic',
-  //   size: 'standard',
-  // },
+  {
+    product: 'ADC',
+    title: { zh: '可视化组件', en: 'AntV React component library' },
+    titleNote: { zh: '(React)' },
+    description: {
+      zh: '简单好用的 React 图表库，让图表开发更简单。',
+      en: 'Simple and easy to use React chart library.',
+    },
+    href: 'https://ant-design-charts.antgroup.com/',
+    image:
+      'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*dBDRR43tju8AAAAAAAAAAAAADmJ7AQ/original',
+  },
+  {
+    product: 'T8',
+    title: { zh: '非结构化数据', en: 'Unstructured Data' },
+    description: {
+      zh: '一套声明式的 JSON Schema 语法，用于描述数据解读报告。',
+      en: 'A declarative JSON Schema syntax for describing data interpretation reports.',
+    },
+    href: 'https://t8.antv.vision/',
+    image:
+      'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*PhnTR5FpXL0AAAAAQlAAAAgAemJ7AQ/fmt.webp',
+  },
 ];
 
 export const experts = [
@@ -305,5 +309,5 @@ export const foundation = [
   ['G6', '关系图', 'Graphs', 'https://g6.antv.antgroup.com/'],
   ['X6', '图编辑', 'Diagramming', 'https://x6.antv.antgroup.com/'],
   ['L7', '地图', 'Maps', 'https://l7.antv.antgroup.com/'],
-  // ['Infographic', '信息图', 'Infographics', 'https://infographic.antv.vision/'],
+  ['Infographic', '信息图', 'Infographics', 'https://infographic.antv.vision/'],
 ] as const;

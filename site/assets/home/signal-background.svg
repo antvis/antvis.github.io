@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 584" preserveAspectRatio="none">
+  <!-- Background fills from the Sketch updates section, in original paint order. -->
+  <defs>
+    <radialGradient id="blue" cx="80.7890852%" cy="37.6537574%" r="42.1267819%" gradientTransform="translate(0.8079, 0.3765) scale(0.4056, 1) rotate(94.969) scale(1, 1.3921) translate(-0.8079, -0.3765)">
+      <stop stop-color="#EFF1FC"/>
+      <stop offset="1" stop-color="#EEF0FB" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pink" cx="24.6917002%" cy="33.0284783%" r="41.5214414%" gradientTransform="translate(0.2469, 0.3303) scale(0.4056, 1) rotate(95.6247) scale(1, 1.3921) translate(-0.2469, -0.3303)">
+      <stop stop-color="#FFF3F5" stop-opacity="0.68129917"/>
+      <stop offset="1" stop-color="#FAEFF0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="purple" cx="51.9766197%" cy="31.960035%" r="42.2650234%" gradientTransform="translate(0.5198, 0.3196) scale(0.4056, 1) rotate(90) scale(1, 1.4571) translate(-0.5198, -0.3196)">
+      <stop stop-color="#F3EFFC"/>
+      <stop offset="1" stop-color="#F3EEFB" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path fill="url(#blue)" d="M0 0h1440v584H0z"/>
+  <path fill="url(#pink)" d="M0 0h1440v584H0z"/>
+  <path fill="url(#purple)" d="M0 0h1440v584H0z"/>
+</svg>

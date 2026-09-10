@@ -11,6 +11,5 @@
     "src/**/*.ts",
     "site/Home.astro",
     "site/data/**/*.ts"
-  ],
-  "exclude": [".dumi", "site/components"]
+  ]
 }

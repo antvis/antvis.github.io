@@ -57,10 +57,6 @@ export default defineConfig({
   },
   navigation: [
     {
-      text: { zh: '产品', en: 'Products' },
-      href: '#products',
-    },
-    {
       text: { zh: '设计语言', en: 'Design' },
       href: '/specification/principles/basic',
     },
@@ -86,10 +82,7 @@ export default defineConfig({
     features: [],
   },
   qa: {
-    path: 'result',
     enabled: true,
-    defaultStack: 'g2',
-    previewProducts: [],
   },
   slots: {
     home: {
