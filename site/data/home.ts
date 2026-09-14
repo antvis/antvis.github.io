@@ -2,6 +2,21 @@ export type Locale = 'zh' | 'en';
 
 export type LocalizedText = Record<Locale, string>;
 
+export const qaSuggestions: LocalizedText[] = [
+  {
+    zh: '数据标签遮挡了怎么办？',
+    en: 'How to solve the data label is covered?',
+  },
+  {
+    zh: '帮我生成一个折线图',
+    en: 'Create a line chart for me',
+  },
+  {
+    zh: '图例位置调整到底部，并且居中',
+    en: 'Move the legend to the bottom and center it',
+  },
+];
+
 export interface HomeLink {
   title: LocalizedText;
   description: LocalizedText;
@@ -17,7 +32,6 @@ export interface ShowcaseItem extends HomeLink {
   mediaTone?: 'dark';
 }
 
-
 export const aiSolutions: HomeLink[] = [
   {
     label: 'Context',
@@ -31,57 +45,57 @@ export const aiSolutions: HomeLink[] = [
   {
     label: 'Skills',
     title: {
-      zh: '将 AntV 经验变成 AI 能力',
-      en: 'Turn AntV practice into AI skills',
+      zh: 'AI 可视化技能库',
+      en: 'AI Visualization Skills',
     },
     description: {
-      zh: '内置图表组件、图表示例、关系图、图编辑和代码工程化等专业能力。',
-      en: 'Package charting, graph analysis, diagramming, and engineering practice as reusable capabilities.',
+      zh: '面向 AI Agent 的可视化技能库，帮助大模型智能选择图表。',
+      en: 'Visualization skills for AI agents, helping language models choose the right charts.',
     },
     href: 'https://github.com/antvis/chart-visualization-skills',
   },
   {
     label: 'MCP',
     title: {
-      zh: '连接数据、工具与研发环境',
-      en: 'Connect data, tools, and development',
+      zh: 'AI 图表渲染服务',
+      en: 'AI Chart Rendering',
     },
     description: {
-      zh: '通过 MCP 调用数据分析、图表生成、实时渲染、代码检查和发布能力。',
-      en: 'Use MCP for analysis, chart generation, live rendering, code checks, and publishing.',
+      zh: '基于 MCP 协议提供图表渲染服务，让 AI 直接输出专业图表图片。',
+      en: 'An MCP-based rendering service that lets AI generate professional chart images.',
     },
     href: 'https://github.com/antvis/mcp-server-antv',
   },
   {
     label: 'AVA',
     title: {
-      zh: '理解数据，而不只是生成代码',
-      en: 'Understand data, not only code',
+      zh: '智能可视化',
+      en: 'Augmented Visual Analysis',
     },
     description: {
-      zh: '识别字段语义和分析意图，完成智能选图、异常发现、洞察生成与质量评估。',
-      en: 'Infer semantics and intent for chart recommendation, anomaly detection, insights, and quality checks.',
+      zh: '为更简便的可视分析而生的技术框架。',
+      en: 'A framework that makes visual analytics easier.',
     },
     href: 'https://ava.antv.antgroup.com/',
   },
   {
     label: 'GPT Vis',
-    title: { zh: 'AI 原生可视化', en: 'AI native visualization' },
+    title: { zh: 'AI 原生可视化', en: 'AI-native Visualization' },
     description: {
-      zh: '连接 AI 与底层图表引擎的 AI 原生可视化组件库。',
-      en: 'A visualization component library connecting AI applications with chart engines.',
+      zh: '面向大模型时代的 AI 原生可视化库，框架无关，开箱即用。',
+      en: 'An AI-native visualization library for the LLM era. Framework-agnostic and ready to use.',
     },
     href: 'https://gpt-vis.antv.vision/',
   },
   {
     label: 'Infographic',
     title: {
-      zh: '新一代声明式信息图引擎',
-      en: 'A declarative infographic engine',
+      zh: '信息图可视化',
+      en: 'Infographic Visualization',
     },
     description: {
-      zh: '面向 AI 快速创作专业、可编辑、可流式呈现的信息图。',
-      en: 'Create professional, editable, streaming infographics with concise AI friendly syntax.',
+      zh: '新一代信息图可视化引擎，让文字信息栩栩如生。',
+      en: 'A next-generation declarative infographic engine that brings words to life.',
     },
     href: 'https://infographic.antv.vision/',
   },

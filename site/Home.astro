@@ -16,6 +16,7 @@ import {
   ecosystem,
   experts,
   foundation,
+  qaSuggestions,
   showcases,
 } from './data/home';
 
@@ -73,7 +74,7 @@ const matrixGptVisDescription = isZh ? '数据分析图表库' : 'Data analysis 
         <span class="antv-wordmark">AntV</span><span aria-hidden="true">·</span>{text.heroTitle}
       </h1>
       <p class="antv-hero-description">{text.heroDescription}</p>
-      <QaEntry locale={locale} />
+      <QaEntry locale={locale} suggestions={qaSuggestions.map((question) => question[locale])} />
     </div>
   </section>
 
