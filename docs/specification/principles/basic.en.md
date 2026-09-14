@@ -1,3 +1,8 @@
+---
+title: Design Values
+order: 0
+---
+
 The design values of AntV for data visualization are derived from the Ant Design design system (<a href='https://ant.design/docs/spec/introduce-cn' target='_blank'>Ant Design</a>) and serve as guiding principles with characteristics of data visualization. While adhering to the design values of Ant Design, it offers a further interpretation in the field of data visualization.
 
 AntV's design language initially defined four design values: "Accuracy, Clarity, Effectiveness, and Beauty". After several years of extensive project practice in internal business and with the changes in users' demands for data analysis, new requirements have been put forward for charts.

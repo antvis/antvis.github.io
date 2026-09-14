@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import { useIntl, useLocale } from 'dumi';
-import { debounce } from 'lodash';
-import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'site/lib/i18n';
+import debounce from 'lodash/debounce.js';
+import { useEffect, useRef, useState } from 'react';
 import FAMOUS_PERSONS_DATAS from '../../data/famous-persons.json';
 import { OverflowedText, ModuleTitle as Title } from '../common';
 
@@ -9,16 +9,7 @@ import styles from './index.module.less';
 
 // 专家之声
 export function FamousPersons() {
-  const locale = useLocale();
-
-  const language: 'zh' | 'en' = locale.id.includes('zh') ? 'zh' : 'en';
-
-  const intl = useIntl();
-  const useT = (transformedMessage: string) => {
-    return intl.formatMessage({
-      id: transformedMessage,
-    });
-  };
+  const { locale: language, t: useT } = useTranslation();
 
   const textRef = useRef<any>(null);
   const msgRef = useRef<any>(null);
@@ -43,9 +34,11 @@ export function FamousPersons() {
     }, 200);
 
     window.addEventListener('resize', changeSize);
+    changeSize();
 
     return () => {
       window.removeEventListener('resize', changeSize);
+      changeSize.cancel();
     };
   }, []);
 
@@ -63,7 +56,7 @@ export function FamousPersons() {
         {FAMOUS_PERSONS_DATAS.map((data) => {
           const filter = `drop-shadow(${data.color} 80px 0)`;
           return (
-            <div className={styles.famousAuction}>
+            <div key={data.name} className={styles.famousAuction}>
               <div className={styles.image}>
                 <img src={data.image} alt="image" />
                 <img

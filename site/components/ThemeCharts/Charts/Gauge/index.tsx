@@ -1,7 +1,7 @@
 import { Gauge } from '@antv/g2plot';
-import { useIntl } from 'dumi';
-import { get } from 'lodash';
-import React, { useEffect, useMemo, useRef } from 'react';
+import { useTranslation } from 'site/lib/i18n';
+import get from 'lodash/get.js';
+import React, { useEffect, useRef } from 'react';
 
 import styles from '../index.module.less';
 
@@ -14,14 +14,9 @@ export function GaugeChart(props: GaugeProps) {
   const { theme = {} } = props;
   const { value, sequential } = theme;
   const colors10 = get(sequential, ['colors', '0'], []);
-  const isDark = useMemo(() => value === 'dark', [value]);
+  const isDark = value === 'dark';
 
-  const intl = useIntl();
-  const useT = (transformedMessage: string) => {
-    return intl.formatMessage({
-      id: transformedMessage,
-    });
-  };
+  const { t: useT } = useTranslation();
 
   const containerRef = useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
@@ -49,7 +44,7 @@ export function GaugeChart(props: GaugeProps) {
                   };" >${useT('用户总量')}</div>
                   <div style="font-size: 32px;color: ${
                     isDark ? '#fff' : '#1D2129'
-                  }; line-height: 45px;font-family: AlibabaPuHuiTiB;" >1,320</div>
+                  }; line-height: 45px;font-family: Alibaba PuHuiTi 2.0;" >1,320</div>
                 </div>
               `;
             },
@@ -74,6 +69,14 @@ export function GaugeChart(props: GaugeProps) {
       }
     }
   }, [containerRef, isDark, colors10]);
+
+  useEffect(
+    () => () => {
+      plotRef.current?.destroy();
+      plotRef.current = null;
+    },
+    [],
+  );
 
   return (
     <div className={styles.container}>

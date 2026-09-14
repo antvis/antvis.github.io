@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import React from 'react';
 
 import styles from './index.module.less';
 
@@ -21,6 +20,7 @@ export default function ActiveIcon(props: ActiveIconProps) {
       className={classNames(className, styles.activeIcon)}
       href={href}
       target={target}
+      rel={target === '_blank' ? 'noreferrer' : undefined}
     >
       <img className={styles.inactive} src={img} alt="inactive_icon" />
       <img className={styles.active} src={activeImg} alt="active_icon" />

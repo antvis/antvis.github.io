@@ -1,14 +1,17 @@
 import { ConfigProvider, Tooltip } from 'antd';
 import cx from 'classnames';
-import { isNumber, isString, omit, toNumber } from 'lodash';
-import React, { PureComponent } from 'react';
+import isNumber from 'lodash/isNumber.js';
+import isString from 'lodash/isString.js';
+import omit from 'lodash/omit.js';
+import toNumber from 'lodash/toNumber.js';
+import { PureComponent } from 'react';
 
 import './index.less';
 
 type Props = {
-  className: string;
+  className?: string;
   text: string;
-  maxWidth: string | number;
+  maxWidth?: string | number;
   maxHeight?: string | number;
   style?: Record<string, any>;
 };
@@ -78,7 +81,7 @@ export class OverflowedText extends PureComponent<Props> {
     );
 
     let textStyle: Record<string, string> = {
-      maxWidth: getPixel(maxWidth),
+      maxWidth: getPixel(maxWidth ?? '100px'),
       ...style,
     };
     // 最大高度 转化为 行数， 需要  fontSize, lineHeight 属性
@@ -88,8 +91,8 @@ export class OverflowedText extends PureComponent<Props> {
         ...textStyle,
         maxWidth: 'none',
         display: '-webkit-box',
-        '-webkitBoxOrient': 'vertical',
-        '-webkitLineClamp': (
+        WebkitBoxOrient: 'vertical',
+        WebkitLineClamp: (
           Math.max(getNumber(maxHeight), lineHeightSize) / lineHeightSize
         ).toFixed(0),
       };

@@ -4,15 +4,23 @@ on:
   workflow_dispatch:
   push:
     branches:
-     - master
+      - master
 
 jobs:
   deploy-site:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm install
-      - run: npm run build
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Install dependencies
+        run: corepack pnpm@10.34.5 install --no-frozen-lockfile
+      - name: Build site
+        run: pnpm build
       - run: echo 'antv.vision' > dist/CNAME
       - run: |
           cd dist

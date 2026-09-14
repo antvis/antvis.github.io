@@ -1,0 +1,49 @@
+---
+interface Props {
+  title?: string;
+  colors: string;
+  colorNames?: string;
+  descriptions?: string;
+  grid?: 'sudoku';
+}
+const { title, colors, colorNames = '', descriptions = '', grid } = Astro.props;
+const groups = colors.split('|').map((group) => group.split(',').map((color) => color.trim()));
+const names = colorNames.split(',');
+const captions = descriptions.split('|');
+for (const group of groups) {
+  if (group.some((color) => !/^#[\da-f]{6}$/i.test(color))) throw new Error('Invalid palette color');
+}
+---
+
+<figure class="palette">
+  {title && <figcaption>{title}</figcaption>}
+  <div class:list={['palette-groups', { sudoku: grid === 'sudoku' }]}>
+    {groups.map((group, index) => (
+      <div class="palette-group">
+        {groups.length > 1 && names[index] && <p class="palette-label">{names[index]}</p>}
+        <div class="palette-colors">
+          {group.map((color, colorIndex) => (
+            <div class="palette-color" title={groups.length === 1 ? names[colorIndex] : undefined}>
+              <span style={{ background: color }} aria-hidden="true"></span>
+              <code>{color}</code>
+            </div>
+          ))}
+        </div>
+        {captions[index] && <p class="palette-description">{captions[index]}</p>}
+      </div>
+    ))}
+  </div>
+</figure>
+
+<style>
+  .palette { margin: 24px 0; }
+  figcaption, .palette-label { font-weight: 600; margin: 0 0 12px; }
+  .palette-groups { display: grid; gap: 20px; }
+  .palette-colors { display: grid; grid-template-columns: repeat(auto-fit, minmax(66px, 1fr)); gap: 8px; }
+  .palette-color { min-width: 0; text-align: center; }
+  .palette-color span { display: block; height: 48px; border-radius: 4px; }
+  .palette-color code { padding: 0; font-size: 11px; background: none; }
+  .palette-description { font-size: 14px; color: var(--text-muted); }
+  .sudoku { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .sudoku .palette-colors { grid-template-columns: repeat(3, 1fr); }
+</style>

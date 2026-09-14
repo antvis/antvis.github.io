@@ -1,26 +1,24 @@
 # AntV New Site 📈
 
-New AntV site built on [@antv/dumi-theme-antv](https://github.com/antvis/dumi-theme-antv).
+New AntV site built on [@antv/site](https://github.com/antvis/site).
 
 ![prettier code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
 
-## Install & Preview
+## Local development
 
-```bash
-npm install
-npm start
+```sh
+pnpm install
+pnpm dev
 ```
 
-Visit https://127.0.0.1:8000
+Local development starts at http://localhost:4321. Both `/zh/` and `/en/` are available.
 
-## Prettier
+## Validation and deployment
 
-```bash
-npm run format
+```sh
+pnpm check       # Astro / TypeScript diagnostics
+pnpm build       # Build the static site
+pnpm preview     # Preview the built site
 ```
 
-## Deploy to antv.vision
-
-```bash
-npm run deploy
-```
+CI runs the type check and static site build.

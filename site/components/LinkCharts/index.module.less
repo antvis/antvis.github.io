@@ -8,7 +8,7 @@
   &:extend(.commonFlexConfig);
   padding: 100px 0 80px 0;
   flex-direction: column;
-  font-family: PingFangSC;
+  font-family: var(--font-sans);
 
   .charts {
     width: 100%;
@@ -58,7 +58,8 @@
           color: #1d2129;
           line-height: 32px;
           margin: 18px 0 8px 0;
-          font-family: AlibabaPuHuiTiB;
+          font-family: var(--font-sans);
+          font-weight: 700;
         }
 
         .subTitle {
@@ -104,6 +105,7 @@
 
     .left,
     .right {
+      border: 0;
       &:extend(.commonFlexConfig);
       height: 44px;
       width: 44px;
@@ -121,5 +123,11 @@
     > .left {
       transform: rotate(180deg);
     }
+  }
+}
+
+@media (max-width: 640px) {
+  .linkCharts {
+    padding: 48px 0 24px;
   }
 }

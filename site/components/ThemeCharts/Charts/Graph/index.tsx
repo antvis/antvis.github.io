@@ -1,5 +1,5 @@
 import { Graph } from '@antv/g6';
-import { debounce } from 'lodash';
+import debounce from 'lodash/debounce.js';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 
 import styles from '../index.module.less';
@@ -89,7 +89,7 @@ export function GraphChart(props: GraphProps) {
   const { theme = {} } = props;
   const { value, categorical } = theme;
   const colors10 = categorical.colors;
-  const isDark = useMemo(() => value === 'dark', [value]);
+  const isDark = value === 'dark';
 
   const containerRef = useRef<HTMLDivElement>(null);
   const plotRef = React.useRef<any>(null);
@@ -192,13 +192,14 @@ export function GraphChart(props: GraphProps) {
         plotRef.current.changeData(data);
       }
     }
-  }, [containerRef, data, defaultNode]);
+  }, [data, defaultNode, create]);
 
   // g6 不能自动更新以及手动更新而更新图的位置在最中心。 重新进行创建
   useEffect(() => {
     const container = containerRef?.current;
     const onResize = debounce(() => {
-      plotRef.current.destroy();
+      plotRef.current?.destroy();
+      plotRef.current = null;
       create(container);
     }, 100);
 
@@ -207,8 +208,17 @@ export function GraphChart(props: GraphProps) {
     }
     return () => {
       window.removeEventListener('resize', onResize);
+      onResize.cancel();
     };
-  }, [containerRef]);
+  }, [create]);
+
+  useEffect(
+    () => () => {
+      plotRef.current?.destroy();
+      plotRef.current = null;
+    },
+    [],
+  );
 
   return (
     <div className={styles.container}>

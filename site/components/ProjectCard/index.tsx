@@ -1,15 +1,14 @@
-import { useChinaMirrorHost } from '@antv/dumi-theme-antv/dist/slots/hooks';
-import { Col, ConfigProvider, Divider, Popover, Row } from 'antd';
+import { ConfigProvider, Popover } from 'antd';
 import classNames from 'classnames';
-import { useIntl, useLocale } from 'dumi';
+import { useTranslation } from 'site/lib/i18n';
 import React, { useCallback, useState } from 'react';
 import ANTV_LINKS from '../../data/project-card-popover.json';
 import { ActiveIcon, ModuleTitle as Title } from '../common';
 import {
-  ProductType,
+  type ProductType,
   getProducts,
-  transformUrl,
-} from '../Products/getProducts';
+} from '../../lib/products';
+import { transformUrl } from '../../lib/urls';
 
 import styles from './index.module.less';
 
@@ -166,76 +165,80 @@ const PROJECT_DATAS: PrejectData = [
 
 // 设计语言与研发框架
 export function ProjectCard() {
-  const locale = useLocale();
-  const [isChinaMirrorHost] = useChinaMirrorHost();
   const [products, setProducts] = useState<ProductType[]>([]);
 
-  const language: 'zh' | 'en' = locale.id.includes('zh') ? 'zh' : 'en';
-
-  const intl = useIntl();
-  const useT = (transformedMessage: string) => {
-    return intl.formatMessage({
-      id: transformedMessage,
-    });
-  };
+  const { locale: language, t: useT } = useTranslation();
 
   // 旧的跳转 json 获取
   React.useEffect(() => {
-    getProducts({ language, isChinaMirrorHost }).then((data) => {
-      setProducts(data.slice(0, 14));
-    });
-  }, [language, isChinaMirrorHost]);
+    let active = true;
+    getProducts({ language })
+      .then((data) => {
+        if (active) setProducts(data.slice(0, 14));
+      })
+      .catch(() => {
+        // The static product links remain usable when supplementary links fail.
+        if (active) setProducts([]);
+      });
+    return () => {
+      active = false;
+    };
+  }, [language]);
 
   // 弹出框内容
-  const getContent = useCallback(({ title, subTitle, img, links, url }) => {
-    return (
-      <div className={styles.content}>
-        <div className={styles.msg}>
-          <div className={styles.msgTitle}>{title}</div>
-          <div className={styles.msgSubTitle}>{subTitle}</div>
-        </div>
-        <div
-          className={styles.msgChart}
-          style={{ backgroundImage: `url(${img})` }}
-        />
-        <div className={styles.links}>
-          {ANTV_LINKS.map((link) => {
-            let href = links[link.href]?.url.replace(
-              /https:\/\/.+?\//,
-              `${url}/`,
-            );
+  const getContent = useCallback(
+    ({ title, subTitle, img, links, url }) => {
+      return (
+        <div className={styles.content}>
+          <div className={styles.msg}>
+            <div className={styles.msgTitle}>{title}</div>
+            <div className={styles.msgSubTitle}>{subTitle}</div>
+          </div>
+          <div
+            className={styles.msgChart}
+            style={{ backgroundImage: `url(${img})` }}
+          />
+          <div className={styles.links}>
+            {ANTV_LINKS.map((link) => {
+              let href = links[link.href]?.url?.replace(
+                /https:\/\/.+?\//,
+                `${url}/`,
+              );
 
-            // Ant Design Charts 本身跳转 https://charts.ant.design/example 为 404, 修改为 https://ant-design-charts.antgroup.com/examples
-            if (title === 'Ant Design Charts') {
-              href =
-                link.href === 'home'
-                  ? url
-                  : `${url}/${language}/${
-                      {
-                        example: 'examples',
-                        api: 'options/plots/overview',
-                      }[link.href]
-                    }`;
-            }
-            if (title === 'F6' && link.href === 'api') {
-              href = href + '/Graph';
-            }
+              // Ant Design Charts 本身跳转 https://charts.ant.design/example 为 404, 修改为 https://ant-design-charts.antgroup.com/examples
+              if (title === 'Ant Design Charts') {
+                href =
+                  link.href === 'home'
+                    ? url
+                    : `${url}/${language}/${
+                        {
+                          example: 'examples',
+                          api: 'options/plots/overview',
+                        }[link.href]
+                      }`;
+              }
+              if (href && title === 'F6' && link.href === 'api') {
+                href = href + '/Graph';
+              }
 
-            return (
-              <a href={href} target="_blank">
+              return (
                 <ActiveIcon
+                  key={link.href}
+                  href={href || transformUrl({ url, language })}
+                  target="_blank"
                   className={styles.link}
                   img={link.img}
                   text={useT(link.text)}
                   activeImg={link.activeImg}
                 />
-              </a>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-    );
-  }, []);
+      );
+    },
+    [language],
+  );
 
   return (
     <div className={styles.projectCard} id={ANCHORNAME}>
@@ -246,7 +249,7 @@ export function ProjectCard() {
       <div className={styles.cards}>
         <div className={styles.box}>
           {PROJECT_DATAS.map((cols) => (
-            <Row gutter={16}>
+            <div key={cols[0].title} className={styles.row}>
               {cols.map((col) => {
                 const { span, img, title, subTitle, isSort, icon, url } = col;
 
@@ -261,16 +264,16 @@ export function ProjectCard() {
                   <a
                     className={classNames(col.classNames, styles.card)}
                     href={
-                      url && transformUrl({ url, language, isChinaMirrorHost })
+                      url && transformUrl({ url, language })
                     }
                     style={{ cursor: url ? 'pointer' : 'default' }}
                     target="_blank"
                   >
                     {icon && <img src={icon} alt={newTitle} />}
                     {isSort ? (
-                      <Divider dashed={true} className={styles.divider}>
+                      <div className={styles.divider}>
                         <div className={styles.cardTitle}>{newTitle}</div>
-                      </Divider>
+                      </div>
                     ) : (
                       <div className={styles.cardTitle}>{newTitle}</div>
                     )}
@@ -281,7 +284,10 @@ export function ProjectCard() {
                 );
 
                 return (
-                  <Col key={title} span={span}>
+                  <div
+                    key={title}
+                    style={{ gridColumn: `span ${span}`, minWidth: 0 }}
+                  >
                     {links ? (
                       <ConfigProvider prefixCls="antd5">
                         <Popover
@@ -299,10 +305,10 @@ export function ProjectCard() {
                     ) : (
                       children
                     )}
-                  </Col>
+                  </div>
                 );
               })}
-            </Row>
+            </div>
           ))}
         </div>
       </div>

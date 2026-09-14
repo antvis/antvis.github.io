@@ -8,12 +8,12 @@
   &:extend(.commonFlexConfig);
   padding: 80px 0 40px;
   flex-direction: column;
-  height: 782px;
+  height: auto;
   overflow: hidden;
-  font-family: PingFangSC;
+  font-family: var(--font-sans);
 
   .cards {
-    height: 520px;
+    min-height: 520px;
     width: calc(100vw - 360px);
     max-width: 1680px;
     min-width: 1040px;
@@ -24,6 +24,11 @@
     letter-spacing: 0;
 
     .box {
+      .row {
+        display: grid;
+        grid-template-columns: repeat(24, minmax(0, 1fr));
+        column-gap: 16px;
+      }
       .card {
         &:extend(.commonFlexConfig);
         height: 70px;
@@ -41,7 +46,7 @@
         }
 
         .cardSubTitle {
-          font-family: AlibabaPuHuiTiR;
+          font-family: var(--font-sans);
           height: 24px;
           opacity: 0.65;
           font-size: 16px;
@@ -90,15 +95,20 @@
           cursor: default;
 
           .divider {
+            display: flex;
+            align-items: center;
+            width: 100%;
             border-color: rgba(255, 255, 255, 0.2);
-
-            :global(.ant-divider-inner-text) {
-              padding: 0;
+            &::before,
+            &::after {
+              content: '';
+              flex: 1;
+              border-top: 1px dashed rgba(255, 255, 255, 0.2);
             }
           }
 
           .cardTitle {
-            font-family: AlibabaPuHuiTiR;
+            font-family: var(--font-sans);
             margin: 0 6px;
             font-size: 16px;
             color: #ffffff;
@@ -129,7 +139,7 @@
 }
 
 .content {
-  font-family: PingFangSC;
+  font-family: var(--font-sans);
   padding: 0 8px;
 
   .msg {
@@ -172,16 +182,34 @@
       font-size: 14px;
       color: #1d2129;
 
-      .link {
-        > img {
-          width: 16px;
-          height: 16px;
-        }
+      > img {
+        width: 16px;
+        height: 16px;
       }
 
       &:hover {
         color: #691eff;
       }
     }
+  }
+}
+
+@media (max-width: 1200px) {
+  .projectCard {
+    padding-inline: 24px;
+    height: auto;
+    .cards {
+      width: 100%;
+      min-width: 0;
+      overflow-x: auto;
+    }
+    .box {
+      min-width: 992px;
+    }
+  }
+}
+@media (max-width: 640px) {
+  .projectCard {
+    padding: 48px 20px 24px;
   }
 }

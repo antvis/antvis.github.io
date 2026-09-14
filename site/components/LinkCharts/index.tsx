@@ -1,39 +1,31 @@
-import { useChinaMirrorHost } from '@antv/dumi-theme-antv/dist/slots/hooks';
 import classNames from 'classnames';
-import { useIntl, useLocale } from 'dumi';
-import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'site/lib/i18n';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import CHARTS_DATAS from '../../data/link-charts.json';
-import { transformUrl } from '../Products/getProducts';
+import { transformUrl } from '../../lib/urls';
 import { OverflowedText, ModuleTitle as Title } from '../common';
 
 import styles from './index.module.less';
 
 // 丰富图表，选用自如
 export function LinkCharts() {
+  const timer = useRef<ReturnType<typeof setTimeout>>();
+  useEffect(() => () => clearTimeout(timer.current), []);
   const [position, setPosition] = useState('center');
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(CHARTS_DATAS);
 
-  const locale = useLocale();
-  const [isChinaMirrorHost] = useChinaMirrorHost();
 
-  const intl = useIntl();
-  const useT = (transformedMessage: string) => {
-    return intl.formatMessage({
-      id: transformedMessage,
-    });
-  };
-
-  const language: 'zh' | 'en' = locale.id.includes('zh') ? 'zh' : 'en';
+  const { locale: language, t: useT } = useTranslation();
 
   // 滑动
   const onClick = useCallback(
-    (position) => {
+    (position: 'left' | 'right') => {
       if (loading) return;
       setPosition(position);
       setLoading(true);
       const length = data.length;
-      setTimeout(() => {
+      timer.current = setTimeout(() => {
         setData((data) => {
           return position === 'left'
             ? [...data.slice(length - 3), ...data.slice(0, length - 3)]
@@ -43,7 +35,7 @@ export function LinkCharts() {
         setLoading(false);
       }, 1000);
     },
-    [loading],
+    [loading, data.length],
   );
 
   return (
@@ -66,11 +58,11 @@ export function LinkCharts() {
           {data.map((data) => {
             return (
               <a
+                key={data.link}
                 className={styles.chart}
                 href={transformUrl({
                   url: data.link,
                   language,
-                  isChinaMirrorHost,
                 })}
                 target="_blank"
               >
@@ -91,18 +83,30 @@ export function LinkCharts() {
         </div>
       </div>
       <div className={styles.buttons}>
-        <div className={styles.left} onClick={() => onClick('left')}>
+        <button
+          type="button"
+          disabled={loading}
+          aria-label={language === 'zh' ? '上一组图表' : 'Previous charts'}
+          className={styles.left}
+          onClick={() => onClick('left')}
+        >
           <img
             alt="left_icon"
             src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Q4WbQ5DCXEAAAAAAAAAAAAAADmJ7AQ/original"
           />
-        </div>
-        <div className={styles.right} onClick={() => onClick('right')}>
+        </button>
+        <button
+          type="button"
+          disabled={loading}
+          aria-label={language === 'zh' ? '下一组图表' : 'Next charts'}
+          className={styles.right}
+          onClick={() => onClick('right')}
+        >
           <img
             alt="right_icon"
             src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Q4WbQ5DCXEAAAAAAAAAAAAAADmJ7AQ/original"
           />
-        </div>
+        </button>
       </div>
     </div>
   );

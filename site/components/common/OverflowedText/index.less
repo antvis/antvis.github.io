@@ -1,8 +1,8 @@
-@import './mixins.less';
-
 .component-overflowed-text {
   max-width: 100px;
-  .text-overflow();
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
   &.max-height-text {
     white-space: normal;

@@ -14,7 +14,7 @@
     &:extend(.commonFlexConfig);
     margin-bottom: 28px;
     padding: 8px 0;
-    font-family: PingFangSC;
+    font-family: var(--font-sans);
 
     .famousAuction {
       &:extend(.commonFlexConfig);
@@ -64,7 +64,7 @@
         font-size: 20px;
         color: #1d2129;
         font-weight: 500;
-        font-family: PingFangSC;
+        font-family: var(--font-sans);
       }
 
       .text {
@@ -96,6 +96,31 @@
   &.en {
     .famousAuction {
       height: 377px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .famousPersons {
+    padding-inline: 24px;
+    .famousAuctions {
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .famousAuctions .famousAuction {
+      width: calc(50% - 10px);
+      min-width: 0;
+      margin: 0;
+      max-width: none;
+    }
+  }
+}
+@media (max-width: 640px) {
+  .famousPersons {
+    padding: 48px 20px;
+    .famousAuctions .famousAuction {
+      width: 100%;
     }
   }
 }
