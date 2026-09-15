@@ -6,8 +6,6 @@ import omit from 'lodash/omit.js';
 import toNumber from 'lodash/toNumber.js';
 import { PureComponent } from 'react';
 
-import './index.less';
-
 type Props = {
   className?: string;
   text: string;
@@ -75,9 +73,9 @@ export class OverflowedText extends PureComponent<Props> {
       'width',
     ]);
     const cls = cx(
-      'component-overflowed-text',
+      'overflow-hidden text-ellipsis',
       className,
-      maxHeight && 'max-height-text',
+      maxHeight ? 'whitespace-normal break-all' : 'whitespace-nowrap',
     );
 
     let textStyle: Record<string, string> = {

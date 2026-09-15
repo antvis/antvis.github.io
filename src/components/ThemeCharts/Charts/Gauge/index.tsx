@@ -3,8 +3,6 @@ import { useTranslation } from '../../../../lib/i18n';
 import get from 'lodash/get.js';
 import React, { useEffect, useRef } from 'react';
 
-import styles from '../index.module.less';
-
 type GaugeProps = {
   theme?: any;
 };
@@ -79,7 +77,7 @@ export function GaugeChart(props: GaugeProps) {
   );
 
   return (
-    <div className={styles.container}>
+    <div className="h-full w-full [&>div]:h-full [&>div]:w-full">
       <div ref={containerRef} />
     </div>
   );

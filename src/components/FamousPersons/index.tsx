@@ -5,8 +5,6 @@ import { useEffect, useRef, useState } from 'react';
 import FAMOUS_PERSONS_DATAS from '../../data/famous-persons.json';
 import { OverflowedText, ModuleTitle as Title } from '../common';
 
-import styles from './index.module.less';
-
 // 专家之声
 export function FamousPersons() {
   const { locale: language, t: useT } = useTranslation();
@@ -43,39 +41,55 @@ export function FamousPersons() {
   }, []);
 
   return (
-    <div
-      className={classNames(styles.famousPersons, {
-        [styles.en]: language === 'en',
-      })}
-    >
+    <div className="flex items-center justify-center pt-20 pb-[120px] flex-col overflow-hidden tablet:px-6 mobile:py-12 mobile:px-5">
       <Title
         title={useT('专家之声')}
         subTitle={useT('来自数据可视化专家的专业认可与推荐')}
       />
-      <div className={styles.famousAuctions}>
+      <div className="flex items-center justify-center mb-7 py-2 font-sans tablet:w-full tablet:flex-wrap tablet:gap-5">
         {FAMOUS_PERSONS_DATAS.map((data) => {
           const filter = `drop-shadow(${data.color} 80px 0)`;
           return (
-            <div key={data.name} className={styles.famousAuction}>
-              <div className={styles.image}>
-                <img src={data.image} alt="image" />
+            <div
+              key={data.name}
+              className={classNames(
+                language === 'en'
+                  ? 'h-[377px]'
+                  : 'h-[calc((1680px_-_100vw)/10_+_370px)]',
+                'flex items-center justify-between flex-col max-h-[377px] min-h-[350px] w-[calc((100vw_-_464px)/4)] min-w-[239px] max-w-[399px] pt-[29px] px-5 pb-5 relative mx-[14px] tracking-normal transition-all duration-200 ease-[ease] bg-white border border-solid border-[#e5e8ef] shadow-[0_8px_28px_0_rgba(0,0,0,0.05)] rounded-2xl hover:-translate-y-2 hover:shadow-[0_8px_20px_0_rgba(0,0,0,0.1)] tablet:w-[calc(50%_-_10px)] tablet:min-w-0 tablet:m-0 tablet:max-w-none mobile:w-full',
+              )}
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src={data.image}
+                  alt="image"
+                  className="h-[60px] w-[60px]"
+                />
                 <img
                   src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*XGF5T7Atc7kAAAAAAAAAAAAADmJ7AQ/original"
-                  className={styles.icon}
+                  className="absolute -top-[2px] -left-20 h-[14px] w-[14px]"
                   style={{ filter }}
                   alt="icon"
                 />
               </div>
-              <div className={styles.name}>{useT(data.name)}</div>
-              <div className={styles.text} ref={textRef}>
+              <div className="my-1 text-[20px] text-[#1d2129] font-medium font-sans">
+                {useT(data.name)}
+              </div>
+              <div
+                className="leading-7 h-14 text-[14px] text-[#424e66] line-clamp-2 text-ellipsis"
+                ref={textRef}
+              >
                 <OverflowedText
                   text={useT(data.text)}
                   {...textSize}
                   style={{ fontSize: 14, lineHeight: 2 }}
                 />
               </div>
-              <div className={styles.hr} />
-              <div className={styles.msg} ref={msgRef}>
+              <div className="w-full [border-top:1px_solid_#f5f5f5] my-[14px]" />
+              <div
+                className="text-[#86909c] flex-1 overflow-hidden"
+                ref={msgRef}
+              >
                 <OverflowedText
                   text={useT(data.msg)}
                   {...msgSize}
