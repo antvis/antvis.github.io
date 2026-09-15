@@ -1,7 +1,5 @@
 import classNames from 'classnames';
 
-import styles from './index.module.less';
-
 type ActiveIconProps = {
   img: string;
   activeImg: string;
@@ -17,13 +15,24 @@ export default function ActiveIcon(props: ActiveIconProps) {
 
   return (
     <a
-      className={classNames(className, styles.activeIcon)}
+      className={classNames(
+        className,
+        'group/icon inline-flex items-center justify-center',
+      )}
       href={href}
       target={target}
       rel={target === '_blank' ? 'noreferrer' : undefined}
     >
-      <img className={styles.inactive} src={img} alt="inactive_icon" />
-      <img className={styles.active} src={activeImg} alt="active_icon" />
+      <img
+        className="mr-[6px] group-hover/icon:hidden"
+        src={img}
+        alt="inactive_icon"
+      />
+      <img
+        className="mr-[6px] hidden group-hover/icon:block"
+        src={activeImg}
+        alt="active_icon"
+      />
       {text}
     </a>
   );

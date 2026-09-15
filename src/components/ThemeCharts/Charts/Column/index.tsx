@@ -1,8 +1,6 @@
 import { Column } from '@antv/g2plot';
 import React, { useEffect, useRef } from 'react';
 
-import styles from '../index.module.less';
-
 export const DARK_THEME_CONFIG = {
   legend: {
     itemName: {
@@ -201,7 +199,7 @@ export function ColumnChart(props: ColumnProps) {
   );
 
   return (
-    <div className={styles.container}>
+    <div className="h-full w-full [&>div]:h-full [&>div]:w-full">
       <div ref={containerRef} />
     </div>
   );

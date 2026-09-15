@@ -36,7 +36,6 @@
     "@types/react-dom": "^18.3.7",
     "@types/lodash": "^4.14.189",
     "@types/node": "^22.18.6",
-    "less": "^4.2.2",
     "typescript": "5.9.3",
     "gh-pages": "^3.1.0",
     "prettier": "^2.0.0"
@@ -49,7 +48,7 @@
     "preview": "astro preview",
     "deploy": "npm run build && npm run gh-pages",
     "gh-pages": "gh-pages -d dist",
-    "format": "prettier --write \"**/*.{ts,tsx,js,mjs,json,md,less}\""
+    "format": "prettier --write \"**/*.{ts,tsx,js,mjs,json,md,css}\""
   },
   "type": "module",
   "engines": {

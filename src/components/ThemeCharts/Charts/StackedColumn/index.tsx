@@ -2,8 +2,6 @@ import { Column } from '@antv/g2plot';
 import React, { useEffect, useRef } from 'react';
 import { DARK_THEME_CONFIG, LIGHT_THEME_CONFIG } from '../Column';
 
-import styles from '../index.module.less';
-
 type StackedColumnProps = {
   theme?: any;
 };
@@ -136,7 +134,7 @@ export function StackedColumnChart(props: StackedColumnProps) {
   );
 
   return (
-    <div className={styles.container}>
+    <div className="h-full w-full [&>div]:h-full [&>div]:w-full">
       <div ref={containerRef} />
     </div>
   );

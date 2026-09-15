@@ -2,8 +2,6 @@ import { Graph } from '@antv/g6';
 import debounce from 'lodash/debounce.js';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 
-import styles from '../index.module.less';
-
 type GraphProps = {
   theme?: any;
 };
@@ -221,7 +219,7 @@ export function GraphChart(props: GraphProps) {
   );
 
   return (
-    <div className={styles.container}>
+    <div className="h-full w-full [&>div]:h-full [&>div]:w-full">
       <div ref={containerRef} />
     </div>
   );

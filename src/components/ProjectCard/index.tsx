@@ -4,13 +4,8 @@ import { useTranslation } from '../../lib/i18n';
 import React, { useCallback, useState } from 'react';
 import ANTV_LINKS from '../../data/project-card-popover.json';
 import { ActiveIcon, ModuleTitle as Title } from '../common';
-import {
-  type ProductType,
-  getProducts,
-} from '../../lib/products';
+import { type ProductType, getProducts } from '../../lib/products';
 import { transformUrl } from '../../lib/urls';
-
-import styles from './index.module.less';
 
 // 锚点, 用于 banner 中的 开始使用跳转
 export const ANCHORNAME = 'linkChartsAnchorName';
@@ -23,7 +18,7 @@ type PrejectData = {
   // 占宽
   span: number;
   // 类名
-  classNames: any;
+  classNames: string;
   // 是否为分类
   isSort?: boolean;
   // 弹出框 展开图
@@ -40,14 +35,18 @@ type PrejectData = {
   };
 }[][];
 
-// 不放入 data 变为 json 是因为 占比需要 styles 进行修改。
+// 产品布局和样式由组件维护。
+const chartCardClasses =
+  'h-[92px] mb-3 flex-1 flex-col bg-[rgba(245,140,88,0.15)] hover:bg-[rgba(245,140,88,0.25)] hover:border-[#f58c58]';
+
 const PROJECT_DATAS: PrejectData = [
   [
     {
       title: 'AVA',
       subTitle: '智能洞察',
       span: 24,
-      classNames: styles.AVA,
+      classNames:
+        'h-[70px] mb-4 bg-[rgba(36,134,255,0.15)] hover:bg-[rgba(36,134,255,0.25)]',
       icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*L58VTIXV8MwAAAAAAAAAAAAADmJ7AQ/original',
       img: 'https://gw.alipayobjects.com/mdn/rms_fabca5/afts/img/A*TOjFQ6PQwyEAAAAAAAAAAAAAARQnAQ',
       url: 'https://ava.antv.antgroup.com',
@@ -58,7 +57,8 @@ const PROJECT_DATAS: PrejectData = [
       title: 'Ant Design Charts',
       subTitle: '图表库',
       span: 15,
-      classNames: styles.antd,
+      classNames:
+        'h-[70px] mb-4 bg-[rgba(0,167,167,0.15)] hover:bg-[rgba(0,167,167,0.25)]',
       icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*OWM6RLft2VIAAAAAAAAAAAAADmJ7AQ/original',
       url: 'https://ant-design-charts-next.antgroup.com',
       img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*IJE_TYeUtEUAAAAAAAAAAAAADmJ7AQ/original',
@@ -66,7 +66,8 @@ const PROJECT_DATAS: PrejectData = [
     {
       title: '267 全系 F 版',
       span: 9,
-      classNames: styles.holophylyF,
+      classNames:
+        'h-[70px] mb-4 bg-[rgba(0,167,167,0.15)] hover:bg-[rgba(0,167,167,0.25)]',
       icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*S8gOQJHfS8QAAAAAAAAAAAAADmJ7AQ/original',
     },
   ],
@@ -75,7 +76,7 @@ const PROJECT_DATAS: PrejectData = [
       title: 'G2',
       subTitle: '统计图表',
       span: 3,
-      classNames: styles.chartEngine,
+      classNames: chartCardClasses,
       url: 'https://g2.antv.antgroup.com',
       img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*oj5gRqZMxZQAAAAAAAAAAAAADmJ7AQ/original',
     },
@@ -83,7 +84,7 @@ const PROJECT_DATAS: PrejectData = [
       title: 'S2',
       subTitle: '多维表格',
       span: 3,
-      classNames: styles.chartEngine,
+      classNames: chartCardClasses,
       url: 'https://s2.antv.antgroup.com',
       img: 'https://gw.alipayobjects.com/zos/antfincdn/YxskohI92J/c17971dd-6dd9-4a62-85f8-c69dff908aec.png',
     },
@@ -91,7 +92,7 @@ const PROJECT_DATAS: PrejectData = [
       title: 'G6',
       subTitle: '关系图',
       span: 3,
-      classNames: styles.chartEngine,
+      classNames: chartCardClasses,
       url: 'https://g6.antv.antgroup.com',
       img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*_JGLQZl-PcQAAAAAAAAAAAAADmJ7AQ/original',
     },
@@ -99,7 +100,7 @@ const PROJECT_DATAS: PrejectData = [
       title: 'X6',
       subTitle: '流程图',
       span: 3,
-      classNames: styles.chartEngine,
+      classNames: chartCardClasses,
       url: 'https://x6.antv.antgroup.com',
       img: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*JSr-RbwCgmcAAAAAAAAAAAAAARQnAQ',
     },
@@ -107,7 +108,7 @@ const PROJECT_DATAS: PrejectData = [
       title: 'L7',
       subTitle: '地图',
       span: 3,
-      classNames: styles.chartEngine,
+      classNames: chartCardClasses,
       url: 'https://L7.antv.antgroup.com',
       img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*H0KDRaIpfIUAAAAAAAAAAAAADmJ7AQ/original',
     },
@@ -115,7 +116,7 @@ const PROJECT_DATAS: PrejectData = [
       title: 'F2',
       subTitle: '移动统计图',
       span: 3,
-      classNames: styles.chartEngine,
+      classNames: chartCardClasses,
       url: 'https://f2.antv.antgroup.com',
       img: 'https://mdn.alipayobjects.com/huamei_khb4xj/afts/img/A*q7bQT4mlz7kAAAAAAAAAAAAADq2NAQ/original',
     },
@@ -123,7 +124,7 @@ const PROJECT_DATAS: PrejectData = [
       title: 'F6',
       subTitle: '移动关系图',
       span: 3,
-      classNames: styles.chartEngine,
+      classNames: chartCardClasses,
       url: 'https://f6.antv.vision',
       img: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*q3muQq70-dUAAAAAAAAAAAAADmJ7AQ/original',
     },
@@ -131,14 +132,37 @@ const PROJECT_DATAS: PrejectData = [
       title: 'F7',
       subTitle: '移动地图',
       span: 3,
-      classNames: classNames(styles.chartEngine, styles.f7),
+      classNames: classNames(
+        chartCardClasses,
+        'box-border border border-dashed border-[rgba(245,140,88,0.5)]',
+      ),
     },
   ],
   [
-    { title: '常用统计数据', span: 6, classNames: styles.sort, isSort: true },
-    { title: '关系数据', span: 6, classNames: styles.sort, isSort: true },
-    { title: '地理空间数据', span: 3, classNames: styles.sort, isSort: true },
-    { title: '极致移动定制', span: 9, classNames: styles.sort, isSort: true },
+    {
+      title: '常用统计数据',
+      span: 6,
+      classNames: 'h-6 mb-4 p-0 cursor-default',
+      isSort: true,
+    },
+    {
+      title: '关系数据',
+      span: 6,
+      classNames: 'h-6 mb-4 p-0 cursor-default',
+      isSort: true,
+    },
+    {
+      title: '地理空间数据',
+      span: 3,
+      classNames: 'h-6 mb-4 p-0 cursor-default',
+      isSort: true,
+    },
+    {
+      title: '极致移动定制',
+      span: 9,
+      classNames: 'h-6 mb-4 p-0 cursor-default',
+      isSort: true,
+    },
   ],
   [
     {
@@ -146,7 +170,8 @@ const PROJECT_DATAS: PrejectData = [
       subTitle: '设计语言',
       url: '/specification/principles/basic',
       span: 24,
-      classNames: styles.antv,
+      classNames:
+        'h-[70px] mb-4 bg-[rgba(213,128,255,0.15)] hover:bg-[rgba(213,128,255,0.25)]',
       icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*U3AfQq_cQMYAAAAAAAAAAAAADmJ7AQ/original',
     },
   ],
@@ -155,7 +180,8 @@ const PROJECT_DATAS: PrejectData = [
       title: 'G',
       subTitle: '图表引擎',
       span: 24,
-      classNames: styles.g,
+      classNames:
+        'h-[70px] mb-0 bg-[rgba(148,112,255,0.15)] hover:bg-[rgba(148,112,255,0.25)]',
       img: 'https://gw.alipayobjects.com/mdn/rms_6ae20b/afts/img/A*nk1YSrbkQPMAAAAAAAAAAAAAARQnAQ',
       icon: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*YIbER7wNuLMAAAAAAAAAAAAADmJ7AQ/original',
       url: 'https://g.antv.antgroup.com',
@@ -189,16 +215,18 @@ export function ProjectCard() {
   const getContent = useCallback(
     ({ title, subTitle, img, links, url }) => {
       return (
-        <div className={styles.content}>
-          <div className={styles.msg}>
-            <div className={styles.msgTitle}>{title}</div>
-            <div className={styles.msgSubTitle}>{subTitle}</div>
+        <div className="font-sans px-2">
+          <div className="flex items-center tracking-normal">
+            <div className="font-semibold text-[20px] text-[#1d2129] mr-[6px]">
+              {title}
+            </div>
+            <div className="text-[14px] text-[#86909c]">{subTitle}</div>
           </div>
           <div
-            className={styles.msgChart}
+            className="h-[125px] w-[274px] border border-solid border-[#d8d8d8] bg-white rounded-sm my-3 bg-center bg-no-repeat bg-contain"
             style={{ backgroundImage: `url(${img})` }}
           />
-          <div className={styles.links}>
+          <div className="flex items-center justify-between w-[274px]">
             {ANTV_LINKS.map((link) => {
               let href = links[link.href]?.url?.replace(
                 /https:\/\/.+?\//,
@@ -226,7 +254,7 @@ export function ProjectCard() {
                   key={link.href}
                   href={href || transformUrl({ url, language })}
                   target="_blank"
-                  className={styles.link}
+                  className="text-[14px] text-[#1d2129] [&>img]:w-4 [&>img]:h-4 hover:text-[#691eff]"
                   img={link.img}
                   text={useT(link.text)}
                   activeImg={link.activeImg}
@@ -241,15 +269,21 @@ export function ProjectCard() {
   );
 
   return (
-    <div className={styles.projectCard} id={ANCHORNAME}>
+    <div
+      className="flex items-center justify-center pt-20 pb-10 flex-col h-auto overflow-hidden font-sans tablet:px-6 mobile:pt-12 mobile:px-5 mobile:pb-6"
+      id={ANCHORNAME}
+    >
       <Title
         title={useT('设计语言与研发框架')}
         subTitle={useT('资产一览，让你快速搭建网站应用')}
       />
-      <div className={styles.cards}>
-        <div className={styles.box}>
+      <div className="min-h-[520px] w-[calc(100vw_-_360px)] max-w-[1680px] min-w-[1040px] bg-[linear-gradient(114deg,#332f4f_0%,#28243f_100%)] shadow-[0_8px_28px_0_rgba(0,0,0,0.2)] rounded-2xl p-6 tracking-normal tablet:w-full tablet:min-w-0 tablet:overflow-x-auto">
+        <div className="tablet:min-w-[992px]">
           {PROJECT_DATAS.map((cols) => (
-            <div key={cols[0].title} className={styles.row}>
+            <div
+              key={cols[0].title}
+              className="grid grid-cols-[repeat(24,minmax(0,1fr))] gap-x-4"
+            >
               {cols.map((col) => {
                 const { span, img, title, subTitle, isSort, icon, url } = col;
 
@@ -262,23 +296,30 @@ export function ProjectCard() {
                 const newSubTitle = subTitle && useT(subTitle);
                 const children = (
                   <a
-                    className={classNames(col.classNames, styles.card)}
-                    href={
-                      url && transformUrl({ url, language })
-                    }
+                    className={classNames(
+                      col.classNames,
+                      'flex items-center justify-center rounded-lg text-white relative',
+                    )}
+                    href={url && transformUrl({ url, language })}
                     style={{ cursor: url ? 'pointer' : 'default' }}
                     target="_blank"
                   >
                     {icon && <img src={icon} alt={newTitle} />}
                     {isSort ? (
-                      <div className={styles.divider}>
-                        <div className={styles.cardTitle}>{newTitle}</div>
+                      <div className="flex items-center w-full border-[rgba(255,255,255,0.2)] before:content-[''] before:flex-1 before:[border-top:1px_dashed_rgba(255,255,255,0.2)] after:content-[''] after:flex-1 after:[border-top:1px_dashed_rgba(255,255,255,0.2)]">
+                        <div className="h-7 font-semibold leading-7 font-sans mx-[6px] text-[16px] text-white opacity-45">
+                          {newTitle}
+                        </div>
                       </div>
                     ) : (
-                      <div className={styles.cardTitle}>{newTitle}</div>
+                      <div className="h-7 font-semibold leading-7 text-[20px] mx-2">
+                        {newTitle}
+                      </div>
                     )}
                     {subTitle && (
-                      <div className={styles.cardSubTitle}>{newSubTitle}</div>
+                      <div className="font-sans h-6 opacity-65 text-[16px] leading-6 whitespace-nowrap">
+                        {newSubTitle}
+                      </div>
                     )}
                   </a>
                 );
