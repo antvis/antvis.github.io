@@ -1,6 +1,6 @@
 # AntV New Site 📈
 
-New AntV site built on [@antv/site](https://github.com/antvis/site).
+New AntV site built on [@antv/astro-theme-antv](https://github.com/antvis/astro-theme-antv).
 
 ![prettier code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
 

@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import { antvSite } from '@antv/site';
+import { antvSite } from '@antv/astro-theme-antv';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';

@@ -16,3 +16,4 @@ yarn.lock
 dist/
 .astro/
 coverage/
+pnpm-lock.yaml
