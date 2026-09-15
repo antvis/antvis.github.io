@@ -1,0 +1,22 @@
+---
+import type { HomeSlotProps } from '@antv/astro-theme-antv';
+import ThemeIsland from './components/ThemeCharts/Island';
+import HomeSections from './components/HomeSections';
+
+type Props = HomeSlotProps;
+const { locale } = Astro.props;
+---
+
+<div class="home-content">
+  <div class="theme-island">
+    <ThemeIsland locale={locale} client:only="react">
+      <p slot="fallback" class="chart-placeholder">{locale === 'zh' ? '正在加载主题图表…' : 'Loading theme charts…'}</p>
+    </ThemeIsland>
+  </div>
+  <HomeSections locale={locale} client:visible />
+</div>
+
+<style>
+  .home-content { overflow: hidden; background: linear-gradient(180deg, #fff 85%, #f7f8fd); }
+  .chart-placeholder { display: grid; min-height: 480px; margin: 0; color: var(--text-muted); place-items: center; }
+</style>

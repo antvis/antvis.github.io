@@ -1,0 +1,39 @@
+.msg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .title {
+    height: auto;
+    line-height: 1.3;
+    margin-top: 0;
+    font-size: 40px;
+    color: #1d2129;
+    margin-bottom: 16px;
+    font-family: var(--font-sans);
+    font-weight: 700;
+  }
+
+  .subTitle {
+    font-family: var(--font-sans);
+    color: #424e66;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin-bottom: 32px;
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 640px) {
+  .msg {
+    text-align: center;
+    padding-inline: 12px;
+    .title {
+      font-size: 28px;
+    }
+    .subTitle {
+      font-size: 14px;
+    }
+  }
+}

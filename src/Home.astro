@@ -1,0 +1,62 @@
+---
+import type { HomeSlotProps } from '@antv/astro-theme-antv';
+import { QaEntry, Updates } from '@antv/astro-theme-antv/components';
+
+type Props = HomeSlotProps;
+const { locale, config } = Astro.props;
+
+const qaSuggestions = {
+  zh: [
+    '帮我生成一个可交互的柱形图',
+    '数据标签遮挡了怎么办？',
+    '如何调整图例位置？',
+  ],
+  en: [
+    'Create an interactive bar chart',
+    'How to solve the data label is covered?',
+    'How to adjust the legend position?',
+  ],
+} as const;
+---
+
+<section class="antv-hero" aria-labelledby="home-title">
+  <div class="hero-decoration" aria-hidden="true">
+    <div class="hero-background hero-background-left"></div>
+    <div class="hero-background hero-background-right"></div>
+    <img class="waffle" src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*9jnzSaebJHsAAAAAAAAAAAAADmJ7AQ/original" alt="" />
+    <img class="bug" src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*JwKAR5SZ7V4AAAAAAAAAAAAADmJ7AQ/original" alt="" />
+    <img class="chips" src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*ZJscTJdtQqgAAAAAAAAAAAAADmJ7AQ/original" alt="" />
+    <img class="cookie" src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*Qua4RZ6djCcAAAAAAAAAAAAADmJ7AQ/original" alt="" />
+  </div>
+  <div class="antv-home-copy">
+    <h1 id="home-title"><span>{config.site.title}</span> · {config.home.title[locale]}</h1>
+    <p>{config.home.description[locale]}</p>
+    <QaEntry locale={locale} suggestions={qaSuggestions[locale]} />
+  </div>
+  <div class="home-updates"><Updates locale={locale} /></div>
+</section>
+
+<style>
+  .antv-hero { position: relative; overflow: hidden; padding: calc(100px + var(--header-height)) 24px 40px; background: #f7f1ff url('https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*KL9wS54k2U8AAAAAAAAAAAAADmJ7AQ/original') center top / cover no-repeat; }
+  .antv-home-copy { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; max-width: 1200px; margin: auto; text-align: center; }
+  h1 { margin: 0; font-size: clamp(32px, 4.5vw, 64px); font-weight: var(--font-heading-weight); line-height: 1.25; }
+  h1 span { color: var(--brand); }
+  .antv-home-copy > p { max-width: 850px; margin: 16px 0 20px; font-size: 18px; color: #424e66; }
+  .home-updates { position: relative; z-index: 1; max-width: 1200px; margin: 100px auto 0; }
+  .hero-decoration { position: absolute; inset: 0; pointer-events: none; }
+  .hero-background { position: absolute; bottom: 0; width: min(765px, 100%); background-repeat: no-repeat; background-size: contain; }
+  .hero-background-left { top: 75px; left: 0; background-image: url('https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*B4UvSKE2hfEAAAAAAAAAAAAADmJ7AQ/original'); background-position-x: -48px; }
+  .hero-background-right { top: 90px; right: 0; background-image: url('https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*DR_FR7Q721sAAAAAAAAAAAAADmJ7AQ/original'); background-position-x: 66px; }
+  .hero-background::before, .hero-background::after { content: ''; position: absolute; background: url('https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*pD8oT49V-bcAAAAAAAAAAAAADmJ7AQ/original') center / contain no-repeat; }
+  .hero-background-left::before { width: 32px; height: 32px; left: 220px; top: 345px; }
+  .hero-background-left::after { width: 40px; height: 40px; left: 35px; top: 300px; }
+  .hero-background-right::before { width: 31px; height: 31px; right: 55px; top: 335px; opacity: .67; }
+  .hero-background-right::after { width: 21px; height: 21px; right: 310px; top: 310px; opacity: .67; }
+  .hero-decoration img { position: absolute; object-fit: contain; }
+  .waffle { width: 230px; left: -60px; top: 80px; transform: rotate(3deg); }
+  .bug { width: 130px; left: 9%; top: 300px; transform: rotate(-7deg); }
+  .chips { width: 210px; right: 4%; top: 200px; transform: rotate(8deg); }
+  .cookie { width: 100px; right: -20px; top: 50px; }
+  @media (max-width: 1000px) { .hero-decoration { opacity: .3; } .bug, .chips { display: none; } }
+  @media (max-width: 640px) { .antv-hero { padding: calc(64px + var(--header-height)) 20px 24px; } .antv-home-copy > p { font-size: 16px; } .home-updates { margin-top: 64px; } }
+</style>

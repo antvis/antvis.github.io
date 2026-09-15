@@ -1,0 +1,115 @@
+.commonFlexConfig {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.complexCharts {
+  &:extend(.commonFlexConfig);
+  padding: 80px 0 40px;
+  flex-direction: column;
+  font-family: var(--font-sans);
+
+  .title {
+    height: auto;
+    margin-top: 0;
+    font-size: 40px;
+    color: #1d2129;
+    margin-bottom: 48px;
+    font-family: var(--font-sans);
+    font-weight: 700;
+  }
+
+  .complexButtons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+
+    .button {
+      &:extend(.commonFlexConfig);
+      height: 52px;
+      width: 160px;
+      cursor: pointer;
+      background-color: #ffffff;
+      border: 2px solid #e5e8ef;
+      border-radius: 8px;
+      margin-right: 20px;
+      line-height: 52px;
+      font-size: 18px;
+
+      > img {
+        margin-right: 8px;
+      }
+
+      &:hover {
+        font-weight: 500;
+        border: 2px solid #691eff;
+      }
+    }
+
+    .isSelect {
+      font-weight: 500;
+      border: 2px solid #691eff;
+      color: #691eff;
+    }
+  }
+
+  .content {
+    width: calc(100vw - 360px);
+    height: calc((100vw - 360px) * (571 / 1680));
+    max-width: 1680px;
+    min-width: 1040px;
+    max-height: 571px;
+    min-height: 353px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+
+    > video {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .complexCharts {
+    padding-inline: 24px;
+    .content {
+      width: 100%;
+      min-width: 0;
+      min-height: 0;
+      height: auto;
+      aspect-ratio: 1680 / 571;
+    }
+    .content video {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+@media (max-width: 640px) {
+  .complexCharts {
+    padding: 48px 20px 24px;
+    .title {
+      font-size: 28px;
+      line-height: 1.3;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .complexButtons {
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .complexButtons .button {
+      width: auto;
+      min-width: 88px;
+      margin: 0;
+      padding-inline: 8px;
+      font-size: 14px;
+    }
+  }
+}

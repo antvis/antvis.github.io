@@ -24,7 +24,7 @@ order: 7
 
 ## 视觉标记
 
-视觉标记是视觉通道映射的载体，常见的为颜色、形状等，具体详见 [视觉篇](../language/basic) 和 [色板篇](../language/palette)。
+视觉标记是视觉通道映射的载体，常见的为颜色、形状等，具体详见 [视觉篇](/zh/specification/language/basic/) 和 [色板篇](/zh/specification/language/palette/)。
 
 | **视觉通道** | **示例** |
 | --- | --- |
@@ -53,7 +53,7 @@ order: 7
 
 # 1.标签提示 Label
 
-在图表中，标签是对当前的一组数据进行的内容标注。在图表中常见表现为中心文本，坐标提示，图形标签，注释标记。图形标签和注释标记详见 [标签 Label](./label) 和 [标注 Annotation](./annotation)<br /> <br /> ![1.标签提示.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*C8NyRKDfAPsAAAAAAAAAAAAAARQnAQ)
+在图表中，标签是对当前的一组数据进行的内容标注。在图表中常见表现为中心文本，坐标提示，图形标签，注释标记。图形标签和注释标记详见 [标签 Label](/zh/specification/module/label/) 和 [标注 Annotation](/zh/specification/module/annotation/)<br /> <br /> ![1.标签提示.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*C8NyRKDfAPsAAAAAAAAAAAAAARQnAQ)
 
 ## 中心文本
 
@@ -167,7 +167,7 @@ Tooltip 的基本元素包括：视觉标记图形，文本标签，数值标记
 
 ## 适应设备环境多变
 
-组件依据当前的设备和环境，尺寸和交互降级时，用于解释性的信息，可选择变化信息组件的形态承载。如下图所示，PC 端的图形 Label +分类图例，在移动端可变换为指标卡，在极小尺寸的迷你图表中可变换为 tooltip。用户所付出的交互和时间成本不同，可以看到尽量一致的信息。具体可以查看 [响应式篇](../language/media)。 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ulwsQZ1i41MAAAAAAAAAAAAAARQnAQ)
+组件依据当前的设备和环境，尺寸和交互降级时，用于解释性的信息，可选择变化信息组件的形态承载。如下图所示，PC 端的图形 Label +分类图例，在移动端可变换为指标卡，在极小尺寸的迷你图表中可变换为 tooltip。用户所付出的交互和时间成本不同，可以看到尽量一致的信息。具体可以查看 [响应式篇](/zh/specification/language/media/)。 ![image.png](https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*ulwsQZ1i41MAAAAAAAAAAAAAARQnAQ)
 
 # 扩展阅读
 
