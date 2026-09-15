@@ -15,10 +15,7 @@ export function getProducts({
 }: {
   language: 'zh' | 'en';
 }): Promise<ProductType[]> {
-  // 如需要修改产品信息，请到 https://yuyan.antfin-inc.com/datavprod/antv-site-datas/schemas/site-products-h5data/console 修改区块内容
-  return fetch(
-    'https://render.alipay.com/p/h5data/antv-site-datas_site-products-h5data.json',
-  )
+  return fetch('https://assets.antv.antgroup.com/antv/products.json')
     .then((res) => {
       if (!res.ok) throw new Error(`Product feed returned ${res.status}`);
       return res.json();

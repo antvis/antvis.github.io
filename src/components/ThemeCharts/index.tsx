@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useTranslation } from 'site/lib/i18n';
+import { useTranslation } from '../../lib/i18n';
 import { useCallback, useState } from 'react';
 import THEME_DATAS from '../../data/theme-charts.json';
 import THEME_COLORS1 from '../../data/theme-colors1.json';

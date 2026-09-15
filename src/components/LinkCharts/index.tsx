@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useTranslation } from 'site/lib/i18n';
+import { useTranslation } from '../../lib/i18n';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import CHARTS_DATAS from '../../data/link-charts.json';
 import { transformUrl } from '../../lib/urls';

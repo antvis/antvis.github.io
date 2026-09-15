@@ -3,7 +3,6 @@ import { antvSite } from '@antv/astro-theme-antv';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import { fileURLToPath } from 'node:url';
 
 const siteConfig = {
   site: {
@@ -71,31 +70,21 @@ const siteConfig = {
   },
   home: {
     title: {
-      zh: '让 AGI 栩栩如生',
-      en: 'Make AGI come alive',
+      zh: '让 AI 栩栩如生',
+      en: 'Make AI come alive',
     },
     description: {
       zh: '蚂蚁企业级数据可视化解决方案，让人们在数据世界里获得视觉化思考能力。',
       en: 'Enterprise visualization technology that helps people think visually in a world of data.',
     },
-    showStats: false,
   },
   qa: {
     enabled: true,
   },
   slots: {
     home: {
-      hero: ['./site/Home.astro'],
-      features: ['./site/Content.astro'],
-    },
-  },
-  theme: {
-    tokens: {
-      '--brand': '#691eff',
-      '--brand-strong': '#5312d6',
-      '--brand-button': '#5a16c9',
-      '--brand-soft': '#f0e8ff',
-      '--brand-faint': '#faf7ff',
+      hero: ['./src/Home.astro'],
+      features: ['./src/Content.astro'],
     },
   },
 };
@@ -112,16 +101,11 @@ export default defineConfig({
       hooks: {
         'astro:config:setup': ({ command, injectScript }) => {
           if (command === 'build') {
-            injectScript('page', 'import "site/analytics";');
+            injectScript('page', 'import "/src/analytics.ts";');
           }
         },
       },
     },
   ],
   redirects: { '/result': '/zh/result/' },
-  vite: {
-    resolve: {
-      alias: { site: fileURLToPath(new URL('./site', import.meta.url)) },
-    },
-  },
 });

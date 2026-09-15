@@ -15,12 +15,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Enable Corepack
-        run: corepack enable
       - name: Install dependencies
-        run: corepack pnpm@10.34.5 install --no-frozen-lockfile
+        run: npm install
       - name: Build site
-        run: pnpm build
+        run: npm run build
       - run: echo 'antv.vision' > dist/CNAME
       - run: |
           cd dist

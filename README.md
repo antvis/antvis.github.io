@@ -7,8 +7,8 @@ New AntV site built on [@antv/astro-theme-antv](https://github.com/antvis/astro-
 ## Local development
 
 ```sh
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 
 Local development starts at http://localhost:4321. Both `/zh/` and `/en/` are available.
@@ -16,9 +16,9 @@ Local development starts at http://localhost:4321. Both `/zh/` and `/en/` are av
 ## Validation and deployment
 
 ```sh
-pnpm check       # Astro / TypeScript diagnostics
-pnpm build       # Build the static site
-pnpm preview     # Preview the built site
+npm run check       # Astro / TypeScript diagnostics
+npm run build       # Build the static site
+npm run preview     # Preview the built site
 ```
 
 CI runs the type check and static site build.

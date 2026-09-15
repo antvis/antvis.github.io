@@ -1,5 +1,5 @@
 import { Pie } from '@antv/g2plot';
-import { useTranslation } from 'site/lib/i18n';
+import { useTranslation } from '../../../../lib/i18n';
 import React, { useEffect, useRef } from 'react';
 import { DARK_THEME_CONFIG, LIGHT_THEME_CONFIG } from '../Column';
 

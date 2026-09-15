@@ -1,6 +1,6 @@
 import { ConfigProvider, Popover } from 'antd';
 import classNames from 'classnames';
-import { useTranslation } from 'site/lib/i18n';
+import { useTranslation } from '../../lib/i18n';
 import React, { useCallback, useState } from 'react';
 import ANTV_LINKS from '../../data/project-card-popover.json';
 import { ActiveIcon, ModuleTitle as Title } from '../common';

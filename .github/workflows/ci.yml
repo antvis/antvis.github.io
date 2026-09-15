@@ -15,14 +15,11 @@ jobs:
         with:
           node-version: 22
 
-      - name: Enable Corepack
-        run: corepack enable
-
       - name: Install dependencies
-        run: corepack pnpm@10.34.5 install --no-frozen-lockfile
+        run: npm install
 
       - name: Type Check
-        run: pnpm check
+        run: npm run check
 
       - name: Build
-        run: pnpm build
+        run: npm run build

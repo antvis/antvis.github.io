@@ -47,12 +47,11 @@
     "build": "astro build",
     "check": "astro check",
     "preview": "astro preview",
-    "deploy": "pnpm run build && pnpm run gh-pages",
+    "deploy": "npm run build && npm run gh-pages",
     "gh-pages": "gh-pages -d dist",
     "format": "prettier --write \"**/*.{ts,tsx,js,mjs,json,md,less}\""
   },
   "type": "module",
-  "packageManager": "pnpm@10.34.5",
   "engines": {
     "node": ">=22.12.0"
   }

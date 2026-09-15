@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useTranslation } from 'site/lib/i18n';
+import { useTranslation } from '../../lib/i18n';
 import debounce from 'lodash/debounce.js';
 import { useEffect, useRef, useState } from 'react';
 import FAMOUS_PERSONS_DATAS from '../../data/famous-persons.json';

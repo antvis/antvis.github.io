@@ -1,5 +1,5 @@
 import { Gauge } from '@antv/g2plot';
-import { useTranslation } from 'site/lib/i18n';
+import { useTranslation } from '../../../../lib/i18n';
 import get from 'lodash/get.js';
 import React, { useEffect, useRef } from 'react';
 
