@@ -9,7 +9,6 @@ const siteConfig = {
     title: 'AntV',
     origin: 'https://antv.antgroup.com',
     repository: 'https://github.com/antvis/antvis.github.io',
-    googleAnalyticsId: 'G-96Q5R280YF',
     defaultLocale: 'zh',
     locales: ['zh', 'en'],
     favicon:
@@ -68,6 +67,9 @@ const siteConfig = {
   ],
   search: {
     enabled: false,
+  },
+  analytics: {
+    GoogleAnalytics: { id: 'G-96Q5R280YF' },
   },
   home: {
     title: {
