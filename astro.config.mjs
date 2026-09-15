@@ -9,6 +9,7 @@ const siteConfig = {
     title: 'AntV',
     origin: 'https://antv.antgroup.com',
     repository: 'https://github.com/antvis/antvis.github.io',
+    googleAnalyticsId: 'G-96Q5R280YF',
     defaultLocale: 'zh',
     locales: ['zh', 'en'],
     favicon:
@@ -96,16 +97,6 @@ export default defineConfig({
     react(),
     mdx(),
     sitemap(),
-    {
-      name: 'antv-analytics',
-      hooks: {
-        'astro:config:setup': ({ command, injectScript }) => {
-          if (command === 'build') {
-            injectScript('page', 'import "/src/analytics.ts";');
-          }
-        },
-      },
-    },
   ],
   redirects: { '/result': '/zh/result/' },
 });
