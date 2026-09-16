@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useTranslation } from '../../lib/i18n';
+import { LocaleProvider, useTranslation, type Locale } from '../../lib/i18n';
 import { useCallback, useState } from 'react';
 import THEME_DATAS from '../../data/theme-charts.json';
 import THEME_COLORS1 from '../../data/theme-colors1.json';
@@ -45,7 +45,7 @@ const CHARTS = [
 ];
 
 // 定制主题，一键生成
-export function ThemeCharts() {
+function ThemeCharts() {
   const { t: useT } = useTranslation();
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -213,5 +213,13 @@ export function ThemeCharts() {
         </button>
       </div>
     </div>
+  );
+}
+
+export default function ThemeIsland({ locale }: { locale: Locale }) {
+  return (
+    <LocaleProvider locale={locale}>
+      <ThemeCharts />
+    </LocaleProvider>
   );
 }

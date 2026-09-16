@@ -1,9 +1,5 @@
 import { ConfigProvider, Tooltip } from 'antd';
 import cx from 'classnames';
-import isNumber from 'lodash/isNumber.js';
-import isString from 'lodash/isString.js';
-import omit from 'lodash/omit.js';
-import toNumber from 'lodash/toNumber.js';
 import { PureComponent } from 'react';
 
 type Props = {
@@ -15,23 +11,18 @@ type Props = {
 };
 
 const getPixel = (value: string | number) => {
-  if (isNumber(value)) return `${value}px`;
+  if (typeof value === 'number') return `${value}px`;
   return value;
 };
 
 const getNumber = (value: string | number) => {
-  if (isString(value)) return toNumber(value.replace(/[^0-9]+/, ''));
+  if (typeof value === 'string') return Number(value.replace(/[^0-9]+/, ''));
   return value;
 };
 
 // 自动省略并提示组件
 export class OverflowedText extends PureComponent<Props> {
-  static defaultProps = {
-    className: '',
-    text: 'overflowed text',
-    maxWidth: '100px',
-    style: {},
-  };
+  private textElement: HTMLDivElement | null = null;
 
   state = {
     isOverflow: false,
@@ -44,14 +35,12 @@ export class OverflowedText extends PureComponent<Props> {
       prevProps.maxHeight !== this.props.maxHeight ||
       prevProps.style !== this.props.style
     ) {
-      // @ts-ignore
-      this.init(this.$text);
+      this.init(this.textElement);
     }
   }
 
-  init = (node: HTMLDivElement) => {
-    // @ts-ignore
-    this.$text = node;
+  init = (node: HTMLDivElement | null) => {
+    this.textElement = node;
     if (!node) return;
     const { maxHeight } = this.props;
     this.setState({
@@ -64,14 +53,6 @@ export class OverflowedText extends PureComponent<Props> {
   render() {
     const { text, className, maxWidth, maxHeight, style = {} } = this.props;
     const { fontSize, lineHeight } = style;
-    const props = omit(this.props, [
-      'className',
-      'text',
-      'maxWidth',
-      'maxHeight',
-      'style',
-      'width',
-    ]);
     const cls = cx(
       'overflow-hidden text-ellipsis',
       className,
@@ -104,7 +85,6 @@ export class OverflowedText extends PureComponent<Props> {
               title={text}
               placement="topLeft"
               overlayStyle={{ maxWidth: '50vw' }}
-              {...props}
             >
               {text}
             </Tooltip>
