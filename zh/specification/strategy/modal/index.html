@@ -1,0 +1,299 @@
+<!DOCTYPE html><html lang="zh" data-site-title="AntV"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="设计模型"><meta name="generator" content="@antv/astro-theme-antv"><meta name="color-scheme" content="light"><link rel="canonical" href="https://antv.antgroup.com/zh/specification/strategy/modal/"><link rel="alternate" hreflang="zh-CN" href="https://antv.antgroup.com/zh/specification/strategy/modal/"><link rel="alternate" hreflang="en" href="https://antv.antgroup.com/en/specification/strategy/modal/"><link rel="alternate" hreflang="x-default" href="https://antv.antgroup.com/zh/specification/strategy/modal/"><link rel="icon" href="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*7svFR6wkPMoAAAAAAAAAAAAADmJ7AQ/original"><title>设计模型 · AntV</title><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"设计模型","description":"设计模型","url":"https://antv.antgroup.com/zh/specification/strategy/modal/","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"AntV","url":"https://antv.antgroup.com/"}}</script><link rel="stylesheet" href="/_assets/BaseLayout.joZFwwzB.css"></head><body class="page-document antv-site"><a class="skip-link" href="#main-content">跳到主要内容</a><div class="antv-loading antv-loading-page" role="status" aria-live="polite" data-page-loading="true" hidden data-astro-cid-ahymnlmm><div class="antv-loading-shapes" aria-hidden="true" data-astro-cid-ahymnlmm><span class="antv-loading-shape" data-astro-cid-ahymnlmm><svg viewBox="0 0 80 80" data-astro-cid-ahymnlmm><defs data-astro-cid-ahymnlmm><linearGradient id="antv-loading-235f6c2e-1fbd-40a4-bec8-a7060716fa72" x1="0%" x2="100%" y1="50%" y2="50%" data-astro-cid-ahymnlmm><stop offset="0%" stop-color="#6500ff" data-astro-cid-ahymnlmm></stop><stop offset="16%" stop-color="#6a09ff" data-astro-cid-ahymnlmm></stop><stop offset="43%" stop-color="#7623ff" data-astro-cid-ahymnlmm></stop><stop offset="77%" stop-color="#8a4cff" data-astro-cid-ahymnlmm></stop><stop offset="99%" stop-color="#996bff" data-astro-cid-ahymnlmm></stop></linearGradient></defs><circle cx="40" cy="40" r="32" stroke="url(#antv-loading-235f6c2e-1fbd-40a4-bec8-a7060716fa72)" data-astro-cid-ahymnlmm></circle></svg></span><span class="antv-loading-shape antv-loading-triangle" data-astro-cid-ahymnlmm><svg viewBox="0 0 86 80" data-astro-cid-ahymnlmm><polygon points="43 8 79 72 7 72" stroke="url(#antv-loading-235f6c2e-1fbd-40a4-bec8-a7060716fa72)" data-astro-cid-ahymnlmm></polygon></svg></span><span class="antv-loading-shape" data-astro-cid-ahymnlmm><svg viewBox="0 0 80 80" data-astro-cid-ahymnlmm><rect x="8" y="8" width="64" height="64" stroke="url(#antv-loading-235f6c2e-1fbd-40a4-bec8-a7060716fa72)" data-astro-cid-ahymnlmm></rect></svg></span></div><p data-astro-cid-ahymnlmm>正在加载…</p></div><script>
+    (() => {
+      const loading = document.querySelector('[data-page-loading]');
+      if (!loading) return;
+      // Fast pages skip the overlay; slow scripts cannot trap the readable HTML.
+      const showTimer = setTimeout(() => { loading.hidden = false; }, 120);
+      const safetyTimer = setTimeout(finish, 8000);
+      function finish() {
+        clearTimeout(showTimer);
+        clearTimeout(safetyTimer);
+        document.removeEventListener('DOMContentLoaded', finish);
+        window.removeEventListener('pageshow', finish);
+        loading.remove();
+      }
+      document.addEventListener('DOMContentLoaded', finish, { once: true });
+      window.addEventListener('pageshow', finish, { once: true });
+      if (document.readyState !== 'loading') finish();
+    })();
+  </script><div class="site-canvas"><antv-announcement hidden="true" data-locale="zh" data-site="/" data-pagefind-ignore="true" class="block [&amp;[hidden]]:hidden relative w-full bg-[var(--announcement-background,#daf5eb)] px-12 py-3 text-center text-sm text-[#253858]"><aside aria-label="公告"><span data-announcement-title class="[overflow-wrap:anywhere]"></span> <a data-announcement-link hidden class="[&amp;[hidden]]:hidden text-[#1677ff] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand)] [overflow-wrap:anywhere]"></a><button type="button" data-announcement-close aria-label="关闭公告" class="absolute top-1 right-1 inline-flex size-9 cursor-pointer items-center justify-center rounded border-0 bg-transparent p-2 text-inherit hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand)]"><span class="block size-5 [&amp;_svg]:block [&amp;_svg]:size-full" aria-hidden="true"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="icon icon-tabler icons-tabler-outline icon-tabler-x"
+>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M18 6l-12 12" />
+  <path d="M6 6l12 12" />
+</svg></span></button></aside></antv-announcement><script type="module">function e(e,t){if(!e||typeof e!=`object`)return``;let n=e;for(let e of[t,t===`zh`?`en`:`zh`])if(typeof n[e]==`string`&&n[e].trim())return n[e].trim();return``}function t(t,n){if(!t||typeof t!=`object`||Array.isArray(t))return null;let r=t,i=e(r.title,n);if(!i)return null;let a={title:i};if(r.link&&typeof r.link==`object`){let t=r.link,i=e(t.text,n);if(i&&typeof t.href==`string`)try{let e=new URL(t.href);(e.protocol===`https:`||e.protocol===`http:`)&&(a.link={text:i,href:e.href})}catch{}}return a}async function n(e,n){let r=await fetch(`https://assets.antv.antgroup.com/antv/announcement.json`,{signal:n});if(!r.ok)throw Error(`Announcement request failed: ${r.status}`);return t(await r.json(),e)}var r=class extends HTMLElement{request;get storageKey(){return`antv:announcement:dismissed:${this.dataset.site||`/`}`}isDismissed(){try{return localStorage.getItem(this.storageKey)===`true`}catch{return!1}}connectedCallback(){this.hidden=!0,this.querySelector(`[data-announcement-close]`)?.addEventListener(`click`,this.dismiss),window.addEventListener(`storage`,this.onStorage),this.isDismissed()||this.load()}disconnectedCallback(){this.request?.abort(),this.querySelector(`[data-announcement-close]`)?.removeEventListener(`click`,this.dismiss),window.removeEventListener(`storage`,this.onStorage)}dismiss=()=>{this.hidden=!0,this.request?.abort();try{localStorage.setItem(this.storageKey,`true`)}catch{}};onStorage=e=>{e.key===this.storageKey&&e.newValue===`true`&&(this.hidden=!0,this.request?.abort())};async load(){this.request?.abort();let e=new AbortController;this.request=e;let t=window.setTimeout(()=>e.abort(),1e4);try{let t=await n(this.dataset.locale===`en`?`en`:`zh`,e.signal);if(!t||!this.isConnected||e.signal.aborted||this.isDismissed())return;this.querySelector(`[data-announcement-title]`).textContent=t.title;let r=this.querySelector(`[data-announcement-link]`);r.hidden=!t.link,t.link&&(r.textContent=`${t.link.text} →`,r.href=t.link.href),this.hidden=!1}catch{}finally{window.clearTimeout(t)}}};customElements.get(`antv-announcement`)||customElements.define(`antv-announcement`,r);</script><header class="site-header antv-site-header" data-pagefind-ignore><div class="header-inner"><a class="brand inline-flex items-center h-full text-[var(--text-strong)] whitespace-nowrap" href="/zh/" aria-label="AntV home"><img class="brand-logo w-auto h-7.5 object-contain" src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*A-lcQbVTpjwAAAAAAAAAAAAADmJ7AQ/original" alt="AntV"></a><button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="菜单"><span aria-hidden="true"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
+>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" />
+</svg></span></button><nav id="primary-nav" class="primary-nav" aria-label="主导航"><a href="/zh/specification/principles/basic/" aria-current="page">设计语言</a><details class="header-menu static [&amp;_&gt;_summary]:relative" data-products-menu><summary aria-label="所有产品"><span>所有产品</span><span class="nav-chevron" aria-hidden="true"></span></summary><div class="absolute top-[var(--header-height)] right-0 left-0 block w-auto max-h-[calc(100dvh_-_var(--header-height)_-_12px)] overflow-auto [border-width:1px_0] [border-style:solid] [border-color:var(--border-soft)_transparent_var(--border)] rounded-none [background:var(--surface-raised)] [box-shadow:inset_0_2px_8px_#f0f1f2,_0_8px_16px_rgb(29_33_41_/_6%)] p-0 [@media(width&lt;=900px)]:static [@media(width&lt;=900px)]:max-h-[none] [@media(width&lt;=900px)]:[box-shadow:none] [@media(width&lt;=900px)]:[border-width:1px_0]"><div class="w-[min(100%,_1520px)] min-h-60 pt-2 pb-9.5 mx-auto my-0 px-10 [@media(width&lt;=900px)]:pt-1 [@media(width&lt;=900px)]:pb-6 [@media(900px&lt;width&lt;=1320px)]:px-7 [@media(700px&lt;width&lt;=900px)]:px-6 [@media(width&lt;=700px)]:px-4.5" data-products-list data-locale="zh" aria-live="polite" aria-busy="true"><div class="product-loading flex items-center justify-center gap-2.5 min-h-31 text-[var(--muted)] text-[12px] [&amp;_&gt;_span]:w-3.5 [&amp;_&gt;_span]:h-3.5 [&amp;_&gt;_span]:[border:2px_solid_var(--border)] [&amp;_&gt;_span]:[border-top-color:var(--brand)] [&amp;_&gt;_span]:rounded-[50%]" data-products-loading><span aria-hidden="true"></span>正在加载产品…</div></div></div><template data-product-group-template><section class="min-w-0 pt-6 pb-7 px-0 [@media(width&lt;=900px)]:pt-5 [@media(width&lt;=900px)]:pb-6 [&amp;:last-child]:pb-2"><h2 class="mt-0 mb-6 pt-0 pb-[13px] [border-bottom:1px_solid_var(--border-soft)] text-[var(--muted-light)] text-[14px] font-medium leading-[20px] mx-0 px-0 [@media(width&lt;=900px)]:mb-4.5"></h2><div class="grid grid-cols-4 gap-x-[clamp(28px,_4vw,_76px)] gap-y-7.5 [@media(700px&lt;width&lt;=900px)]:grid-cols-2 [@media(700px&lt;width&lt;=900px)]:gap-y-6 [@media(width&lt;=700px)]:grid-cols-1 [@media(width&lt;=700px)]:gap-y-5.5 [@media(900px&lt;width&lt;=1320px)]:gap-x-8 [@media(width&lt;=900px)]:gap-x-7" data-product-cards></div></section></template><template data-product-card-template><article class="grid [grid-template-columns:32px_minmax(0,_1fr)] [align-items:start] gap-3 min-w-0 min-h-23 text-[var(--text)] px-0 py-[3px] [@media(width&lt;=700px)]:min-h-0"><span class="product-mark relative grid w-8 h-8 place-items-center mt-[1px] overflow-hidden rounded-none [background:transparent] text-[var(--brand-strong)] text-[10px] font-bold" aria-hidden="true" data-product-mark><img class="absolute [inset:0] w-full h-full object-contain" alt="" loading="lazy" decoding="async"></span><div class="flex min-w-0 flex-col"><div class="flex min-w-0 items-baseline gap-[9px] text-[var(--text-strong)] leading-[22px]"><strong class="flex-none text-[14px] font-semibold"></strong><span class="min-w-0 overflow-hidden text-[14px] font-semibold text-ellipsis whitespace-nowrap" data-product-slogan></span></div><p class="[display:-webkit-box] min-h-5 mt-[3px] mb-0 overflow-hidden text-[var(--muted-light)] text-[12px] leading-[20px] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] mx-0"></p><div class="flex flex-wrap gap-4 mt-[9px]" data-product-actions></div></div></article></template><template data-product-link-template><a class="rounded-none [background:transparent] text-[color-mix(in_srgb,_var(--brand)_72%,_#4f7cff)] text-[12px] font-medium leading-[18px] [text-decoration:none] p-0 hover:[background:transparent] hover:text-[var(--brand-strong)] hover:[text-decoration:underline] hover:[text-underline-offset:3px] focus-visible:[background:transparent] focus-visible:text-[var(--brand-strong)] focus-visible:[text-decoration:underline] focus-visible:[text-underline-offset:3px]"></a></template><template data-product-error-template><div class="product-error flex items-center justify-center gap-2.5 min-h-31 text-[var(--muted)] text-[12px] [&amp;_button]:[border:1px_solid_color-mix(in_srgb,_var(--brand)_30%,_var(--border))] [&amp;_button]:rounded-[var(--radius-small)] [&amp;_button]:[background:var(--brand-soft)] [&amp;_button]:text-[var(--brand-strong)] [&amp;_button]:cursor-pointer [&amp;_button]:font-semibold [&amp;_button]:px-2.5 [&amp;_button]:py-[5px] [&amp;_button:hover]:[border-color:var(--brand)] [&amp;_button:focus-visible]:[border-color:var(--brand)]"><span>产品数据暂时无法加载</span><button type="button">重新加载</button></div></template></details><script type="module">var e=e=>typeof e==`object`&&!!e,t=e=>{try{let t=new URL(String(e||``));return t.protocol===`https:`||t.protocol===`http:`?t.href:``}catch{return``}},n=t=>{try{let n=typeof t==`string`?JSON.parse(t):t;return e(n)?n:{}}catch{return{}}},r=(r,i)=>{let a=n(r.links);return[{href:t(e(a.home)?a.home.url:void 0),label:String((e(a.home)?a.home.title:void 0)||(i===`zh`?`产品首页`:`Product home`))},{href:t(e(a.example)?a.example.url:void 0),label:String((e(a.example)?a.example.title:void 0)||(i===`zh`?`图表示例`:`Examples`))}].filter(e=>e.href)},i=(e,n,i,a)=>{let o=r(e,n),s=String(e.title||``).trim();if(!o.length||!s)return null;let c=i.content.firstElementChild.cloneNode(!0),l=c.querySelector(`[data-product-mark]`),u=l.querySelector(`img`),d=t(e.icon),f=()=>{l.textContent=s.slice(0,3)};d?(u.addEventListener(`error`,f,{once:!0}),u.src=d):f(),c.querySelector(`strong`).textContent=s,c.querySelector(`[data-product-slogan]`).textContent=String(e.slogan||``).trim(),c.querySelector(`p`).textContent=String(e.description||e.slogan||``).trim();let p=c.querySelector(`[data-product-actions]`);for(let e of o){let t=a.content.firstElementChild.cloneNode(!0);t.href=e.href,t.textContent=e.label,p.append(t)}return c};function a(){let t=document.querySelector(`[data-products-menu]`),n=t?.querySelector(`[data-products-list]`);if(!t||!n)return;let r=t.querySelector(`[data-product-group-template]`),a=t.querySelector(`[data-product-card-template]`),o=t.querySelector(`[data-product-link-template]`),s=t.querySelector(`[data-product-error-template]`),c=n.querySelector(`[data-products-loading]`).cloneNode(!0),l=n.dataset.locale||`en`,u={basic:l===`zh`?`标准版基础产品`:`Core products`,ai:l===`zh`?`AI 可视化方案`:`AI Visualization Solutions`,ecology:l===`zh`?`周边生态`:`Ecosystem`},d,f,p=e=>{let t=e.filter(e=>e?.lang===l),s=document.createDocumentFragment();if(Object.entries(u).forEach(([e,n])=>{let c=t.filter(t=>t?.category===e);if(!c.length)return;let u=r.content.firstElementChild.cloneNode(!0);u.querySelector(`h2`).textContent=n;let d=u.querySelector(`[data-product-cards]`);c.forEach(e=>{let t=i(e,l,a,o);t&&d.append(t)}),d.childElementCount&&s.append(u)}),!s.childElementCount)throw Error(`No localized AntV products were returned.`);n.replaceChildren(s),n.removeAttribute(`aria-busy`)},m=()=>{let e=s.content.firstElementChild.cloneNode(!0);e.querySelector(`button`).addEventListener(`click`,()=>void h(!0)),n.replaceChildren(e),n.removeAttribute(`aria-busy`)},h=(t=!1)=>{if(d&&!t)return d;t&&(n.setAttribute(`aria-busy`,`true`),n.replaceChildren(c.cloneNode(!0)));let r=new AbortController,i=window.setTimeout(()=>r.abort(),8e3);return d=fetch(`https://assets.antv.antgroup.com/antv/products.json`,{headers:{Accept:`application/json`},signal:r.signal}).then(e=>{if(!e.ok)throw Error(`Product request failed with ${e.status}.`);return e.json()}).then(t=>{if(!Array.isArray(t))throw TypeError(`Invalid AntV product response.`);p(t.filter(e))}).catch(e=>{console.error(`Failed to load AntV products.`,e),m()}).finally(()=>window.clearTimeout(i)),d},g=()=>{f!==void 0&&window.clearTimeout(f),t.setAttribute(`open`,``),h()},_=()=>{f!==void 0&&window.clearTimeout(f),f=window.setTimeout(()=>t.removeAttribute(`open`),140)};matchMedia(`(hover: hover) and (pointer: fine)`).matches&&(t.addEventListener(`pointerenter`,g),t.addEventListener(`pointerleave`,_)),t.addEventListener(`focusout`,e=>{(!(e.relatedTarget instanceof Node)||!t.contains(e.relatedTarget))&&_()}),t.addEventListener(`toggle`,()=>{t.matches(`:open`)&&h()}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&t.hasAttribute(`open`)&&(f!==void 0&&window.clearTimeout(f),t.removeAttribute(`open`),t.contains(document.activeElement)&&t.querySelector(`summary`)?.focus())}),document.addEventListener(`pointerdown`,e=>{e.target instanceof Node&&!t.contains(e.target)&&(f!==void 0&&window.clearTimeout(f),t.removeAttribute(`open`))})}a();</script><a class="nav-icon-action" href="/en/specification/strategy/modal/" hreflang="en" aria-label="Switch to English" title="Switch to English"><span class="nav-action-icon block w-5 h-5 [flex:0_0_20px] [&amp;_svg]:block [&amp;_svg]:w-full [&amp;_svg]:h-full [&amp;_svg]:[stroke-width:1.8]" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+</span><span class="nav-icon-label hidden [@media(width&lt;=900px)]:inline">English</span></a><div class="antv-header-actions" data-astro-cid-zdtwil3a><details class="antv-community" data-antv-community data-astro-cid-zdtwil3a><summary aria-label="微信公众号" title="微信扫一扫关注" data-astro-cid-zdtwil3a><span class="antv-header-icon" aria-hidden="true" data-astro-cid-zdtwil3a><!-- Simple Icons 16.12.0 (CC0): https://simpleicons.org/ -->
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.27-.027-.407-.03zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/></svg>
+</span><span class="action-label" data-astro-cid-zdtwil3a>微信公众号</span></summary><div class="antv-community-popover" data-astro-cid-zdtwil3a><div class="antv-community-card" data-astro-cid-zdtwil3a><img src="https://gw.alipayobjects.com/zos/antfincdn/ZKlx96dsfs/qrcode_for_gh_f52d8b6aa591_258.jpg" width="128" height="128" alt="AntV 微信公众号二维码" decoding="async" data-astro-cid-zdtwil3a><p data-astro-cid-zdtwil3a>微信扫一扫关注</p></div></div></details><a class="antv-github" href="https://github.com/antvis/antvis.github.io" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub" data-astro-cid-zdtwil3a><span class="antv-header-icon" aria-hidden="true" data-astro-cid-zdtwil3a><!-- Simple Icons 16.12.0 (CC0): https://simpleicons.org/ -->
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+</span><span class="action-label" data-astro-cid-zdtwil3a>GitHub</span></a></div><script type="module">document.querySelectorAll(`[data-antv-community]`).forEach(e=>{e.addEventListener(`pointerenter`,t=>{t.pointerType===`mouse`&&window.matchMedia(`(hover: hover)`).matches&&(e.open=!0)}),e.addEventListener(`pointerleave`,()=>{e.matches(`:focus-within`)||(e.open=!1)}),e.addEventListener(`focusout`,t=>{t.relatedTarget instanceof Node&&e.contains(t.relatedTarget)||(e.open=!1)}),document.addEventListener(`keydown`,t=>{t.key===`Escape`&&(e.open=!1)}),document.addEventListener(`pointerdown`,t=>{t.target instanceof Node&&!e.contains(t.target)&&(e.open=!1)})});</script></nav></div></header><main id="main-content" data-pagefind-body><div class="docs-shell"><aside class="docs-sidebar"><nav aria-label="文档目录"><ul class="sidebar-menu sidebar-menu--docs"><li class="sidebar-menu__item" data-sidebar-key="specification/principles" style="--sidebar-menu-offset: 24px;"><details class="sidebar-menu__details"><summary class="sidebar-menu__summary"><span class="sidebar-menu__label"><span class="sidebar-menu__text" title="设计价值观">设计价值观</span></span><span class="sidebar-menu__chevron" aria-hidden="true"></span></summary><ul class="sidebar-menu sidebar-menu--docs"><li class="sidebar-menu__item" data-sidebar-key="specification/principles/basic" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/principles/basic/" title="设计价值观"><span class="sidebar-menu__text">设计价值观</span></a></li></ul></details></li><li class="sidebar-menu__item" data-sidebar-key="specification/language" style="--sidebar-menu-offset: 24px;"><details class="sidebar-menu__details"><summary class="sidebar-menu__summary"><span class="sidebar-menu__label"><span class="sidebar-menu__text" title="设计语言">设计语言</span></span><span class="sidebar-menu__chevron" aria-hidden="true"></span></summary><ul class="sidebar-menu sidebar-menu--docs"><li class="sidebar-menu__item" data-sidebar-key="specification/language/basic" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/language/basic/" title="视觉"><span class="sidebar-menu__text">视觉</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/language/palette" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/language/palette/" title="色板"><span class="sidebar-menu__text">色板</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/language/interact" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/language/interact/" title="交互"><span class="sidebar-menu__text">交互</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/language/media" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/language/media/" title="响应式"><span class="sidebar-menu__text">响应式</span></a></li></ul></details></li><li class="sidebar-menu__item" data-sidebar-key="specification/strategy" style="--sidebar-menu-offset: 24px;"><details class="sidebar-menu__details" open><summary class="sidebar-menu__summary"><span class="sidebar-menu__label"><span class="sidebar-menu__text" title="设计策略">设计策略</span></span><span class="sidebar-menu__chevron" aria-hidden="true"></span></summary><ul class="sidebar-menu sidebar-menu--docs"><li class="sidebar-menu__item" data-sidebar-key="specification/strategy/modal" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/strategy/modal/" aria-current="page" title="设计模型"><span class="sidebar-menu__text">设计模型</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/strategy/analysis" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/strategy/analysis/" title="分析模型"><span class="sidebar-menu__text">分析模型</span></a></li></ul></details></li><li class="sidebar-menu__item" data-sidebar-key="specification/graph" style="--sidebar-menu-offset: 24px;"><details class="sidebar-menu__details"><summary class="sidebar-menu__summary"><span class="sidebar-menu__label"><span class="sidebar-menu__text" title="图表设计指引">图表设计指引</span></span><span class="sidebar-menu__chevron" aria-hidden="true"></span></summary><ul class="sidebar-menu sidebar-menu--docs"><li class="sidebar-menu__item" data-sidebar-key="specification/graph/card" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/graph/card/" title="卡片 Card"><span class="sidebar-menu__text">卡片 Card</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/graph/chart" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/graph/chart/" title="统计图表 Chart"><span class="sidebar-menu__text">统计图表 Chart</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/graph/map" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/graph/map/" title="地图 Map"><span class="sidebar-menu__text">地图 Map</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/graph/graph" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/graph/graph/" title="图 Graph"><span class="sidebar-menu__text">图 Graph</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/graph/pubDashboard" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/graph/pubDashboard/" title="通用 Dashboard"><span class="sidebar-menu__text">通用 Dashboard</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/graph/conDashboard" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/graph/conDashboard/" title="监控 Dashboard"><span class="sidebar-menu__text">监控 Dashboard</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/graph/mobile" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/graph/mobile/" title="移动端 Mobile"><span class="sidebar-menu__text">移动端 Mobile</span></a></li></ul></details></li><li class="sidebar-menu__item" data-sidebar-key="specification/module" style="--sidebar-menu-offset: 24px;"><details class="sidebar-menu__details"><summary class="sidebar-menu__summary"><span class="sidebar-menu__label"><span class="sidebar-menu__text" title="组件设计指引">组件设计指引</span></span><span class="sidebar-menu__chevron" aria-hidden="true"></span></summary><ul class="sidebar-menu sidebar-menu--docs"><li class="sidebar-menu__item" data-sidebar-key="specification/module/titleNote" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/module/titleNote/" title="标题与注释"><span class="sidebar-menu__text">标题与注释</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/module/element" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/module/element/" title="图形 Element"><span class="sidebar-menu__text">图形 Element</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/module/label" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/module/label/" title="标签 Label"><span class="sidebar-menu__text">标签 Label</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/module/axis" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/module/axis/" title="坐标轴 Axis"><span class="sidebar-menu__text">坐标轴 Axis</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/module/axisNavigator" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/module/axisNavigator/" title="缩略轴 Axis Navigator"><span class="sidebar-menu__text">缩略轴 Axis Navigator</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/module/timeBar" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/module/timeBar/" title="时间轴 TimeBar"><span class="sidebar-menu__text">时间轴 TimeBar</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/module/annotation" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/module/annotation/" title="标注 Annotation"><span class="sidebar-menu__text">标注 Annotation</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/module/info" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/module/info/" title="信息组件 Info Component"><span class="sidebar-menu__text">信息组件 Info Component</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/module/viewToolBar" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/module/viewToolBar/" title="视图控制栏 View ToolBar"><span class="sidebar-menu__text">视图控制栏 View ToolBar</span></a></li></ul></details></li><li class="sidebar-menu__item" data-sidebar-key="specification/resources" style="--sidebar-menu-offset: 24px;"><a class="sidebar-menu__link" href="/zh/specification/resources/" title="资源下载"><span class="sidebar-menu__text">资源下载</span></a></li><li class="sidebar-menu__item" data-sidebar-key="specification/tool" style="--sidebar-menu-offset: 24px;"><details class="sidebar-menu__details"><summary class="sidebar-menu__summary"><span class="sidebar-menu__label"><span class="sidebar-menu__text" title="工具">工具</span></span><span class="sidebar-menu__chevron" aria-hidden="true"></span></summary><ul class="sidebar-menu sidebar-menu--docs"><li class="sidebar-menu__item" data-sidebar-key="specification/tool/creator-color" style="--sidebar-menu-offset: 40px;"><a class="sidebar-menu__link" href="/zh/specification/tool/creator-color/" title="如何生成你的分类色板"><span class="sidebar-menu__text">如何生成你的分类色板</span></a></li></ul></details></li><li class="sidebar-menu__item" data-sidebar-key="specification/reference" style="--sidebar-menu-offset: 24px;"><a class="sidebar-menu__link" href="/zh/specification/reference/" title="经典文献"><span class="sidebar-menu__text">经典文献</span></a></li></ul></nav></aside><article class="markdown-body"><h1 class="document-title" data-pagefind-meta="title">设计模型</h1><div class="flex flex-wrap items-center justify-end gap-4 mb-6 pb-3 [border-bottom:1px_solid_var(--border-soft)] text-[12px] leading-[1.5] [@media(width&lt;=700px)]:justify-start" data-pagefind-ignore><button type="button" hidden data-copy-document="/markdown/zh/specification/strategy/modal.md" class="group/copy inline-flex items-center gap-1.5 border-0 bg-transparent p-0 [font:inherit] text-[var(--muted)] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current [&amp;[hidden]]:hidden" title="复制当前文档的 Markdown"><span class="inline-flex size-3.5 [&amp;_svg]:size-full group-data-[copy-state=success]/copy:hidden" aria-hidden="true"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="icon icon-tabler icons-tabler-outline icon-tabler-copy"
+>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M7 9.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667l0 -8.666" />
+  <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
+</svg></span><span class="hidden size-3.5 [&amp;_svg]:size-full group-data-[copy-state=success]/copy:inline-flex" aria-hidden="true"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="icon icon-tabler icons-tabler-outline icon-tabler-check"
+>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M5 12l5 5l10 -10" />
+</svg></span><span data-copy-label role="status" aria-live="polite">复制文档</span></button><a href="https://github.com/antvis/antvis.github.io/edit/master/docs/specification/strategy/modal.zh.md" class="inline-flex items-center gap-1.5 text-[var(--muted)] hover:text-[var(--muted)] hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current"><span class="inline-flex size-3.5 [&amp;_svg]:size-full" aria-hidden="true"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="icon icon-tabler icons-tabler-outline icon-tabler-pencil"
+>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+  <path d="M13.5 6.5l4 4" />
+</svg></span>编辑此页</a></div><h2 id="总览">总览</h2>
+<p>2005 年，英国设计协会（The British Design Council）首次提出“双钻设计模型”（double-diamond design process model），他们将设计过程分为 4 个阶段（探索 &gt; 聚焦 &gt; 设计 &gt; 评估）。该双钻模型同样适合于数据可视化设计。</p>
+<img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Eo-NQLbbmyYAAAAAAAAAAAAAARQnAQ" width="100%">
+<p>值得注意的是，数据可视化中，如果一个双钻流程没能拿到结果，那么我们再次探索、聚焦，直至找到满意的可视化解决方案。</p>
+<h2 id="探索">探索</h2>
+<p>设计师在接到可视化设计任务时，切忌马上开始画稿。AntV 提倡从“提问题开始设计”。不断提问，扩大问题范围，进一步检测问题之下的根本原因，然后聚焦于其中一个问题的描述。</p>
+<ul>
+<li><strong>业务背景：</strong> 业务方是谁？可视化的目的是什么？</li>
+<li><strong>产品分析：</strong> 产品是什么？投放在哪？是否需要跨端适配？</li>
+<li><strong>了解用户：</strong> 给谁看？年龄？知识构成？</li>
+<li><strong>观察数据：</strong> 数据来自哪里？数据结构如何？数据极值情况如何？数据产出时效、质量如何？</li>
+</ul>
+<h2 id="聚焦">聚焦</h2>
+<p>经过第一阶段的探索，第二阶段我们需要聚焦。可视化作品可以传达什么？我们用户想要在可视化上看到什么？</p>
+<ul>
+<li><strong>用户目标：</strong> 可视化解决什么问题？用户关注哪些核心指标？在使用链路上是否需要协作？</li>
+<li><strong>设计目标：</strong> 如何凸显用户关注的核心指标？我们期望用户看到什么？</li>
+</ul>
+<h2 id="设计">设计</h2>
+<p>接下来，我们要开始画图了，但我们还得反问我们自己：我们应该阐述什么样的观点？用什么图表类型阐述比较合适呢？视觉设计上面需要注意什么？用户需要与可视化进行交互吗？交互上需要注意什么？</p>
+<ul>
+<li><strong>图表类型：</strong> 数据类型（地理可视化数据、图数据、常规统计数据）、用户分析目地（看关系、看分布、看趋势、看比较、分析整体与部分关系）决定图表类型。AntV 提供图表分类导航决策树，借助它，我们可以快速定位我们可以使用的图表；</li>
+<li><strong>视觉设计：</strong> AntV 有一套完成的视觉设计体系，包括”布局“、”色板“、”字体“。详见<a href="https://ava.antv.antgroup.com/zh/docs/specification/language/basic">视觉设计指引</a>；</li>
+<li><strong>交互设计：</strong> 屏幕空间很小？数据放不下怎么办，用户能否与数据进行交互？是否要为多端设计。详见<a href="https://ava.antv.antgroup.com/zh/docs/specification/language/interact">交互设计指引</a>；</li>
+<li><strong>观点阐述：</strong> 数据反映出来的趋势或者关系分布能否总结出来？异常数据是否需要标记出来？你可能需要用到<a href="https://ava.antv.antgroup.com/zh/docs/specification/module/annotation">标注组件</a>。</li>
+</ul>
+<p><img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*Ql9TT6WcvuQAAAAAAAAAAAAAARQnAQ" alt="image.png"></p>
+<h2 id="评估">评估</h2>
+<p>设计好的可视化作品，用户看得懂吗？AntV 的四条核心原则：准确、清晰、有效、美，这四条原则也是评估可视化作品的四点准则；</p>
+<p><img src="https://gw.alipayobjects.com/mdn/rms_a8a5bf/afts/img/A*8x7ORJcLj9YAAAAAAAAAAAAAARQnAQ" alt="设计价值观.jpg"></p>
+<ul>
+<li><strong>测试：</strong> 找用户或者身边同事，让他们扫视你的作品，描述他们第一眼感觉，看能否匹配你的设计预期。再让他们点一点、操作一下，能否找到自己想要的数据；</li>
+<li><strong>迭代：</strong> 如果不能，建议反问用户、反问自己问题出在哪里，并开始新一轮的迭代优化。</li>
+</ul>
+</article><aside class="page-toc"><div class="sidebar-title">本页内容</div><ol><li class="toc-depth-2"><a href="#总览">总览</a></li><li class="toc-depth-2"><a href="#探索">探索</a></li><li class="toc-depth-2"><a href="#聚焦">聚焦</a></li><li class="toc-depth-2"><a href="#设计">设计</a></li><li class="toc-depth-2"><a href="#评估">评估</a></li></ol></aside></div></main><footer class="site-footer" data-pagefind-ignore data-astro-cid-ewvlsfmq><div class="footer-columns" data-astro-cid-ewvlsfmq><section class="footer-group" data-astro-cid-ewvlsfmq><h2 data-astro-cid-ewvlsfmq>资源</h2><ul data-astro-cid-ewvlsfmq><li data-astro-cid-ewvlsfmq><a href="https://ant.design" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><span data-astro-cid-ewvlsfmq>Ant Design</span></a></li><li data-astro-cid-ewvlsfmq><a href="https://galacean.antgroup.com/effects/" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><span data-astro-cid-ewvlsfmq>Galacean Effects</span></a></li><li data-astro-cid-ewvlsfmq><a href="https://umijs.org" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><span data-astro-cid-ewvlsfmq>Umi</span><span class="footer-description" data-astro-cid-ewvlsfmq>React 应用开发框架</span></a></li><li data-astro-cid-ewvlsfmq><a href="https://d.umijs.org" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><span data-astro-cid-ewvlsfmq>Dumi</span><span class="footer-description" data-astro-cid-ewvlsfmq>组件/文档研发工具</span></a></li><li data-astro-cid-ewvlsfmq><a href="https://github.com/alibaba/hooks" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><span data-astro-cid-ewvlsfmq>ahooks</span><span class="footer-description" data-astro-cid-ewvlsfmq>React Hooks 库</span></a></li><li data-astro-cid-ewvlsfmq><a href="https://github.com/weavefox" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><span data-astro-cid-ewvlsfmq>WeaveFox</span><span class="footer-description" data-astro-cid-ewvlsfmq>前端智能研发</span></a></li></ul></section><section class="footer-group" data-astro-cid-ewvlsfmq><h2 data-astro-cid-ewvlsfmq>社区</h2><ul data-astro-cid-ewvlsfmq><li data-astro-cid-ewvlsfmq><a href="http://zhuanlan.zhihu.com/xtech" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><span class="footer-icon footer-zhihu" aria-hidden="true" data-astro-cid-ewvlsfmq><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="64 64 896 896" focusable="false"><path d="M564.7 230.1V803h60l25.2 71.4L756.3 803h131.5V230.1H564.7zm247.7 497h-59.9l-75.1 50.4-17.8-50.4h-18V308.3h170.7v418.8zM526.1 486.9H393.3c2.1-44.9 4.3-104.3 6.6-172.9h130.9l-.1-8.1c0-.6-.2-14.7-2.3-29.1-2.1-15-6.6-34.9-21-34.9H287.8c4.4-20.6 15.7-69.7 29.4-93.8l6.4-11.2-12.9-.7c-.8 0-19.6-.9-41.4 10.6-35.7 19-51.7 56.4-58.7 84.4-18.4 73.1-44.6 123.9-55.7 145.6-3.3 6.4-5.3 10.2-6.2 12.8-1.8 4.9-.8 9.8 2.8 13 10.5 9.5 38.2-2.9 38.5-3 .6-.3 1.3-.6 2.2-1 13.9-6.3 55.1-25 69.8-84.5h56.7c.7 32.2 3.1 138.4 2.9 172.9h-141l-2.1 1.5c-23.1 16.9-30.5 63.2-30.8 65.2l-1.4 9.2h167c-12.3 78.3-26.5 113.4-34 127.4-3.7 7-7.3 14-10.7 20.8-21.3 42.2-43.4 85.8-126.3 153.6-3.6 2.8-7 8-4.8 13.7 2.4 6.3 9.3 9.1 24.6 9.1 5.4 0 11.8-.3 19.4-1 49.9-4.4 100.8-18 135.1-87.6 17-35.1 31.7-71.7 43.9-108.9L497 850l5-12c.8-1.9 19-46.3 5.1-95.9l-.5-1.8-108.1-123-22 16.6c6.4-26.1 10.6-49.9 12.5-71.1h158.7v-8c0-40.1-18.5-63.9-19.2-64.9l-2.4-3z"></path></svg>
+</span><span data-astro-cid-ewvlsfmq>体验科技专栏</span></a></li><li data-astro-cid-ewvlsfmq><a href="https://seeconf.antfin.com/" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><img class="footer-icon" src="https://gw.alipayobjects.com/zos/rmsportal/mZBWtboYbnMkTBaRIuWQ.png" width="16" height="16" alt="" loading="lazy" data-astro-cid-ewvlsfmq><span data-astro-cid-ewvlsfmq>SEE Conf</span><span class="footer-description" data-astro-cid-ewvlsfmq>蚂蚁体验科技大会</span></a></li><li data-astro-cid-ewvlsfmq><a href="https://www.yuque.com/weavefox/blog" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><img class="footer-icon" src="https://mdn.alipayobjects.com/huamei_4qpv3u/afts/img/iH6wQKX4WCYAAAAAAAAAAAAAeocTAQFr/original" width="16" height="16" alt="" loading="lazy" data-astro-cid-ewvlsfmq><span data-astro-cid-ewvlsfmq>WeaveFox</span><span class="footer-description" data-astro-cid-ewvlsfmq>WeaveFox 智能研发技术社区</span></a></li></ul></section><section class="footer-group" data-astro-cid-ewvlsfmq><h2 data-astro-cid-ewvlsfmq>帮助</h2><ul data-astro-cid-ewvlsfmq><li data-astro-cid-ewvlsfmq><a href="https://github.com/antvis" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><span class="footer-icon" aria-hidden="true" data-astro-cid-ewvlsfmq><!-- Simple Icons 16.12.0 (CC0): https://simpleicons.org/ -->
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+</span><span data-astro-cid-ewvlsfmq>GitHub</span></a></li><li data-astro-cid-ewvlsfmq><a href="http://stackoverflow.com/questions/tagged/antv" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><span class="footer-icon" aria-hidden="true" data-astro-cid-ewvlsfmq><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="icon icon-tabler icons-tabler-outline icon-tabler-help-circle"
+>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+  <path d="M12 16v.01" />
+  <path d="M12 13a2 2 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483" />
+</svg></span><span data-astro-cid-ewvlsfmq>StackOverflow</span></a></li><li data-astro-cid-ewvlsfmq><a href="/llms.txt" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><span class="footer-icon" aria-hidden="true" data-astro-cid-ewvlsfmq><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="icon icon-tabler icons-tabler-outline icon-tabler-file-text"
+>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+  <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" />
+  <path d="M9 9l1 0" />
+  <path d="M9 13l6 0" />
+  <path d="M9 17l6 0" />
+</svg></span><span data-astro-cid-ewvlsfmq>llms.txt</span></a></li><li data-astro-cid-ewvlsfmq><a href="/llms-full.txt" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><span class="footer-icon" aria-hidden="true" data-astro-cid-ewvlsfmq><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="icon icon-tabler icons-tabler-outline icon-tabler-file-stack"
+>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+  <path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4" />
+  <path d="M5 21h14" />
+  <path d="M5 18h14" />
+  <path d="M5 15h14" />
+</svg></span><span data-astro-cid-ewvlsfmq>llms-full.txt</span></a></li></ul></section><section class="footer-group" data-astro-cid-ewvlsfmq><h2 data-astro-cid-ewvlsfmq><img class="footer-heading-icon" src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg" width="22" height="22" alt="" loading="lazy" data-astro-cid-ewvlsfmq>更多产品</h2><ul data-astro-cid-ewvlsfmq><li data-astro-cid-ewvlsfmq><a href="https://ant.design" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><img class="footer-icon" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" width="16" height="16" alt="" loading="lazy" data-astro-cid-ewvlsfmq><span data-astro-cid-ewvlsfmq>Ant Design</span><span class="footer-description" data-astro-cid-ewvlsfmq>企业级 UI 设计语言</span></a></li><li data-astro-cid-ewvlsfmq><a href="https://yuque.com" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><img class="footer-icon" src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg" width="16" height="16" alt="" loading="lazy" data-astro-cid-ewvlsfmq><span data-astro-cid-ewvlsfmq>语雀</span><span class="footer-description" data-astro-cid-ewvlsfmq>知识创作与分享工具</span></a></li><li data-astro-cid-ewvlsfmq><a href="https://eggjs.org" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><img class="footer-icon" src="https://gw.alipayobjects.com/zos/antfincdn/v2%24rh7lqpu/82f338dd-b0a6-41bc-9a86-58aaa9df217b.png" width="16" height="16" alt="" loading="lazy" data-astro-cid-ewvlsfmq><span data-astro-cid-ewvlsfmq>Egg</span><span class="footer-description" data-astro-cid-ewvlsfmq>企业级 Node 开发框架</span></a></li><li data-astro-cid-ewvlsfmq><a href="https://kitchen.alipay.com" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><img class="footer-icon" src="https://gw.alipayobjects.com/zos/rmsportal/DMDOlAUhmktLyEODCMBR.ico" width="16" height="16" alt="" loading="lazy" data-astro-cid-ewvlsfmq><span data-astro-cid-ewvlsfmq>Kitchen</span><span class="footer-description" data-astro-cid-ewvlsfmq>Sketch 工具集</span></a></li><li data-astro-cid-ewvlsfmq><a href="https://galacean.antgroup.com" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><img class="footer-icon" src="https://mdn.alipayobjects.com/huamei_j9rjmc/afts/img/A*3ittT5OEo2gAAAAAAAAAAAAADvGmAQ/original" width="16" height="16" alt="" loading="lazy" data-astro-cid-ewvlsfmq><span data-astro-cid-ewvlsfmq>Galacean</span><span class="footer-description" data-astro-cid-ewvlsfmq>互动图形解决方案</span></a></li><li data-astro-cid-ewvlsfmq><a href="https://weavefox.alipay.com" target="_blank" rel="noopener noreferrer" data-astro-cid-ewvlsfmq><img class="footer-icon" src="https://mdn.alipayobjects.com/huamei_4qpv3u/afts/img/iH6wQKX4WCYAAAAAAAAAAAAAeocTAQFr/original" width="16" height="16" alt="" loading="lazy" data-astro-cid-ewvlsfmq><span data-astro-cid-ewvlsfmq>WeaveFox</span><span class="footer-description" data-astro-cid-ewvlsfmq>前端智能研发</span></a></li></ul></section></div></footer><div class="footer-meta" data-pagefind-ignore data-astro-cid-ewvlsfmq><span data-astro-cid-ewvlsfmq>© Copyright 2026 Ant Group Co., Ltd..备案号：京ICP备15032932号-38</span></div></div><script>
+      (() => {
+        const navButton = document.querySelector('.mobile-nav-toggle');
+        const nav = document.querySelector('#primary-nav');
+        const header = document.querySelector('.site-header');
+        const updateNavPosition = () => {
+          if (nav.hasAttribute('data-open')) {
+            nav.style.setProperty('--mobile-nav-top', `${header.getBoundingClientRect().bottom}px`);
+          }
+        };
+        const setNavOpen = (open) => {
+          navButton.setAttribute('aria-expanded', String(open));
+          nav.toggleAttribute('data-open', open);
+          document.body.classList.toggle('mobile-nav-open', open);
+          updateNavPosition();
+          if (!open) nav.querySelectorAll('details[open]').forEach((menu) => menu.removeAttribute('open'));
+        };
+        navButton.addEventListener('click', () => {
+          const open = navButton.getAttribute('aria-expanded') === 'true';
+          setNavOpen(!open);
+        });
+        nav.addEventListener('click', (event) => {
+          if (event.target instanceof Element && event.target.closest('a')) setNavOpen(false);
+        });
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && nav.hasAttribute('data-open')) {
+            setNavOpen(false);
+            navButton.focus();
+          }
+        });
+        window.matchMedia('(max-width: 900px)').addEventListener('change', () => {
+          setNavOpen(false);
+        });
+        window.addEventListener('resize', updateNavPosition);
+        const navPositionObserver = new ResizeObserver(updateNavPosition);
+        navPositionObserver.observe(document.querySelector('.site-canvas'));
+
+        const copyLabels = document.documentElement.lang === 'zh'
+          ? { idle: '复制代码', success: '已复制', error: '复制失败' }
+          : { idle: 'Copy code', success: 'Copied', error: 'Copy failed' };
+        const setupCopy = (button, readContent) => {
+          const label = button.querySelector('[data-copy-label]');
+          const idleTitle = button.title;
+          const idleLabel = label?.textContent || idleTitle;
+          const setCopyState = (state) => {
+            const text = state === 'idle' ? idleLabel : copyLabels[state];
+            button.dataset.copyState = state;
+            button.title = state === 'idle' ? idleTitle : text;
+            button.setAttribute('aria-label', text);
+            if (label) label.textContent = text;
+          };
+          let resetTimer;
+          button.addEventListener('click', async () => {
+            clearTimeout(resetTimer);
+            button.disabled = true;
+            setCopyState('idle');
+            try {
+              await navigator.clipboard.writeText(await readContent());
+              setCopyState('success');
+            } catch {
+              setCopyState('error');
+            } finally {
+              button.disabled = false;
+              resetTimer = setTimeout(() => { setCopyState('idle'); }, 1800);
+            }
+          });
+        };
+        document.querySelectorAll('[data-copy-document]').forEach((button) => {
+          button.hidden = false;
+          setupCopy(button, async () => {
+            const response = await fetch(button.dataset.copyDocument, { signal: AbortSignal.timeout(10000) });
+            if (!response.ok || response.headers.get('content-type')?.includes('text/html')) {
+              throw new Error('Unable to load document Markdown.');
+            }
+            return response.text();
+          });
+        });
+        document.querySelectorAll('.markdown-body pre').forEach((pre) => {
+          const code = pre.querySelector(':scope > code');
+          if (!code || pre.closest('.markdown-code-block')) return;
+          const wrapper = document.createElement('div');
+          wrapper.className = 'markdown-code-block';
+          pre.before(wrapper);
+          wrapper.append(pre);
+
+          const button = document.createElement('button');
+          button.className = 'markdown-code-copy';
+          button.type = 'button';
+          button.setAttribute('aria-label', copyLabels.idle);
+          button.title = copyLabels.idle;
+          button.innerHTML = `
+            <svg class="markdown-code-copy-icon is-copy" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="8" y="8" width="14" height="14" rx="2"></rect>
+              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+            </svg>
+            <svg class="markdown-code-copy-icon is-success" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m5 12 4 4L19 6"></path>
+            </svg>
+          `;
+          wrapper.append(button);
+
+          setupCopy(button, () => code.textContent || '');
+        });
+
+      })();
+    </script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-96Q5R280YF"></script><script>(function(){const id = "G-96Q5R280YF";
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', id);
+})();</script></body></html>
