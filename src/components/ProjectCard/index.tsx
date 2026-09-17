@@ -1,16 +1,13 @@
 import { ConfigProvider, Popover } from 'antd';
 import classNames from 'classnames';
 import { useTranslation } from '../../lib/i18n';
-import React, { useCallback, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ANTV_LINKS from '../../data/project-card-popover.json';
 import { ActiveIcon, ModuleTitle as Title } from '../common';
 import { type ProductType, getProducts } from '../../lib/products';
 import { transformUrl } from '../../lib/urls';
 
-// 锚点, 用于 banner 中的 开始使用跳转
-export const ANCHORNAME = 'linkChartsAnchorName';
-
-type PrejectData = {
+type ProductCardData = {
   // 标题
   title: string;
   // 二级表图
@@ -27,19 +24,13 @@ type PrejectData = {
   icon?: string;
   // 跳转链接
   url?: string;
-  hash?: {
-    // 弹出框 图表示例跳转链接
-    examples: string;
-    // 弹出框 使用文档 跳转到 api
-    manual: string;
-  };
-}[][];
+};
 
 // 产品布局和样式由组件维护。
 const chartCardClasses =
   'h-[92px] mb-3 flex-1 flex-col bg-[rgba(245,140,88,0.15)] hover:bg-[rgba(245,140,88,0.25)] hover:border-[#f58c58]';
 
-const PROJECT_DATAS: PrejectData = [
+const PROJECT_DATAS: ProductCardData[][] = [
   [
     {
       title: 'AVA',
@@ -196,7 +187,7 @@ export function ProjectCard() {
   const { locale: language, t: useT } = useTranslation();
 
   // 旧的跳转 json 获取
-  React.useEffect(() => {
+  useEffect(() => {
     let active = true;
     getProducts({ language })
       .then((data) => {
@@ -212,66 +203,63 @@ export function ProjectCard() {
   }, [language]);
 
   // 弹出框内容
-  const getContent = useCallback(
-    ({ title, subTitle, img, links, url }) => {
-      return (
-        <div className="font-sans px-2">
-          <div className="flex items-center tracking-normal">
-            <div className="font-semibold text-[20px] text-[#1d2129] mr-[6px]">
-              {title}
-            </div>
-            <div className="text-[14px] text-[#86909c]">{subTitle}</div>
+  const getContent = ({ title, subTitle, img, links, url }) => {
+    return (
+      <div className="font-sans px-2">
+        <div className="flex items-center tracking-normal">
+          <div className="font-semibold text-[20px] text-[#1d2129] mr-[6px]">
+            {title}
           </div>
-          <div
-            className="h-[125px] w-[274px] border border-solid border-[#d8d8d8] bg-white rounded-sm my-3 bg-center bg-no-repeat bg-contain"
-            style={{ backgroundImage: `url(${img})` }}
-          />
-          <div className="flex items-center justify-between w-[274px]">
-            {ANTV_LINKS.map((link) => {
-              let href = links[link.href]?.url?.replace(
-                /https:\/\/.+?\//,
-                `${url}/`,
-              );
-
-              // Ant Design Charts 本身跳转 https://charts.ant.design/example 为 404, 修改为 https://ant-design-charts.antgroup.com/examples
-              if (title === 'Ant Design Charts') {
-                href =
-                  link.href === 'home'
-                    ? url
-                    : `${url}/${language}/${
-                        {
-                          example: 'examples',
-                          api: 'options/plots/overview',
-                        }[link.href]
-                      }`;
-              }
-              if (href && title === 'F6' && link.href === 'api') {
-                href = href + '/Graph';
-              }
-
-              return (
-                <ActiveIcon
-                  key={link.href}
-                  href={href || transformUrl({ url, language })}
-                  target="_blank"
-                  className="text-[14px] text-[#1d2129] [&>img]:w-4 [&>img]:h-4 hover:text-[#691eff]"
-                  img={link.img}
-                  text={useT(link.text)}
-                  activeImg={link.activeImg}
-                />
-              );
-            })}
-          </div>
+          <div className="text-[14px] text-[#86909c]">{subTitle}</div>
         </div>
-      );
-    },
-    [language],
-  );
+        <div
+          className="h-[125px] w-[274px] border border-solid border-[#d8d8d8] bg-white rounded-sm my-3 bg-center bg-no-repeat bg-contain"
+          style={{ backgroundImage: `url(${img})` }}
+        />
+        <div className="flex items-center justify-between w-[274px]">
+          {ANTV_LINKS.map((link) => {
+            let href = links[link.href]?.url?.replace(
+              /https:\/\/.+?\//,
+              `${url}/`,
+            );
+
+            // Ant Design Charts 本身跳转 https://charts.ant.design/example 为 404, 修改为 https://ant-design-charts.antgroup.com/examples
+            if (title === 'Ant Design Charts') {
+              href =
+                link.href === 'home'
+                  ? url
+                  : `${url}/${language}/${
+                      {
+                        example: 'examples',
+                        api: 'options/plots/overview',
+                      }[link.href]
+                    }`;
+            }
+            if (href && title === 'F6' && link.href === 'api') {
+              href = href + '/Graph';
+            }
+
+            return (
+              <ActiveIcon
+                key={link.href}
+                href={href || transformUrl({ url, language })}
+                target="_blank"
+                className="text-[14px] text-[#1d2129] [&>img]:w-4 [&>img]:h-4 hover:text-[#691eff]"
+                img={link.img}
+                text={useT(link.text)}
+                activeImg={link.activeImg}
+              />
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div
       className="flex items-center justify-center pt-20 pb-10 flex-col h-auto overflow-hidden font-sans tablet:px-6 mobile:pt-12 mobile:px-5 mobile:pb-6"
-      id={ANCHORNAME}
+      id="linkChartsAnchorName"
     >
       <Title
         title={useT('设计语言与研发框架')}

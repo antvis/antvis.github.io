@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useTranslation } from '../../lib/i18n';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import CHARTS_DATAS from '../../data/link-charts.json';
 import { transformUrl } from '../../lib/urls';
 import { OverflowedText, ModuleTitle as Title } from '../common';
@@ -9,31 +9,27 @@ import { OverflowedText, ModuleTitle as Title } from '../common';
 export function LinkCharts() {
   const timer = useRef<ReturnType<typeof setTimeout>>();
   useEffect(() => () => clearTimeout(timer.current), []);
-  const [position, setPosition] = useState('center');
-  const [loading, setLoading] = useState(false);
+  const [position, setPosition] = useState<'left' | 'right' | 'center'>(
+    'center',
+  );
+  const loading = position !== 'center';
   const [data, setData] = useState(CHARTS_DATAS);
 
   const { locale: language, t: useT } = useTranslation();
 
   // 滑动
-  const onClick = useCallback(
-    (position: 'left' | 'right') => {
-      if (loading) return;
-      setPosition(position);
-      setLoading(true);
-      const length = data.length;
-      timer.current = setTimeout(() => {
-        setData((data) => {
-          return position === 'left'
-            ? [...data.slice(length - 3), ...data.slice(0, length - 3)]
-            : [...data.slice(3), ...data.slice(0, 3)];
-        });
-        setPosition('center');
-        setLoading(false);
-      }, 1000);
-    },
-    [loading, data.length],
-  );
+  const onClick = (position: 'left' | 'right') => {
+    if (loading) return;
+    setPosition(position);
+    timer.current = setTimeout(() => {
+      setData((data) =>
+        position === 'left'
+          ? [...data.slice(-3), ...data.slice(0, -3)]
+          : [...data.slice(3), ...data.slice(0, 3)],
+      );
+      setPosition('center');
+    }, 1000);
+  };
 
   return (
     <div className="flex items-center justify-center pt-[100px] pb-20 flex-col font-sans mobile:pt-12 mobile:pb-6">
