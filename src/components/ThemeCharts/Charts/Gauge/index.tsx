@@ -42,7 +42,7 @@ export function GaugeChart(props: GaugeProps) {
                   };" >${useT('用户总量')}</div>
                   <div style="font-size: 32px;color: ${
                     isDark ? '#fff' : '#1D2129'
-                  }; line-height: 45px;font-family: Alibaba PuHuiTi 2.0;" >1,320</div>
+                  }; line-height: 45px;font-family: Alibaba PuHuiTi;" >1,320</div>
                 </div>
               `;
             },
