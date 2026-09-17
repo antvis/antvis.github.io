@@ -51,7 +51,7 @@ export function PieChart(props: PieProps) {
             offsetY: -2,
             content: '3,200',
             style: {
-              fontFamily: 'Alibaba PuHuiTi 2.0',
+              fontFamily: 'Alibaba PuHuiTi',
               fontSize: '20px',
               color: isDark ? '#fff' : '#1D2129',
             },
