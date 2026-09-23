@@ -1,0 +1,74 @@
+# AntV
+
+> AntV 是蚂蚁集团全新一代数据可视化解决方案，提供简单方便、专业可靠、无限可能的数据可视化最佳实践。
+
+Use the Markdown links below for machine-readable content; canonical page links are the authoritative human-facing URLs.
+
+## Agent resources
+
+- [Full documentation](https://antv.antgroup.com/llms-full.txt): Combined Markdown content for all published documents.
+- [Canonical site](https://antv.antgroup.com/zh/)
+- [Source repository](https://github.com/antvis/antvis.github.io)
+- Languages: zh, en
+
+## 中文文档
+
+### specification
+
+- [卡片 Card](https://antv.antgroup.com/zh/specification/graph/card.md): 卡片 Card — [页面](https://antv.antgroup.com/zh/specification/graph/card/)
+- [视觉](https://antv.antgroup.com/zh/specification/language/basic.md): 视觉 — [页面](https://antv.antgroup.com/zh/specification/language/basic/)
+- [标题与注释](https://antv.antgroup.com/zh/specification/module/titleNote.md): 标题与注释 — [页面](https://antv.antgroup.com/zh/specification/module/titleNote/)
+- [设计价值观](https://antv.antgroup.com/zh/specification/principles/basic.md): 设计价值观 — [页面](https://antv.antgroup.com/zh/specification/principles/basic/)
+- [设计模型](https://antv.antgroup.com/zh/specification/strategy/modal.md): 设计模型 — [页面](https://antv.antgroup.com/zh/specification/strategy/modal/)
+- [如何生成你的分类色板](https://antv.antgroup.com/zh/specification/tool/creator-color.md): 如何生成你的分类色板 — [页面](https://antv.antgroup.com/zh/specification/tool/creator-color/)
+- [统计图表 Chart](https://antv.antgroup.com/zh/specification/graph/chart.md): 统计图表 Chart — [页面](https://antv.antgroup.com/zh/specification/graph/chart/)
+- [色板](https://antv.antgroup.com/zh/specification/language/palette.md): 色板 — [页面](https://antv.antgroup.com/zh/specification/language/palette/)
+- [图形 Element](https://antv.antgroup.com/zh/specification/module/element.md): 图形 Element — [页面](https://antv.antgroup.com/zh/specification/module/element/)
+- [分析模型](https://antv.antgroup.com/zh/specification/strategy/analysis.md): 分析模型 — [页面](https://antv.antgroup.com/zh/specification/strategy/analysis/)
+- [地图 Map](https://antv.antgroup.com/zh/specification/graph/map.md): 地图 Map — [页面](https://antv.antgroup.com/zh/specification/graph/map/)
+- [交互](https://antv.antgroup.com/zh/specification/language/interact.md): 交互 — [页面](https://antv.antgroup.com/zh/specification/language/interact/)
+- [标签 Label](https://antv.antgroup.com/zh/specification/module/label.md): 标签 Label — [页面](https://antv.antgroup.com/zh/specification/module/label/)
+- [图 Graph](https://antv.antgroup.com/zh/specification/graph/graph.md): 图 Graph — [页面](https://antv.antgroup.com/zh/specification/graph/graph/)
+- [通用 Dashboard](https://antv.antgroup.com/zh/specification/graph/pubDashboard.md): 通用 Dashboard — [页面](https://antv.antgroup.com/zh/specification/graph/pubDashboard/)
+- [响应式](https://antv.antgroup.com/zh/specification/language/media.md): 响应式 — [页面](https://antv.antgroup.com/zh/specification/language/media/)
+- [坐标轴 Axis](https://antv.antgroup.com/zh/specification/module/axis.md): 坐标轴 Axis — [页面](https://antv.antgroup.com/zh/specification/module/axis/)
+- [监控 Dashboard](https://antv.antgroup.com/zh/specification/graph/conDashboard.md): 监控 Dashboard — [页面](https://antv.antgroup.com/zh/specification/graph/conDashboard/)
+- [缩略轴 Axis Navigator](https://antv.antgroup.com/zh/specification/module/axisNavigator.md): 缩略轴 Axis Navigator — [页面](https://antv.antgroup.com/zh/specification/module/axisNavigator/)
+- [移动端 Mobile](https://antv.antgroup.com/zh/specification/graph/mobile.md): 移动端 Mobile — [页面](https://antv.antgroup.com/zh/specification/graph/mobile/)
+- [时间轴 TimeBar](https://antv.antgroup.com/zh/specification/module/timeBar.md): 时间轴 TimeBar — [页面](https://antv.antgroup.com/zh/specification/module/timeBar/)
+- [资源下载](https://antv.antgroup.com/zh/specification/resources.md): 资源下载 — [页面](https://antv.antgroup.com/zh/specification/resources/)
+- [标注 Annotation](https://antv.antgroup.com/zh/specification/module/annotation.md): 标注 Annotation — [页面](https://antv.antgroup.com/zh/specification/module/annotation/)
+- [信息组件 Info Component](https://antv.antgroup.com/zh/specification/module/info.md): 信息组件 Info Component — [页面](https://antv.antgroup.com/zh/specification/module/info/)
+- [视图控制栏 View ToolBar](https://antv.antgroup.com/zh/specification/module/viewToolBar.md): 视图控制栏 View ToolBar — [页面](https://antv.antgroup.com/zh/specification/module/viewToolBar/)
+- [经典文献](https://antv.antgroup.com/zh/specification/reference.md): 经典文献 — [页面](https://antv.antgroup.com/zh/specification/reference/)
+
+## English documentation
+
+### specification
+
+- [Card](https://antv.antgroup.com/en/specification/graph/card.md): Card — [Canonical page](https://antv.antgroup.com/en/specification/graph/card/)
+- [Visual](https://antv.antgroup.com/en/specification/language/basic.md): Visual — [Canonical page](https://antv.antgroup.com/en/specification/language/basic/)
+- [Title and annotation](https://antv.antgroup.com/en/specification/module/titleNote.md): Title and annotation — [Canonical page](https://antv.antgroup.com/en/specification/module/titleNote/)
+- [Design Values](https://antv.antgroup.com/en/specification/principles/basic.md): Design Values — [Canonical page](https://antv.antgroup.com/en/specification/principles/basic/)
+- [Design Module](https://antv.antgroup.com/en/specification/strategy/modal.md): Design Module — [Canonical page](https://antv.antgroup.com/en/specification/strategy/modal/)
+- [Creat Self Color](https://antv.antgroup.com/en/specification/tool/creator-color.md): Creat Self Color — [Canonical page](https://antv.antgroup.com/en/specification/tool/creator-color/)
+- [Chart](https://antv.antgroup.com/en/specification/graph/chart.md): Chart — [Canonical page](https://antv.antgroup.com/en/specification/graph/chart/)
+- [Color Palette](https://antv.antgroup.com/en/specification/language/palette.md): Color Palette — [Canonical page](https://antv.antgroup.com/en/specification/language/palette/)
+- [Element](https://antv.antgroup.com/en/specification/module/element.md): Element — [Canonical page](https://antv.antgroup.com/en/specification/module/element/)
+- [Analysis Module](https://antv.antgroup.com/en/specification/strategy/analysis.md): Analysis Module — [Canonical page](https://antv.antgroup.com/en/specification/strategy/analysis/)
+- [Map](https://antv.antgroup.com/en/specification/graph/map.md): Map — [Canonical page](https://antv.antgroup.com/en/specification/graph/map/)
+- [Interact](https://antv.antgroup.com/en/specification/language/interact.md): Interact — [Canonical page](https://antv.antgroup.com/en/specification/language/interact/)
+- [Label](https://antv.antgroup.com/en/specification/module/label.md): Label — [Canonical page](https://antv.antgroup.com/en/specification/module/label/)
+- [Graph](https://antv.antgroup.com/en/specification/graph/graph.md): Graph — [Canonical page](https://antv.antgroup.com/en/specification/graph/graph/)
+- [General Dashboard](https://antv.antgroup.com/en/specification/graph/pubDashboard.md): General Dashboard — [Canonical page](https://antv.antgroup.com/en/specification/graph/pubDashboard/)
+- [Media](https://antv.antgroup.com/en/specification/language/media.md): Media — [Canonical page](https://antv.antgroup.com/en/specification/language/media/)
+- [Axis](https://antv.antgroup.com/en/specification/module/axis.md): Axis — [Canonical page](https://antv.antgroup.com/en/specification/module/axis/)
+- [Monitor Dashboard](https://antv.antgroup.com/en/specification/graph/conDashboard.md): Monitor Dashboard — [Canonical page](https://antv.antgroup.com/en/specification/graph/conDashboard/)
+- [Axis Navigator](https://antv.antgroup.com/en/specification/module/axisNavigator.md): Axis Navigator — [Canonical page](https://antv.antgroup.com/en/specification/module/axisNavigator/)
+- [Mobile](https://antv.antgroup.com/en/specification/graph/mobile.md): Mobile — [Canonical page](https://antv.antgroup.com/en/specification/graph/mobile/)
+- [TimeBar](https://antv.antgroup.com/en/specification/module/timeBar.md): TimeBar — [Canonical page](https://antv.antgroup.com/en/specification/module/timeBar/)
+- [Annotation](https://antv.antgroup.com/en/specification/module/annotation.md): Annotation — [Canonical page](https://antv.antgroup.com/en/specification/module/annotation/)
+- [Info Component](https://antv.antgroup.com/en/specification/module/info.md): Info Component — [Canonical page](https://antv.antgroup.com/en/specification/module/info/)
+- [View ToolBar](https://antv.antgroup.com/en/specification/module/viewToolBar.md): View ToolBar — [Canonical page](https://antv.antgroup.com/en/specification/module/viewToolBar/)
+- [Resources](https://antv.antgroup.com/en/specification/resources.md): Resources — [Canonical page](https://antv.antgroup.com/en/specification/resources/)
+- [Classical Literatures](https://antv.antgroup.com/en/specification/reference.md): Classical Literatures — [Canonical page](https://antv.antgroup.com/en/specification/reference/)
