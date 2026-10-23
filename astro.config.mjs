@@ -7,8 +7,12 @@ import sitemap from '@astrojs/sitemap';
 const siteConfig = {
   site: {
     title: 'AntV',
+    metaTitle: {
+      zh: '蚂蚁企业级 AI 数据可视化解决方案',
+      en: 'Enterprise-level AI data visualization solution of Ant Group',
+    },
     origin: 'https://antv.antgroup.com',
-    repository: 'https://github.com/antvis/antvis.github.io',
+    repository: 'https://github.com/antvis',
     defaultLocale: 'zh',
     locales: ['zh', 'en'],
     favicon:
@@ -94,11 +98,6 @@ const siteConfig = {
 
 export default defineConfig({
   devToolbar: { enabled: false },
-  integrations: [
-    antvSite(siteConfig),
-    react(),
-    mdx(),
-    sitemap(),
-  ],
+  integrations: [antvSite(siteConfig), react(), mdx(), sitemap()],
   redirects: { '/result': '/zh/result/' },
 });
