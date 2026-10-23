@@ -1,0 +1,10 @@
+---
+title: "View ToolBar"
+description: "View ToolBar"
+language: "en"
+canonical: "https://antv.antgroup.com/en/specification/module/viewToolBar/"
+---
+
+[Resource index](/llms.txt)
+
+<embed src="./viewToolBar.zh.md"></embed>

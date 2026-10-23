@@ -1,0 +1,43 @@
+# AntV
+
+> AntV 是蚂蚁集团全新一代数据可视化解决方案，提供简单方便、专业可靠、无限可能的数据可视化最佳实践。
+
+Find relevant documents and examples under your language below, then read their Markdown links for content and source code.
+
+## Agent resources
+
+- [Full documentation](/llms-full.txt): Combined Markdown content for all published documents.
+- [Site](/zh/)
+- [Source repository](https://github.com/antvis)
+- Languages: zh
+
+## 中文文档
+
+### specification
+
+- [卡片 Card](/zh/specification/graph/card.md)
+- [视觉](/zh/specification/language/basic.md)
+- [标题与注释](/zh/specification/module/titleNote.md)
+- [设计价值观](/zh/specification/principles/basic.md)
+- [设计模型](/zh/specification/strategy/modal.md)
+- [如何生成你的分类色板](/zh/specification/tool/creator-color.md)
+- [统计图表 Chart](/zh/specification/graph/chart.md)
+- [色板](/zh/specification/language/palette.md)
+- [图形 Element](/zh/specification/module/element.md)
+- [分析模型](/zh/specification/strategy/analysis.md)
+- [地图 Map](/zh/specification/graph/map.md)
+- [交互](/zh/specification/language/interact.md)
+- [标签 Label](/zh/specification/module/label.md)
+- [图 Graph](/zh/specification/graph/graph.md)
+- [通用 Dashboard](/zh/specification/graph/pubDashboard.md)
+- [响应式](/zh/specification/language/media.md)
+- [坐标轴 Axis](/zh/specification/module/axis.md)
+- [监控 Dashboard](/zh/specification/graph/conDashboard.md)
+- [缩略轴 Axis Navigator](/zh/specification/module/axisNavigator.md)
+- [移动端 Mobile](/zh/specification/graph/mobile.md)
+- [时间轴 TimeBar](/zh/specification/module/timeBar.md)
+- [资源下载](/zh/specification/resources.md)
+- [标注 Annotation](/zh/specification/module/annotation.md)
+- [信息组件 Info Component](/zh/specification/module/info.md)
+- [视图控制栏 View ToolBar](/zh/specification/module/viewToolBar.md)
+- [经典文献](/zh/specification/reference.md)
